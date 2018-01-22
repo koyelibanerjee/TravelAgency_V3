@@ -1,0 +1,506 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3FE063B6-57A1-4890-98CF-C23811BCBDD9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TravelAgency.CSUI</RootNamespace>
+    <AssemblyName>TravelAgency.CSUI</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>发布\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>E:\东瀛假日签证识别管理系统\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>E:\东瀛假日签证识别管理系统\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Icons\东瀛假日.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AxInterop.SCANCTRLLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ScanCtrl\AxInterop.SCANCTRLLib.dll</HintPath>
+    </Reference>
+    <Reference Include="DevComponents.DotNetBar.Layout, Version=12.5.0.2, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
+    <Reference Include="DevComponents.DotNetBar.SuperGrid, Version=12.5.0.2, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
+    <Reference Include="DevComponents.DotNetBar2, Version=12.5.0.2, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
+    <Reference Include="DevComponents.Instrumentation, Version=12.5.0.2, Culture=neutral, PublicKeyToken=bc4a9d761ea44ef0" />
+    <Reference Include="Gma.QrCodeNet.Encoding.Net45, Version=0.4.0.0, Culture=neutral, PublicKeyToken=e8a75d24b142be49, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Gma.QrCodeNet.Encoding.Net45\Gma.QrCodeNet.Encoding.Net45.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.SCANCTRLLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>..\packages\ScanCtrl\Interop.SCANCTRLLib.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Telerik.WinControls, Version=2017.3.1017.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
+    <Reference Include="Telerik.WinControls.GridView, Version=2017.3.1017.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
+    <Reference Include="Telerik.WinControls.Scheduler, Version=2017.3.1017.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.TelerikMetro, Version=2017.3.1017.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.UI, Version=2017.3.1017.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
+    <Reference Include="TelerikCommon, Version=2017.3.1017.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomCtrls\ProPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomCtrls\RowMergeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomCtrls\RowMergeView.designer.cs" />
+    <Compile Include="FrmMain\FrmGaoPaiManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain\FrmGaoPaiManage.Designer.cs">
+      <DependentUpon>FrmGaoPaiManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain\FrmActionRecordsManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain\FrmActionRecordsManage.Designer.cs">
+      <DependentUpon>FrmActionRecordsManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain\FrmPersonalWorkCount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain\FrmPersonalWorkCount.Designer.cs">
+      <DependentUpon>FrmPersonalWorkCount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain\FrmVisaRequestPayoutManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain\FrmVisaRequestPayoutManage.Designer.cs">
+      <DependentUpon>FrmVisaRequestPayoutManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSetValue\FrmSetValue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSetValue\FrmSetValue.Designer.cs">
+      <DependentUpon>FrmSetValue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSub\FrmAddVisa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSub\FrmAddVisa.Designer.cs">
+      <DependentUpon>FrmAddVisa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSub\FrmConsulateCharge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSub\FrmConsulateCharge.Designer.cs">
+      <DependentUpon>FrmConsulateCharge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSub\FrmSelectClientPayout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSub\FrmSelectClientPayout.Designer.cs">
+      <DependentUpon>FrmSelectClientPayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSub\FrmSetRequestPayout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSub\FrmSetRequestPayout.Designer.cs">
+      <DependentUpon>FrmSetRequestPayout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSub\FrmSetTypeInStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSub\FrmSetTypeInStatus.Designer.cs">
+      <DependentUpon>FrmSetTypeInStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSub\FrmShowPicture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSub\FrmShowPicture.Designer.cs">
+      <DependentUpon>FrmShowPicture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain\FrmTakePicture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain\FrmTakePicture.Designer.cs">
+      <DependentUpon>FrmTakePicture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSub\FrmScanCtrl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSub\FrmScanCtrl.Designer.cs">
+      <DependentUpon>FrmScanCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain\FrmVisaTypeIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain\FrmVisaTypeIn.Designer.cs">
+      <DependentUpon>FrmVisaTypeIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain\FrmLogin.designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain\FrmVisaManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain\FrmVisaManage.Designer.cs">
+      <DependentUpon>FrmVisaManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain\FrmVisaInfoManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain\FrmVisaInfoManage.Designer.cs">
+      <DependentUpon>FrmVisaInfoManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSetValue\FrmFinancialCapacity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSetValue\FrmFinancialCapacity.Designer.cs">
+      <DependentUpon>FrmFinancialCapacity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSetValue\FrmMarrigedValue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSetValue\FrmMarrigedValue.Designer.cs">
+      <DependentUpon>FrmMarrigedValue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSetValue\FrmRemarkValue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSetValue\FrmRemarkValue.Designer.cs">
+      <DependentUpon>FrmRemarkValue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSetValue\FrmOccupationValue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSetValue\FrmOccupationValue.Designer.cs">
+      <DependentUpon>FrmOccupationValue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSetValue\FrmDepartureRecordValue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSetValue\FrmDepartureRecordValue.Designer.cs">
+      <DependentUpon>FrmDepartureRecordValue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSub\FrmGroupOrIndividual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSub\FrmGroupOrIndividual.Designer.cs">
+      <DependentUpon>FrmGroupOrIndividual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSub\FrmInfoTypeIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSub\FrmInfoTypeIn.Designer.cs">
+      <DependentUpon>FrmInfoTypeIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain\FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain\FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSub\FrmPageSizeSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSub\FrmPageSizeSet.Designer.cs">
+      <DependentUpon>FrmPageSizeSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSub\FrmSetGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSub\FrmSetGroup.Designer.cs">
+      <DependentUpon>FrmSetGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain\FrmVisaSubmit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain\FrmVisaSubmit.Designer.cs">
+      <DependentUpon>FrmVisaSubmit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSub\FrmQRCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSub\FrmQRCode.Designer.cs">
+      <DependentUpon>FrmQRCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSub\FrmSetTeamVisaGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSub\FrmSetTeamVisaGroup.Designer.cs">
+      <DependentUpon>FrmSetTeamVisaGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSetValue\FrmIdentificationValue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSetValue\FrmIdentificationValue.Designer.cs">
+      <DependentUpon>FrmIdentificationValue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSub\FrmTimeSpanChoose.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSub\FrmTimeSpanChoose.Designer.cs">
+      <DependentUpon>FrmTimeSpanChoose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSub\FrmTodaySubmit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSub\FrmTodaySubmit.Designer.cs">
+      <DependentUpon>FrmTodaySubmit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSub\FrmVisaInfoStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSub\FrmVisaInfoStatus.Designer.cs">
+      <DependentUpon>FrmVisaInfoStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalStat.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TravelAgencyDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TravelAgencyDataSet.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FrmMain\FrmGaoPaiManage.resx">
+      <DependentUpon>FrmGaoPaiManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain\FrmTakePicture.resx">
+      <DependentUpon>FrmTakePicture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain\FrmActionRecordsManage.resx">
+      <DependentUpon>FrmActionRecordsManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain\FrmPersonalWorkCount.resx">
+      <DependentUpon>FrmPersonalWorkCount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain\FrmVisaRequestPayoutManage.resx">
+      <DependentUpon>FrmVisaRequestPayoutManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSetValue\FrmSetValue.resx">
+      <DependentUpon>FrmSetValue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSub\FrmAddVisa.resx">
+      <DependentUpon>FrmAddVisa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSub\FrmConsulateCharge.resx">
+      <DependentUpon>FrmConsulateCharge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSub\FrmScanCtrl.resx">
+      <DependentUpon>FrmScanCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain\FrmVisaTypeIn.resx">
+      <DependentUpon>FrmVisaTypeIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain\FrmVisaManage.resx">
+      <DependentUpon>FrmVisaManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain\FrmVisaInfoManage.resx">
+      <DependentUpon>FrmVisaInfoManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSetValue\FrmFinancialCapacity.resx">
+      <DependentUpon>FrmFinancialCapacity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSetValue\FrmMarrigedValue.resx">
+      <DependentUpon>FrmMarrigedValue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSetValue\FrmRemarkValue.resx">
+      <DependentUpon>FrmRemarkValue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSetValue\FrmOccupationValue.resx">
+      <DependentUpon>FrmOccupationValue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSetValue\FrmDepartureRecordValue.resx">
+      <DependentUpon>FrmDepartureRecordValue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSub\FrmGroupOrIndividual.resx">
+      <DependentUpon>FrmGroupOrIndividual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSub\FrmInfoTypeIn.resx">
+      <DependentUpon>FrmInfoTypeIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain\FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSub\FrmPageSizeSet.resx">
+      <DependentUpon>FrmPageSizeSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSub\FrmSelectClientPayout.resx">
+      <DependentUpon>FrmSelectClientPayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSub\FrmSetGroup.resx">
+      <DependentUpon>FrmSetGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain\FrmVisaSubmit.resx">
+      <DependentUpon>FrmVisaSubmit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSub\FrmQRCode.resx">
+      <DependentUpon>FrmQRCode.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSub\FrmSetRequestPayout.resx">
+      <DependentUpon>FrmSetRequestPayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSub\FrmSetTeamVisaGroup.resx">
+      <DependentUpon>FrmSetTeamVisaGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSetValue\FrmIdentificationValue.resx">
+      <DependentUpon>FrmIdentificationValue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSub\FrmSetTypeInStatus.resx">
+      <DependentUpon>FrmSetTypeInStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSub\FrmShowPicture.resx">
+      <DependentUpon>FrmShowPicture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSub\FrmTimeSpanChoose.resx">
+      <DependentUpon>FrmTimeSpanChoose.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSub\FrmTodaySubmit.resx">
+      <DependentUpon>FrmTodaySubmit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSub\FrmVisaInfoStatus.resx">
+      <DependentUpon>FrmVisaInfoStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="TravelAgencyDataSet.xsc">
+      <DependentUpon>TravelAgencyDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TravelAgencyDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TravelAgencyDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TravelAgencyDataSet.xss">
+      <DependentUpon>TravelAgencyDataSet.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\TravelAgency.BLL.csproj">
+      <Project>{38d7aa58-c95b-449b-86c6-a8073a56e11f}</Project>
+      <Name>TravelAgency.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\TravelAgency.Common.csproj">
+      <Project>{e3d8759a-c5eb-402d-9f10-f5c6029a8d1a}</Project>
+      <Name>TravelAgency.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\TravelAgency.Model.csproj">
+      <Project>{53995dbb-9836-4647-ad22-865884fdeb9e}</Project>
+      <Name>TravelAgency.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CountryImages\PassportPictureNotFound.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tables.png" />
+    <None Include="Resources\Loading.png" />
+    <None Include="Resources\Loading.jpg" />
+    <None Include="Resources\Folder.png" />
+    <None Include="Resources\20171227160109.jpg" />
+    <Content Include="Resources\Icons\camera.ico" />
+    <Content Include="Resources\Icons\passport.ico" />
+    <Content Include="Resources\Icons\passport.jpg" />
+    <Content Include="Resources\Icons\Add Card.ico" />
+    <Content Include="Resources\Icons\add_group-256.ico" />
+    <Content Include="Resources\Icons\apply-256.ico" />
+    <Content Include="Resources\Icons\edit_add-256.ico" />
+    <Content Include="Resources\Icons\pencil.ico" />
+    <Content Include="Resources\Icons\tables.png" />
+    <Content Include="Resources\Icons\users.ico" />
+    <Content Include="Resources\Icons\vista桌面图标下载17.ico" />
+    <Content Include="Resources\Icons\东瀛假日.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
