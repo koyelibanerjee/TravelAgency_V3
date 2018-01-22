@@ -391,5 +391,56 @@ namespace TravelAgency.CSUI.FrmMain
             if(DialogResult.Cancel==frm.ShowDialog())
                 return;
         }
+
+        private List<Model.ConsulateCharge> DgvDataSourceToList()
+        {
+            return dataGridView1.DataSource as List<Model.ConsulateCharge>;
+        }
+
+        /// <summary>
+        /// 返回当前选择的行的visaModel的List
+        /// </summary>
+        /// <returns></returns>
+        private List<Model.ConsulateCharge> GetSelectedVisaList()
+        {
+            var visaList = dataGridView1.DataSource as List<Model.ConsulateCharge>;
+            List<Model.ConsulateCharge> res = new List<ConsulateCharge>();
+            for (int i = dataGridView1.SelectedRows.Count - 1; i >= 0; i--)
+                res.Add(DgvDataSourceToList()[dataGridView1.SelectedRows[i].Index]);
+            return res.Count > 0 ? res : null;
+        }
+        private void 删除ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int count = this.dataGridView1.SelectedRows.Count;
+            if (MessageBoxEx.Show("确认删除" + count + "条记录?",
+                Resources.Confirm, MessageBoxButtons.OKCancel)
+                == DialogResult.Cancel)
+                return;
+            int n = 0;
+            var visaList = GetSelectedVisaList();
+            for (int i = 0; i != visaList.Count; ++i)
+            {
+                if (!_bllConsulateCharge.Delete(visaList[i].id))
+                    MessageBoxEx.Show("删除失败!");
+                ++n;
+            }
+            GlobalUtils.MessageBoxWithRecordNum("删除", n, count);
+            LoadDataToDataGridView(_curPage);
+            UpdateState();
+        }
+
+        private void 修改ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var list = GetSelectedVisaList();
+
+            if (list.Count > 1)
+            {
+                MessageBoxEx.Show("请选中一条进行修改!");
+                return;
+                
+            }
+            FrmAddConsulateCharge frm = new FrmAddConsulateCharge(LoadDataToDataGridView,_curPage,true,list[0]);
+            frm.ShowDialog();
+        }
     }
 }

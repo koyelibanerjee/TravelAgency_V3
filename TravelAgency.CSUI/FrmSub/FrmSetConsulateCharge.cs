@@ -52,8 +52,22 @@ namespace TravelAgency.CSUI.FrmSub
                 //else dataGridView1.Columns[i].ReadOnly = false; //这些列可编辑
             }
             dataGridView1.RowsAdded += DataGridView1_RowsAdded;
+            dataGridView1.CellDoubleClick += DataGridView1_CellDoubleClick;
             dataGridView1.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
             dataGridView1.DataSource = _list;
+        }
+
+        private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var list = GetThePays(e.RowIndex);
+            if (list.Count <= 0)
+                return;
+            FrmSelConsulateCharge frm = new FrmSelConsulateCharge(list);
+            if (frm.ShowDialog() == DialogResult.Cancel)
+                return;
+            dataGridView1.Rows[e.RowIndex].Cells["ConsulateCost"].Value = list[frm.SelIdx].ConsulateCost;
+            dataGridView1.Rows[e.RowIndex].Cells["InvitationCost"].Value = list[frm.SelIdx].InvitationCost;
+            dataGridView1.Rows[e.RowIndex].Cells["VisaPersonCost"].Value = list[frm.SelIdx].VisaPersonCost;
         }
 
         private void DataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)

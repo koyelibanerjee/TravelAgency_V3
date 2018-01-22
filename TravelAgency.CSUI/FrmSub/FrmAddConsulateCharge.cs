@@ -20,12 +20,17 @@ namespace TravelAgency.CSUI.FrmSub
         private bool _inited = false;
         private readonly Action<int> _updateDel; //副界面传来更新数据库的委托
         private readonly int _curPage; //主界面更新数据库需要一个当前页
-        public FrmAddConsulateCharge(Action<int> updatedel,int curpage)
+        private readonly bool _is4Modify = false;
+        private readonly Model.ConsulateCharge _model = null;
+
+        public FrmAddConsulateCharge(Action<int> updatedel, int curpage, bool is4Modify = false, Model.ConsulateCharge model = null)
         {
             _updateDel = updatedel;
             _curPage = curpage;
             this.StartPosition = FormStartPosition.CenterParent;
             InitializeComponent();
+            _is4Modify = is4Modify;
+            _model = model;
         }
 
         private void FrmConsulateCharge_Load(object sender, EventArgs e)
@@ -34,8 +39,22 @@ namespace TravelAgency.CSUI.FrmSub
             this.MinimizeBox = false;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
 
+
             //查询数据库加载目前有的数据
             InitCBsByData();
+
+            //
+            if (_is4Modify)
+            {
+                //把选中的加载到这里面
+                cbConsulationCost.Text = _model.ConsulateCost.ToString();
+                cbInvitationCost.Text = _model.InvitationCost.ToString();
+                cbVisaPersonCost.Text = _model.VisaPersonCost.ToString();
+                cbCountry.Text = _model.Country.ToString();
+                cbType.Text = _model.Types.ToString();
+                cbDepartureType.Text = _model.DepartureType.ToString();
+            }
+
         }
 
         private void InitCBsByData()
@@ -91,30 +110,48 @@ namespace TravelAgency.CSUI.FrmSub
             cbConsulationCost.Text = "";
         }
 
-
-
-
         private void btnOK_Click(object sender, EventArgs e)
         {
-            Model.ConsulateCharge model = new Model.ConsulateCharge();
-            try
+            if (_is4Modify)
             {
-                model.Country = cbCountry.Text;
-                model.DepartureType = cbDepartureType.Text;
-                model.Types = cbType.Text;
-                model.ConsulateCost = decimal.Parse(cbConsulationCost.Text);
-                model.InvitationCost = decimal.Parse(cbInvitationCost.Text);
-                model.VisaPersonCost = decimal.Parse(cbVisaPersonCost.Text);
+                _model.Country = cbCountry.Text;
+                _model.DepartureType = cbDepartureType.Text;
+                _model.Types = cbType.Text;
+                _model.ConsulateCost = decimal.Parse(cbConsulationCost.Text);
+                _model.InvitationCost = decimal.Parse(cbInvitationCost.Text);
+                _model.VisaPersonCost = decimal.Parse(cbVisaPersonCost.Text);
+                if (!string.IsNullOrEmpty(txtRemark.Text))
+                    _model.Remark = txtRemark.Text;
+                if (!_bllCharge.Update(_model))
+                {
+                    MessageBoxEx.Show("更新失败，请重试!");
+                }
             }
-            catch (Exception)
+            else
             {
-                MessageBoxEx.Show("请确保输入格式正确,若没有请输入0");
-                return;
+                Model.ConsulateCharge model = new Model.ConsulateCharge();
+                try
+                {
+                    model.Country = cbCountry.Text;
+                    model.DepartureType = cbDepartureType.Text;
+                    model.Types = cbType.Text;
+                    model.ConsulateCost = decimal.Parse(cbConsulationCost.Text);
+                    model.InvitationCost = decimal.Parse(cbInvitationCost.Text);
+                    model.VisaPersonCost = decimal.Parse(cbVisaPersonCost.Text);
+                    if (!string.IsNullOrEmpty(txtRemark.Text))
+                        model.Remark = txtRemark.Text;
+                }
+                catch (Exception)
+                {
+                    MessageBoxEx.Show("请确保输入格式正确,若没有请输入0");
+                    return;
+                }
+                if (_bllCharge.Add(model) <= 0)
+                {
+                    MessageBoxEx.Show("添加失败，请重试!");
+                }
             }
-            if (_bllCharge.Add(model)<=0)
-            {
-                MessageBoxEx.Show("添加失败，请重试!");
-            }
+
             _updateDel(_curPage);
             this.DialogResult = DialogResult.OK;
             this.Close();
