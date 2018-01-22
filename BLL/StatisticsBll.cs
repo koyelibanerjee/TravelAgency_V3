@@ -114,6 +114,7 @@ namespace TravelAgency.BLL
                 PersonalStat stat = new PersonalStat();
                 stat.WorkId = userList[i].WorkId;
                 stat.UserName = userList[i].UserName;
+                stat.Type00Count = statBll.GetActRecordCount("00录入(扫描)", stat.UserName, from, to);
                 stat.Type01Count = statBll.GetActRecordCount("01录入(设置团号)", stat.UserName, from, to);
                 stat.Type01Count += statBll.GetActRecordCount("01录入(添加到已有团号)", stat.UserName, from, to); //这两者统计到一起
                 stat.Type02Count = statBll.GetActRecordCount("02录入做资料", stat.UserName, from, to);

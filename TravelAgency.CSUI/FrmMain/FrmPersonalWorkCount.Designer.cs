@@ -33,13 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WorkId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type01Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type02Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type03Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type04Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMain = new DevComponents.DotNetBar.PanelEx();
             this.panelDgv = new DevComponents.DotNetBar.PanelEx();
             this.panelBars = new DevComponents.DotNetBar.PanelEx();
@@ -76,6 +69,14 @@
             this.bgWorkerLoadData = new System.ComponentModel.BackgroundWorker();
             this.cms4AddToExport = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.添加到送签统计ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WorkId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type00Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type01Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type02Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type03Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type04Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panelDgv.SuspendLayout();
@@ -106,6 +107,7 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.UserName,
             this.WorkId,
+            this.Type00Count,
             this.Type01Count,
             this.Type02Count,
             this.Type03Count,
@@ -116,12 +118,12 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -141,55 +143,6 @@
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridView1.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseUp);
             this.dataGridView1.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
-            // 
-            // UserName
-            // 
-            this.UserName.DataPropertyName = "UserName";
-            this.UserName.HeaderText = "姓名";
-            this.UserName.Name = "UserName";
-            this.UserName.ReadOnly = true;
-            // 
-            // WorkId
-            // 
-            this.WorkId.DataPropertyName = "WorkId";
-            this.WorkId.HeaderText = "工号";
-            this.WorkId.Name = "WorkId";
-            this.WorkId.ReadOnly = true;
-            // 
-            // Type01Count
-            // 
-            this.Type01Count.DataPropertyName = "Type01Count";
-            this.Type01Count.HeaderText = "01录入(设置团号)";
-            this.Type01Count.Name = "Type01Count";
-            this.Type01Count.ReadOnly = true;
-            // 
-            // Type02Count
-            // 
-            this.Type02Count.DataPropertyName = "Type02Count";
-            this.Type02Count.HeaderText = "02录入做资料";
-            this.Type02Count.Name = "Type02Count";
-            this.Type02Count.ReadOnly = true;
-            // 
-            // Type03Count
-            // 
-            this.Type03Count.DataPropertyName = "Type03Count";
-            this.Type03Count.HeaderText = "03修改资料";
-            this.Type03Count.Name = "Type03Count";
-            this.Type03Count.ReadOnly = true;
-            // 
-            // Type04Count
-            // 
-            this.Type04Count.DataPropertyName = "Type04Count";
-            this.Type04Count.HeaderText = "04校验";
-            this.Type04Count.Name = "Type04Count";
-            this.Type04Count.ReadOnly = true;
-            // 
-            // Count
-            // 
-            this.Count.DataPropertyName = "Count";
-            this.Count.HeaderText = "总计";
-            this.Count.Name = "Count";
-            this.Count.ReadOnly = true;
             // 
             // panelMain
             // 
@@ -612,6 +565,62 @@
             this.添加到送签统计ToolStripMenuItem.Name = "添加到送签统计ToolStripMenuItem";
             this.添加到送签统计ToolStripMenuItem.Size = new System.Drawing.Size(68, 22);
             // 
+            // UserName
+            // 
+            this.UserName.DataPropertyName = "UserName";
+            this.UserName.HeaderText = "姓名";
+            this.UserName.Name = "UserName";
+            this.UserName.ReadOnly = true;
+            // 
+            // WorkId
+            // 
+            this.WorkId.DataPropertyName = "WorkId";
+            this.WorkId.HeaderText = "工号";
+            this.WorkId.Name = "WorkId";
+            this.WorkId.ReadOnly = true;
+            // 
+            // Type00Count
+            // 
+            this.Type00Count.DataPropertyName = "Type00Count";
+            this.Type00Count.HeaderText = "00录入(扫描)";
+            this.Type00Count.Name = "Type00Count";
+            this.Type00Count.ReadOnly = true;
+            // 
+            // Type01Count
+            // 
+            this.Type01Count.DataPropertyName = "Type01Count";
+            this.Type01Count.HeaderText = "01录入(设置团号)";
+            this.Type01Count.Name = "Type01Count";
+            this.Type01Count.ReadOnly = true;
+            // 
+            // Type02Count
+            // 
+            this.Type02Count.DataPropertyName = "Type02Count";
+            this.Type02Count.HeaderText = "02录入做资料";
+            this.Type02Count.Name = "Type02Count";
+            this.Type02Count.ReadOnly = true;
+            // 
+            // Type03Count
+            // 
+            this.Type03Count.DataPropertyName = "Type03Count";
+            this.Type03Count.HeaderText = "03修改资料";
+            this.Type03Count.Name = "Type03Count";
+            this.Type03Count.ReadOnly = true;
+            // 
+            // Type04Count
+            // 
+            this.Type04Count.DataPropertyName = "Type04Count";
+            this.Type04Count.HeaderText = "04校验";
+            this.Type04Count.Name = "Type04Count";
+            this.Type04Count.ReadOnly = true;
+            // 
+            // Count
+            // 
+            this.Count.DataPropertyName = "Count";
+            this.Count.HeaderText = "总计";
+            this.Count.Name = "Count";
+            this.Count.ReadOnly = true;
+            // 
             // FrmPersonalWorkCount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -672,15 +681,16 @@
         private System.Windows.Forms.ToolStripMenuItem 韩国担保函ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 韩国加急申请书ToolStripMenuItem;
         private DevComponents.DotNetBar.ButtonItem btnGeneratePersonalReport;
+        private DevComponents.DotNetBar.ButtonX btnTimeSpanChoose;
+        private DevComponents.DotNetBar.ButtonX btnCreateReport;
         private System.Windows.Forms.DataGridViewTextBoxColumn UserName;
         private System.Windows.Forms.DataGridViewTextBoxColumn WorkId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type00Count;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type01Count;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type02Count;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type03Count;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type04Count;
         private System.Windows.Forms.DataGridViewTextBoxColumn Count;
-        private DevComponents.DotNetBar.ButtonX btnTimeSpanChoose;
-        private DevComponents.DotNetBar.ButtonX btnCreateReport;
     }
 }
 
