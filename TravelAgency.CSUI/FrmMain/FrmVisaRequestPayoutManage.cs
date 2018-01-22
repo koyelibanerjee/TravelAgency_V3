@@ -1368,18 +1368,23 @@ namespace TravelAgency.CSUI.FrmMain
         private void 请款ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var list = GetSelectedVisaList();
-            HashSet<string> set = new HashSet<string>();
-            foreach (var visa in list)
-            {
-                set.Add(visa.Country);
-            }
-            if (set.Count > 1)
-            {
-                MessageBoxEx.Show("不能一起设置不同国家的款项!");
-                return;
-            }
-            FrmSetRequestPayout frm = new FrmSetRequestPayout(list, LoadDataToDataGridView, _curPage);
-            frm.ShowDialog();
+            //HashSet<string> set = new HashSet<string>();
+            //foreach (var visa in list)
+            //{
+            //    set.Add(visa.Country);
+            //}
+            //if (set.Count > 1)
+            //{
+            //    MessageBoxEx.Show("不能一起设置不同国家的款项!");
+            //    return;
+            //}
+            //FrmSetRequestPayout frm = new FrmSetRequestPayout(list, LoadDataToDataGridView, _curPage);
+            //frm.ShowDialog();
+
+
+
+
+
         }
 
         /// <summary>
@@ -1506,30 +1511,33 @@ namespace TravelAgency.CSUI.FrmMain
         private void 设置领馆费用ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var list = GetSelectedVisaList();
-            if (list.Count > 1)
-            {
-                MessageBoxEx.Show("请选中一条记录进行操作!");
-                return;
-            }
+            //if (list.Count > 1)
+            //{
+            //    MessageBoxEx.Show("请选中一条记录进行操作!");
+            //    return;
+            //}
 
-            FrmConsulateCharge frm = new FrmConsulateCharge(list[0].Country, list[0].Types, list[0].DepartureType);
-            if (DialogResult.Cancel == frm.ShowDialog())
-                return;
+            //FrmConsulateCharge frm = new FrmConsulateCharge(list[0].Country, list[0].Types, list[0].DepartureType);
+            //if (DialogResult.Cancel == frm.ShowDialog())
+            //    return;
 
-            int idx = dataGridView1.SelectedRows[0].Index;
-            _needDoUpdateEvent = true;
-            dataGridView1.Rows[idx].Cells["ConsulateCost"].Value = frm.ConsulateCost;
-            int colIdx = dataGridView1.Columns["ConsulateCost"].Index;
-            dataGridView1_CellValueChanged(dataGridView1, new DataGridViewCellEventArgs(colIdx, idx)); //手动触发事件，不会自动触发不知道为什么
+            //int idx = dataGridView1.SelectedRows[0].Index;
+            //_needDoUpdateEvent = true;
+            //dataGridView1.Rows[idx].Cells["ConsulateCost"].Value = frm.ConsulateCost;
+            //int colIdx = dataGridView1.Columns["ConsulateCost"].Index;
+            //dataGridView1_CellValueChanged(dataGridView1, new DataGridViewCellEventArgs(colIdx, idx)); //手动触发事件，不会自动触发不知道为什么
 
-            dataGridView1.Rows[idx].Cells["VisaPersonCost"].Value = frm.VisaPersonCost;
-            colIdx = dataGridView1.Columns["VisaPersonCost"].Index;
-            dataGridView1_CellValueChanged(dataGridView1, new DataGridViewCellEventArgs(colIdx, idx)); //手动触发事件，不会自动触发不知道为什么
+            //dataGridView1.Rows[idx].Cells["VisaPersonCost"].Value = frm.VisaPersonCost;
+            //colIdx = dataGridView1.Columns["VisaPersonCost"].Index;
+            //dataGridView1_CellValueChanged(dataGridView1, new DataGridViewCellEventArgs(colIdx, idx)); //手动触发事件，不会自动触发不知道为什么
 
-            dataGridView1.Rows[idx].Cells["InvitationCost"].Value = frm.InvitationCost;
-            colIdx = dataGridView1.Columns["InvitationCost"].Index;
-            dataGridView1_CellValueChanged(dataGridView1, new DataGridViewCellEventArgs(colIdx, idx)); //手动触发事件，不会自动触发不知道为什么
-            _needDoUpdateEvent = false;
+            //dataGridView1.Rows[idx].Cells["InvitationCost"].Value = frm.InvitationCost;
+            //colIdx = dataGridView1.Columns["InvitationCost"].Index;
+            //dataGridView1_CellValueChanged(dataGridView1, new DataGridViewCellEventArgs(colIdx, idx)); //手动触发事件，不会自动触发不知道为什么
+            //_needDoUpdateEvent = false;
+
+            FrmSetConsulateCharge frm = new FrmSetConsulateCharge(list,LoadDataToDataGridView,_curPage);
+            frm.ShowDialog();
 
         }
 

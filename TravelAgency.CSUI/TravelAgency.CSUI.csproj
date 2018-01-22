@@ -162,6 +162,12 @@
     <Compile Include="FrmSub\FrmSelectClientPayout.Designer.cs">
       <DependentUpon>FrmSelectClientPayout.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSub\FrmSetConsulateCharge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSub\FrmSetConsulateCharge.Designer.cs">
+      <DependentUpon>FrmSetConsulateCharge.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSub\FrmSetRequestPayout.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -403,6 +409,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSub\FrmSelectClientPayout.resx">
       <DependentUpon>FrmSelectClientPayout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSub\FrmSetConsulateCharge.resx">
+      <DependentUpon>FrmSetConsulateCharge.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSub\FrmSetGroup.resx">
       <DependentUpon>FrmSetGroup.cs</DependentUpon>
