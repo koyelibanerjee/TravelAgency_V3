@@ -141,6 +141,7 @@
   <ItemGroup>
     <Compile Include="ActionRecords.cs" />
     <Compile Include="AuthUser.cs" />
+    <Compile Include="ClientChargeDal.cs" />
     <Compile Include="ClientCharge.cs" />
     <Compile Include="ConsulateCharge.cs" />
     <Compile Include="HasExported8ReportDal.cs" />

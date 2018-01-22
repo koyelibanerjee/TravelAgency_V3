@@ -124,6 +124,7 @@
     <Compile Include="ActionRecords.cs" />
     <Compile Include="ActionRecordsBll.cs" />
     <Compile Include="AuthUser.cs" />
+    <Compile Include="ClientChargeBll.cs" />
     <Compile Include="ClientCharge.cs" />
     <Compile Include="ConsulateCharge.cs" />
     <Compile Include="HasExported8ReportBLL.cs" />

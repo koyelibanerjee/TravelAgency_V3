@@ -174,6 +174,18 @@ namespace TravelAgency.CSUI.FrmMain
             OpenTab(frm, frm.Name);
         }
 
+        private void btnClientManage_Click(object sender, EventArgs e)
+        {
+            FrmClientChargeManage frm = new FrmClientChargeManage();
+            OpenTab(frm, frm.Name);
+        }
+
+        private void btnConsulateManage_Click(object sender, EventArgs e)
+        {
+            FrmConsulateChargeManage frm = new FrmConsulateChargeManage();
+            OpenTab(frm, frm.Name);
+        }
+
         public void SetLbVisaInfoCount(string str)
         {
             lbVisaInfoCount.Text = str;
