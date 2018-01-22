@@ -155,7 +155,7 @@
             this.btnConsulateManage});
             this.ribbonBar4.Location = new System.Drawing.Point(97, 0);
             this.ribbonBar4.Name = "ribbonBar4";
-            this.ribbonBar4.Size = new System.Drawing.Size(220, 58);
+            this.ribbonBar4.Size = new System.Drawing.Size(182, 58);
             this.ribbonBar4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonBar4.TabIndex = 1;
             // 

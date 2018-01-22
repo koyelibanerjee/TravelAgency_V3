@@ -9,6 +9,22 @@ namespace TravelAgency.BLL
 {
     public partial class Visa
     {
+        public string TableName { get { return "Visa"; } }
+
+        public List<string> GetCountryList()
+        {
+            return CommonBll.GetFieldList(TableName, "Country");
+        }
+
+        public List<string> GetTypeList()
+        {
+            return CommonBll.GetFieldList(TableName, "Types");
+        }
+
+        public List<string> GetDepartureTypeList()
+        {
+            return CommonBll.GetFieldList(TableName, "DepartureType");
+        }
 
         /// <summary>
         /// 返回成功数量

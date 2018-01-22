@@ -9,7 +9,7 @@ namespace TravelAgency.BLL
     /// </summary>
     public partial class ConsulateCharge
     {
-
+        public string TableName { get { return "ConsulateCharge"; } }
         public List<Model.ConsulateCharge> GetListByPageOrderByCountry
     (int pageIndex, int pageSize, string where)
         {
@@ -23,17 +23,31 @@ namespace TravelAgency.BLL
 
         public List<string> GetCountryList()
         {
-            return dal.GetCountryList();
+            return CommonBll.GetFieldList(TableName, "Country");
         }
 
         public List<string> GetTypeList()
         {
-            return dal.GetTypeList();
+            return CommonBll.GetFieldList(TableName, "Type");
         }
 
         public List<string> GetDepartureTypeList()
         {
-            return dal.GetDepartureTypeList();
+            return CommonBll.GetFieldList(TableName, "DepartureType");
+        }
+
+        public List<string> GetConsulateCostList()
+        {
+            return CommonBll.GetFieldList(TableName, "ConsulateCost");
+        }
+
+        public List<string> GetVisaPersonCostList()
+        {
+            return CommonBll.GetFieldList(TableName, "VisaPersonCost");
+        }
+        public List<string> GetInvitationCostList()
+        {
+            return CommonBll.GetFieldList(TableName, "InvitationCost");
         }
 
     }

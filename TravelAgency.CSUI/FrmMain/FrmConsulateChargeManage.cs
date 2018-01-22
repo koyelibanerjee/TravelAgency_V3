@@ -28,6 +28,7 @@ namespace TravelAgency.CSUI.FrmMain
         private int _recordCount = 0;
         private string _where = string.Empty;
 
+
         public List<Model.VisaInfo> List4AddToExport;
         private bool _b4AddToExport = false;
 
@@ -384,6 +385,11 @@ namespace TravelAgency.CSUI.FrmMain
             txtSchEntryTimeTo.Text = DateTimeFormator.DateTimeToString(frm.TimeSpanTo, DateTimeFormator.TimeFormat.Type14LongTime1);
         }
 
-
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            FrmAddConsulateCharge frm = new FrmAddConsulateCharge(LoadDataToDataGridView,_curPage);
+            if(DialogResult.Cancel==frm.ShowDialog())
+                return;
+        }
     }
 }
