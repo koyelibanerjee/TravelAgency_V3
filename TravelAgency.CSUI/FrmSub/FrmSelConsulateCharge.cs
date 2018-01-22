@@ -18,6 +18,7 @@ namespace TravelAgency.CSUI.FrmSub
 
         public FrmSelConsulateCharge(List<Model.ConsulateCharge> list)
         {
+            this.StartPosition = FormStartPosition.CenterParent;
             _list = list;
             InitializeComponent();
         }
@@ -32,7 +33,7 @@ namespace TravelAgency.CSUI.FrmSub
             }
             comboBoxEx1.SelectedIndexChanged += ComboBoxEx1_SelectedIndexChanged;
 
-            
+
             comboBoxEx1.SelectedIndex = 0;
             chkAllChange.Checked = true;
 
