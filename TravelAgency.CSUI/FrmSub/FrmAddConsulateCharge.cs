@@ -69,7 +69,6 @@ namespace TravelAgency.CSUI.FrmSub
             txtRemark.Text = cbCountry.Text + cbType.Text + cbDepartureType.Text;
         }
 
-
         private void InitCBsByData()
         {
 

@@ -14,6 +14,8 @@ namespace TravelAgency.CSUI.FrmSub
     {
         private List<Model.ConsulateCharge> _list;
         public int SelIdx { get; set; }
+        public bool ChangeAllAlike { get; set; }
+
         public FrmSelConsulateCharge(List<Model.ConsulateCharge> list)
         {
             _list = list;
@@ -32,6 +34,7 @@ namespace TravelAgency.CSUI.FrmSub
 
             
             comboBoxEx1.SelectedIndex = 0;
+            chkAllChange.Checked = true;
 
             this.lbConfig.Text = "共有" + _list.Count + "套配置。";
         }
@@ -51,6 +54,7 @@ namespace TravelAgency.CSUI.FrmSub
         private void btnOK_Click(object sender, EventArgs e)
         {
             this.SelIdx = comboBoxEx1.SelectedIndex;
+            this.ChangeAllAlike = chkAllChange.Checked;
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

@@ -39,6 +39,7 @@
             this.btnOK = new DevComponents.DotNetBar.ButtonX();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.lbConfig = new DevComponents.DotNetBar.LabelX();
+            this.chkAllChange = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.panelMAIN.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,6 +47,7 @@
             // 
             this.panelMAIN.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelMAIN.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelMAIN.Controls.Add(this.chkAllChange);
             this.panelMAIN.Controls.Add(this.lbConfig);
             this.panelMAIN.Controls.Add(this.btnCancel);
             this.panelMAIN.Controls.Add(this.btnOK);
@@ -190,6 +192,19 @@
             this.lbConfig.TabIndex = 4;
             this.lbConfig.Text = "共有2套配置";
             // 
+            // chkAllChange
+            // 
+            // 
+            // 
+            // 
+            this.chkAllChange.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.chkAllChange.Location = new System.Drawing.Point(193, 69);
+            this.chkAllChange.Name = "chkAllChange";
+            this.chkAllChange.Size = new System.Drawing.Size(100, 48);
+            this.chkAllChange.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.chkAllChange.TabIndex = 5;
+            this.chkAllChange.Text = "同时修改所有相同类型";
+            // 
             // FrmSelConsulateCharge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -217,5 +232,6 @@
         private DevComponents.DotNetBar.ButtonX btnCancel;
         private DevComponents.DotNetBar.ButtonX btnOK;
         private DevComponents.DotNetBar.LabelX lbConfig;
+        private DevComponents.DotNetBar.Controls.CheckBoxX chkAllChange;
     }
 }

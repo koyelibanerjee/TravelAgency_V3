@@ -65,9 +65,35 @@ namespace TravelAgency.CSUI.FrmSub
             FrmSelConsulateCharge frm = new FrmSelConsulateCharge(list);
             if (frm.ShowDialog() == DialogResult.Cancel)
                 return;
-            dataGridView1.Rows[e.RowIndex].Cells["ConsulateCost"].Value = list[frm.SelIdx].ConsulateCost;
-            dataGridView1.Rows[e.RowIndex].Cells["InvitationCost"].Value = list[frm.SelIdx].InvitationCost;
-            dataGridView1.Rows[e.RowIndex].Cells["VisaPersonCost"].Value = list[frm.SelIdx].VisaPersonCost;
+
+            string country = GetCellValue(e.RowIndex, "Country");
+            string type = GetCellValue(e.RowIndex, "Types");
+            string depatureType = GetCellValue(e.RowIndex, "DepartureType");
+
+            if (frm.ChangeAllAlike)
+            {
+                for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                {
+                    if (GetCellValue(i, "Country") == country && GetCellValue(i, "Types") == type &&
+                        GetCellValue(i, "DepartureType") == depatureType)
+                    {
+                        dataGridView1.Rows[i].Cells["ConsulateCost"].Value = list[frm.SelIdx].ConsulateCost;
+                        dataGridView1.Rows[i].Cells["InvitationCost"].Value = list[frm.SelIdx].InvitationCost;
+                        dataGridView1.Rows[i].Cells["VisaPersonCost"].Value = list[frm.SelIdx].VisaPersonCost;
+                    }
+                }
+            }
+            else
+            {
+                dataGridView1.Rows[e.RowIndex].Cells["ConsulateCost"].Value = list[frm.SelIdx].ConsulateCost;
+                dataGridView1.Rows[e.RowIndex].Cells["InvitationCost"].Value = list[frm.SelIdx].InvitationCost;
+                dataGridView1.Rows[e.RowIndex].Cells["VisaPersonCost"].Value = list[frm.SelIdx].VisaPersonCost;
+
+            }
+
+
+
+
         }
 
         private void DataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
