@@ -53,9 +53,22 @@ namespace TravelAgency.CSUI.FrmSub
                 cbCountry.Text = _model.Country.ToString();
                 cbType.Text = _model.Types.ToString();
                 cbDepartureType.Text = _model.DepartureType.ToString();
+                txtRemark.Text = _model.Remark;
             }
 
+            if(_is4Modify)
+                return;
+            cbCountry.TextChanged += UpdateRemark;
+            cbDepartureType.TextChanged += UpdateRemark;
+            cbType.TextChanged += UpdateRemark;
+
         }
+
+        private void UpdateRemark(object sender, EventArgs e)
+        {
+            txtRemark.Text = cbCountry.Text + cbType.Text + cbDepartureType.Text;
+        }
+
 
         private void InitCBsByData()
         {
