@@ -1508,7 +1508,7 @@ namespace TravelAgency.CSUI.FrmMain
             }
         }
 
-        private void 设置领馆费用ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void 设置请款费用ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var list = GetSelectedVisaList();
             //if (list.Count > 1)
@@ -1536,7 +1536,7 @@ namespace TravelAgency.CSUI.FrmMain
             //dataGridView1_CellValueChanged(dataGridView1, new DataGridViewCellEventArgs(colIdx, idx)); //手动触发事件，不会自动触发不知道为什么
             //_needDoUpdateEvent = false;
 
-            FrmSetConsulateCharge frm = new FrmSetConsulateCharge(list,LoadDataToDataGridView,_curPage);
+            FrmSetCharge frm = new FrmSetCharge(list,LoadDataToDataGridView,_curPage);
             frm.ShowDialog();
 
         }

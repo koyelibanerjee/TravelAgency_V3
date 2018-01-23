@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bar1 = new DevComponents.DotNetBar.Bar();
             this.btnPageFirst = new DevComponents.DotNetBar.ButtonItem();
             this.btnPagePre = new DevComponents.DotNetBar.ButtonItem();
@@ -110,10 +110,14 @@
             this.川航机票ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.泰航机票ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.高拍仪做资料ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.设置领馆费用ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.请款ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.自动更新单价ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.自动更新总价ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.设置领馆费用ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.清除领馆款项ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.清除杂费款项ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelBars = new DevComponents.DotNetBar.PanelEx();
             this.panelSerachBar = new DevComponents.DotNetBar.PanelEx();
             this.btnUpdate = new DevComponents.DotNetBar.ButtonX();
@@ -153,10 +157,6 @@
             this.panelDgv = new DevComponents.DotNetBar.PanelEx();
             this.cmsAddToGroup = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.添加到团号ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.清除领馆款项ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.清除杂费款项ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cmsDgv.SuspendLayout();
@@ -275,14 +275,14 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.GroupNo,
@@ -313,28 +313,28 @@
             this.Price,
             this.Cost,
             this.Visa_id});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -846,6 +846,13 @@
             this.高拍仪做资料ToolStripMenuItem.Visible = false;
             this.高拍仪做资料ToolStripMenuItem.Click += new System.EventHandler(this.高拍仪做资料ToolStripMenuItem_Click);
             // 
+            // 设置领馆费用ToolStripMenuItem
+            // 
+            this.设置领馆费用ToolStripMenuItem.Name = "设置领馆费用ToolStripMenuItem";
+            this.设置领馆费用ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.设置领馆费用ToolStripMenuItem.Text = "设置请款费用";
+            this.设置领馆费用ToolStripMenuItem.Click += new System.EventHandler(this.设置请款费用ToolStripMenuItem_Click);
+            // 
             // 请款ToolStripMenuItem
             // 
             this.请款ToolStripMenuItem.Name = "请款ToolStripMenuItem";
@@ -853,6 +860,11 @@
             this.请款ToolStripMenuItem.Text = "设置请款款项";
             this.请款ToolStripMenuItem.Visible = false;
             this.请款ToolStripMenuItem.Click += new System.EventHandler(this.请款ToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(181, 6);
             // 
             // 自动更新单价ToolStripMenuItem
             // 
@@ -868,12 +880,24 @@
             this.自动更新总价ToolStripMenuItem.Text = "自动更新总价";
             this.自动更新总价ToolStripMenuItem.Click += new System.EventHandler(this.自动更新总价ToolStripMenuItem_Click);
             // 
-            // 设置领馆费用ToolStripMenuItem
+            // toolStripSeparator6
             // 
-            this.设置领馆费用ToolStripMenuItem.Name = "设置领馆费用ToolStripMenuItem";
-            this.设置领馆费用ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.设置领馆费用ToolStripMenuItem.Text = "设置领馆费用";
-            this.设置领馆费用ToolStripMenuItem.Click += new System.EventHandler(this.设置领馆费用ToolStripMenuItem_Click);
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(181, 6);
+            // 
+            // 清除领馆款项ToolStripMenuItem
+            // 
+            this.清除领馆款项ToolStripMenuItem.Name = "清除领馆款项ToolStripMenuItem";
+            this.清除领馆款项ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.清除领馆款项ToolStripMenuItem.Text = "清除领馆款项";
+            this.清除领馆款项ToolStripMenuItem.Click += new System.EventHandler(this.清除领馆款项ToolStripMenuItem_Click);
+            // 
+            // 清除杂费款项ToolStripMenuItem
+            // 
+            this.清除杂费款项ToolStripMenuItem.Name = "清除杂费款项ToolStripMenuItem";
+            this.清除杂费款项ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.清除杂费款项ToolStripMenuItem.Text = "清除杂费款项";
+            this.清除杂费款项ToolStripMenuItem.Click += new System.EventHandler(this.清除杂费款项ToolStripMenuItem_Click);
             // 
             // panelBars
             // 
@@ -1529,30 +1553,6 @@
             this.添加到团号ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.添加到团号ToolStripMenuItem.Text = "添加到此团号";
             this.添加到团号ToolStripMenuItem.Click += new System.EventHandler(this.添加到团号ToolStripMenuItem_Click);
-            // 
-            // 清除领馆款项ToolStripMenuItem
-            // 
-            this.清除领馆款项ToolStripMenuItem.Name = "清除领馆款项ToolStripMenuItem";
-            this.清除领馆款项ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.清除领馆款项ToolStripMenuItem.Text = "清除领馆款项";
-            this.清除领馆款项ToolStripMenuItem.Click += new System.EventHandler(this.清除领馆款项ToolStripMenuItem_Click);
-            // 
-            // 清除杂费款项ToolStripMenuItem
-            // 
-            this.清除杂费款项ToolStripMenuItem.Name = "清除杂费款项ToolStripMenuItem";
-            this.清除杂费款项ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.清除杂费款项ToolStripMenuItem.Text = "清除杂费款项";
-            this.清除杂费款项ToolStripMenuItem.Click += new System.EventHandler(this.清除杂费款项ToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(181, 6);
-            // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(181, 6);
             // 
             // FrmVisaRequestPayoutManage
             // 

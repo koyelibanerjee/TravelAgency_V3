@@ -11,6 +11,12 @@ namespace TravelAgency.BLL
     {
         public string TableName { get { return "Visa"; } }
 
+
+        public List<string> GetClientList()
+        {
+            return CommonBll.GetFieldList(TableName, "Client");
+        }
+
         public List<string> GetCountryList()
         {
             return CommonBll.GetFieldList(TableName, "Country");

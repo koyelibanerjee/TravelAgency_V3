@@ -96,6 +96,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CustomCtrls\RowMergeView.designer.cs" />
+    <Compile Include="FrmMain\FrmClientChargeManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain\FrmClientChargeManage.Designer.cs">
+      <DependentUpon>FrmClientChargeManage.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain\FrmConsulateChargeManage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,12 +119,6 @@
     </Compile>
     <Compile Include="FrmMain\FrmActionRecordsManage.Designer.cs">
       <DependentUpon>FrmActionRecordsManage.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmMain\FrmClientChargeManage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmMain\FrmClientChargeManage.Designer.cs">
-      <DependentUpon>FrmClientChargeManage.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMain\FrmPersonalWorkCount.cs">
       <SubType>Form</SubType>
@@ -138,6 +138,12 @@
     <Compile Include="FrmSetValue\FrmSetValue.Designer.cs">
       <DependentUpon>FrmSetValue.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSub\FrmAddClientCharge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSub\FrmAddClientCharge.Designer.cs">
+      <DependentUpon>FrmAddClientCharge.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSub\FrmAddVisa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,12 @@
     <Compile Include="FrmSub\FrmConsulateCharge.Designer.cs">
       <DependentUpon>FrmConsulateCharge.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSub\FrmSelClientCharge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSub\FrmSelClientCharge.Designer.cs">
+      <DependentUpon>FrmSelClientCharge.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSub\FrmSelConsulateCharge.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -168,11 +180,11 @@
     <Compile Include="FrmSub\FrmSelectClientPayout.Designer.cs">
       <DependentUpon>FrmSelectClientPayout.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSub\FrmSetConsulateCharge.cs">
+    <Compile Include="FrmSub\FrmSetCharge.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSub\FrmSetConsulateCharge.Designer.cs">
-      <DependentUpon>FrmSetConsulateCharge.cs</DependentUpon>
+    <Compile Include="FrmSub\FrmSetCharge.Designer.cs">
+      <DependentUpon>FrmSetCharge.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmSub\FrmSetRequestPayout.cs">
       <SubType>Form</SubType>
@@ -338,14 +350,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TravelAgencyDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmMain\FrmClientChargeManage.resx">
+      <DependentUpon>FrmClientChargeManage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmMain\FrmConsulateChargeManage.resx">
       <DependentUpon>FrmConsulateChargeManage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain\FrmGaoPaiManage.resx">
       <DependentUpon>FrmGaoPaiManage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmMain\FrmClientChargeManage.resx">
-      <DependentUpon>FrmClientChargeManage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain\FrmTakePicture.resx">
       <DependentUpon>FrmTakePicture.cs</DependentUpon>
@@ -361,6 +373,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSetValue\FrmSetValue.resx">
       <DependentUpon>FrmSetValue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSub\FrmAddClientCharge.resx">
+      <DependentUpon>FrmAddClientCharge.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSub\FrmAddVisa.resx">
       <DependentUpon>FrmAddVisa.cs</DependentUpon>
@@ -413,14 +428,17 @@
     <EmbeddedResource Include="FrmSub\FrmPageSizeSet.resx">
       <DependentUpon>FrmPageSizeSet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmSub\FrmSelClientCharge.resx">
+      <DependentUpon>FrmSelClientCharge.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmSub\FrmSelConsulateCharge.resx">
       <DependentUpon>FrmSelConsulateCharge.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSub\FrmSelectClientPayout.resx">
       <DependentUpon>FrmSelectClientPayout.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSub\FrmSetConsulateCharge.resx">
-      <DependentUpon>FrmSetConsulateCharge.cs</DependentUpon>
+    <EmbeddedResource Include="FrmSub\FrmSetCharge.resx">
+      <DependentUpon>FrmSetCharge.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSub\FrmSetGroup.resx">
       <DependentUpon>FrmSetGroup.cs</DependentUpon>

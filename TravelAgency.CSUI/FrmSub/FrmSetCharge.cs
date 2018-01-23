@@ -13,17 +13,18 @@ using TravelAgency.Common;
 
 namespace TravelAgency.CSUI.FrmSub
 {
-    public partial class FrmSetConsulateCharge : Form
+    public partial class FrmSetCharge : Form
     {
 
         private List<Model.Visa> _list;
         private BLL.ConsulateCharge _bllConsulateCharge = new ConsulateCharge();
+        private BLL.ClientCharge _bllClientCharge = new ClientCharge();
         private BLL.Visa _bllVisa = new Visa();
         private readonly Action<int> _updateDel; //副界面传来更新数据库的委托
         private readonly int _curPage; //主界面更新数据库需要一个当前页
 
 
-        private FrmSetConsulateCharge()
+        private FrmSetCharge()
         {
             this.StartPosition = FormStartPosition.CenterParent;
             this.MaximizeBox = false;
@@ -31,7 +32,7 @@ namespace TravelAgency.CSUI.FrmSub
             InitializeComponent();
         }
 
-        public FrmSetConsulateCharge(List<Model.Visa> list, Action<int> updateDel, int curPage)
+        public FrmSetCharge(List<Model.Visa> list, Action<int> updateDel, int curPage)
         : this()
         {
             _list = list;
@@ -39,7 +40,7 @@ namespace TravelAgency.CSUI.FrmSub
             _curPage = curPage;
         }
 
-        private void FrmSetConsulateCharge_Load(object sender, EventArgs e)
+        private void FrmSetCharge_Load(object sender, EventArgs e)
         {
             dataGridView1.AutoGenerateColumns = false; //不显示指定之外的列
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //列宽自适应
@@ -59,37 +60,54 @@ namespace TravelAgency.CSUI.FrmSub
 
         private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            var list = GetThePays(e.RowIndex);
-            if (list.Count <= 0)
-                return;
-            FrmSelConsulateCharge frm = new FrmSelConsulateCharge(list);
-            if (frm.ShowDialog() == DialogResult.Cancel)
-                return;
 
-            string country = GetCellValue(e.RowIndex, "Country");
-            string type = GetCellValue(e.RowIndex, "Types");
-            string depatureType = GetCellValue(e.RowIndex, "DepartureType");
+            string colName = dataGridView1.Columns[e.ColumnIndex].Name;
 
-            if (frm.ChangeAllAlike)
+            if (colName == "Client" || colName == "Receipt")
             {
-                for (int i = 0; i < dataGridView1.Rows.Count; i++)
-                {
-                    if (GetCellValue(i, "Country") == country && GetCellValue(i, "Types") == type &&
-                        GetCellValue(i, "DepartureType") == depatureType)
-                    {
-                        dataGridView1.Rows[i].Cells["ConsulateCost"].Value = list[frm.SelIdx].ConsulateCost;
-                        dataGridView1.Rows[i].Cells["InvitationCost"].Value = list[frm.SelIdx].InvitationCost;
-                        dataGridView1.Rows[i].Cells["VisaPersonCost"].Value = list[frm.SelIdx].VisaPersonCost;
-                    }
-                }
+                var list = GetClientCharges(e.RowIndex);
+                if (list.Count <= 0)
+                    return;
+                FrmSelClientCharge frm = new FrmSelClientCharge(list);
+                if (frm.ShowDialog() == DialogResult.Cancel)
+                    return;
             }
             else
             {
-                dataGridView1.Rows[e.RowIndex].Cells["ConsulateCost"].Value = list[frm.SelIdx].ConsulateCost;
-                dataGridView1.Rows[e.RowIndex].Cells["InvitationCost"].Value = list[frm.SelIdx].InvitationCost;
-                dataGridView1.Rows[e.RowIndex].Cells["VisaPersonCost"].Value = list[frm.SelIdx].VisaPersonCost;
+                var list = GetConsulateCharges(e.RowIndex);
+                if (list.Count <= 0)
+                    return;
+                FrmSelConsulateCharge frm = new FrmSelConsulateCharge(list);
+                if (frm.ShowDialog() == DialogResult.Cancel)
+                    return;
 
+                string country = GetCellValue(e.RowIndex, "Country");
+                string type = GetCellValue(e.RowIndex, "Types");
+                string depatureType = GetCellValue(e.RowIndex, "DepartureType");
+
+                if (frm.ChangeAllAlike)
+                {
+                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                    {
+                        if (GetCellValue(i, "Country") == country && GetCellValue(i, "Types") == type &&
+                            GetCellValue(i, "DepartureType") == depatureType)
+                        {
+                            dataGridView1.Rows[i].Cells["ConsulateCost"].Value = list[frm.SelIdx].ConsulateCost;
+                            dataGridView1.Rows[i].Cells["InvitationCost"].Value = list[frm.SelIdx].InvitationCost;
+                            dataGridView1.Rows[i].Cells["VisaPersonCost"].Value = list[frm.SelIdx].VisaPersonCost;
+                        }
+                    }
+                }
+                else
+                {
+                    dataGridView1.Rows[e.RowIndex].Cells["ConsulateCost"].Value = list[frm.SelIdx].ConsulateCost;
+                    dataGridView1.Rows[e.RowIndex].Cells["InvitationCost"].Value = list[frm.SelIdx].InvitationCost;
+                    dataGridView1.Rows[e.RowIndex].Cells["VisaPersonCost"].Value = list[frm.SelIdx].VisaPersonCost;
+
+                }
             }
+
+            
 
 
 
@@ -107,13 +125,20 @@ namespace TravelAgency.CSUI.FrmSub
                     dataGridView1.Rows[i].Cells["CountryImage"].Value =
                        TravelAgency.Common.CountryPicHandler.LoadImageByCountryName(countryName);
 
-                    var list = GetThePays(i);
+                    var list = GetConsulateCharges(i);
+                    var list1 = GetClientCharges(i);
                     if (list.Count > 0)
                     {
                         dataGridView1.Rows[i].Cells["ConsulateCost"].Value = list[0].ConsulateCost;
                         dataGridView1.Rows[i].Cells["InvitationCost"].Value = list[0].InvitationCost;
                         dataGridView1.Rows[i].Cells["VisaPersonCost"].Value = list[0].VisaPersonCost;
                     }
+
+                    if (list1.Count > 0)
+                    {
+                        dataGridView1.Rows[i].Cells["Receipt"].Value = list1[0].Charge;
+                    }
+
                 }
                 //执行绑定数据
             }
@@ -128,7 +153,7 @@ namespace TravelAgency.CSUI.FrmSub
         /// 根据Combobox选中项查询数据库
         /// </summary>
         /// <returns></returns>
-        private List<Model.ConsulateCharge> GetThePays(int rowidx)
+        private List<Model.ConsulateCharge> GetConsulateCharges(int rowidx)
         {
             List<string> conditions = new List<string>();
             string str = GetCellValue(rowidx, "DepartureType");
@@ -160,6 +185,52 @@ namespace TravelAgency.CSUI.FrmSub
             var list = _bllConsulateCharge.GetModelList(where);
             return list;
         }
+
+        /// <summary>
+        /// 根据Combobox选中项查询数据库
+        /// </summary>
+        /// <returns></returns>
+        private List<Model.ClientCharge> GetClientCharges(int rowidx)
+        {
+            List<string> conditions = new List<string>();
+            string str = GetCellValue(rowidx, "DepartureType");
+            if (!string.IsNullOrEmpty(str))
+            {
+                //sb.Append(" DepartureType='" + cbDepartureType.Text + "'");
+
+                conditions.Add(" (DepartureType like  '%" + str + "%') ");
+            }
+            str = GetCellValue(rowidx, "Country");
+
+            if (!string.IsNullOrEmpty(str))
+            {
+                //sb.Append(" Country='" + cbCountry.Text + "'");
+                conditions.Add(" (Country like  '%" + str + "%') ");
+
+            }
+            str = GetCellValue(rowidx, "Types");
+
+            if (!string.IsNullOrEmpty(str))
+            {
+                conditions.Add(" (Types like  '%" + str + "%') ");
+                //sb.Append(" Types='" + cbType.Text + "'");
+            }
+
+            str = GetCellValue(rowidx, "Client");
+
+            if (!string.IsNullOrEmpty(str))
+            {
+                conditions.Add(" (Client like  '%" + str + "%') ");
+                //sb.Append(" Types='" + cbType.Text + "'");
+            }
+
+            string[] arr = conditions.ToArray();
+            string where = string.Join(" and ", arr);
+
+            var list = _bllClientCharge.GetModelList(where);
+            return list;
+        }
+
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {

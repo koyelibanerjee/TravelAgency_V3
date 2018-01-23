@@ -37,6 +37,7 @@
             this.panelDgv = new DevComponents.DotNetBar.PanelEx();
             this.panelBars = new DevComponents.DotNetBar.PanelEx();
             this.panelSerachBar = new DevComponents.DotNetBar.PanelEx();
+            this.btnAdd = new DevComponents.DotNetBar.ButtonX();
             this.btnTimeSpanChoose = new DevComponents.DotNetBar.ButtonX();
             this.progressLoading = new DevComponents.DotNetBar.Controls.CircularProgress();
             this.btnClearSchConditions = new DevComponents.DotNetBar.ButtonX();
@@ -61,6 +62,8 @@
             this.btnGeneratePersonalReport = new DevComponents.DotNetBar.ButtonItem();
             this.cmsDgvRb = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmsItemRefreshState = new System.Windows.Forms.ToolStripMenuItem();
+            this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.人申请表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.机票报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.外领担保函ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -114,7 +117,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -203,6 +206,7 @@
             // 
             this.panelSerachBar.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelSerachBar.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelSerachBar.Controls.Add(this.btnAdd);
             this.panelSerachBar.Controls.Add(this.btnTimeSpanChoose);
             this.panelSerachBar.Controls.Add(this.progressLoading);
             this.panelSerachBar.Controls.Add(this.btnClearSchConditions);
@@ -226,11 +230,23 @@
             this.panelSerachBar.Style.GradientAngle = 90;
             this.panelSerachBar.TabIndex = 24;
             // 
+            // btnAdd
+            // 
+            this.btnAdd.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnAdd.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnAdd.Location = new System.Drawing.Point(884, 6);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(92, 23);
+            this.btnAdd.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnAdd.TabIndex = 29;
+            this.btnAdd.Text = "添加新配置";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
             // btnTimeSpanChoose
             // 
             this.btnTimeSpanChoose.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnTimeSpanChoose.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnTimeSpanChoose.Location = new System.Drawing.Point(421, 6);
+            this.btnTimeSpanChoose.Location = new System.Drawing.Point(425, 6);
             this.btnTimeSpanChoose.Name = "btnTimeSpanChoose";
             this.btnTimeSpanChoose.Size = new System.Drawing.Size(91, 23);
             this.btnTimeSpanChoose.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -246,7 +262,7 @@
             this.progressLoading.BackgroundStyle.BackgroundImageAlpha = ((byte)(64));
             this.progressLoading.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.progressLoading.FocusCuesEnabled = false;
-            this.progressLoading.Location = new System.Drawing.Point(829, 0);
+            this.progressLoading.Location = new System.Drawing.Point(833, 0);
             this.progressLoading.Name = "progressLoading";
             this.progressLoading.ProgressBarType = DevComponents.DotNetBar.eCircularProgressType.Dot;
             this.progressLoading.ProgressColor = System.Drawing.Color.YellowGreen;
@@ -259,7 +275,7 @@
             // 
             this.btnClearSchConditions.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnClearSchConditions.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnClearSchConditions.Location = new System.Drawing.Point(518, 6);
+            this.btnClearSchConditions.Location = new System.Drawing.Point(522, 6);
             this.btnClearSchConditions.Name = "btnClearSchConditions";
             this.btnClearSchConditions.Size = new System.Drawing.Size(92, 23);
             this.btnClearSchConditions.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -389,7 +405,7 @@
             // 
             this.btnCreateReport.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnCreateReport.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnCreateReport.Location = new System.Drawing.Point(714, 5);
+            this.btnCreateReport.Location = new System.Drawing.Point(718, 5);
             this.btnCreateReport.Name = "btnCreateReport";
             this.btnCreateReport.Size = new System.Drawing.Size(92, 23);
             this.btnCreateReport.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -401,7 +417,7 @@
             // 
             this.btnSearch.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnSearch.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnSearch.Location = new System.Drawing.Point(616, 5);
+            this.btnSearch.Location = new System.Drawing.Point(620, 5);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(92, 23);
             this.btnSearch.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -507,9 +523,11 @@
             // cmsDgvRb
             // 
             this.cmsDgvRb.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cmsItemRefreshState});
+            this.cmsItemRefreshState,
+            this.删除ToolStripMenuItem,
+            this.修改ToolStripMenuItem});
             this.cmsDgvRb.Name = "cmsDgvRb";
-            this.cmsDgvRb.Size = new System.Drawing.Size(161, 26);
+            this.cmsDgvRb.Size = new System.Drawing.Size(161, 70);
             // 
             // cmsItemRefreshState
             // 
@@ -517,6 +535,20 @@
             this.cmsItemRefreshState.Size = new System.Drawing.Size(160, 22);
             this.cmsItemRefreshState.Text = "刷新数据库状态";
             this.cmsItemRefreshState.Click += new System.EventHandler(this.cmsItemRefreshState_Click);
+            // 
+            // 删除ToolStripMenuItem
+            // 
+            this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.删除ToolStripMenuItem.Text = "删除";
+            this.删除ToolStripMenuItem.Click += new System.EventHandler(this.删除ToolStripMenuItem_Click);
+            // 
+            // 修改ToolStripMenuItem
+            // 
+            this.修改ToolStripMenuItem.Name = "修改ToolStripMenuItem";
+            this.修改ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.修改ToolStripMenuItem.Text = "修改";
+            this.修改ToolStripMenuItem.Click += new System.EventHandler(this.修改ToolStripMenuItem_Click);
             // 
             // 人申请表ToolStripMenuItem
             // 
@@ -564,7 +596,7 @@
             // Client
             // 
             this.Client.DataPropertyName = "Client";
-            this.Client.HeaderText = "姓名";
+            this.Client.HeaderText = "客户姓名";
             this.Client.Name = "Client";
             this.Client.ReadOnly = true;
             // 
@@ -610,7 +642,7 @@
             this.ClientSize = new System.Drawing.Size(1271, 623);
             this.Controls.Add(this.panelMain);
             this.Name = "FrmClientChargeManage";
-            this.Text = "客户收费管理";
+            this.Text = "客户收款管理";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panelMain.ResumeLayout(false);
@@ -665,6 +697,9 @@
         private DevComponents.DotNetBar.ButtonItem btnGeneratePersonalReport;
         private DevComponents.DotNetBar.ButtonX btnTimeSpanChoose;
         private DevComponents.DotNetBar.ButtonX btnCreateReport;
+        private DevComponents.DotNetBar.ButtonX btnAdd;
+        private System.Windows.Forms.ToolStripMenuItem 删除ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 修改ToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn Client;
         private System.Windows.Forms.DataGridViewTextBoxColumn Country;
         private System.Windows.Forms.DataGridViewTextBoxColumn Types;

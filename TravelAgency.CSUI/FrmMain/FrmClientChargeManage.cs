@@ -20,13 +20,14 @@ namespace TravelAgency.CSUI.FrmMain
 {
     public partial class FrmClientChargeManage : Form
     {
-        private readonly TravelAgency.BLL.ClientCharge _bllClientCharge = new TravelAgency.BLL.ClientCharge();
+        private readonly TravelAgency.BLL.ClientCharge _bllClentCharge = new TravelAgency.BLL.ClientCharge();
 
         private int _curPage = 1;
         private int _pageCount = 0;
         private int _pageSize;
         private int _recordCount = 0;
         private string _where = string.Empty;
+
 
         public List<Model.VisaInfo> List4AddToExport;
         private bool _b4AddToExport = false;
@@ -40,7 +41,7 @@ namespace TravelAgency.CSUI.FrmMain
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            _recordCount = _bllClientCharge.GetRecordCount(_where);
+            _recordCount = _bllClentCharge.GetRecordCount(_where);
             _pageCount = (int)Math.Ceiling(_recordCount / (double)_pageSize);
 
             //初始化一些控件
@@ -161,7 +162,7 @@ namespace TravelAgency.CSUI.FrmMain
             int curSelectedRow = -1;
             if (dataGridView1.SelectedRows.Count > 0)
                 curSelectedRow = dataGridView1.SelectedRows[0].Index;
-            dataGridView1.DataSource = _bllClientCharge.GetListByPageOrderByClientName(_curPage,_pageSize,_where);
+            dataGridView1.DataSource = _bllClentCharge.GetListByPageOrderByClientName(_curPage,_pageSize,_where);
             if (curSelectedRow != -1 && dataGridView1.Rows.Count > curSelectedRow)
                 dataGridView1.CurrentCell = dataGridView1.Rows[curSelectedRow].Cells[0];
             dataGridView1.Update();
@@ -384,6 +385,62 @@ namespace TravelAgency.CSUI.FrmMain
             txtSchEntryTimeTo.Text = DateTimeFormator.DateTimeToString(frm.TimeSpanTo, DateTimeFormator.TimeFormat.Type14LongTime1);
         }
 
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            FrmAddClientCharge frm = new FrmAddClientCharge(LoadDataToDataGridView,_curPage);
+            if(DialogResult.Cancel==frm.ShowDialog())
+                return;
+        }
 
+        private List<Model.ClientCharge> DgvDataSourceToList()
+        {
+            return dataGridView1.DataSource as List<Model.ClientCharge>;
+        }
+
+        /// <summary>
+        /// 返回当前选择的行的visaModel的List
+        /// </summary>
+        /// <returns></returns>
+        private List<Model.ClientCharge> GetSelectedVisaList()
+        {
+            var visaList = dataGridView1.DataSource as List<Model.ClientCharge>;
+            List<Model.ClientCharge> res = new List<ClientCharge>();
+            for (int i = dataGridView1.SelectedRows.Count - 1; i >= 0; i--)
+                res.Add(DgvDataSourceToList()[dataGridView1.SelectedRows[i].Index]);
+            return res.Count > 0 ? res : null;
+        }
+        private void 删除ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int count = this.dataGridView1.SelectedRows.Count;
+            if (MessageBoxEx.Show("确认删除" + count + "条记录?",
+                Resources.Confirm, MessageBoxButtons.OKCancel)
+                == DialogResult.Cancel)
+                return;
+            int n = 0;
+            var visaList = GetSelectedVisaList();
+            for (int i = 0; i != visaList.Count; ++i)
+            {
+                if (!_bllClentCharge.Delete(visaList[i].id))
+                    MessageBoxEx.Show("删除失败!");
+                ++n;
+            }
+            GlobalUtils.MessageBoxWithRecordNum("删除", n, count);
+            LoadDataToDataGridView(_curPage);
+            UpdateState();
+        }
+
+        private void 修改ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var list = GetSelectedVisaList();
+
+            if (list.Count > 1)
+            {
+                MessageBoxEx.Show("请选中一条进行修改!");
+                return;
+                
+            }
+            FrmAddClientCharge frm = new FrmAddClientCharge(LoadDataToDataGridView,_curPage,true,list[0]);
+            frm.ShowDialog();
+        }
     }
 }

@@ -9,6 +9,10 @@ namespace TravelAgency.BLL
 	/// </summary>
 	public partial class ClientCharge
 	{
+
+        public string TableName { get { return "ClientCharge"; } }
+
+
         public List<Model.ClientCharge> GetListByPageOrderByClientName
             (int pageIndex, int pageSize, string where)
         {
@@ -19,6 +23,27 @@ namespace TravelAgency.BLL
             DataTable dt = ds.Tables[0];
             return DataTableToList(dt);
         }
+
+        public List<string> GetClientChargeList()
+        {
+            return CommonBll.GetFieldList(TableName, "Charge");
+        }
+
+        public List<string> GetCountryList()
+        {
+            return CommonBll.GetFieldList(TableName, "Country");
+        }
+
+        public List<string> GetTypeList()
+        {
+            return CommonBll.GetFieldList(TableName, "Type");
+        }
+
+        public List<string> GetDepartureTypeList()
+        {
+            return CommonBll.GetFieldList(TableName, "DepartureType");
+        }
+
     }
 }
 
