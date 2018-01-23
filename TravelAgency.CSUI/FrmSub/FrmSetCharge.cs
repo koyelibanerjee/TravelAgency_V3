@@ -67,7 +67,10 @@ namespace TravelAgency.CSUI.FrmSub
             {
                 var list = GetClientCharges(e.RowIndex);
                 if (list.Count <= 0)
+                {
+                    MessageBoxEx.Show("未找到相关记录，请手动录入!");
                     return;
+                }
                 FrmSelClientCharge frm = new FrmSelClientCharge(list);
                 if (frm.ShowDialog() == DialogResult.Cancel)
                     return;
@@ -79,7 +82,10 @@ namespace TravelAgency.CSUI.FrmSub
                     return;
                 FrmSelConsulateCharge frm = new FrmSelConsulateCharge(list);
                 if (frm.ShowDialog() == DialogResult.Cancel)
+                {
+                    MessageBoxEx.Show("未找到相关记录，请手动录入!");
                     return;
+                }
 
                 string country = GetCellValue(e.RowIndex, "Country");
                 string type = GetCellValue(e.RowIndex, "Types");
@@ -107,7 +113,7 @@ namespace TravelAgency.CSUI.FrmSub
                 }
             }
 
-            
+
 
 
 
@@ -150,7 +156,7 @@ namespace TravelAgency.CSUI.FrmSub
         }
 
         /// <summary>
-        /// 根据Combobox选中项查询数据库
+        /// 查询指定行的配置条目
         /// </summary>
         /// <returns></returns>
         private List<Model.ConsulateCharge> GetConsulateCharges(int rowidx)
@@ -187,10 +193,10 @@ namespace TravelAgency.CSUI.FrmSub
         }
 
         /// <summary>
-        /// 根据Combobox选中项查询数据库
+        /// 查询指定行的配置条目
         /// </summary>
         /// <returns></returns>
-        private List<Model.ClientCharge> GetClientCharges(int rowidx)
+        private List<Model.ClientCharge> GetClientCharges(int rowidx, bool full = false)
         {
             List<string> conditions = new List<string>();
             string str = GetCellValue(rowidx, "DepartureType");
@@ -224,6 +230,16 @@ namespace TravelAgency.CSUI.FrmSub
                 //sb.Append(" Types='" + cbType.Text + "'");
             }
 
+            if (full)
+            {
+                str = GetCellValue(rowidx, "Receipt");
+
+                if (!string.IsNullOrEmpty(str))
+                {
+                    conditions.Add(" (Receipt like  '%" + str + "%') ");
+                    //sb.Append(" Types='" + cbType.Text + "'");
+                }
+            }
             string[] arr = conditions.ToArray();
             string where = string.Join(" and ", arr);
 
@@ -239,6 +255,17 @@ namespace TravelAgency.CSUI.FrmSub
 
             int res = _bllVisa.UpdateList(dataGridView1.DataSource as List<Model.Visa>);
             GlobalUtils.MessageBoxWithRecordNum("更新", res, _list.Count);
+
+            ////再把没有加入的加入记录之中
+            //for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            //{
+            //    if (GetClientCharges(i,true).Count == 0)
+            //    {
+            //        //执行加入
+            //    }
+            //}
+
+
             this.DialogResult = DialogResult.OK;
             this.Close();
             _updateDel(_curPage);

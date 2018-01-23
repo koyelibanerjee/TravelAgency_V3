@@ -502,6 +502,7 @@ namespace TravelAgency.CSUI.FrmMain
             Font font = new Font(new FontFamily("Consolas"), 13.0f, FontStyle.Bold);
             //int peopleCount = 0;
             //int hasDo = 0;
+            decimal moneycount = 0;
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 dataGridView1.Rows[i].HeaderCell.Value = (i + 1).ToString();
@@ -511,33 +512,11 @@ namespace TravelAgency.CSUI.FrmMain
                     dataGridView1.Rows[i].Cells["CountryImage"].Value =
                        TravelAgency.Common.CountryPicHandler.LoadImageByCountryName(countryName);
                 }
-
-                //if (visas[i].Number == null || visas[i].Number == 0)
-                //{
-                //    dataGridView1.Rows[i].Cells["Status"].Value = "--------";
-                //    dataGridView1.Rows[i].Cells["Status"].Style.BackColor = Color.Peru;
-                //    continue;
-                //}
-
-                //peopleCount += int.Parse(dataGridView1.Rows[i].Cells["Number"].Value.ToString());
-
-                ////这一段性能会好一些了
-                //int num = _bllActionRecords.GetVisaHasTypedInNum(visas[i].Visa_id);
-
-                //hasDo += num;
-
-                //dataGridView1.Rows[i].Cells["Status"].Style.Font = font;
-                //dataGridView1.Rows[i].Cells["Status"].Value = num + "/" + visas[i].Number;
-
-
-
-                //if (num >= visas[i].Number)
-                //    dataGridView1.Rows[i].Cells["Status"].Style.BackColor = Color.SeaGreen;
-                //else
-                //    dataGridView1.Rows[i].Cells["Status"].Style.BackColor = Color.Peru;
+                if (dataGridView1.Rows[i].Cells["Cost"].Value != null)
+                    moneycount += decimal.Parse(dataGridView1.Rows[i].Cells["Cost"].Value.ToString());
             }
 
-            //lbPeopleCount.Text = "已做:" + hasDo + "/" + peopleCount.ToString() + "人.";
+            lbMonneyCount.Text = "共:" + moneycount + "元.";
 
             //_hasFormated = true;
         }
@@ -1536,16 +1515,16 @@ namespace TravelAgency.CSUI.FrmMain
             //dataGridView1_CellValueChanged(dataGridView1, new DataGridViewCellEventArgs(colIdx, idx)); //手动触发事件，不会自动触发不知道为什么
             //_needDoUpdateEvent = false;
 
-            FrmSetCharge frm = new FrmSetCharge(list,LoadDataToDataGridView,_curPage);
+            FrmSetCharge frm = new FrmSetCharge(list, LoadDataToDataGridView, _curPage);
             frm.ShowDialog();
 
         }
 
         private void 清除领馆款项ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(dataGridView1.SelectedRows.Count < 1)
+            if (dataGridView1.SelectedRows.Count < 1)
                 return;
-            
+
             _needDoUpdateEvent = true;
             for (int i = 0; i != dataGridView1.SelectedRows.Count; ++i)
             {
@@ -1576,6 +1555,19 @@ namespace TravelAgency.CSUI.FrmMain
             Font f = new Font("微软雅黑", 12.0f, FontStyle.Bold);
             dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.Font = f;
             dataGridView1.UpdateCellValue(e.ColumnIndex, e.RowIndex);
+
+            updateMoney();
+        }
+
+        private void updateMoney()
+        {
+            decimal moneycount = 0;
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                if (dataGridView1.Rows[i].Cells["Cost"].Value != null)
+                    moneycount += decimal.Parse(dataGridView1.Rows[i].Cells["Cost"].Value.ToString());
+            }
+            lbMonneyCount.Text = "共:" + moneycount + "元.";
         }
 
         private void 清除杂费款项ToolStripMenuItem_Click(object sender, EventArgs e)
