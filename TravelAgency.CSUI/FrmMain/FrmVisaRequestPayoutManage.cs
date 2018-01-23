@@ -1552,5 +1552,10 @@ namespace TravelAgency.CSUI.FrmMain
 
             _needDoUpdateEvent = false;
         }
+
+        private void lbInfoManifest_Click(object sender, EventArgs e)
+        {
+            MessageBoxEx.Show("单价 = 领馆 + 送签员 + 邀请函\r\n总价 = 单价 * 数量 + 洗照片 + 快递费 + 杂费");
+        }
     }
 }
