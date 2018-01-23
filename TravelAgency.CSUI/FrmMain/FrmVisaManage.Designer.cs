@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bar1 = new DevComponents.DotNetBar.Bar();
             this.btnPageFirst = new DevComponents.DotNetBar.ButtonItem();
             this.btnPagePre = new DevComponents.DotNetBar.ButtonItem();
@@ -81,6 +81,12 @@
             this.信息同意处理书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.机票报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.阪阪川航ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.东阪川航ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.东东川航ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.东东国航ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.东东全日空ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.新北东航ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.韩国ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.韩国担保函ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.韩国加急申请书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -127,12 +133,7 @@
             this.panelDgv = new DevComponents.DotNetBar.PanelEx();
             this.cmsAddToGroup = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.添加到团号ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.阪阪川航ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.东阪川航ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.东东川航ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.东东国航ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.东东全日空ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.新北东航ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cmsDgv.SuspendLayout();
@@ -248,14 +249,14 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.GroupNo,
@@ -272,28 +273,28 @@
             this.Client,
             this.SalesPerson,
             this.Visa_id});
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -503,6 +504,7 @@
             this.人报表ToolStripMenuItem,
             this.外领担保函ToolStripMenuItem,
             this.信息同意处理书ToolStripMenuItem,
+            this.toolStripMenuItem1,
             this.toolStripSeparator1,
             this.机票报表ToolStripMenuItem,
             this.阪阪川航ToolStripMenuItem,
@@ -575,6 +577,48 @@
             this.机票报表ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.机票报表ToolStripMenuItem.Text = "机票报表";
             this.机票报表ToolStripMenuItem.Click += new System.EventHandler(this.机票报表ToolStripMenuItem_Click);
+            // 
+            // 阪阪川航ToolStripMenuItem
+            // 
+            this.阪阪川航ToolStripMenuItem.Name = "阪阪川航ToolStripMenuItem";
+            this.阪阪川航ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.阪阪川航ToolStripMenuItem.Text = "阪阪川航";
+            this.阪阪川航ToolStripMenuItem.Click += new System.EventHandler(this.阪阪川航ToolStripMenuItem_Click);
+            // 
+            // 东阪川航ToolStripMenuItem
+            // 
+            this.东阪川航ToolStripMenuItem.Name = "东阪川航ToolStripMenuItem";
+            this.东阪川航ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.东阪川航ToolStripMenuItem.Text = "东阪川航";
+            this.东阪川航ToolStripMenuItem.Click += new System.EventHandler(this.东阪川航ToolStripMenuItem_Click);
+            // 
+            // 东东川航ToolStripMenuItem
+            // 
+            this.东东川航ToolStripMenuItem.Name = "东东川航ToolStripMenuItem";
+            this.东东川航ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.东东川航ToolStripMenuItem.Text = "东东川航";
+            this.东东川航ToolStripMenuItem.Click += new System.EventHandler(this.东东川航ToolStripMenuItem_Click);
+            // 
+            // 东东国航ToolStripMenuItem
+            // 
+            this.东东国航ToolStripMenuItem.Name = "东东国航ToolStripMenuItem";
+            this.东东国航ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.东东国航ToolStripMenuItem.Text = "东东国航";
+            this.东东国航ToolStripMenuItem.Click += new System.EventHandler(this.东东国航ToolStripMenuItem_Click);
+            // 
+            // 东东全日空ToolStripMenuItem
+            // 
+            this.东东全日空ToolStripMenuItem.Name = "东东全日空ToolStripMenuItem";
+            this.东东全日空ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.东东全日空ToolStripMenuItem.Text = "东东全日空";
+            this.东东全日空ToolStripMenuItem.Click += new System.EventHandler(this.东东全日空ToolStripMenuItem_Click);
+            // 
+            // 新北东航ToolStripMenuItem
+            // 
+            this.新北东航ToolStripMenuItem.Name = "新北东航ToolStripMenuItem";
+            this.新北东航ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.新北东航ToolStripMenuItem.Text = "新北东航";
+            this.新北东航ToolStripMenuItem.Click += new System.EventHandler(this.新北东航ToolStripMenuItem_Click);
             // 
             // 韩国ToolStripMenuItem
             // 
@@ -1176,47 +1220,12 @@
             this.添加到团号ToolStripMenuItem.Text = "添加到此团号";
             this.添加到团号ToolStripMenuItem.Click += new System.EventHandler(this.添加到团号ToolStripMenuItem_Click);
             // 
-            // 阪阪川航ToolStripMenuItem
+            // toolStripMenuItem1
             // 
-            this.阪阪川航ToolStripMenuItem.Name = "阪阪川航ToolStripMenuItem";
-            this.阪阪川航ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.阪阪川航ToolStripMenuItem.Text = "阪阪川航";
-            this.阪阪川航ToolStripMenuItem.Click += new System.EventHandler(this.阪阪川航ToolStripMenuItem_Click);
-            // 
-            // 东阪川航ToolStripMenuItem
-            // 
-            this.东阪川航ToolStripMenuItem.Name = "东阪川航ToolStripMenuItem";
-            this.东阪川航ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.东阪川航ToolStripMenuItem.Text = "东阪川航";
-            this.东阪川航ToolStripMenuItem.Click += new System.EventHandler(this.东阪川航ToolStripMenuItem_Click);
-            // 
-            // 东东川航ToolStripMenuItem
-            // 
-            this.东东川航ToolStripMenuItem.Name = "东东川航ToolStripMenuItem";
-            this.东东川航ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.东东川航ToolStripMenuItem.Text = "东东川航";
-            this.东东川航ToolStripMenuItem.Click += new System.EventHandler(this.东东川航ToolStripMenuItem_Click);
-            // 
-            // 东东国航ToolStripMenuItem
-            // 
-            this.东东国航ToolStripMenuItem.Name = "东东国航ToolStripMenuItem";
-            this.东东国航ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.东东国航ToolStripMenuItem.Text = "东东国航";
-            this.东东国航ToolStripMenuItem.Click += new System.EventHandler(this.东东国航ToolStripMenuItem_Click);
-            // 
-            // 东东全日空ToolStripMenuItem
-            // 
-            this.东东全日空ToolStripMenuItem.Name = "东东全日空ToolStripMenuItem";
-            this.东东全日空ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.东东全日空ToolStripMenuItem.Text = "东东全日空";
-            this.东东全日空ToolStripMenuItem.Click += new System.EventHandler(this.东东全日空ToolStripMenuItem_Click);
-            // 
-            // 新北东航ToolStripMenuItem
-            // 
-            this.新北东航ToolStripMenuItem.Name = "新北东航ToolStripMenuItem";
-            this.新北东航ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.新北东航ToolStripMenuItem.Text = "新北东航";
-            this.新北东航ToolStripMenuItem.Click += new System.EventHandler(this.新北东航ToolStripMenuItem_Click);
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(172, 22);
+            this.toolStripMenuItem1.Text = "身元模板";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // FrmVisaManage
             // 
@@ -1344,5 +1353,6 @@
         private System.Windows.Forms.ToolStripMenuItem 东东国航ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 东东全日空ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 新北东航ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }

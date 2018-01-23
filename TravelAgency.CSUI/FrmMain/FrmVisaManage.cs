@@ -726,6 +726,41 @@ namespace TravelAgency.CSUI.FrmMain
         #endregion
 
         #region 日本报表
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridView1.SelectedRows.Count > 1)
+            {
+                MessageBoxEx.Show(Resources.SelectShowMoreThanOne);
+                return;
+            }
+
+
+            //弹出选择机票模板窗口
+            FrmSelAirInfo frm = new FrmSelAirInfo();
+            if (DialogResult.Cancel == frm.ShowDialog())
+                return;
+
+            List<string> airinfoList = AirInfos.AirInfoDict[frm.SelIdx];
+
+
+            //Model.Visa visaModel = _bllVisa.GetModel((Guid)dataGridView1.SelectedRows[0].Cells["Visa_id"].Value);
+            Model.Visa visaModel = GetSelectedVisaModel();
+
+            if (visaModel == null)
+            {
+                MessageBoxEx.Show(Resources.FindModelFailedPleaseCheckInfoCorrect);
+                return;
+            }
+
+
+
+            var list = GetSelectedVisaInfoList();
+
+
+
+            ExcelGenerator.GetYuanShenMuban(list,airinfoList);
+        }
         private void 个签意见书ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (this.dataGridView1.SelectedRows.Count > 1)
@@ -1352,15 +1387,16 @@ namespace TravelAgency.CSUI.FrmMain
                 Clipboard.SetText(dataGridView1.CurrentCell.Value.ToString());
         }
 
+
+
+
+
+
+
         #endregion
 
-  
         #endregion
 
-
-
-
-        
 
     }
 }

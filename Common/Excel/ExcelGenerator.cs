@@ -990,5 +990,82 @@ namespace TravelAgency.Common.Excel
         }
 
 
+        public static bool GetYuanShenMuban(List<Model.VisaInfo> visaInfoList,List<string> airInfos)
+        {
+            //1.创建工作簿对象
+            IWorkbook wkbook = new HSSFWorkbook();
+            //2.创建工作表对象
+            ISheet sheet = wkbook.CreateSheet("身元模板");
+
+            //2.1创建表头
+            IRow row = sheet.CreateRow(0);
+            row.CreateCell(0).SetCellValue("姓名");
+            row.CreateCell(1).SetCellValue("拼音");
+            row.CreateCell(2).SetCellValue("性别");
+            row.CreateCell(3).SetCellValue("签发地");
+            row.CreateCell(4).SetCellValue("出生年月日");
+            row.CreateCell(5).SetCellValue("护照号");
+            row.CreateCell(6).SetCellValue("职位");
+
+            //2.2设置列宽度
+            sheet.SetColumnWidth(0, 25 * 256);//编号
+            sheet.SetColumnWidth(1, 23 * 256);//姓名(中文)
+            sheet.SetColumnWidth(2, 20 * 256);//姓名(中文)
+            sheet.SetColumnWidth(3, 22 * 256);//姓名(中文)
+            sheet.SetColumnWidth(4, 24 * 256);//姓名(中文)
+            sheet.SetColumnWidth(5, 23 * 256);//姓名(中文)
+            sheet.SetColumnWidth(6, 20 * 256);//姓名(中文)
+            //3.插入行和单元格
+            for (int i = 0; i != visaInfoList.Count; ++i)
+            {
+                //创建单元格
+                row = sheet.CreateRow(i + 1);
+
+                row.CreateCell(0).SetCellValue(visaInfoList[i].Name);
+                row.CreateCell(1).SetCellValue(visaInfoList[i].EnglishName);
+                row.CreateCell(2).SetCellValue(visaInfoList[i].Sex);
+                row.CreateCell(3).SetCellValue(visaInfoList[i].IssuePlace);
+                row.CreateCell(4).SetCellValue(visaInfoList[i].Birthday.Value.ToString("yyyy/MM/dd"));
+                row.CreateCell(5).SetCellValue(visaInfoList[i].PassportNo);
+                row.CreateCell(6).SetCellValue(visaInfoList[i].Occupation);
+            }
+
+            row = sheet.CreateRow(visaInfoList.Count + 1);
+            row.HeightInPoints = 50;
+            row.CreateCell(0).SetCellValue(airInfos[0]);
+            row.CreateCell(1).SetCellValue(airInfos[1]);
+            row.CreateCell(2).SetCellValue(airInfos[2]);
+
+
+            HSSFFont font = (HSSFFont)wkbook.CreateFont();
+            font.FontName = "宋体";
+            font.FontHeightInPoints = 11;
+
+            //4.1设置对齐风格和边框
+            ICellStyle style = wkbook.CreateCellStyle();
+            style.VerticalAlignment = VerticalAlignment.Center;
+            style.Alignment = HorizontalAlignment.Left;
+            style.BorderTop = BorderStyle.Thin;
+            style.BorderBottom = BorderStyle.Thin;
+            style.BorderLeft = BorderStyle.Thin;
+            style.BorderRight = BorderStyle.Thin;
+            style.WrapText = true;
+            style.SetFont(font);
+            for (int i = 0; i <= sheet.LastRowNum; i++)
+            {
+                row = sheet.GetRow(i);
+                for (int c = 0; c < row.LastCellNum; ++c)
+                {
+                    row.GetCell(c).CellStyle = style;
+                }
+            }
+
+            //5.执行写入磁盘
+            string dstName = GlobalUtils.ShowSaveFileDlg("身元模板.xls", "office 2003 excel|*.xls");
+            return SaveFile(dstName, wkbook);
+        }
+
+
+
     }
 }

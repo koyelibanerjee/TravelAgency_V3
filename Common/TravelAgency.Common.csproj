@@ -169,6 +169,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AirInfos.cs" />
     <Compile Include="AppSettingHandler.cs" />
     <Compile Include="CountryCode.cs" />
     <Compile Include="CountryPicHandler.cs" />

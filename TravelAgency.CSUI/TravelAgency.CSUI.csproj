@@ -162,6 +162,12 @@
     <Compile Include="FrmSub\FrmConsulateCharge.Designer.cs">
       <DependentUpon>FrmConsulateCharge.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSub\FrmSelAirInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSub\FrmSelAirInfo.Designer.cs">
+      <DependentUpon>FrmSelAirInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSub\FrmSelClientCharge.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -427,6 +433,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSub\FrmPageSizeSet.resx">
       <DependentUpon>FrmPageSizeSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSub\FrmSelAirInfo.resx">
+      <DependentUpon>FrmSelAirInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSub\FrmSelClientCharge.resx">
       <DependentUpon>FrmSelClientCharge.cs</DependentUpon>
