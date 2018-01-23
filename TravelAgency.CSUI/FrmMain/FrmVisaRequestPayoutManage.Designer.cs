@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bar1 = new DevComponents.DotNetBar.Bar();
             this.btnPageFirst = new DevComponents.DotNetBar.ButtonItem();
             this.btnPagePre = new DevComponents.DotNetBar.ButtonItem();
@@ -44,7 +44,6 @@
             this.cbPageSize = new DevComponents.DotNetBar.ComboBoxItem();
             this.labelItem2 = new DevComponents.DotNetBar.LabelItem();
             this.lbCurPage = new DevComponents.DotNetBar.LabelItem();
-            this.lbMonneyCount = new DevComponents.DotNetBar.LabelItem();
             this.dataGridView1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.GroupNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -125,20 +124,14 @@
             this.txtSchFinishTimeFrom = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.labelX8 = new DevComponents.DotNetBar.LabelX();
-            this.btnAddVisa = new DevComponents.DotNetBar.ButtonX();
             this.txtSalesPerson = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtClient = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.cbDepatureType = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX7 = new DevComponents.DotNetBar.LabelX();
             this.labelX5 = new DevComponents.DotNetBar.LabelX();
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
-            this.cbState = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.labelX4 = new DevComponents.DotNetBar.LabelX();
             this.cbCountry = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
-            this.cbIsUrgent = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.labelX2 = new DevComponents.DotNetBar.LabelX();
-            this.btnGetTodayExcel = new DevComponents.DotNetBar.ButtonX();
             this.btnShowToday = new DevComponents.DotNetBar.ButtonX();
             this.cbDisplayType = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.progressLoading = new DevComponents.DotNetBar.Controls.CircularProgress();
@@ -157,6 +150,7 @@
             this.panelDgv = new DevComponents.DotNetBar.PanelEx();
             this.cmsAddToGroup = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.添加到团号ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lbMonneyCount = new DevComponents.DotNetBar.LabelX();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cmsDgv.SuspendLayout();
@@ -189,12 +183,11 @@
             this.lbl,
             this.cbPageSize,
             this.labelItem2,
-            this.lbCurPage,
-            this.lbMonneyCount});
+            this.lbCurPage});
             this.bar1.ItemSpacing = 5;
             this.bar1.Location = new System.Drawing.Point(0, 0);
             this.bar1.Name = "bar1";
-            this.bar1.Size = new System.Drawing.Size(1288, 28);
+            this.bar1.Size = new System.Drawing.Size(1381, 28);
             this.bar1.Stretch = true;
             this.bar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.bar1.TabIndex = 25;
@@ -262,26 +255,19 @@
             // 
             this.lbCurPage.Name = "lbCurPage";
             // 
-            // lbMonneyCount
-            // 
-            this.lbMonneyCount.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbMonneyCount.ForeColor = System.Drawing.Color.ForestGreen;
-            this.lbMonneyCount.Name = "lbMonneyCount";
-            this.lbMonneyCount.Text = "共:12000元";
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.GroupNo,
@@ -312,32 +298,32 @@
             this.Price,
             this.Cost,
             this.Visa_id});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1288, 457);
+            this.dataGridView1.Size = new System.Drawing.Size(1381, 480);
             this.dataGridView1.TabIndex = 13;
             this.dataGridView1.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dataGridView1_CellBeginEdit);
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEndEdit);
@@ -908,7 +894,7 @@
             this.panelBars.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelBars.Location = new System.Drawing.Point(0, 0);
             this.panelBars.Name = "panelBars";
-            this.panelBars.Size = new System.Drawing.Size(1288, 117);
+            this.panelBars.Size = new System.Drawing.Size(1381, 94);
             this.panelBars.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelBars.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelBars.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
@@ -921,28 +907,23 @@
             // 
             this.panelSerachBar.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelSerachBar.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelSerachBar.Controls.Add(this.progressLoading);
+            this.panelSerachBar.Controls.Add(this.lbMonneyCount);
             this.panelSerachBar.Controls.Add(this.btnUpdate);
             this.panelSerachBar.Controls.Add(this.txtSchFinishTimeTo);
             this.panelSerachBar.Controls.Add(this.txtSchFinishTimeFrom);
             this.panelSerachBar.Controls.Add(this.labelX1);
             this.panelSerachBar.Controls.Add(this.labelX8);
-            this.panelSerachBar.Controls.Add(this.btnAddVisa);
             this.panelSerachBar.Controls.Add(this.txtSalesPerson);
             this.panelSerachBar.Controls.Add(this.txtClient);
             this.panelSerachBar.Controls.Add(this.cbDepatureType);
             this.panelSerachBar.Controls.Add(this.labelX7);
             this.panelSerachBar.Controls.Add(this.labelX5);
             this.panelSerachBar.Controls.Add(this.labelX6);
-            this.panelSerachBar.Controls.Add(this.cbState);
-            this.panelSerachBar.Controls.Add(this.labelX4);
             this.panelSerachBar.Controls.Add(this.cbCountry);
             this.panelSerachBar.Controls.Add(this.labelX3);
-            this.panelSerachBar.Controls.Add(this.cbIsUrgent);
-            this.panelSerachBar.Controls.Add(this.labelX2);
-            this.panelSerachBar.Controls.Add(this.btnGetTodayExcel);
             this.panelSerachBar.Controls.Add(this.btnShowToday);
             this.panelSerachBar.Controls.Add(this.cbDisplayType);
-            this.panelSerachBar.Controls.Add(this.progressLoading);
             this.panelSerachBar.Controls.Add(this.btnClearSchConditions);
             this.panelSerachBar.Controls.Add(this.labelX15);
             this.panelSerachBar.Controls.Add(this.txtSchGroupNo);
@@ -957,7 +938,7 @@
             this.panelSerachBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelSerachBar.Location = new System.Drawing.Point(0, 28);
             this.panelSerachBar.Name = "panelSerachBar";
-            this.panelSerachBar.Size = new System.Drawing.Size(1288, 89);
+            this.panelSerachBar.Size = new System.Drawing.Size(1381, 66);
             this.panelSerachBar.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelSerachBar.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelSerachBar.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
@@ -970,9 +951,9 @@
             // 
             this.btnUpdate.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnUpdate.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnUpdate.Location = new System.Drawing.Point(1011, 62);
+            this.btnUpdate.Location = new System.Drawing.Point(999, 5);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.Size = new System.Drawing.Size(87, 52);
             this.btnUpdate.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnUpdate.TabIndex = 53;
             this.btnUpdate.Text = "提交修改";
@@ -990,7 +971,7 @@
             this.txtSchFinishTimeTo.CustomFormat = "yyyy/MM/dd HH:mm";
             this.txtSchFinishTimeTo.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
             this.txtSchFinishTimeTo.IsPopupCalendarOpen = false;
-            this.txtSchFinishTimeTo.Location = new System.Drawing.Point(249, 63);
+            this.txtSchFinishTimeTo.Location = new System.Drawing.Point(554, 37);
             // 
             // 
             // 
@@ -1021,7 +1002,7 @@
             this.txtSchFinishTimeTo.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtSchFinishTimeTo.MonthCalendar.TodayButtonVisible = true;
             this.txtSchFinishTimeTo.Name = "txtSchFinishTimeTo";
-            this.txtSchFinishTimeTo.Size = new System.Drawing.Size(163, 21);
+            this.txtSchFinishTimeTo.Size = new System.Drawing.Size(132, 21);
             this.txtSchFinishTimeTo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.txtSchFinishTimeTo.TabIndex = 52;
             // 
@@ -1037,7 +1018,7 @@
             this.txtSchFinishTimeFrom.CustomFormat = "yyyy/MM/dd HH:mm";
             this.txtSchFinishTimeFrom.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
             this.txtSchFinishTimeFrom.IsPopupCalendarOpen = false;
-            this.txtSchFinishTimeFrom.Location = new System.Drawing.Point(62, 62);
+            this.txtSchFinishTimeFrom.Location = new System.Drawing.Point(404, 36);
             // 
             // 
             // 
@@ -1068,7 +1049,7 @@
             this.txtSchFinishTimeFrom.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtSchFinishTimeFrom.MonthCalendar.TodayButtonVisible = true;
             this.txtSchFinishTimeFrom.Name = "txtSchFinishTimeFrom";
-            this.txtSchFinishTimeFrom.Size = new System.Drawing.Size(163, 21);
+            this.txtSchFinishTimeFrom.Size = new System.Drawing.Size(132, 21);
             this.txtSchFinishTimeFrom.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.txtSchFinishTimeFrom.TabIndex = 51;
             // 
@@ -1078,7 +1059,7 @@
             // 
             // 
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(230, 62);
+            this.labelX1.Location = new System.Drawing.Point(538, 36);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(13, 21);
             this.labelX1.TabIndex = 50;
@@ -1090,23 +1071,11 @@
             // 
             // 
             this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX8.Location = new System.Drawing.Point(7, 62);
+            this.labelX8.Location = new System.Drawing.Point(349, 36);
             this.labelX8.Name = "labelX8";
             this.labelX8.Size = new System.Drawing.Size(63, 21);
             this.labelX8.TabIndex = 49;
             this.labelX8.Text = "出签时间:";
-            // 
-            // btnAddVisa
-            // 
-            this.btnAddVisa.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnAddVisa.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnAddVisa.Location = new System.Drawing.Point(1121, 3);
-            this.btnAddVisa.Name = "btnAddVisa";
-            this.btnAddVisa.Size = new System.Drawing.Size(66, 53);
-            this.btnAddVisa.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnAddVisa.TabIndex = 48;
-            this.btnAddVisa.Text = "添加团号";
-            this.btnAddVisa.Click += new System.EventHandler(this.btnAddVisa_Click);
             // 
             // txtSalesPerson
             // 
@@ -1187,31 +1156,6 @@
             this.labelX6.TabIndex = 45;
             this.labelX6.Text = "客户:";
             // 
-            // cbState
-            // 
-            this.cbState.DisplayMember = "Text";
-            this.cbState.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbState.ForeColor = System.Drawing.Color.Black;
-            this.cbState.FormattingEnabled = true;
-            this.cbState.ItemHeight = 15;
-            this.cbState.Location = new System.Drawing.Point(614, 36);
-            this.cbState.Name = "cbState";
-            this.cbState.Size = new System.Drawing.Size(82, 21);
-            this.cbState.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbState.TabIndex = 41;
-            // 
-            // labelX4
-            // 
-            // 
-            // 
-            // 
-            this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(555, 35);
-            this.labelX4.Name = "labelX4";
-            this.labelX4.Size = new System.Drawing.Size(46, 21);
-            this.labelX4.TabIndex = 40;
-            this.labelX4.Text = "状态:";
-            // 
             // cbCountry
             // 
             this.cbCountry.DisplayMember = "Text";
@@ -1236,43 +1180,6 @@
             this.labelX3.Size = new System.Drawing.Size(46, 21);
             this.labelX3.TabIndex = 35;
             this.labelX3.Text = "国家:";
-            // 
-            // cbIsUrgent
-            // 
-            this.cbIsUrgent.DisplayMember = "Text";
-            this.cbIsUrgent.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbIsUrgent.ForeColor = System.Drawing.Color.Black;
-            this.cbIsUrgent.FormattingEnabled = true;
-            this.cbIsUrgent.ItemHeight = 15;
-            this.cbIsUrgent.Location = new System.Drawing.Point(471, 35);
-            this.cbIsUrgent.Name = "cbIsUrgent";
-            this.cbIsUrgent.Size = new System.Drawing.Size(79, 21);
-            this.cbIsUrgent.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbIsUrgent.TabIndex = 34;
-            // 
-            // labelX2
-            // 
-            // 
-            // 
-            // 
-            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Location = new System.Drawing.Point(414, 36);
-            this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(68, 21);
-            this.labelX2.TabIndex = 33;
-            this.labelX2.Text = "是否急件:";
-            // 
-            // btnGetTodayExcel
-            // 
-            this.btnGetTodayExcel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnGetTodayExcel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnGetTodayExcel.Location = new System.Drawing.Point(1011, 4);
-            this.btnGetTodayExcel.Name = "btnGetTodayExcel";
-            this.btnGetTodayExcel.Size = new System.Drawing.Size(104, 53);
-            this.btnGetTodayExcel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnGetTodayExcel.TabIndex = 32;
-            this.btnGetTodayExcel.Text = "日本(个签)\r\n送签客人情况统计";
-            this.btnGetTodayExcel.Click += new System.EventHandler(this.btnGetTodayExcel_Click);
             // 
             // btnShowToday
             // 
@@ -1307,7 +1214,7 @@
             this.progressLoading.BackgroundStyle.BackgroundImageAlpha = ((byte)(64));
             this.progressLoading.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.progressLoading.FocusCuesEnabled = false;
-            this.progressLoading.Location = new System.Drawing.Point(1203, 5);
+            this.progressLoading.Location = new System.Drawing.Point(1220, 5);
             this.progressLoading.Name = "progressLoading";
             this.progressLoading.ProgressBarType = DevComponents.DotNetBar.eCircularProgressType.Dot;
             this.progressLoading.ProgressColor = System.Drawing.Color.YellowGreen;
@@ -1379,7 +1286,7 @@
             this.txtSchRealTimeTo.CustomFormat = "yyyy/MM/dd HH:mm";
             this.txtSchRealTimeTo.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
             this.txtSchRealTimeTo.IsPopupCalendarOpen = false;
-            this.txtSchRealTimeTo.Location = new System.Drawing.Point(249, 36);
+            this.txtSchRealTimeTo.Location = new System.Drawing.Point(212, 36);
             // 
             // 
             // 
@@ -1410,7 +1317,7 @@
             this.txtSchRealTimeTo.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtSchRealTimeTo.MonthCalendar.TodayButtonVisible = true;
             this.txtSchRealTimeTo.Name = "txtSchRealTimeTo";
-            this.txtSchRealTimeTo.Size = new System.Drawing.Size(163, 21);
+            this.txtSchRealTimeTo.Size = new System.Drawing.Size(132, 21);
             this.txtSchRealTimeTo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.txtSchRealTimeTo.TabIndex = 21;
             // 
@@ -1457,7 +1364,7 @@
             this.txtSchRealTimeFrom.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtSchRealTimeFrom.MonthCalendar.TodayButtonVisible = true;
             this.txtSchRealTimeFrom.Name = "txtSchRealTimeFrom";
-            this.txtSchRealTimeFrom.Size = new System.Drawing.Size(163, 21);
+            this.txtSchRealTimeFrom.Size = new System.Drawing.Size(132, 21);
             this.txtSchRealTimeFrom.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.txtSchRealTimeFrom.TabIndex = 20;
             // 
@@ -1467,7 +1374,7 @@
             // 
             // 
             this.labelX14.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX14.Location = new System.Drawing.Point(230, 35);
+            this.labelX14.Location = new System.Drawing.Point(196, 35);
             this.labelX14.Name = "labelX14";
             this.labelX14.Size = new System.Drawing.Size(13, 21);
             this.labelX14.TabIndex = 19;
@@ -1527,9 +1434,9 @@
             this.panelDgv.Controls.Add(this.dataGridView1);
             this.panelDgv.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelDgv.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDgv.Location = new System.Drawing.Point(0, 117);
+            this.panelDgv.Location = new System.Drawing.Point(0, 94);
             this.panelDgv.Name = "panelDgv";
-            this.panelDgv.Size = new System.Drawing.Size(1288, 457);
+            this.panelDgv.Size = new System.Drawing.Size(1381, 480);
             this.panelDgv.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelDgv.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelDgv.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
@@ -1553,11 +1460,25 @@
             this.添加到团号ToolStripMenuItem.Text = "添加到此团号";
             this.添加到团号ToolStripMenuItem.Click += new System.EventHandler(this.添加到团号ToolStripMenuItem_Click);
             // 
+            // lbMonneyCount
+            // 
+            // 
+            // 
+            // 
+            this.lbMonneyCount.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lbMonneyCount.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbMonneyCount.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lbMonneyCount.Location = new System.Drawing.Point(1093, 5);
+            this.lbMonneyCount.Name = "lbMonneyCount";
+            this.lbMonneyCount.Size = new System.Drawing.Size(166, 51);
+            this.lbMonneyCount.TabIndex = 54;
+            this.lbMonneyCount.Text = "共12000元";
+            // 
             // FrmVisaRequestPayoutManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1288, 574);
+            this.ClientSize = new System.Drawing.Size(1381, 574);
             this.Controls.Add(this.panelDgv);
             this.Controls.Add(this.panelBars);
             this.Name = "FrmVisaRequestPayoutManage";
@@ -1618,13 +1539,8 @@
         private System.Windows.Forms.ToolStripMenuItem 添加到团号ToolStripMenuItem;
         private DevComponents.DotNetBar.ButtonX btnShowToday;
         private System.Windows.Forms.ToolStripMenuItem 导出报表ToolStripMenuItem;
-        private DevComponents.DotNetBar.ButtonX btnGetTodayExcel;
-        private DevComponents.DotNetBar.LabelX labelX2;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx cbIsUrgent;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cbCountry;
         private DevComponents.DotNetBar.LabelX labelX3;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx cbState;
-        private DevComponents.DotNetBar.LabelX labelX4;
         private System.Windows.Forms.ToolStripMenuItem 打印报表ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 修改选中类型ToolStripMenuItem;
         private DevComponents.DotNetBar.LabelX labelX5;
@@ -1645,11 +1561,9 @@
         private System.Windows.Forms.ToolStripMenuItem 泰国ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 数据源报表ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 高拍仪做资料ToolStripMenuItem;
-        private DevComponents.DotNetBar.LabelItem lbMonneyCount;
         private System.Windows.Forms.ToolStripMenuItem 泰签担保函ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 机票报表ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem 韩国担保函ToolStripMenuItem;
-        private DevComponents.DotNetBar.ButtonX btnAddVisa;
         private System.Windows.Forms.ToolStripMenuItem 修改做资料状态ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 韩国加急申请书ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 机票东东国航ToolStripMenuItem;
@@ -1705,5 +1619,6 @@
         private System.Windows.Forms.ToolStripMenuItem 清除杂费款项ToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private DevComponents.DotNetBar.LabelX lbMonneyCount;
     }
 }

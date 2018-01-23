@@ -72,11 +72,7 @@ namespace TravelAgency.CSUI.FrmMain
             cbDisplayType.Items.Add("个签&&团做个");
             cbDisplayType.SelectedIndex = 0;
 
-            cbIsUrgent.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbIsUrgent.Items.Add("全部");
-            cbIsUrgent.Items.Add("是");
-            cbIsUrgent.Items.Add("否");
-            cbIsUrgent.SelectedIndex = 0;
+            
 
             //国家选择框加入
             //cbCountry.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -87,12 +83,6 @@ namespace TravelAgency.CSUI.FrmMain
             }
             cbCountry.SelectedIndex = 0;
 
-            cbState.Items.Add("全部");
-            cbState.Items.Add("已做");
-            cbState.Items.Add("未做");
-            cbState.Items.Add("未做完");
-            cbState.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbState.SelectedIndex = 0;
 
             cbDepatureType.Items.Add("全部");
             cbDepatureType.Items.Add("单次");
@@ -156,30 +146,12 @@ namespace TravelAgency.CSUI.FrmMain
                 curSelectedRow = dataGridView1.SelectedRows[0].Index;
 
             var list = _bllVisa.GetListByPage(page, _pageSize, _where);
-
-            //这里单独来区分已做和没做，很蛋疼，先这样解决，因为之前的where里面就是只用了visainfo的条件，现在得联合查询才行。
-            if (cbState.Text == "未做") //删掉已做的
-            {
-                list = _bllActionRecords.CheckStatesAndRemove(list, Common.Enums.ActType._02TypeInData, 1); //
-            }
-            if (cbState.Text == "已做") //删掉未做的
-            {
-                list = _bllActionRecords.CheckStatesAndRemove(list, Common.Enums.ActType._02TypeInData, 4); //
-            }
-            if (cbState.Text == "未做完")
-            {
-                list = _bllActionRecords.CheckStatesAndRemove(list, Common.Enums.ActType._02TypeInData, 2); //
-            }
-
-            //_hasFormated = false; //每次加载后，设置为还没有格式化(设置其他的显示，比如未做已做的状态等)
             dataGridView1.DataSource = list;
-
             _visaListBackUp = new List<Visa>(); //每次加载到dgv的时候也同时刷新备份部分
             foreach (var visa in list)
             {
                 _visaListBackUp.Add(visa.ToObjectCopy());
             }
-
 
             if (curSelectedRow != -1 && dataGridView1.Rows.Count > curSelectedRow)
                 dataGridView1.CurrentCell = dataGridView1.Rows[curSelectedRow].Cells[0];
@@ -303,17 +275,7 @@ namespace TravelAgency.CSUI.FrmMain
                                "') ");
             }
 
-            if (cbIsUrgent.Text == "全部")
-            {
-            }
-            else if (cbIsUrgent.Text == "是")
-            {
-                conditions.Add(" isurgent = 1 ");
-            }
-            else if (cbIsUrgent.Text == "否")
-            {
-                conditions.Add(" isurgent = 0 or isurgent is null ");
-            }
+            
 
             if (cbCountry.Text == "全部")
             {
@@ -358,9 +320,7 @@ namespace TravelAgency.CSUI.FrmMain
             txtSalesPerson.Text = string.Empty;
             txtClient.Text = string.Empty;
 
-            cbState.Text = "全部";
             cbDepatureType.Text = "全部";
-            cbIsUrgent.Text = "全部";
             cbDisplayType.Text = "全部";
             cbCountry.Text = "全部";
         }
@@ -517,8 +477,6 @@ namespace TravelAgency.CSUI.FrmMain
             }
 
             lbMonneyCount.Text = "共:" + moneycount + "元.";
-
-            //_hasFormated = true;
         }
 
         /// <summary>
