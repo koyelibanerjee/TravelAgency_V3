@@ -74,16 +74,41 @@ namespace TravelAgency.CSUI.FrmSub
                 FrmSelClientCharge frm = new FrmSelClientCharge(list);
                 if (frm.ShowDialog() == DialogResult.Cancel)
                     return;
+
+                string country = GetCellValue(e.RowIndex, "Country");
+                string type = GetCellValue(e.RowIndex, "Types");
+                string depatureType = GetCellValue(e.RowIndex, "DepartureType");
+                string client = GetCellValue(e.RowIndex, "Client");
+
+                if (frm.ChangeAllAlike)
+                {
+                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                    {
+                        if (GetCellValue(i, "Country") == country && GetCellValue(i, "Types") == type &&
+                            GetCellValue(i, "DepartureType") == depatureType && GetCellValue(i, "client") == client)
+                        {
+                            dataGridView1.Rows[i].Cells["Receipt"].Value = list[frm.SelIdx].Charge;
+                        }
+                    }
+                }
+                else
+                {
+                    dataGridView1.Rows[e.RowIndex].Cells["Receipt"].Value = list[frm.SelIdx].Charge;
+                }
             }
             else
             {
                 var list = GetConsulateCharges(e.RowIndex);
                 if (list.Count <= 0)
+                {
+                    MessageBoxEx.Show("未找到相关记录，请手动录入!");
                     return;
+                }
+
+
                 FrmSelConsulateCharge frm = new FrmSelConsulateCharge(list);
                 if (frm.ShowDialog() == DialogResult.Cancel)
                 {
-                    MessageBoxEx.Show("未找到相关记录，请手动录入!");
                     return;
                 }
 

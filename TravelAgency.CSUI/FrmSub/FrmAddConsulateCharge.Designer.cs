@@ -286,13 +286,13 @@
             this.cbCountry.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cbCountry.TabIndex = 0;
             // 
-            // FrmConsulateCharge
+            // FrmAddConsulateCharge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(421, 267);
             this.Controls.Add(this.panelEx1);
-            this.Name = "FrmConsulateCharge";
+            this.Name = "FrmAddConsulateCharge";
             this.Text = "领馆费用选择:";
             this.Load += new System.EventHandler(this.FrmConsulateCharge_Load);
             this.panelEx1.ResumeLayout(false);
