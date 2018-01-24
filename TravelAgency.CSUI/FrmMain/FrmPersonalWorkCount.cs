@@ -22,6 +22,7 @@ namespace TravelAgency.CSUI.FrmMain
     {
         private readonly TravelAgency.BLL.ActionRecords _bllActionRecords = new TravelAgency.BLL.ActionRecords();
         private readonly TravelAgency.BLL.StatisticsBll _bllStatisticsBll = new TravelAgency.BLL.StatisticsBll();
+        private readonly TravelAgency.BLL.CommisionBll _bllCommisionBll = new TravelAgency.BLL.CommisionBll();
 
         private int _curPage = 1;
         private int _pageCount = 0;
@@ -58,11 +59,14 @@ namespace TravelAgency.CSUI.FrmMain
 
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //千万不能开allcells，特别卡
-            //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
-            //dataGridView1.Columns["GroupNo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-
             dataGridView1.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
+            dataGridView1.SelectionChanged += DataGridView1_SelectionChanged;
+
+            dgvCommison.AutoGenerateColumns = false;
+            dgvCommison.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //千万不能开allcells，特别卡
+            dgvCommison.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dgvCommison.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
 
             //设置可跨线程访问窗体
             //TODO:这里可能需要修改
@@ -80,6 +84,11 @@ namespace TravelAgency.CSUI.FrmMain
             progressLoading.Visible = false;
 
             LoadDataToDgvAsyn();
+        }
+
+        private void DataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            LoadDataToCommisionDgv();
         }
 
         #region model与control
@@ -157,6 +166,13 @@ namespace TravelAgency.CSUI.FrmMain
             progressLoading.IsRunning = true;
         }
 
+        private void LoadDataToCommisionDgv()
+        {
+            var list = _bllCommisionBll.GetPersonCommisonList(txtSchEntryTimeFrom.Text, txtSchEntryTimeTo.Text,
+                dataGridView1.CurrentRow.Cells["UserName"].Value.ToString());
+            dgvCommison.DataSource = list;
+        }
+
         public void LoadDataToDataGridView(int page) //刷新后保持选中
         {
             int curSelectedRow = -1;
@@ -226,7 +242,7 @@ namespace TravelAgency.CSUI.FrmMain
 
             txtSchEntryTimeFrom.Text = string.Empty;
             txtSchEntryTimeTo.Text = string.Empty;
-            
+
         }
 
 

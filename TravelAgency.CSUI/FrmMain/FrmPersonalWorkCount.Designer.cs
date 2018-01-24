@@ -32,9 +32,29 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WorkId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type00Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type01Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type02Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type03Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type04Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMain = new DevComponents.DotNetBar.PanelEx();
             this.panelDgv = new DevComponents.DotNetBar.PanelEx();
+            this.dgvCommison = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type00ScanedIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type02TypeInData = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type05SendSubmission = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type06GetSubmission = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type06AccompanySubmission = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type07Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Commission = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelBars = new DevComponents.DotNetBar.PanelEx();
             this.panelSerachBar = new DevComponents.DotNetBar.PanelEx();
             this.btnTimeSpanChoose = new DevComponents.DotNetBar.ButtonX();
@@ -69,17 +89,10 @@
             this.bgWorkerLoadData = new System.ComponentModel.BackgroundWorker();
             this.cms4AddToExport = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.添加到送签统计ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WorkId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type00Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type01Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type02Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type03Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type04Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Count = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panelDgv.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCommison)).BeginInit();
             this.panelBars.SuspendLayout();
             this.panelSerachBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSchEntryTimeTo)).BeginInit();
@@ -123,7 +136,7 @@
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -138,11 +151,67 @@
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1271, 556);
+            this.dataGridView1.Size = new System.Drawing.Size(632, 556);
             this.dataGridView1.TabIndex = 10;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridView1.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseUp);
             this.dataGridView1.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
+            // 
+            // UserName
+            // 
+            this.UserName.DataPropertyName = "UserName";
+            this.UserName.HeaderText = "姓名";
+            this.UserName.Name = "UserName";
+            this.UserName.ReadOnly = true;
+            // 
+            // WorkId
+            // 
+            this.WorkId.DataPropertyName = "WorkId";
+            this.WorkId.HeaderText = "工号";
+            this.WorkId.Name = "WorkId";
+            this.WorkId.ReadOnly = true;
+            // 
+            // Type00Count
+            // 
+            this.Type00Count.DataPropertyName = "Type00Count";
+            this.Type00Count.HeaderText = "00录入(扫描)";
+            this.Type00Count.Name = "Type00Count";
+            this.Type00Count.ReadOnly = true;
+            // 
+            // Type01Count
+            // 
+            this.Type01Count.DataPropertyName = "Type01Count";
+            this.Type01Count.HeaderText = "01录入(设置团号)";
+            this.Type01Count.Name = "Type01Count";
+            this.Type01Count.ReadOnly = true;
+            // 
+            // Type02Count
+            // 
+            this.Type02Count.DataPropertyName = "Type02Count";
+            this.Type02Count.HeaderText = "02录入做资料";
+            this.Type02Count.Name = "Type02Count";
+            this.Type02Count.ReadOnly = true;
+            // 
+            // Type03Count
+            // 
+            this.Type03Count.DataPropertyName = "Type03Count";
+            this.Type03Count.HeaderText = "03修改资料";
+            this.Type03Count.Name = "Type03Count";
+            this.Type03Count.ReadOnly = true;
+            // 
+            // Type04Count
+            // 
+            this.Type04Count.DataPropertyName = "Type04Count";
+            this.Type04Count.HeaderText = "04校验";
+            this.Type04Count.Name = "Type04Count";
+            this.Type04Count.ReadOnly = true;
+            // 
+            // Count
+            // 
+            this.Count.DataPropertyName = "Count";
+            this.Count.HeaderText = "总计";
+            this.Count.Name = "Count";
+            this.Count.ReadOnly = true;
             // 
             // panelMain
             // 
@@ -169,6 +238,7 @@
             this.panelDgv.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelDgv.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.panelDgv.Controls.Add(this.dataGridView1);
+            this.panelDgv.Controls.Add(this.dgvCommison);
             this.panelDgv.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelDgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDgv.Location = new System.Drawing.Point(0, 67);
@@ -182,6 +252,114 @@
             this.panelDgv.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.panelDgv.Style.GradientAngle = 90;
             this.panelDgv.TabIndex = 38;
+            // 
+            // dgvCommison
+            // 
+            this.dgvCommison.AllowUserToAddRows = false;
+            this.dgvCommison.AllowUserToDeleteRows = false;
+            this.dgvCommison.AllowUserToOrderColumns = true;
+            this.dgvCommison.AllowUserToResizeRows = false;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCommison.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvCommison.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCommison.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Type,
+            this.Type00ScanedIn,
+            this.Type02TypeInData,
+            this.Type05SendSubmission,
+            this.Type06GetSubmission,
+            this.Type06AccompanySubmission,
+            this.Type07Plan,
+            this.Commission});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCommison.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvCommison.Dock = System.Windows.Forms.DockStyle.Right;
+            this.dgvCommison.EnableHeadersVisualStyles = false;
+            this.dgvCommison.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.dgvCommison.Location = new System.Drawing.Point(632, 0);
+            this.dgvCommison.Name = "dgvCommison";
+            this.dgvCommison.ReadOnly = true;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCommison.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvCommison.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            this.dgvCommison.RowTemplate.Height = 30;
+            this.dgvCommison.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCommison.Size = new System.Drawing.Size(639, 556);
+            this.dgvCommison.TabIndex = 11;
+            // 
+            // Type
+            // 
+            this.Type.DataPropertyName = "Type";
+            this.Type.HeaderText = "类型";
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
+            // 
+            // Type00ScanedIn
+            // 
+            this.Type00ScanedIn.DataPropertyName = "Type00ScanedIn";
+            this.Type00ScanedIn.HeaderText = "扫描录入";
+            this.Type00ScanedIn.Name = "Type00ScanedIn";
+            this.Type00ScanedIn.ReadOnly = true;
+            // 
+            // Type02TypeInData
+            // 
+            this.Type02TypeInData.DataPropertyName = "Type02TypeInData";
+            this.Type02TypeInData.HeaderText = "资料审查";
+            this.Type02TypeInData.Name = "Type02TypeInData";
+            this.Type02TypeInData.ReadOnly = true;
+            // 
+            // Type05SendSubmission
+            // 
+            this.Type05SendSubmission.DataPropertyName = "Type05SendSubmission";
+            this.Type05SendSubmission.HeaderText = "送签";
+            this.Type05SendSubmission.Name = "Type05SendSubmission";
+            this.Type05SendSubmission.ReadOnly = true;
+            // 
+            // Type06GetSubmission
+            // 
+            this.Type06GetSubmission.DataPropertyName = "Type06GetSubmission";
+            this.Type06GetSubmission.HeaderText = "取签";
+            this.Type06GetSubmission.Name = "Type06GetSubmission";
+            this.Type06GetSubmission.ReadOnly = true;
+            // 
+            // Type06AccompanySubmission
+            // 
+            this.Type06AccompanySubmission.DataPropertyName = "Type06AccompanySubmission";
+            this.Type06AccompanySubmission.HeaderText = "陪签";
+            this.Type06AccompanySubmission.Name = "Type06AccompanySubmission";
+            this.Type06AccompanySubmission.ReadOnly = true;
+            // 
+            // Type07Plan
+            // 
+            this.Type07Plan.DataPropertyName = "Type07Plan";
+            this.Type07Plan.HeaderText = "安排";
+            this.Type07Plan.Name = "Type07Plan";
+            this.Type07Plan.ReadOnly = true;
+            // 
+            // Commission
+            // 
+            this.Commission.DataPropertyName = "Commission";
+            this.Commission.HeaderText = "提成总计";
+            this.Commission.Name = "Commission";
+            this.Commission.ReadOnly = true;
             // 
             // panelBars
             // 
@@ -565,62 +743,6 @@
             this.添加到送签统计ToolStripMenuItem.Name = "添加到送签统计ToolStripMenuItem";
             this.添加到送签统计ToolStripMenuItem.Size = new System.Drawing.Size(68, 22);
             // 
-            // UserName
-            // 
-            this.UserName.DataPropertyName = "UserName";
-            this.UserName.HeaderText = "姓名";
-            this.UserName.Name = "UserName";
-            this.UserName.ReadOnly = true;
-            // 
-            // WorkId
-            // 
-            this.WorkId.DataPropertyName = "WorkId";
-            this.WorkId.HeaderText = "工号";
-            this.WorkId.Name = "WorkId";
-            this.WorkId.ReadOnly = true;
-            // 
-            // Type00Count
-            // 
-            this.Type00Count.DataPropertyName = "Type00Count";
-            this.Type00Count.HeaderText = "00录入(扫描)";
-            this.Type00Count.Name = "Type00Count";
-            this.Type00Count.ReadOnly = true;
-            // 
-            // Type01Count
-            // 
-            this.Type01Count.DataPropertyName = "Type01Count";
-            this.Type01Count.HeaderText = "01录入(设置团号)";
-            this.Type01Count.Name = "Type01Count";
-            this.Type01Count.ReadOnly = true;
-            // 
-            // Type02Count
-            // 
-            this.Type02Count.DataPropertyName = "Type02Count";
-            this.Type02Count.HeaderText = "02录入做资料";
-            this.Type02Count.Name = "Type02Count";
-            this.Type02Count.ReadOnly = true;
-            // 
-            // Type03Count
-            // 
-            this.Type03Count.DataPropertyName = "Type03Count";
-            this.Type03Count.HeaderText = "03修改资料";
-            this.Type03Count.Name = "Type03Count";
-            this.Type03Count.ReadOnly = true;
-            // 
-            // Type04Count
-            // 
-            this.Type04Count.DataPropertyName = "Type04Count";
-            this.Type04Count.HeaderText = "04校验";
-            this.Type04Count.Name = "Type04Count";
-            this.Type04Count.ReadOnly = true;
-            // 
-            // Count
-            // 
-            this.Count.DataPropertyName = "Count";
-            this.Count.HeaderText = "总计";
-            this.Count.Name = "Count";
-            this.Count.ReadOnly = true;
-            // 
             // FrmPersonalWorkCount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -633,6 +755,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panelMain.ResumeLayout(false);
             this.panelDgv.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCommison)).EndInit();
             this.panelBars.ResumeLayout(false);
             this.panelSerachBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtSchEntryTimeTo)).EndInit();
@@ -691,6 +814,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Type03Count;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type04Count;
         private System.Windows.Forms.DataGridViewTextBoxColumn Count;
+        private DevComponents.DotNetBar.Controls.DataGridViewX dgvCommison;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type00ScanedIn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type02TypeInData;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type05SendSubmission;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type06GetSubmission;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type06AccompanySubmission;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type07Plan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Commission;
     }
 }
 

@@ -126,6 +126,7 @@
     <Compile Include="AuthUser.cs" />
     <Compile Include="ClientChargeBll.cs" />
     <Compile Include="ClientCharge.cs" />
+    <Compile Include="CommisionBll.cs" />
     <Compile Include="CommonBll.cs" />
     <Compile Include="ConsulateCharge.cs" />
     <Compile Include="HasExported8ReportBLL.cs" />

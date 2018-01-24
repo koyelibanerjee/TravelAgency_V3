@@ -15,7 +15,6 @@ namespace TravelAgency.DAL
             {
                 foreach (DataRow row in ds.Tables[0].Rows)
                 {
-
                     if (row[filedName] != null && row[filedName].ToString() != "")
                     {
                         res.Add(row[filedName].ToString());

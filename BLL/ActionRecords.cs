@@ -71,7 +71,7 @@ namespace TravelAgency.BLL
 		{
 			return dal.GetList(strWhere);
 		}
-		/// <summary>
+		/// <summary>string username
 		/// 获得前几行数据
 		/// </summary>
 		public DataSet GetList(int Top,string strWhere,string filedOrder)

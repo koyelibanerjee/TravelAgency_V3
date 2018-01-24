@@ -8,47 +8,72 @@ namespace TravelAgency.BLL
 {
     public class StatisticsBll
     {
-        public string tablename;
+        public string tablename = "ActionRecords";
         private DAL.StatisticsDal dal = new StatisticsDal();
 
-        public int GetCountByTimeSpan(string from, string to)
+        /// <summary>
+        /// 按照时间区间求记录数目
+        /// </summary>
+        /// <param name="from"></param>
+        /// <param name="to"></param>
+        /// <param name="otherwhere"></param>
+        /// <returns></returns>
+        public int GetCountByTimeSpan(string from, string to, string otherwhere = "")
         {
-            string where = "entrytime between '" + from.ToString() + "' and '" + to.ToString() + "'";
-            return dal.GetRecordCount(tablename, where);
+            string where = null;
+            if (!string.IsNullOrEmpty(from) && !string.IsNullOrEmpty(to))
+                where = "entrytime between '" + from.ToString() + "' and '" + to.ToString() + "'";
+
+            if (!string.IsNullOrEmpty(otherwhere))
+                if (!string.IsNullOrEmpty(where))
+                    where += " and " + otherwhere;
+                else
+                    where += otherwhere;
+            return dal.GetActRecordCount(where);
         }
 
 
-        public int GetCountByTimeSpan(DateTime from, DateTime to)
-        {
-            return GetCountByTimeSpan(from.ToString(), to.ToString()); //精确到s了的
-        }
 
-        public int GetCountOfYear(int year)
+
+        //public int GetCountByTimeSpan(DateTime from, DateTime to)
+        //{
+        //    return GetCountByTimeSpan(from.ToString(), to.ToString()); //精确到s了的
+        //}
+        #region 统计指定年月日
+        public int GetCountOfYear(int year, string otherwhere = "")
         {
             string strFrom = year + "-01-01 00:00:00";
             string strTo = year + "-12-31 23:59:59";
-            return GetCountByTimeSpan(strFrom, strTo);
+            return GetCountByTimeSpan(strFrom, strTo, otherwhere);
         }
 
-        public int GetCountOfCurYear()
-        {
-            return GetCountOfYear(DateTime.Now.Year);
-        }
 
-        public int GetCountOfMonth(int year, int month)
+
+        public int GetCountOfMonth(int year, int month, string otherwhere = "")
         {
             int lastday = TimeHandlers.TimeParser.GetMonthLastDate(year, month);
             string strFrom = String.Format("{0}-{1}-01 00:00:00", year, month);
             string strTo = String.Format("{0}-{1}-{2} 23:59:59", year, month, lastday);
-            return GetCountByTimeSpan(strFrom, strTo);
+            return GetCountByTimeSpan(strFrom, strTo, otherwhere);
         }
-
-        public int GetCountOfCurMonth()
+        public int GetCountOfDay(int year, int month, int day, string otherwhere = "")
         {
-            return GetCountOfMonth(DateTime.Now.Year, DateTime.Now.Month);
+            string strFrom = String.Format("{0}-{1}-{2} 00:00:00", year, month, day);
+            string strTo = String.Format("{0}-{1}-{2} 23:59:59", year, month, day);
+            return GetCountByTimeSpan(strFrom, strTo, otherwhere);
+        }
+        #endregion
+        #region 统计当前年月周
+        public int GetCountOfCurYear(string otherwhere = "")
+        {
+            return GetCountOfYear(DateTime.Now.Year, otherwhere);
+        }
+        public int GetCountOfCurMonth(string otherwhere = "")
+        {
+            return GetCountOfMonth(DateTime.Now.Year, DateTime.Now.Month, otherwhere);
         }
 
-        public int GetCountOfCurWeek()
+        public int GetCountOfCurWeek(string otherwhere = "")
         {
             int year = DateTime.Now.Year;
             int month = DateTime.Now.Month;
@@ -59,10 +84,15 @@ namespace TravelAgency.BLL
                 day = DateTime.Now.Day - 6;
             else
                 day = DateTime.Now.Day - (DateTime.Now.DayOfWeek - DayOfWeek.Monday);
-            strFrom = String.Format("{0}-{1}-{2} 00:00:00", year, month, day);
-            strTo = String.Format("{0}-{1}-{2} 23:59:59", year, month, day + 6);
-            return GetCountByTimeSpan(strFrom, strTo);
+            strFrom = $"{year}-{month}-{day} 00:00:00";
+            strTo = $"{year}-{month}-{day + 6} 23:59:59";
+            return GetCountByTimeSpan(strFrom, strTo, otherwhere);
         }
+        public int GetCountOfCurDay(string otherwhere = "")
+        {
+            return GetCountOfDay(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, otherwhere);
+        }
+        #endregion
 
 
 
@@ -75,30 +105,21 @@ namespace TravelAgency.BLL
         //    return GetCountByTimeSpan(strFrom, strTo);
         //}
 
-        public int GetCountOfDay(int year, int month, int day)
-        {
-            string strFrom = String.Format("{0}-{1}-{2} 00:00:00", year, month, day);
-            string strTo = String.Format("{0}-{1}-{2} 23:59:59", year, month, day);
-            return GetCountByTimeSpan(strFrom, strTo);
-        }
-
-        public int GetCountOfCurDay()
-        {
-            return GetCountOfDay(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
-        }
-
+        #region 统计个人工作量，不管提成的部分
         /// <summary>
         /// 取操作记录的数目按照时间区间,如果传入空则不管时间区间
         /// </summary>
         /// <param name="ActType"></param>
         /// <param name="username"></param>
         /// <returns></returns>
-        public int GetActRecordCount(string acttype, string username, string from, string to)
+        public int GetActRecordCount(string acttype, string username, string from, string to, string otherwhere = "")
         {
-
             string where = " acttype = '" + acttype + "' and username ='" + username + "' ";
             if (!string.IsNullOrEmpty(from) && !string.IsNullOrEmpty(to))
                 where += " and (entrytime between '" + from + "' and '" + to + "') ";
+
+            if (!string.IsNullOrEmpty(otherwhere))
+                where += " and " + otherwhere;
             return dal.GetActRecordCount(where);
         }
 
@@ -126,6 +147,9 @@ namespace TravelAgency.BLL
             statList.Sort((model1, model2) => { return model1.Count < model2.Count ? 1 : -1; }); //按照总量排序
             return statList;
         }
+        #endregion
+
+
 
 
     }

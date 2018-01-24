@@ -20,7 +20,8 @@ namespace TravelAgency.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select count(1) FROM " + tablename + " ");
-            if (strWhere.Trim() != "")
+
+            if (!string.IsNullOrEmpty(strWhere) && strWhere.Trim() != "")
             {
                 strSql.Append(" where " + strWhere);
             }
@@ -52,7 +53,5 @@ namespace TravelAgency.DAL
             string sql = sb.ToString();
             return DbHelperSQL.Query(sql).Tables[0].Rows.Count;
         }
-
-
     }
 }

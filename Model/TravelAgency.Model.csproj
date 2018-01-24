@@ -126,6 +126,7 @@
   <ItemGroup>
     <Compile Include="AuthUser.cs" />
     <Compile Include="ClientCharge.cs" />
+    <Compile Include="CommisonModel.cs" />
     <Compile Include="ConsulateCharge.cs" />
     <Compile Include="HasExported8Report.cs" />
     <Compile Include="PersonalStat.cs" />

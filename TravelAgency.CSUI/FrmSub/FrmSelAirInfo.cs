@@ -15,6 +15,10 @@ namespace TravelAgency.CSUI.FrmSub
         public int SelIdx { get; set; }
         public FrmSelAirInfo()
         {
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.StartPosition = FormStartPosition.CenterParent;
+            this.Text = "请选择要使用的机票信息";
             InitializeComponent();
         }
 
