@@ -1130,6 +1130,20 @@ _dgvList[i], _visaModel);
             Close();
         }
 
+        /// <summary>
+        /// 导出身元模板
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnGetShenYuanMuban_Click(object sender, EventArgs e)
+        {
+            //弹出选择机票模板窗口
+            FrmSelAirInfo frm = new FrmSelAirInfo();
+            if (DialogResult.Cancel == frm.ShowDialog())
+                return;
+            List<string> airinfoList = AirInfos.AirInfoDict[frm.SelIdx];
+            ExcelGenerator.GetYuanShenMuban(_dgvList, airinfoList);
+        }
         #endregion
 
         #region dgv右键弹出菜单响应
