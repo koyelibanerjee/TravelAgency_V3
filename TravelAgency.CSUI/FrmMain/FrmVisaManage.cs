@@ -24,7 +24,7 @@ namespace TravelAgency.CSUI.FrmMain
         private readonly TravelAgency.BLL.HasExported8Report _bllHasExported8Report = new HasExported8Report();
         private int _curPage = 1;
         private int _pageCount = 0;
-        private int _pageSize = 30;
+        private int _pageSize = 50;
         private int _recordCount = 0;
         private bool _init = false;
         private string _where = string.Empty;
