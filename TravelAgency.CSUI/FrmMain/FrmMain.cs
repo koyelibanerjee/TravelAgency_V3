@@ -190,5 +190,11 @@ namespace TravelAgency.CSUI.FrmMain
         {
             lbVisaInfoCount.Text = str;
         }
+
+        private void btnCommisionMoneyManage_Click(object sender, EventArgs e)
+        {
+            FrmCommisionMoneyManage frm = new FrmCommisionMoneyManage();
+            OpenTab(frm, frm.Name);
+        }
     }
 }

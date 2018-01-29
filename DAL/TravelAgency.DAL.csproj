@@ -144,6 +144,7 @@
     <Compile Include="AuthUser.cs" />
     <Compile Include="ClientChargeDal.cs" />
     <Compile Include="ClientCharge.cs" />
+    <Compile Include="CommisionMoneyDal.cs" />
     <Compile Include="CommisionMoney.cs" />
     <Compile Include="CommonDal.cs" />
     <Compile Include="ConsulateCharge.cs" />

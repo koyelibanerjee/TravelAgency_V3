@@ -47,14 +47,6 @@
             this.panelMain = new DevComponents.DotNetBar.PanelEx();
             this.panelDgv = new DevComponents.DotNetBar.PanelEx();
             this.dgvCommison = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type00ScanedIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type02TypeInData = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type05SendSubmission = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type06GetSubmission = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type06AccompanySubmission = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type07Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Commission = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelBars = new DevComponents.DotNetBar.PanelEx();
             this.panelSerachBar = new DevComponents.DotNetBar.PanelEx();
             this.btnTimeSpanChoose = new DevComponents.DotNetBar.ButtonX();
@@ -89,6 +81,14 @@
             this.bgWorkerLoadData = new System.ComponentModel.BackgroundWorker();
             this.cms4AddToExport = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.添加到送签统计ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type00ScanedIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type02TypeInData = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type05SendSubmission = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type06GetSubmission = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type07AccompanySubmission = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type08Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Commission = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panelDgv.SuspendLayout();
@@ -274,8 +274,8 @@
             this.Type02TypeInData,
             this.Type05SendSubmission,
             this.Type06GetSubmission,
-            this.Type06AccompanySubmission,
-            this.Type07Plan,
+            this.Type07AccompanySubmission,
+            this.Type08Plan,
             this.Commission});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
@@ -304,62 +304,6 @@
             this.dgvCommison.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCommison.Size = new System.Drawing.Size(639, 556);
             this.dgvCommison.TabIndex = 11;
-            // 
-            // Type
-            // 
-            this.Type.DataPropertyName = "Type";
-            this.Type.HeaderText = "类型";
-            this.Type.Name = "Type";
-            this.Type.ReadOnly = true;
-            // 
-            // Type00ScanedIn
-            // 
-            this.Type00ScanedIn.DataPropertyName = "Type00ScanedIn";
-            this.Type00ScanedIn.HeaderText = "扫描录入";
-            this.Type00ScanedIn.Name = "Type00ScanedIn";
-            this.Type00ScanedIn.ReadOnly = true;
-            // 
-            // Type02TypeInData
-            // 
-            this.Type02TypeInData.DataPropertyName = "Type02TypeInData";
-            this.Type02TypeInData.HeaderText = "资料审查";
-            this.Type02TypeInData.Name = "Type02TypeInData";
-            this.Type02TypeInData.ReadOnly = true;
-            // 
-            // Type05SendSubmission
-            // 
-            this.Type05SendSubmission.DataPropertyName = "Type05SendSubmission";
-            this.Type05SendSubmission.HeaderText = "送签";
-            this.Type05SendSubmission.Name = "Type05SendSubmission";
-            this.Type05SendSubmission.ReadOnly = true;
-            // 
-            // Type06GetSubmission
-            // 
-            this.Type06GetSubmission.DataPropertyName = "Type06GetSubmission";
-            this.Type06GetSubmission.HeaderText = "取签";
-            this.Type06GetSubmission.Name = "Type06GetSubmission";
-            this.Type06GetSubmission.ReadOnly = true;
-            // 
-            // Type06AccompanySubmission
-            // 
-            this.Type06AccompanySubmission.DataPropertyName = "Type06AccompanySubmission";
-            this.Type06AccompanySubmission.HeaderText = "陪签";
-            this.Type06AccompanySubmission.Name = "Type06AccompanySubmission";
-            this.Type06AccompanySubmission.ReadOnly = true;
-            // 
-            // Type07Plan
-            // 
-            this.Type07Plan.DataPropertyName = "Type07Plan";
-            this.Type07Plan.HeaderText = "安排";
-            this.Type07Plan.Name = "Type07Plan";
-            this.Type07Plan.ReadOnly = true;
-            // 
-            // Commission
-            // 
-            this.Commission.DataPropertyName = "Commission";
-            this.Commission.HeaderText = "提成总计";
-            this.Commission.Name = "Commission";
-            this.Commission.ReadOnly = true;
             // 
             // panelBars
             // 
@@ -743,6 +687,62 @@
             this.添加到送签统计ToolStripMenuItem.Name = "添加到送签统计ToolStripMenuItem";
             this.添加到送签统计ToolStripMenuItem.Size = new System.Drawing.Size(68, 22);
             // 
+            // Type
+            // 
+            this.Type.DataPropertyName = "Type";
+            this.Type.HeaderText = "类型";
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
+            // 
+            // Type00ScanedIn
+            // 
+            this.Type00ScanedIn.DataPropertyName = "Type00ScanedIn";
+            this.Type00ScanedIn.HeaderText = "扫描录入";
+            this.Type00ScanedIn.Name = "Type00ScanedIn";
+            this.Type00ScanedIn.ReadOnly = true;
+            // 
+            // Type02TypeInData
+            // 
+            this.Type02TypeInData.DataPropertyName = "Type02TypeInData";
+            this.Type02TypeInData.HeaderText = "资料审查";
+            this.Type02TypeInData.Name = "Type02TypeInData";
+            this.Type02TypeInData.ReadOnly = true;
+            // 
+            // Type05SendSubmission
+            // 
+            this.Type05SendSubmission.DataPropertyName = "Type05SendSubmission";
+            this.Type05SendSubmission.HeaderText = "送签";
+            this.Type05SendSubmission.Name = "Type05SendSubmission";
+            this.Type05SendSubmission.ReadOnly = true;
+            // 
+            // Type06GetSubmission
+            // 
+            this.Type06GetSubmission.DataPropertyName = "Type06GetSubmission";
+            this.Type06GetSubmission.HeaderText = "取签";
+            this.Type06GetSubmission.Name = "Type06GetSubmission";
+            this.Type06GetSubmission.ReadOnly = true;
+            // 
+            // Type07AccompanySubmission
+            // 
+            this.Type07AccompanySubmission.DataPropertyName = "Type07AccompanySubmission";
+            this.Type07AccompanySubmission.HeaderText = "陪签";
+            this.Type07AccompanySubmission.Name = "Type07AccompanySubmission";
+            this.Type07AccompanySubmission.ReadOnly = true;
+            // 
+            // Type08Plan
+            // 
+            this.Type08Plan.DataPropertyName = "Type08Plan";
+            this.Type08Plan.HeaderText = "安排";
+            this.Type08Plan.Name = "Type08Plan";
+            this.Type08Plan.ReadOnly = true;
+            // 
+            // Commission
+            // 
+            this.Commission.DataPropertyName = "Commission";
+            this.Commission.HeaderText = "提成总计";
+            this.Commission.Name = "Commission";
+            this.Commission.ReadOnly = true;
+            // 
             // FrmPersonalWorkCount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -820,8 +820,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Type02TypeInData;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type05SendSubmission;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type06GetSubmission;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Type06AccompanySubmission;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Type07Plan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type07AccompanySubmission;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type08Plan;
         private System.Windows.Forms.DataGridViewTextBoxColumn Commission;
     }
 }

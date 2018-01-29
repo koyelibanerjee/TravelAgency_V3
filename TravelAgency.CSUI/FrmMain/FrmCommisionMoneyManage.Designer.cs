@@ -74,8 +74,8 @@
             this.Type02TypeInData = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type05SendSubmission = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type06GetSubmission = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type06AccompanySubmission = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type07Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type07AccompanySubmission = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type08Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMain.SuspendLayout();
             this.panelDgv.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -148,14 +148,14 @@
             this.Type02TypeInData,
             this.Type05SendSubmission,
             this.Type06GetSubmission,
-            this.Type06AccompanySubmission,
-            this.Type07Plan});
+            this.Type07AccompanySubmission,
+            this.Type08Plan});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -595,19 +595,19 @@
             this.Type06GetSubmission.Name = "Type06GetSubmission";
             this.Type06GetSubmission.ReadOnly = true;
             // 
-            // Type06AccompanySubmission
+            // Type07AccompanySubmission
             // 
-            this.Type06AccompanySubmission.DataPropertyName = "Type06AccompanySubmission";
-            this.Type06AccompanySubmission.HeaderText = "陪签";
-            this.Type06AccompanySubmission.Name = "Type06AccompanySubmission";
-            this.Type06AccompanySubmission.ReadOnly = true;
+            this.Type07AccompanySubmission.DataPropertyName = "Type07AccompanySubmission";
+            this.Type07AccompanySubmission.HeaderText = "陪签";
+            this.Type07AccompanySubmission.Name = "Type07AccompanySubmission";
+            this.Type07AccompanySubmission.ReadOnly = true;
             // 
-            // Type07Plan
+            // Type08Plan
             // 
-            this.Type07Plan.DataPropertyName = "Type07Plan";
-            this.Type07Plan.HeaderText = "安排";
-            this.Type07Plan.Name = "Type07Plan";
-            this.Type07Plan.ReadOnly = true;
+            this.Type08Plan.DataPropertyName = "Type08Plan";
+            this.Type08Plan.HeaderText = "安排";
+            this.Type08Plan.Name = "Type08Plan";
+            this.Type08Plan.ReadOnly = true;
             // 
             // FrmCommisionMoneyManage
             // 
@@ -616,7 +616,7 @@
             this.ClientSize = new System.Drawing.Size(1271, 623);
             this.Controls.Add(this.panelMain);
             this.Name = "FrmCommisionMoneyManage";
-            this.Text = "个人工作量统计";
+            this.Text = "工作量提成配置";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panelMain.ResumeLayout(false);
             this.panelDgv.ResumeLayout(false);
@@ -675,8 +675,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Type02TypeInData;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type05SendSubmission;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type06GetSubmission;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Type06AccompanySubmission;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Type07Plan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type07AccompanySubmission;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Type08Plan;
     }
 }
 

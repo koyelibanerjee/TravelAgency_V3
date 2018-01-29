@@ -23,6 +23,7 @@ namespace TravelAgency.CSUI.FrmMain
         private readonly TravelAgency.BLL.ActionRecords _bllActionRecords = new TravelAgency.BLL.ActionRecords();
         private readonly TravelAgency.BLL.StatisticsBll _bllStatisticsBll = new TravelAgency.BLL.StatisticsBll();
         private readonly TravelAgency.BLL.CommisionBll _bllCommisionBll = new TravelAgency.BLL.CommisionBll();
+        private readonly TravelAgency.BLL.CommisionMoney _bllCommisionMoney = new TravelAgency.BLL.CommisionMoney();
 
         private int _curPage = 1;
         private int _pageCount = 0;
@@ -42,7 +43,7 @@ namespace TravelAgency.CSUI.FrmMain
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            _recordCount = _bllActionRecords.GetRecordCount(_where);
+            _recordCount = _bllCommisionMoney.GetRecordCount(_where);
             _pageCount = (int)Math.Ceiling(_recordCount / (double)_pageSize);
 
             //初始化一些控件
@@ -56,12 +57,6 @@ namespace TravelAgency.CSUI.FrmMain
             cbPageSize.DropDownStyle = ComboBoxStyle.DropDownList;
             cbPageSize.SelectedIndex = 2;
             _pageSize = int.Parse(cbPageSize.Text);
-
-            dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //千万不能开allcells，特别卡
-            dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridView1.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
-            dataGridView1.SelectionChanged += DataGridView1_SelectionChanged;
 
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //千万不能开allcells，特别卡
@@ -84,11 +79,6 @@ namespace TravelAgency.CSUI.FrmMain
             progressLoading.Visible = false;
 
             LoadDataToDgvAsyn();
-        }
-
-        private void DataGridView1_SelectionChanged(object sender, EventArgs e)
-        {
-            LoadDataToCommisionDgv();
         }
 
         #region model与control
@@ -166,19 +156,12 @@ namespace TravelAgency.CSUI.FrmMain
             progressLoading.IsRunning = true;
         }
 
-        private void LoadDataToCommisionDgv()
-        {
-            var list = _bllCommisionBll.GetPersonCommisonList(txtSchEntryTimeFrom.Text, txtSchEntryTimeTo.Text,
-                dataGridView1.CurrentRow.Cells["UserName"].Value.ToString());
-            dataGridView1.DataSource = list;
-        }
-
         public void LoadDataToDataGridView(int page) //刷新后保持选中
         {
             int curSelectedRow = -1;
             if (dataGridView1.SelectedRows.Count > 0)
                 curSelectedRow = dataGridView1.SelectedRows[0].Index;
-            dataGridView1.DataSource = _bllStatisticsBll.GetPersonalStats(txtSchEntryTimeFrom.Text, txtSchEntryTimeTo.Text);
+            dataGridView1.DataSource = _bllCommisionMoney.GetListByPageOrderById(_curPage,_pageSize,string.Empty);
             if (curSelectedRow != -1 && dataGridView1.Rows.Count > curSelectedRow)
                 dataGridView1.CurrentCell = dataGridView1.Rows[curSelectedRow].Cells[0];
             dataGridView1.Update();
