@@ -88,7 +88,7 @@
             this.Type06GetSubmission = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type07AccompanySubmission = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Type08Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Commission = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CommisionMoneyCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panelDgv.SuspendLayout();
@@ -276,7 +276,7 @@
             this.Type06GetSubmission,
             this.Type07AccompanySubmission,
             this.Type08Plan,
-            this.Commission});
+            this.CommisionMoneyCount});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -736,12 +736,11 @@
             this.Type08Plan.Name = "Type08Plan";
             this.Type08Plan.ReadOnly = true;
             // 
-            // Commission
+            // CommisionMoneyCount
             // 
-            this.Commission.DataPropertyName = "Commission";
-            this.Commission.HeaderText = "提成总计";
-            this.Commission.Name = "Commission";
-            this.Commission.ReadOnly = true;
+            this.CommisionMoneyCount.HeaderText = "提成总计";
+            this.CommisionMoneyCount.Name = "CommisionMoneyCount";
+            this.CommisionMoneyCount.ReadOnly = true;
             // 
             // FrmPersonalWorkCount
             // 
@@ -822,7 +821,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Type06GetSubmission;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type07AccompanySubmission;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type08Plan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Commission;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CommisionMoneyCount;
     }
 }
 

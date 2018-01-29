@@ -67,7 +67,7 @@ namespace TravelAgency.CSUI.FrmMain
             dgvCommison.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //千万不能开allcells，特别卡
             dgvCommison.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dgvCommison.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
-
+            dgvCommison.RowsAdded += DgvCommison_RowsAdded;
             //设置可跨线程访问窗体
             //TODO:这里可能需要修改
             //Control.CheckForIllegalCrossThreadCalls = false;
@@ -84,6 +84,18 @@ namespace TravelAgency.CSUI.FrmMain
             progressLoading.Visible = false;
 
             LoadDataToDgvAsyn();
+        }
+
+        private void DgvCommison_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            //执行计算总价功能:
+            for (int i = 0; i < dgvCommison.Rows.Count; i++)
+            {
+                dgvCommison.Rows[i].Cells["CommisionMoneyCount"].Value =
+                    Common.Financial.CommisionMoneyCounter.CalcCommisionMoney(
+                        (dgvCommison.DataSource as List<Model.CommissionModel>)[i]);
+            }
+
         }
 
         private void DataGridView1_SelectionChanged(object sender, EventArgs e)

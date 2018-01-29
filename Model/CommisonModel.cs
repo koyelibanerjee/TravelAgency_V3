@@ -17,6 +17,5 @@ namespace TravelAgency.Model
 
         public int Type07AccompanySubmission { get; set; }
         public int Type08Plan { get; set; }
-        public decimal Commision { get; set; }
     }
 }

@@ -109,7 +109,7 @@ namespace TravelAgency.BLL
         /// <returns></returns>
         public List<Model.CommissionModel> GetPersonCommisonList(string from, string to, string username)
         {
-            string countrys = "日本个签,日本团签,韩国,澳大利亚,新西兰,希腊,捷克,法国,西班牙," +
+            string countrys = "日本个签,日本团签,韩国,澳大利亚,新西兰贴纸,新西兰电子签,希腊,捷克,法国,西班牙," +
                                     "英国,南非,美国,泰国,新加坡,马来西亚,越南,保险,印度,德国,加拿大,其他"; //最后的德国和加拿大是我自己加的，其他是扫描的时候用来判断未设置国家的情况
             string[] countrylist = countrys.Split(',');
             List<Model.CommissionModel> res = new List<CommissionModel>();

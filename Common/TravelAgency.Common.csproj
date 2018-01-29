@@ -176,6 +176,7 @@
     <Compile Include="DateTimeFormator.cs" />
     <Compile Include="Enums\ActType.cs" />
     <Compile Include="Excel\XlsGenerator.cs" />
+    <Compile Include="Financial\CommisionMoneyCounter.cs" />
     <Compile Include="FrmsManager.cs" />
     <Compile Include="FTP\FtpHandler.cs" />
     <Compile Include="InfoChecker.cs" />
