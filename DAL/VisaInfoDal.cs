@@ -162,5 +162,119 @@ namespace TravelAgency.DAL
             return DbHelperSQL.Query(sql);
         }
 
+        /// <summary>
+		/// 增加一条数据
+		/// </summary>
+		public bool Add(TravelAgency.Model.VisaInfo model)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("insert into VisaInfo(");
+            strSql.Append("VisaInfo_id,Visa_id,GroupNo,Name,EnglishName,Sex,Birthday,PassportNo,LicenceTime,ExpiryDate,Birthplace,IssuePlace,Post,Phone,GuideNo,Client,Salesperson,Types,Sale_id,DepartmentId,Tips,EntryTime,EmbassyTime,InTime,OutTime,RealOut,RealOutTime,Country,Call,outState,Residence,Occupation,DepartureRecord,Marriaged,Identification,FinancialCapacity,AgencyOpinion,HasTypeIn,AbnormalOutTime,HasChecked,CheckPerson,ReturnTime,Position,IssuePlaceEnglish,BirthPlaceEnglish)");
+            strSql.Append(" values (");
+            strSql.Append("@VisaInfo_id,@Visa_id,@GroupNo,@Name,@EnglishName,@Sex,@Birthday,@PassportNo,@LicenceTime,@ExpiryDate,@Birthplace,@IssuePlace,@Post,@Phone,@GuideNo,@Client,@Salesperson,@Types,@Sale_id,@DepartmentId,@Tips,@EntryTime,@EmbassyTime,@InTime,@OutTime,@RealOut,@RealOutTime,@Country,@Call,@outState,@Residence,@Occupation,@DepartureRecord,@Marriaged,@Identification,@FinancialCapacity,@AgencyOpinion,@HasTypeIn,@AbnormalOutTime,@HasChecked,@CheckPerson,@ReturnTime,@Position,@IssuePlaceEnglish,@BirthPlaceEnglish)");
+            SqlParameter[] parameters = {
+                    new SqlParameter("@VisaInfo_id", SqlDbType.UniqueIdentifier,16),
+                    new SqlParameter("@Visa_id", SqlDbType.VarChar,50),
+                    new SqlParameter("@GroupNo", SqlDbType.VarChar,500),
+                    new SqlParameter("@Name", SqlDbType.VarChar,50),
+                    new SqlParameter("@EnglishName", SqlDbType.VarChar,50),
+                    new SqlParameter("@Sex", SqlDbType.VarChar,50),
+                    new SqlParameter("@Birthday", SqlDbType.DateTime,3),
+                    new SqlParameter("@PassportNo", SqlDbType.VarChar,50),
+                    new SqlParameter("@LicenceTime", SqlDbType.DateTime,3),
+                    new SqlParameter("@ExpiryDate", SqlDbType.DateTime,3),
+                    new SqlParameter("@Birthplace", SqlDbType.VarChar,50),
+                    new SqlParameter("@IssuePlace", SqlDbType.VarChar,50),
+                    new SqlParameter("@Post", SqlDbType.VarChar,50),
+                    new SqlParameter("@Phone", SqlDbType.VarChar,50),
+                    new SqlParameter("@GuideNo", SqlDbType.VarChar,50),
+                    new SqlParameter("@Client", SqlDbType.VarChar,50),
+                    new SqlParameter("@Salesperson", SqlDbType.VarChar,50),
+                    new SqlParameter("@Types", SqlDbType.VarChar,50),
+                    new SqlParameter("@Sale_id", SqlDbType.UniqueIdentifier,16),
+                    new SqlParameter("@DepartmentId", SqlDbType.UniqueIdentifier,16),
+                    new SqlParameter("@Tips", SqlDbType.VarChar,-1),
+                    new SqlParameter("@EntryTime", SqlDbType.DateTime),
+                    new SqlParameter("@EmbassyTime", SqlDbType.DateTime),
+                    new SqlParameter("@InTime", SqlDbType.DateTime),
+                    new SqlParameter("@OutTime", SqlDbType.DateTime),
+                    new SqlParameter("@RealOut", SqlDbType.VarChar,50),
+                    new SqlParameter("@RealOutTime", SqlDbType.DateTime),
+                    new SqlParameter("@Country", SqlDbType.VarChar,50),
+                    new SqlParameter("@Call", SqlDbType.VarChar,50),
+                    new SqlParameter("@outState", SqlDbType.VarChar,12),
+                    new SqlParameter("@Residence", SqlDbType.VarChar,100),
+                    new SqlParameter("@Occupation", SqlDbType.VarChar,50),
+                    new SqlParameter("@DepartureRecord", SqlDbType.VarChar,10),
+                    new SqlParameter("@Marriaged", SqlDbType.VarChar,10),
+                    new SqlParameter("@Identification", SqlDbType.VarChar,100),
+                    new SqlParameter("@FinancialCapacity", SqlDbType.VarChar,100),
+                    new SqlParameter("@AgencyOpinion", SqlDbType.VarChar,20),
+                    new SqlParameter("@HasTypeIn", SqlDbType.VarChar,2),
+                    new SqlParameter("@AbnormalOutTime", SqlDbType.DateTime),
+                    new SqlParameter("@HasChecked", SqlDbType.VarChar,2),
+                    new SqlParameter("@CheckPerson", SqlDbType.VarChar,50),
+                    new SqlParameter("@ReturnTime", SqlDbType.DateTime),
+                    new SqlParameter("@Position", SqlDbType.Int,4),
+                    new SqlParameter("@IssuePlaceEnglish", SqlDbType.VarChar,50),
+                    new SqlParameter("@BirthPlaceEnglish", SqlDbType.VarChar,50)};
+            parameters[0].Value = model.VisaInfo_id; //这里千万不能用new guid
+            parameters[1].Value = model.Visa_id;
+            parameters[2].Value = model.GroupNo;
+            parameters[3].Value = model.Name;
+            parameters[4].Value = model.EnglishName;
+            parameters[5].Value = model.Sex;
+            parameters[6].Value = model.Birthday;
+            parameters[7].Value = model.PassportNo;
+            parameters[8].Value = model.LicenceTime;
+            parameters[9].Value = model.ExpiryDate;
+            parameters[10].Value = model.Birthplace;
+            parameters[11].Value = model.IssuePlace;
+            parameters[12].Value = model.Post;
+            parameters[13].Value = model.Phone;
+            parameters[14].Value = model.GuideNo;
+            parameters[15].Value = model.Client;
+            parameters[16].Value = model.Salesperson;
+            parameters[17].Value = model.Types;
+            parameters[18].Value = Guid.NewGuid();
+            parameters[19].Value = Guid.NewGuid();
+            parameters[20].Value = model.Tips;
+            parameters[21].Value = model.EntryTime;
+            parameters[22].Value = model.EmbassyTime;
+            parameters[23].Value = model.InTime;
+            parameters[24].Value = model.OutTime;
+            parameters[25].Value = model.RealOut;
+            parameters[26].Value = model.RealOutTime;
+            parameters[27].Value = model.Country;
+            parameters[28].Value = model.Call;
+            parameters[29].Value = model.outState;
+            parameters[30].Value = model.Residence;
+            parameters[31].Value = model.Occupation;
+            parameters[32].Value = model.DepartureRecord;
+            parameters[33].Value = model.Marriaged;
+            parameters[34].Value = model.Identification;
+            parameters[35].Value = model.FinancialCapacity;
+            parameters[36].Value = model.AgencyOpinion;
+            parameters[37].Value = model.HasTypeIn;
+            parameters[38].Value = model.AbnormalOutTime;
+            parameters[39].Value = model.HasChecked;
+            parameters[40].Value = model.CheckPerson;
+            parameters[41].Value = model.ReturnTime;
+            parameters[42].Value = model.Position;
+            parameters[43].Value = model.IssuePlaceEnglish;
+            parameters[44].Value = model.BirthPlaceEnglish;
+
+            int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
+            if (rows > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
     }
 }

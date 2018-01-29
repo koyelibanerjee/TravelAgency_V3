@@ -140,6 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionRecords.cs" />
+    <Compile Include="AppAllDal.cs" />
     <Compile Include="AppAll.cs" />
     <Compile Include="AppStatus.cs" />
     <Compile Include="AuthUser.cs" />

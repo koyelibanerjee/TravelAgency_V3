@@ -26,7 +26,9 @@ namespace TravelAgency.BLL
 		/// </summary>
 		public int  Add(TravelAgency.Model.AppAll model)
 		{
-			return dal.Add(model);
+			//return dal.Add(model);
+		    return 0;
+            //TODO:
 		}
 
 		/// <summary>
