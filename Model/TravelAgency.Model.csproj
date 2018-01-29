@@ -127,6 +127,7 @@
     <Compile Include="AppAll.cs" />
     <Compile Include="AuthUser.cs" />
     <Compile Include="ClientCharge.cs" />
+    <Compile Include="CommisionMoney.cs" />
     <Compile Include="CommisonModel.cs" />
     <Compile Include="ConsulateCharge.cs" />
     <Compile Include="HasExported8Report.cs" />

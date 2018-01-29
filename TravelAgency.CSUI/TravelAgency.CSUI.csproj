@@ -120,6 +120,12 @@
     <Compile Include="FrmMain\FrmActionRecordsManage.Designer.cs">
       <DependentUpon>FrmActionRecordsManage.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmMain\FrmCommisionMoneyManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain\FrmCommisionMoneyManage.Designer.cs">
+      <DependentUpon>FrmCommisionMoneyManage.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain\FrmPersonalWorkCount.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -370,6 +376,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain\FrmGaoPaiManage.resx">
       <DependentUpon>FrmGaoPaiManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain\FrmCommisionMoneyManage.resx">
+      <DependentUpon>FrmCommisionMoneyManage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain\FrmTakePicture.resx">
       <DependentUpon>FrmTakePicture.cs</DependentUpon>
