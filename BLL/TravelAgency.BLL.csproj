@@ -125,6 +125,7 @@
     <Compile Include="ActionRecordsBll.cs" />
     <Compile Include="AppAll.cs" />
     <Compile Include="AppAllBll.cs" />
+    <Compile Include="AppStatus.cs" />
     <Compile Include="AuthUser.cs" />
     <Compile Include="ClientChargeBll.cs" />
     <Compile Include="ClientCharge.cs" />
@@ -139,6 +140,7 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="QZApplication.cs" />
     <Compile Include="StatisticsBll.cs" />
     <Compile Include="SysManage.cs" />
     <Compile Include="TimeHandlers\DateFormat.cs" />

@@ -141,6 +141,7 @@
   <ItemGroup>
     <Compile Include="ActionRecords.cs" />
     <Compile Include="AppAll.cs" />
+    <Compile Include="AppStatus.cs" />
     <Compile Include="AuthUser.cs" />
     <Compile Include="ClientChargeDal.cs" />
     <Compile Include="ClientCharge.cs" />
@@ -154,6 +155,7 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="QZApplication.cs" />
     <Compile Include="StatisticsDal.cs" />
     <Compile Include="SysManage.cs" />
     <Compile Include="VisaWithActRecords.cs" />
