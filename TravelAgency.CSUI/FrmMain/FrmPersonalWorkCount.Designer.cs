@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WorkId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -47,6 +47,14 @@
             this.panelMain = new DevComponents.DotNetBar.PanelEx();
             this.panelDgv = new DevComponents.DotNetBar.PanelEx();
             this.dgvCommison = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type00ScanedIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type02TypeInData = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type05SendSubmission = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type06GetSubmission = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type07AccompanySubmission = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type08Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CommisionMoneyCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelBars = new DevComponents.DotNetBar.PanelEx();
             this.panelSerachBar = new DevComponents.DotNetBar.PanelEx();
             this.btnTimeSpanChoose = new DevComponents.DotNetBar.ButtonX();
@@ -81,14 +89,8 @@
             this.bgWorkerLoadData = new System.ComponentModel.BackgroundWorker();
             this.cms4AddToExport = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.添加到送签统计ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type00ScanedIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type02TypeInData = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type05SendSubmission = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type06GetSubmission = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type07AccompanySubmission = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type08Plan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CommisionMoneyCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panelBottom = new DevComponents.DotNetBar.PanelEx();
+            this.lbCommisionMoneyCount = new DevComponents.DotNetBar.LabelX();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panelDgv.SuspendLayout();
@@ -100,6 +102,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             this.cmsDgvRb.SuspendLayout();
             this.cms4AddToExport.SuspendLayout();
+            this.panelBottom.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -108,14 +111,14 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.UserName,
@@ -126,32 +129,32 @@
             this.Type03Count,
             this.Type04Count,
             this.Count});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(632, 556);
+            this.dataGridView1.Size = new System.Drawing.Size(632, 522);
             this.dataGridView1.TabIndex = 10;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridView1.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseUp);
@@ -218,6 +221,7 @@
             this.panelMain.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelMain.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.panelMain.Controls.Add(this.panelDgv);
+            this.panelMain.Controls.Add(this.panelBottom);
             this.panelMain.Controls.Add(this.panelBars);
             this.panelMain.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -243,7 +247,7 @@
             this.panelDgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDgv.Location = new System.Drawing.Point(0, 67);
             this.panelDgv.Name = "panelDgv";
-            this.panelDgv.Size = new System.Drawing.Size(1271, 556);
+            this.panelDgv.Size = new System.Drawing.Size(1271, 522);
             this.panelDgv.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelDgv.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelDgv.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -259,14 +263,14 @@
             this.dgvCommison.AllowUserToDeleteRows = false;
             this.dgvCommison.AllowUserToOrderColumns = true;
             this.dgvCommison.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCommison.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCommison.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvCommison.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCommison.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Type,
@@ -277,33 +281,88 @@
             this.Type07AccompanySubmission,
             this.Type08Plan,
             this.CommisionMoneyCount});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCommison.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCommison.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvCommison.Dock = System.Windows.Forms.DockStyle.Right;
             this.dgvCommison.EnableHeadersVisualStyles = false;
             this.dgvCommison.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.dgvCommison.Location = new System.Drawing.Point(632, 0);
             this.dgvCommison.Name = "dgvCommison";
             this.dgvCommison.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCommison.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCommison.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvCommison.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvCommison.RowTemplate.Height = 30;
             this.dgvCommison.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCommison.Size = new System.Drawing.Size(639, 556);
+            this.dgvCommison.Size = new System.Drawing.Size(639, 522);
             this.dgvCommison.TabIndex = 11;
+            // 
+            // Type
+            // 
+            this.Type.DataPropertyName = "Type";
+            this.Type.HeaderText = "类型";
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
+            // 
+            // Type00ScanedIn
+            // 
+            this.Type00ScanedIn.DataPropertyName = "Type00ScanedIn";
+            this.Type00ScanedIn.HeaderText = "扫描录入";
+            this.Type00ScanedIn.Name = "Type00ScanedIn";
+            this.Type00ScanedIn.ReadOnly = true;
+            // 
+            // Type02TypeInData
+            // 
+            this.Type02TypeInData.DataPropertyName = "Type02TypeInData";
+            this.Type02TypeInData.HeaderText = "资料审查";
+            this.Type02TypeInData.Name = "Type02TypeInData";
+            this.Type02TypeInData.ReadOnly = true;
+            // 
+            // Type05SendSubmission
+            // 
+            this.Type05SendSubmission.DataPropertyName = "Type05SendSubmission";
+            this.Type05SendSubmission.HeaderText = "送签";
+            this.Type05SendSubmission.Name = "Type05SendSubmission";
+            this.Type05SendSubmission.ReadOnly = true;
+            // 
+            // Type06GetSubmission
+            // 
+            this.Type06GetSubmission.DataPropertyName = "Type06GetSubmission";
+            this.Type06GetSubmission.HeaderText = "取签";
+            this.Type06GetSubmission.Name = "Type06GetSubmission";
+            this.Type06GetSubmission.ReadOnly = true;
+            // 
+            // Type07AccompanySubmission
+            // 
+            this.Type07AccompanySubmission.DataPropertyName = "Type07AccompanySubmission";
+            this.Type07AccompanySubmission.HeaderText = "陪签";
+            this.Type07AccompanySubmission.Name = "Type07AccompanySubmission";
+            this.Type07AccompanySubmission.ReadOnly = true;
+            // 
+            // Type08Plan
+            // 
+            this.Type08Plan.DataPropertyName = "Type08Plan";
+            this.Type08Plan.HeaderText = "安排";
+            this.Type08Plan.Name = "Type08Plan";
+            this.Type08Plan.ReadOnly = true;
+            // 
+            // CommisionMoneyCount
+            // 
+            this.CommisionMoneyCount.HeaderText = "提成总计";
+            this.CommisionMoneyCount.Name = "CommisionMoneyCount";
+            this.CommisionMoneyCount.ReadOnly = true;
             // 
             // panelBars
             // 
@@ -687,60 +746,38 @@
             this.添加到送签统计ToolStripMenuItem.Name = "添加到送签统计ToolStripMenuItem";
             this.添加到送签统计ToolStripMenuItem.Size = new System.Drawing.Size(68, 22);
             // 
-            // Type
+            // panelBottom
             // 
-            this.Type.DataPropertyName = "Type";
-            this.Type.HeaderText = "类型";
-            this.Type.Name = "Type";
-            this.Type.ReadOnly = true;
+            this.panelBottom.CanvasColor = System.Drawing.SystemColors.Control;
+            this.panelBottom.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelBottom.Controls.Add(this.lbCommisionMoneyCount);
+            this.panelBottom.DisabledBackColor = System.Drawing.Color.Empty;
+            this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelBottom.Location = new System.Drawing.Point(0, 589);
+            this.panelBottom.Name = "panelBottom";
+            this.panelBottom.Size = new System.Drawing.Size(1271, 34);
+            this.panelBottom.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelBottom.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.panelBottom.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.panelBottom.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.panelBottom.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.panelBottom.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.panelBottom.Style.GradientAngle = 90;
+            this.panelBottom.TabIndex = 45;
             // 
-            // Type00ScanedIn
+            // lbCommisionMoneyCount
             // 
-            this.Type00ScanedIn.DataPropertyName = "Type00ScanedIn";
-            this.Type00ScanedIn.HeaderText = "扫描录入";
-            this.Type00ScanedIn.Name = "Type00ScanedIn";
-            this.Type00ScanedIn.ReadOnly = true;
             // 
-            // Type02TypeInData
             // 
-            this.Type02TypeInData.DataPropertyName = "Type02TypeInData";
-            this.Type02TypeInData.HeaderText = "资料审查";
-            this.Type02TypeInData.Name = "Type02TypeInData";
-            this.Type02TypeInData.ReadOnly = true;
             // 
-            // Type05SendSubmission
-            // 
-            this.Type05SendSubmission.DataPropertyName = "Type05SendSubmission";
-            this.Type05SendSubmission.HeaderText = "送签";
-            this.Type05SendSubmission.Name = "Type05SendSubmission";
-            this.Type05SendSubmission.ReadOnly = true;
-            // 
-            // Type06GetSubmission
-            // 
-            this.Type06GetSubmission.DataPropertyName = "Type06GetSubmission";
-            this.Type06GetSubmission.HeaderText = "取签";
-            this.Type06GetSubmission.Name = "Type06GetSubmission";
-            this.Type06GetSubmission.ReadOnly = true;
-            // 
-            // Type07AccompanySubmission
-            // 
-            this.Type07AccompanySubmission.DataPropertyName = "Type07AccompanySubmission";
-            this.Type07AccompanySubmission.HeaderText = "陪签";
-            this.Type07AccompanySubmission.Name = "Type07AccompanySubmission";
-            this.Type07AccompanySubmission.ReadOnly = true;
-            // 
-            // Type08Plan
-            // 
-            this.Type08Plan.DataPropertyName = "Type08Plan";
-            this.Type08Plan.HeaderText = "安排";
-            this.Type08Plan.Name = "Type08Plan";
-            this.Type08Plan.ReadOnly = true;
-            // 
-            // CommisionMoneyCount
-            // 
-            this.CommisionMoneyCount.HeaderText = "提成总计";
-            this.CommisionMoneyCount.Name = "CommisionMoneyCount";
-            this.CommisionMoneyCount.ReadOnly = true;
+            this.lbCommisionMoneyCount.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lbCommisionMoneyCount.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbCommisionMoneyCount.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.lbCommisionMoneyCount.Location = new System.Drawing.Point(1085, 3);
+            this.lbCommisionMoneyCount.Name = "lbCommisionMoneyCount";
+            this.lbCommisionMoneyCount.Size = new System.Drawing.Size(186, 23);
+            this.lbCommisionMoneyCount.TabIndex = 0;
+            this.lbCommisionMoneyCount.Text = "提成总计:0.0元";
             // 
             // FrmPersonalWorkCount
             // 
@@ -762,6 +799,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).EndInit();
             this.cmsDgvRb.ResumeLayout(false);
             this.cms4AddToExport.ResumeLayout(false);
+            this.panelBottom.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -822,6 +860,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Type07AccompanySubmission;
         private System.Windows.Forms.DataGridViewTextBoxColumn Type08Plan;
         private System.Windows.Forms.DataGridViewTextBoxColumn CommisionMoneyCount;
+        private DevComponents.DotNetBar.PanelEx panelBottom;
+        private DevComponents.DotNetBar.LabelX lbCommisionMoneyCount;
     }
 }
 

@@ -89,12 +89,19 @@ namespace TravelAgency.CSUI.FrmMain
         private void DgvCommison_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             //执行计算总价功能:
+            decimal all = 0;
             for (int i = 0; i < dgvCommison.Rows.Count; i++)
             {
                 dgvCommison.Rows[i].Cells["CommisionMoneyCount"].Value =
                     Common.Financial.CommisionMoneyCounter.CalcCommisionMoney(
                         (dgvCommison.DataSource as List<Model.CommissionModel>)[i]);
+                all += dgvCommison.Rows[i].Cells["CommisionMoneyCount"].Value == null
+                    ? 0
+                    : decimal.Parse(dgvCommison.Rows[i].Cells["CommisionMoneyCount"].Value.ToString());
             }
+
+            lbCommisionMoneyCount.Text = "提成总计:" + all + "元";
+
 
         }
 
