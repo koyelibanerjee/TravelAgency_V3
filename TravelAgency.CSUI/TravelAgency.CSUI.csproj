@@ -138,10 +138,10 @@
     <Compile Include="Financial\FrmMain\FrmVisaRequestPayoutManage.Designer.cs">
       <DependentUpon>FrmVisaRequestPayoutManage.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSetValue\FrmSetValue.cs">
+    <Compile Include="Visa\FrmSub\FrmSetValue\FrmSetValue.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSetValue\FrmSetValue.Designer.cs">
+    <Compile Include="Visa\FrmSub\FrmSetValue\FrmSetValue.Designer.cs">
       <DependentUpon>FrmSetValue.cs</DependentUpon>
     </Compile>
     <Compile Include="Financial\FrmSub\FrmAddClientCharge.cs">
@@ -258,34 +258,34 @@
     <Compile Include="Visa\FrmMain\FrmVisaInfoManage.Designer.cs">
       <DependentUpon>FrmVisaInfoManage.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSetValue\FrmFinancialCapacity.cs">
+    <Compile Include="Visa\FrmSub\FrmSetValue\FrmFinancialCapacity.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSetValue\FrmFinancialCapacity.Designer.cs">
+    <Compile Include="Visa\FrmSub\FrmSetValue\FrmFinancialCapacity.Designer.cs">
       <DependentUpon>FrmFinancialCapacity.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSetValue\FrmMarrigedValue.cs">
+    <Compile Include="Visa\FrmSub\FrmSetValue\FrmMarrigedValue.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSetValue\FrmMarrigedValue.Designer.cs">
+    <Compile Include="Visa\FrmSub\FrmSetValue\FrmMarrigedValue.Designer.cs">
       <DependentUpon>FrmMarrigedValue.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSetValue\FrmRemarkValue.cs">
+    <Compile Include="Visa\FrmSub\FrmSetValue\FrmRemarkValue.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSetValue\FrmRemarkValue.Designer.cs">
+    <Compile Include="Visa\FrmSub\FrmSetValue\FrmRemarkValue.Designer.cs">
       <DependentUpon>FrmRemarkValue.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSetValue\FrmOccupationValue.cs">
+    <Compile Include="Visa\FrmSub\FrmSetValue\FrmOccupationValue.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSetValue\FrmOccupationValue.Designer.cs">
+    <Compile Include="Visa\FrmSub\FrmSetValue\FrmOccupationValue.Designer.cs">
       <DependentUpon>FrmOccupationValue.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSetValue\FrmDepartureRecordValue.cs">
+    <Compile Include="Visa\FrmSub\FrmSetValue\FrmDepartureRecordValue.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSetValue\FrmDepartureRecordValue.Designer.cs">
+    <Compile Include="Visa\FrmSub\FrmSetValue\FrmDepartureRecordValue.Designer.cs">
       <DependentUpon>FrmDepartureRecordValue.cs</DependentUpon>
     </Compile>
     <Compile Include="Visa\FrmSub\FrmGroupOrIndividual.cs">
@@ -336,10 +336,10 @@
     <Compile Include="Visa\FrmSub\FrmSetTeamVisaGroup.Designer.cs">
       <DependentUpon>FrmSetTeamVisaGroup.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSetValue\FrmIdentificationValue.cs">
+    <Compile Include="Visa\FrmSub\FrmSetValue\FrmIdentificationValue.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSetValue\FrmIdentificationValue.Designer.cs">
+    <Compile Include="Visa\FrmSub\FrmSetValue\FrmIdentificationValue.Designer.cs">
       <DependentUpon>FrmIdentificationValue.cs</DependentUpon>
     </Compile>
     <Compile Include="Visa\FrmSub\FrmTimeSpanChoose.cs">
@@ -392,7 +392,7 @@
     <EmbeddedResource Include="Financial\FrmMain\FrmVisaRequestPayoutManage.resx">
       <DependentUpon>FrmVisaRequestPayoutManage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSetValue\FrmSetValue.resx">
+    <EmbeddedResource Include="Visa\FrmSub\FrmSetValue\FrmSetValue.resx">
       <DependentUpon>FrmSetValue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Financial\FrmSub\FrmAddClientCharge.resx">
@@ -428,19 +428,19 @@
     <EmbeddedResource Include="Visa\FrmMain\FrmVisaInfoManage.resx">
       <DependentUpon>FrmVisaInfoManage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSetValue\FrmFinancialCapacity.resx">
+    <EmbeddedResource Include="Visa\FrmSub\FrmSetValue\FrmFinancialCapacity.resx">
       <DependentUpon>FrmFinancialCapacity.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSetValue\FrmMarrigedValue.resx">
+    <EmbeddedResource Include="Visa\FrmSub\FrmSetValue\FrmMarrigedValue.resx">
       <DependentUpon>FrmMarrigedValue.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSetValue\FrmRemarkValue.resx">
+    <EmbeddedResource Include="Visa\FrmSub\FrmSetValue\FrmRemarkValue.resx">
       <DependentUpon>FrmRemarkValue.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSetValue\FrmOccupationValue.resx">
+    <EmbeddedResource Include="Visa\FrmSub\FrmSetValue\FrmOccupationValue.resx">
       <DependentUpon>FrmOccupationValue.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSetValue\FrmDepartureRecordValue.resx">
+    <EmbeddedResource Include="Visa\FrmSub\FrmSetValue\FrmDepartureRecordValue.resx">
       <DependentUpon>FrmDepartureRecordValue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visa\FrmSub\FrmGroupOrIndividual.resx">
@@ -482,7 +482,7 @@
     <EmbeddedResource Include="Visa\FrmSub\FrmSetTeamVisaGroup.resx">
       <DependentUpon>FrmSetTeamVisaGroup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSetValue\FrmIdentificationValue.resx">
+    <EmbeddedResource Include="Visa\FrmSub\FrmSetValue\FrmIdentificationValue.resx">
       <DependentUpon>FrmIdentificationValue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visa\FrmSub\FrmSetTypeInStatus.resx">

@@ -1,4 +1,4 @@
-﻿namespace TravelAgency.CSUI.FrmMain
+﻿namespace TravelAgency.CSUI.Financial.FrmMain
 {
     partial class FrmClientChargeManage
     {

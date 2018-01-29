@@ -3,7 +3,9 @@ using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using ScanCtrlTest;
 using TravelAgency.Common;
+using TravelAgency.CSUI.Financial.FrmMain;
 using TravelAgency.CSUI.FrmSub;
+using TravelAgency.CSUI.Statistics.FrmMain;
 
 namespace TravelAgency.CSUI.FrmMain
 {

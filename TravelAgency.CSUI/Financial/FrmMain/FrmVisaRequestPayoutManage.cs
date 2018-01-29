@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
@@ -9,12 +8,13 @@ using TravelAgency.BLL;
 using TravelAgency.Common;
 using TravelAgency.Common.Excel;
 using TravelAgency.Common.Word;
+using TravelAgency.CSUI.Financial.FrmSub;
 using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Properties;
 using Visa = TravelAgency.Model.Visa;
 using VisaInfo = TravelAgency.Model.VisaInfo;
 
-namespace TravelAgency.CSUI.FrmMain
+namespace TravelAgency.CSUI.Financial.FrmMain
 {
     public partial class FrmVisaRequestPayoutManage : Form
     {
@@ -474,6 +474,12 @@ namespace TravelAgency.CSUI.FrmMain
                 }
                 if (dataGridView1.Rows[i].Cells["Cost"].Value != null)
                     moneycount += decimal.Parse(dataGridView1.Rows[i].Cells["Cost"].Value.ToString());
+
+                if (dataGridView1.Rows[i].Cells["SubmitFlag"].Value != null &&
+                    int.Parse(dataGridView1.Rows[i].Cells["SubmitFlag"].Value.ToString()) == 1)
+                {
+                    dataGridView1.Rows[i].Cells["SubmitFlag"].Style.BackColor = Color.LimeGreen;
+                }
             }
 
             lbMonneyCount.Text = "共:" + moneycount + "元.";

@@ -1,21 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TravelAgency.BLL;
 using TravelAgency.Common;
 
-namespace TravelAgency.CSUI.FrmSub
+namespace TravelAgency.CSUI.Financial.FrmSub
 {
     public partial class FrmAppAll : Form
     {
         private List<Model.Visa> _list;
         private BLL.AppAll _bllAppAll = new AppAll();
+        private BLL.Visa _bllVisa = new Visa();
         private decimal _amount;
         public FrmAppAll(List<Model.Visa> list)
         {
@@ -102,6 +97,15 @@ namespace TravelAgency.CSUI.FrmSub
         {
             if (_bllAppAll.Add(CtrlsToModel()) > 0)
             {
+                for (int i = 0; i != _list.Count; ++i)
+                {
+                    _list[i].SubmitFlag = 1; //已经提交
+                    _bllVisa.Update(_list[i]); //更新对应Visa状态
+                    //插入QZApplication表数据
+                }
+
+                //插入appstatus表记录
+
                 this.DialogResult = DialogResult.OK;
                 this.Close();
                 return;

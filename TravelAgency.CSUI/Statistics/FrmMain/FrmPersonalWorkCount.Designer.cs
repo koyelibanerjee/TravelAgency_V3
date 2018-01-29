@@ -1,4 +1,4 @@
-﻿namespace TravelAgency.CSUI.FrmMain
+﻿namespace TravelAgency.CSUI.Statistics.FrmMain
 {
     partial class FrmPersonalWorkCount
     {

@@ -1,22 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using TravelAgency.Common;
-using TravelAgency.Common.Enums;
 using TravelAgency.Common.Excel;
-using TravelAgency.Common.PictureHandler;
-using TravelAgency.Common.QRCode;
-using TravelAgency.Common.Word;
+using TravelAgency.CSUI.Financial.FrmSub;
 using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Properties;
 using TravelAgency.Model;
 
-namespace TravelAgency.CSUI.FrmMain
+namespace TravelAgency.CSUI.Financial.FrmMain
 {
     public partial class FrmClientChargeManage : Form
     {

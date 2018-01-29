@@ -1,4 +1,4 @@
-﻿namespace TravelAgency.CSUI.FrmSub
+﻿namespace TravelAgency.CSUI.Statistics.FrmSub
 {
     partial class FrmAddCommisionMoney
     {

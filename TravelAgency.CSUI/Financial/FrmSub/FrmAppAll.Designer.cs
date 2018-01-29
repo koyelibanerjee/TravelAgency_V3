@@ -1,4 +1,4 @@
-﻿namespace TravelAgency.CSUI.FrmSub
+﻿namespace TravelAgency.CSUI.Financial.FrmSub
 {
     partial class FrmAppAll
     {
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panelMain = new DevComponents.DotNetBar.PanelEx();
+            this.cbPerson = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.btnOK = new DevComponents.DotNetBar.ButtonX();
             this.cbBankFrom = new DevComponents.DotNetBar.Controls.ComboBoxEx();
@@ -47,7 +48,6 @@
             this.labelX7 = new DevComponents.DotNetBar.LabelX();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
-            this.cbPerson = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.panelMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,6 +87,18 @@
             this.panelMain.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.panelMain.Style.GradientAngle = 90;
             this.panelMain.TabIndex = 0;
+            // 
+            // cbPerson
+            // 
+            this.cbPerson.DisplayMember = "Text";
+            this.cbPerson.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbPerson.FormattingEnabled = true;
+            this.cbPerson.ItemHeight = 15;
+            this.cbPerson.Location = new System.Drawing.Point(121, 90);
+            this.cbPerson.Name = "cbPerson";
+            this.cbPerson.Size = new System.Drawing.Size(174, 21);
+            this.cbPerson.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cbPerson.TabIndex = 107;
             // 
             // btnCancel
             // 
@@ -310,18 +322,6 @@
             this.labelX2.TabIndex = 73;
             this.labelX2.Text = "汇款银行:";
             // 
-            // cbPerson
-            // 
-            this.cbPerson.DisplayMember = "Text";
-            this.cbPerson.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbPerson.FormattingEnabled = true;
-            this.cbPerson.ItemHeight = 15;
-            this.cbPerson.Location = new System.Drawing.Point(121, 90);
-            this.cbPerson.Name = "cbPerson";
-            this.cbPerson.Size = new System.Drawing.Size(174, 21);
-            this.cbPerson.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbPerson.TabIndex = 107;
-            // 
             // FrmAppAll
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -329,7 +329,7 @@
             this.ClientSize = new System.Drawing.Size(599, 217);
             this.Controls.Add(this.panelMain);
             this.Name = "FrmAppAll";
-            this.Text = "FrmAppAll";
+            this.Text = "提交请款申请";
             this.Load += new System.EventHandler(this.FrmAppAll_Load);
             this.panelMain.ResumeLayout(false);
             this.ResumeLayout(false);

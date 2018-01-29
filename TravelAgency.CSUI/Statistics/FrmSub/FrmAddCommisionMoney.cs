@@ -1,19 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 
-namespace TravelAgency.CSUI.FrmSub
+namespace TravelAgency.CSUI.Statistics.FrmSub
 {
     public partial class FrmAddCommisionMoney : Form
     {
-        private BLL.CommisionMoney _bllCommisionMoney = new BLL.CommisionMoney();
+        private readonly BLL.CommisionMoney _bllCommisionMoney = new BLL.CommisionMoney();
         private readonly Action<int> _updateDel; //副界面传来更新数据库的委托
         private readonly int _curPage; //主界面更新数据库需要一个当前页
         private readonly bool _is4Modify = false;

@@ -7,16 +7,16 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using TravelAgency.Common;
-using TravelAgency.Common.Enums;
 using TravelAgency.Common.Excel;
 using TravelAgency.Common.PictureHandler;
 using TravelAgency.Common.QRCode;
 using TravelAgency.Common.Word;
+using TravelAgency.CSUI.FrmMain;
 using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Properties;
 using TravelAgency.Model;
 
-namespace TravelAgency.CSUI.FrmMain
+namespace TravelAgency.CSUI.Statistics.FrmMain
 {
     public partial class FrmActionRecordsManage : Form
     {
@@ -500,6 +500,7 @@ namespace TravelAgency.CSUI.FrmMain
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
+            return; //这个窗体是复制过来的，底下的也先留着不删除
             if (dataGridView1.SelectedRows.Count == 1)
             {
                 var row = dataGridView1.CurrentRow;
