@@ -96,46 +96,46 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CustomCtrls\RowMergeView.designer.cs" />
-    <Compile Include="FrmMain\FrmClientChargeManage.cs">
+    <Compile Include="Financial\FrmMain\FrmClientChargeManage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMain\FrmClientChargeManage.Designer.cs">
+    <Compile Include="Financial\FrmMain\FrmClientChargeManage.Designer.cs">
       <DependentUpon>FrmClientChargeManage.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMain\FrmConsulateChargeManage.cs">
+    <Compile Include="Financial\FrmMain\FrmConsulateChargeManage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMain\FrmConsulateChargeManage.Designer.cs">
+    <Compile Include="Financial\FrmMain\FrmConsulateChargeManage.Designer.cs">
       <DependentUpon>FrmConsulateChargeManage.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMain\FrmGaoPaiManage.cs">
+    <Compile Include="Visa\FrmMain\FrmGaoPaiManage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMain\FrmGaoPaiManage.Designer.cs">
+    <Compile Include="Visa\FrmMain\FrmGaoPaiManage.Designer.cs">
       <DependentUpon>FrmGaoPaiManage.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMain\FrmActionRecordsManage.cs">
+    <Compile Include="Statistics\FrmMain\FrmActionRecordsManage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMain\FrmActionRecordsManage.Designer.cs">
+    <Compile Include="Statistics\FrmMain\FrmActionRecordsManage.Designer.cs">
       <DependentUpon>FrmActionRecordsManage.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMain\FrmCommisionMoneyManage.cs">
+    <Compile Include="Statistics\FrmMain\FrmCommisionMoneyManage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMain\FrmCommisionMoneyManage.Designer.cs">
+    <Compile Include="Statistics\FrmMain\FrmCommisionMoneyManage.Designer.cs">
       <DependentUpon>FrmCommisionMoneyManage.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMain\FrmPersonalWorkCount.cs">
+    <Compile Include="Statistics\FrmMain\FrmPersonalWorkCount.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMain\FrmPersonalWorkCount.Designer.cs">
+    <Compile Include="Statistics\FrmMain\FrmPersonalWorkCount.Designer.cs">
       <DependentUpon>FrmPersonalWorkCount.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMain\FrmVisaRequestPayoutManage.cs">
+    <Compile Include="Financial\FrmMain\FrmVisaRequestPayoutManage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMain\FrmVisaRequestPayoutManage.Designer.cs">
+    <Compile Include="Financial\FrmMain\FrmVisaRequestPayoutManage.Designer.cs">
       <DependentUpon>FrmVisaRequestPayoutManage.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmSetValue\FrmSetValue.cs">
@@ -144,124 +144,118 @@
     <Compile Include="FrmSetValue\FrmSetValue.Designer.cs">
       <DependentUpon>FrmSetValue.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSub\FrmAddClientCharge.cs">
+    <Compile Include="Financial\FrmSub\FrmAddClientCharge.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSub\FrmAddClientCharge.Designer.cs">
+    <Compile Include="Financial\FrmSub\FrmAddClientCharge.Designer.cs">
       <DependentUpon>FrmAddClientCharge.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSub\FrmAddCommisionMoney.cs">
+    <Compile Include="Statistics\FrmSub\FrmAddCommisionMoney.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSub\FrmAddCommisionMoney.Designer.cs">
+    <Compile Include="Statistics\FrmSub\FrmAddCommisionMoney.Designer.cs">
       <DependentUpon>FrmAddCommisionMoney.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSub\FrmAddVisa.cs">
+    <Compile Include="Visa\FrmSub\FrmAddVisa.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSub\FrmAddVisa.Designer.cs">
+    <Compile Include="Visa\FrmSub\FrmAddVisa.Designer.cs">
       <DependentUpon>FrmAddVisa.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSub\FrmAddConsulateCharge.cs">
+    <Compile Include="Financial\FrmSub\FrmAddConsulateCharge.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSub\FrmAddConsulateCharge.Designer.cs">
+    <Compile Include="Financial\FrmSub\FrmAddConsulateCharge.Designer.cs">
       <DependentUpon>FrmAddConsulateCharge.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSub\FrmAppAll.cs">
+    <Compile Include="Financial\FrmSub\FrmAppAll.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSub\FrmAppAll.Designer.cs">
+    <Compile Include="Financial\FrmSub\FrmAppAll.Designer.cs">
       <DependentUpon>FrmAppAll.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSub\FrmConsulateCharge.cs">
+    <Compile Include="Financial\FrmSub\FrmConsulateCharge.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSub\FrmConsulateCharge.Designer.cs">
+    <Compile Include="Financial\FrmSub\FrmConsulateCharge.Designer.cs">
       <DependentUpon>FrmConsulateCharge.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSub\FrmSelAirInfo.cs">
+    <Compile Include="Visa\FrmSub\FrmSelAirInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSub\FrmSelAirInfo.Designer.cs">
+    <Compile Include="Visa\FrmSub\FrmSelAirInfo.Designer.cs">
       <DependentUpon>FrmSelAirInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSub\FrmSelClientCharge.cs">
+    <Compile Include="Financial\FrmSub\FrmSelClientCharge.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSub\FrmSelClientCharge.Designer.cs">
+    <Compile Include="Financial\FrmSub\FrmSelClientCharge.Designer.cs">
       <DependentUpon>FrmSelClientCharge.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSub\FrmSelConsulateCharge.cs">
+    <Compile Include="Financial\FrmSub\FrmSelConsulateCharge.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSub\FrmSelConsulateCharge.Designer.cs">
+    <Compile Include="Financial\FrmSub\FrmSelConsulateCharge.Designer.cs">
       <DependentUpon>FrmSelConsulateCharge.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSub\FrmSelectClientPayout.cs">
+    <Compile Include="Financial\FrmSub\FrmSetCharge.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSub\FrmSelectClientPayout.Designer.cs">
-      <DependentUpon>FrmSelectClientPayout.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmSub\FrmSetCharge.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmSub\FrmSetCharge.Designer.cs">
+    <Compile Include="Financial\FrmSub\FrmSetCharge.Designer.cs">
       <DependentUpon>FrmSetCharge.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSub\FrmSetRequestPayout.cs">
+    <Compile Include="Financial\FrmSub\FrmSetRequestPayout.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSub\FrmSetRequestPayout.Designer.cs">
+    <Compile Include="Financial\FrmSub\FrmSetRequestPayout.Designer.cs">
       <DependentUpon>FrmSetRequestPayout.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSub\FrmSetTypeInStatus.cs">
+    <Compile Include="Visa\FrmSub\FrmSetTypeInStatus.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSub\FrmSetTypeInStatus.Designer.cs">
+    <Compile Include="Visa\FrmSub\FrmSetTypeInStatus.Designer.cs">
       <DependentUpon>FrmSetTypeInStatus.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSub\FrmShowPicture.cs">
+    <Compile Include="Visa\FrmSub\FrmShowPicture.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSub\FrmShowPicture.Designer.cs">
+    <Compile Include="Visa\FrmSub\FrmShowPicture.Designer.cs">
       <DependentUpon>FrmShowPicture.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMain\FrmTakePicture.cs">
+    <Compile Include="Visa\FrmMain\FrmTakePicture.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMain\FrmTakePicture.Designer.cs">
+    <Compile Include="Visa\FrmMain\FrmTakePicture.Designer.cs">
       <DependentUpon>FrmTakePicture.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSub\FrmScanCtrl.cs">
+    <Compile Include="Visa\FrmSub\FrmScanCtrl.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSub\FrmScanCtrl.Designer.cs">
+    <Compile Include="Visa\FrmSub\FrmScanCtrl.Designer.cs">
       <DependentUpon>FrmScanCtrl.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMain\FrmVisaTypeIn.cs">
+    <Compile Include="Visa\FrmMain\FrmVisaTypeIn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMain\FrmVisaTypeIn.Designer.cs">
+    <Compile Include="Visa\FrmMain\FrmVisaTypeIn.Designer.cs">
       <DependentUpon>FrmVisaTypeIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMain\FrmLogin.cs">
+    <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMain\FrmLogin.designer.cs">
+    <Compile Include="FrmLogin.designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMain\FrmVisaManage.cs">
+    <Compile Include="Visa\FrmMain\FrmVisaManage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMain\FrmVisaManage.Designer.cs">
+    <Compile Include="Visa\FrmMain\FrmVisaManage.Designer.cs">
       <DependentUpon>FrmVisaManage.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMain\FrmVisaInfoManage.cs">
+    <Compile Include="Visa\FrmMain\FrmVisaInfoManage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMain\FrmVisaInfoManage.Designer.cs">
+    <Compile Include="Visa\FrmMain\FrmVisaInfoManage.Designer.cs">
       <DependentUpon>FrmVisaInfoManage.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmSetValue\FrmFinancialCapacity.cs">
@@ -294,52 +288,52 @@
     <Compile Include="FrmSetValue\FrmDepartureRecordValue.Designer.cs">
       <DependentUpon>FrmDepartureRecordValue.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSub\FrmGroupOrIndividual.cs">
+    <Compile Include="Visa\FrmSub\FrmGroupOrIndividual.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSub\FrmGroupOrIndividual.Designer.cs">
+    <Compile Include="Visa\FrmSub\FrmGroupOrIndividual.Designer.cs">
       <DependentUpon>FrmGroupOrIndividual.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSub\FrmInfoTypeIn.cs">
+    <Compile Include="Visa\FrmSub\FrmInfoTypeIn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSub\FrmInfoTypeIn.Designer.cs">
+    <Compile Include="Visa\FrmSub\FrmInfoTypeIn.Designer.cs">
       <DependentUpon>FrmInfoTypeIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMain\FrmMain.cs">
+    <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMain\FrmMain.Designer.cs">
+    <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSub\FrmPageSizeSet.cs">
+    <Compile Include="Visa\FrmSub\FrmPageSizeSet.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSub\FrmPageSizeSet.Designer.cs">
+    <Compile Include="Visa\FrmSub\FrmPageSizeSet.Designer.cs">
       <DependentUpon>FrmPageSizeSet.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSub\FrmSetGroup.cs">
+    <Compile Include="Visa\FrmSub\FrmSetGroup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSub\FrmSetGroup.Designer.cs">
+    <Compile Include="Visa\FrmSub\FrmSetGroup.Designer.cs">
       <DependentUpon>FrmSetGroup.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMain\FrmVisaSubmit.cs">
+    <Compile Include="Visa\FrmMain\FrmVisaSubmit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMain\FrmVisaSubmit.Designer.cs">
+    <Compile Include="Visa\FrmMain\FrmVisaSubmit.Designer.cs">
       <DependentUpon>FrmVisaSubmit.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSub\FrmQRCode.cs">
+    <Compile Include="Visa\FrmSub\FrmQRCode.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSub\FrmQRCode.Designer.cs">
+    <Compile Include="Visa\FrmSub\FrmQRCode.Designer.cs">
       <DependentUpon>FrmQRCode.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSub\FrmSetTeamVisaGroup.cs">
+    <Compile Include="Visa\FrmSub\FrmSetTeamVisaGroup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSub\FrmSetTeamVisaGroup.Designer.cs">
+    <Compile Include="Visa\FrmSub\FrmSetTeamVisaGroup.Designer.cs">
       <DependentUpon>FrmSetTeamVisaGroup.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmSetValue\FrmIdentificationValue.cs">
@@ -348,22 +342,22 @@
     <Compile Include="FrmSetValue\FrmIdentificationValue.Designer.cs">
       <DependentUpon>FrmIdentificationValue.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSub\FrmTimeSpanChoose.cs">
+    <Compile Include="Visa\FrmSub\FrmTimeSpanChoose.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSub\FrmTimeSpanChoose.Designer.cs">
+    <Compile Include="Visa\FrmSub\FrmTimeSpanChoose.Designer.cs">
       <DependentUpon>FrmTimeSpanChoose.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSub\FrmTodaySubmit.cs">
+    <Compile Include="Visa\FrmSub\FrmTodaySubmit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSub\FrmTodaySubmit.Designer.cs">
+    <Compile Include="Visa\FrmSub\FrmTodaySubmit.Designer.cs">
       <DependentUpon>FrmTodaySubmit.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSub\FrmVisaInfoStatus.cs">
+    <Compile Include="Visa\FrmSub\FrmVisaInfoStatus.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSub\FrmVisaInfoStatus.Designer.cs">
+    <Compile Include="Visa\FrmSub\FrmVisaInfoStatus.Designer.cs">
       <DependentUpon>FrmVisaInfoStatus.cs</DependentUpon>
     </Compile>
     <Compile Include="GlobalStat.cs" />
@@ -374,64 +368,64 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TravelAgencyDataSet.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FrmMain\FrmClientChargeManage.resx">
+    <EmbeddedResource Include="Financial\FrmMain\FrmClientChargeManage.resx">
       <DependentUpon>FrmClientChargeManage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMain\FrmConsulateChargeManage.resx">
+    <EmbeddedResource Include="Financial\FrmMain\FrmConsulateChargeManage.resx">
       <DependentUpon>FrmConsulateChargeManage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMain\FrmGaoPaiManage.resx">
+    <EmbeddedResource Include="Visa\FrmMain\FrmGaoPaiManage.resx">
       <DependentUpon>FrmGaoPaiManage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMain\FrmCommisionMoneyManage.resx">
+    <EmbeddedResource Include="Statistics\FrmMain\FrmCommisionMoneyManage.resx">
       <DependentUpon>FrmCommisionMoneyManage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMain\FrmTakePicture.resx">
+    <EmbeddedResource Include="Visa\FrmMain\FrmTakePicture.resx">
       <DependentUpon>FrmTakePicture.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMain\FrmActionRecordsManage.resx">
+    <EmbeddedResource Include="Statistics\FrmMain\FrmActionRecordsManage.resx">
       <DependentUpon>FrmActionRecordsManage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMain\FrmPersonalWorkCount.resx">
+    <EmbeddedResource Include="Statistics\FrmMain\FrmPersonalWorkCount.resx">
       <DependentUpon>FrmPersonalWorkCount.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMain\FrmVisaRequestPayoutManage.resx">
+    <EmbeddedResource Include="Financial\FrmMain\FrmVisaRequestPayoutManage.resx">
       <DependentUpon>FrmVisaRequestPayoutManage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSetValue\FrmSetValue.resx">
       <DependentUpon>FrmSetValue.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSub\FrmAddClientCharge.resx">
+    <EmbeddedResource Include="Financial\FrmSub\FrmAddClientCharge.resx">
       <DependentUpon>FrmAddClientCharge.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSub\FrmAddCommisionMoney.resx">
+    <EmbeddedResource Include="Statistics\FrmSub\FrmAddCommisionMoney.resx">
       <DependentUpon>FrmAddCommisionMoney.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSub\FrmAddVisa.resx">
+    <EmbeddedResource Include="Visa\FrmSub\FrmAddVisa.resx">
       <DependentUpon>FrmAddVisa.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSub\FrmAddConsulateCharge.resx">
+    <EmbeddedResource Include="Financial\FrmSub\FrmAddConsulateCharge.resx">
       <DependentUpon>FrmAddConsulateCharge.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSub\FrmAppAll.resx">
+    <EmbeddedResource Include="Financial\FrmSub\FrmAppAll.resx">
       <DependentUpon>FrmAppAll.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSub\FrmConsulateCharge.resx">
+    <EmbeddedResource Include="Financial\FrmSub\FrmConsulateCharge.resx">
       <DependentUpon>FrmConsulateCharge.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSub\FrmScanCtrl.resx">
+    <EmbeddedResource Include="Visa\FrmSub\FrmScanCtrl.resx">
       <DependentUpon>FrmScanCtrl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMain\FrmVisaTypeIn.resx">
+    <EmbeddedResource Include="Visa\FrmMain\FrmVisaTypeIn.resx">
       <DependentUpon>FrmVisaTypeIn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMain\FrmLogin.resx">
+    <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMain\FrmVisaManage.resx">
+    <EmbeddedResource Include="Visa\FrmMain\FrmVisaManage.resx">
       <DependentUpon>FrmVisaManage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMain\FrmVisaInfoManage.resx">
+    <EmbeddedResource Include="Visa\FrmMain\FrmVisaInfoManage.resx">
       <DependentUpon>FrmVisaInfoManage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSetValue\FrmFinancialCapacity.resx">
@@ -449,64 +443,61 @@
     <EmbeddedResource Include="FrmSetValue\FrmDepartureRecordValue.resx">
       <DependentUpon>FrmDepartureRecordValue.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSub\FrmGroupOrIndividual.resx">
+    <EmbeddedResource Include="Visa\FrmSub\FrmGroupOrIndividual.resx">
       <DependentUpon>FrmGroupOrIndividual.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSub\FrmInfoTypeIn.resx">
+    <EmbeddedResource Include="Visa\FrmSub\FrmInfoTypeIn.resx">
       <DependentUpon>FrmInfoTypeIn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMain\FrmMain.resx">
+    <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSub\FrmPageSizeSet.resx">
+    <EmbeddedResource Include="Visa\FrmSub\FrmPageSizeSet.resx">
       <DependentUpon>FrmPageSizeSet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSub\FrmSelAirInfo.resx">
+    <EmbeddedResource Include="Visa\FrmSub\FrmSelAirInfo.resx">
       <DependentUpon>FrmSelAirInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSub\FrmSelClientCharge.resx">
+    <EmbeddedResource Include="Financial\FrmSub\FrmSelClientCharge.resx">
       <DependentUpon>FrmSelClientCharge.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSub\FrmSelConsulateCharge.resx">
+    <EmbeddedResource Include="Financial\FrmSub\FrmSelConsulateCharge.resx">
       <DependentUpon>FrmSelConsulateCharge.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSub\FrmSelectClientPayout.resx">
-      <DependentUpon>FrmSelectClientPayout.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmSub\FrmSetCharge.resx">
+    <EmbeddedResource Include="Financial\FrmSub\FrmSetCharge.resx">
       <DependentUpon>FrmSetCharge.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSub\FrmSetGroup.resx">
+    <EmbeddedResource Include="Visa\FrmSub\FrmSetGroup.resx">
       <DependentUpon>FrmSetGroup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMain\FrmVisaSubmit.resx">
+    <EmbeddedResource Include="Visa\FrmMain\FrmVisaSubmit.resx">
       <DependentUpon>FrmVisaSubmit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSub\FrmQRCode.resx">
+    <EmbeddedResource Include="Visa\FrmSub\FrmQRCode.resx">
       <DependentUpon>FrmQRCode.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSub\FrmSetRequestPayout.resx">
+    <EmbeddedResource Include="Financial\FrmSub\FrmSetRequestPayout.resx">
       <DependentUpon>FrmSetRequestPayout.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSub\FrmSetTeamVisaGroup.resx">
+    <EmbeddedResource Include="Visa\FrmSub\FrmSetTeamVisaGroup.resx">
       <DependentUpon>FrmSetTeamVisaGroup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSetValue\FrmIdentificationValue.resx">
       <DependentUpon>FrmIdentificationValue.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSub\FrmSetTypeInStatus.resx">
+    <EmbeddedResource Include="Visa\FrmSub\FrmSetTypeInStatus.resx">
       <DependentUpon>FrmSetTypeInStatus.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSub\FrmShowPicture.resx">
+    <EmbeddedResource Include="Visa\FrmSub\FrmShowPicture.resx">
       <DependentUpon>FrmShowPicture.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSub\FrmTimeSpanChoose.resx">
+    <EmbeddedResource Include="Visa\FrmSub\FrmTimeSpanChoose.resx">
       <DependentUpon>FrmTimeSpanChoose.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSub\FrmTodaySubmit.resx">
+    <EmbeddedResource Include="Visa\FrmSub\FrmTodaySubmit.resx">
       <DependentUpon>FrmTodaySubmit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSub\FrmVisaInfoStatus.resx">
+    <EmbeddedResource Include="Visa\FrmSub\FrmVisaInfoStatus.resx">
       <DependentUpon>FrmVisaInfoStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
@@ -594,6 +585,7 @@
     <Content Include="Resources\Icons\vista桌面图标下载17.ico" />
     <Content Include="Resources\Icons\东瀛假日.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

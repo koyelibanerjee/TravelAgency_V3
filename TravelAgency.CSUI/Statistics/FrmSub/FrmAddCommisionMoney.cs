@@ -54,6 +54,7 @@ namespace TravelAgency.CSUI.FrmSub
                 txtType06.Text = _model.Type06GetSubmission.ToString();
                 txtType07.Text = _model.Type07AccompanySubmission.ToString();
                 txtType08.Text = _model.Type08Plan.ToString();
+                this.Text = "修改提成配置";
             }
         }
 

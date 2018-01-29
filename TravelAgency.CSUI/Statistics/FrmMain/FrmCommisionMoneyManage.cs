@@ -9,6 +9,7 @@ using DevComponents.DotNetBar;
 using TravelAgency.Common;
 using TravelAgency.Common.Enums;
 using TravelAgency.Common.Excel;
+using TravelAgency.Common.Financial;
 using TravelAgency.Common.PictureHandler;
 using TravelAgency.Common.QRCode;
 using TravelAgency.Common.Word;
@@ -317,7 +318,8 @@ namespace TravelAgency.CSUI.FrmMain
         private void 新增ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmAddCommisionMoney frm = new FrmAddCommisionMoney(LoadDataToDataGridView,_curPage);
-            frm.ShowDialog();
+            if(frm.ShowDialog()==DialogResult.OK)
+                CommisionMoneyCounter.UpdateCommisionConfig();
 
         }
 
@@ -352,7 +354,10 @@ namespace TravelAgency.CSUI.FrmMain
 
             }
             FrmAddCommisionMoney frm = new FrmAddCommisionMoney(LoadDataToDataGridView, _curPage, true, list[0]);
-            frm.ShowDialog();
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                CommisionMoneyCounter.UpdateCommisionConfig();
+            }
         }
 
         #endregion

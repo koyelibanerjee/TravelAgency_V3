@@ -12,9 +12,16 @@ namespace TravelAgency.Common.Financial
         private static readonly BLL.CommisionMoney _bllCommisionMoney = new CommisionMoney();
 
         public static Dictionary<string, Model.CommisionMoney> CommisionMoniesDict = new Dictionary<string, Model.CommisionMoney>();
+
         static CommisionMoneyCounter()
         {
+            UpdateCommisionConfig();
+        }
+
+        public static void UpdateCommisionConfig()
+        {
             var list = _bllCommisionMoney.GetModelList(string.Empty);
+            CommisionMoniesDict.Clear();
             foreach (var commisionMoney in list)
             {
                 CommisionMoniesDict.Add(commisionMoney.Type, commisionMoney);
@@ -33,7 +40,6 @@ namespace TravelAgency.Common.Financial
             res += model.Type06GetSubmission*moneyModel.Type06GetSubmission.Value;
             res += model.Type07AccompanySubmission*moneyModel.Type07AccompanySubmission.Value;
             res += model.Type08Plan * moneyModel.Type08Plan.Value;
-
             return res;
         }
 
