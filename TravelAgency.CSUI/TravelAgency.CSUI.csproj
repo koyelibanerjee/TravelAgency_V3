@@ -150,6 +150,12 @@
     <Compile Include="FrmSub\FrmAddClientCharge.Designer.cs">
       <DependentUpon>FrmAddClientCharge.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSub\FrmAddCommisionMoney.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSub\FrmAddCommisionMoney.Designer.cs">
+      <DependentUpon>FrmAddCommisionMoney.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSub\FrmAddVisa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -397,6 +403,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSub\FrmAddClientCharge.resx">
       <DependentUpon>FrmAddClientCharge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSub\FrmAddCommisionMoney.resx">
+      <DependentUpon>FrmAddCommisionMoney.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSub\FrmAddVisa.resx">
       <DependentUpon>FrmAddVisa.cs</DependentUpon>

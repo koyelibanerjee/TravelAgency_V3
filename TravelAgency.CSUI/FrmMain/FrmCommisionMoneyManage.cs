@@ -20,11 +20,7 @@ namespace TravelAgency.CSUI.FrmMain
 {
     public partial class FrmCommisionMoneyManage : Form
     {
-        private readonly TravelAgency.BLL.ActionRecords _bllActionRecords = new TravelAgency.BLL.ActionRecords();
-        private readonly TravelAgency.BLL.StatisticsBll _bllStatisticsBll = new TravelAgency.BLL.StatisticsBll();
-        private readonly TravelAgency.BLL.CommisionBll _bllCommisionBll = new TravelAgency.BLL.CommisionBll();
         private readonly TravelAgency.BLL.CommisionMoney _bllCommisionMoney = new TravelAgency.BLL.CommisionMoney();
-
         private int _curPage = 1;
         private int _pageCount = 0;
         private int _pageSize;
@@ -62,7 +58,7 @@ namespace TravelAgency.CSUI.FrmMain
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //千万不能开allcells，特别卡
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dataGridView1.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
-
+            dataGridView1.CellMouseUp += DataGridView1_CellMouseUp;
             //设置可跨线程访问窗体
             //TODO:这里可能需要修改
             //Control.CheckForIllegalCrossThreadCalls = false;
@@ -80,6 +76,8 @@ namespace TravelAgency.CSUI.FrmMain
 
             LoadDataToDgvAsyn();
         }
+
+
 
         #region model与control
         //private void ModelToCtrls(TravelAgency.Model.VisaInfo model)
@@ -161,7 +159,7 @@ namespace TravelAgency.CSUI.FrmMain
             int curSelectedRow = -1;
             if (dataGridView1.SelectedRows.Count > 0)
                 curSelectedRow = dataGridView1.SelectedRows[0].Index;
-            dataGridView1.DataSource = _bllCommisionMoney.GetListByPageOrderById(_curPage,_pageSize,string.Empty);
+            dataGridView1.DataSource = _bllCommisionMoney.GetListByPageOrderById(_curPage, _pageSize, string.Empty);
             if (curSelectedRow != -1 && dataGridView1.Rows.Count > curSelectedRow)
                 dataGridView1.CurrentCell = dataGridView1.Rows[curSelectedRow].Cells[0];
             dataGridView1.Update();
@@ -272,13 +270,7 @@ namespace TravelAgency.CSUI.FrmMain
                 row.HeaderCell.Value = (i + 1).ToString();
             }
         }
-
-        /// <summary>
-        /// dgv右键响应
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void dataGridView1_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        private void DataGridView1_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
             {
@@ -303,13 +295,11 @@ namespace TravelAgency.CSUI.FrmMain
 
                     }
                     //弹出操作菜单
-                    if (!_b4AddToExport)
-                        cmsDgvRb.Show(MousePosition.X, MousePosition.Y);
-                    else
-                        cms4AddToExport.Show(MousePosition.X, MousePosition.Y);
+                    cmsDgvRb.Show(MousePosition.X, MousePosition.Y);
                 }
             }
         }
+
 
         #endregion
 
@@ -322,6 +312,47 @@ namespace TravelAgency.CSUI.FrmMain
         private void cmsItemRefreshState_Click(object sender, EventArgs e)
         {
             LoadDataToDataGridView(_curPage);
+        }
+
+        private void 新增ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAddCommisionMoney frm = new FrmAddCommisionMoney(LoadDataToDataGridView,_curPage);
+            frm.ShowDialog();
+
+        }
+
+        private void 删除ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int count = this.dataGridView1.SelectedRows.Count;
+            if (MessageBoxEx.Show("确认删除" + count + "条记录?",
+                Resources.Confirm, MessageBoxButtons.OKCancel)
+                == DialogResult.Cancel)
+                return;
+            int n = 0;
+            var visaList = GetSelectedList();
+            for (int i = 0; i != visaList.Count; ++i)
+            {
+                if (!_bllCommisionMoney.Delete(visaList[i].id))
+                    MessageBoxEx.Show("删除失败!");
+                ++n;
+            }
+            GlobalUtils.MessageBoxWithRecordNum("删除", n, count);
+            LoadDataToDataGridView(_curPage);
+            UpdateState();
+        }
+
+        private void 修改ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var list = GetSelectedList();
+
+            if (list.Count > 1)
+            {
+                MessageBoxEx.Show("请选中一条进行修改!");
+                return;
+
+            }
+            FrmAddCommisionMoney frm = new FrmAddCommisionMoney(LoadDataToDataGridView, _curPage, true, list[0]);
+            frm.ShowDialog();
         }
 
         #endregion
@@ -384,6 +415,50 @@ namespace TravelAgency.CSUI.FrmMain
             txtSchEntryTimeTo.Text = DateTimeFormator.DateTimeToString(frm.TimeSpanTo, DateTimeFormator.TimeFormat.Type14LongTime1);
         }
 
+        #region Utils
 
+        private List<Model.CommisionMoney> DgvDataSourceToList()
+        {
+            return dataGridView1.DataSource as List<Model.CommisionMoney>;
+        }
+
+        /// <summary>
+        /// 返回当前选择的行的visaModel（函数不校验到底是选中的一个还是多个）
+        /// </summary>
+        /// <returns></returns>
+        private Model.CommisionMoney GetSelectedModel()
+        {
+            Model.CommisionMoney visaModel = DgvDataSourceToList()[dataGridView1.SelectedRows[0].Index];
+            return visaModel;
+        }
+
+        /// <summary>
+        /// 返回当前选择的行的visaModel的List
+        /// </summary>
+        /// <returns></returns>
+        private List<Model.CommisionMoney> GetSelectedList()
+        {
+            List<Model.CommisionMoney> res = new List<CommisionMoney>();
+            for (int i = dataGridView1.SelectedRows.Count - 1; i >= 0; i--)
+                res.Add(DgvDataSourceToList()[dataGridView1.SelectedRows[i].Index]);
+            return res.Count > 0 ? res : null;
+        }
+
+        #endregion
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            新增ToolStripMenuItem_Click(null, null);
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            删除ToolStripMenuItem_Click(null,null);
+        }
+
+        private void btnModify_Click(object sender, EventArgs e)
+        {
+            修改ToolStripMenuItem_Click(null,null);
+        }
     }
 }
