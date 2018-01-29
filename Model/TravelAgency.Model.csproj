@@ -124,6 +124,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppAll.cs" />
     <Compile Include="AuthUser.cs" />
     <Compile Include="ClientCharge.cs" />
     <Compile Include="CommisonModel.cs" />

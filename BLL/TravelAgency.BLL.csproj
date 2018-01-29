@@ -123,6 +123,8 @@
   <ItemGroup>
     <Compile Include="ActionRecords.cs" />
     <Compile Include="ActionRecordsBll.cs" />
+    <Compile Include="AppAll.cs" />
+    <Compile Include="AppAllBll.cs" />
     <Compile Include="AuthUser.cs" />
     <Compile Include="ClientChargeBll.cs" />
     <Compile Include="ClientCharge.cs" />

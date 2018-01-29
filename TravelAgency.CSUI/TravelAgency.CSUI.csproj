@@ -156,6 +156,12 @@
     <Compile Include="FrmSub\FrmAddConsulateCharge.Designer.cs">
       <DependentUpon>FrmAddConsulateCharge.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSub\FrmAppAll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSub\FrmAppAll.Designer.cs">
+      <DependentUpon>FrmAppAll.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSub\FrmConsulateCharge.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -388,6 +394,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSub\FrmAddConsulateCharge.resx">
       <DependentUpon>FrmAddConsulateCharge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSub\FrmAppAll.resx">
+      <DependentUpon>FrmAppAll.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSub\FrmConsulateCharge.resx">
       <DependentUpon>FrmConsulateCharge.cs</DependentUpon>

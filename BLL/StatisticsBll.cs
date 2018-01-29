@@ -85,7 +85,22 @@ namespace TravelAgency.BLL
             else
                 day = DateTime.Now.Day - (DateTime.Now.DayOfWeek - DayOfWeek.Monday);
             strFrom = $"{year}-{month}-{day} 00:00:00";
+
             strTo = $"{year}-{month}-{day + 6} 23:59:59";
+            try
+            {
+                DateTime.Parse(strTo);
+            }
+            catch (Exception)
+            {
+                //溢出了，超出了本月最大天数
+                DateTime end = DateTime.Today.AddDays(6.0);
+                strTo = end.ToString("yyyy-MM-dd");
+                strTo += " 23:59:59";
+                
+            }
+
+
             return GetCountByTimeSpan(strFrom, strTo, otherwhere);
         }
         public int GetCountOfCurDay(string otherwhere = "")

@@ -1557,5 +1557,14 @@ namespace TravelAgency.CSUI.FrmMain
         {
             MessageBoxEx.Show("单价 = 领馆 + 送签员 + 邀请函\r\n总价 = 单价 * 数量 + 洗照片 + 快递费 + 杂费");
         }
+
+        private void 提交请款ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAppAll frm = new FrmAppAll(GetSelectedVisaList());
+            if(DialogResult.Cancel==frm.ShowDialog())
+                return;
+            
+
+        }
     }
 }

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bar1 = new DevComponents.DotNetBar.Bar();
             this.btnPageFirst = new DevComponents.DotNetBar.ButtonItem();
             this.btnPagePre = new DevComponents.DotNetBar.ButtonItem();
@@ -44,6 +44,7 @@
             this.cbPageSize = new DevComponents.DotNetBar.ComboBoxItem();
             this.labelItem2 = new DevComponents.DotNetBar.LabelItem();
             this.lbCurPage = new DevComponents.DotNetBar.LabelItem();
+            this.lbInfoManifest = new DevComponents.DotNetBar.LabelItem();
             this.dataGridView1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.GroupNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -119,6 +120,8 @@
             this.清除杂费款项ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelBars = new DevComponents.DotNetBar.PanelEx();
             this.panelSerachBar = new DevComponents.DotNetBar.PanelEx();
+            this.progressLoading = new DevComponents.DotNetBar.Controls.CircularProgress();
+            this.lbMonneyCount = new DevComponents.DotNetBar.LabelX();
             this.btnUpdate = new DevComponents.DotNetBar.ButtonX();
             this.txtSchFinishTimeTo = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.txtSchFinishTimeFrom = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
@@ -134,7 +137,6 @@
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.btnShowToday = new DevComponents.DotNetBar.ButtonX();
             this.cbDisplayType = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.progressLoading = new DevComponents.DotNetBar.Controls.CircularProgress();
             this.btnClearSchConditions = new DevComponents.DotNetBar.ButtonX();
             this.labelX15 = new DevComponents.DotNetBar.LabelX();
             this.txtSchGroupNo = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -150,8 +152,7 @@
             this.panelDgv = new DevComponents.DotNetBar.PanelEx();
             this.cmsAddToGroup = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.添加到团号ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lbMonneyCount = new DevComponents.DotNetBar.LabelX();
-            this.lbInfoManifest = new DevComponents.DotNetBar.LabelItem();
+            this.提交请款ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cmsDgv.SuspendLayout();
@@ -257,19 +258,27 @@
             // 
             this.lbCurPage.Name = "lbCurPage";
             // 
+            // lbInfoManifest
+            // 
+            this.lbInfoManifest.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbInfoManifest.ForeColor = System.Drawing.Color.Red;
+            this.lbInfoManifest.Name = "lbInfoManifest";
+            this.lbInfoManifest.Text = "总价单价规则说明";
+            this.lbInfoManifest.Click += new System.EventHandler(this.lbInfoManifest_Click);
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.GroupNo,
@@ -300,28 +309,28 @@
             this.Price,
             this.Cost,
             this.Visa_id});
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -554,6 +563,7 @@
             this.高拍仪做资料ToolStripMenuItem,
             this.设置领馆费用ToolStripMenuItem,
             this.请款ToolStripMenuItem,
+            this.提交请款ToolStripMenuItem,
             this.toolStripSeparator5,
             this.自动更新单价ToolStripMenuItem,
             this.自动更新总价ToolStripMenuItem,
@@ -561,7 +571,7 @@
             this.清除领馆款项ToolStripMenuItem,
             this.清除杂费款项ToolStripMenuItem});
             this.cmsDgv.Name = "cmsDgv";
-            this.cmsDgv.Size = new System.Drawing.Size(185, 336);
+            this.cmsDgv.Size = new System.Drawing.Size(185, 380);
             // 
             // 复制ToolStripMenuItem
             // 
@@ -949,6 +959,37 @@
             this.panelSerachBar.Style.GradientAngle = 90;
             this.panelSerachBar.TabIndex = 29;
             // 
+            // progressLoading
+            // 
+            // 
+            // 
+            // 
+            this.progressLoading.BackgroundStyle.BackgroundImageAlpha = ((byte)(64));
+            this.progressLoading.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.progressLoading.FocusCuesEnabled = false;
+            this.progressLoading.Location = new System.Drawing.Point(1220, 5);
+            this.progressLoading.Name = "progressLoading";
+            this.progressLoading.ProgressBarType = DevComponents.DotNetBar.eCircularProgressType.Dot;
+            this.progressLoading.ProgressColor = System.Drawing.Color.YellowGreen;
+            this.progressLoading.Size = new System.Drawing.Size(73, 55);
+            this.progressLoading.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeXP;
+            this.progressLoading.TabIndex = 27;
+            this.progressLoading.Value = 100;
+            // 
+            // lbMonneyCount
+            // 
+            // 
+            // 
+            // 
+            this.lbMonneyCount.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lbMonneyCount.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbMonneyCount.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lbMonneyCount.Location = new System.Drawing.Point(1093, 5);
+            this.lbMonneyCount.Name = "lbMonneyCount";
+            this.lbMonneyCount.Size = new System.Drawing.Size(166, 51);
+            this.lbMonneyCount.TabIndex = 54;
+            this.lbMonneyCount.Text = "共12000元";
+            // 
             // btnUpdate
             // 
             this.btnUpdate.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -1208,23 +1249,6 @@
             this.cbDisplayType.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cbDisplayType.TabIndex = 30;
             // 
-            // progressLoading
-            // 
-            // 
-            // 
-            // 
-            this.progressLoading.BackgroundStyle.BackgroundImageAlpha = ((byte)(64));
-            this.progressLoading.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.progressLoading.FocusCuesEnabled = false;
-            this.progressLoading.Location = new System.Drawing.Point(1220, 5);
-            this.progressLoading.Name = "progressLoading";
-            this.progressLoading.ProgressBarType = DevComponents.DotNetBar.eCircularProgressType.Dot;
-            this.progressLoading.ProgressColor = System.Drawing.Color.YellowGreen;
-            this.progressLoading.Size = new System.Drawing.Size(73, 55);
-            this.progressLoading.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeXP;
-            this.progressLoading.TabIndex = 27;
-            this.progressLoading.Value = 100;
-            // 
             // btnClearSchConditions
             // 
             this.btnClearSchConditions.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -1462,27 +1486,12 @@
             this.添加到团号ToolStripMenuItem.Text = "添加到此团号";
             this.添加到团号ToolStripMenuItem.Click += new System.EventHandler(this.添加到团号ToolStripMenuItem_Click);
             // 
-            // lbMonneyCount
+            // 提交请款ToolStripMenuItem
             // 
-            // 
-            // 
-            // 
-            this.lbMonneyCount.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lbMonneyCount.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbMonneyCount.ForeColor = System.Drawing.Color.ForestGreen;
-            this.lbMonneyCount.Location = new System.Drawing.Point(1093, 5);
-            this.lbMonneyCount.Name = "lbMonneyCount";
-            this.lbMonneyCount.Size = new System.Drawing.Size(166, 51);
-            this.lbMonneyCount.TabIndex = 54;
-            this.lbMonneyCount.Text = "共12000元";
-            // 
-            // lbInfoManifest
-            // 
-            this.lbInfoManifest.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbInfoManifest.ForeColor = System.Drawing.Color.Red;
-            this.lbInfoManifest.Name = "lbInfoManifest";
-            this.lbInfoManifest.Text = "总价单价规则说明";
-            this.lbInfoManifest.Click += new System.EventHandler(this.lbInfoManifest_Click);
+            this.提交请款ToolStripMenuItem.Name = "提交请款ToolStripMenuItem";
+            this.提交请款ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.提交请款ToolStripMenuItem.Text = "提交请款";
+            this.提交请款ToolStripMenuItem.Click += new System.EventHandler(this.提交请款ToolStripMenuItem_Click);
             // 
             // FrmVisaRequestPayoutManage
             // 
@@ -1631,5 +1640,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private DevComponents.DotNetBar.LabelX lbMonneyCount;
         private DevComponents.DotNetBar.LabelItem lbInfoManifest;
+        private System.Windows.Forms.ToolStripMenuItem 提交请款ToolStripMenuItem;
     }
 }
