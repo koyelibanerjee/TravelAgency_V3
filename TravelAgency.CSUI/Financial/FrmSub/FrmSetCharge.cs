@@ -30,7 +30,13 @@ namespace TravelAgency.CSUI.Financial.FrmSub
         public FrmSetCharge(List<Model.Visa> list, Action<int> updateDel, int curPage)
         : this()
         {
-            _list = list;
+            //_list = list.ToObjectCopy(); //直接复制list有问题，换成单个复制
+            _list = new List<Model.Visa>();
+            foreach (var visa in list)
+            {
+                _list.Add(visa.ToObjectCopy());
+            }
+
             _updateDel = updateDel;
             _curPage = curPage;
         }
@@ -232,7 +238,6 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             {
                 //sb.Append(" Country='" + cbCountry.Text + "'");
                 conditions.Add(" (Country like  '%" + str + "%') ");
-
             }
             str = GetCellValue(rowidx, "Types");
 
