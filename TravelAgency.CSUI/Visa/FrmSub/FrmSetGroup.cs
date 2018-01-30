@@ -62,7 +62,6 @@ namespace TravelAgency.CSUI.FrmSub
             _type = types;
         }
 
-
         /// <summary>
         /// 从已有visaModel设置窗口(已经设置了团号)
         /// </summary>
