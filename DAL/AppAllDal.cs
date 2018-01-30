@@ -45,7 +45,7 @@ namespace TravelAgency.DAL
             parameters[0].Value = Guid.NewGuid();
             parameters[1].Value = model.UserName;
             parameters[2].Value = model.WorkId;
-            parameters[3].Value = Guid.NewGuid();
+            parameters[3].Value = model.DepartmentId;
             parameters[4].Value = model.Amount;
             parameters[5].Value = model.GroupNo;
             parameters[6].Value = model.Details;
@@ -70,7 +70,7 @@ namespace TravelAgency.DAL
             }
             else
             {
-                return (Guid)parameters[0].Value;
+                return (Guid)parameters[0].Value;//返回对应的Guid
             }
         }
 

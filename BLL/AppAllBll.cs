@@ -13,6 +13,14 @@ namespace TravelAgency.BLL
         public string TableName { get { return "AppAll"; } }
 
 
+        /// <summary>
+		/// 增加一条数据
+		/// </summary>
+		public Guid Add(TravelAgency.Model.AppAll model)
+        {
+            return dal.Add(model);
+        }
+
         public List<string> GetBankFromToList()
         {
             var list = CommonBll.GetFieldList(TableName, "Bank_To");
