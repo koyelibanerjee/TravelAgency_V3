@@ -103,10 +103,11 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             dataGridView1.ReadOnly = false;
             for (int i = 0; i <= 27; ++i)
             {
-                if (i < 17)
+                if (i < 17 && i!=7 && i!=8)
                     dataGridView1.Columns[i].ReadOnly = true;
                 //else dataGridView1.Columns[i].ReadOnly = false; //这些列可编辑
             }
+            
 
 
             //dataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
