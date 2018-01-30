@@ -93,6 +93,9 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             model.WorkId = GlobalUtils.LoginUser.WorkId;
             model.DepartmentId = GlobalUtils.LoginUser.DepartmentId;
             model.Flag = 1; //代表签证请款
+            model.AppNo = DateTime.Today.ToString("yyyyMMdd") + (_bllAppAll.GetMaxTemp() + 1);
+            model.EntryTime = DateTime.Now;
+            model.AppTime = model.EntryTime;
             return model;
         }
 

@@ -12,7 +12,10 @@ namespace TravelAgency.BLL
     {
         public string TableName { get { return "AppAll"; } }
 
-
+        public int GetMaxTemp()
+        {
+            return dal.GetMaxTemp();
+        }
         /// <summary>
 		/// 增加一条数据
 		/// </summary>

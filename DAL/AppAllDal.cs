@@ -10,6 +10,14 @@ namespace TravelAgency.DAL
 	/// </summary>
 	public partial class AppAll
 	{
+	    public int GetMaxTemp()
+	    {
+	        string sql = "select max(temp) from AppAll";
+	        var res = DbHelperSQL.GetSingle(sql);
+	        return (int) res;
+	    }
+
+
         /// <summary>
         /// 增加一条数据
         /// </summary>
