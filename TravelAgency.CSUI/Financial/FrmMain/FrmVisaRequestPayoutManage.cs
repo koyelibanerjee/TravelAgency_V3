@@ -72,7 +72,12 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             cbDisplayType.Items.Add("个签&&团做个");
             cbDisplayType.SelectedIndex = 0;
 
-            
+            cbSubmitState.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbSubmitState.Items.Add("全部");
+            cbSubmitState.Items.Add("未提交");
+            cbSubmitState.Items.Add("已提交");
+            cbSubmitState.SelectedIndex = 1;
+
 
             //国家选择框加入
             //cbCountry.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -103,11 +108,11 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             dataGridView1.ReadOnly = false;
             for (int i = 0; i <= 27; ++i)
             {
-                if (i < 17 && i!=7 && i!=8)
+                if (i < 17 && i != 7 && i != 8)
                     dataGridView1.Columns[i].ReadOnly = true;
                 //else dataGridView1.Columns[i].ReadOnly = false; //这些列可编辑
             }
-            
+
 
 
             //dataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
@@ -140,6 +145,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
         public void LoadDataToDataGridView(int page) //刷新后保持选中
         {
+           _where = GetWhereCondition();
             _needDoUpdateEvent = false;
             //Console.WriteLine("加载一次");
             int curSelectedRow = -1;
@@ -276,8 +282,6 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                                "') ");
             }
 
-            
-
             if (cbCountry.Text == "全部")
             {
 
@@ -304,6 +308,19 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             else
             {
                 conditions.Add(" DepartureType = '" + cbDepatureType.Text + "' ");
+            }
+
+            if (cbSubmitState.Text == "全部")
+            {
+
+            }
+            else if (cbSubmitState.Text == "未提交")
+            {
+                conditions.Add(" (submitflag =" + 0 + " or submitflag is null)"); //0是未提交，所以这里处理一下
+            }
+            else
+            {
+                conditions.Add(" (submitflag =" + 1 +")"); //0是未提交，所以这里处理一下
             }
 
 
@@ -476,10 +493,16 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                 if (dataGridView1.Rows[i].Cells["Cost"].Value != null)
                     moneycount += decimal.Parse(dataGridView1.Rows[i].Cells["Cost"].Value.ToString());
 
-                if (dataGridView1.Rows[i].Cells["SubmitFlag"].Value != null &&
-                    int.Parse(dataGridView1.Rows[i].Cells["SubmitFlag"].Value.ToString()) == 1)
+                if (DgvDataSourceToList()[i].SubmitFlag == 1
+                    )
                 {
                     dataGridView1.Rows[i].Cells["SubmitFlag"].Style.BackColor = Color.LimeGreen;
+                    dataGridView1.Rows[i].Cells["SubmitFlag"].Value = "已提交";
+                }
+                else
+                {
+                    //dataGridView1.Rows[i].Cells["SubmitFlag"].Style.BackColor = Color.;
+                    dataGridView1.Rows[i].Cells["SubmitFlag"].Value = "未提交";
                 }
             }
 
@@ -1568,9 +1591,9 @@ namespace TravelAgency.CSUI.Financial.FrmMain
         private void 提交请款ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmAppAll frm = new FrmAppAll(GetSelectedVisaList());
-            if(DialogResult.Cancel==frm.ShowDialog())
+            if (DialogResult.Cancel == frm.ShowDialog())
                 return;
-            
+            LoadDataToDgvAsyn();
 
         }
     }
