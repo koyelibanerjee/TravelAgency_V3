@@ -61,9 +61,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
         private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
             string colName = dataGridView1.Columns[e.ColumnIndex].Name;
-
             if (colName == "Client" || colName == "Receipt")
             {
                 var list = GetClientCharges(e.RowIndex);
@@ -75,12 +73,10 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 FrmSelClientCharge frm = new FrmSelClientCharge(list);
                 if (frm.ShowDialog() == DialogResult.Cancel)
                     return;
-
                 string country = GetCellValue(e.RowIndex, "Country");
                 string type = GetCellValue(e.RowIndex, "Types");
                 string depatureType = GetCellValue(e.RowIndex, "DepartureType");
                 string client = GetCellValue(e.RowIndex, "Client");
-
                 if (frm.ChangeAllAlike)
                 {
                     for (int i = 0; i < dataGridView1.Rows.Count; i++)
@@ -138,12 +134,6 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
                 }
             }
-
-
-
-
-
-
         }
 
         private void DataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
