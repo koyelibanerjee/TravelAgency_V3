@@ -96,6 +96,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CustomCtrls\RowMergeView.designer.cs" />
+    <Compile Include="Financial\FrmMain\FrmAppManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial\FrmMain\FrmAppManage.Designer.cs">
+      <DependentUpon>FrmAppManage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Financial\FrmMain\FrmClientChargeManage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +113,12 @@
     </Compile>
     <Compile Include="Financial\FrmMain\FrmConsulateChargeManage.Designer.cs">
       <DependentUpon>FrmConsulateChargeManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial\FrmSub\FrmQZApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial\FrmSub\FrmQZApplication.Designer.cs">
+      <DependentUpon>FrmQZApplication.cs</DependentUpon>
     </Compile>
     <Compile Include="Visa\FrmMain\FrmGaoPaiManage.cs">
       <SubType>Form</SubType>
@@ -368,11 +380,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TravelAgencyDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Financial\FrmMain\FrmAppManage.resx">
+      <DependentUpon>FrmAppManage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Financial\FrmMain\FrmClientChargeManage.resx">
       <DependentUpon>FrmClientChargeManage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Financial\FrmMain\FrmConsulateChargeManage.resx">
       <DependentUpon>FrmConsulateChargeManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial\FrmSub\FrmQZApplication.resx">
+      <DependentUpon>FrmQZApplication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visa\FrmMain\FrmGaoPaiManage.resx">
       <DependentUpon>FrmGaoPaiManage.cs</DependentUpon>

@@ -4,6 +4,7 @@ using DevComponents.DotNetBar;
 using ScanCtrlTest;
 using TravelAgency.Common;
 using TravelAgency.CSUI.Financial.FrmMain;
+using TravelAgency.CSUI.Financial.FrmSub;
 using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Statistics.FrmMain;
 
@@ -201,6 +202,12 @@ namespace TravelAgency.CSUI.FrmMain
         private void btnCommisionMoneyManage_Click(object sender, EventArgs e)
         {
             FrmCommisionMoneyManage frm = new FrmCommisionMoneyManage();
+            OpenTab(frm, frm.Name);
+        }
+
+        private void btnAppAllManage_Click(object sender, EventArgs e)
+        {
+            FrmAppManage frm = new FrmAppManage();
             OpenTab(frm, frm.Name);
         }
     }
