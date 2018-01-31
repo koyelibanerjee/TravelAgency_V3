@@ -488,6 +488,17 @@ namespace TravelAgency.CSUI.FrmMain
                     continue;
                 }
 
+                if (visas[i].IsUrgent)
+                {
+                    dataGridView1.Rows[i].Cells["IsUrgent"].Value = "急件";
+                    dataGridView1.Rows[i].Cells["IsUrgent"].Style.BackColor = Color.Red;
+                }
+                else
+                {
+                    dataGridView1.Rows[i].Cells["IsUrgent"].Value = "非急件";
+                    //dataGridView1.Rows[i].Cells["Status"].Style.BackColor = Color.Red;
+                }
+
                 peopleCount += int.Parse(dataGridView1.Rows[i].Cells["Number"].Value.ToString());
                 //下面这一部分用来查询状态，先不用，太卡了
                 //var visas = dataGridView1.DataSource as List<Model.Visa>;
@@ -603,25 +614,25 @@ namespace TravelAgency.CSUI.FrmMain
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            if (dataGridView1.Columns[e.ColumnIndex].Name == "IsUrgent")
-            {
-                Color c = Color.Empty;
-                //string state = e.Value.ToString();
-                bool isUrgent = false;
-                if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
-                    isUrgent = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "True";
-                if (isUrgent)
-                {
-                    c = Color.Red;
-                    //dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = "加急";
-                }
+            //if (dataGridView1.Columns[e.ColumnIndex].Name == "IsUrgent")
+            //{
+            //    Color c = Color.Empty;
+            //    //string state = e.Value.ToString();
+            //    bool isUrgent = false;
+            //    if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            //        isUrgent = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString() == "True";
+            //    if (isUrgent)
+            //    {
+            //        c = Color.Red;
+            //        //dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = "加急";
+            //    }
 
-                else
-                {
-                    c = Color.AntiqueWhite;
-                }
-                dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = c;
-            }
+            //    else
+            //    {
+            //        c = Color.AntiqueWhite;
+            //    }
+            //    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = c;
+            //}
         }
 
         #endregion
