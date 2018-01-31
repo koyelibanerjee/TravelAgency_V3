@@ -138,6 +138,11 @@ namespace TravelAgency.CSUI.FrmMain
             MinimumSize = Size;
             FrmsManager.OpenedForms.Add(this);
             GlobalStat.UpdateStatistics();
+           string workId =  GlobalUtils.LoginUser.WorkId;
+            if (workId != "10000" && workId != "10301" && workId != "10302")
+            {
+                btnCommisionMoneyManage.Enabled = false;
+            }
         }
 
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
