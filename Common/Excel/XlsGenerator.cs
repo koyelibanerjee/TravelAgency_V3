@@ -191,7 +191,7 @@ namespace TravelAgency.Common.Excel
                     string[] datearr = dtString.Split('/');
                     //1.获取每个单元格
                     if (row.GetCell(c).ToString() == "{1}")
-                        row.GetCell(c).SetCellValue(datearr[0].Substring(2, 2));
+                        row.GetCell(c).SetCellValue(datearr[0]);
                     if (row.GetCell(c).ToString() == "{2}")
                         row.GetCell(c).SetCellValue(datearr[1]);
                     if (row.GetCell(c).ToString() == "{3}")

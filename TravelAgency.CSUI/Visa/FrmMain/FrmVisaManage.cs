@@ -1077,7 +1077,7 @@ namespace TravelAgency.CSUI.FrmMain
         }
         #endregion
 
-        #region h韩国报表
+        #region 韩国报表
         private void 韩国担保函ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var visaList = GetSelectedVisaList();
@@ -1093,15 +1093,16 @@ namespace TravelAgency.CSUI.FrmMain
             list.Add(visaInfoList[0].Name);
             list.Add(visaInfoList[0].PassportNo);
             list.Add(table[visaInfoList.Count - 1]);
-            list.Add(visaList[0].EntryTime.Value.Date.Year.ToString());
-            list.Add(visaList[0].EntryTime.Value.Date.Month.ToString());
 
+            DateTime date;
             if (visaList[0].DepartureType == "单次加急")
-                list.Add((visaList[0].EntryTime.Value.AddDays(3.0).Date.Day).ToString());
+                date = visaList[0].EntryTime.Value.AddDays(3.0).Date;
             else
-            {
-                list.Add((visaList[0].EntryTime.Value.AddDays(10.0).Date.Day).ToString());
-            }
+                date = visaList[0].EntryTime.Value.AddDays(10.0).Date;
+
+            list.Add(date.Year.ToString());
+            list.Add(date.Month.ToString());
+            list.Add(date.Day.ToString());
             if (visaList[0].DepartureType == "五年多往" || visaList[0].DepartureType == "五年多往" ||
                 visaList[0].DepartureType == "五年多次")
             {
