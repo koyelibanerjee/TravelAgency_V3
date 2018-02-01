@@ -22,8 +22,8 @@ namespace TravelAgency.CSUI.FrmSub
         private BLL.VisaInfo _bllVisaInfo = new BLL.VisaInfo();
         private bool _hasDone = false; //用于备份判断
         private Model.VisaInfo _visaInfoModel;
-        //private Action<int> _updateDel;
-        //private int _curPage;
+        private Action<int> _updateDel;
+        private int _curPage;
 
         public FrmSetSubmitStatus()
         {
@@ -54,8 +54,8 @@ namespace TravelAgency.CSUI.FrmSub
             }
 
             _visaInfoModel = visaInfomodel;
-            //_updateDel = updateDel;
-            //_curPage = curPage;
+            _updateDel = updateDel;
+            _curPage = curPage;
         }
 
 
@@ -92,7 +92,7 @@ namespace TravelAgency.CSUI.FrmSub
                 _bllActionRecords.DeleteSubmitStateRecord(_visaInfoModel, ActType._05SubmitIn);
                 _bllActionRecords.DeleteSubmitStateRecord(_visaInfoModel, ActType._05SubmitOut);
                 _bllActionRecords.DeleteSubmitStateRecord(_visaInfoModel, ActType._05SubmitAbOut);
-                //_updateDel(_curPage);
+                
 
             }
             else if (rbtnIn.Checked) //修改为进签
@@ -157,7 +157,7 @@ namespace TravelAgency.CSUI.FrmSub
                 //删除正常出签的操作记录
                 _bllActionRecords.DeleteSubmitStateRecord(_visaInfoModel, ActType._05SubmitOut);
             }
-
+            _updateDel(_curPage);
             this.DialogResult = DialogResult.OK;
             this.Close();
         }

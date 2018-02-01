@@ -20,7 +20,7 @@ namespace TravelAgency.CSUI.FrmMain
     {
         private readonly TravelAgency.BLL.VisaInfo bll = new TravelAgency.BLL.VisaInfo();
         private readonly BLL.ActionRecords _bllActionRecords = new ActionRecords();
-        private int _curPage = 1;
+        //private int _curPage = 1;
         private int _pageCount = 0;
         private int _pageSize = 30;
         private int _recordCount = 0;
@@ -29,14 +29,19 @@ namespace TravelAgency.CSUI.FrmMain
         private Inputmode _inputMode = Inputmode.Single;
         private readonly MyQRCode _qrCode = new MyQRCode();
         //private readonly Thread _thLoadDataToDgvAndUpdateState;
-        private List<Model.VisaInfo> _list; 
+        private List<Model.VisaInfo> _list;
 
-        public FrmVisaInfoSubmitDetails(List<Model.VisaInfo> list)
+        private Action<int> _updateDel;
+        private int _curPage;
+
+        public FrmVisaInfoSubmitDetails(List<Model.VisaInfo> list, Action<int> updateDel, int curPage)
         {
             InitializeComponent();
             _list = list;
             //_thLoadDataToDgvAndUpdateState = new Thread(LoadAndUpdate);
             //_thLoadDataToDgvAndUpdateState.IsBackground = true;
+            _updateDel = updateDel;
+            _curPage = curPage;
         }
 
         private void FrmVisaSubmit_Load(object sender, EventArgs e)
@@ -245,7 +250,7 @@ namespace TravelAgency.CSUI.FrmMain
             }
             FrmSetSubmitStatus frm = new FrmSetSubmitStatus(
                 (dataGridView1.DataSource as List<Model.VisaInfo>)[dataGridView1.SelectedRows[0].Index],
-                dataGridView1.SelectedRows[0].Cells["outState"].Value.ToString(),null,0);
+                dataGridView1.SelectedRows[0].Cells["outState"].Value.ToString(),_updateDel,_curPage);
             frm.ShowDialog();
         }
 

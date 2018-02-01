@@ -749,7 +749,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 return;
             var visaModel = GetSelectedVisaModel();
             var list = _bllVisaInfo.GetModelListByVisaIdOrderByPosition(visaModel.Visa_id);
-            FrmVisaInfoSubmitDetails frm = new FrmVisaInfoSubmitDetails(list);
+            FrmVisaInfoSubmitDetails frm = new FrmVisaInfoSubmitDetails(list,LoadDataToDataGridView,_curPage);
             frm.Show();
         }
         private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
