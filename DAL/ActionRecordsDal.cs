@@ -68,14 +68,14 @@ namespace TravelAgency.DAL
             strSql.Append("@ActType,@WorkId,@UserName,@VisaInfo_id,@Visa_id,@Type,@EntryTime,@Country)");
             strSql.Append(";select @@IDENTITY");
             SqlParameter[] parameters = {
-					new SqlParameter("@ActType", SqlDbType.VarChar,50),
-					new SqlParameter("@WorkId", SqlDbType.VarChar,50),
-					new SqlParameter("@UserName", SqlDbType.VarChar,100),
-					new SqlParameter("@VisaInfo_id", SqlDbType.UniqueIdentifier,16),
-					new SqlParameter("@Visa_id", SqlDbType.UniqueIdentifier,16),
-					new SqlParameter("@Type", SqlDbType.VarChar,50),
-					new SqlParameter("@EntryTime", SqlDbType.DateTime),
-					new SqlParameter("@Country", SqlDbType.VarChar,50)
+                    new SqlParameter("@ActType", SqlDbType.VarChar,50),
+                    new SqlParameter("@WorkId", SqlDbType.VarChar,50),
+                    new SqlParameter("@UserName", SqlDbType.VarChar,100),
+                    new SqlParameter("@VisaInfo_id", SqlDbType.UniqueIdentifier,16),
+                    new SqlParameter("@Visa_id", SqlDbType.UniqueIdentifier,16),
+                    new SqlParameter("@Type", SqlDbType.VarChar,50),
+                    new SqlParameter("@EntryTime", SqlDbType.DateTime),
+                    new SqlParameter("@Country", SqlDbType.VarChar,50)
                                         };
             parameters[0].Value = model.ActType;
             parameters[1].Value = model.WorkId;
@@ -105,10 +105,10 @@ namespace TravelAgency.DAL
         /// <returns></returns>
         public int GetVisaHasTypedInNum(Guid visaGuid)
         {
-            string sql = "select distinct VisaInfo_id from ActionRecords where Visa_id = '" +
+            string sql = "select count(1) from (select distinct VisaInfo_id from ActionRecords where Visa_id = '" +
                          visaGuid.ToString() +
-                         "' and ActType = '02录入做资料'";
-            return DbHelperSQL.Query(sql).Tables[0].Rows.Count;
+                         "' and ActType = '02录入做资料') as b";
+            return (int)DbHelperSQL.GetSingle(sql);
         }
 
         /// <summary>
@@ -136,6 +136,16 @@ namespace TravelAgency.DAL
                 new SqlParameter("@End",SqlDbType.Int){Value=end}
             };
             return DbHelperSQL.Query(sql, pams);
+        }
+
+        public int GetVisaSubmitStateNum(Model.Visa model, string acttype)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(
+                "select COUNT(1) from (select distinct visainfo_id from ActionRecords where Visa_id='" 
+                + model.Visa_id + "' and acttype='" + acttype + "') as b");
+
+            return (int)DbHelperSQL.GetSingle(sb.ToString());
         }
 
     }

@@ -124,10 +124,10 @@ namespace TravelAgency.BLL
             return Add(model) > 0;
         }
 
-        //public int GetVisaSubmitStateNum(Model.Visa model)
-        //{
-        //    var list = GetModelList(" Visa")
-        //}
+        public int GetVisaSubmitStateNum(Model.Visa model,string acttype)
+        {
+            return dal.GetVisaSubmitStateNum(model, acttype);
+        }
 
     }
 }

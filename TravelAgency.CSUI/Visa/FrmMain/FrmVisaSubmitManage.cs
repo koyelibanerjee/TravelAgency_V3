@@ -241,7 +241,7 @@ namespace TravelAgency.CSUI.FrmMain
                 UpdateByLines(txtInput.Text, _inputMode);
             }
 
-            //Console.WriteLine(model.EntryTime.ToString());
+            //Console.WriteLine(visainfoModel.EntryTime.ToString());
         }
 
         private int UpdateByLines(string txt, Inputmode inputMode)
@@ -260,11 +260,6 @@ namespace TravelAgency.CSUI.FrmMain
                 }
 
                 UpdateModelState(model, _outState);
-                if (!_bllVisaInfo.Update(model))
-                {
-                    MessageBoxEx.Show(Resources.FailedUpdateVisaInfoState);
-                    return count;
-                }
                 ++count;
                 LoadDataToDataGridView(_curPage);
             }
@@ -274,7 +269,7 @@ namespace TravelAgency.CSUI.FrmMain
 
                 for (int i = 0; i != lines.Length; ++i)
                 {
-                    if (lines[i].Equals(OutStateString.Type02In))
+                    if (lines[i].Equals(OutStateString.Type02In))//切换状态
                         outState = OutState.Type02In;
                     else if (lines[i].Equals(OutStateString.Type03NormalOut))
                         outState = OutState.Type03NormalOut;
@@ -296,7 +291,6 @@ namespace TravelAgency.CSUI.FrmMain
 
                         if (!UpdateModelState(model, outState))
                             return count;
-
                         ++count;
                         if (updateSingle)
                             LoadDataToDataGridView(_curPage);
@@ -308,31 +302,83 @@ namespace TravelAgency.CSUI.FrmMain
             return count;
         }
 
-        private bool UpdateModelState(VisaInfo model, string outState1)
+        private bool UpdateModelState(VisaInfo visainfoModel, string outState1)
         {
             //判断逻辑:
             //(1)每次更新的时候检查一个团里面是否全部进签或出签完成，是的话更新团的状态。
             //(2)检查是否团里面有人还没进签就出签了，报错
             //(3)检查
-            model.outState = outState1;
-            if (outState1 == OutState.Type02In)
-                model.InTime = DateTime.Now;
-            else if (outState1 == OutState.Type03NormalOut)
-                model.OutTime = DateTime.Now;
-            else if (outState1 == OutState.TYPE04AbnormalOut)
-                model.AbnormalOutTime = DateTime.Now;
-            else
-                MessageBoxEx.Show(Resources.OutStateLengthEqualZero);
+            
 
-            if (model.outState == OutState.Type02In) //检查团是否进签完成了
+            if (string.IsNullOrEmpty(visainfoModel.Visa_id)) //没有加入团的签证不让送
             {
-
+                MessageBoxEx.Show("没有加入团的签证不允许送签!");
+                return false;
             }
-            if (!_bllVisaInfo.Update(model))
+            Model.Visa visaModel = null;
+            try
+            {
+                visaModel = _bllVisa.GetModel(Guid.Parse(visainfoModel.Visa_id));
+            }
+            catch (Exception)
+            {
+                MessageBoxEx.Show("指定签证没有找到所在团，请检查后再试!");
+                return false;
+            }
+            if(visaModel==null)
+            {
+                MessageBoxEx.Show("指定签证没有找到所在团，请检查后再试!");
+                return false;
+            }
+
+
+            visainfoModel.outState = outState1;
+            string acttype = string.Empty;
+            if (outState1 == OutState.Type02In)
+            {
+                visainfoModel.InTime = DateTime.Now;
+                acttype = ActType._05SubmitIn;
+            }
+            else if (outState1 == OutState.Type03NormalOut)
+            {
+                visainfoModel.OutTime = DateTime.Now;
+                acttype = ActType._05SubmitOut;
+            }
+            else if (outState1 == OutState.TYPE04AbnormalOut)
+            {
+                visainfoModel.AbnormalOutTime = DateTime.Now;
+                acttype = ActType._05SubmitAbOut;
+            }
+            else
+            {
+                MessageBoxEx.Show(Resources.OutStateLengthEqualZero);
+                return false;
+            }
+
+           
+            if (!_bllVisaInfo.Update(visainfoModel))
             {
                 MessageBoxEx.Show(Resources.FailedUpdateVisaInfoState);
                 return false;
             }
+
+            //添加操作记录(后面考虑使用缓存结构，不用每次都查询数据库)
+            _bllActionRecords.AddRecord(acttype, GlobalUtils.LoginUser, visainfoModel, visaModel);
+            if (acttype == OutState.Type02In) //检查团是否进签完成了
+            {
+                if (_bllActionRecords.GetVisaSubmitStateNum(visaModel, acttype) >= visaModel.Number) //全部进签了
+                {
+                    visaModel.RealTime = DateTime.Now;
+                    
+                    if (!_bllVisa.Update(visaModel))
+                    {
+                        MessageBoxEx.Show("更新团信息失败!");
+                        return false;
+                    }
+                }
+            }
+            //出签怎么处理???
+
             return true;
         }
 
@@ -697,15 +743,6 @@ namespace TravelAgency.CSUI.FrmMain
         private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             var visas = dataGridView1.DataSource as List<Model.Visa>;
-
-            //经过测试发现，不做判断反而是最快的。。。大概是反正不做判断的话，也就只有一行的原因吧？
-            //Console.WriteLine(dataGridView1.Rows.Count);
-            //if (dataGridView1.Rows.Count != _pageSize || _hasFormated)
-            //    return;
-            //if (dataGridView1.Rows.Count != _pageSize  )
-            //    return;
-
-
             Font font = new Font(new FontFamily("Consolas"), 13.0f, FontStyle.Bold);
             int peopleCount = 0;
             int hasDo = 0;
@@ -718,14 +755,6 @@ namespace TravelAgency.CSUI.FrmMain
                     dataGridView1.Rows[i].Cells["CountryImage"].Value =
                        TravelAgency.Common.CountryPicHandler.LoadImageByCountryName(countryName);
                 }
-
-                //if (visas[i].Number == null || visas[i].Number == 0)
-                //{
-                //    dataGridView1.Rows[i].Cells["Status"].Value = "--------";
-                //    dataGridView1.Rows[i].Cells["Status"].Style.BackColor = Color.Peru;
-                //    continue;
-                //}
-
                 if (visas[i].IsUrgent)
                 {
                     dataGridView1.Rows[i].Cells["IsUrgent"].Value = "急件";
@@ -735,22 +764,32 @@ namespace TravelAgency.CSUI.FrmMain
                     dataGridView1.Rows[i].Cells["IsUrgent"].Value = "非急件";
 
                 //peopleCount += int.Parse(dataGridView1.Rows[i].Cells["Number"].Value.ToString());
-               
+
 
                 ////这一段性能会好一些了
-                //int num = _bllActionRecords.GetVisaHasTypedInNum(visas[i].Visa_id);
-
-                //hasDo += num;
-
-                //dataGridView1.Rows[i].Cells["Status"].Style.Font = font;
-                //dataGridView1.Rows[i].Cells["Status"].Value = num + "/" + visas[i].Number;
+                int numIn = _bllActionRecords.GetVisaSubmitStateNum(visas[i], ActType._05SubmitIn);
 
 
+                dataGridView1.Rows[i].Cells["SubmitInStatus"].Style.Font = font;
+                dataGridView1.Rows[i].Cells["SubmitInStatus"].Value = numIn + "/" + visas[i].Number;
 
-                //if (num >= visas[i].Number)
-                //    dataGridView1.Rows[i].Cells["Status"].Style.BackColor = Color.SeaGreen;
-                //else
-                //    dataGridView1.Rows[i].Cells["Status"].Style.BackColor = Color.Peru;
+                //这一段性能会好一些了
+                int numOut = _bllActionRecords.GetVisaSubmitStateNum(visas[i],ActType._05SubmitOut);
+
+
+                dataGridView1.Rows[i].Cells["SubmitOutStatus"].Style.Font = font;
+                dataGridView1.Rows[i].Cells["SubmitOutStatus"].Value = numOut + "/" + visas[i].Number;
+
+
+
+                if (numIn >= visas[i].Number)
+                    dataGridView1.Rows[i].Cells["SubmitInStatus"].Style.BackColor = Color.SeaGreen;
+                else
+                    dataGridView1.Rows[i].Cells["SubmitInStatus"].Style.BackColor = Color.Peru;
+                if (numOut >= visas[i].Number)
+                    dataGridView1.Rows[i].Cells["SubmitOutStatus"].Style.BackColor = Color.SeaGreen;
+                else
+                    dataGridView1.Rows[i].Cells["SubmitOutStatus"].Style.BackColor = Color.Peru;
             }
 
             //lbPeopleCount.Text = "已做:" + hasDo + "/" + peopleCount.ToString() + "人.";
