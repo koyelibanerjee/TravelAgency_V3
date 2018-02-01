@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
@@ -12,14 +11,13 @@ using TravelAgency.Common.Enums;
 using TravelAgency.Common.Excel;
 using TravelAgency.Common.QRCode;
 using TravelAgency.Common.Word;
+using TravelAgency.CSUI.FrmMain;
 using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Properties;
-using Visa = TravelAgency.Model.Visa;
 using VisaInfo = TravelAgency.Model.VisaInfo;
 
-namespace TravelAgency.CSUI.FrmMain
+namespace TravelAgency.CSUI.Visa.FrmMain
 {
-
     public partial class FrmVisaSubmitManage : Form
     {
         enum Inputmode
@@ -655,7 +653,7 @@ namespace TravelAgency.CSUI.FrmMain
             //                         DateTimeFormator.DateTimeToString(to) +
             //                          " 23:59:59.999') and (Types='个签' or Types='团做个')");
 
-            List<Visa> visaList =
+            List<Model.Visa> visaList =
     _bllVisa.GetModelList(" (EntryTime between '" +
                                     DateTimeFormator.DateTimeToString(from, DateTimeFormator.TimeFormat.Type06LongTime) + "' and '" +
                                     DateTimeFormator.DateTimeToString(to, DateTimeFormator.TimeFormat.Type06LongTime) +
@@ -726,7 +724,15 @@ namespace TravelAgency.CSUI.FrmMain
 
 
         #region dgv消息响应
-
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 1)
+                return;
+            var visaModel = GetSelectedVisaModel();
+            var list = _bllVisaInfo.GetModelListByVisaIdOrderByPosition(visaModel.Visa_id);
+            FrmVisaInfoSubmitDetails frm = new FrmVisaInfoSubmitDetails(list);
+            frm.Show();
+        }
         private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
         {
             if (dataGridView1.CurrentCell.Value != null && e.Control && e.KeyCode == Keys.C)
@@ -779,8 +785,6 @@ namespace TravelAgency.CSUI.FrmMain
 
                 dataGridView1.Rows[i].Cells["SubmitOutStatus"].Style.Font = font;
                 dataGridView1.Rows[i].Cells["SubmitOutStatus"].Value = numOut + "/" + visas[i].Number;
-
-
 
                 if (numIn >= visas[i].Number)
                     dataGridView1.Rows[i].Cells["SubmitInStatus"].Style.BackColor = Color.SeaGreen;
@@ -839,40 +843,40 @@ namespace TravelAgency.CSUI.FrmMain
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count < 1)
-                return;
-            if (this.dataGridView1.SelectedRows.Count > 1)
-            {
-                MessageBoxEx.Show(Resources.SelectShowMoreThanOne);
-                return;
-            }
-            if (!_forAddToGroup)
-            {
-                Model.Visa model = _bllVisa.GetModel((Guid)dataGridView1.SelectedRows[0].Cells["Visa_id"].Value);
-                if (model == null)
-                {
-                    MessageBoxEx.Show(Resources.FindModelFailedPleaseCheckInfoCorrect);
-                    return;
-                }
+            //if (dataGridView1.SelectedRows.Count < 1)
+            //    return;
+            //if (this.dataGridView1.SelectedRows.Count > 1)
+            //{
+            //    MessageBoxEx.Show(Resources.SelectShowMoreThanOne);
+            //    return;
+            //}
+            //if (!_forAddToGroup)
+            //{
+            //    Model.Visa model = _bllVisa.GetModel((Guid)dataGridView1.SelectedRows[0].Cells["Visa_id"].Value);
+            //    if (model == null)
+            //    {
+            //        MessageBoxEx.Show(Resources.FindModelFailedPleaseCheckInfoCorrect);
+            //        return;
+            //    }
 
-                if (model.Types == Common.Enums.Types.Individual || model.Types == Common.Enums.Types.Team2Individual)
-                {
-                    FrmSetGroup frm = new FrmSetGroup(model, LoadDataToDataGridView, _curPage);
-                    //frm.ShowDialog();
-                    frm.Show();
-                }
-                else if (model.Types == Common.Enums.Types.Team)
-                {
-                    FrmSetTeamVisaGroup frm = new FrmSetTeamVisaGroup(model, LoadDataToDataGridView, _curPage);
-                    //frm.ShowDialog();
-                    frm.Show();
-                }
-            }
-            else //添加用户的情况
-            {
-                //执行添加到此团号的逻辑
-                AddToSelectGroup();
-            }
+            //    if (model.Types == Common.Enums.Types.Individual || model.Types == Common.Enums.Types.Team2Individual)
+            //    {
+            //        FrmSetGroup frm = new FrmSetGroup(model, LoadDataToDataGridView, _curPage);
+            //        //frm.ShowDialog();
+            //        frm.Show();
+            //    }
+            //    else if (model.Types == Common.Enums.Types.Team)
+            //    {
+            //        FrmSetTeamVisaGroup frm = new FrmSetTeamVisaGroup(model, LoadDataToDataGridView, _curPage);
+            //        //frm.ShowDialog();
+            //        frm.Show();
+            //    }
+            //}
+            //else //添加用户的情况
+            //{
+            //    //执行添加到此团号的逻辑
+            //    AddToSelectGroup();
+            //}
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -966,7 +970,7 @@ namespace TravelAgency.CSUI.FrmMain
         private List<Model.Visa> GetSelectedVisaList()
         {
             var visaList = dataGridView1.DataSource as List<Model.Visa>;
-            List<Model.Visa> res = new List<Visa>();
+            List<Model.Visa> res = new List<Model.Visa>();
             for (int i = dataGridView1.SelectedRows.Count - 1; i >= 0; i--)
                 res.Add(DgvDataSourceToList()[dataGridView1.SelectedRows[i].Index]);
             return res.Count > 0 ? res : null;
@@ -1662,6 +1666,7 @@ namespace TravelAgency.CSUI.FrmMain
             if (!string.IsNullOrEmpty((string)dataGridView1.CurrentCell.Value.ToString()))
                 Clipboard.SetText(dataGridView1.CurrentCell.Value.ToString());
         }
+
 
 
 

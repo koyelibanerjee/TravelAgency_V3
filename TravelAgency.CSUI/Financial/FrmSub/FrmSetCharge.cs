@@ -14,7 +14,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
         private List<Model.Visa> _list;
         private BLL.ConsulateCharge _bllConsulateCharge = new ConsulateCharge();
         private BLL.ClientCharge _bllClientCharge = new ClientCharge();
-        private BLL.Visa _bllVisa = new Visa();
+        private BLL.Visa _bllVisa = new BLL.Visa();
         private readonly Action<int> _updateDel; //副界面传来更新数据库的委托
         private readonly int _curPage; //主界面更新数据库需要一个当前页
 

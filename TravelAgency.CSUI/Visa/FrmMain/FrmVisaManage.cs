@@ -371,7 +371,7 @@ namespace TravelAgency.CSUI.FrmMain
             //                         DateTimeFormator.DateTimeToString(to) +
             //                          " 23:59:59.999') and (Types='个签' or Types='团做个')");
 
-            List<Visa> visaList =
+            List<Model.Visa> visaList =
     _bllVisa.GetModelList(" (EntryTime between '" +
                                     DateTimeFormator.DateTimeToString(from, DateTimeFormator.TimeFormat.Type06LongTime) + "' and '" +
                                     DateTimeFormator.DateTimeToString(to, DateTimeFormator.TimeFormat.Type06LongTime) +
@@ -703,7 +703,7 @@ namespace TravelAgency.CSUI.FrmMain
         private List<Model.Visa> GetSelectedVisaList()
         {
             var visaList = dataGridView1.DataSource as List<Model.Visa>;
-            List<Model.Visa> res = new List<Visa>();
+            List<Model.Visa> res = new List<Model.Visa>();
             for (int i = dataGridView1.SelectedRows.Count - 1; i >= 0; i--)
                 res.Add(DgvDataSourceToList()[dataGridView1.SelectedRows[i].Index]);
             return res.Count > 0 ? res : null;

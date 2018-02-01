@@ -21,7 +21,7 @@ namespace TravelAgency.CSUI.FrmSub
     public partial class FrmTodaySubmit : Form
     {
         private readonly List<List<VisaInfo>> _listVisaInfo;
-        private readonly List<Visa> _listVisa;
+        private readonly List<Model.Visa> _listVisa;
         private readonly List<VisaInfo> _listDgv = new List<VisaInfo>();
         private readonly BLL.Visa _bllVisa = new BLL.Visa();
         private readonly BLL.VisaInfo _bllVisaInfo = new BLL.VisaInfo();
@@ -32,7 +32,7 @@ namespace TravelAgency.CSUI.FrmSub
         public DateTime From { get; set; }
         public DateTime To { get; set; }
 
-        public FrmTodaySubmit(List<Visa> listVisa, List<List<VisaInfo>> listVisaInfo)
+        public FrmTodaySubmit(List<Model.Visa> listVisa, List<List<VisaInfo>> listVisaInfo)
         {
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.Sizable;
@@ -199,7 +199,7 @@ namespace TravelAgency.CSUI.FrmSub
 
         private List<Model.Visa> GetVisaListViaVisaInfoList(List<Model.VisaInfo> visaInfoList)
         {
-            List<Model.Visa> list = new List<Visa>();
+            List<Model.Visa> list = new List<Model.Visa>();
             for (int i = 0; i < visaInfoList.Count; i++)
             {
                 Guid guid;
@@ -222,7 +222,7 @@ namespace TravelAgency.CSUI.FrmSub
         #region dgv右键菜单事件
         private void 个签意见书ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            HashSet<Visa> set = new HashSet<Visa>();
+            HashSet<Model.Visa> set = new HashSet<Model.Visa>();
             Model.Visa visaModel = null;
             int idx = 0; //visaModel的下标
             //用set判断选中项是否在多个团

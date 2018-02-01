@@ -584,7 +584,7 @@ namespace TravelAgency.CSUI.FrmSub
         {
             if (cbCountry.Text == "日本")
             {
-                ExcelGenerator.GetTeamVisaExcelOfJapan(new List<Visa> { _visaModel }, new List<List<VisaInfo>> { _dgvList });
+                ExcelGenerator.GetTeamVisaExcelOfJapan(new List<Model.Visa> { _visaModel }, new List<List<VisaInfo>> { _dgvList });
             }
             else if (cbCountry.Text == "泰国")
             {
@@ -782,7 +782,7 @@ _dgvList[i], _visaModel);
         //这种情况是从list初始化，添加新团号
         private bool CtrlsToVisaModel()
         {
-            _visaModel = new Visa();
+            _visaModel = new Model.Visa();
             //_visaModel.Visa_id = Guid.NewGuid(); //这里必须要给一个，虽然这里不给也会入库正确，数据库会赋给默认值，但是后面更新对应visainfo就会有错
             //这里代码生成器默认给了一个guid，不能再自己给了
             try

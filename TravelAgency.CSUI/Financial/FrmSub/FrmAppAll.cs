@@ -11,7 +11,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
     {
         private List<Model.Visa> _list;
         private BLL.AppAll _bllAppAll = new AppAll();
-        private BLL.Visa _bllVisa = new Visa();
+        private BLL.Visa _bllVisa = new BLL.Visa();
         private BLL.QZApplication _bllQzApplication = new QZApplication();
         private BLL.AppStatus _bllAppStatus = new AppStatus();
         private decimal _amount;

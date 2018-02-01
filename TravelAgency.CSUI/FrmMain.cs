@@ -7,6 +7,7 @@ using TravelAgency.CSUI.Financial.FrmMain;
 using TravelAgency.CSUI.Financial.FrmSub;
 using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Statistics.FrmMain;
+using TravelAgency.CSUI.Visa.FrmMain;
 
 namespace TravelAgency.CSUI.FrmMain
 {
