@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
@@ -749,7 +750,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 return;
             var visaModel = GetSelectedVisaModel();
             var list = _bllVisaInfo.GetModelListByVisaIdOrderByPosition(visaModel.Visa_id);
-            FrmVisaInfoSubmitDetails frm = new FrmVisaInfoSubmitDetails(list,LoadDataToDataGridView,_curPage);
+            FrmVisaInfoSubmitDetails frm = new FrmVisaInfoSubmitDetails(list, LoadDataToDataGridView, _curPage);
             frm.Show();
         }
         private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
@@ -1694,7 +1695,22 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
 
 
+
         #endregion
+
+
+        private void 复制二维码信息ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var list = GetSelectedVisaInfoList();
+            if (list.Count < 1)
+                return;
+            StringBuilder sb = new StringBuilder();
+            foreach (var visaInfo in list)
+            {
+                sb.Append(MyQRCode.GenQrInfo(visaInfo) + "\r\n");
+            }
+            Clipboard.SetText(sb.ToString());
+        }
 
         #endregion
 

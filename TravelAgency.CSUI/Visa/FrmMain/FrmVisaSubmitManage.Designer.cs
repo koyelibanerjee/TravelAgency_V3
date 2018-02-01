@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bar1 = new DevComponents.DotNetBar.Bar();
             this.btnPageFirst = new DevComponents.DotNetBar.ButtonItem();
             this.btnPagePre = new DevComponents.DotNetBar.ButtonItem();
@@ -66,6 +66,7 @@
             this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsItemRefreshDatabase = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsItemShowGroupNo = new System.Windows.Forms.ToolStripMenuItem();
             this.修改做资料状态ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.修改选中类型ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -152,7 +153,7 @@
             this.rbtnAbOut = new System.Windows.Forms.RadioButton();
             this.labelX9 = new DevComponents.DotNetBar.LabelX();
             this.txtInput = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.复制二维码信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cmsDgv.SuspendLayout();
@@ -271,14 +272,14 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.GroupNo,
@@ -296,28 +297,28 @@
             this.Client,
             this.SalesPerson,
             this.Visa_id});
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -451,21 +452,22 @@
             this.修改选中类型ToolStripMenuItem,
             this.toolStripSeparator2,
             this.导出报表ToolStripMenuItem,
-            this.高拍仪做资料ToolStripMenuItem});
+            this.高拍仪做资料ToolStripMenuItem,
+            this.复制二维码信息ToolStripMenuItem});
             this.cmsDgv.Name = "cmsDgv";
-            this.cmsDgv.Size = new System.Drawing.Size(197, 236);
+            this.cmsDgv.Size = new System.Drawing.Size(197, 258);
             // 
             // 复制ToolStripMenuItem
             // 
             this.复制ToolStripMenuItem.Name = "复制ToolStripMenuItem";
-            this.复制ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.复制ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.复制ToolStripMenuItem.Text = "复制单元格所选内容";
             this.复制ToolStripMenuItem.Click += new System.EventHandler(this.复制ToolStripMenuItem_Click);
             // 
             // 删除ToolStripMenuItem
             // 
             this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
-            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.删除ToolStripMenuItem.Text = "删除";
             this.删除ToolStripMenuItem.Visible = false;
             this.删除ToolStripMenuItem.Click += new System.EventHandler(this.删除ToolStripMenuItem_Click);
@@ -473,14 +475,21 @@
             // cmsItemRefreshDatabase
             // 
             this.cmsItemRefreshDatabase.Name = "cmsItemRefreshDatabase";
-            this.cmsItemRefreshDatabase.Size = new System.Drawing.Size(184, 22);
+            this.cmsItemRefreshDatabase.Size = new System.Drawing.Size(196, 22);
             this.cmsItemRefreshDatabase.Text = "刷新数据库状态";
             this.cmsItemRefreshDatabase.Click += new System.EventHandler(this.cmsItemRefreshDatabase_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(181, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(193, 6);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(196, 22);
+            this.toolStripMenuItem2.Text = "查看选中团号送签状态";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // cmsItemShowGroupNo
             // 
@@ -492,7 +501,7 @@
             // 修改做资料状态ToolStripMenuItem
             // 
             this.修改做资料状态ToolStripMenuItem.Name = "修改做资料状态ToolStripMenuItem";
-            this.修改做资料状态ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.修改做资料状态ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.修改做资料状态ToolStripMenuItem.Text = "修改做资料状态";
             this.修改做资料状态ToolStripMenuItem.Visible = false;
             this.修改做资料状态ToolStripMenuItem.Click += new System.EventHandler(this.修改做资料状态ToolStripMenuItem_Click);
@@ -500,7 +509,7 @@
             // 修改选中类型ToolStripMenuItem
             // 
             this.修改选中类型ToolStripMenuItem.Name = "修改选中类型ToolStripMenuItem";
-            this.修改选中类型ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.修改选中类型ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.修改选中类型ToolStripMenuItem.Text = "修改选中类型";
             this.修改选中类型ToolStripMenuItem.Visible = false;
             this.修改选中类型ToolStripMenuItem.Click += new System.EventHandler(this.修改选中类型ToolStripMenuItem_Click);
@@ -508,7 +517,7 @@
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(181, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(193, 6);
             // 
             // 导出报表ToolStripMenuItem
             // 
@@ -518,13 +527,13 @@
             this.韩国ToolStripMenuItem,
             this.泰国ToolStripMenuItem});
             this.导出报表ToolStripMenuItem.Name = "导出报表ToolStripMenuItem";
-            this.导出报表ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.导出报表ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.导出报表ToolStripMenuItem.Text = "导出报表";
             // 
             // 打印报表ToolStripMenuItem
             // 
             this.打印报表ToolStripMenuItem.Name = "打印报表ToolStripMenuItem";
-            this.打印报表ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.打印报表ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.打印报表ToolStripMenuItem.Text = "打印报表";
             this.打印报表ToolStripMenuItem.Click += new System.EventHandler(this.打印报表ToolStripMenuItem_Click);
             // 
@@ -548,7 +557,7 @@
             this.东东全日空ToolStripMenuItem,
             this.新北东航ToolStripMenuItem});
             this.日本ToolStripMenuItem.Name = "日本ToolStripMenuItem";
-            this.日本ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.日本ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.日本ToolStripMenuItem.Text = "日本";
             this.日本ToolStripMenuItem.Visible = false;
             // 
@@ -668,7 +677,7 @@
             this.韩国担保函ToolStripMenuItem,
             this.韩国加急申请书ToolStripMenuItem});
             this.韩国ToolStripMenuItem.Name = "韩国ToolStripMenuItem";
-            this.韩国ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.韩国ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.韩国ToolStripMenuItem.Text = "韩国";
             this.韩国ToolStripMenuItem.Visible = false;
             // 
@@ -697,7 +706,7 @@
             this.川航机票ToolStripMenuItem,
             this.泰航机票ToolStripMenuItem});
             this.泰国ToolStripMenuItem.Name = "泰国ToolStripMenuItem";
-            this.泰国ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.泰国ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.泰国ToolStripMenuItem.Text = "泰国";
             this.泰国ToolStripMenuItem.Visible = false;
             // 
@@ -751,7 +760,7 @@
             // 高拍仪做资料ToolStripMenuItem
             // 
             this.高拍仪做资料ToolStripMenuItem.Name = "高拍仪做资料ToolStripMenuItem";
-            this.高拍仪做资料ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.高拍仪做资料ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.高拍仪做资料ToolStripMenuItem.Text = "高拍仪做资料";
             this.高拍仪做资料ToolStripMenuItem.Visible = false;
             this.高拍仪做资料ToolStripMenuItem.Click += new System.EventHandler(this.高拍仪做资料ToolStripMenuItem_Click);
@@ -1510,12 +1519,12 @@
             this.txtInput.Size = new System.Drawing.Size(256, 309);
             this.txtInput.TabIndex = 0;
             // 
-            // toolStripMenuItem2
+            // 复制二维码信息ToolStripMenuItem
             // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(196, 22);
-            this.toolStripMenuItem2.Text = "查看选中团号送签状态";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            this.复制二维码信息ToolStripMenuItem.Name = "复制二维码信息ToolStripMenuItem";
+            this.复制二维码信息ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.复制二维码信息ToolStripMenuItem.Text = "复制二维码信息";
+            this.复制二维码信息ToolStripMenuItem.Click += new System.EventHandler(this.复制二维码信息ToolStripMenuItem_Click);
             // 
             // FrmVisaSubmitManage
             // 
@@ -1669,5 +1678,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SalesPerson;
         private System.Windows.Forms.DataGridViewTextBoxColumn Visa_id;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem 复制二维码信息ToolStripMenuItem;
     }
 }
