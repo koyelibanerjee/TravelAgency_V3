@@ -1,6 +1,6 @@
 ﻿namespace TravelAgency.CSUI.FrmSub
 {
-    partial class FrmSetTypeInStatus
+    partial class FrmSetSubmitStatus
     {
         /// <summary>
         /// Required designer variable.
@@ -31,8 +31,10 @@
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.btnOK = new DevComponents.DotNetBar.ButtonX();
-            this.rbtnDone = new System.Windows.Forms.RadioButton();
-            this.rbntNotDone = new System.Windows.Forms.RadioButton();
+            this.rbtnNoRecord = new System.Windows.Forms.RadioButton();
+            this.rbtnAbOut = new System.Windows.Forms.RadioButton();
+            this.rbtnOut = new System.Windows.Forms.RadioButton();
+            this.rbtnIn = new System.Windows.Forms.RadioButton();
             this.panelEx1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,15 +42,17 @@
             // 
             this.panelEx1.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelEx1.Controls.Add(this.rbtnDone);
-            this.panelEx1.Controls.Add(this.rbntNotDone);
+            this.panelEx1.Controls.Add(this.rbtnNoRecord);
+            this.panelEx1.Controls.Add(this.rbtnAbOut);
+            this.panelEx1.Controls.Add(this.rbtnOut);
+            this.panelEx1.Controls.Add(this.rbtnIn);
             this.panelEx1.Controls.Add(this.btnCancel);
             this.panelEx1.Controls.Add(this.btnOK);
             this.panelEx1.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelEx1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEx1.Location = new System.Drawing.Point(0, 0);
             this.panelEx1.Name = "panelEx1";
-            this.panelEx1.Size = new System.Drawing.Size(288, 79);
+            this.panelEx1.Size = new System.Drawing.Size(292, 75);
             this.panelEx1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelEx1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -62,7 +66,7 @@
             // 
             this.btnCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnCancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnCancel.Location = new System.Drawing.Point(147, 47);
+            this.btnCancel.Location = new System.Drawing.Point(151, 43);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(47, 20);
             this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -74,7 +78,7 @@
             // 
             this.btnOK.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnOK.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnOK.Location = new System.Drawing.Point(71, 47);
+            this.btnOK.Location = new System.Drawing.Point(75, 43);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(47, 20);
             this.btnOK.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -82,39 +86,63 @@
             this.btnOK.Text = "确认";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
-            // rbtnDone
+            // rbtnNoRecord
             // 
-            this.rbtnDone.AutoSize = true;
-            this.rbtnDone.BackColor = System.Drawing.Color.Transparent;
-            this.rbtnDone.ForeColor = System.Drawing.Color.OrangeRed;
-            this.rbtnDone.Location = new System.Drawing.Point(71, 12);
-            this.rbtnDone.Name = "rbtnDone";
-            this.rbtnDone.Size = new System.Drawing.Size(47, 16);
-            this.rbtnDone.TabIndex = 35;
-            this.rbtnDone.TabStop = true;
-            this.rbtnDone.Text = "已做";
-            this.rbtnDone.UseVisualStyleBackColor = false;
+            this.rbtnNoRecord.AutoSize = true;
+            this.rbtnNoRecord.BackColor = System.Drawing.Color.Transparent;
+            this.rbtnNoRecord.ForeColor = System.Drawing.Color.OrangeRed;
+            this.rbtnNoRecord.Location = new System.Drawing.Point(22, 12);
+            this.rbtnNoRecord.Name = "rbtnNoRecord";
+            this.rbtnNoRecord.Size = new System.Drawing.Size(59, 16);
+            this.rbtnNoRecord.TabIndex = 37;
+            this.rbtnNoRecord.TabStop = true;
+            this.rbtnNoRecord.Text = "未记录";
+            this.rbtnNoRecord.UseVisualStyleBackColor = false;
             // 
-            // rbntNotDone
+            // rbtnAbOut
             // 
-            this.rbntNotDone.AutoSize = true;
-            this.rbntNotDone.ForeColor = System.Drawing.Color.OrangeRed;
-            this.rbntNotDone.Location = new System.Drawing.Point(147, 12);
-            this.rbntNotDone.Name = "rbntNotDone";
-            this.rbntNotDone.Size = new System.Drawing.Size(47, 16);
-            this.rbntNotDone.TabIndex = 34;
-            this.rbntNotDone.TabStop = true;
-            this.rbntNotDone.Text = "未做";
-            this.rbntNotDone.UseVisualStyleBackColor = true;
+            this.rbtnAbOut.AutoSize = true;
+            this.rbtnAbOut.ForeColor = System.Drawing.Color.OrangeRed;
+            this.rbtnAbOut.Location = new System.Drawing.Point(204, 12);
+            this.rbtnAbOut.Name = "rbtnAbOut";
+            this.rbtnAbOut.Size = new System.Drawing.Size(83, 16);
+            this.rbtnAbOut.TabIndex = 34;
+            this.rbtnAbOut.TabStop = true;
+            this.rbtnAbOut.Text = "非正常出签";
+            this.rbtnAbOut.UseVisualStyleBackColor = true;
             // 
-            // FrmSetTypeInStatus
+            // rbtnOut
+            // 
+            this.rbtnOut.AutoSize = true;
+            this.rbtnOut.ForeColor = System.Drawing.Color.OrangeRed;
+            this.rbtnOut.Location = new System.Drawing.Point(151, 12);
+            this.rbtnOut.Name = "rbtnOut";
+            this.rbtnOut.Size = new System.Drawing.Size(47, 16);
+            this.rbtnOut.TabIndex = 35;
+            this.rbtnOut.TabStop = true;
+            this.rbtnOut.Text = "出签";
+            this.rbtnOut.UseVisualStyleBackColor = true;
+            // 
+            // rbtnIn
+            // 
+            this.rbtnIn.AutoSize = true;
+            this.rbtnIn.ForeColor = System.Drawing.Color.OrangeRed;
+            this.rbtnIn.Location = new System.Drawing.Point(87, 12);
+            this.rbtnIn.Name = "rbtnIn";
+            this.rbtnIn.Size = new System.Drawing.Size(47, 16);
+            this.rbtnIn.TabIndex = 36;
+            this.rbtnIn.TabStop = true;
+            this.rbtnIn.Text = "进签";
+            this.rbtnIn.UseVisualStyleBackColor = true;
+            // 
+            // FrmSetSubmitStatus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(288, 79);
+            this.ClientSize = new System.Drawing.Size(292, 75);
             this.Controls.Add(this.panelEx1);
-            this.Name = "FrmSetTypeInStatus";
-            this.Text = "做资料状态选择:";
+            this.Name = "FrmSetSubmitStatus";
+            this.Text = "送签状态选择:";
             this.Load += new System.EventHandler(this.FrmSetTypeInStatus_Load);
             this.panelEx1.ResumeLayout(false);
             this.panelEx1.PerformLayout();
@@ -127,7 +155,9 @@
         private DevComponents.DotNetBar.PanelEx panelEx1;
         private DevComponents.DotNetBar.ButtonX btnCancel;
         private DevComponents.DotNetBar.ButtonX btnOK;
-        private System.Windows.Forms.RadioButton rbtnDone;
-        private System.Windows.Forms.RadioButton rbntNotDone;
+        private System.Windows.Forms.RadioButton rbtnNoRecord;
+        private System.Windows.Forms.RadioButton rbtnAbOut;
+        private System.Windows.Forms.RadioButton rbtnOut;
+        private System.Windows.Forms.RadioButton rbtnIn;
     }
 }

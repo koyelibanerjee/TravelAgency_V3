@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using TravelAgency.BLL;
@@ -215,16 +216,41 @@ namespace TravelAgency.CSUI.FrmMain
                 string passportNo = dataGridView1.SelectedRows[i].Cells["PassportNo"].Value.ToString();
                 string name = dataGridView1.SelectedRows[i].Cells["EnglishName"].Value.ToString();
                 _qrCode.EncodeToPng(passportNo + "|" + name, path + "\\" + passportNo + ".jpg", QRCodeSaveSize.Size660X660);
+                
             }
 
             MessageBoxEx.Show("成功保存" + count + "条记录二维码.");
-
         }
 
 
+        private void 复制二维码信息ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StringBuilder sb = new StringBuilder();
+            for (int i = dataGridView1.SelectedRows.Count - 1; i >= 0; --i)
+            {
+                string passportNo = dataGridView1.SelectedRows[i].Cells["PassportNo"].Value.ToString();
+                string name = dataGridView1.SelectedRows[i].Cells["EnglishName"].Value.ToString();
+                sb.Append(passportNo + "|" + name);
+                sb.Append("\r\n");
+            }
+            Clipboard.SetText(sb.ToString());
+        }
 
-
+        private void 更改送签状态ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (this.dataGridView1.SelectedRows.Count > 1)
+            {
+                MessageBoxEx.Show(Resources.SelectShowMoreThanOne);
+                return;
+            }
+            FrmSetSubmitStatus frm = new FrmSetSubmitStatus(
+                (dataGridView1.DataSource as List<Model.VisaInfo>)[dataGridView1.SelectedRows[0].Index],
+                dataGridView1.SelectedRows[0].Cells["outState"].Value.ToString(),null,0);
+            frm.ShowDialog();
+        }
 
         #endregion
+
+
     }
 }

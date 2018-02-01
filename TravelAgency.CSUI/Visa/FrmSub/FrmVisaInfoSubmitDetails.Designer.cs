@@ -73,10 +73,10 @@
             this.labelItem7 = new DevComponents.DotNetBar.LabelItem();
             this.cmsDgvRb = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmsItemQRCodeShow = new System.Windows.Forms.ToolStripMenuItem();
+            this.复制二维码信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsItemQRCodeBatchGenerate = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmsItemQRCodeBatchPrint = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmsItemQRCodePrint = new System.Windows.Forms.ToolStripMenuItem();
-            this.cmsItemRefreshState = new System.Windows.Forms.ToolStripMenuItem();
+            this.更改送签状态ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.修改签证状态ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelEx1.SuspendLayout();
             this.panelEx2.SuspendLayout();
             this.panelEx4.SuspendLayout();
@@ -206,7 +206,7 @@
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -484,10 +484,9 @@
             // 
             this.cmsDgvRb.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cmsItemQRCodeShow,
+            this.复制二维码信息ToolStripMenuItem,
             this.cmsItemQRCodeBatchGenerate,
-            this.cmsItemQRCodeBatchPrint,
-            this.cmsItemQRCodePrint,
-            this.cmsItemRefreshState});
+            this.更改送签状态ToolStripMenuItem});
             this.cmsDgvRb.Name = "cmsDgvRb";
             this.cmsDgvRb.Size = new System.Drawing.Size(161, 114);
             // 
@@ -498,6 +497,13 @@
             this.cmsItemQRCodeShow.Text = "显示二维码";
             this.cmsItemQRCodeShow.Click += new System.EventHandler(this.showQRCode_Click);
             // 
+            // 复制二维码信息ToolStripMenuItem
+            // 
+            this.复制二维码信息ToolStripMenuItem.Name = "复制二维码信息ToolStripMenuItem";
+            this.复制二维码信息ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.复制二维码信息ToolStripMenuItem.Text = "复制二维码信息";
+            this.复制二维码信息ToolStripMenuItem.Click += new System.EventHandler(this.复制二维码信息ToolStripMenuItem_Click);
+            // 
             // cmsItemQRCodeBatchGenerate
             // 
             this.cmsItemQRCodeBatchGenerate.Name = "cmsItemQRCodeBatchGenerate";
@@ -505,23 +511,18 @@
             this.cmsItemQRCodeBatchGenerate.Text = "批量生成二维码";
             this.cmsItemQRCodeBatchGenerate.Click += new System.EventHandler(this.cmsItemQRCodeBatchGenerate_Click);
             // 
-            // cmsItemQRCodeBatchPrint
+            // 更改送签状态ToolStripMenuItem
             // 
-            this.cmsItemQRCodeBatchPrint.Name = "cmsItemQRCodeBatchPrint";
-            this.cmsItemQRCodeBatchPrint.Size = new System.Drawing.Size(160, 22);
-            this.cmsItemQRCodeBatchPrint.Text = "批量打印二维码";
+            this.更改送签状态ToolStripMenuItem.Name = "更改送签状态ToolStripMenuItem";
+            this.更改送签状态ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.更改送签状态ToolStripMenuItem.Text = "更改送签状态";
+            this.更改送签状态ToolStripMenuItem.Click += new System.EventHandler(this.更改送签状态ToolStripMenuItem_Click);
             // 
-            // cmsItemQRCodePrint
+            // 修改签证状态ToolStripMenuItem
             // 
-            this.cmsItemQRCodePrint.Name = "cmsItemQRCodePrint";
-            this.cmsItemQRCodePrint.Size = new System.Drawing.Size(160, 22);
-            this.cmsItemQRCodePrint.Text = "打印二维码";
-            // 
-            // cmsItemRefreshState
-            // 
-            this.cmsItemRefreshState.Name = "cmsItemRefreshState";
-            this.cmsItemRefreshState.Size = new System.Drawing.Size(160, 22);
-            this.cmsItemRefreshState.Text = "刷新数据库状态";
+            this.修改签证状态ToolStripMenuItem.Name = "修改签证状态ToolStripMenuItem";
+            this.修改签证状态ToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            this.修改签证状态ToolStripMenuItem.Text = "修改送签状态";
             // 
             // FrmVisaInfoSubmitDetails
             // 
@@ -563,8 +564,6 @@
         private System.Windows.Forms.ContextMenuStrip cmsDgvRb;
         private System.Windows.Forms.ToolStripMenuItem cmsItemQRCodeShow;
         private System.Windows.Forms.ToolStripMenuItem cmsItemQRCodeBatchGenerate;
-        private System.Windows.Forms.ToolStripMenuItem cmsItemQRCodeBatchPrint;
-        private System.Windows.Forms.ToolStripMenuItem cmsItemQRCodePrint;
         private DevComponents.DotNetBar.PanelEx panelEx4;
         private DevComponents.DotNetBar.PanelEx panelEx3;
         private DevComponents.DotNetBar.LabelItem labelItem1;
@@ -573,7 +572,6 @@
         private DevComponents.DotNetBar.LabelItem labelItem5;
         private DevComponents.DotNetBar.LabelItem labelItem6;
         private DevComponents.DotNetBar.LabelItem labelItem7;
-        private System.Windows.Forms.ToolStripMenuItem cmsItemRefreshState;
         private DevComponents.DotNetBar.Controls.DataGridViewX dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn _Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn EnglishName;
@@ -591,5 +589,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Types;
         private System.Windows.Forms.DataGridViewTextBoxColumn VisaInfo_id;
         private DevComponents.DotNetBar.PanelEx panelDgv;
+        private System.Windows.Forms.ToolStripMenuItem 更改送签状态ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 修改签证状态ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 复制二维码信息ToolStripMenuItem;
     }
 }

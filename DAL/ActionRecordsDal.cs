@@ -148,6 +148,21 @@ namespace TravelAgency.DAL
             return (int)DbHelperSQL.GetSingle(sb.ToString());
         }
 
+
+        //删除指定类型的操作记录
+        public int DeleteSubmitStateRecord(Model.VisaInfo model, string acttype)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append(
+                "delete from  ActionRecords where VisaInfo_id='"
+                + model.Visa_id + "' and acttype='" + acttype + "'");
+            object res = DbHelperSQL.GetSingle(sb.ToString());
+            if (res == null)
+                return 0;
+            else return (int)res;
+        }
+
+
     }
 }
 

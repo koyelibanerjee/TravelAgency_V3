@@ -129,5 +129,10 @@ namespace TravelAgency.BLL
             return dal.GetVisaSubmitStateNum(model, acttype);
         }
 
+        public int DeleteSubmitStateRecord(Model.VisaInfo model, string acttype)
+        {
+            return dal.DeleteSubmitStateRecord(model, acttype);
+        }
+
     }
 }
