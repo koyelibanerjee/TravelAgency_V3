@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using TravelAgency.BLL;
 using TravelAgency.Common;
 using TravelAgency.Common.Enums;
 using TravelAgency.Common.QRCode;
@@ -21,6 +22,7 @@ namespace TravelAgency.CSUI.FrmMain
     public partial class FrmVisaSubmit : Form
     {
         private readonly TravelAgency.BLL.VisaInfo bll = new TravelAgency.BLL.VisaInfo();
+        private readonly BLL.ActionRecords _bllActionRecords = new ActionRecords();
         private int _curPage = 1;
         private int _pageCount = 0;
         private int _pageSize = 30;
@@ -64,7 +66,7 @@ namespace TravelAgency.CSUI.FrmMain
             bool updateSingle = !(lines.Length > 20); //多行模式下设置显示更新模式
             if (inputMode == Inputmode.Single)
             {
-                VisaInfo model = GetModelByLine(lines[lines.Length - 1]);
+                VisaInfo model = GetModelByLine(lines[lines.Length - 1]);//取最后一行
                 if (model == null)
                 {
                     MessageBoxEx.Show(Resources.FindModelFailedPleaseCheckInfoCorrect);
@@ -106,13 +108,9 @@ namespace TravelAgency.CSUI.FrmMain
                             return count;
                         }
 
-                        UpdateModelState(model, outState);
-
-                        if (!bll.Update(model))
-                        {
-                            MessageBoxEx.Show(Resources.FailedUpdateVisaInfoState);
+                        if (!UpdateModelState(model, outState))
                             return count;
-                        }
+
                         ++count;
                         if (updateSingle)
                             LoadDataToDataGridView(_curPage);
@@ -124,9 +122,12 @@ namespace TravelAgency.CSUI.FrmMain
             return count;
         }
 
-        private void UpdateModelState(VisaInfo model, string outState1)
+        private bool UpdateModelState(VisaInfo model, string outState1)
         {
-            //TODO:添加判断逻辑，
+            //判断逻辑:
+            //(1)每次更新的时候检查一个团里面是否全部进签或出签完成，是的话更新团的状态。
+            //(2)检查是否团里面有人还没进签就出签了，报错
+            //(3)检查
             model.outState = outState1;
             if (outState1 == OutState.Type02In)
                 model.InTime = DateTime.Now;
@@ -136,6 +137,17 @@ namespace TravelAgency.CSUI.FrmMain
                 model.AbnormalOutTime = DateTime.Now;
             else
                 MessageBoxEx.Show(Resources.OutStateLengthEqualZero);
+
+            if (model.outState == OutState.Type02In) //检查团是否进签完成了
+            {
+                
+            }
+            if (!bll.Update(model))
+            {
+                MessageBoxEx.Show(Resources.FailedUpdateVisaInfoState);
+                return false;
+            }
+            return true;
         }
 
         private VisaInfo GetModelByLine(string line)
@@ -159,7 +171,6 @@ namespace TravelAgency.CSUI.FrmMain
             }
         }
 
-        //TODO:窗口逇tab index重新排序
         private void FrmVisaSubmit_Load(object sender, EventArgs e)
         {
             _recordCount = bll.GetRecordCount(string.Empty);

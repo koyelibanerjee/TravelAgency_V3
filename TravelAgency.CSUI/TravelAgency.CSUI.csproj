@@ -150,6 +150,12 @@
     <Compile Include="Financial\FrmMain\FrmVisaRequestPayoutManage.Designer.cs">
       <DependentUpon>FrmVisaRequestPayoutManage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Visa\FrmMain\FrmVisaSubmitManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visa\FrmMain\FrmVisaSubmitManage.Designer.cs">
+      <DependentUpon>FrmVisaSubmitManage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visa\FrmSub\FrmSetValue\FrmSetValue.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -409,6 +415,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Financial\FrmMain\FrmVisaRequestPayoutManage.resx">
       <DependentUpon>FrmVisaRequestPayoutManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visa\FrmMain\FrmVisaSubmitManage.resx">
+      <DependentUpon>FrmVisaSubmitManage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visa\FrmSub\FrmSetValue\FrmSetValue.resx">
       <DependentUpon>FrmSetValue.cs</DependentUpon>

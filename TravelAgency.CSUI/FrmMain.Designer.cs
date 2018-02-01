@@ -169,8 +169,8 @@
             this.btnVisaTypeIn,
             this.btnVisaInfoManage,
             this.btnVisaQuery,
-            this.btnScanFrm,
             this.btnVisaSubmit,
+            this.btnScanFrm,
             this.btnGPManage});
             this.ribbonBar2.Location = new System.Drawing.Point(3, 0);
             this.ribbonBar2.Name = "ribbonBar2";

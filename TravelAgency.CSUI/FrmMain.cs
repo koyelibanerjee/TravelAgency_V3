@@ -28,7 +28,7 @@ namespace TravelAgency.CSUI.FrmMain
 
         private void buttonItem1_Click(object sender, EventArgs e)
         {
-            FrmVisaSubmit frm = new FrmVisaSubmit();
+            FrmVisaSubmitManage frm = new FrmVisaSubmitManage();
             OpenTab(frm, frm.Name);
         }
 
@@ -44,8 +44,6 @@ namespace TravelAgency.CSUI.FrmMain
             OpenTab(frm, frm.Name);
         }
         #endregion
-
-
 
         public void OpenTab(Form frm, string Name)
         {
