@@ -21,7 +21,8 @@ namespace TravelAgency.CSUI
         public static void UpdateStatistics()
         {
             int dayCount = _bllVisaInfoStat.GetCountOfCurDay();
-            int daypreCount = _bllVisaInfoStat.GetCountOfDay(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day-1);
+            DateTime date = DateTime.Now.Date.AddDays(-1.0);
+            int daypreCount = _bllVisaInfoStat.GetCountOfDay(date.Year, date.Month, date.Day);
             int weekCount = _bllVisaInfoStat.GetCountOfCurWeek();
             int monthCount = _bllVisaInfoStat.GetCountOfCurMonth();
 
@@ -33,7 +34,7 @@ namespace TravelAgency.CSUI
             weekCount = _bllVisaStat.GetCountOfCurWeek();
             monthCount = _bllVisaStat.GetCountOfCurMonth();
 
-             //str = String.Format("签证统计:昨日已做:{1} 今日已做:{0}, 本周已做:{1}, 本月已做: {2}");
+            //str = String.Format("签证统计:昨日已做:{1} 今日已做:{0}, 本周已做:{1}, 本月已做: {2}");
 
 
         }

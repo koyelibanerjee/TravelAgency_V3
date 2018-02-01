@@ -1477,9 +1477,17 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
         private void 设置请款费用ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            List<int> selIdxs = new List<int>();
+            for (int i = dataGridView1.SelectedRows.Count - 1; i >= 0; i--)
+                selIdxs.Add(dataGridView1.SelectedRows[i].Index);
             var list = GetSelectedVisaList();
             FrmSetCharge frm = new FrmSetCharge(list, LoadDataToDataGridView, _curPage);
-            frm.ShowDialog();
+            if(frm.ShowDialog()==DialogResult.Cancel)
+                return;
+            foreach (var idx in selIdxs)
+                dataGridView1.Rows[idx].Selected = true;
+            自动更新单价ToolStripMenuItem_Click(null, null); //自动触发更新事件
+            自动更新总价ToolStripMenuItem_Click(null, null);
         }
 
         private void 清除领馆款项ToolStripMenuItem_Click(object sender, EventArgs e)

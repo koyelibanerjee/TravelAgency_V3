@@ -80,13 +80,24 @@ namespace TravelAgency.BLL
             string strFrom;
             string strTo;
             int day;
+            DateTime date;
             if (DateTime.Now.DayOfWeek == DayOfWeek.Sunday)
-                day = DateTime.Now.Day - 6;
+            {
+                date = DateTime.Now.Date.AddDays(-6.0);
+                day = date.Day;
+            }
+
             else
-                day = DateTime.Now.Day - (DateTime.Now.DayOfWeek - DayOfWeek.Monday);
+            {
+                date = DateTime.Now.Date.AddDays(DateTime.Now.DayOfWeek - DayOfWeek.Monday);
+                day = date.Day;
+            }
+
+            date = date.AddDays(6.0);
+
             strFrom = $"{year}-{month}-{day} 00:00:00";
 
-            strTo = $"{year}-{month}-{day + 6} 23:59:59";
+            strTo = $"{year}-{month}-{date.Day} 23:59:59";
             try
             {
                 DateTime.Parse(strTo);
@@ -97,7 +108,7 @@ namespace TravelAgency.BLL
                 DateTime end = DateTime.Today.AddDays(6.0);
                 strTo = end.ToString("yyyy-MM-dd");
                 strTo += " 23:59:59";
-                
+
             }
 
 
