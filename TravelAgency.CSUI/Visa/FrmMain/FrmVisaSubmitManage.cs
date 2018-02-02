@@ -771,7 +771,8 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             var visas = dataGridView1.DataSource as List<Model.Visa>;
             Font font = new Font(new FontFamily("Consolas"), 13.0f, FontStyle.Bold);
             int peopleCount = 0;
-            int hasDo = 0;
+            int hasIn = 0;
+            int hasOut = 0;
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 dataGridView1.Rows[i].HeaderCell.Value = (i + 1).ToString();
@@ -789,19 +790,19 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 else
                     dataGridView1.Rows[i].Cells["IsUrgent"].Value = "非急件";
 
-                //peopleCount += int.Parse(dataGridView1.Rows[i].Cells["Number"].Value.ToString());
+                peopleCount += int.Parse(dataGridView1.Rows[i].Cells["Number"].Value.ToString());
 
 
                 ////这一段性能会好一些了
                 int numIn = _bllActionRecords.GetVisaSubmitStateNum(visas[i], ActType._05SubmitIn);
-
+                hasIn += numIn;
 
                 dataGridView1.Rows[i].Cells["SubmitInStatus"].Style.Font = font;
                 dataGridView1.Rows[i].Cells["SubmitInStatus"].Value = numIn + "/" + visas[i].Number;
 
                 //这一段性能会好一些了
                 int numOut = _bllActionRecords.GetVisaSubmitStateNum(visas[i], ActType._05SubmitOut);
-
+                hasOut += numOut;
 
                 dataGridView1.Rows[i].Cells["SubmitOutStatus"].Style.Font = font;
                 dataGridView1.Rows[i].Cells["SubmitOutStatus"].Value = numOut + "/" + visas[i].Number;
@@ -816,7 +817,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                     dataGridView1.Rows[i].Cells["SubmitOutStatus"].Style.BackColor = Color.Peru;
             }
 
-            //lbPeopleCount.Text = "已做:" + hasDo + "/" + peopleCount.ToString() + "人.";
+            lbPeopleCount.Text = "进签:" + hasIn + "/" + peopleCount.ToString() + "人,出签:" + hasOut + "/" + peopleCount.ToString();
 
             //_hasFormated = true;
         }
