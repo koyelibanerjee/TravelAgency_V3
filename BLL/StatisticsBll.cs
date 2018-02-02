@@ -139,7 +139,7 @@ namespace TravelAgency.BLL
         /// <param name="ActType"></param>
         /// <param name="username"></param>
         /// <returns></returns>
-        public int GetActRecordCount(string acttype, string username, string from, string to, string otherwhere = CommonOtherWhere)
+        public int GetActRecordCount(string acttype, string username, string from, string to, string otherwhere="")
         {
             string where = " acttype = '" + acttype + "' and username ='" + username + "' ";
             if (!string.IsNullOrEmpty(from) && !string.IsNullOrEmpty(to))
