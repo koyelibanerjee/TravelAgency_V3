@@ -32,7 +32,6 @@
             this.axScanCtrl1 = new AxSCANCTRLLib.AxScanCtrl();
             this.panelMain = new DevComponents.DotNetBar.PanelEx();
             this.panelLeft = new DevComponents.DotNetBar.PanelEx();
-            this.proPictureBox1 = new ProPictureBox();
             this.panelRight = new DevComponents.DotNetBar.PanelEx();
             this.button6 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,11 +52,12 @@
             this.button3 = new System.Windows.Forms.Button();
             this.comboBox5 = new System.Windows.Forms.ComboBox();
             this.btnSave = new System.Windows.Forms.Button();
+            this.proPictureBox1 = new ProPictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.axScanCtrl1)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panelLeft.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.proPictureBox1)).BeginInit();
             this.panelRight.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.proPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // axScanCtrl1
@@ -67,7 +67,7 @@
             this.axScanCtrl1.Location = new System.Drawing.Point(0, 0);
             this.axScanCtrl1.Name = "axScanCtrl1";
             this.axScanCtrl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axScanCtrl1.OcxState")));
-            this.axScanCtrl1.Size = new System.Drawing.Size(1003, 645);
+            this.axScanCtrl1.Size = new System.Drawing.Size(471, 624);
             this.axScanCtrl1.TabIndex = 0;
             // 
             // panelMain
@@ -80,7 +80,7 @@
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1157, 645);
+            this.panelMain.Size = new System.Drawing.Size(625, 624);
             this.panelMain.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelMain.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelMain.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -100,7 +100,7 @@
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelLeft.Location = new System.Drawing.Point(0, 0);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(1003, 645);
+            this.panelLeft.Size = new System.Drawing.Size(471, 624);
             this.panelLeft.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelLeft.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelLeft.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -109,17 +109,6 @@
             this.panelLeft.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.panelLeft.Style.GradientAngle = 90;
             this.panelLeft.TabIndex = 34;
-            // 
-            // proPictureBox1
-            // 
-            this.proPictureBox1.DefaultSaveFileName = null;
-            this.proPictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.proPictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.proPictureBox1.Name = "proPictureBox1";
-            this.proPictureBox1.Size = new System.Drawing.Size(1003, 645);
-            this.proPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.proPictureBox1.TabIndex = 33;
-            this.proPictureBox1.TabStop = false;
             // 
             // panelRight
             // 
@@ -146,9 +135,9 @@
             this.panelRight.Controls.Add(this.comboBox5);
             this.panelRight.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelRight.Location = new System.Drawing.Point(1003, 0);
+            this.panelRight.Location = new System.Drawing.Point(471, 0);
             this.panelRight.Name = "panelRight";
-            this.panelRight.Size = new System.Drawing.Size(154, 645);
+            this.panelRight.Size = new System.Drawing.Size(154, 624);
             this.panelRight.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelRight.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelRight.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -343,11 +332,22 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // proPictureBox1
+            // 
+            this.proPictureBox1.DefaultSaveFileName = null;
+            this.proPictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.proPictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.proPictureBox1.Name = "proPictureBox1";
+            this.proPictureBox1.Size = new System.Drawing.Size(471, 624);
+            this.proPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.proPictureBox1.TabIndex = 33;
+            this.proPictureBox1.TabStop = false;
+            // 
             // FrmScanCtrlImported
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1157, 645);
+            this.ClientSize = new System.Drawing.Size(625, 624);
             this.Controls.Add(this.panelMain);
             this.Name = "FrmScanCtrlImported";
             this.Text = "高拍仪导入护照图像";
@@ -356,9 +356,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.axScanCtrl1)).EndInit();
             this.panelMain.ResumeLayout(false);
             this.panelLeft.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.proPictureBox1)).EndInit();
             this.panelRight.ResumeLayout(false);
             this.panelRight.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.proPictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
