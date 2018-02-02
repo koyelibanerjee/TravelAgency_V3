@@ -56,8 +56,34 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             }
             dataGridView1.RowsAdded += DataGridView1_RowsAdded;
             dataGridView1.CellDoubleClick += DataGridView1_CellDoubleClick;
+            dataGridView1.CellValueChanged += DataGridView1_CellValueChanged;
             dataGridView1.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
             dataGridView1.DataSource = _list;
+
+        }
+
+        private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            UpdateMoneyCount();
+        }
+
+        private void UpdateMoneyCount()
+        {
+            decimal num = 0;
+
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                object value = dataGridView1.Rows[i].Cells["ConsulateCost"].Value;
+                num += value == null? 0 : decimal.Parse(value.ToString());
+                value = dataGridView1.Rows[i].Cells["VisaPersonCost"].Value;
+                num += value == null ? 0 : decimal.Parse(value.ToString());
+                value = dataGridView1.Rows[i].Cells["InvitationCost"].Value;
+                num += value == null ? 0 : decimal.Parse(value.ToString());
+                value = dataGridView1.Rows[i].Cells["Receipt"].Value;
+                num += value == null ? 0 : decimal.Parse(value.ToString());
+                
+            }
+            lbMoneyCount.Text = "共" + num + "元.";
         }
 
         private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

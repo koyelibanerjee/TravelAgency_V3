@@ -67,6 +67,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
         private void DataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
+            decimal count = 0;
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 dataGridView1.Rows[i].HeaderCell.Value = (i + 1).ToString();
@@ -90,9 +91,16 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                     //    dataGridView1.Rows[i].Cells["Receipt"].Value = list1[0].Charge;
                     //}
 
+                    if (dataGridView1.Rows[i].Cells["Cost"].Value != null)
+                    {
+                        count += decimal.Parse(dataGridView1.Rows[i].Cells["Cost"].Value.ToString());
+                    }
+
+
                 }
                 //执行绑定数据
             }
+            lbMoneyCount.Text = "总金额:" + count + "元.";
         }
 
         private string GetCellValue(int rowidx, string colname)
