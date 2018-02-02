@@ -817,7 +817,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                     dataGridView1.Rows[i].Cells["SubmitOutStatus"].Style.BackColor = Color.Peru;
             }
 
-            lbPeopleCount.Text = "进签:" + hasIn + "/" + peopleCount.ToString() + "人,出签:" + hasOut + "/" + peopleCount.ToString();
+            lbPeopleCount.Text = "进签:" + hasIn + "/" + peopleCount.ToString() + ",出签:" + hasOut + "/" + peopleCount.ToString();
 
             //_hasFormated = true;
         }

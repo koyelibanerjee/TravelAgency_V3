@@ -11,6 +11,9 @@ using TravelAgency.Common.Excel;
 using TravelAgency.Common.Word;
 using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Properties;
+using TravelAgency.Model;
+using ActionRecords = TravelAgency.BLL.ActionRecords;
+using HasExported8Report = TravelAgency.BLL.HasExported8Report;
 using Visa = TravelAgency.Model.Visa;
 using VisaInfo = TravelAgency.Model.VisaInfo;
 
@@ -21,6 +24,7 @@ namespace TravelAgency.CSUI.FrmMain
         private readonly TravelAgency.BLL.Visa _bllVisa = new TravelAgency.BLL.Visa();
         private readonly TravelAgency.BLL.VisaInfo _bllVisaInfo = new TravelAgency.BLL.VisaInfo();
         private readonly TravelAgency.BLL.ActionRecords _bllActionRecords = new ActionRecords();
+        private readonly BLL.VisaTypedInCountBll _visaTypedInCountBll = new VisaTypedInCountBll();
         private readonly TravelAgency.BLL.HasExported8Report _bllHasExported8Report = new HasExported8Report();
         private int _curPage = 1;
         private int _pageCount = 0;
@@ -155,7 +159,10 @@ namespace TravelAgency.CSUI.FrmMain
             }
 
             //_hasFormated = false; //每次加载后，设置为还没有格式化(设置其他的显示，比如未做已做的状态等)
-            dataGridView1.DataSource = list;
+            //dataGridView1.DataSource = list;
+            dataGridViewX1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            dataGridViewX1.AutoGenerateColumns = false;
+            dataGridViewX1.DataSource = list;
             if (curSelectedRow != -1 && dataGridView1.Rows.Count > curSelectedRow)
                 dataGridView1.CurrentCell = dataGridView1.Rows[curSelectedRow].Cells[0];
 
@@ -459,45 +466,54 @@ namespace TravelAgency.CSUI.FrmMain
         private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             var visas = dataGridView1.DataSource as List<Model.Visa>;
-
+            List<Model.VisaTypedInCount> typeInCountList =
+                _visaTypedInCountBll.GetVisaTypedInCountModels(DgvDataSourceToList());
             //经过测试发现，不做判断反而是最快的。。。大概是反正不做判断的话，也就只有一行的原因吧？
             //Console.WriteLine(dataGridView1.Rows.Count);
             //if (dataGridView1.Rows.Count != _pageSize || _hasFormated)
             //    return;
             //if (dataGridView1.Rows.Count != _pageSize  )
             //    return;
+            Dictionary<Guid, int> dict = new Dictionary<Guid, int>();
+            foreach (var visaTypedInCount in typeInCountList)
+            {
+                dict.Add(visaTypedInCount.Visa_id, visaTypedInCount.TypedInNum);
+            }
 
 
-            Font font = new Font(new FontFamily("Consolas"), 13.0f, FontStyle.Bold);
+                Font font = new Font(new FontFamily("Consolas"), 13.0f, FontStyle.Bold);
             int peopleCount = 0;
             int hasDo = 0;
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
-                dataGridView1.Rows[i].HeaderCell.Value = (i + 1).ToString();
-                if (dataGridView1.Rows[i].Cells["Country"].Value != null)
-                {
-                    string countryName = dataGridView1.Rows[i].Cells["Country"].Value.ToString();
-                    dataGridView1.Rows[i].Cells["CountryImage"].Value =
-                       TravelAgency.Common.CountryPicHandler.LoadImageByCountryName(countryName);
-                }
+                //#region test
+                //dataGridView1.Rows[i].HeaderCell.Value = (i + 1).ToString();
+                //if (dataGridView1.Rows[i].Cells["Country"].Value != null)
+                //{
+                //    string countryName = dataGridView1.Rows[i].Cells["Country"].Value.ToString();
+                //    dataGridView1.Rows[i].Cells["CountryImage"].Value =
+                //       TravelAgency.Common.CountryPicHandler.LoadImageByCountryName(countryName);
+                //}
 
-                if (visas[i].Number == null || visas[i].Number == 0)
-                {
-                    dataGridView1.Rows[i].Cells["Status"].Value = "--------";
-                    dataGridView1.Rows[i].Cells["Status"].Style.BackColor = Color.Peru;
-                    continue;
-                }
+                //if (visas[i].Number == null || visas[i].Number == 0)
+                //{
+                //    dataGridView1.Rows[i].Cells["Status"].Value = "--------";
+                //    dataGridView1.Rows[i].Cells["Status"].Style.BackColor = Color.Peru;
+                //    continue;
+                //}
 
-                if (visas[i].IsUrgent)
-                {
-                    dataGridView1.Rows[i].Cells["IsUrgent"].Value = "急件";
-                    dataGridView1.Rows[i].Cells["IsUrgent"].Style.BackColor = Color.Red;
-                }
-                else
-                {
-                    dataGridView1.Rows[i].Cells["IsUrgent"].Value = "非急件";
-                    //dataGridView1.Rows[i].Cells["Status"].Style.BackColor = Color.Red;
-                }
+                //if (visas[i].IsUrgent)
+                //{
+                //    dataGridView1.Rows[i].Cells["IsUrgent"].Value = "急件";
+                //    dataGridView1.Rows[i].Cells["IsUrgent"].Style.BackColor = Color.Red;
+                //}
+                //else
+                //{
+                //    dataGridView1.Rows[i].Cells["IsUrgent"].Value = "非急件";
+                //    //dataGridView1.Rows[i].Cells["Status"].Style.BackColor = Color.Red;
+                //}
+                //#endregion
+
 
                 peopleCount += int.Parse(dataGridView1.Rows[i].Cells["Number"].Value.ToString());
                 //下面这一部分用来查询状态，先不用，太卡了
@@ -514,19 +530,28 @@ namespace TravelAgency.CSUI.FrmMain
                 //}
 
                 //这一段性能会好一些了
-                int num = _bllActionRecords.GetVisaHasTypedInNum(visas[i].Visa_id);
+                //int num = _bllActionRecords.GetVisaHasTypedInNum(visas[i].Visa_id);
+                Guid visaid = Guid.Parse(dataGridView1.Rows[i].Cells["Visa_id"].Value.ToString());
+                int num = 0;
+                if (dict.ContainsKey(visaid))
+                    num = dict[visaid];
+                //foreach (var visaTypedInCount in typeInCountList)
+                //{
+                //    if (visaTypedInCount.Visa_id == Guid.Parse(dataGridView1.Rows[i].Cells["Visa_id"].Value.ToString()))
+                //    {
+                //        num = visaTypedInCount.TypedInNum;
+                //        break;
+                //    }
+                //}
 
-                hasDo += num;
+                //hasDo += num;
 
-                dataGridView1.Rows[i].Cells["Status"].Style.Font = font;
-                dataGridView1.Rows[i].Cells["Status"].Value = num + "/" + visas[i].Number;
-
-
-
-                if (num >= visas[i].Number)
-                    dataGridView1.Rows[i].Cells["Status"].Style.BackColor = Color.SeaGreen;
-                else
-                    dataGridView1.Rows[i].Cells["Status"].Style.BackColor = Color.Peru;
+                //dataGridView1.Rows[i].Cells["Status"].Style.Font = font;
+                //dataGridView1.Rows[i].Cells["Status"].Value = num + "/" + visas[i].Number;
+                //if (num >= visas[i].Number)
+                //    dataGridView1.Rows[i].Cells["Status"].Style.BackColor = Color.SeaGreen;
+                //else
+                //    dataGridView1.Rows[i].Cells["Status"].Style.BackColor = Color.Peru;
             }
 
             lbPeopleCount.Text = "已做:" + hasDo + "/" + peopleCount.ToString() + "人.";
@@ -771,7 +796,7 @@ namespace TravelAgency.CSUI.FrmMain
 
 
 
-            ExcelGenerator.GetYuanShenMuban(list,airinfoList);
+            ExcelGenerator.GetYuanShenMuban(list, airinfoList);
         }
         private void 个签意见书ToolStripMenuItem_Click(object sender, EventArgs e)
         {

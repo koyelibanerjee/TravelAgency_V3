@@ -146,6 +146,7 @@
     <Compile Include="TimeHandlers\DateFormat.cs" />
     <Compile Include="TimeHandlers\TimeHelper.cs" />
     <Compile Include="TimeHandlers\TimeParser.cs" />
+    <Compile Include="VisaTypedInCountBll.cs" />
     <Compile Include="VisaWithActRecords.cs" />
     <Compile Include="Visa.cs" />
     <Compile Include="VisaBll.cs" />
