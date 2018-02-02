@@ -37,7 +37,7 @@ namespace TravelAgency.BLL
             {
                 if (country == "日本个签") //单独处理日本的
                 {
-                    where += " and country = '日本' and type = '个签'";
+                    where += " and country = '日本' and (type = '个签' or type='团做个')"; //个签按照团做个进行统计
                 }
                 else if (country == "日本团签") //单独处理日本团签
                 {
