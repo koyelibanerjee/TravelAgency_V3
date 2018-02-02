@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
@@ -24,7 +25,7 @@ namespace TravelAgency.CSUI.FrmMain
         private readonly TravelAgency.BLL.Visa _bllVisa = new TravelAgency.BLL.Visa();
         private readonly TravelAgency.BLL.VisaInfo _bllVisaInfo = new TravelAgency.BLL.VisaInfo();
         private readonly TravelAgency.BLL.ActionRecords _bllActionRecords = new ActionRecords();
-        private readonly BLL.VisaTypedInCountBll _visaTypedInCountBll = new VisaTypedInCountBll();
+        private readonly BLL.VisaActTypeCountBll _visaActTypeCountBll = new VisaActTypeCountBll();
         private readonly TravelAgency.BLL.HasExported8Report _bllHasExported8Report = new HasExported8Report();
         private int _curPage = 1;
         private int _pageCount = 0;
@@ -464,22 +465,9 @@ namespace TravelAgency.CSUI.FrmMain
         private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             var visas = dataGridView1.DataSource as List<Model.Visa>;
-            List<Model.VisaTypedInCount> typeInCountList =
-                _visaTypedInCountBll.GetVisaTypedInCountModels(DgvDataSourceToList());
-            //经过测试发现，不做判断反而是最快的。。。大概是反正不做判断的话，也就只有一行的原因吧？
-            //Console.WriteLine(dataGridView1.Rows.Count);
-            //if (dataGridView1.Rows.Count != _pageSize || _hasFormated)
-            //    return;
-            //if (dataGridView1.Rows.Count != _pageSize  )
-            //    return;
-            Dictionary<Guid, int> dict = new Dictionary<Guid, int>();
-            foreach (var visaTypedInCount in typeInCountList)//由于数据库返回的值是乱序，添加到hash表，查找更快一点
-            {
-                dict.Add(visaTypedInCount.Visa_id, visaTypedInCount.TypedInNum);
-            }
-
-
-                Font font = new Font(new FontFamily("Consolas"), 13.0f, FontStyle.Bold);
+            Dictionary<Guid, int> dict = _visaActTypeCountBll.GetVisaActTypeCountDict(DgvDataSourceToList(),
+                Common.Enums.ActType._02TypeInData);
+            Font font = new Font(new FontFamily("Consolas"), 13.0f, FontStyle.Bold);
             int peopleCount = 0;
             int hasDo = 0;
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
@@ -509,7 +497,6 @@ namespace TravelAgency.CSUI.FrmMain
                     dataGridView1.Rows[i].Cells["IsUrgent"].Value = "非急件";
                     //dataGridView1.Rows[i].Cells["Status"].Style.BackColor = Color.Red;
                 }
-
 
                 peopleCount += int.Parse(dataGridView1.Rows[i].Cells["Number"].Value.ToString());
                 //下面这一部分用来查询状态，先不用，太卡了

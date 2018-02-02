@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace TravelAgency.Model
 {
-    public class VisaTypedInCount
+    public class VisaActTypeCount
     {
         public Guid Visa_id { get; set; }
-        public int TypedInNum { get; set; }
+        public int Count { get; set; }
     }
 }

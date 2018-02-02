@@ -30,7 +30,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         private readonly TravelAgency.BLL.Visa _bllVisa = new TravelAgency.BLL.Visa();
         private readonly TravelAgency.BLL.VisaInfo _bllVisaInfo = new TravelAgency.BLL.VisaInfo();
         private readonly TravelAgency.BLL.ActionRecords _bllActionRecords = new ActionRecords();
-        private readonly TravelAgency.BLL.HasExported8Report _bllHasExported8Report = new HasExported8Report();
+        private readonly TravelAgency.BLL.VisaActTypeCountBll _visaActTypeCountBll = new VisaActTypeCountBll();
 
         private string _preTxt = string.Empty;
         private string _outState = OutState.Type02In; //Single模式下的状态设置
@@ -774,6 +774,9 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             int peopleCount = 0;
             int hasIn = 0;
             int hasOut = 0;
+            var dictIn = _visaActTypeCountBll.GetVisaActTypeCountDict(visas, Common.Enums.ActType._05SubmitIn);
+            var dictOut = _visaActTypeCountBll.GetVisaActTypeCountDict(visas, Common.Enums.ActType._05SubmitOut);
+
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 dataGridView1.Rows[i].HeaderCell.Value = (i + 1).ToString();
@@ -795,14 +798,20 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
 
                 ////这一段性能会好一些了
-                int numIn = _bllActionRecords.GetVisaSubmitStateNum(visas[i], ActType._05SubmitIn);
+                //int numIn = _bllActionRecords.GetVisaSubmitStateNum(visas[i], ActType._05SubmitIn);
+                Guid visaid = Guid.Parse(dataGridView1.Rows[i].Cells["Visa_id"].Value.ToString());
+                int numIn = 0;
+                if (dictIn.ContainsKey(visaid))
+                    numIn = dictIn[visaid];
                 hasIn += numIn;
-
                 dataGridView1.Rows[i].Cells["SubmitInStatus"].Style.Font = font;
                 dataGridView1.Rows[i].Cells["SubmitInStatus"].Value = numIn + "/" + visas[i].Number;
 
                 //这一段性能会好一些了
-                int numOut = _bllActionRecords.GetVisaSubmitStateNum(visas[i], ActType._05SubmitOut);
+                //int numOut = _bllActionRecords.GetVisaSubmitStateNum(visas[i], ActType._05SubmitOut);
+                int numOut = 0;
+                if (dictOut.ContainsKey(visaid))
+                    numOut = dictOut[visaid];
                 hasOut += numOut;
 
                 dataGridView1.Rows[i].Cells["SubmitOutStatus"].Style.Font = font;

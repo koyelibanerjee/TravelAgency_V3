@@ -140,7 +140,7 @@
     <Compile Include="QZApplication.cs" />
     <Compile Include="SysNode.cs" />
     <Compile Include="User.cs" />
-    <Compile Include="VisaTypedInCountModel.cs" />
+    <Compile Include="VisaActTypeCountModel.cs" />
     <Compile Include="VisaWithActRecords.cs" />
     <Compile Include="Visa.cs" />
     <Compile Include="VisaInfo.cs" />

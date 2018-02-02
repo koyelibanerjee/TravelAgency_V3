@@ -161,7 +161,7 @@
     <Compile Include="QZApplication.cs" />
     <Compile Include="StatisticsDal.cs" />
     <Compile Include="SysManage.cs" />
-    <Compile Include="VisaTypedInCountDal.cs" />
+    <Compile Include="VisaActTypeCountDal.cs" />
     <Compile Include="VisaWithActRecords.cs" />
     <Compile Include="Visa.cs" />
     <Compile Include="VisaWithActRecordsDal.cs" />
