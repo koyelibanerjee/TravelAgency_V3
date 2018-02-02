@@ -41,7 +41,8 @@ namespace TravelAgency.CSUI.FrmMain
             picPassportNo.SizeMode = PictureBoxSizeMode.Zoom;
             btnPre.Enabled = false;
             dgvWait4Check.AutoGenerateColumns = false; //dgv初始化
-            dgvWait4Check.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvWait4Check.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //列宽自适应,一定不能用AllCells
+            dgvWait4Check.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders; //这里也一定不能AllCell自适应!
             dgvWait4Check.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvWait4Check.MultiSelect = false;
             txtCheckPerson.Text = GlobalUtils.LoginUser.UserName; //初始化操作员

@@ -48,14 +48,19 @@ namespace TravelAgency.CSUI.Statistics.FrmMain
             _pageSize = int.Parse(cbPageSize.Text);
 
             dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //千万不能开allcells，特别卡
-            dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //列宽自适应,一定不能用AllCells
+            dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders; //这里也一定不能AllCell自适应!
+
             dataGridView1.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
             dataGridView1.SelectionChanged += DataGridView1_SelectionChanged;
 
             dgvCommison.AutoGenerateColumns = false;
-            dgvCommison.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //千万不能开allcells，特别卡
-            dgvCommison.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+
+
+            dgvCommison.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //列宽自适应,一定不能用AllCells
+            dgvCommison.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders; //这里也一定不能AllCell自适应!
+
+
             dgvCommison.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
             dgvCommison.RowsAdded += DgvCommison_RowsAdded;
             //设置可跨线程访问窗体

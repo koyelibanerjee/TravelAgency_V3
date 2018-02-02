@@ -32,7 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bar1 = new DevComponents.DotNetBar.Bar();
             this.btnPageFirst = new DevComponents.DotNetBar.ButtonItem();
             this.btnPagePre = new DevComponents.DotNetBar.ButtonItem();
@@ -135,19 +134,6 @@
             this.panelDgv = new DevComponents.DotNetBar.PanelEx();
             this.cmsAddToGroup = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.添加到团号ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridViewX1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this._1_Visa_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._1_GroupNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._1_Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._1_Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._1_DepartureType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._1_EntryTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._1_Types = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._1_SalesPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._1_Client = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._1_PredictTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._1_TypeInPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._1_IsUrgent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cmsDgv.SuspendLayout();
@@ -157,7 +143,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSchEntryTimeFrom)).BeginInit();
             this.panelDgv.SuspendLayout();
             this.cmsAddToGroup.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).BeginInit();
             this.SuspendLayout();
             // 
             // bar1
@@ -293,7 +278,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1211,7 +1196,6 @@
             // 
             this.panelDgv.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelDgv.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelDgv.Controls.Add(this.dataGridViewX1);
             this.panelDgv.Controls.Add(this.dataGridView1);
             this.panelDgv.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelDgv.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1242,109 +1226,6 @@
             this.添加到团号ToolStripMenuItem.Text = "添加到此团号";
             this.添加到团号ToolStripMenuItem.Click += new System.EventHandler(this.添加到团号ToolStripMenuItem_Click);
             // 
-            // dataGridViewX1
-            // 
-            this.dataGridViewX1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewX1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this._1_Visa_id,
-            this._1_GroupNo,
-            this._1_Country,
-            this._1_Number,
-            this._1_DepartureType,
-            this._1_EntryTime,
-            this._1_Types,
-            this._1_SalesPerson,
-            this._1_Client,
-            this._1_PredictTime,
-            this._1_TypeInPerson,
-            this._1_IsUrgent});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.dataGridViewX1.Location = new System.Drawing.Point(207, 46);
-            this.dataGridViewX1.Name = "dataGridViewX1";
-            this.dataGridViewX1.RowTemplate.Height = 23;
-            this.dataGridViewX1.Size = new System.Drawing.Size(956, 316);
-            this.dataGridViewX1.TabIndex = 14;
-            // 
-            // _1_Visa_id
-            // 
-            this._1_Visa_id.DataPropertyName = "Visa_id";
-            this._1_Visa_id.HeaderText = "_1_Visa_id";
-            this._1_Visa_id.Name = "_1_Visa_id";
-            // 
-            // _1_GroupNo
-            // 
-            this._1_GroupNo.DataPropertyName = "GroupNo";
-            this._1_GroupNo.HeaderText = "GroupNo";
-            this._1_GroupNo.Name = "_1_GroupNo";
-            // 
-            // _1_Country
-            // 
-            this._1_Country.DataPropertyName = "Country";
-            this._1_Country.HeaderText = "_1_Country";
-            this._1_Country.Name = "_1_Country";
-            // 
-            // _1_Number
-            // 
-            this._1_Number.DataPropertyName = "Number";
-            this._1_Number.HeaderText = "_1_Number";
-            this._1_Number.Name = "_1_Number";
-            // 
-            // _1_DepartureType
-            // 
-            this._1_DepartureType.DataPropertyName = "DepartureType";
-            this._1_DepartureType.HeaderText = "_1_DepartureType";
-            this._1_DepartureType.Name = "_1_DepartureType";
-            // 
-            // _1_EntryTime
-            // 
-            this._1_EntryTime.DataPropertyName = "EntryTime";
-            this._1_EntryTime.HeaderText = "_1_EntryTime";
-            this._1_EntryTime.Name = "_1_EntryTime";
-            // 
-            // _1_Types
-            // 
-            this._1_Types.DataPropertyName = "Types";
-            this._1_Types.HeaderText = "_1_Types";
-            this._1_Types.Name = "_1_Types";
-            // 
-            // _1_SalesPerson
-            // 
-            this._1_SalesPerson.DataPropertyName = "SalesPerson";
-            this._1_SalesPerson.HeaderText = "_1_SalesPerson";
-            this._1_SalesPerson.Name = "_1_SalesPerson";
-            // 
-            // _1_Client
-            // 
-            this._1_Client.DataPropertyName = "Client";
-            this._1_Client.HeaderText = "_1_Client";
-            this._1_Client.Name = "_1_Client";
-            // 
-            // _1_PredictTime
-            // 
-            this._1_PredictTime.DataPropertyName = "PredictTime";
-            this._1_PredictTime.HeaderText = "出发时间";
-            this._1_PredictTime.Name = "_1_PredictTime";
-            // 
-            // _1_TypeInPerson
-            // 
-            this._1_TypeInPerson.DataPropertyName = "TypeInPerson";
-            this._1_TypeInPerson.HeaderText = "录入人员";
-            this._1_TypeInPerson.Name = "_1_TypeInPerson";
-            // 
-            // _1_IsUrgent
-            // 
-            this._1_IsUrgent.DataPropertyName = "IsUrgent";
-            this._1_IsUrgent.HeaderText = "是否急件";
-            this._1_IsUrgent.Name = "_1_IsUrgent";
-            // 
             // FrmVisaManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1364,7 +1245,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSchEntryTimeFrom)).EndInit();
             this.panelDgv.ResumeLayout(false);
             this.cmsAddToGroup.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1473,18 +1353,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Client;
         private System.Windows.Forms.DataGridViewTextBoxColumn SalesPerson;
         private System.Windows.Forms.DataGridViewTextBoxColumn Visa_id;
-        private DevComponents.DotNetBar.Controls.DataGridViewX dataGridViewX1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _1_Visa_id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _1_GroupNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _1_Country;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _1_Number;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _1_DepartureType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _1_EntryTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _1_Types;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _1_SalesPerson;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _1_Client;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _1_PredictTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _1_TypeInPerson;
-        private System.Windows.Forms.DataGridViewTextBoxColumn _1_IsUrgent;
     }
 }

@@ -53,8 +53,8 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             _pageSize = int.Parse(cbPageSize.Text);
 
             dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //千万不能开allcells，特别卡
-            //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //列宽自适应,一定不能用AllCells
+            dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders; //这里也一定不能AllCell自适应!
             dataGridView1.Columns["Details"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             dataGridView1.Columns["GroupNo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;

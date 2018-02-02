@@ -87,7 +87,8 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             txtDoPerson.Text = GlobalUtils.LoginUser.UserName;
 
             dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //列宽自适应,一定不能用AllCells
+            dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders; //这里也一定不能AllCell自适应!
             dataGridView1.CellEndEdit += dataGridView1_CellEndEdit;
             dataGridView1.DataSource = _list;
             dataGridView1.ReadOnly = false;

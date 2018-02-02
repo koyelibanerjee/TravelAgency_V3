@@ -62,7 +62,8 @@ namespace TravelAgency.CSUI.FrmSub
             this.MinimumSize = this.Size;
             this.proPictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             this.dgvStatus.AutoGenerateColumns = false;
-            this.dgvStatus.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvStatus.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //列宽自适应,一定不能用AllCells
+            dgvStatus.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders; //这里也一定不能AllCell自适应!
             this.dgvStatus.ReadOnly = true;
             //this.pictureBox1.MouseWheel += pictureBox1_MouseWheel;
             this.txtGroupNo.Enabled = false;

@@ -108,7 +108,8 @@ namespace TravelAgency.CSUI.FrmMain
             cbDepatureType.SelectedIndex = 0;
 
             dataGridView1.AutoGenerateColumns = false; //不显示指定之外的列
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //列宽自适应
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //列宽自适应,一定不能用AllCells
+            dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders; //这里也一定不能AllCell自适应!
             dataGridView1.Columns["GroupNo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             dataGridView1.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
             bgWorkerLoadData.WorkerReportsProgress = true;
@@ -159,10 +160,7 @@ namespace TravelAgency.CSUI.FrmMain
             }
 
             //_hasFormated = false; //每次加载后，设置为还没有格式化(设置其他的显示，比如未做已做的状态等)
-            //dataGridView1.DataSource = list;
-            dataGridViewX1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            dataGridViewX1.AutoGenerateColumns = false;
-            dataGridViewX1.DataSource = list;
+            dataGridView1.DataSource = list;
             if (curSelectedRow != -1 && dataGridView1.Rows.Count > curSelectedRow)
                 dataGridView1.CurrentCell = dataGridView1.Rows[curSelectedRow].Cells[0];
 
@@ -475,7 +473,7 @@ namespace TravelAgency.CSUI.FrmMain
             //if (dataGridView1.Rows.Count != _pageSize  )
             //    return;
             Dictionary<Guid, int> dict = new Dictionary<Guid, int>();
-            foreach (var visaTypedInCount in typeInCountList)
+            foreach (var visaTypedInCount in typeInCountList)//由于数据库返回的值是乱序，添加到hash表，查找更快一点
             {
                 dict.Add(visaTypedInCount.Visa_id, visaTypedInCount.TypedInNum);
             }
@@ -486,33 +484,31 @@ namespace TravelAgency.CSUI.FrmMain
             int hasDo = 0;
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
-                //#region test
-                //dataGridView1.Rows[i].HeaderCell.Value = (i + 1).ToString();
-                //if (dataGridView1.Rows[i].Cells["Country"].Value != null)
-                //{
-                //    string countryName = dataGridView1.Rows[i].Cells["Country"].Value.ToString();
-                //    dataGridView1.Rows[i].Cells["CountryImage"].Value =
-                //       TravelAgency.Common.CountryPicHandler.LoadImageByCountryName(countryName);
-                //}
+                dataGridView1.Rows[i].HeaderCell.Value = (i + 1).ToString();
+                if (dataGridView1.Rows[i].Cells["Country"].Value != null)
+                {
+                    string countryName = dataGridView1.Rows[i].Cells["Country"].Value.ToString();
+                    dataGridView1.Rows[i].Cells["CountryImage"].Value =
+                       TravelAgency.Common.CountryPicHandler.LoadImageByCountryName(countryName);
+                }
 
-                //if (visas[i].Number == null || visas[i].Number == 0)
-                //{
-                //    dataGridView1.Rows[i].Cells["Status"].Value = "--------";
-                //    dataGridView1.Rows[i].Cells["Status"].Style.BackColor = Color.Peru;
-                //    continue;
-                //}
+                if (visas[i].Number == null || visas[i].Number == 0)
+                {
+                    dataGridView1.Rows[i].Cells["Status"].Value = "--------";
+                    dataGridView1.Rows[i].Cells["Status"].Style.BackColor = Color.Peru;
+                    continue;
+                }
 
-                //if (visas[i].IsUrgent)
-                //{
-                //    dataGridView1.Rows[i].Cells["IsUrgent"].Value = "急件";
-                //    dataGridView1.Rows[i].Cells["IsUrgent"].Style.BackColor = Color.Red;
-                //}
-                //else
-                //{
-                //    dataGridView1.Rows[i].Cells["IsUrgent"].Value = "非急件";
-                //    //dataGridView1.Rows[i].Cells["Status"].Style.BackColor = Color.Red;
-                //}
-                //#endregion
+                if (visas[i].IsUrgent)
+                {
+                    dataGridView1.Rows[i].Cells["IsUrgent"].Value = "急件";
+                    dataGridView1.Rows[i].Cells["IsUrgent"].Style.BackColor = Color.Red;
+                }
+                else
+                {
+                    dataGridView1.Rows[i].Cells["IsUrgent"].Value = "非急件";
+                    //dataGridView1.Rows[i].Cells["Status"].Style.BackColor = Color.Red;
+                }
 
 
                 peopleCount += int.Parse(dataGridView1.Rows[i].Cells["Number"].Value.ToString());
@@ -531,27 +527,21 @@ namespace TravelAgency.CSUI.FrmMain
 
                 //这一段性能会好一些了
                 //int num = _bllActionRecords.GetVisaHasTypedInNum(visas[i].Visa_id);
+
+                //2018-02-02 //换成一次查询，再来查hash表
                 Guid visaid = Guid.Parse(dataGridView1.Rows[i].Cells["Visa_id"].Value.ToString());
                 int num = 0;
                 if (dict.ContainsKey(visaid))
                     num = dict[visaid];
-                //foreach (var visaTypedInCount in typeInCountList)
-                //{
-                //    if (visaTypedInCount.Visa_id == Guid.Parse(dataGridView1.Rows[i].Cells["Visa_id"].Value.ToString()))
-                //    {
-                //        num = visaTypedInCount.TypedInNum;
-                //        break;
-                //    }
-                //}
 
-                //hasDo += num;
 
-                //dataGridView1.Rows[i].Cells["Status"].Style.Font = font;
-                //dataGridView1.Rows[i].Cells["Status"].Value = num + "/" + visas[i].Number;
-                //if (num >= visas[i].Number)
-                //    dataGridView1.Rows[i].Cells["Status"].Style.BackColor = Color.SeaGreen;
-                //else
-                //    dataGridView1.Rows[i].Cells["Status"].Style.BackColor = Color.Peru;
+                hasDo += num;
+                dataGridView1.Rows[i].Cells["Status"].Style.Font = font;
+                dataGridView1.Rows[i].Cells["Status"].Value = num + "/" + visas[i].Number;
+                if (num >= visas[i].Number)
+                    dataGridView1.Rows[i].Cells["Status"].Style.BackColor = Color.SeaGreen;
+                else
+                    dataGridView1.Rows[i].Cells["Status"].Style.BackColor = Color.Peru;
             }
 
             lbPeopleCount.Text = "已做:" + hasDo + "/" + peopleCount.ToString() + "人.";
