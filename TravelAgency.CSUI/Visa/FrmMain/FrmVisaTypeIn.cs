@@ -10,6 +10,7 @@ using TravelAgency.Common;
 using TravelAgency.Common.IDCard;
 using TravelAgency.Common.PictureHandler;
 using TravelAgency.Common.PinyinParse;
+using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Properties;
 using TravelAgency.Model;
 
@@ -466,11 +467,24 @@ namespace TravelAgency.CSUI.FrmMain
                 if (MessageBoxEx.Show("未找到对应护照图像，是否导入?", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
                     DialogResult.Yes)
                 {
-                    string filename = GlobalUtils.ShowOpenFileDlg();
-                    if (!string.IsNullOrEmpty(filename))
+                    if (
+                        MessageBoxEx.Show("是否拍照导入?\r\n选择Yes从高拍仪扫描图像，选择No从本地文件导入。", "提示", MessageBoxButtons.YesNo,
+                            MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        PassportPicHandler.CopyToPassportPic(filename, model.PassportNo, PassportPicHandler.PicType.Type01Normal);
-                        //PassportPicHandler.UploadPassportPic(model.PassportNo);
+                        FrmScanCtrlImported frm = new FrmScanCtrlImported(model);
+                        if (frm.ShowDialog() == DialogResult.Cancel)//点取消的情况没考虑，还得用while循环，太麻烦了
+                        {
+
+                        }
+                    }
+                    else
+                    {
+                        string filename = GlobalUtils.ShowOpenFileDlg();
+                        if (!string.IsNullOrEmpty(filename))
+                        {
+                            PassportPicHandler.CopyToPassportPic(filename, model.PassportNo, PassportPicHandler.PicType.Type01Normal);
+                            //PassportPicHandler.UploadPassportPic(model.PassportNo);
+                        }
                     }
                 }
             }
