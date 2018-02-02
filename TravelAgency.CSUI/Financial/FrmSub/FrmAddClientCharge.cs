@@ -40,6 +40,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 cbType.Text = _model.Types.ToString();
                 cbDepartureType.Text = _model.DepartureType.ToString();
                 txtRemark.Text = _model.Remark;
+                cbClient.Text = _model.Client;
             }
 
             if(_is4Modify)
