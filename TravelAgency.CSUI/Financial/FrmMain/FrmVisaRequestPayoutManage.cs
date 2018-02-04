@@ -1485,6 +1485,8 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             FrmSetCharge frm = new FrmSetCharge(list, LoadDataToDataGridView, _curPage);
             if(frm.ShowDialog()==DialogResult.Cancel)
                 return;
+            if(selIdxs.Count>0)
+                dataGridView1.ClearSelection();
             foreach (var idx in selIdxs)
                 dataGridView1.Rows[idx].Selected = true;
             自动更新单价ToolStripMenuItem_Click(null, null); //自动触发更新事件

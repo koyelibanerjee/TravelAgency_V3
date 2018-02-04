@@ -138,11 +138,14 @@ namespace TravelAgency.CSUI.FrmMain
 
         public void LoadDataToDataGridView(int page) //刷新后保持选中
         {
-            //Console.WriteLine("加载一次");
             _where = GetWhereCondition();
-            int curSelectedRow = -1;
-            if (dataGridView1.SelectedRows.Count > 0)
-                curSelectedRow = dataGridView1.SelectedRows[0].Index;
+            //int curSelectedRow = -1;
+            //if (dataGridView1.SelectedRows.Count > 0)
+            //    curSelectedRow = dataGridView1.SelectedRows[0].Index;
+
+            List<int> selIdxs = new List<int>();
+            for (int i = dataGridView1.SelectedRows.Count - 1; i >= 0; i--)
+                selIdxs.Add(dataGridView1.SelectedRows[i].Index);
 
             var list = _bllVisa.GetListByPage(page, _pageSize, _where);
 
@@ -159,11 +162,11 @@ namespace TravelAgency.CSUI.FrmMain
             {
                 list = _bllActionRecords.CheckStatesAndRemove(list, Common.Enums.ActType._02TypeInData, 2); //
             }
-
-            //_hasFormated = false; //每次加载后，设置为还没有格式化(设置其他的显示，比如未做已做的状态等)
             dataGridView1.DataSource = list;
-            if (curSelectedRow != -1 && dataGridView1.Rows.Count > curSelectedRow)
-                dataGridView1.CurrentCell = dataGridView1.Rows[curSelectedRow].Cells[0];
+            if (selIdxs.Count > 0) //如果之前有选中现在就恢复之前的
+                dataGridView1.ClearSelection();
+            foreach (var idx in selIdxs)
+                dataGridView1.Rows[idx].Selected = true;
 
             GlobalStat.UpdateStatistics();
 
