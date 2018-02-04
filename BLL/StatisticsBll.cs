@@ -76,43 +76,11 @@ namespace TravelAgency.BLL
 
         public int GetCountOfCurWeek(string otherwhere = CommonOtherWhere)
         {
-            int year = DateTime.Now.Year;
-            int month = DateTime.Now.Month;
-            string strFrom;
-            string strTo;
-            int day;
-            DateTime date;
-            if (DateTime.Now.DayOfWeek == DayOfWeek.Sunday)
-            {
-                date = DateTime.Now.Date.AddDays(-6.0);
-                day = date.Day;
-            }
-
-            else
-            {
-                date = DateTime.Now.Date.AddDays(DateTime.Now.DayOfWeek - DayOfWeek.Monday);
-                day = date.Day;
-            }
-
-            date = date.AddDays(6.0);
-
-            strFrom = $"{year}-{month}-{day} 00:00:00";
-
-            strTo = $"{year}-{month}-{date.Day} 23:59:59";
-            try
-            {
-                DateTime.Parse(strTo);
-            }
-            catch (Exception)
-            {
-                //溢出了，超出了本月最大天数
-                DateTime end = DateTime.Today.AddDays(6.0);
-                strTo = end.ToString("yyyy-MM-dd");
-                strTo += " 23:59:59";
-
-            }
-
-
+            var date = DateTime.Now.DayOfWeek == DayOfWeek.Sunday ? //找到所在周的起始(周一)
+                DateTime.Now.Date.AddDays(-6.0) : DateTime.Now.Date.AddDays(DateTime.Now.DayOfWeek - DayOfWeek.Monday);
+            string strFrom = $"{date.Year}-{date.Month}-{date.Day} 00:00:00";
+            date = date.AddDays(6.0);//找到所在周的结束
+            string strTo = $"{date.Year}-{date.Month}-{date.Day} 23:59:59";
             return GetCountByTimeSpan(strFrom, strTo, otherwhere);
         }
         public int GetCountOfCurDay(string otherwhere = CommonOtherWhere)
