@@ -5,17 +5,17 @@ using System.Data.SqlClient;
 using Maticsoft.DBUtility;//Please add references
 namespace TravelAgency.DAL
 {
-	/// <summary>
-	/// 数据访问类:AppAll
-	/// </summary>
-	public partial class AppAll
-	{
-	    public int GetMaxTemp()
-	    {
-	        string sql = "select max(temp) from AppAll";
-	        var res = DbHelperSQL.GetSingle(sql);
-	        return (int) res;
-	    }
+    /// <summary>
+    /// 数据访问类:AppAll
+    /// </summary>
+    public partial class AppAll
+    {
+        public int GetMaxTemp()
+        {
+            string sql = "select max(temp) from AppAll";
+            var res = DbHelperSQL.GetSingle(sql);
+            return (int)res;
+        }
 
 
         /// <summary>
@@ -109,6 +109,36 @@ namespace TravelAgency.DAL
             };
             return DbHelperSQL.Query(sql, pams);
         }
+
+        public DataSet GetNotCheckedDataByPageOrderByEntryTime(int start, int end, string where)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("SELECT * from(SELECT *,ROW_NUMBER() OVER(ORDER BY EntryTime desc) as num from AppAll");
+            sb.Append(" where app_id in ( select distinct app_id from appstatus where statusFlag<2 ) ");
+            sb.Append(" and (Flag in (1,2))");
+            if (!string.IsNullOrEmpty(where))
+            {
+                //sb.Append(" where ");
+                sb.Append(" and (" + where + ")");
+            }
+            sb.Append(")");
+            //sb.Append(" as t WHERE t.num>=@Start AND t.num<=@End order by EntryTime desc,GroupNo desc,OutState desc");
+            sb.Append(" as t WHERE t.num>=@Start AND t.num<=@End");
+            string sql = sb.ToString();
+            SqlParameter[] pams = new SqlParameter[]{
+                new SqlParameter("@Start",SqlDbType.Int){Value=start},
+                new SqlParameter("@End",SqlDbType.Int){Value=end}
+            };
+            return DbHelperSQL.Query(sql, pams);
+        }
+
+        public int GetNotCheckedCount()
+        {
+            string sql =
+                "select COUNT(1) from(select * from AppAll where App_id in (select distinct app_id from AppStatus where StatusFlag<2)  and (Flag in (1,2))) as dual ";
+            return (int)DbHelperSQL.GetSingle(sql);
+        }
+
 
     }
 }

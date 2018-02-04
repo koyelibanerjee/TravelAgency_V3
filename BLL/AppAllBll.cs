@@ -54,40 +54,55 @@ namespace TravelAgency.BLL
             return DataTableToList(dt);
         }
 
+        //public List<Model.AppAll> GetNotCheckedAppAllOrderByEntryTime(int pageIndex, int pageSize, string where)
+        //{
+        //    int start = (pageIndex - 1) * pageSize + 1;
+        //    int end = pageIndex * pageSize;
+
+        //    DataSet ds = dal.GetDataByPageOrderByEntryTime(start, end, where);
+        //    DataTable dt = ds.Tables[0];
+        //    var list = DataTableToList(dt);
+        //    BLL.AppStatus bllAppStatus = new AppStatus();
+        //    for (int i = list.Count - 1; i >= 0; --i)
+        //    {
+        //        if (list[i].Flag != 2 && list[i].Flag != 1)
+        //        {
+        //            list.Remove(list[i]);
+        //            continue;
+        //        }
+
+        //        var statusList = bllAppStatus.GetModelList(" app_id = '" + list[i].App_id + "' ");
+        //        if (statusList.Count > 0)
+        //        {
+        //            foreach (var stats in statusList)
+        //            {
+        //                if (stats.StatusFlag > 1) //有大于1的状态就移除
+        //                {
+        //                    list.Remove(list[i]);
+        //                    break;
+        //                }
+        //            }
+        //        }
+        //    }
+        //    return list;
+
+        //}
+
         public List<Model.AppAll> GetNotCheckedAppAllOrderByEntryTime(int pageIndex, int pageSize, string where)
         {
             int start = (pageIndex - 1) * pageSize + 1;
             int end = pageIndex * pageSize;
 
-            DataSet ds = dal.GetDataByPageOrderByEntryTime(start, end, where);
+            DataSet ds = dal.GetNotCheckedDataByPageOrderByEntryTime(start, end, where);
             DataTable dt = ds.Tables[0];
             var list = DataTableToList(dt);
-            BLL.AppStatus bllAppStatus = new AppStatus();
-            for (int i = list.Count - 1; i >= 0; --i)
-            {
-                if (list[i].Flag != 2 && list[i].Flag != 1)
-                {
-                    list.Remove(list[i]);
-                    continue;
-                }
-
-                var statusList = bllAppStatus.GetModelList(" app_id = '" + list[i].App_id + "' ");
-                if (statusList.Count > 0)
-                {
-                    foreach (var stats in statusList)
-                    {
-                        if (stats.StatusFlag > 1) //有大于1的状态就移除
-                        {
-                            list.Remove(list[i]);
-                            break;
-                        }
-                    }
-                }
-            }
             return list;
-
         }
 
+        public int GetNotCheckedCount()
+        {
+            return dal.GetNotCheckedCount();
+        }
 
     }
 }

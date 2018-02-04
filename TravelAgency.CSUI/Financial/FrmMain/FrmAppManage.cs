@@ -23,6 +23,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
         private int _pageSize;
         private int _recordCount = 0;
         private string _where = string.Empty;
+        private bool _init = false;
 
 
         public List<Model.VisaInfo> List4AddToExport;
@@ -33,11 +34,12 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             _b4AddToExport = b4Add; //指明用于添加到导出界面的
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterParent;
+            _init = false;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            _recordCount = _bllAppAll.GetRecordCount(_where);
+            _recordCount = _bllAppAll.GetNotCheckedCount();
             _pageCount = (int)Math.Ceiling(_recordCount / (double)_pageSize);
 
             //初始化一些控件
@@ -57,7 +59,6 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders; //这里也一定不能AllCell自适应!
             dataGridView1.Columns["Details"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             dataGridView1.Columns["GroupNo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
 
             dataGridView1.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
 
@@ -75,7 +76,17 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             //LoadDataToDataGridView(_curPage);
             //UpdateState();
             progressLoading.Visible = false;
+            cbPageSize.TextChanged += CbPageSize_TextChanged;
+            LoadDataToDgvAsyn();
+            _init = true;
+        }
 
+        private void CbPageSize_TextChanged(object sender, EventArgs e)
+        {
+            if (!_init) //因为窗口初始化的时候也会调用，所以禁止多次调用
+                return;
+
+            _pageSize = int.Parse(cbPageSize.Text);
             LoadDataToDgvAsyn();
         }
 
@@ -168,7 +179,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
         private void UpdateState()
         {
-            //_recordCount = _bllAppAll.GetRecordCount(_where);
+            _recordCount = _bllAppAll.GetNotCheckedCount();
             _pageCount = (int)Math.Ceiling((double)_recordCount / (double)_pageSize);
             if (_curPage == 1)
                 btnPagePre.Enabled = false;
@@ -180,7 +191,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                 btnPageNext.Enabled = true;
             //lbRecordCount.Text = "当前为第:" + Convert.ToInt32(_curPage)
             //                + "页,共" + Convert.ToInt32(_pageCount) + "页,每页共" + _pageSize + "条.";
-            //lbRecordCount.Text = "共有记录:" + _recordCount + "条";
+            lbRecordCount.Text = "共有记录:" + _recordCount + "条";
             lbCurPage.Text = "当前为第" + _curPage + "页";
         }
         #endregion
@@ -462,5 +473,8 @@ namespace TravelAgency.CSUI.Financial.FrmMain
         {
             查看明细ToolStripMenuItem_Click(null,null);
         }
+
+
+
     }
 }
