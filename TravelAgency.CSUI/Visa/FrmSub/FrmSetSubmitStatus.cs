@@ -89,11 +89,9 @@ namespace TravelAgency.CSUI.FrmSub
                     return;
                 }
                 //删除所有操作记录
-                _bllActionRecords.DeleteSubmitStateRecord(_visaInfoModel, ActType._05SubmitIn);
-                _bllActionRecords.DeleteSubmitStateRecord(_visaInfoModel, ActType._05SubmitOut);
-                _bllActionRecords.DeleteSubmitStateRecord(_visaInfoModel, ActType._05SubmitAbOut);
-                
-
+                _bllActionRecords.DeleteVisaInfoSubmitStateRecord(_visaInfoModel, ActType._05SubmitIn);
+                _bllActionRecords.DeleteVisaInfoSubmitStateRecord(_visaInfoModel, ActType._05SubmitOut);
+                _bllActionRecords.DeleteVisaInfoSubmitStateRecord(_visaInfoModel, ActType._05SubmitAbOut);
             }
             else if (rbtnIn.Checked) //修改为进签
             {
@@ -113,10 +111,8 @@ namespace TravelAgency.CSUI.FrmSub
                 _bllActionRecords.AddRecord(ActType._05SubmitIn, GlobalUtils.LoginUser, _visaInfoModel,
                     _bllVisa.GetModel(Guid.Parse(_visaInfoModel.Visa_id)));
                 //删除出签和非正常出签的操作记录
-                _bllActionRecords.DeleteSubmitStateRecord(_visaInfoModel, ActType._05SubmitOut);
-                _bllActionRecords.DeleteSubmitStateRecord(_visaInfoModel, ActType._05SubmitAbOut);
-
-
+                _bllActionRecords.DeleteVisaInfoSubmitStateRecord(_visaInfoModel, ActType._05SubmitOut);
+                _bllActionRecords.DeleteVisaInfoSubmitStateRecord(_visaInfoModel, ActType._05SubmitAbOut);
             }
             else if (rbtnOut.Checked)
             {
@@ -135,7 +131,7 @@ namespace TravelAgency.CSUI.FrmSub
                 _bllActionRecords.AddRecord(ActType._05SubmitOut, GlobalUtils.LoginUser, _visaInfoModel,
                     _bllVisa.GetModel(Guid.Parse(_visaInfoModel.Visa_id)));
                 //删除非正常出签的操作记录
-                _bllActionRecords.DeleteSubmitStateRecord(_visaInfoModel, ActType._05SubmitAbOut);
+                _bllActionRecords.DeleteVisaInfoSubmitStateRecord(_visaInfoModel, ActType._05SubmitAbOut);
 
             }
             else
@@ -155,7 +151,7 @@ namespace TravelAgency.CSUI.FrmSub
                 _bllActionRecords.AddRecord(ActType._05SubmitAbOut, GlobalUtils.LoginUser, _visaInfoModel,
                     _bllVisa.GetModel(Guid.Parse(_visaInfoModel.Visa_id)));
                 //删除正常出签的操作记录
-                _bllActionRecords.DeleteSubmitStateRecord(_visaInfoModel, ActType._05SubmitOut);
+                _bllActionRecords.DeleteVisaInfoSubmitStateRecord(_visaInfoModel, ActType._05SubmitOut);
             }
             _updateDel(_curPage);
             this.DialogResult = DialogResult.OK;

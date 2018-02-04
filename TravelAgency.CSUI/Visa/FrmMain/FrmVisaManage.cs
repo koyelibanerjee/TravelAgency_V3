@@ -1414,7 +1414,16 @@ namespace TravelAgency.CSUI.FrmMain
 
 
 
+
         #endregion
+
+        private void 两人保险报表ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var list = GetSelectedVisaInfoList();
+            var groupname = GetSelectedVisaModel().GroupNo;
+            XlsGenerator.GetBaoXianReport(list, groupname);
+
+        }
 
         #endregion
 

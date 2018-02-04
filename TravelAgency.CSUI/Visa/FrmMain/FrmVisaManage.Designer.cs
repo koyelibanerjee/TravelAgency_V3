@@ -134,6 +134,7 @@
             this.panelDgv = new DevComponents.DotNetBar.PanelEx();
             this.cmsAddToGroup = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.添加到团号ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.两人保险报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cmsDgv.SuspendLayout();
@@ -421,7 +422,7 @@
             this.导出报表ToolStripMenuItem,
             this.高拍仪做资料ToolStripMenuItem});
             this.cmsDgv.Name = "cmsDgv";
-            this.cmsDgv.Size = new System.Drawing.Size(185, 192);
+            this.cmsDgv.Size = new System.Drawing.Size(185, 214);
             // 
             // 复制ToolStripMenuItem
             // 
@@ -481,7 +482,8 @@
             this.打印报表ToolStripMenuItem,
             this.日本ToolStripMenuItem,
             this.韩国ToolStripMenuItem,
-            this.泰国ToolStripMenuItem});
+            this.泰国ToolStripMenuItem,
+            this.两人保险报表ToolStripMenuItem});
             this.导出报表ToolStripMenuItem.Name = "导出报表ToolStripMenuItem";
             this.导出报表ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.导出报表ToolStripMenuItem.Text = "导出报表";
@@ -489,7 +491,7 @@
             // 打印报表ToolStripMenuItem
             // 
             this.打印报表ToolStripMenuItem.Name = "打印报表ToolStripMenuItem";
-            this.打印报表ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.打印报表ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.打印报表ToolStripMenuItem.Text = "打印报表";
             this.打印报表ToolStripMenuItem.Click += new System.EventHandler(this.打印报表ToolStripMenuItem_Click);
             // 
@@ -513,7 +515,7 @@
             this.东东全日空ToolStripMenuItem,
             this.新北东航ToolStripMenuItem});
             this.日本ToolStripMenuItem.Name = "日本ToolStripMenuItem";
-            this.日本ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.日本ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.日本ToolStripMenuItem.Text = "日本";
             // 
             // 日本团队综合名单ToolStripMenuItem
@@ -632,7 +634,7 @@
             this.韩国担保函ToolStripMenuItem,
             this.韩国加急申请书ToolStripMenuItem});
             this.韩国ToolStripMenuItem.Name = "韩国ToolStripMenuItem";
-            this.韩国ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.韩国ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.韩国ToolStripMenuItem.Text = "韩国";
             // 
             // 韩国担保函ToolStripMenuItem
@@ -660,7 +662,7 @@
             this.川航机票ToolStripMenuItem,
             this.泰航机票ToolStripMenuItem});
             this.泰国ToolStripMenuItem.Name = "泰国ToolStripMenuItem";
-            this.泰国ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.泰国ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.泰国ToolStripMenuItem.Text = "泰国";
             // 
             // 数据源报表ToolStripMenuItem
@@ -1226,6 +1228,13 @@
             this.添加到团号ToolStripMenuItem.Text = "添加到此团号";
             this.添加到团号ToolStripMenuItem.Click += new System.EventHandler(this.添加到团号ToolStripMenuItem_Click);
             // 
+            // 两人保险报表ToolStripMenuItem
+            // 
+            this.两人保险报表ToolStripMenuItem.Name = "两人保险报表ToolStripMenuItem";
+            this.两人保险报表ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.两人保险报表ToolStripMenuItem.Text = "两人保险报表";
+            this.两人保险报表ToolStripMenuItem.Click += new System.EventHandler(this.两人保险报表ToolStripMenuItem_Click);
+            // 
             // FrmVisaManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1353,5 +1362,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Client;
         private System.Windows.Forms.DataGridViewTextBoxColumn SalesPerson;
         private System.Windows.Forms.DataGridViewTextBoxColumn Visa_id;
+        private System.Windows.Forms.ToolStripMenuItem 两人保险报表ToolStripMenuItem;
     }
 }

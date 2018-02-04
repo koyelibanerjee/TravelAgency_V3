@@ -395,6 +395,67 @@ namespace TravelAgency.Common.Excel
         }
 
 
+        /// <summary>
+        /// 泰国的数据源报表
+        /// </summary>
+        /// <param name="visaInfoList"></param>
+        /// <param name="visaList"></param>
+        public static void GetBaoXianReport(List<Model.VisaInfo> visaInfoList,string groupNo)
+        {
+            if (visaInfoList.Count > 2)
+            {
+                MessageBoxEx.Show("请选择2个人以下导出!");
+                return;
+            }
+
+            //READEXCEL
+            using (FileStream fs = File.OpenRead(GlobalUtils.AppPath + @"\Excel\Templates\template_2人保险申请表格.xls"))
+            {
+                IWorkbook wkbook = new HSSFWorkbook(fs);
+                ISheet sheet = wkbook.GetSheet("sheet1");
+                for (int i = 0; i < visaInfoList.Count; i++)
+                {
+                    string[] englishNames = visaInfoList[i].EnglishName.Split(' ');
+                    IRow row = sheet.GetRow(i + 5);
+                   
+                    row.GetCell(0).SetCellValue(visaInfoList[i].Name + "/" + visaInfoList[i].EnglishName);
+                    row.GetCell(1).SetCellValue(visaInfoList[i].PassportNo);
+                    row.GetCell(2).SetCellValue(DateTimeFormator.DateTimeToString(visaInfoList[i].Birthday, DateTimeFormator.TimeFormat.Type01Normal));
+                    row.GetCell(3).SetCellValue(visaInfoList[i].Sex == "男" ? "M" : "F");
+                    row.GetCell(4).SetCellValue(visaInfoList[i].Phone);
+                    row.GetCell(6).SetCellValue(14); //默认14天
+                    row.GetCell(7).SetCellValue("旅游"); //默认14天
+                    row.GetCell(8).SetCellValue("申根"); //默认14天
+                }
+
+                IRow row1 = sheet.GetRow(8);
+                row1.GetCell(0).SetCellValue(groupNo);
+
+                //sheet.IsPrintGridlines = true;
+                string dstName = GlobalUtils.ShowSaveFileDlg("两人保险申请表.xls", "Excel XLS|*.xls");
+
+                // If the file name is not an empty string open it for saving.
+                if (!string.IsNullOrEmpty(dstName))
+                {
+                    try
+                    {
+                        using (FileStream fs1 = File.OpenWrite(dstName))
+                        {
+                            wkbook.Write(fs1);
+                        }
+                        Process.Start(dstName);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBoxEx.Show("指定文件名的文件正在使用中，无法写入，请关闭后重试!");
+                    }
+                }
+
+            }
+        }
+
+
+
 
     }
 }
