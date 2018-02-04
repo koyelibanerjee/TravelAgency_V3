@@ -143,9 +143,5 @@ namespace TravelAgency.BLL
             return statList;
         }
         #endregion
-
-
-
-
     }
 }

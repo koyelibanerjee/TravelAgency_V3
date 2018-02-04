@@ -1273,28 +1273,28 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
         private void 修改做资料状态ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count != 1)
-            {
-                return;
-            }
-            var model = GetSelectedVisaModel();
-            if (model.Country == "日本")
-            {
-                MessageBoxEx.Show("日本不允许修改状态!");
-                return;
-            }
+            //if (dataGridView1.SelectedRows.Count != 1)
+            //{
+            //    return;
+            //}
+            //var model = GetSelectedVisaModel();
+            //if (model.Country == "日本")
+            //{
+            //    MessageBoxEx.Show("日本不允许修改状态!");
+            //    return;
+            //}
 
-            string status = dataGridView1.SelectedRows[0].Cells["Status"].Value.ToString();
-            int num1 = int.Parse(status.Split('/')[0]);
-            int num2 = int.Parse(status.Split('/')[1]);
-            if (num1 < num2)
-            {
-                status = "未做";
-            }
-            else status = "已做";
+            //string status = dataGridView1.SelectedRows[0].Cells["Status"].Value.ToString();
+            //int num1 = int.Parse(status.Split('/')[0]);
+            //int num2 = int.Parse(status.Split('/')[1]);
+            //if (num1 < num2)
+            //{
+            //    status = "未做";
+            //}
+            //else status = "已做";
 
-            FrmSetTypeInStatus frm = new FrmSetTypeInStatus(model, status, LoadDataToDataGridView, _curPage);
-            frm.ShowDialog();
+            //FrmSetTypeInStatus frm = new FrmSetTypeInStatus(model, status, LoadDataToDataGridView, _curPage);
+            //frm.ShowDialog();
 
         }
 
