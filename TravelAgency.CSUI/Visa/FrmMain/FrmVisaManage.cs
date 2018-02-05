@@ -51,6 +51,7 @@ namespace TravelAgency.CSUI.FrmMain
             InitializeComponent();
         }
 
+
         private void FrmVisaManage_Load(object sender, EventArgs e)
         {
             _recordCount = _bllVisa.GetRecordCount(string.Empty);

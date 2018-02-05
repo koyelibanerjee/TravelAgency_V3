@@ -396,8 +396,20 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                     }
                 }
             }
-            //出签怎么处理???
+            //出签
+            if (acttype == OutState.Type03NormalOut) //检查团是否进签完成了
+            {
+                if (_bllActionRecords.GetVisaSubmitStateNum(visaModel, acttype) >= visaModel.Number) //全部出签了
+                {
+                    visaModel.FinishTime = DateTime.Now;
 
+                    if (!_bllVisa.Update(visaModel))
+                    {
+                        MessageBoxEx.Show("更新团信息失败!");
+                        return false;
+                    }
+                }
+            }
             return true;
         }
 

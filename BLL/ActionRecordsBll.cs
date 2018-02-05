@@ -63,7 +63,6 @@ namespace TravelAgency.BLL
                     default:
                         break;
                 }
-
             }
             return listRes;
         }
