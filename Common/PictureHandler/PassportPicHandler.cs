@@ -39,11 +39,13 @@ namespace TravelAgency.Common.PictureHandler
         /// <param name="passportNo"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static void UploadPassportPic(string passportNo)
+        public static void UploadPassportPic(string filename,string passportNo)
         {
             FtpHandler.ChangeFtpUri(ConfigurationManager.AppSettings["PassportPicPath"]);
-            FtpHandler.Upload(GlobalUtils.LocalPassportPicPath + "\\" + GetFileName(passportNo, PicType.Type01Normal));
+            FtpHandler.Upload(filename,GetFileName(passportNo, PicType.Type01Normal));
         }
+
+
 
 
         public static bool CheckLocalExist(string passportNo, PicType type)

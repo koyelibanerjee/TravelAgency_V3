@@ -807,7 +807,8 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 else
                     dataGridView1.Rows[i].Cells["IsUrgent"].Value = "非急件";
 
-                peopleCount += int.Parse(dataGridView1.Rows[i].Cells["Number"].Value.ToString());
+                if (dataGridView1.Rows[i].Cells["Number"].Value != null)
+                    peopleCount += int.Parse(dataGridView1.Rows[i].Cells["Number"].Value.ToString());
 
 
                 ////这一段性能会好一些了

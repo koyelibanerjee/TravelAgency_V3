@@ -8,6 +8,21 @@ using System.Text;
 using System.Threading.Tasks;
 using TravelAgency.Common.FTP;
 
+namespace TravelAgency.Common.FTP.Tests
+{
+    [TestClass()]
+    public class FtpHandlerTests
+    {
+        [TestMethod()]
+        public void UploadTest()
+        {
+            FtpHandler.ChangeFtpUri(ConfigurationManager.AppSettings["PassportPicPath"]);
+            string filename = GlobalUtils.ShowOpenFileDlg();
+            FtpHandler.Upload(filename,"abc.jpg");
+        }
+    }
+}
+
 namespace TravelAgency.Common.FTP.Testss
 {
     [TestClass()]

@@ -62,6 +62,7 @@
     <Compile Include="InfoCheckerTests.cs" />
     <Compile Include="PicHandlerTests.cs" />
     <Compile Include="PictureHandler\GaopaiPicHandlerTests.cs" />
+    <Compile Include="PictureHandler\PassportPicHandlerTests.cs" />
     <Compile Include="PinyinParse\PinYinConverterHelpTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

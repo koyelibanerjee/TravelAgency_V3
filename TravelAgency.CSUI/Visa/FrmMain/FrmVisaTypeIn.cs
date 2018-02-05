@@ -305,7 +305,7 @@ namespace TravelAgency.CSUI.FrmMain
 
             //直接在数据库那边执行提交操作，从visainfo_tmp移动到visainfo，然后这边重新加载数据库就OK
             int res = _bllVisaInfoTmp.MoveCheckedDataToVisaInfo();
-            
+
             MessageBoxEx.Show(res + "条记录更新成功.");
             LoadDataToList();
             _curIdx = 0;
@@ -471,11 +471,10 @@ namespace TravelAgency.CSUI.FrmMain
                         MessageBoxEx.Show("是否拍照导入?\r\n选择Yes从高拍仪扫描图像，选择No从本地文件导入。", "提示", MessageBoxButtons.YesNo,
                             MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        FrmScanCtrlImported frm = new FrmScanCtrlImported(model);
+                        FrmScanCtrlImported frm = new FrmScanCtrlImported(model);//这个窗口里面把图像拷贝到了本地自己的目录
                         if (frm.ShowDialog() == DialogResult.Cancel)//点取消的情况没考虑，还得用while循环，太麻烦了
-                        {
+                            return;
 
-                        }
                     }
                     else
                     {
@@ -485,7 +484,12 @@ namespace TravelAgency.CSUI.FrmMain
                             PassportPicHandler.CopyToPassportPic(filename, model.PassportNo, PassportPicHandler.PicType.Type01Normal);
                             //PassportPicHandler.UploadPassportPic(model.PassportNo);
                         }
+                        else return;
                     }
+                    //把拍照的图像上传到服务器
+                    PassportPicHandler.UploadPassportPic(
+                        GlobalUtils.LocalPassportPicPath + "\\" + PassportPicHandler.GetFileName(model.PassportNo, PassportPicHandler.PicType.Type01Normal),
+                        model.PassportNo);
                 }
             }
             LoadDataToList();

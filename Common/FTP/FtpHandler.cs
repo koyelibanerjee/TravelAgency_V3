@@ -238,13 +238,14 @@ namespace TravelAgency.Common.FTP
 
 
         /// <summary>
-        /// 上传
+        /// 上传,把srcfilename上传到当前ftp目录
         /// </summary>
-        /// <param name="filename"></param>
-        public static void Upload(string filename)
+        /// <param name="srcFileName">如e:/我的文档/xxx.jpg</param>
+        /// <param name="dstFileName">如xxx.jpg</param>
+        public static void Upload(string srcFileName,string dstFileName)
         {
-            FileInfo fileInf = new FileInfo(filename);
-            string uri = _ftpUri + fileInf.Name;
+            FileInfo fileInf = new FileInfo(srcFileName);
+            string uri = _ftpUri + dstFileName;
             FtpWebRequest reqFTP;
 
             reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri(uri));
