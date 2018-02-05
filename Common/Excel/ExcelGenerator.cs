@@ -837,6 +837,12 @@ namespace TravelAgency.Common.Excel
         private static string GetGroupNo(Model.Visa model)
         {
             string prefix = string.Empty;
+            BLL.VisaInfo bllVisaInfo = new BLL.VisaInfo();
+            var visaInfoList = bllVisaInfo.GetModelListByVisaIdOrderByPosition(model.Visa_id);
+            if (model.Country == "泰国" && visaInfoList.Count==0) //手动加的
+            {
+                return model.GroupNo;
+            }
             if (model.Types == Types.Individual)
             {
                 prefix = "QZC"; //个签自动加上前缀

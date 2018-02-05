@@ -173,7 +173,5 @@ namespace TravelAgency.DAL
 
             return DbHelperSQL.Query(sql);
         }
-
-
     }
 }
