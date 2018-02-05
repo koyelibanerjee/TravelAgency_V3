@@ -193,7 +193,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
         public void LoadDataToDataGridView(int page) //刷新后保持选中
         {
-
+            _where = GetWhereCondition();
             int curSelectedRow = -1;
             if (dataGridView1.SelectedRows.Count > 0)
                 curSelectedRow = dataGridView1.SelectedRows[0].Index;
