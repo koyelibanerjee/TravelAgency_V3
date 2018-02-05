@@ -48,15 +48,45 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             cbPageSize.Items.Add("1000");
             cbPageSize.DropDownStyle = ComboBoxStyle.DropDownList;
             cbPageSize.SelectedIndex = 2;
+
+            cbDisplayType.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbDisplayType.Items.Add("全部");
+            cbDisplayType.Items.Add("未记录");
+            cbDisplayType.Items.Add("个签");
+            cbDisplayType.Items.Add("团签");
+            cbDisplayType.Items.Add("团做个");
+            cbDisplayType.Items.Add("个签&&团做个");
+            cbDisplayType.SelectedIndex = 0;
+
+            cbDepatureType.Items.Add("全部");
+            cbDepatureType.Items.Add("单次");
+            cbDepatureType.Items.Add("单次加急");
+            cbDepatureType.Items.Add("三年多往");
+            cbDepatureType.Items.Add("五年");
+            cbDepatureType.Items.Add("五年多往");
+            cbDepatureType.Items.Add("五年加急");
+            cbDepatureType.Items.Add("十年");
+            cbDepatureType.Items.Add("十年多往");
+            cbDepatureType.Items.Add("十年加急");
+            cbDepatureType.Items.Add("其他");
+            cbDepatureType.SelectedIndex = 0;
+
+            cbCountry.Items.Add("全部");
+            foreach (string countryName in CountryCode.CountryNameArr)
+            {
+                cbCountry.Items.Add(countryName);
+            }
+            cbCountry.SelectedIndex = 0;
+
+
             _pageSize = int.Parse(cbPageSize.Text);
+            cbPageSize.TextChanged += CbPageSize_TextChanged;
 
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //列宽自适应,一定不能用AllCells
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders; //这里也一定不能AllCell自适应!
-            dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-
             dataGridView1.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
-
+            dataGridView1.DoubleClick += DataGridView1_DoubleClick;
             //设置可跨线程访问窗体
             //TODO:这里可能需要修改
             //Control.CheckForIllegalCrossThreadCalls = false;
@@ -72,6 +102,17 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             //UpdateState();
             progressLoading.Visible = false;
 
+            LoadDataToDgvAsyn();
+        }
+
+        private void DataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            修改ToolStripMenuItem_Click(null,null);
+        }
+
+        private void CbPageSize_TextChanged(object sender, EventArgs e)
+        {
+            _pageSize = int.Parse(cbPageSize.Text);
             LoadDataToDgvAsyn();
         }
 
@@ -152,6 +193,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
         public void LoadDataToDataGridView(int page) //刷新后保持选中
         {
+
             int curSelectedRow = -1;
             if (dataGridView1.SelectedRows.Count > 0)
                 curSelectedRow = dataGridView1.SelectedRows[0].Index;
@@ -164,7 +206,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
         private void UpdateState()
         {
-            //_recordCount = _bllStatisticsBll.GetRecordCount(_where);
+            _recordCount = _bllClentCharge.GetRecordCount(_where);
             _pageCount = (int)Math.Ceiling((double)_recordCount / (double)_pageSize);
             if (_curPage == 1)
                 btnPagePre.Enabled = false;
@@ -176,7 +218,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                 btnPageNext.Enabled = true;
             //lbRecordCount.Text = "当前为第:" + Convert.ToInt32(_curPage)
             //                + "页,共" + Convert.ToInt32(_pageCount) + "页,每页共" + _pageSize + "条.";
-            lbRecordCount.Text = "共有记录:---" + /*_recordCount +*/ "条";
+            lbRecordCount.Text = "共有记录:" + _recordCount + "条";
             lbCurPage.Text = "当前为第" + _curPage + "页";
         }
         #endregion
@@ -208,18 +250,73 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            //_where = GetWhereCondition();
-
+            _where = GetWhereCondition();
             LoadDataToDgvAsyn();
-
         }
+
+        private string GetWhereCondition()
+        {
+            List<string> conditions = new List<string>();
+            if (cbDisplayType.Text == "全部")
+            {
+            }
+            else if (cbDisplayType.Text == "未记录")
+            {
+                conditions.Add(" Types is null or Types='' ");
+            }
+            else if (cbDisplayType.Text == "个签")
+            {
+                conditions.Add(" Types = '个签' ");
+            }
+            else if (cbDisplayType.Text == "团签")
+            {
+                conditions.Add(" Types = '团签' ");
+            }
+            else if (cbDisplayType.Text == "团做个")
+            {
+                conditions.Add(" Types = '团做个' ");
+            }
+            else if (cbDisplayType.Text == "个签&&团做个")
+            {
+                conditions.Add(" Types = '团做个' or Types = '个签'");
+            }
+
+            if (cbCountry.Text == "全部")
+            {
+
+            }
+            else
+            {
+                conditions.Add(" Country = '" + cbCountry.Text + "' ");
+            }
+
+            if (!string.IsNullOrEmpty(txtClient.Text.Trim()))
+            {
+                conditions.Add(" (Client like '%" + txtClient.Text + "%') ");
+            }
+
+            if (cbDepatureType.Text == "全部")
+            {
+
+            }
+            else
+            {
+                conditions.Add(" DepartureType = '" + cbDepatureType.Text + "' ");
+            }
+
+            string[] arr = conditions.ToArray();
+            string where = string.Join(" and ", arr);
+            return where;
+        }
+
 
         private void btnClearSchConditions_Click(object sender, EventArgs e)
         {
+            txtClient.Text = "";
+            cbCountry.Text = "全部";
+            cbDisplayType.Text = "全部";
+            cbDepatureType.Text = "全部";
 
-            txtSchEntryTimeFrom.Text = string.Empty;
-            txtSchEntryTimeTo.Text = string.Empty;
-            
         }
 
 
@@ -369,14 +466,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             ExcelGenerator.GetStatisticPersonalTable(dataGridView1.DataSource as List<Model.PersonalStat>);
         }
 
-        private void btnTimeSpanChoose_Click(object sender, EventArgs e)
-        {
-            FrmTimeSpanChoose frm = new FrmTimeSpanChoose();
-            if (frm.ShowDialog() == DialogResult.Cancel)
-                return;
-            txtSchEntryTimeFrom.Text = DateTimeFormator.DateTimeToString(frm.TimeSpanFrom, DateTimeFormator.TimeFormat.Type14LongTime1);
-            txtSchEntryTimeTo.Text = DateTimeFormator.DateTimeToString(frm.TimeSpanTo, DateTimeFormator.TimeFormat.Type14LongTime1);
-        }
+        
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -435,5 +525,9 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             FrmAddClientCharge frm = new FrmAddClientCharge(LoadDataToDataGridView,_curPage,true,list[0]);
             frm.ShowDialog();
         }
+
+
+
+
     }
 }

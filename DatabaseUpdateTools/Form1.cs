@@ -108,6 +108,15 @@ namespace DatabaseUpdateTools
 
         }
 
+        private void buttonX3_Click(object sender, EventArgs e)
+        {
+            TravelAgency.BLL.Visa bllVisa = new TravelAgency.BLL.Visa();
+            var list = bllVisa.GetModelList(string.Empty);
+            
 
+
+        }
     }
+
+    
 }

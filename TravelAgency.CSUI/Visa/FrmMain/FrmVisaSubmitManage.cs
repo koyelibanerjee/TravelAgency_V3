@@ -138,6 +138,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //列宽自适应,一定不能用AllCells
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders; //这里也一定不能AllCell自适应!
             dataGridView1.Columns["GroupNo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+
             dataGridView1.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
             bgWorkerLoadData.WorkerReportsProgress = true;
             progressLoading.Visible = false;
@@ -383,7 +384,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
             //添加操作记录(后面考虑使用缓存结构，不用每次都查询数据库)
             _bllActionRecords.AddRecord(acttype, GlobalUtils.LoginUser, visainfoModel, visaModel);
-            if (acttype == OutState.Type02In) //检查团是否进签完成了
+            if (acttype == ActType._05SubmitIn) //检查团是否进签完成了
             {
                 if (_bllActionRecords.GetVisaSubmitStateNum(visaModel, acttype) >= visaModel.Number) //全部进签了
                 {
@@ -397,7 +398,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 }
             }
             //出签
-            if (acttype == OutState.Type03NormalOut) //检查团是否进签完成了
+            if (acttype == ActType._05SubmitOut) //检查团是否进签完成了
             {
                 if (_bllActionRecords.GetVisaSubmitStateNum(visaModel, acttype) >= visaModel.Number) //全部出签了
                 {

@@ -106,6 +106,9 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //列宽自适应,一定不能用AllCells
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders; //这里也一定不能AllCell自适应!
             dataGridView1.Columns["GroupNo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dataGridView1.Columns["RealTime"].DefaultCellStyle.Format = "yyyy/MM/dd HH:mm:ss";
+            dataGridView1.Columns["FinishTime"].DefaultCellStyle.Format = "yyyy/MM/dd HH:mm:ss";
+
             dataGridView1.ReadOnly = false;
             for (int i = 0; i <= 27; ++i)
             {

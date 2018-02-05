@@ -79,7 +79,8 @@
             this.buttonX3.Size = new System.Drawing.Size(88, 46);
             this.buttonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.buttonX3.TabIndex = 3;
-            this.buttonX3.Text = "buttonX3";
+            this.buttonX3.Text = "添加客户信息";
+            this.buttonX3.Click += new System.EventHandler(this.buttonX3_Click);
             // 
             // Form1
             // 
