@@ -140,7 +140,10 @@ namespace TravelAgency.Common.FTP
                     if (string.IsNullOrWhiteSpace(lines[i]))
                         continue;
                     int lastSpaceIdx = lines[i].LastIndexOf(' ');
-                    res.Add(lines[i].Substring(lastSpaceIdx + 1, lines[i].Length - lastSpaceIdx - 1));
+                    string tmp = lines[i].Substring(lastSpaceIdx + 1, lines[i].Length - lastSpaceIdx - 1);
+                    if (tmp == "." || tmp == "..")
+                        continue;
+                    res.Add(tmp);
                 }
 
                 return res;
@@ -208,9 +211,15 @@ namespace TravelAgency.Common.FTP
             string m = string.Empty;
             foreach (string str in drectory)
             {
+
                 if (str.Trim().Substring(0, 1).ToUpper() == "D")
                 {
-                    m += str.Substring(48).Trim() + "\n"; //原来这里是54 我改成的48,因为服务器版本不同的原因?
+
+                    string tmp = str.Substring(54).Trim();
+                    if (tmp == "." || tmp == "..")
+                        continue;
+                    //m += tmp + "\n"; //everything搭建的服务器是48,serv-u是54，应该serv-u是标准的
+                    m += tmp + "\n"; //原来这里是54 我改成的48,因为服务器版本不同的原因?
                 }
             }
             char[] n = new char[] { '\n' };
@@ -242,7 +251,7 @@ namespace TravelAgency.Common.FTP
         /// </summary>
         /// <param name="srcFileName">如e:/我的文档/xxx.jpg</param>
         /// <param name="dstFileName">如xxx.jpg</param>
-        public static void Upload(string srcFileName,string dstFileName)
+        public static void Upload(string srcFileName, string dstFileName)
         {
             FileInfo fileInf = new FileInfo(srcFileName);
             string uri = _ftpUri + dstFileName;
