@@ -56,6 +56,12 @@ namespace TravelAgency.Common.PictureHandler
 
         }
 
+        public static bool CheckRemoteExist(string passportNo, PicType type)
+        {
+            FtpHandler.ChangeFtpUri(ConfigurationManager.AppSettings["PassportPicPath"]);
+            return FtpHandler.FileExist(GetFileName(passportNo, type));
+        }
+
         public static bool CheckAndDownloadIfNotExist(string passportNo, PicType type)
         {
             FtpHandler.ChangeFtpUri(ConfigurationManager.AppSettings["PassportPicPath"]);

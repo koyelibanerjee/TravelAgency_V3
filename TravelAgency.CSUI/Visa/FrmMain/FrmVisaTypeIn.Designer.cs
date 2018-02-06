@@ -96,6 +96,7 @@
             this.btnSaveChanges = new DevComponents.DotNetBar.ButtonX();
             this.cmsDgvRb = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmsItemDelete = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnUpLoadLocal = new DevComponents.DotNetBar.ButtonX();
             this.panelMain.SuspendLayout();
             this.panelMid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPassportNo)).BeginInit();
@@ -155,6 +156,7 @@
             // 
             // picPassportNo
             // 
+            this.picPassportNo.DefaultSaveFileName = null;
             this.picPassportNo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picPassportNo.Location = new System.Drawing.Point(0, 0);
             this.picPassportNo.Name = "picPassportNo";
@@ -166,6 +168,7 @@
             // 
             this.panelbottom.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelbottom.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelbottom.Controls.Add(this.btnUpLoadLocal);
             this.panelbottom.Controls.Add(this.btnSaveAll);
             this.panelbottom.Controls.Add(this.btnSaveIR);
             this.panelbottom.Controls.Add(this.btnSaveHeadPic);
@@ -859,7 +862,7 @@
             this.dgvWait4Check.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvWait4Check.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvWait4Check.EnableHeadersVisualStyles = false;
-            this.dgvWait4Check.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.dgvWait4Check.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dgvWait4Check.Location = new System.Drawing.Point(0, 0);
             this.dgvWait4Check.Name = "dgvWait4Check";
             this.dgvWait4Check.ReadOnly = true;
@@ -1059,6 +1062,18 @@
             this.cmsItemDelete.Text = "删除";
             this.cmsItemDelete.Click += new System.EventHandler(this.cmsItemDelete_Click);
             // 
+            // btnUpLoadLocal
+            // 
+            this.btnUpLoadLocal.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnUpLoadLocal.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnUpLoadLocal.Location = new System.Drawing.Point(505, 5);
+            this.btnUpLoadLocal.Name = "btnUpLoadLocal";
+            this.btnUpLoadLocal.Size = new System.Drawing.Size(104, 23);
+            this.btnUpLoadLocal.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnUpLoadLocal.TabIndex = 1;
+            this.btnUpLoadLocal.Text = "上传本地图像";
+            this.btnUpLoadLocal.Click += new System.EventHandler(this.btnUpLoadLocal_Click);
+            // 
             // FrmVisaTypeIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1153,5 +1168,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Country;
         private System.Windows.Forms.DataGridViewTextBoxColumn HasChecked;
         private System.Windows.Forms.DataGridViewTextBoxColumn VisaInfo_id;
+        private DevComponents.DotNetBar.ButtonX btnUpLoadLocal;
     }
 }

@@ -245,6 +245,42 @@ namespace TravelAgency.Common.FTP
             return false;
         }
 
+        /// <summary>
+        /// 上传,把filename上传上去，比如e:/aaa.jpg上传到当前ftp目录为aaa.jpg,已有同名文件会直接替换，因此最好先调用FileExist检查
+        /// </summary>
+        public static void Upload(string filename)
+        {
+            FileInfo fileInf = new FileInfo(filename);
+            string uri = _ftpUri + fileInf.Name; 
+            FtpWebRequest reqFTP;
+            reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri(uri));
+            reqFTP.Credentials = new NetworkCredential(_ftpUserId, _ftpPassword);
+            reqFTP.KeepAlive = false;
+            reqFTP.Method = WebRequestMethods.Ftp.UploadFile;
+            reqFTP.UseBinary = true;
+            reqFTP.ContentLength = fileInf.Length;
+            int buffLength = 2048;
+            byte[] buff = new byte[buffLength];
+            int contentLen;
+            FileStream fs = fileInf.OpenRead();
+            try
+            {
+                Stream strm = reqFTP.GetRequestStream();
+                contentLen = fs.Read(buff, 0, buffLength);
+                while (contentLen != 0)
+                {
+                    strm.Write(buff, 0, contentLen);
+                    contentLen = fs.Read(buff, 0, buffLength);
+                }
+                strm.Close();
+                fs.Close();
+            }
+            catch (Exception ex)
+            {
+                Insert_Standard_ErrorLog.Insert("FtpWeb", "Upload Error --> " + ex.Message);
+            }
+        }
+
 
         /// <summary>
         /// 上传,把srcfilename上传到当前ftp目录

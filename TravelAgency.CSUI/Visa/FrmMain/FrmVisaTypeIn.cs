@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using TravelAgency.Common;
+using TravelAgency.Common.FTP;
 using TravelAgency.Common.IDCard;
 using TravelAgency.Common.PictureHandler;
 using TravelAgency.Common.PinyinParse;
 using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Properties;
 using TravelAgency.Model;
+using System.Configuration;
 
 namespace TravelAgency.CSUI.FrmMain
 {
@@ -595,6 +598,23 @@ namespace TravelAgency.CSUI.FrmMain
 
         }
 
+        private void btnUpLoadLocal_Click(object sender, EventArgs e)
+        {
+            var localFileList = Directory.GetFiles(GlobalUtils.LocalPassportPicPath);
+            FtpHandler.ChangeFtpUri(ConfigurationManager.AppSettings["PassportPicPath"]);
+            int notexist = 0;
+            foreach (var localFile in localFileList)
+            {
+                if (!FtpHandler.FileExist(Path.GetFileName(localFile)))
+                {
+                    FtpHandler.Upload(localFile);
+                    notexist += 1;
+                }
+            }
+            MessageBoxEx.Show("上传" + notexist + "张图像成功!");
+        }
+
+
         private void dgvWait4Check_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
@@ -662,5 +682,7 @@ namespace TravelAgency.CSUI.FrmMain
         {
             _country = "泰国";
         }
+
+
     }
 }

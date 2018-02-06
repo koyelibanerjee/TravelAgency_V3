@@ -18,7 +18,14 @@ namespace TravelAgency.Common.FTP.Tests
         {
             FtpHandler.ChangeFtpUri(ConfigurationManager.AppSettings["PassportPicPath"]);
             string filename = GlobalUtils.ShowOpenFileDlg();
-            FtpHandler.Upload(filename,"abc.jpg");
+            FtpHandler.Upload(filename, "abc.jpg");
+        }
+
+        [TestMethod()]
+        public void UploadTest1()
+        {
+            string filename = GlobalUtils.ShowOpenFileDlg();
+            FtpHandler.Upload(filename);
         }
     }
 }
