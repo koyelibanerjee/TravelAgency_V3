@@ -450,9 +450,9 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         {
             //Console.WriteLine("加载一次");
             _where = GetWhereCondition();
-            int curSelectedRow = -1;
-            if (dataGridView1.SelectedRows.Count > 0)
-                curSelectedRow = dataGridView1.SelectedRows[0].Index;
+            List<int> selIdxs = new List<int>();
+            for (int i = dataGridView1.SelectedRows.Count - 1; i >= 0; i--)
+                selIdxs.Add(dataGridView1.SelectedRows[i].Index);
 
             var list = _bllVisa.GetListByPage(page, _pageSize, _where);
 
@@ -472,8 +472,11 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
             //_hasFormated = false; //每次加载后，设置为还没有格式化(设置其他的显示，比如未做已做的状态等)
             dataGridView1.DataSource = list;
-            if (curSelectedRow != -1 && dataGridView1.Rows.Count > curSelectedRow)
-                dataGridView1.CurrentCell = dataGridView1.Rows[curSelectedRow].Cells[0];
+            if (selIdxs.Count > 0) //如果之前有选中现在就恢复之前的
+                dataGridView1.ClearSelection();
+            if (dataGridView1.Rows.Count >= selIdxs.Count)
+                foreach (var idx in selIdxs)
+                    dataGridView1.Rows[idx].Selected = true;
 
             GlobalStat.UpdateStatistics();
 
@@ -821,6 +824,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
                 numIn += dictIn[visaid];
                 numIn += dictOut[visaid]; //进签的还要加上出签的人数
+                numIn += dictAbOut[visaid];
                 hasIn += numIn;
 
                 dataGridView1.Rows[i].Cells["SubmitInStatus"].Style.Font = font;
@@ -1751,8 +1755,15 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             Clipboard.SetText(sb.ToString());
         }
 
+
         #endregion
 
-
+        private void 更改送签状态ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var list = GetSelectedVisaList();
+            FrmSetSubmitStatus frm = new FrmSetSubmitStatus(
+   list, LoadDataToDataGridView, _curPage);
+            frm.ShowDialog();
+        }
     }
 }

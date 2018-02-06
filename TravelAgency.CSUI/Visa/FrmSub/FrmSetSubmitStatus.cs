@@ -21,9 +21,11 @@ namespace TravelAgency.CSUI.FrmSub
         private BLL.Visa _bllVisa = new BLL.Visa();
         private BLL.VisaInfo _bllVisaInfo = new BLL.VisaInfo();
         private bool _hasDone = false; //用于备份判断
-        private Model.VisaInfo _visaInfoModel;
+        private List<Model.VisaInfo> _visaInfoList;
         private Action<int> _updateDel;
         private int _curPage;
+        private List<Model.Visa> _visaList;
+
 
         public FrmSetSubmitStatus()
         {
@@ -31,29 +33,18 @@ namespace TravelAgency.CSUI.FrmSub
             InitializeComponent();
         }
 
-        public FrmSetSubmitStatus(Model.VisaInfo visaInfomodel, string status, Action<int> updateDel, int curPage) : this()
+        public FrmSetSubmitStatus(List<Model.VisaInfo> visaInfoList,Action<int> updateDel, int curPage) : this()
         {
-            if (status == "01未记录" || status=="10已导出")
-            {
-                rbtnNoRecord.Checked = true;
-                //_hasDone = true;
-            }
-            else if (status == "02进签") //未做
-            {
-                rbtnIn.Checked = true;
-                //_hasDone = false;
-            }
-            else if (status == "03出签") //未做
-            {
-                rbtnOut.Checked = true;
-                //_hasDone = false;
-            }
-            else
-            {
-                rbtnAbOut.Checked = true;
-            }
+            rbtnNoRecord.Checked = true;
+            _visaInfoList = visaInfoList;
+            _updateDel = updateDel;
+            _curPage = curPage;
+        }
 
-            _visaInfoModel = visaInfomodel;
+        public FrmSetSubmitStatus(List<Model.Visa> visaList, Action<int> updateDel, int curPage) : this()
+        {
+            rbtnNoRecord.Checked = true;
+            _visaList = visaList;
             _updateDel = updateDel;
             _curPage = curPage;
         }
@@ -82,16 +73,7 @@ namespace TravelAgency.CSUI.FrmSub
                 {
                     return;
                 }
-                _visaInfoModel.outState = OutState.Type01NoRecord;
-                if (!_bllVisaInfo.Update(_visaInfoModel))
-                {
-                    MessageBoxEx.Show("更新失败,请重试!");
-                    return;
-                }
-                //删除所有操作记录
-                _bllActionRecords.DeleteVisaInfoSubmitStateRecord(_visaInfoModel, ActType._05SubmitIn);
-                _bllActionRecords.DeleteVisaInfoSubmitStateRecord(_visaInfoModel, ActType._05SubmitOut);
-                _bllActionRecords.DeleteVisaInfoSubmitStateRecord(_visaInfoModel, ActType._05SubmitAbOut);
+                UpdateVisaInfoOutStates(Common.Enums.OutState.Type01NoRecord);
             }
             else if (rbtnIn.Checked) //修改为进签
             {
@@ -100,19 +82,7 @@ namespace TravelAgency.CSUI.FrmSub
                     return;
                 }
 
-                _visaInfoModel.outState = OutState.Type02In;
-                if (!_bllVisaInfo.Update(_visaInfoModel))
-                {
-                    MessageBoxEx.Show("更新失败,请重试!");
-                    return;
-                }
-
-                //添加进签操作记录
-                _bllActionRecords.AddRecord(ActType._05SubmitIn, GlobalUtils.LoginUser, _visaInfoModel,
-                    _bllVisa.GetModel(Guid.Parse(_visaInfoModel.Visa_id)));
-                //删除出签和非正常出签的操作记录
-                _bllActionRecords.DeleteVisaInfoSubmitStateRecord(_visaInfoModel, ActType._05SubmitOut);
-                _bllActionRecords.DeleteVisaInfoSubmitStateRecord(_visaInfoModel, ActType._05SubmitAbOut);
+                UpdateVisaInfoOutStates(Common.Enums.OutState.Type02In);
             }
             else if (rbtnOut.Checked)
             {
@@ -120,18 +90,8 @@ namespace TravelAgency.CSUI.FrmSub
                 {
                     return;
                 }
-                _visaInfoModel.outState = OutState.Type03NormalOut;
-                if (!_bllVisaInfo.Update(_visaInfoModel))
-                {
-                    MessageBoxEx.Show("更新失败,请重试!");
-                    return;
-                }
+                UpdateVisaInfoOutStates(Common.Enums.OutState.Type03NormalOut);
 
-                //添加出签操作记录
-                _bllActionRecords.AddRecord(ActType._05SubmitOut, GlobalUtils.LoginUser, _visaInfoModel,
-                    _bllVisa.GetModel(Guid.Parse(_visaInfoModel.Visa_id)));
-                //删除非正常出签的操作记录
-                _bllActionRecords.DeleteVisaInfoSubmitStateRecord(_visaInfoModel, ActType._05SubmitAbOut);
 
             }
             else
@@ -140,22 +100,44 @@ namespace TravelAgency.CSUI.FrmSub
                 {
                     return;
                 }
-                _visaInfoModel.outState = OutState.TYPE04AbnormalOut;
-                if (!_bllVisaInfo.Update(_visaInfoModel))
-                {
-                    MessageBoxEx.Show("更新失败,请重试!");
-                    return;
-                }
-
-                //添加出签操作记录
-                _bllActionRecords.AddRecord(ActType._05SubmitAbOut, GlobalUtils.LoginUser, _visaInfoModel,
-                    _bllVisa.GetModel(Guid.Parse(_visaInfoModel.Visa_id)));
-                //删除正常出签的操作记录
-                _bllActionRecords.DeleteVisaInfoSubmitStateRecord(_visaInfoModel, ActType._05SubmitOut);
+                UpdateVisaInfoOutStates(Common.Enums.OutState.TYPE04AbnormalOut);
             }
             _updateDel(_curPage);
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
+
+        private void UpdateVisaInfoOutStates(string outstate)
+        {
+            int res = 0, total = 0;
+            if (_visaList != null)
+            {
+
+                foreach (var visa in _visaList)
+                {
+                    var visainfoList = _bllVisaInfo.GetModelListByVisaIdOrderByPosition(visa.Visa_id);
+                    for (int i = 0; i < visainfoList.Count; i++)
+                    {
+                        visainfoList[i].outState = outstate;
+                    }
+                    res += _bllVisaInfo.UpdateByList(visainfoList);
+                    total += visainfoList.Count;
+                }
+            }
+            else
+            {
+               
+                for (int i = 0; i < _visaInfoList.Count; i++)
+                {
+                    _visaInfoList[i].outState = outstate;
+                }
+                res += _bllVisaInfo.UpdateByList(_visaInfoList);
+                total += _visaInfoList.Count;
+            }
+
+
+            GlobalUtils.MessageBoxWithRecordNum("更新",res,total);
+        }
+
     }
 }

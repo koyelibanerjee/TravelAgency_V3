@@ -53,7 +53,7 @@ namespace TravelAgency.CSUI.FrmMain
             cbPageSize.Items.Add("100");
             cbPageSize.SelectedIndex = 0;
 
-            
+
 
             dataGridView1.AutoGenerateColumns = false; //不显示指定之外的列
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //列宽自适应,一定不能用AllCells
@@ -62,7 +62,7 @@ namespace TravelAgency.CSUI.FrmMain
             dataGridView1.DataSource = _list;
         }
 
-        
+
 
         #region dgv用到的相关方法
 
@@ -89,7 +89,7 @@ namespace TravelAgency.CSUI.FrmMain
         #endregion
 
 
-       
+
         #region dgv消息相应
 
         /// <summary>
@@ -222,7 +222,7 @@ namespace TravelAgency.CSUI.FrmMain
                 string passportNo = dataGridView1.SelectedRows[i].Cells["PassportNo"].Value.ToString();
                 string name = dataGridView1.SelectedRows[i].Cells["EnglishName"].Value.ToString();
                 _qrCode.EncodeToPng(passportNo + "|" + name, path + "\\" + passportNo + ".jpg", QRCodeSaveSize.Size660X660);
-                
+
             }
 
             MessageBoxEx.Show("成功保存" + count + "条记录二维码.");
@@ -242,16 +242,21 @@ namespace TravelAgency.CSUI.FrmMain
             Clipboard.SetText(sb.ToString());
         }
 
+        List<Model.VisaInfo> GetSelVisaInfoList()
+        {
+            var list = (dataGridView1.DataSource as List<Model.VisaInfo>);
+            List<Model.VisaInfo> res = new List<VisaInfo>();
+            for (int i = dataGridView1.SelectedRows.Count - 1; i >= 0; --i)
+            {
+                res.Add(list[dataGridView1.SelectedRows[i].Index]);
+            }
+            return res;
+        }
+
         private void 更改送签状态ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (this.dataGridView1.SelectedRows.Count > 1)
-            {
-                MessageBoxEx.Show(Resources.SelectShowMoreThanOne);
-                return;
-            }
             FrmSetSubmitStatus frm = new FrmSetSubmitStatus(
-                (dataGridView1.DataSource as List<Model.VisaInfo>)[dataGridView1.SelectedRows[0].Index],
-                dataGridView1.SelectedRows[0].Cells["outState"].Value.ToString(),_updateDel,_curPage);
+               GetSelVisaInfoList(), _updateDel, _curPage);
             frm.ShowDialog();
         }
 

@@ -162,8 +162,9 @@ namespace TravelAgency.CSUI.FrmMain
             dataGridView1.DataSource = list;
             if (selIdxs.Count > 0) //如果之前有选中现在就恢复之前的
                 dataGridView1.ClearSelection();
-            foreach (var idx in selIdxs)
-                dataGridView1.Rows[idx].Selected = true;
+            if (dataGridView1.Rows.Count >= selIdxs.Count)
+                foreach (var idx in selIdxs)
+                    dataGridView1.Rows[idx].Selected = true;
 
             GlobalStat.UpdateStatistics();
 

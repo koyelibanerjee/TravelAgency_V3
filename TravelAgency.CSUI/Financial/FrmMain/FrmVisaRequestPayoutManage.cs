@@ -149,7 +149,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
         public void LoadDataToDataGridView(int page) //刷新后保持选中
         {
-           _where = GetWhereCondition();
+            _where = GetWhereCondition();
             _needDoUpdateEvent = false;
             //Console.WriteLine("加载一次");
             int curSelectedRow = -1;
@@ -324,7 +324,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             }
             else
             {
-                conditions.Add(" (submitflag =" + 1 +")"); //0是未提交，所以这里处理一下
+                conditions.Add(" (submitflag =" + 1 + ")"); //0是未提交，所以这里处理一下
             }
 
 
@@ -1486,12 +1486,13 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                 selIdxs.Add(dataGridView1.SelectedRows[i].Index);
             var list = GetSelectedVisaList();
             FrmSetCharge frm = new FrmSetCharge(list, LoadDataToDataGridView, _curPage);
-            if(frm.ShowDialog()==DialogResult.Cancel)
+            if (frm.ShowDialog() == DialogResult.Cancel)
                 return;
-            if(selIdxs.Count>0)
+            if (selIdxs.Count > 0)
                 dataGridView1.ClearSelection();
-            foreach (var idx in selIdxs)
-                dataGridView1.Rows[idx].Selected = true;
+            if (dataGridView1.Rows.Count >= selIdxs.Count)
+                foreach (var idx in selIdxs)
+                    dataGridView1.Rows[idx].Selected = true;
             自动更新单价ToolStripMenuItem_Click(null, null); //自动触发更新事件
             自动更新总价ToolStripMenuItem_Click(null, null);
         }
