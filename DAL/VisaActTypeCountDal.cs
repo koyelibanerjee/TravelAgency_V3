@@ -27,6 +27,24 @@ namespace TravelAgency.DAL
             return DbHelperSQL.Query(sql);
         }
 
+        public DataSet GetVisaOutStateCountModels(List<Model.Visa> visaList, string outState)
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append("select Visa_id,Count=COUNT(1) from VisaInfo where outState = '" + outState + "' ");
+            if (visaList.Count > 0)
+            {
+                sb.Append(" and visa_id in (");
+                foreach (var visa in visaList)
+                {
+                    sb.Append("'" + visa.Visa_id + "',");
+                }
+            }
+            string sql = sb.ToString().TrimEnd(',');
+            sql += ") group by visa_id";
+            return DbHelperSQL.Query(sql);
+        }
+
+
         /// <summary>
 		/// 得到一个对象实体
 		/// </summary>

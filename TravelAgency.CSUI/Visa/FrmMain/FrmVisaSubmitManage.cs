@@ -787,8 +787,9 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             int peopleCount = 0;
             int hasIn = 0;
             int hasOut = 0;
-            var dictIn = _visaActTypeCountBll.GetVisaActTypeCountDict(visas, Common.Enums.ActType._05SubmitIn);
-            var dictOut = _visaActTypeCountBll.GetVisaActTypeCountDict(visas, Common.Enums.ActType._05SubmitOut);
+            var dictIn = _visaActTypeCountBll.GetVisaOutStateCountDict(visas, Common.Enums.OutState.Type02In);
+            var dictOut = _visaActTypeCountBll.GetVisaOutStateCountDict(visas, Common.Enums.OutState.Type03NormalOut);
+            var dictAbOut = _visaActTypeCountBll.GetVisaOutStateCountDict(visas, Common.Enums.OutState.TYPE04AbnormalOut);
 
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
@@ -815,26 +816,37 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 //int numIn = _bllActionRecords.GetVisaSubmitStateNum(visas[i], ActType._05SubmitIn);
                 Guid visaid = Guid.Parse(dataGridView1.Rows[i].Cells["Visa_id"].Value.ToString());
                 int numIn = 0;
-                if (dictIn.ContainsKey(visaid))
-                    numIn = dictIn[visaid];
+                if (!dictIn.ContainsKey(visaid) || !dictOut.ContainsKey(visaid) || !dictAbOut.ContainsKey(visaid))
+                    continue;
+
+                numIn += dictIn[visaid];
+                numIn += dictOut[visaid]; //进签的还要加上出签的人数
                 hasIn += numIn;
+
                 dataGridView1.Rows[i].Cells["SubmitInStatus"].Style.Font = font;
                 dataGridView1.Rows[i].Cells["SubmitInStatus"].Value = numIn + "/" + visas[i].Number;
 
                 //这一段性能会好一些了
                 //int numOut = _bllActionRecords.GetVisaSubmitStateNum(visas[i], ActType._05SubmitOut);
-                int numOut = 0;
-                if (dictOut.ContainsKey(visaid))
-                    numOut = dictOut[visaid];
+                int numOut = dictOut[visaid];
                 hasOut += numOut;
-
-                dataGridView1.Rows[i].Cells["SubmitOutStatus"].Style.Font = font;
-                dataGridView1.Rows[i].Cells["SubmitOutStatus"].Value = numOut + "/" + visas[i].Number;
+                int abOutNum = dictAbOut[visaid];
 
                 if (numIn >= visas[i].Number)
                     dataGridView1.Rows[i].Cells["SubmitInStatus"].Style.BackColor = Color.SeaGreen;
                 else
                     dataGridView1.Rows[i].Cells["SubmitInStatus"].Style.BackColor = Color.Peru;
+
+                if (abOutNum > 0)
+                {
+                    dataGridView1.Rows[i].Cells["SubmitOutStatus"].Style.BackColor = Color.Red;
+                    dataGridView1.Rows[i].Cells["SubmitOutStatus"].Value = "异常出签";
+                    continue;
+                }
+
+                dataGridView1.Rows[i].Cells["SubmitOutStatus"].Style.Font = font;
+                dataGridView1.Rows[i].Cells["SubmitOutStatus"].Value = numOut + "/" + visas[i].Number;
+
                 if (numOut >= visas[i].Number)
                     dataGridView1.Rows[i].Cells["SubmitOutStatus"].Style.BackColor = Color.SeaGreen;
                 else
