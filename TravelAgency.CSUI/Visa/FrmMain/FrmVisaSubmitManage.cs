@@ -839,6 +839,8 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
                 if (abOutNum > 0)
                 {
+                    Font font1 = new Font(new FontFamily("微软雅黑"), 10.0f);
+                    dataGridView1.Rows[i].Cells["SubmitOutStatus"].Style.Font = font1;
                     dataGridView1.Rows[i].Cells["SubmitOutStatus"].Style.BackColor = Color.Red;
                     dataGridView1.Rows[i].Cells["SubmitOutStatus"].Value = "异常出签";
                     continue;
