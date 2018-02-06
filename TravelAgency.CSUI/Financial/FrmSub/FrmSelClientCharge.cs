@@ -23,7 +23,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             //把list加载到combobox里面
             foreach (var consulateCharge in _list)
             {
-                comboBoxEx1.Items.Add(consulateCharge.Remark);
+                comboBoxEx1.Items.Add(consulateCharge.Client+consulateCharge.Country + consulateCharge.Types + consulateCharge.DepartureType + consulateCharge.Remark);
             }
             comboBoxEx1.SelectedIndexChanged += ComboBoxEx1_SelectedIndexChanged;
 
