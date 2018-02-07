@@ -10,6 +10,7 @@ using Gma.QrCodeNet.Encoding;
 using Gma.QrCodeNet.Encoding.Windows.Forms;
 using Gma.QrCodeNet.Encoding.Windows.Render;
 using Gma.QrCodeNet.Encoding.Windows.WPF;
+using TravelAgency.Common.PinyinParse;
 
 namespace TravelAgency.Common.QRCode
 {
@@ -66,17 +67,17 @@ namespace TravelAgency.Common.QRCode
         {
             if (model == null)
                 return null;
-            if (!string.IsNullOrEmpty(model.PassportNo) && !string.IsNullOrEmpty(model.EnglishName))
+            if (!string.IsNullOrEmpty(model.PassportNo) && !string.IsNullOrEmpty(model.Name))
             {
-                return model.PassportNo + "|" + model.EnglishName;
+                return model.PassportNo + "|" + FirstLetterHelper.GetChineseSpell(model.Name);
             }
             if (!string.IsNullOrEmpty(model.PassportNo))
             {
                 return model.PassportNo;
             }
-            if (!string.IsNullOrEmpty(model.EnglishName))
+            if (!string.IsNullOrEmpty(model.Name))
             {
-                return model.EnglishName;
+                return model.Name;
             }
             return null;
         }
