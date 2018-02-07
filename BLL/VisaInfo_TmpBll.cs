@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Data;
 using System.Collections.Generic;
+using System.Windows.Forms;
+using DevComponents.DotNetBar;
 //using Maticsoft.Common;
 using TravelAgency.Model;
 
@@ -21,10 +23,19 @@ namespace TravelAgency.BLL
             var list = GetModelList(string.Empty);
             for (int i = 0; i < list.Count; i++)
             {
-                if (list[i].HasChecked=="是")
+                if (list[i].HasChecked == "是")
                 {
                     Model.VisaInfo model = new Model.VisaInfo();
                     list[i].CopyToVisaInfo(model);
+                    if (_bllVisaInfo.GetModelList(" passportNo ='" + model.PassportNo + "'").Count > 0)
+                    {
+                        if (MessageBoxEx.Show("检查到护照号为:" + model.PassportNo + ",姓名为:" + model.Name + "的用户已经录入，是否继续录入?", "提示",
+                            MessageBoxButtons.YesNo) == DialogResult.No)
+                        {
+                            continue;
+                        }
+                    }
+
                     if (_bllVisaInfo.Add(model) && Delete(list[i].VisaInfo_id))
                     {
                         res++;
