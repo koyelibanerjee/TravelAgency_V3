@@ -31,8 +31,9 @@ namespace TravelAgency.Common
             Dict.Add("荷兰", "NL");
             Dict.Add("冰岛", "IS");
             Dict.Add("南非", "ZA");
+            Dict.Add("奥地利", "AT");
 
-            string CountrysString = "日本|韩国|泰国|澳大利亚|英国|美国|越南|加拿大|中国|马来西亚|新西兰|法国|德国|菲律宾|捷克|瑞士|西班牙|意大利|荷兰|冰岛|南非";
+            string CountrysString = "日本|韩国|泰国|澳大利亚|英国|美国|越南|加拿大|中国|马来西亚|新西兰|法国|德国|菲律宾|捷克|瑞士|西班牙|意大利|荷兰|冰岛|南非|奥地利";
             CountryNameArr = CountrysString.Split('|');
 
         }

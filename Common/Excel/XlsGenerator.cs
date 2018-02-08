@@ -205,7 +205,7 @@ namespace TravelAgency.Common.Excel
                     row = sheet.GetRow(21 + j * 4);
 
                     //如果是同一个团中的第二个人，加一个" 符号
-                    if (pre != null && visaList[j].GroupNo==pre)
+                    if (pre != null && visaList[j].GroupNo == pre)
                         row.GetCell(2).SetCellValue("\"");
                     pre = visaList[j].GroupNo;
                     //姓名
@@ -322,9 +322,9 @@ namespace TravelAgency.Common.Excel
         /// <param name="visaList"></param>
         public static void GetThailandDataSource(List<Model.VisaInfo> visaInfoList)
         {
-            if (visaInfoList.Count > 208)
+            if (visaInfoList.Count > 308)
             {
-                MessageBoxEx.Show("请选择208个人以下导出!");
+                MessageBoxEx.Show("请选择308个人以下导出!");
                 return;
             }
 
@@ -400,13 +400,13 @@ namespace TravelAgency.Common.Excel
         /// </summary>
         /// <param name="visaInfoList"></param>
         /// <param name="visaList"></param>
-        public static void GetBaoXianReport(List<Model.VisaInfo> visaInfoList,string groupNo)
+        public static void GetBaoXianReport(List<Model.VisaInfo> visaInfoList, string groupNo)
         {
-            if (visaInfoList.Count > 2)
-            {
-                MessageBoxEx.Show("请选择2个人以下导出!");
-                return;
-            }
+            //if (visaInfoList.Count > 2)
+            //{
+            //    MessageBoxEx.Show("请选择2个人以下导出!");
+            //    return;
+            //}
 
             //READEXCEL
             using (FileStream fs = File.OpenRead(GlobalUtils.AppPath + @"\Excel\Templates\template_2人保险申请表格.xls"))
@@ -417,7 +417,7 @@ namespace TravelAgency.Common.Excel
                 {
                     string[] englishNames = visaInfoList[i].EnglishName.Split(' ');
                     IRow row = sheet.GetRow(i + 5);
-                   
+
                     row.GetCell(0).SetCellValue(visaInfoList[i].Name + "/" + visaInfoList[i].EnglishName);
                     row.GetCell(1).SetCellValue(visaInfoList[i].PassportNo);
                     row.GetCell(2).SetCellValue(DateTimeFormator.DateTimeToString(visaInfoList[i].Birthday, DateTimeFormator.TimeFormat.Type01Normal));
@@ -428,8 +428,32 @@ namespace TravelAgency.Common.Excel
                     row.GetCell(8).SetCellValue("申根"); //默认14天
                 }
 
-                IRow row1 = sheet.GetRow(8);
+                IRow row1 = sheet.GetRow(visaInfoList.Count + 6);
                 row1.GetCell(0).SetCellValue(groupNo);
+
+                HSSFFont font = (HSSFFont)wkbook.CreateFont();
+                font.FontName = "宋体";
+                font.FontHeightInPoints = 10;
+
+
+                //4.1设置对齐风格和边框
+                ICellStyle style = wkbook.CreateCellStyle();
+                style.VerticalAlignment = VerticalAlignment.Center;
+                style.Alignment = HorizontalAlignment.Left;
+                style.BorderTop = BorderStyle.Thin;
+                style.BorderBottom = BorderStyle.Thin;
+                style.BorderLeft = BorderStyle.Thin;
+                style.BorderRight = BorderStyle.Thin;
+                style.SetFont(font);
+                for (int i = 0; i <= sheet.LastRowNum; i++)
+                {
+                    row1 = sheet.GetRow(i);
+                    for (int c = 0; c < row1.LastCellNum; ++c)
+                    {
+                        row1.GetCell(c).CellStyle = style;
+                    }
+                }
+
 
                 //sheet.IsPrintGridlines = true;
                 string dstName = GlobalUtils.ShowSaveFileDlg("两人保险申请表.xls", "Excel XLS|*.xls");
