@@ -404,6 +404,11 @@ namespace TravelAgency.CSUI.Financial.FrmMain
         }
         private void 删除ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (GlobalUtils.LoginUserLevel != RigthLevel.Manager)
+            {
+                MessageBoxEx.Show("权限不足!");
+                return;
+            }
             int count = this.dataGridView1.SelectedRows.Count;
             if (MessageBoxEx.Show("确认删除" + count + "条记录?",
                 Resources.Confirm, MessageBoxButtons.OKCancel)

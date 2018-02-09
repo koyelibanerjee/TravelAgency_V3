@@ -13,11 +13,18 @@ using Application = System.Windows.Forms.Application;
 
 namespace TravelAgency.Common
 {
+
+    public enum RigthLevel
+
+    {
+        Manager,
+        Normal
+    }
     public static class GlobalUtils
     {
         public static Model.AuthUser LoginUser;
         public static readonly DocDocxGenerator DocDocxGenerator;
-
+        public static RigthLevel LoginUserLevel;
         static GlobalUtils()
         {
             InitFtp();

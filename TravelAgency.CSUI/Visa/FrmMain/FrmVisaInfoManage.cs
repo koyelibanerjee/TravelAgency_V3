@@ -571,7 +571,6 @@ namespace TravelAgency.CSUI.FrmMain
                 if (dataGridView1.Rows[i].Cells["Visa_id"].Value != null &&
                     !string.IsNullOrEmpty(dataGridView1.Rows[i].Cells["Visa_id"].Value.ToString()))
                     peopleCount += 1;
-
             }
 
             if (peopleCount != total)
@@ -755,6 +754,12 @@ namespace TravelAgency.CSUI.FrmMain
         /// <param name="e"></param>
         private void cmsItemDelete_Click(object sender, EventArgs e)
         {
+            if (GlobalUtils.LoginUserLevel != RigthLevel.Manager)
+            {
+                MessageBoxEx.Show("权限不足!");
+                return;
+            }
+
             int count = this.dataGridView1.SelectedRows.Count;
             if (MessageBoxEx.Show("确认删除" + count + "条记录?", Resources.Confirm, MessageBoxButtons.OKCancel) == DialogResult.Cancel)
                 return;

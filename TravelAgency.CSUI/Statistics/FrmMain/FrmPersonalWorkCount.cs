@@ -183,21 +183,21 @@ namespace TravelAgency.CSUI.Statistics.FrmMain
         private void LoadDataToCommisionDgv()
         {
             string id = GlobalUtils.LoginUser.WorkId;
-            if (id == "10000" || id == "10301" || id == "10302" 
+            if (GlobalUtils.LoginUserLevel == RigthLevel.Manager
                 || dataGridView1.CurrentRow.Cells["UserName"].Value.ToString() == GlobalUtils.LoginUser.UserName)
             {
                 var list = _bllCommisionBll.GetPersonCommisonList(txtSchEntryTimeFrom.Text, txtSchEntryTimeTo.Text,
                 dataGridView1.CurrentRow.Cells["UserName"].Value.ToString());
                 dgvCommison.DataSource = list;
             }
-            else 
+            else
             {
                 dgvCommison.DataSource = null;
                 lbCommisionMoneyCount.Text = "权限不足，只能查看自己的工作统计";
                 return;
             }
-           
-            
+
+
         }
 
         public void LoadDataToDataGridView(int page) //刷新后保持选中
