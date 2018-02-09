@@ -99,6 +99,7 @@
             this.东航机票ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.川航机票ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.泰航机票ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.两人保险报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.高拍仪做资料ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelBars = new DevComponents.DotNetBar.PanelEx();
             this.panelSerachBar = new DevComponents.DotNetBar.PanelEx();
@@ -134,7 +135,6 @@
             this.panelDgv = new DevComponents.DotNetBar.PanelEx();
             this.cmsAddToGroup = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.添加到团号ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.两人保险报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cmsDgv.SuspendLayout();
@@ -240,7 +240,7 @@
             // 
             // lbPeopleCount
             // 
-            this.lbPeopleCount.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbPeopleCount.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbPeopleCount.ForeColor = System.Drawing.Color.ForestGreen;
             this.lbPeopleCount.Name = "lbPeopleCount";
             this.lbPeopleCount.Text = "共:80人";
@@ -422,7 +422,7 @@
             this.导出报表ToolStripMenuItem,
             this.高拍仪做资料ToolStripMenuItem});
             this.cmsDgv.Name = "cmsDgv";
-            this.cmsDgv.Size = new System.Drawing.Size(185, 214);
+            this.cmsDgv.Size = new System.Drawing.Size(185, 192);
             // 
             // 复制ToolStripMenuItem
             // 
@@ -711,6 +711,13 @@
             this.泰航机票ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.泰航机票ToolStripMenuItem.Text = "泰航机票";
             this.泰航机票ToolStripMenuItem.Click += new System.EventHandler(this.泰航机票ToolStripMenuItem_Click);
+            // 
+            // 两人保险报表ToolStripMenuItem
+            // 
+            this.两人保险报表ToolStripMenuItem.Name = "两人保险报表ToolStripMenuItem";
+            this.两人保险报表ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.两人保险报表ToolStripMenuItem.Text = "两人保险报表";
+            this.两人保险报表ToolStripMenuItem.Click += new System.EventHandler(this.两人保险报表ToolStripMenuItem_Click);
             // 
             // 高拍仪做资料ToolStripMenuItem
             // 
@@ -1227,13 +1234,6 @@
             this.添加到团号ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.添加到团号ToolStripMenuItem.Text = "添加到此团号";
             this.添加到团号ToolStripMenuItem.Click += new System.EventHandler(this.添加到团号ToolStripMenuItem_Click);
-            // 
-            // 两人保险报表ToolStripMenuItem
-            // 
-            this.两人保险报表ToolStripMenuItem.Name = "两人保险报表ToolStripMenuItem";
-            this.两人保险报表ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.两人保险报表ToolStripMenuItem.Text = "两人保险报表";
-            this.两人保险报表ToolStripMenuItem.Click += new System.EventHandler(this.两人保险报表ToolStripMenuItem_Click);
             // 
             // FrmVisaManage
             // 

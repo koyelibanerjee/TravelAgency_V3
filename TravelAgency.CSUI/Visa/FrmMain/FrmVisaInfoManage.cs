@@ -276,7 +276,7 @@ namespace TravelAgency.CSUI.FrmMain
 
         public void LoadDataToDataGridView(int page) //刷新后保持选中
         {
-            _where  = GetWhereCondition();
+            _where = GetWhereCondition();
             int curSelectedRow = -1;
             if (dataGridView1.SelectedRows.Count > 0)
                 curSelectedRow = dataGridView1.SelectedRows[0].Index;
@@ -485,7 +485,7 @@ namespace TravelAgency.CSUI.FrmMain
         /// <param name="e"></param>
         private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (dataGridView1.CurrentCell.Value !=null  && e.Control && e.KeyCode == Keys.C)
+            if (dataGridView1.CurrentCell.Value != null && e.Control && e.KeyCode == Keys.C)
             {
                 复制ToolStripMenuItem_Click(null, null);
             }
@@ -526,7 +526,9 @@ namespace TravelAgency.CSUI.FrmMain
         /// <param name="e"></param>
         private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            int peopleCount = 0;
+            var total = dataGridView1.Rows.Count;
+            for (int i = 0; i < total; i++)
             {
                 DataGridViewRow row = dataGridView1.Rows[i];
                 row.HeaderCell.Value = (i + 1).ToString();
@@ -566,8 +568,21 @@ namespace TravelAgency.CSUI.FrmMain
                         c = Color.Black;
                     dataGridView1.Rows[i].Cells["outState"].Style.BackColor = c;
                 }
+                if (dataGridView1.Rows[i].Cells["Visa_id"].Value != null &&
+                    !string.IsNullOrEmpty(dataGridView1.Rows[i].Cells["Visa_id"].Value.ToString()))
+                    peopleCount += 1;
 
             }
+
+            if (peopleCount != total)
+                lbPeopleCount.ForeColor = Color.OrangeRed;
+            else
+                lbPeopleCount.ForeColor = Color.Green;
+
+            if (cbCountry.Text != "全部")
+                lbPeopleCount.Text = cbCountry.Text + "已做:" + peopleCount + "/" + total + "人.";
+            else
+                lbPeopleCount.Text = "已做:" + peopleCount + "/" + total + "人.";
 
 
         }
