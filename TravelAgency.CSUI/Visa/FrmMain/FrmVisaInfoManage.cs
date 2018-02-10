@@ -303,6 +303,8 @@ namespace TravelAgency.CSUI.FrmMain
             //                + "页,共" + Convert.ToInt32(_pageCount) + "页,每页共" + _pageSize + "条.";
             lbRecordCount.Text = "共有记录:" + _recordCount + "条";
             lbCurPage.Text = "当前为第" + _curPage + "页";
+            if (_recordCount == 0)
+                lbPeopleCount.Text = "已做:0/0人.";
         }
         #endregion
 
