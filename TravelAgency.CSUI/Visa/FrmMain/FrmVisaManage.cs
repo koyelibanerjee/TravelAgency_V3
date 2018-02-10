@@ -1422,10 +1422,14 @@ namespace TravelAgency.CSUI.FrmMain
 
         private void 两人保险报表ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            var visaModel = GetSelectedVisaList();
+            if (visaModel.Count > 1)
+            {
+                MessageBoxEx.Show("请选择一个团号进行导出!");
+                return;
+            }
             var list = GetSelectedVisaInfoList();
-            var groupname = GetSelectedVisaModel().GroupNo;
-            XlsGenerator.GetBaoXianReport(list, groupname);
-
+            XlsGenerator.GetBaoXianReport(list, visaModel[0]);
         }
 
         #endregion

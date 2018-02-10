@@ -400,7 +400,7 @@ namespace TravelAgency.Common.Excel
         /// </summary>
         /// <param name="visaInfoList"></param>
         /// <param name="visaList"></param>
-        public static void GetBaoXianReport(List<Model.VisaInfo> visaInfoList, string groupNo)
+        public static void GetBaoXianReport(List<Model.VisaInfo> visaInfoList, Model.Visa visamodel)
         {
             //if (visaInfoList.Count > 2)
             //{
@@ -423,13 +423,15 @@ namespace TravelAgency.Common.Excel
                     row.GetCell(2).SetCellValue(DateTimeFormator.DateTimeToString(visaInfoList[i].Birthday, DateTimeFormator.TimeFormat.Type01Normal));
                     row.GetCell(3).SetCellValue(visaInfoList[i].Sex == "男" ? "M" : "F");
                     row.GetCell(4).SetCellValue(visaInfoList[i].Phone);
-                    row.GetCell(6).SetCellValue(14); //默认14天
+                    row.GetCell(5).SetCellValue(DateTimeFormator.DateTimeToString(visamodel.InTime));
+                    if (visamodel.OutTime != null)
+                        row.GetCell(6).SetCellValue((visamodel.OutTime.Value - visamodel.InTime.Value).Days + 1); //默认14天
                     row.GetCell(7).SetCellValue("旅游"); //默认14天
                     row.GetCell(8).SetCellValue("申根"); //默认14天
                 }
 
                 IRow row1 = sheet.GetRow(visaInfoList.Count + 6);
-                row1.GetCell(0).SetCellValue(groupNo);
+                row1.GetCell(0).SetCellValue(visamodel.GroupNo);
 
                 HSSFFont font = (HSSFFont)wkbook.CreateFont();
                 font.FontName = "宋体";
