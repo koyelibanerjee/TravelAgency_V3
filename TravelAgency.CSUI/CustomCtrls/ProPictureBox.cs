@@ -72,6 +72,34 @@ namespace TravelAgency.CSUI.CustomCtrls
         private ProTransformation _transformation;
         private bool _firstSetScale = true;
 
+
+        #region 重写Image属性，add imagechanged event
+        public new Image Image
+        {
+            get { return base.Image; }
+            set
+            {
+                base.Image = value;
+                _imageChanged?.Invoke(this, new EventArgs());
+            }
+        }
+
+        private EventHandler _imageChanged;
+        public event EventHandler ImageChanged
+        {
+            add { _imageChanged += value; }
+            remove
+            {
+                if (_imageChanged != null)
+                    if (value != null)
+                        // ReSharper disable once DelegateSubtraction
+                        _imageChanged -= value;
+            }
+        }
+        #endregion
+
+
+
         private System.Windows.Forms.ContextMenuStrip cmsPicBox;
         private System.Windows.Forms.ToolStripMenuItem 保存图像ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 旋转图像ToolStripMenuItem;
@@ -89,6 +117,12 @@ namespace TravelAgency.CSUI.CustomCtrls
         public double GetCurrentScale()
         {
             return this.Transformation.Scale;
+        }
+
+        public void ResetFitScale() //强制恢复大小匹配的模式
+        {
+            SetFitScale();
+            Invalidate();
         }
 
         public ProTransformation Transformation
@@ -114,6 +148,8 @@ namespace TravelAgency.CSUI.CustomCtrls
             MouseUp += OnMouseUp;
             MouseWheel += OnMouseWheel;
             Resize += OnResize;
+            ImageChanged += OnImageChanged;
+
 
             #region 右键菜单初始化
             this.cmsPicBox = new System.Windows.Forms.ContextMenuStrip();
@@ -180,6 +216,12 @@ namespace TravelAgency.CSUI.CustomCtrls
             this.水平翻转ToolStripMenuItem.Click += new System.EventHandler(this.水平翻转ToolStripMenuItem_Click);
             #endregion
 
+        }
+
+        private void OnImageChanged(object sender, EventArgs e)
+        {
+            if (this.Image != null)
+                ResetFitScale();
         }
 
         #region 右键菜单事件

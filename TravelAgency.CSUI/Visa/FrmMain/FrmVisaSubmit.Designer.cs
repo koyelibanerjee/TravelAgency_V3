@@ -1103,7 +1103,7 @@
             this.cmsItemQRCodePrint,
             this.cmsItemRefreshState});
             this.cmsDgvRb.Name = "cmsDgvRb";
-            this.cmsDgvRb.Size = new System.Drawing.Size(161, 136);
+            this.cmsDgvRb.Size = new System.Drawing.Size(161, 114);
             // 
             // cmsItemQRCodeShow
             // 
