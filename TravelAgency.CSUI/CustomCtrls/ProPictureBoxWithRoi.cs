@@ -59,14 +59,26 @@ namespace TravelAgency.CSUI.CustomCtrls
                                     //返回选中区域的图像
                                     //RoiImage = Image.FROM
                                     //创建新图位图
-                if (this.Image != null && _rect != null && _rect.Width > 0 && _rect.Height > 0)
+                if (this.Image != null && _rect.Width > 0 && _rect.Height > 0)
                 {
-                    Bitmap bitmap = new Bitmap(_rect.Width, _rect.Height);
+                    int width = (int) (_rect.Width*GetCurrentScale());
+                    int height = (int) (_rect.Height*GetCurrentScale());
+                    Point locPoint = e.Location;
+                    locPoint.X -= _rect.Width;
+                    locPoint.Y -= _rect.Height;
+                    Point location = GetRealMousePosition(locPoint);
+
+                    Console.WriteLine(location);
+                    Rectangle rectDest = new Rectangle(0,0, width, height);
+                    Rectangle realRect = new Rectangle(location,new Size(width,height));
+                    Bitmap bitmap = new Bitmap(width, height);
                     //创建作图区域
                     Graphics graphic = Graphics.FromImage(bitmap);
                     //截取原图相应区域写入作图区
-                    graphic.DrawImage(this.Image, 0, 0, _rect,
+                    graphic.DrawImage(this.Image, rectDest, realRect,
                         GraphicsUnit.Pixel);
+                    
+                    //graphic.DrawImage(,,);
                     //从作图区生成新图
                     RoiImage = Image.FromHbitmap(bitmap.GetHbitmap());
                     _updateDel?.Invoke();

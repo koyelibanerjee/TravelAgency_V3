@@ -80,6 +80,17 @@ namespace TravelAgency.CSUI.CustomCtrls
         private System.Windows.Forms.ToolStripMenuItem 垂直翻转ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 水平翻转ToolStripMenuItem;
 
+
+        public Point GetRealMousePosition(Point p)
+        {
+            return this.Transformation.ConvertToIm(p);
+        }
+
+        public double GetCurrentScale()
+        {
+            return this.Transformation.Scale;
+        }
+
         public ProTransformation Transformation
         {
             set
@@ -271,7 +282,9 @@ namespace TravelAgency.CSUI.CustomCtrls
         private void OnMouseWheel(object sender, MouseEventArgs e)
         {
             var transformation = _transformation;
-            var pos1 = transformation.ConvertToIm(e.Location);
+            var pos1 = transformation.ConvertToIm(e.Location); //转换到图像实际的位置
+            //Console.WriteLine(pos1);
+            //Console.WriteLine(this.Transformation.Scale);
             if (e.Delta > 0)
                 transformation = (transformation.SetScale(Transformation.Scale / 1.25));
             else
