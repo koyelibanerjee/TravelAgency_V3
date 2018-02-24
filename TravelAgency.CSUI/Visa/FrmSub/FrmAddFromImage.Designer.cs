@@ -55,12 +55,17 @@ namespace TravelAgency.CSUI.Visa.FrmSub
             this.labelX8 = new DevComponents.DotNetBar.LabelX();
             this.labelX10 = new DevComponents.DotNetBar.LabelX();
             this.labelX9 = new DevComponents.DotNetBar.LabelX();
+            this.panelEx3 = new DevComponents.DotNetBar.PanelEx();
+            this.proPictureBox1 = new TravelAgency.CSUI.CustomCtrls.ProPictureBox();
+            this.btnDoRecog = new DevComponents.DotNetBar.ButtonX();
             this.panelEx1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.proPictureBoxWithRoi1)).BeginInit();
             this.panelEx2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtExpireDate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLicenseTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBirthday)).BeginInit();
+            this.panelEx3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.proPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelEx1
@@ -68,6 +73,7 @@ namespace TravelAgency.CSUI.Visa.FrmSub
             this.panelEx1.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.panelEx1.Controls.Add(this.proPictureBoxWithRoi1);
+            this.panelEx1.Controls.Add(this.panelEx3);
             this.panelEx1.Controls.Add(this.panelEx2);
             this.panelEx1.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelEx1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -89,7 +95,7 @@ namespace TravelAgency.CSUI.Visa.FrmSub
             this.proPictureBoxWithRoi1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.proPictureBoxWithRoi1.Location = new System.Drawing.Point(267, 0);
             this.proPictureBoxWithRoi1.Name = "proPictureBoxWithRoi1";
-            this.proPictureBoxWithRoi1.Size = new System.Drawing.Size(713, 610);
+            this.proPictureBoxWithRoi1.Size = new System.Drawing.Size(713, 531);
             this.proPictureBoxWithRoi1.TabIndex = 46;
             this.proPictureBoxWithRoi1.TabStop = false;
             // 
@@ -456,6 +462,47 @@ namespace TravelAgency.CSUI.Visa.FrmSub
             this.labelX9.TabIndex = 25;
             this.labelX9.Text = "出生地:";
             // 
+            // panelEx3
+            // 
+            this.panelEx3.CanvasColor = System.Drawing.SystemColors.Control;
+            this.panelEx3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx3.Controls.Add(this.btnDoRecog);
+            this.panelEx3.Controls.Add(this.proPictureBox1);
+            this.panelEx3.DisabledBackColor = System.Drawing.Color.Empty;
+            this.panelEx3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelEx3.Location = new System.Drawing.Point(267, 531);
+            this.panelEx3.Name = "panelEx3";
+            this.panelEx3.Size = new System.Drawing.Size(713, 79);
+            this.panelEx3.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelEx3.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.panelEx3.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.panelEx3.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.panelEx3.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.panelEx3.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.panelEx3.Style.GradientAngle = 90;
+            this.panelEx3.TabIndex = 50;
+            // 
+            // proPictureBox1
+            // 
+            this.proPictureBox1.DefaultSaveFileName = null;
+            this.proPictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.proPictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.proPictureBox1.Name = "proPictureBox1";
+            this.proPictureBox1.Size = new System.Drawing.Size(232, 79);
+            this.proPictureBox1.TabIndex = 0;
+            this.proPictureBox1.TabStop = false;
+            // 
+            // btnDoRecog
+            // 
+            this.btnDoRecog.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnDoRecog.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnDoRecog.Location = new System.Drawing.Point(319, 28);
+            this.btnDoRecog.Name = "btnDoRecog";
+            this.btnDoRecog.Size = new System.Drawing.Size(75, 23);
+            this.btnDoRecog.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnDoRecog.TabIndex = 35;
+            this.btnDoRecog.Text = "识别";
+            // 
             // FrmAddFromImage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -472,6 +519,8 @@ namespace TravelAgency.CSUI.Visa.FrmSub
             ((System.ComponentModel.ISupportInitialize)(this.txtExpireDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLicenseTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBirthday)).EndInit();
+            this.panelEx3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.proPictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -503,5 +552,8 @@ namespace TravelAgency.CSUI.Visa.FrmSub
         private DevComponents.DotNetBar.ButtonX btnOpenImage;
         private DevComponents.DotNetBar.ButtonX btnGetRoi;
         private ProPictureBoxWithRoi proPictureBoxWithRoi1;
+        private DevComponents.DotNetBar.PanelEx panelEx3;
+        private ProPictureBox proPictureBox1;
+        private DevComponents.DotNetBar.ButtonX btnDoRecog;
     }
 }

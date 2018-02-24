@@ -12,6 +12,13 @@ namespace TravelAgency.CSUI.CustomCtrls
         private bool _bLbtnDown = false;
         private Rectangle _rect;
         private bool _bSetRoiIng = false;
+        public Image RoiImage { get; set; }
+        private Action _updateDel;
+
+        public void AddUpdateDel(Action del)
+        {
+            _updateDel += del;
+        }
 
         public void StartSetRoi()
         {
@@ -47,7 +54,24 @@ namespace TravelAgency.CSUI.CustomCtrls
             if (!_bSetRoiIng)
                 base.OnMouseUp(e);
             else
+            {
                 _bLbtnDown = false; //结束绘制
+                                    //返回选中区域的图像
+                                    //RoiImage = Image.FROM
+                                    //创建新图位图
+                if (this.Image != null && _rect != null && _rect.Width > 0 && _rect.Height > 0)
+                {
+                    Bitmap bitmap = new Bitmap(_rect.Width, _rect.Height);
+                    //创建作图区域
+                    Graphics graphic = Graphics.FromImage(bitmap);
+                    //截取原图相应区域写入作图区
+                    graphic.DrawImage(this.Image, 0, 0, _rect,
+                        GraphicsUnit.Pixel);
+                    //从作图区生成新图
+                    RoiImage = Image.FromHbitmap(bitmap.GetHbitmap());
+                    _updateDel?.Invoke();
+                }
+            }
         }
 
         protected override void OnMouseMove(object sender, MouseEventArgs e)
@@ -69,10 +93,6 @@ namespace TravelAgency.CSUI.CustomCtrls
             {
                 base.OnMouseMove(sender, e);
             }
-
         }
-
-
-
     }
 }
