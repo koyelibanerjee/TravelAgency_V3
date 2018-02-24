@@ -14,7 +14,7 @@ namespace TravelAgency.Common.PinyinParse.Tests
         [TestMethod()]
         public void GetSpellCodeTest()
         {
-           string str =  FirstLetterHelper.GetSpellCode("杨小平");
+           //string str =  FirstLetterHelper.GetSpellCode("杨小平");
         }
     }
 }

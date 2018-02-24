@@ -171,6 +171,7 @@
   <ItemGroup>
     <Compile Include="AirInfos.cs" />
     <Compile Include="AppSettingHandler.cs" />
+    <Compile Include="CmdHandler.cs" />
     <Compile Include="CountryCode.cs" />
     <Compile Include="CountryPicHandler.cs" />
     <Compile Include="DateTimeFormator.cs" />
