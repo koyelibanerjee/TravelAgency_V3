@@ -16,6 +16,7 @@ using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Properties;
 using TravelAgency.Model;
 using System.Configuration;
+using TravelAgency.CSUI.Visa.FrmSub;
 
 namespace TravelAgency.CSUI.FrmMain
 {
@@ -499,6 +500,15 @@ namespace TravelAgency.CSUI.FrmMain
             _curIdx = 0;
             UpdateState();
         }
+
+        private void btnAddFromImage_Click(object sender, EventArgs e)
+        {
+
+            FrmAddFromImage frm = new FrmAddFromImage();
+            frm.Show();
+
+        }
+
 
         #endregion
         #region dgv响应

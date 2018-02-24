@@ -1,4 +1,6 @@
-﻿namespace TravelAgency.CSUI.FrmSub
+﻿using TravelAgency.CSUI.CustomCtrls;
+
+namespace TravelAgency.CSUI.FrmSub
 {
     partial class FrmScanCtrl
     {
