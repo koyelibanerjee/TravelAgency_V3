@@ -34,7 +34,17 @@ namespace TravelAgency.CSUI.Visa.FrmSub
 
         private void btnGetRoi_Click(object sender, EventArgs e)
         {
-            proPictureBoxWithRoi1.StartSetRoi();
+            if (btnGetRoi.Text == "设置ROI")
+            {
+                btnGetRoi.Text = "结束";
+                proPictureBoxWithRoi1.StartSetRoi();
+            }
+            else
+            {
+                btnGetRoi.Text = "设置ROI";
+                proPictureBoxWithRoi1.EndSetRoi();
+            }
+
         }
 
         private void SetRoiImage()

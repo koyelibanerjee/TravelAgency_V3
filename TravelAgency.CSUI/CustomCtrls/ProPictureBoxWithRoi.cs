@@ -27,7 +27,7 @@ namespace TravelAgency.CSUI.CustomCtrls
 
         public void EndSetRoi()
         {
-            this._bSetRoiIng = true;
+            this._bSetRoiIng = false;
         }
 
         protected override void OnMouseDown(MouseEventArgs e)
