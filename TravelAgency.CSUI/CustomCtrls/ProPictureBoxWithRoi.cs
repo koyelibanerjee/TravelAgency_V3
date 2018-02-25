@@ -23,11 +23,13 @@ namespace TravelAgency.CSUI.CustomCtrls
         public void StartSetRoi()
         {
             this._bSetRoiIng = true;
+            this.Cursor = Cursors.Cross;
         }
 
         public void EndSetRoi()
         {
             this._bSetRoiIng = false;
+            this.Cursor = Cursors.Default;
         }
 
         protected override void OnMouseDown(MouseEventArgs e)
