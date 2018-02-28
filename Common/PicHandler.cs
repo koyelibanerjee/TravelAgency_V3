@@ -10,11 +10,53 @@ using TravelAgency.Model;
 namespace TravelAgency.Common
 {
 
+    #region 二值化
     /// <summary>
     /// 这个类用于对二维码图像进行后期处理(添加相关信息)
     /// </summary>
     public static class PicHandler
     {
+
+        public static void ConvertTo1Bpp1(string filename, string dstname)
+        {
+            var image = GlobalUtils.LoadImageFromFileNoBlock(filename);
+            ConvertTo1Bpp1(new Bitmap(image)).Save(dstname);
+        }
+
+        /// <summary>
+        /// 图像二值化1：取图片的平均灰度作为阈值，低于该值的全都为0，高于该值的全都为255
+        /// </summary>
+        /// <param name="bmp"></param>
+        /// <returns></returns>
+        public static Bitmap ConvertTo1Bpp1(Bitmap bmp)
+        {
+            int average = 0;
+            for (int i = 0; i < bmp.Width; i++)
+            {
+                for (int j = 0; j < bmp.Height; j++)
+                {
+                    Color color = bmp.GetPixel(i, j);
+                    average += color.B;
+                }
+            }
+            average = (int)average / (bmp.Width * bmp.Height);
+
+            for (int i = 0; i < bmp.Width; i++)
+            {
+                for (int j = 0; j < bmp.Height; j++)
+                {
+                    //获取该点的像素的RGB的颜色
+                    Color color = bmp.GetPixel(i, j);
+                    int value = 255 - color.B;
+                    Color newColor = value > average ? Color.FromArgb(0, 0, 0) : Color.FromArgb(255,
+
+255, 255);
+                    bmp.SetPixel(i, j, newColor);
+                }
+            }
+            return bmp;
+        }
+        #endregion
 
         #region 二维码图片处理部分
         public static Image GenFinalImage(Image qrImage, string infoBottom, VisaInfo model)

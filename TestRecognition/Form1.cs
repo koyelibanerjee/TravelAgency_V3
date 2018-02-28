@@ -28,22 +28,22 @@ namespace TestRecognition
             //Load engine
             string userID = "65205296201279543068";
             char[] arr = userID.ToCharArray();
-            nRet = IDCardDll.InitIDCard(arr, 1, null);
-            if (nRet != 0)
-            {
-                //MessageBoxEx.Show("Failed to initialize the recognition engine.\r\n");
-                MessageBoxEx.Show("初始化失败,请检查机器是否连接正常!\r\n");
-                //String strtmp = nRet.ToString();
-                //textBoxDisplayResult.Text += "Return Value：" + strtmp;
-                //return;
-            }
-            IDCardDll.SetSpecialAttribute(1, 1);
+            //nRet = IDCardDll.InitIDCard(arr, 1, null);
+            //if (nRet != 0)
+            //{
+            //    //MessageBoxEx.Show("Failed to initialize the recognition engine.\r\n");
+            //    MessageBoxEx.Show("初始化失败,请检查机器是否连接正常!\r\n");
+            //    //String strtmp = nRet.ToString();
+            //    //textBoxDisplayResult.Text += "Return Value：" + strtmp;
+            //    //return;
+            //}
+            //IDCardDll.SetSpecialAttribute(1, 1);
             bool _kernelLoaded = true;
 
             int ret = IDCardDll.LoadImageToMemory(textBoxX2.Text, 1); //0成功
             ret = IDCardDll.RecogIDCardEX(13, 0); //>0 表示成功
 
-            int MAX_CH_NUM = 256;
+            int MAX_CH_NUM = 512;
             char[] cArrFieldValue = new char[MAX_CH_NUM];
             char[] cArrFieldName = new char[MAX_CH_NUM];
 
