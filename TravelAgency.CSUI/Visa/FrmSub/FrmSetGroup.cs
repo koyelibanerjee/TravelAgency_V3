@@ -449,7 +449,7 @@ namespace TravelAgency.CSUI.FrmSub
 
         }
 
-        
+
 
         private void UpdateGroupNo()
         {
@@ -513,6 +513,14 @@ namespace TravelAgency.CSUI.FrmSub
             {
                 _dgvList.Add((Model.VisaInfo)lvIn.Items[i].Tag);
             }
+
+            //也从新更新backuplist
+            _visainfoListBackUp = new List<VisaInfo>();
+            foreach (var visaInfo in _dgvList) //查看已有团号的时候，备份一份，用来校验到底修改了没有
+            {
+                _visainfoListBackUp.Add(visaInfo.ToObjectCopy());
+            }
+
             dgvGroupInfo.DataSource = null; //必须加，不然报错，不知道为什么
             dgvGroupInfo.DataSource = _dgvList;
             //this.dgvGroupInfo.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
@@ -810,33 +818,13 @@ namespace TravelAgency.CSUI.FrmSub
                 //3.1更新这些人的录入情况到ActionResult里面
                 for (int i = 0; i < _dgvList.Count; i++)
                 {
-                    //Model.ActionRecords log = new ActionRecords();
-                    //log.ActType = Common.Enums.ActType._01TypeIn; //操作记录为录入
-                    //log.WorkId = Common.GlobalUtils.LoginUser.WorkId;
-                    //log.UserName = Common.GlobalUtils.LoginUser.UserName;
-                    //log.VisaInfo_id = _dgvList[i].VisaInfo_id;
-                    //log.Visa_id = _visaModel.Visa_id;
-                    //log.Type = Common.Enums.Types.Individual;
-                    //log.EntryTime = DateTime.Now;
-                    //_bllLoger.Add(log);
-
                     _bllLoger.AddRecord(Common.Enums.ActType._01TypeIn, Common.GlobalUtils.LoginUser,
-_dgvList[i], _visaModel);
+                                            _dgvList[i], _visaModel);
 
                     if (!CheckTypedInComplete(_dgvList[i])) //如果信息也填写完整了就直接也弄成已经做了
                         continue;
-                    //Model.ActionRecords log1 = new ActionRecords();
-                    //log1.ActType = Common.Enums.ActType._02TypeInData; //操作记录为做资料
-                    //log1.WorkId = Common.GlobalUtils.LoginUser.WorkId;
-                    //log1.UserName = Common.GlobalUtils.LoginUser.UserName;
-                    //log1.VisaInfo_id = _dgvList[i].VisaInfo_id;
-                    //log1.Visa_id = _visaModel.Visa_id;
-                    //log1.Type = Common.Enums.Types.Individual;
-                    //log1.EntryTime = DateTime.Now;
-                    //_bllLoger.Add(log1);
-
                     _bllLoger.AddRecord(Common.Enums.ActType._02TypeInData, Common.GlobalUtils.LoginUser,
-_dgvList[i], _visaModel);
+                            _dgvList[i], _visaModel);
 
                 }
 
@@ -909,17 +897,8 @@ _dgvList[i], _visaModel);
                     {
                         continue;
                     }
-                    //log.WorkId = Common.GlobalUtils.LoginUser.WorkId;
-                    //log.UserName = Common.GlobalUtils.LoginUser.UserName;
-                    //log.VisaInfo_id = _dgvList[i].VisaInfo_id;
-                    //log.Visa_id = _visaModel.Visa_id;
-                    //log.Type = Common.Enums.Types.Individual;
-                    //log.EntryTime = DateTime.Now;
-                    //_bllLoger.Add(log);
                     _bllLoger.AddRecord(log.ActType, Common.GlobalUtils.LoginUser,
-_dgvList[i], _visaModel);
-
-
+                                        _dgvList[i], _visaModel);
                 }
 
                 //2.2更新移出的人的数据库
@@ -1372,7 +1351,7 @@ _dgvList[i], _visaModel);
             if (dgvGroupInfo.Columns[e.ColumnIndex].Name == "dgvGroupInfo_Name")
             {
                 FrmSetValue.FrmSetValue frm = new FrmSetValue.FrmSetValue((dgvGroupInfo.DataSource as List<Model.VisaInfo>)[dgvGroupInfo.SelectedCells[0].RowIndex]);
-                                
+
                 if (DialogResult.Cancel == frm.ShowDialog())
                     return;
                 dgvGroupInfo.DataSource = null;

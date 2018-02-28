@@ -351,6 +351,12 @@ namespace TravelAgency.CSUI.FrmSub
             dgvGroupInfo.DataSource = null; //必须加，不然报错，不知道为什么
             dgvGroupInfo.DataSource = _dgvList;
 
+            _visainfoListBackUp = new List<VisaInfo>(); //更新backup list
+            foreach (var visaInfo in _dgvList) //查看已有团号的时候，备份一份，用来校验到底修改了没有
+            {
+                _visainfoListBackUp.Add(visaInfo.ToObjectCopy());
+            }
+
             //int n = dgvGroupInfo.RowCount;
             //for (int i = 0; i != n; ++i)
             //{

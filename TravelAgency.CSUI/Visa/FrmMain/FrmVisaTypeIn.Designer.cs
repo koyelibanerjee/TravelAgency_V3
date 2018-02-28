@@ -36,7 +36,7 @@ namespace TravelAgency.CSUI.FrmMain
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelMain = new DevComponents.DotNetBar.PanelEx();
             this.panelMid = new DevComponents.DotNetBar.PanelEx();
-            this.picPassportNo = new ProPictureBox();
+            this.picPassportNo = new TravelAgency.CSUI.CustomCtrls.ProPictureBox();
             this.panelbottom = new DevComponents.DotNetBar.PanelEx();
             this.btnUpLoadLocal = new DevComponents.DotNetBar.ButtonX();
             this.btnSaveAll = new DevComponents.DotNetBar.ButtonX();
@@ -161,6 +161,7 @@ namespace TravelAgency.CSUI.FrmMain
             // 
             this.picPassportNo.DefaultSaveFileName = null;
             this.picPassportNo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picPassportNo.Image = null;
             this.picPassportNo.Location = new System.Drawing.Point(0, 0);
             this.picPassportNo.Name = "picPassportNo";
             this.picPassportNo.Size = new System.Drawing.Size(721, 577);
@@ -315,6 +316,7 @@ namespace TravelAgency.CSUI.FrmMain
             this.btnAddFromImage.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnAddFromImage.TabIndex = 23;
             this.btnAddFromImage.Text = "从图像添加";
+            this.btnAddFromImage.Visible = false;
             this.btnAddFromImage.Click += new System.EventHandler(this.btnAddFromImage_Click);
             // 
             // labelX13
