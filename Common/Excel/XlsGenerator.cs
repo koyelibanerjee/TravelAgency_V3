@@ -322,9 +322,9 @@ namespace TravelAgency.Common.Excel
         /// <param name="visaList"></param>
         public static void GetThailandDataSource(List<Model.VisaInfo> visaInfoList)
         {
-            if (visaInfoList.Count > 308)
+            if (visaInfoList.Count > 217)
             {
-                MessageBoxEx.Show("请选择308个人以下导出!");
+                MessageBoxEx.Show("请选择217个人以下导出!");
                 return;
             }
 
@@ -333,8 +333,6 @@ namespace TravelAgency.Common.Excel
             {
                 IWorkbook wkbook = new HSSFWorkbook(fs);
                 ISheet sheet = wkbook.GetSheet("sheet2");
-
-
                 for (int i = 0; i < visaInfoList.Count; i++)
                 {
                     string[] englishNames = visaInfoList[i].EnglishName.Split(' ');
