@@ -528,7 +528,7 @@ namespace TravelAgency.CSUI.FrmMain
         /// <param name="e"></param>
         private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            int peopleCount = 0;
+            int peopleCount = 0, delayCount = 0;
             var total = dataGridView1.Rows.Count;
             for (int i = 0; i < total; i++)
             {
@@ -573,6 +573,10 @@ namespace TravelAgency.CSUI.FrmMain
                 if (dataGridView1.Rows[i].Cells["Visa_id"].Value != null &&
                     !string.IsNullOrEmpty(dataGridView1.Rows[i].Cells["Visa_id"].Value.ToString()))
                     peopleCount += 1;
+
+                if (dataGridView1.Rows[i].Cells["outState"].Value != null &&
+                    dataGridView1.Rows[i].Cells["outState"].Value.ToString() == Common.Enums.OutState.Type01Delay)
+                    ++delayCount;
             }
 
             if (peopleCount != total)
@@ -583,8 +587,17 @@ namespace TravelAgency.CSUI.FrmMain
             if (cbCountry.Text != "全部")
                 lbPeopleCount.Text = cbCountry.Text + "已做:" + peopleCount + "/" + total + "人.";
             else
-                lbPeopleCount.Text = "已做:" + peopleCount + "/" + total + "人.";
+                lbPeopleCount.Text = "已做:" + peopleCount + "/" + total + "人."; //具体国家具体显示
 
+            if (delayCount != 0)
+            {
+                lbDelayCount.Visible = true;
+                lbDelayCount.Text = "延后" + delayCount + "人.";
+            }
+            else
+            {
+                lbDelayCount.Visible = false;
+            }
 
         }
 
