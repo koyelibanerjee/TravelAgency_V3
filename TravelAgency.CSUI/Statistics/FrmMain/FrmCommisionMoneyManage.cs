@@ -215,43 +215,13 @@ namespace TravelAgency.CSUI.Statistics.FrmMain
 
         private void btnClearSchConditions_Click(object sender, EventArgs e)
         {
-
             txtSchEntryTimeFrom.Text = string.Empty;
             txtSchEntryTimeTo.Text = string.Empty;
-
         }
 
 
         #endregion
         #region dgv消息相应
-        /// <summary>
-        /// 根据送签状态设置单元格颜色
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            //if (dataGridView1.Columns[e.ColumnIndex].Name == "outState")
-            //{
-            //    Color c = Color.Empty;
-            //    //string state = e.Value.ToString();
-            //    string state = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-            //    if (state == OutState.Type01NoRecord)
-            //        c = Color.AliceBlue;
-            //    else if (state == OutState.Type01Delay)
-            //        c = Color.DarkOrange;
-            //    else if (state == OutState.Type02In)
-            //        c = Color.Yellow;
-            //    else if (state == OutState.Type03NormalOut)
-            //        c = Color.Green;
-            //    else if (state == OutState.TYPE04AbnormalOut)
-            //        c = Color.Red;
-            //    else
-            //        c = Color.Black;
-            //    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = c;
-            //}
-        }
-
         /// <summary>
         /// dgv设置行号
         /// </summary>

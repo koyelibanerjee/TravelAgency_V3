@@ -103,6 +103,7 @@
             this.labelItem6 = new DevComponents.DotNetBar.LabelItem();
             this.labelItem7 = new DevComponents.DotNetBar.LabelItem();
             this.lbPeopleCount = new DevComponents.DotNetBar.LabelItem();
+            this.lbDelayCount = new DevComponents.DotNetBar.LabelItem();
             this.cmsDgvRb = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.复制ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsItemDelete = new System.Windows.Forms.ToolStripMenuItem();
@@ -136,7 +137,8 @@
             this.bgWorkerLoadData = new System.ComponentModel.BackgroundWorker();
             this.cms4AddToExport = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.添加到送签统计ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lbDelayCount = new DevComponents.DotNetBar.LabelItem();
+            this.删除护照图像ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.上传护照图像ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panelDgv.SuspendLayout();
@@ -189,12 +191,12 @@
             dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -1010,6 +1012,13 @@
             this.lbPeopleCount.Name = "lbPeopleCount";
             this.lbPeopleCount.Text = "共:80人";
             // 
+            // lbDelayCount
+            // 
+            this.lbDelayCount.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbDelayCount.ForeColor = System.Drawing.Color.DarkOrange;
+            this.lbDelayCount.Name = "lbDelayCount";
+            this.lbDelayCount.Text = "共:80人";
+            // 
             // cmsDgvRb
             // 
             this.cmsDgvRb.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1028,9 +1037,11 @@
             this.toolStripSeparator4,
             this.生成报表ToolStripMenuItem,
             this.导出图像ToolStripMenuItem,
-            this.高拍仪做资料ToolStripMenuItem});
+            this.高拍仪做资料ToolStripMenuItem,
+            this.删除护照图像ToolStripMenuItem,
+            this.上传护照图像ToolStripMenuItem});
             this.cmsDgvRb.Name = "cmsDgvRb";
-            this.cmsDgvRb.Size = new System.Drawing.Size(185, 308);
+            this.cmsDgvRb.Size = new System.Drawing.Size(185, 374);
             // 
             // 复制ToolStripMenuItem
             // 
@@ -1261,12 +1272,19 @@
             this.添加到送签统计ToolStripMenuItem.Text = "添加到送签统计";
             this.添加到送签统计ToolStripMenuItem.Click += new System.EventHandler(this.添加到送签统计ToolStripMenuItem_Click);
             // 
-            // lbDelayCount
+            // 删除护照图像ToolStripMenuItem
             // 
-            this.lbDelayCount.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbDelayCount.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lbDelayCount.Name = "lbDelayCount";
-            this.lbDelayCount.Text = "共:80人";
+            this.删除护照图像ToolStripMenuItem.Name = "删除护照图像ToolStripMenuItem";
+            this.删除护照图像ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.删除护照图像ToolStripMenuItem.Text = "删除护照图像";
+            this.删除护照图像ToolStripMenuItem.Click += new System.EventHandler(this.删除护照图像ToolStripMenuItem_Click);
+            // 
+            // 上传护照图像ToolStripMenuItem
+            // 
+            this.上传护照图像ToolStripMenuItem.Name = "上传护照图像ToolStripMenuItem";
+            this.上传护照图像ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.上传护照图像ToolStripMenuItem.Text = "上传护照图像";
+            this.上传护照图像ToolStripMenuItem.Click += new System.EventHandler(this.上传护照图像ToolStripMenuItem_Click);
             // 
             // FrmVisaInfoManage
             // 
@@ -1398,6 +1416,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn VisaInfo_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Visa_id;
         private DevComponents.DotNetBar.LabelItem lbDelayCount;
+        private System.Windows.Forms.ToolStripMenuItem 删除护照图像ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 上传护照图像ToolStripMenuItem;
     }
 }
 

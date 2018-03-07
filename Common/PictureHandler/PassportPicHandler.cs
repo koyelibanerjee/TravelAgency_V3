@@ -39,13 +39,40 @@ namespace TravelAgency.Common.PictureHandler
         /// <param name="passportNo"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static void UploadPassportPic(string filename,string passportNo)
+        public static void UploadPassportPic(string filename, string passportNo)
         {
             FtpHandler.ChangeFtpUri(ConfigurationManager.AppSettings["PassportPicPath"]);
-            FtpHandler.Upload(filename,GetFileName(passportNo, PicType.Type01Normal));
+            FtpHandler.Upload(filename, GetFileName(passportNo, PicType.Type01Normal));
         }
 
 
+        /// <summary>
+        /// 删除指定护照号文件
+        /// </summary>
+        /// <param name="passportNo"></param>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static void DeleteLocalPassportPic(string passportNo, PicType type)
+        {
+            //FtpHandler.ChangeFtpUri(ConfigurationManager.AppSettings["PassportPicPath"]);
+            //FtpHandler.Delete();
+            string fileName = GetFileName(passportNo, type);
+            string picName = GlobalUtils.LocalPassportPicPath + "\\" + fileName;
+            File.Delete(picName); //文件不存在是不会报异常的
+        }
+
+
+        /// <summary>
+        /// 删除指定护照号文件
+        /// </summary>
+        /// <param name="passportNo"></param>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static bool DeleteRemotePassportPic(string passportNo, PicType type)
+        {
+            FtpHandler.ChangeFtpUri(ConfigurationManager.AppSettings["PassportPicPath"]);
+            return FtpHandler.Delete(GetFileName(passportNo, type));
+        }
 
 
         public static bool CheckLocalExist(string passportNo, PicType type)
@@ -134,7 +161,7 @@ namespace TravelAgency.Common.PictureHandler
         /// </summary>
         /// <param name="passportNo"></param>
         /// <returns></returns>
-        public static int DownloadSelectedTypes(string passportNo, string dstPath, PicType type = PicType.Type01Normal|PicType.Type02Head|PicType.Type03IR)
+        public static int DownloadSelectedTypes(string passportNo, string dstPath, PicType type = PicType.Type01Normal | PicType.Type02Head | PicType.Type03IR)
         {
             int res = 0;
             int expected = 0; //现在没用，先保留，以后用
@@ -189,7 +216,7 @@ namespace TravelAgency.Common.PictureHandler
         /// </summary>
         /// <param name="passportNo"></param>
         /// <returns></returns>
-        public static int DownloadSelectedTypesBatch(string[] passportNoList, string dstPath, PicType type = PicType.Type01Normal|PicType.Type02Head|PicType.Type03IR)
+        public static int DownloadSelectedTypesBatch(string[] passportNoList, string dstPath, PicType type = PicType.Type01Normal | PicType.Type02Head | PicType.Type03IR)
         {
             int res = 0;
             for (int i = 0; i < passportNoList.Length; i++)

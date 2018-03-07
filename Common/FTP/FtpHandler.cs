@@ -322,18 +322,11 @@ namespace TravelAgency.Common.FTP
         }
 
 
-        #endregion
-
-        //底下的方法没用就懒得改成static了
-
-
-
-
         /// <summary>
         /// 删除文件
         /// </summary>
         /// <param name="fileName"></param>
-        public void Delete(string fileName)
+        public static bool Delete(string fileName)
         {
             try
             {
@@ -354,12 +347,25 @@ namespace TravelAgency.Common.FTP
                 sr.Close();
                 datastream.Close();
                 response.Close();
+                return true;
             }
             catch (Exception ex)
             {
-                Insert_Standard_ErrorLog.Insert("FtpWeb", "Delete Error --> " + ex.Message + "  文件名:" + fileName);
+                //Insert_Standard_ErrorLog.Insert("FtpWeb", "Delete Error --> " + ex.Message + "  文件名:" + fileName);
+                return false; //远程没有文件或者其他
             }
         }
+
+
+
+        #endregion
+
+        //底下的方法没用就懒得改成static了
+
+
+
+
+
 
 
 

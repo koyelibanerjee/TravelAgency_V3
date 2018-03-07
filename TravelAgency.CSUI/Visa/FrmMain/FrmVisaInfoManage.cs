@@ -1211,14 +1211,76 @@ namespace TravelAgency.CSUI.FrmMain
             if (!string.IsNullOrEmpty((string)dataGridView1.CurrentCell.Value.ToString()))
                 Clipboard.SetText(dataGridView1.CurrentCell.Value.ToString());
         }
+
+        private void 删除护照图像ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var list = GetDgvSelList();
+            if (list.Count > 1)
+            {
+                MessageBoxEx.Show("请选择一条数据进行删除!");
+                return;
+            }
+            if (MessageBoxEx.Show("是否删除本地图像?", "提示", MessageBoxButtons.YesNo)
+                == DialogResult.No)
+                return;
+
+            //删除本地图像
+            if (PassportPicHandler.CheckLocalExist(list[0].PassportNo, PassportPicHandler.PicType.Type01Normal))
+            {
+                PassportPicHandler.DeleteLocalPassportPic(list[0].PassportNo, PassportPicHandler.PicType.Type01Normal);
+            }
+
+            if (GlobalUtils.LoginUserLevel == RigthLevel.Normal)
+            {
+                MessageBoxEx.Show("权限不足!");
+                return;
+            }
+
+            if (MessageBoxEx.Show("是否删除远程图像?", "提示", MessageBoxButtons.YesNo) == DialogResult.No)
+                return;
+
+            if (PassportPicHandler.DeleteRemotePassportPic(list[0].PassportNo, PassportPicHandler.PicType.Type01Normal))
+            {
+                MessageBoxEx.Show("删除成功!");
+            }
+            else
+            {
+                MessageBoxEx.Show("删除失败!");
+            }
+        }
+
+
+        private void 上传护照图像ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var list = GetDgvSelList();
+            if (list.Count > 1)
+            {
+                MessageBoxEx.Show("请选择一条数据进行删除!");
+                return;
+            }
+            if (PassportPicHandler.CheckRemoteExist(list[0].PassportNo, PassportPicHandler.PicType.Type01Normal))
+            {
+                if (MessageBoxEx.Show("指定护照号在服务器已经存在图像，是否替换?", "提示", MessageBoxButtons.YesNo) == DialogResult.No)
+                    return;
+
+                //远程已经存在的情况下先检查权限
+                if (GlobalUtils.LoginUserLevel == RigthLevel.Normal)
+                {
+                    MessageBoxEx.Show("权限不足!");
+                    return;
+                }
+            }
+            string filename = GlobalUtils.ShowOpenFileDlg();
+            if (string.IsNullOrEmpty(filename))
+                return;
+            PassportPicHandler.UploadPassportPic(filename, list[0].PassportNo);
+            MessageBoxEx.Show("上传成功!");
+        }
+
+
+
+
         #endregion
-
-
-
-
-
-
-
 
 
     }

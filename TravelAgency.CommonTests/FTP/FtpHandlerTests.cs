@@ -27,6 +27,23 @@ namespace TravelAgency.Common.FTP.Tests
             string filename = GlobalUtils.ShowOpenFileDlg();
             FtpHandler.Upload(filename);
         }
+
+        [TestMethod()]
+        public void DeleteTest()
+        {
+
+            //初始化FTP参数
+            string ftpServer = ConfigurationManager.AppSettings["FTPServer"];
+            string ftpUserId = ConfigurationManager.AppSettings["FtpUserID"];
+            string ftpPassword = ConfigurationManager.AppSettings["FtpPassword"];
+            string passportPics = ConfigurationManager.AppSettings["PassportPicPath"];
+            FtpHandler.SetParams(ftpServer, passportPics, ftpUserId, ftpPassword);
+
+            FtpHandler.ChangeFtpUri(ConfigurationManager.AppSettings["PassportPicPath"]);
+            //string filename = GlobalUtils.ShowOpenFileDlg();
+            //FtpHandler.Upload(filename, "abc.jpg");
+            FtpHandler.Delete("abc1234.jpg");
+        }
     }
 }
 
@@ -49,9 +66,6 @@ namespace TravelAgency.Common.FTP.Testss
             List<string> lists = FtpHandler.GetFileList("*.*");
             FtpHandler.ChangeFtpUri("E:/东瀛假日签证识别管理系统/高拍仪图像保存路径" + "/" + lists[0]);
             lists = FtpHandler.GetFileList("*.*");
-
-
-
         }
 
         [TestMethod()]
@@ -68,5 +82,21 @@ namespace TravelAgency.Common.FTP.Testss
             FtpHandler.ChangeFtpUri("E:/东瀛假日签证识别管理系统/高拍仪图像保存路径");
             List<string> lists = FtpHandler.GetDirectoryList();
         }
+
+        //[TestMethod()]
+        //public void GetFilesDetailListTest()
+        //{
+        //    //初始化FTP参数
+        //    string ftpServer = ConfigurationManager.AppSettings["FTPServer"];
+        //    string ftpUserId = ConfigurationManager.AppSettings["FtpUserID"];
+        //    string ftpPassword = ConfigurationManager.AppSettings["FtpPassword"];
+        //    string passportPics = ConfigurationManager.AppSettings["PassportPicPath"];
+        //    FtpHandler.SetParams(ftpServer, passportPics, ftpUserId, ftpPassword);
+        //    FtpHandler.ChangeFtpUri("E:/Program Files");
+        //    //string[] lists = FtpHandler.GetFileList("*.*");
+        //    FtpHandler.ChangeFtpUri("E:/东瀛假日签证识别管理系统/高拍仪图像保存路径");
+        //    List<string> lists = FtpHandler.GetDirectoryList();
+        //}
+
     }
 }
