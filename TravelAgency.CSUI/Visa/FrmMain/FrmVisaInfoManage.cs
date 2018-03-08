@@ -1276,10 +1276,6 @@ namespace TravelAgency.CSUI.FrmMain
             PassportPicHandler.UploadPassportPic(filename, list[0].PassportNo);
             MessageBoxEx.Show("上传成功!");
         }
-
-
-
-
         #endregion
 
 

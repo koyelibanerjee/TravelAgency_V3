@@ -57,6 +57,8 @@ namespace TravelAgency.BLL
             string strTo = String.Format("{0}-{1}-{2} 23:59:59", year, month, lastday);
             return GetCountByTimeSpan(strFrom, strTo, otherwhere);
         }
+
+
         public int GetCountOfDay(int year, int month, int day, string otherwhere = CommonOtherWhere)
         {
             string strFrom = String.Format("{0}-{1}-{2} 00:00:00", year, month, day);

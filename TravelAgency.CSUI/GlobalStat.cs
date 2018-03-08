@@ -21,12 +21,13 @@ namespace TravelAgency.CSUI
         public static void UpdateStatistics()
         {
             int dayCount = _bllVisaInfoStat.GetCountOfCurDay();
+            int dayCount_TypeIn = _bllVisaInfoStat.GetCountOfCurDay(" acttype ='00录入(扫描)'"); //只是录入的
             DateTime date = DateTime.Now.Date.AddDays(-1.0);
             int daypreCount = _bllVisaInfoStat.GetCountOfDay(date.Year, date.Month, date.Day);
             int weekCount = _bllVisaInfoStat.GetCountOfCurWeek();
             int monthCount = _bllVisaInfoStat.GetCountOfCurMonth();
 
-            string str = String.Format("签证统计:今日:{1}, 昨日:{0}, 本周:{2}, 本月: {3} 本", daypreCount, dayCount, weekCount, monthCount);
+            string str = String.Format("签证统计:今日:{1}/{4}, 昨日:{0}, 本周:{2}, 本月: {3} 本", daypreCount, dayCount, weekCount, monthCount, dayCount_TypeIn);
 
             MainFrm.SetLbVisaInfoCount(str);
 
