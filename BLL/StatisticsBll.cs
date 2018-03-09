@@ -79,7 +79,7 @@ namespace TravelAgency.BLL
         public int GetCountOfCurWeek(string otherwhere = CommonOtherWhere)
         {
             var date = DateTime.Now.DayOfWeek == DayOfWeek.Sunday ? //找到所在周的起始(周一)
-                DateTime.Now.Date.AddDays(-6.0) : DateTime.Now.Date.AddDays(DateTime.Now.DayOfWeek - DayOfWeek.Monday);
+                DateTime.Now.Date.AddDays(-6.0) : DateTime.Now.Date.AddDays(DayOfWeek.Monday - DateTime.Now.DayOfWeek);
             string strFrom = $"{date.Year}-{date.Month}-{date.Day} 00:00:00";
             date = date.AddDays(6.0);//找到所在周的结束
             string strTo = $"{date.Year}-{date.Month}-{date.Day} 23:59:59";
@@ -109,7 +109,7 @@ namespace TravelAgency.BLL
         /// <param name="ActType"></param>
         /// <param name="username"></param>
         /// <returns></returns>
-        public int GetActRecordCount(string acttype, string username, string from, string to, string otherwhere="")
+        public int GetActRecordCount(string acttype, string username, string from, string to, string otherwhere = "")
         {
             string where = " acttype = '" + acttype + "' and username ='" + username + "' ";
             if (!string.IsNullOrEmpty(from) && !string.IsNullOrEmpty(to))
