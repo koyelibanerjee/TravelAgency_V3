@@ -214,6 +214,16 @@ namespace TravelAgency.Common.PictureHandler
             return File.Exists(picName);
         }
 
+        public static void UploadGaoPaiImage(string filename)
+        {
+            string save_prefix = filename.Substring(0, 8);
+            FtpHandler.ChangeFtpUri(RemoteRootPath);
+            if (!FtpHandler.DirectoryExist(save_prefix))
+            {
+                FtpHandler.MakeDir(save_prefix);
+            }
+            FtpHandler.Upload(filename);
+        }
 
         //public static bool CheckAndDownloadIfNotExist(string passportNo, PassportPicHandler.PicType type)
         //{

@@ -64,6 +64,10 @@ namespace ScanCtrlTest
                 Directory.CreateDirectory(textBox1.Text);
             string filename = textBox1.Text + "\\" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".jpg";
             axScanCtrl1.Scan(filename); //传的参数就是存储路径
+
+            //再上传到服务器端
+            GaopaiPicHandler.UploadGaoPaiImage(filename);
+
             new Thread(UpdateLable) { IsBackground = true }.Start(DateTime.Now.ToString("yyyyMMddHHmmss") + ".jpg 保存成功.");
             PicHandler.MakeThumbnail(filename, GaopaiPicHandler.GetThumbName(filename), GlobalUtils.ThumbNailRatio);
         }
@@ -253,7 +257,5 @@ namespace ScanCtrlTest
             if (!string.IsNullOrEmpty(str))
                 textBox1.Text = str;
         }
-
-
     }
 }

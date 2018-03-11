@@ -283,7 +283,7 @@ namespace TravelAgency.Common.FTP
 
 
         /// <summary>
-        /// 上传,把srcfilename上传到当前ftp目录
+        /// 上传,把srcfilename上传到当前ftp目录,相比于上一个方法就是这里可以指定上传后的名字
         /// </summary>
         /// <param name="srcFileName">如e:/我的文档/xxx.jpg</param>
         /// <param name="dstFileName">如xxx.jpg</param>
@@ -357,27 +357,11 @@ namespace TravelAgency.Common.FTP
         }
 
 
-
-        #endregion
-
-        //底下的方法没用就懒得改成static了
-
-
-
-
-
-
-
-
-
-
-
-
         /// <summary>
         /// 创建文件夹
         /// </summary>
         /// <param name="dirName"></param>
-        public void MakeDir(string dirName)
+        public static void MakeDir(string dirName)
         {
             FtpWebRequest reqFTP;
             try
@@ -398,6 +382,25 @@ namespace TravelAgency.Common.FTP
                 Insert_Standard_ErrorLog.Insert("FtpWeb", "MakeDir Error --> " + ex.Message);
             }
         }
+
+
+
+        #endregion
+
+        //底下的方法没用就懒得改成static了
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         /// <summary>
         /// 获取指定文件大小
