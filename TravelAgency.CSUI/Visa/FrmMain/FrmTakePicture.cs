@@ -70,6 +70,8 @@ namespace ScanCtrlTest
 
             new Thread(UpdateLable) { IsBackground = true }.Start(DateTime.Now.ToString("yyyyMMddHHmmss") + ".jpg 保存成功.");
             PicHandler.MakeThumbnail(filename, GaopaiPicHandler.GetThumbName(filename), GlobalUtils.ThumbNailRatio);
+            //再上传缩略图到服务器端
+            GaopaiPicHandler.UploadGaoPaiImage(GaopaiPicHandler.GetThumbName(filename));
         }
         /// <summary>
         /// 放大

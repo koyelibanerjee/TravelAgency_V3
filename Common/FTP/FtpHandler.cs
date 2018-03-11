@@ -235,6 +235,8 @@ namespace TravelAgency.Common.FTP
         public static bool DirectoryExist(string RemoteDirectoryName)
         {
             List<string> dirList = GetDirectoryList();
+            if (dirList == null)
+                return false;
             foreach (string str in dirList)
             {
                 if (str.Trim() == RemoteDirectoryName.Trim())

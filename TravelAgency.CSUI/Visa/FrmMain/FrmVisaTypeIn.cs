@@ -351,6 +351,11 @@ namespace TravelAgency.CSUI.FrmMain
             else
                 model.Country = null;
 
+            //图像上传到服务器
+            PassportPicHandler.UploadPassportPic(
+                GlobalUtils.LocalPassportPicPath + "\\" + PassportPicHandler.GetFileName(model.PassportNo, PassportPicHandler.PicType.Type01Normal),
+                model.PassportNo);
+
             //执行以下校验(用拼音来进行校验)
             if (!InfoChecker.CheckByPinYin(model.Name, model.EnglishName)) //检查到错误
             {
@@ -391,6 +396,12 @@ namespace TravelAgency.CSUI.FrmMain
                         model.Country = _country;
                     else
                         model.Country = null;
+
+                    //把拍照的图像上传到服务器
+                    PassportPicHandler.UploadPassportPic(
+                        GlobalUtils.LocalPassportPicPath + "\\" + PassportPicHandler.GetFileName(model.PassportNo, PassportPicHandler.PicType.Type01Normal),
+                        model.PassportNo);
+
                     if (!InfoChecker.CheckByPinYin(model.Name, model.EnglishName)) //检查到错误
                     {
                         ModelToCtrls(model);

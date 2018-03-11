@@ -216,12 +216,21 @@ namespace TravelAgency.Common.PictureHandler
 
         public static void UploadGaoPaiImage(string filename)
         {
-            string save_prefix = filename.Substring(0, 8);
-            FtpHandler.ChangeFtpUri(RemoteRootPath);
-            if (!FtpHandler.DirectoryExist(save_prefix))
+            string savePrefix = "";
+            if (filename.Contains("thumb_"))
             {
-                FtpHandler.MakeDir(save_prefix);
+                savePrefix = Path.GetFileName(filename).Substring(6, 8);
             }
+            else
+            {
+                savePrefix = Path.GetFileName(filename).Substring(0, 8);
+            }
+            FtpHandler.ChangeFtpUri(RemoteRootPath);
+            if (!FtpHandler.DirectoryExist(savePrefix))
+            {
+                FtpHandler.MakeDir(savePrefix);
+            }
+            FtpHandler.ChangeFtpUri(RemoteRootPath + "/" + savePrefix);
             FtpHandler.Upload(filename);
         }
 
