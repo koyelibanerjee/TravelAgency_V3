@@ -111,19 +111,20 @@ namespace TravelAgency.BLL
             model.ActType = acttype;
             model.WorkId = user.WorkId;
             model.UserName = user.UserName;
-            model.VisaInfo_id = visainfo.VisaInfo_id;
+            if (visainfo != null)
+                model.VisaInfo_id = visainfo.VisaInfo_id;
             if (visa != null)
             {
                 model.Visa_id = visa.Visa_id;
                 model.Type = visa.Types;
             }
             model.EntryTime = DateTime.Now;
-            if (!string.IsNullOrEmpty(visainfo.Country))
+            if (!string.IsNullOrEmpty(visainfo?.Country))
                 model.Country = visainfo.Country;
             return Add(model) > 0;
         }
 
-        public int GetVisaSubmitStateNum(Model.Visa model,string acttype)
+        public int GetVisaSubmitStateNum(Model.Visa model, string acttype)
         {
             return dal.GetVisaSubmitStateNum(model, acttype);
         }

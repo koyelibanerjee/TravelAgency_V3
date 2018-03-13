@@ -19,7 +19,7 @@ namespace TravelAgency.CSUI.FrmSub
         private readonly BLL.Visa _bllVisa = new BLL.Visa();
         private readonly Action<int> _updateDel; //副界面传来更新数据库的委托
         private readonly int _curPage; //主界面更新数据库需要一个当前页
-
+        private readonly BLL.ActionRecords _bllActionRecords = new BLL.ActionRecords();
 
         public FrmAddVisa(Action<int> updateDel, int curpage)
         {
@@ -94,11 +94,16 @@ namespace TravelAgency.CSUI.FrmSub
             if (visaModel == null)
                 return;
 
+            //操作员
+            visaModel.TypeInPerson = GlobalUtils.LoginUser.UserName;
+
             if ((visaModel.Visa_id = _bllVisa.Add(visaModel)) == Guid.Empty) //执行更新,返回值是新插入的visamodel的guid
             {
                 MessageBoxEx.Show("添加团号到数据库失败，请重试!");
                 return;
             }
+            //操作记录
+            _bllActionRecords.AddRecord(Common.Enums.ActType._01CreateGroupNo, GlobalUtils.LoginUser, null, visaModel);
 
             _updateDel(_curPage);
             this.Close();

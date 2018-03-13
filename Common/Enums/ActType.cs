@@ -2,7 +2,8 @@
 {
     public class ActType
     {
-        public const string _01ScanIn = "00录入(扫描)";
+        public const string _00ScanIn = "00录入(扫描)";
+        public const string _01CreateGroupNo = "01创建团号";
         public const string _01TypeIn = "01录入(设置团号)";
         public const string _01AddToExist = "01录入(添加到已有团号)";
         public const string _02TypeInData = "02录入做资料";
