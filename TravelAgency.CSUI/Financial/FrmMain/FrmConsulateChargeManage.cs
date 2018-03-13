@@ -210,6 +210,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
         {
             //_where = GetWhereCondition();
 
+            _curPage = 1;
             LoadDataToDgvAsyn();
 
         }

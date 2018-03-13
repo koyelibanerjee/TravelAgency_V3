@@ -363,6 +363,9 @@ namespace TravelAgency.CSUI.FrmMain
 
             LoadDataToDgvAsyn();
 
+            //搜索的时候，返回到第一页，这个还是合理的
+            _curPage = 1;
+
         }
 
         private void btnShowAll_Click(object sender, EventArgs e)

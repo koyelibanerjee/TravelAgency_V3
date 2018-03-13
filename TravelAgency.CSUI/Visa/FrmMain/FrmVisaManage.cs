@@ -231,9 +231,8 @@ namespace TravelAgency.CSUI.FrmMain
         private void btnSearch_Click(object sender, EventArgs e)
         {
             _where = GetWhereCondition();
-
+            _curPage = 1;
             LoadDataToDgvAsyn();
-
         }
 
         private void btnShowAll_Click(object sender, EventArgs e)

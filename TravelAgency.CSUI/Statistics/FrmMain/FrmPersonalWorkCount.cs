@@ -259,7 +259,7 @@ namespace TravelAgency.CSUI.Statistics.FrmMain
         private void btnSearch_Click(object sender, EventArgs e)
         {
             //_where = GetWhereCondition();
-
+            _curPage = 1;
             LoadDataToDgvAsyn();
 
         }
