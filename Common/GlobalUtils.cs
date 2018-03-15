@@ -7,6 +7,7 @@ using System.Web.SessionState;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using Excel;
+using log4net;
 using TravelAgency.Common.FTP;
 using TravelAgency.Common.Word;
 using Application = System.Windows.Forms.Application;
@@ -25,10 +26,16 @@ namespace TravelAgency.Common
         public static Model.AuthUser LoginUser;
         public static readonly DocDocxGenerator DocDocxGenerator;
         public static RigthLevel LoginUserLevel;
+        public static ILog Logger = log4net.LogManager.GetLogger("DemoWriter");
+
         static GlobalUtils()
         {
             InitFtp();
             DocDocxGenerator = new DocDocxGenerator();
+
+            //从配置文件读取log4net的配置，然后进行一个初始化工作。
+            log4net.Config.XmlConfigurator.Configure();
+
         }
 
         private static void InitFtp()
