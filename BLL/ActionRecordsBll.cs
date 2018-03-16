@@ -44,7 +44,7 @@ namespace TravelAgency.BLL
             List<Model.Visa> listRes = new List<Model.Visa>();
             for (int i = 0; i <= list.Count - 1; ++i)
             {
-                int total = (int)list[i].Number;
+                int total = (int)list[i].Number; //TODO:这里需要判断一下
                 int num = GetVisaHasTypedInNum(list[i].Visa_id);
                 switch (keepOption)
                 {

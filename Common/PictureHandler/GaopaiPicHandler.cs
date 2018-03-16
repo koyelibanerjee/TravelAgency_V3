@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Drawing;
 using System.IO;
+using System.Threading;
 using NPOI.SS.Formula.Functions;
 using TravelAgency.Common.FTP;
 
@@ -213,6 +214,17 @@ namespace TravelAgency.Common.PictureHandler
             string picName = GlobalUtils.LocalGaoPaiPicPath + "\\" + filename;
             return File.Exists(picName);
         }
+
+        public static void UploadGaoPaiImageAsync(string filename)
+        {
+            new Thread(UploadGaoPaiImage) { IsBackground = true }.Start(filename);
+        }
+
+        public static void UploadGaoPaiImage(object filename)
+        {
+            UploadGaoPaiImage((string)filename);
+        }
+
 
         public static void UploadGaoPaiImage(string filename)
         {

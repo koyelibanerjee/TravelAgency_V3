@@ -66,7 +66,7 @@ namespace ScanCtrlTest
             axScanCtrl1.Scan(filename); //传的参数就是存储路径
 
             //再上传到服务器端
-            GaopaiPicHandler.UploadGaoPaiImage(filename);
+            GaopaiPicHandler.UploadGaoPaiImageAsync(filename);
 
             new Thread(UpdateLable) { IsBackground = true }.Start(DateTime.Now.ToString("yyyyMMddHHmmss") + ".jpg 保存成功.");
             PicHandler.MakeThumbnail(filename, GaopaiPicHandler.GetThumbName(filename), GlobalUtils.ThumbNailRatio);
@@ -104,7 +104,7 @@ namespace ScanCtrlTest
 
                 }));
             }
-            Thread.Sleep(1200);
+            Thread.Sleep(500);
 
             if (this.InvokeRequired)
             {
