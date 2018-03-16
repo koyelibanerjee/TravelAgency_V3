@@ -8,7 +8,7 @@ namespace TravelAgency.CSUI.CustomCtrls
     {
 
         private Point _startPoint; //画框的起始点
-        private Point _endPoint;//画框的结束点<br>bool _bLbtnDown;//判断是否绘制<br>Rectangel _rect;
+        //private Point _endPoint;//画框的结束点<br>bool _bLbtnDown;//判断是否绘制<br>Rectangel _rect;
         private bool _bLbtnDown = false;
         private Rectangle _rect;
         private bool _bSetRoiIng = false;

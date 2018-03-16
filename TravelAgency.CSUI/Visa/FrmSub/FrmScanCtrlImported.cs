@@ -16,7 +16,6 @@ namespace TravelAgency.CSUI.FrmSub
         private readonly BLL.VisaInfo _bllVisaInfo = new BLL.VisaInfo();
         private string _tmpname = "_tmp.jpg";
         private int _curIdx = 0;
-        private int _recordCount = 0;
         private FrmScanCtrlImported()
         {
             this.StartPosition = FormStartPosition.CenterParent;

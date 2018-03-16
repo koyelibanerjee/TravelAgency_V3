@@ -26,7 +26,6 @@ namespace TravelAgency.CSUI.FrmMain
         private int _recordCount = 0;
         private string _preTxt = string.Empty;
         private string _outState = string.Empty; //Single模式下的状态设置
-        private Inputmode _inputMode = Inputmode.Single;
         private readonly MyQRCode _qrCode = new MyQRCode();
         //private readonly Thread _thLoadDataToDgvAndUpdateState;
         private List<Model.VisaInfo> _list;

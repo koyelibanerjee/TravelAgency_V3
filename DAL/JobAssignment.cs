@@ -17,7 +17,7 @@ namespace TravelAgency.DAL
 
 
 		/// <summary>
-		/// 增加一条数据
+		/// 增加一条数据,返回的就是ID
 		/// </summary>
 		public int Add(TravelAgency.Model.JobAssignment model)
 		{

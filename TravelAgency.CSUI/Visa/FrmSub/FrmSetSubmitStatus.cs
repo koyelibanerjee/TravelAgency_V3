@@ -20,7 +20,6 @@ namespace TravelAgency.CSUI.FrmSub
         private BLL.ActionRecords _bllActionRecords = new BLL.ActionRecords();
         private BLL.Visa _bllVisa = new BLL.Visa();
         private BLL.VisaInfo _bllVisaInfo = new BLL.VisaInfo();
-        private bool _hasDone = false; //用于备份判断
         private List<Model.VisaInfo> _visaInfoList;
         private Action<int> _updateDel;
         private int _curPage;

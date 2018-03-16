@@ -310,6 +310,8 @@ namespace TravelAgency.CSUI.FrmMain
             //直接在数据库那边执行提交操作，从visainfo_tmp移动到visainfo，然后这边重新加载数据库就OK
             int res = _bllVisaInfoTmp.MoveCheckedDataToVisaInfo();
 
+            if (res <= 0)
+                return;
             MessageBoxEx.Show(res + "条记录更新成功.");
             LoadDataToList();
             _curIdx = 0;

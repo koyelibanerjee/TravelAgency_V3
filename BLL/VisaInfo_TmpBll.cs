@@ -16,11 +16,27 @@ namespace TravelAgency.BLL
         private BLL.VisaInfo _bllVisaInfo = new BLL.VisaInfo();
         private readonly BLL.ActionRecords _bllActionRecords = new BLL.ActionRecords();
         private readonly BLL.AuthUser _bllAuthUser = new BLL.AuthUser();
+        private readonly BLL.JobAssignment _bllJobAssignment = new BLL.JobAssignment();
 
         public int MoveCheckedDataToVisaInfo()
         {
             int res = 0;
             var list = GetModelList(string.Empty);
+            DialogResult dlgResult = MessageBoxEx.Show("即将提交，是否将待提交签证设置为\"一家人\"?", "提示", MessageBoxButtons.YesNoCancel);
+            if (dlgResult == DialogResult.Cancel)
+                return 0;
+
+
+
+            int retJobId = 0;
+            if (dlgResult == DialogResult.Yes)
+            {
+                Model.JobAssignment jobAssignment = new Model.JobAssignment();
+                jobAssignment.EntryTime = DateTime.Now;
+                retJobId = _bllJobAssignment.Add(jobAssignment); //失败返回0
+            }
+
+
             for (int i = 0; i < list.Count; i++)
             {
                 if (list[i].HasChecked == "是")
@@ -36,17 +52,19 @@ namespace TravelAgency.BLL
                         }
                     }
 
+                    if (retJobId != 0) //如果返回值不是0，代表用户设置了一家人
+                        model.JobId = retJobId;
+
                     if (_bllVisaInfo.Add(model) && Delete(list[i].VisaInfo_id))
                     {
                         res++;
-                        //添加录入的记录
+                        //添加录入的操作记录
                         var listusers = _bllAuthUser.GetModelList(" username ='" + model.CheckPerson + "' ");
                         if (listusers.Count <= 0)
                             continue;
                         if (!_bllActionRecords.AddRecord("00录入(扫描)", listusers[0], model, null))
                         {
                             //写日志
-                            continue;
                         }
                     }
                     else continue;
