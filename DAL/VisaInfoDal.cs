@@ -19,7 +19,7 @@ namespace TravelAgency.DAL
         /// <param name="end"></param>
         /// <param name="where"></param>
         /// <returns></returns>
-        public DataSet GetDataByPageOrderByOutState(int start, int end,string where)
+        public DataSet GetDataByPageOrderByOutState(int start, int end, string where)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("SELECT * from(SELECT *,ROW_NUMBER() OVER(ORDER BY EntryTime desc) as num from VisaInfo");
@@ -47,7 +47,7 @@ namespace TravelAgency.DAL
         /// <param name="end"></param>
         /// <param name="where"></param>
         /// <returns></returns>
-        public DataSet GetDataByPageOrderByGroupNo(int start, int end,string where)
+        public DataSet GetDataByPageOrderByGroupNo(int start, int end, string where)
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("SELECT * from(SELECT *,ROW_NUMBER() OVER(ORDER BY EntryTime desc) as num from VisaInfo");
@@ -108,7 +108,7 @@ namespace TravelAgency.DAL
                 strSql.Append("delete from VisaInfo ");
                 strSql.Append(" where PassportNo=@passportNo ");
                 SqlParameter[] parameters = {
-					new SqlParameter("@passportNo", SqlDbType.VarChar,50)};
+                    new SqlParameter("@passportNo", SqlDbType.VarChar,50)};
                 parameters[0].Value = passNums[i];
 
                 int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
@@ -137,7 +137,7 @@ namespace TravelAgency.DAL
             strSql.Append("select  top 1 * from VisaInfo ");
             strSql.Append(" where PassportNo=@PassportNo ");
             SqlParameter[] parameters = {
-					new SqlParameter("@PassportNo", SqlDbType.VarChar,50)			};
+                    new SqlParameter("@PassportNo", SqlDbType.VarChar,50)           };
             parameters[0].Value = passportNo;
 
             TravelAgency.Model.VisaInfo model = new TravelAgency.Model.VisaInfo();
@@ -169,9 +169,9 @@ namespace TravelAgency.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into VisaInfo(");
-            strSql.Append("VisaInfo_id,Visa_id,GroupNo,Name,EnglishName,Sex,Birthday,PassportNo,LicenceTime,ExpiryDate,Birthplace,IssuePlace,Post,Phone,GuideNo,Client,Salesperson,Types,Sale_id,DepartmentId,Tips,EntryTime,EmbassyTime,InTime,OutTime,RealOut,RealOutTime,Country,Call,outState,Residence,Occupation,DepartureRecord,Marriaged,Identification,FinancialCapacity,AgencyOpinion,HasTypeIn,AbnormalOutTime,HasChecked,CheckPerson,ReturnTime,Position,IssuePlaceEnglish,BirthPlaceEnglish)");
+            strSql.Append("VisaInfo_id,Visa_id,GroupNo,Name,EnglishName,Sex,Birthday,PassportNo,LicenceTime,ExpiryDate,Birthplace,IssuePlace,Post,Phone,GuideNo,Client,Salesperson,Types,Sale_id,DepartmentId,Tips,EntryTime,EmbassyTime,InTime,OutTime,RealOut,RealOutTime,Country,Call,outState,Residence,Occupation,DepartureRecord,Marriaged,Identification,FinancialCapacity,AgencyOpinion,HasTypeIn,AbnormalOutTime,HasChecked,CheckPerson,ReturnTime,Position,IssuePlaceEnglish,BirthPlaceEnglish,JobId)");
             strSql.Append(" values (");
-            strSql.Append("@VisaInfo_id,@Visa_id,@GroupNo,@Name,@EnglishName,@Sex,@Birthday,@PassportNo,@LicenceTime,@ExpiryDate,@Birthplace,@IssuePlace,@Post,@Phone,@GuideNo,@Client,@Salesperson,@Types,@Sale_id,@DepartmentId,@Tips,@EntryTime,@EmbassyTime,@InTime,@OutTime,@RealOut,@RealOutTime,@Country,@Call,@outState,@Residence,@Occupation,@DepartureRecord,@Marriaged,@Identification,@FinancialCapacity,@AgencyOpinion,@HasTypeIn,@AbnormalOutTime,@HasChecked,@CheckPerson,@ReturnTime,@Position,@IssuePlaceEnglish,@BirthPlaceEnglish)");
+            strSql.Append("@VisaInfo_id,@Visa_id,@GroupNo,@Name,@EnglishName,@Sex,@Birthday,@PassportNo,@LicenceTime,@ExpiryDate,@Birthplace,@IssuePlace,@Post,@Phone,@GuideNo,@Client,@Salesperson,@Types,@Sale_id,@DepartmentId,@Tips,@EntryTime,@EmbassyTime,@InTime,@OutTime,@RealOut,@RealOutTime,@Country,@Call,@outState,@Residence,@Occupation,@DepartureRecord,@Marriaged,@Identification,@FinancialCapacity,@AgencyOpinion,@HasTypeIn,@AbnormalOutTime,@HasChecked,@CheckPerson,@ReturnTime,@Position,@IssuePlaceEnglish,@BirthPlaceEnglish,@JobId)");
             SqlParameter[] parameters = {
                     new SqlParameter("@VisaInfo_id", SqlDbType.UniqueIdentifier,16),
                     new SqlParameter("@Visa_id", SqlDbType.VarChar,50),
@@ -217,7 +217,9 @@ namespace TravelAgency.DAL
                     new SqlParameter("@ReturnTime", SqlDbType.DateTime),
                     new SqlParameter("@Position", SqlDbType.Int,4),
                     new SqlParameter("@IssuePlaceEnglish", SqlDbType.VarChar,50),
-                    new SqlParameter("@BirthPlaceEnglish", SqlDbType.VarChar,50)};
+                    new SqlParameter("@BirthPlaceEnglish", SqlDbType.VarChar,50),
+                    new SqlParameter("@JobId", SqlDbType.Int,4),
+            };
             parameters[0].Value = model.VisaInfo_id; //这里千万不能用new guid
             parameters[1].Value = model.Visa_id;
             parameters[2].Value = model.GroupNo;
@@ -263,6 +265,7 @@ namespace TravelAgency.DAL
             parameters[42].Value = model.Position;
             parameters[43].Value = model.IssuePlaceEnglish;
             parameters[44].Value = model.BirthPlaceEnglish;
+            parameters[45].Value = model.JobId;
 
             int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
             if (rows > 0)
