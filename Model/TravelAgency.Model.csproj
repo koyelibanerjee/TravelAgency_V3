@@ -132,6 +132,7 @@
     <Compile Include="CommisonModel.cs" />
     <Compile Include="ConsulateCharge.cs" />
     <Compile Include="HasExported8Report.cs" />
+    <Compile Include="JobAssignment.cs" />
     <Compile Include="PersonalStat.cs" />
     <Compile Include="ProgramVersion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

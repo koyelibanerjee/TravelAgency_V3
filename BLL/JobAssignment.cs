@@ -5,26 +5,19 @@ using TravelAgency.Model;
 namespace TravelAgency.BLL
 {
 	/// <summary>
-	/// VisaInfo
+	/// JobAssignment
 	/// </summary>
-	public partial class VisaInfo
+	public partial class JobAssignment
 	{
-		private readonly TravelAgency.DAL.VisaInfo dal=new TravelAgency.DAL.VisaInfo();
-		public VisaInfo()
+		private readonly TravelAgency.DAL.JobAssignment dal=new TravelAgency.DAL.JobAssignment();
+		public JobAssignment()
 		{}
 		#region  BasicMethod
-		/// <summary>
-		/// 是否存在该记录
-		/// </summary>
-		public bool Exists(Guid VisaInfo_id)
-		{
-			return dal.Exists(VisaInfo_id);
-		}
 
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public bool Add(TravelAgency.Model.VisaInfo model)
+		public int  Add(TravelAgency.Model.JobAssignment model)
 		{
 			return dal.Add(model);
 		}
@@ -32,7 +25,7 @@ namespace TravelAgency.BLL
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
-		public bool Update(TravelAgency.Model.VisaInfo model)
+		public bool Update(TravelAgency.Model.JobAssignment model)
 		{
 			return dal.Update(model);
 		}
@@ -40,23 +33,23 @@ namespace TravelAgency.BLL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete(Guid VisaInfo_id)
+		public bool Delete(int Id)
 		{
 			
-			return dal.Delete(VisaInfo_id);
+			return dal.Delete(Id);
 		}
 
 
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public TravelAgency.Model.VisaInfo GetModel(Guid VisaInfo_id)
+		public TravelAgency.Model.JobAssignment GetModel(int Id)
 		{
 			
-			return dal.GetModel(VisaInfo_id);
+			return dal.GetModel(Id);
 		}
 
-		
+
 
 		/// <summary>
 		/// 获得数据列表
@@ -72,17 +65,24 @@ namespace TravelAgency.BLL
 		{
 			return dal.GetList(Top,strWhere,filedOrder);
 		}
-
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public List<TravelAgency.Model.VisaInfo> DataTableToList(DataTable dt)
+		public List<TravelAgency.Model.JobAssignment> GetModelList(string strWhere)
 		{
-			List<TravelAgency.Model.VisaInfo> modelList = new List<TravelAgency.Model.VisaInfo>();
+			DataSet ds = dal.GetList(strWhere);
+			return DataTableToList(ds.Tables[0]);
+		}
+		/// <summary>
+		/// 获得数据列表
+		/// </summary>
+		public List<TravelAgency.Model.JobAssignment> DataTableToList(DataTable dt)
+		{
+			List<TravelAgency.Model.JobAssignment> modelList = new List<TravelAgency.Model.JobAssignment>();
 			int rowsCount = dt.Rows.Count;
 			if (rowsCount > 0)
 			{
-				TravelAgency.Model.VisaInfo model;
+				TravelAgency.Model.JobAssignment model;
 				for (int n = 0; n < rowsCount; n++)
 				{
 					model = dal.DataRowToModel(dt.Rows[n]);

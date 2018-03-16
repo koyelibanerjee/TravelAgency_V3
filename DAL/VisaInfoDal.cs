@@ -41,7 +41,7 @@ namespace TravelAgency.DAL
 
 
         /// <summary>
-        /// 按照entrytime,groupNo,outstate排序，给签证录入界面用的//20180109修改为只按照录入时间排序
+        /// 按照entrytime,groupNo,outstate排序，给签证信息管理界面用的//20180109修改为只按照录入时间排序
         /// </summary>
         /// <param name="start"></param>
         /// <param name="end"></param>

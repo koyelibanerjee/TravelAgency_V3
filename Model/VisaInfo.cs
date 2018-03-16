@@ -39,6 +39,7 @@ namespace TravelAgency.Model
 		private DateTime? _realouttime;
 		private string _country;
 		private string _call;
+		private string _exportstate;
 		private string _outstate="01未记录";
 		private string _residence;
 		private string _occupation;
@@ -46,7 +47,7 @@ namespace TravelAgency.Model
 		private string _marriaged;
 		private string _identification;
 		private string _financialcapacity;
-		private string _agencyopinion="没问题";
+		private string _agencyopinion;
 		private string _hastypein="否";
 		private DateTime? _abnormalouttime;
 		private string _haschecked="否";
@@ -55,6 +56,7 @@ namespace TravelAgency.Model
 		private int? _position;
 		private string _issueplaceenglish;
 		private string _birthplaceenglish;
+		private int? _jobid;
 		/// <summary>
 		/// 
 		/// </summary>
@@ -288,6 +290,14 @@ namespace TravelAgency.Model
 			get{return _call;}
 		}
 		/// <summary>
+		/// 0未导出,1已导出
+		/// </summary>
+		public string ExportState
+		{
+			set{ _exportstate=value;}
+			get{return _exportstate;}
+		}
+		/// <summary>
 		/// 
 		/// </summary>
 		public string outState
@@ -414,6 +424,14 @@ namespace TravelAgency.Model
 		{
 			set{ _birthplaceenglish=value;}
 			get{return _birthplaceenglish;}
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		public int? JobId
+		{
+			set{ _jobid=value;}
+			get{return _jobid;}
 		}
 		#endregion Model
 

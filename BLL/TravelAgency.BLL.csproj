@@ -138,6 +138,7 @@
     <Compile Include="ConsulateCharge.cs" />
     <Compile Include="HasExported8ReportBLL.cs" />
     <Compile Include="HasExported8Report.cs" />
+    <Compile Include="JobAssignment.cs" />
     <Compile Include="ProgramVersion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

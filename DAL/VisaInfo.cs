@@ -66,6 +66,7 @@ namespace TravelAgency.DAL
 			strSql.Append("RealOutTime=@RealOutTime,");
 			strSql.Append("Country=@Country,");
 			strSql.Append("Call=@Call,");
+			strSql.Append("ExportState=@ExportState,");
 			strSql.Append("outState=@outState,");
 			strSql.Append("Residence=@Residence,");
 			strSql.Append("Occupation=@Occupation,");
@@ -81,7 +82,8 @@ namespace TravelAgency.DAL
 			strSql.Append("ReturnTime=@ReturnTime,");
 			strSql.Append("Position=@Position,");
 			strSql.Append("IssuePlaceEnglish=@IssuePlaceEnglish,");
-			strSql.Append("BirthPlaceEnglish=@BirthPlaceEnglish");
+			strSql.Append("BirthPlaceEnglish=@BirthPlaceEnglish,");
+			strSql.Append("JobId=@JobId");
 			strSql.Append(" where VisaInfo_id=@VisaInfo_id ");
 			SqlParameter[] parameters = {
 					new SqlParameter("@Visa_id", SqlDbType.VarChar,50),
@@ -112,13 +114,14 @@ namespace TravelAgency.DAL
 					new SqlParameter("@RealOutTime", SqlDbType.DateTime),
 					new SqlParameter("@Country", SqlDbType.VarChar,50),
 					new SqlParameter("@Call", SqlDbType.VarChar,50),
+					new SqlParameter("@ExportState", SqlDbType.VarChar,50),
 					new SqlParameter("@outState", SqlDbType.VarChar,12),
 					new SqlParameter("@Residence", SqlDbType.VarChar,100),
 					new SqlParameter("@Occupation", SqlDbType.VarChar,50),
 					new SqlParameter("@DepartureRecord", SqlDbType.VarChar,10),
 					new SqlParameter("@Marriaged", SqlDbType.VarChar,10),
 					new SqlParameter("@Identification", SqlDbType.VarChar,100),
-					new SqlParameter("@FinancialCapacity", SqlDbType.VarChar,100),
+					new SqlParameter("@FinancialCapacity", SqlDbType.VarChar,500),
 					new SqlParameter("@AgencyOpinion", SqlDbType.VarChar,20),
 					new SqlParameter("@HasTypeIn", SqlDbType.VarChar,2),
 					new SqlParameter("@AbnormalOutTime", SqlDbType.DateTime),
@@ -128,6 +131,7 @@ namespace TravelAgency.DAL
 					new SqlParameter("@Position", SqlDbType.Int,4),
 					new SqlParameter("@IssuePlaceEnglish", SqlDbType.VarChar,50),
 					new SqlParameter("@BirthPlaceEnglish", SqlDbType.VarChar,50),
+					new SqlParameter("@JobId", SqlDbType.Int,4),
 					new SqlParameter("@VisaInfo_id", SqlDbType.UniqueIdentifier,16)};
 			parameters[0].Value = model.Visa_id;
 			parameters[1].Value = model.GroupNo;
@@ -157,23 +161,25 @@ namespace TravelAgency.DAL
 			parameters[25].Value = model.RealOutTime;
 			parameters[26].Value = model.Country;
 			parameters[27].Value = model.Call;
-			parameters[28].Value = model.outState;
-			parameters[29].Value = model.Residence;
-			parameters[30].Value = model.Occupation;
-			parameters[31].Value = model.DepartureRecord;
-			parameters[32].Value = model.Marriaged;
-			parameters[33].Value = model.Identification;
-			parameters[34].Value = model.FinancialCapacity;
-			parameters[35].Value = model.AgencyOpinion;
-			parameters[36].Value = model.HasTypeIn;
-			parameters[37].Value = model.AbnormalOutTime;
-			parameters[38].Value = model.HasChecked;
-			parameters[39].Value = model.CheckPerson;
-			parameters[40].Value = model.ReturnTime;
-			parameters[41].Value = model.Position;
-			parameters[42].Value = model.IssuePlaceEnglish;
-			parameters[43].Value = model.BirthPlaceEnglish;
-			parameters[44].Value = model.VisaInfo_id;
+			parameters[28].Value = model.ExportState;
+			parameters[29].Value = model.outState;
+			parameters[30].Value = model.Residence;
+			parameters[31].Value = model.Occupation;
+			parameters[32].Value = model.DepartureRecord;
+			parameters[33].Value = model.Marriaged;
+			parameters[34].Value = model.Identification;
+			parameters[35].Value = model.FinancialCapacity;
+			parameters[36].Value = model.AgencyOpinion;
+			parameters[37].Value = model.HasTypeIn;
+			parameters[38].Value = model.AbnormalOutTime;
+			parameters[39].Value = model.HasChecked;
+			parameters[40].Value = model.CheckPerson;
+			parameters[41].Value = model.ReturnTime;
+			parameters[42].Value = model.Position;
+			parameters[43].Value = model.IssuePlaceEnglish;
+			parameters[44].Value = model.BirthPlaceEnglish;
+			parameters[45].Value = model.JobId;
+			parameters[46].Value = model.VisaInfo_id;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -209,6 +215,8 @@ namespace TravelAgency.DAL
 				return false;
 			}
 		}
+		
+
 
 		/// <summary>
 		/// 得到一个对象实体
@@ -217,7 +225,7 @@ namespace TravelAgency.DAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 VisaInfo_id,Visa_id,GroupNo,Name,EnglishName,Sex,Birthday,PassportNo,LicenceTime,ExpiryDate,Birthplace,IssuePlace,Post,Phone,GuideNo,Client,Salesperson,Types,Sale_id,DepartmentId,Tips,EntryTime,EmbassyTime,InTime,OutTime,RealOut,RealOutTime,Country,Call,outState,Residence,Occupation,DepartureRecord,Marriaged,Identification,FinancialCapacity,AgencyOpinion,HasTypeIn,AbnormalOutTime,HasChecked,CheckPerson,ReturnTime,Position,IssuePlaceEnglish,BirthPlaceEnglish from VisaInfo ");
+			strSql.Append("select  top 1 VisaInfo_id,Visa_id,GroupNo,Name,EnglishName,Sex,Birthday,PassportNo,LicenceTime,ExpiryDate,Birthplace,IssuePlace,Post,Phone,GuideNo,Client,Salesperson,Types,Sale_id,DepartmentId,Tips,EntryTime,EmbassyTime,InTime,OutTime,RealOut,RealOutTime,Country,Call,ExportState,outState,Residence,Occupation,DepartureRecord,Marriaged,Identification,FinancialCapacity,AgencyOpinion,HasTypeIn,AbnormalOutTime,HasChecked,CheckPerson,ReturnTime,Position,IssuePlaceEnglish,BirthPlaceEnglish,JobId from VisaInfo ");
 			strSql.Append(" where VisaInfo_id=@VisaInfo_id ");
 			SqlParameter[] parameters = {
 					new SqlParameter("@VisaInfo_id", SqlDbType.UniqueIdentifier,16)			};
@@ -360,6 +368,10 @@ namespace TravelAgency.DAL
 				{
 					model.Call=row["Call"].ToString();
 				}
+				if(row["ExportState"]!=null)
+				{
+					model.ExportState=row["ExportState"].ToString();
+				}
 				if(row["outState"]!=null)
 				{
 					model.outState=row["outState"].ToString();
@@ -424,6 +436,10 @@ namespace TravelAgency.DAL
 				{
 					model.BirthPlaceEnglish=row["BirthPlaceEnglish"].ToString();
 				}
+				if(row["JobId"]!=null && row["JobId"].ToString()!="")
+				{
+					model.JobId=int.Parse(row["JobId"].ToString());
+				}
 			}
 			return model;
 		}
@@ -434,7 +450,7 @@ namespace TravelAgency.DAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select VisaInfo_id,Visa_id,GroupNo,Name,EnglishName,Sex,Birthday,PassportNo,LicenceTime,ExpiryDate,Birthplace,IssuePlace,Post,Phone,GuideNo,Client,Salesperson,Types,Sale_id,DepartmentId,Tips,EntryTime,EmbassyTime,InTime,OutTime,RealOut,RealOutTime,Country,Call,outState,Residence,Occupation,DepartureRecord,Marriaged,Identification,FinancialCapacity,AgencyOpinion,HasTypeIn,AbnormalOutTime,HasChecked,CheckPerson,ReturnTime,Position,IssuePlaceEnglish,BirthPlaceEnglish ");
+			strSql.Append("select VisaInfo_id,Visa_id,GroupNo,Name,EnglishName,Sex,Birthday,PassportNo,LicenceTime,ExpiryDate,Birthplace,IssuePlace,Post,Phone,GuideNo,Client,Salesperson,Types,Sale_id,DepartmentId,Tips,EntryTime,EmbassyTime,InTime,OutTime,RealOut,RealOutTime,Country,Call,ExportState,outState,Residence,Occupation,DepartureRecord,Marriaged,Identification,FinancialCapacity,AgencyOpinion,HasTypeIn,AbnormalOutTime,HasChecked,CheckPerson,ReturnTime,Position,IssuePlaceEnglish,BirthPlaceEnglish,JobId ");
 			strSql.Append(" FROM VisaInfo ");
 			if(strWhere.Trim()!="")
 			{
@@ -454,7 +470,7 @@ namespace TravelAgency.DAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" VisaInfo_id,Visa_id,GroupNo,Name,EnglishName,Sex,Birthday,PassportNo,LicenceTime,ExpiryDate,Birthplace,IssuePlace,Post,Phone,GuideNo,Client,Salesperson,Types,Sale_id,DepartmentId,Tips,EntryTime,EmbassyTime,InTime,OutTime,RealOut,RealOutTime,Country,Call,outState,Residence,Occupation,DepartureRecord,Marriaged,Identification,FinancialCapacity,AgencyOpinion,HasTypeIn,AbnormalOutTime,HasChecked,CheckPerson,ReturnTime,Position,IssuePlaceEnglish,BirthPlaceEnglish ");
+			strSql.Append(" VisaInfo_id,Visa_id,GroupNo,Name,EnglishName,Sex,Birthday,PassportNo,LicenceTime,ExpiryDate,Birthplace,IssuePlace,Post,Phone,GuideNo,Client,Salesperson,Types,Sale_id,DepartmentId,Tips,EntryTime,EmbassyTime,InTime,OutTime,RealOut,RealOutTime,Country,Call,ExportState,outState,Residence,Occupation,DepartureRecord,Marriaged,Identification,FinancialCapacity,AgencyOpinion,HasTypeIn,AbnormalOutTime,HasChecked,CheckPerson,ReturnTime,Position,IssuePlaceEnglish,BirthPlaceEnglish,JobId ");
 			strSql.Append(" FROM VisaInfo ");
 			if(strWhere.Trim()!="")
 			{
