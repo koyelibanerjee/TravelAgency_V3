@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAgency.BLL", "BLL\TravelAgency.BLL.csproj", "{38D7AA58-C95B-449B-86C6-A8073A56E11F}"
 EndProject
@@ -523,5 +523,8 @@ Global
 		{D8352878-48DF-4E71-996B-7D5E51199ED4} = {3F9A535C-0513-451F-92D3-58D71E4A8A6A}
 		{8E0FD5C8-5DCA-4559-940D-C1C8325A36C6} = {3F9A535C-0513-451F-92D3-58D71E4A8A6A}
 		{CA8FFD95-DBF8-47AD-B2A7-EB5329D82BCF} = {3F9A535C-0513-451F-92D3-58D71E4A8A6A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A62CC67B-E573-4C00-A549-DBA38AD9F5E1}
 	EndGlobalSection
 EndGlobal

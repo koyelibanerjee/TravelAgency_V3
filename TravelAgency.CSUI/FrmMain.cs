@@ -209,5 +209,11 @@ namespace TravelAgency.CSUI.FrmMain
             FrmAppManage frm = new FrmAppManage();
             OpenTab(frm, frm.Name);
         }
+
+        private void btnJobAssignment_Click(object sender, EventArgs e)
+        {
+            FrmJobAssignment frm = new FrmJobAssignment();
+            OpenTab(frm, frm.Name);
+        }
     }
 }

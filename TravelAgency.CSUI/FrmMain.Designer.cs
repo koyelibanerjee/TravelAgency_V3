@@ -65,6 +65,7 @@
             this.btnMCloseOther = new System.Windows.Forms.ToolStripMenuItem();
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
             this.btnFrmGaoPaiManage = new DevComponents.DotNetBar.ButtonItem();
+            this.btnJobAssignment = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonControl1.SuspendLayout();
             this.ribbonPanel3.SuspendLayout();
             this.ribbonPanel1.SuspendLayout();
@@ -171,10 +172,11 @@
             this.btnVisaQuery,
             this.btnVisaSubmit,
             this.btnScanFrm,
-            this.btnGPManage});
+            this.btnGPManage,
+            this.btnJobAssignment});
             this.ribbonBar2.Location = new System.Drawing.Point(3, 0);
             this.ribbonBar2.Name = "ribbonBar2";
-            this.ribbonBar2.Size = new System.Drawing.Size(434, 58);
+            this.ribbonBar2.Size = new System.Drawing.Size(545, 58);
             this.ribbonBar2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonBar2.TabIndex = 0;
             this.ribbonBar2.Text = "ribbonBar2";
@@ -578,6 +580,16 @@
             this.btnFrmGaoPaiManage.SubItemsExpandWidth = 14;
             this.btnFrmGaoPaiManage.Text = "高排图像管理";
             // 
+            // btnJobAssignment
+            // 
+            this.btnJobAssignment.Icon = ((System.Drawing.Icon)(resources.GetObject("btnJobAssignment.Icon")));
+            this.btnJobAssignment.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
+            this.btnJobAssignment.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnJobAssignment.Name = "btnJobAssignment";
+            this.btnJobAssignment.SubItemsExpandWidth = 14;
+            this.btnJobAssignment.Text = "任务分配";
+            this.btnJobAssignment.Click += new System.EventHandler(this.btnJobAssignment_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -638,5 +650,6 @@
         private DevComponents.DotNetBar.ButtonItem btnConsulateManage;
         private DevComponents.DotNetBar.ButtonItem btnCommisionMoneyManage;
         private DevComponents.DotNetBar.ButtonItem btnAppAllManage;
+        private DevComponents.DotNetBar.ButtonItem btnJobAssignment;
     }
 }

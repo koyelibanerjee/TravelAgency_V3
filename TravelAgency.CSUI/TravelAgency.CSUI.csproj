@@ -169,6 +169,12 @@
     <Compile Include="Visa\FrmSub\FrmScanCtrlImported.Designer.cs">
       <DependentUpon>FrmScanCtrlImported.cs</DependentUpon>
     </Compile>
+    <Compile Include="Visa\FrmSub\FrmSelUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visa\FrmSub\FrmSelUser.Designer.cs">
+      <DependentUpon>FrmSelUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visa\FrmSub\FrmSetSubmitStatus.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -417,6 +423,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TravelAgencyDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Visa\FrmMain\FrmJobAssignment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visa\FrmMain\FrmJobAssignment.Designer.cs">
+      <DependentUpon>FrmJobAssignment.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Financial\FrmMain\FrmAppManage.resx">
       <DependentUpon>FrmAppManage.cs</DependentUpon>
     </EmbeddedResource>
@@ -452,6 +464,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visa\FrmSub\FrmScanCtrlImported.resx">
       <DependentUpon>FrmScanCtrlImported.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visa\FrmSub\FrmSelUser.resx">
+      <DependentUpon>FrmSelUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visa\FrmSub\FrmSetSubmitStatus.resx">
       <DependentUpon>FrmSetSubmitStatus.cs</DependentUpon>
@@ -581,6 +596,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Visa\FrmMain\FrmJobAssignment.resx">
+      <DependentUpon>FrmJobAssignment.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

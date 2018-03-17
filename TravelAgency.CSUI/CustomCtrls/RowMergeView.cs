@@ -12,6 +12,7 @@ using System.Runtime.InteropServices;
 
     /// <summary>
     /// DataGridView行合并.请对属性MergeColumnNames 赋值既可
+    /// 但是只能合并文本类型的单元格，比如说id是int类型就合并不了
     /// </summary>
     public partial class RowMergeView : DataGridView
     {
