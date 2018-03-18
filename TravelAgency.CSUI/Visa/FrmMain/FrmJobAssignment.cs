@@ -1312,7 +1312,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 return;
 
             string selWorkId = frm.SelWorkId;
-
+            List<VisaInfo> visainfoList = new List<VisaInfo>();
             //把这些工作都分配给这个workid
             foreach (var id in selJobList)
             {
@@ -1320,13 +1320,18 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 job.AssignmentToWorkId = selWorkId;
                 job.AssignmentTime = DateTime.Now;
                 _bllJobAssignment.Update(job);
+
+                //visainfo也跟着更新,找到所有工作id对应的visainfo
+                var listtmp = _bllVisaInfo.GetModelList(" JobId = " + id);
+                visainfoList.AddRange(listtmp);
             }
-            //visainfo也跟着更新
-            for (int i = 0; i != list.Count; ++i)
+            
+            for(int i = 0; i != visainfoList.Count; ++i)
             {
-                list[i].AssignmentToWorkId = selWorkId;
-                _bllVisaInfo.Update(list[i]);
+                visainfoList[i].AssignmentToWorkId = GlobalUtils.LoginUser.WorkId;
+                _bllVisaInfo.Update(visainfoList[i]);
             }
+
 
             //
             MessageBoxEx.Show("分配成功!");
