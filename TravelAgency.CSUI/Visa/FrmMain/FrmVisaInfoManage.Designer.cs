@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this._Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EnglishName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -134,11 +134,12 @@
             this.护照红外图像ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.全部ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.高拍仪做资料ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.删除护照图像ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.上传护照图像ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bgWorkerLoadData = new System.ComponentModel.BackgroundWorker();
             this.cms4AddToExport = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.添加到送签统计ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.删除护照图像ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.上传护照图像ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnOnlyShowMe = new DevComponents.DotNetBar.SwitchButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panelDgv.SuspendLayout();
@@ -156,14 +157,14 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this._Name,
@@ -186,28 +187,28 @@
             this.Phone,
             this.VisaInfo_id,
             this.Visa_id});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -893,7 +894,8 @@
             this.labelItem6,
             this.labelItem7,
             this.lbPeopleCount,
-            this.lbDelayCount});
+            this.lbDelayCount,
+            this.btnOnlyShowMe});
             this.bar1.ItemSpacing = 5;
             this.bar1.Location = new System.Drawing.Point(0, 0);
             this.bar1.Name = "bar1";
@@ -1041,7 +1043,7 @@
             this.删除护照图像ToolStripMenuItem,
             this.上传护照图像ToolStripMenuItem});
             this.cmsDgvRb.Name = "cmsDgvRb";
-            this.cmsDgvRb.Size = new System.Drawing.Size(185, 374);
+            this.cmsDgvRb.Size = new System.Drawing.Size(185, 352);
             // 
             // 复制ToolStripMenuItem
             // 
@@ -1252,6 +1254,20 @@
             this.高拍仪做资料ToolStripMenuItem.Text = "高拍仪做资料";
             this.高拍仪做资料ToolStripMenuItem.Click += new System.EventHandler(this.高拍仪做资料ToolStripMenuItem_Click);
             // 
+            // 删除护照图像ToolStripMenuItem
+            // 
+            this.删除护照图像ToolStripMenuItem.Name = "删除护照图像ToolStripMenuItem";
+            this.删除护照图像ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.删除护照图像ToolStripMenuItem.Text = "删除护照图像";
+            this.删除护照图像ToolStripMenuItem.Click += new System.EventHandler(this.删除护照图像ToolStripMenuItem_Click);
+            // 
+            // 上传护照图像ToolStripMenuItem
+            // 
+            this.上传护照图像ToolStripMenuItem.Name = "上传护照图像ToolStripMenuItem";
+            this.上传护照图像ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.上传护照图像ToolStripMenuItem.Text = "上传护照图像";
+            this.上传护照图像ToolStripMenuItem.Click += new System.EventHandler(this.上传护照图像ToolStripMenuItem_Click);
+            // 
             // bgWorkerLoadData
             // 
             this.bgWorkerLoadData.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgWorkerLoadData_DoWork);
@@ -1272,19 +1288,11 @@
             this.添加到送签统计ToolStripMenuItem.Text = "添加到送签统计";
             this.添加到送签统计ToolStripMenuItem.Click += new System.EventHandler(this.添加到送签统计ToolStripMenuItem_Click);
             // 
-            // 删除护照图像ToolStripMenuItem
+            // btnOnlyShowMe
             // 
-            this.删除护照图像ToolStripMenuItem.Name = "删除护照图像ToolStripMenuItem";
-            this.删除护照图像ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.删除护照图像ToolStripMenuItem.Text = "删除护照图像";
-            this.删除护照图像ToolStripMenuItem.Click += new System.EventHandler(this.删除护照图像ToolStripMenuItem_Click);
-            // 
-            // 上传护照图像ToolStripMenuItem
-            // 
-            this.上传护照图像ToolStripMenuItem.Name = "上传护照图像ToolStripMenuItem";
-            this.上传护照图像ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.上传护照图像ToolStripMenuItem.Text = "上传护照图像";
-            this.上传护照图像ToolStripMenuItem.Click += new System.EventHandler(this.上传护照图像ToolStripMenuItem_Click);
+            this.btnOnlyShowMe.Name = "btnOnlyShowMe";
+            this.btnOnlyShowMe.Text = "只查看我的工作";
+            this.btnOnlyShowMe.ValueChanged += new System.EventHandler(this.btnOnlyShowMe_ValueChanged);
             // 
             // FrmVisaInfoManage
             // 
@@ -1418,6 +1426,7 @@
         private DevComponents.DotNetBar.LabelItem lbDelayCount;
         private System.Windows.Forms.ToolStripMenuItem 删除护照图像ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 上传护照图像ToolStripMenuItem;
+        private DevComponents.DotNetBar.SwitchButtonItem btnOnlyShowMe;
     }
 }
 

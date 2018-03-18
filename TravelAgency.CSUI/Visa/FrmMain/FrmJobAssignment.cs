@@ -80,9 +80,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             rowMergeView1.MultiSelect = true;
             rowMergeView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            //rowMergeView1.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
-            //设置不能调整列标题高度
-            //this.rowMergeView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            rowMergeView1.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
             rowMergeView1.MergeColumnNames.Add("JobId");
             rowMergeView1.MergeColumnNames.Add("GroupNo");
 
@@ -567,6 +565,17 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 if (list[i].GroupNo != null)
                 {
                     rowMergeView1.Rows[i].Cells["GroupNo"].Value = list[i].GroupNo;
+                }
+
+                if (!string.IsNullOrEmpty(list[i].AssignmentToWorkId))
+                {
+                    rowMergeView1.Rows[i].Cells["AssignmentState"].Value = "已分配";
+                    rowMergeView1.Rows[i].Cells["AssignmentState"].Style.BackColor = Color.DarkGreen;
+                }
+                else
+                {
+                    rowMergeView1.Rows[i].Cells["AssignmentState"].Value = "未分配";
+                    //rowMergeView1.Rows[i].Cells["AssignmentState"].Style.BackColor = Color.DarkGreen;
                 }
 
                 //if (rowMergeView1.Rows[i].Cells["Country"].Value != null)
@@ -1311,6 +1320,12 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 job.AssignmentToWorkId = selWorkId;
                 job.AssignmentTime = DateTime.Now;
                 _bllJobAssignment.Update(job);
+            }
+            //visainfo也跟着更新
+            for (int i = 0; i != list.Count; ++i)
+            {
+                list[i].AssignmentToWorkId = selWorkId;
+                _bllVisaInfo.Update(list[i]);
             }
 
             //

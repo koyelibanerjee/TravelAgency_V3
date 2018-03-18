@@ -309,6 +309,13 @@ namespace TravelAgency.CSUI.FrmMain
         #endregion
 
         #region dgv的bar栏和搜索栏
+
+        private void btnOnlyShowMe_ValueChanged(object sender, EventArgs e)
+        {
+            LoadDataToDgvAsyn();
+        }
+
+
         private void btnPageNext_Click(object sender, EventArgs e)
         {
             ++_curPage;
@@ -454,6 +461,11 @@ namespace TravelAgency.CSUI.FrmMain
             else
             {
                 conditions.Add(" outState = '" + cbOutState.Text + "' ");
+            }
+
+            if (btnOnlyShowMe.Value == true)
+            {
+                conditions.Add(" AssignmentToWorkId = '" + GlobalUtils.LoginUser.WorkId + "' ");
             }
 
             string[] arr = conditions.ToArray();
@@ -1279,6 +1291,7 @@ namespace TravelAgency.CSUI.FrmMain
             PassportPicHandler.UploadPassportPic(filename, list[0].PassportNo);
             MessageBoxEx.Show("上传成功!");
         }
+
         #endregion
 
 
