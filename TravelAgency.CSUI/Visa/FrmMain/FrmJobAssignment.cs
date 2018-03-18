@@ -466,6 +466,8 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 conditions.Add(" outState = '" + cbOutState.Text + "' ");
             }
 
+            conditions.Add(" (visa_id is null and (groupno is null or len(groupno)=0)) "); //默认只显示还未做的
+
             string[] arr = conditions.ToArray();
             string where = string.Join(" and ", arr);
             return where;
