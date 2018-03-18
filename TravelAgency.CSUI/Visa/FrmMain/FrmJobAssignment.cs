@@ -1316,6 +1316,11 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             //把这些工作都分配给这个workid
             foreach (var id in selJobList)
             {
+                if(id == 0)
+                {
+                    MessageBoxEx.Show("选中项还没有分配任务编号，无法安排!");
+                    return;
+                }
                 var job = _bllJobAssignment.GetModel(id);
                 job.AssignmentToWorkId = selWorkId;
                 job.AssignmentTime = DateTime.Now;
