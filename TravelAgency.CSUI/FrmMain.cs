@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.IO;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using ScanCtrlTest;
@@ -214,6 +216,26 @@ namespace TravelAgency.CSUI.FrmMain
         {
             FrmJobAssignment frm = new FrmJobAssignment();
             OpenTab(frm, frm.Name);
+        }
+
+        private void btnChangeLoginUser_Click(object sender, EventArgs e)
+        {
+            if (MessageBoxEx.Show("是否切换用户", "提示", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+            {
+                StartExe(Application.ExecutablePath);
+                Application.ExitThread();
+            }
+        }
+
+        private static void StartExe(string appName)
+        {
+            string path = appName;
+            Process ps = new Process();
+            ps.StartInfo.FileName = path;
+            ps.StartInfo.Arguments = "T";
+            ps.StartInfo.CreateNoWindow = true;
+            ps.StartInfo.WorkingDirectory = Path.GetDirectoryName(path);
+            ps.Start();
         }
     }
 }

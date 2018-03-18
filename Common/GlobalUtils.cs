@@ -27,7 +27,6 @@ namespace TravelAgency.Common
         public static readonly DocDocxGenerator DocDocxGenerator;
         public static RigthLevel LoginUserLevel;
         public static ILog Logger = log4net.LogManager.GetLogger("DemoWriter");
-
         static GlobalUtils()
         {
             InitFtp();

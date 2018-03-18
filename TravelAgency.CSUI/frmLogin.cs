@@ -85,8 +85,16 @@ namespace TravelAgency.CSUI.FrmMain
                 GlobalUtils.LoginUserLevel = RigthLevel.Normal;
 
             }
-            FrmMain frm = new FrmMain();
-            frm.Show();
+
+            if (FrmsManager.MainForm != null)
+            {
+                FrmsManager.MainForm.Visible = true;
+            }
+            else
+            {
+                FrmMain frm = new FrmMain();
+                frm.Show();
+            }
             this.Visible = false;
         }
 

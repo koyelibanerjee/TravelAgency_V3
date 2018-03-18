@@ -6,7 +6,6 @@ namespace TravelAgency.Common
     public static class FrmsManager
     {
         public static List<Form> OpenedForms { get; set; }
-
         public static Form MainForm
         {
             get
