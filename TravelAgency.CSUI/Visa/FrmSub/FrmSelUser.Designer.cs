@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -35,8 +36,11 @@
             this.dataGridView1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.WorkId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmsDgv = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.分配给选中用户ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelDgv.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.cmsDgv.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelDgv
@@ -81,7 +85,7 @@
             dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -118,6 +122,20 @@
             this.UserName.Name = "UserName";
             this.UserName.ReadOnly = true;
             // 
+            // cmsDgv
+            // 
+            this.cmsDgv.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.分配给选中用户ToolStripMenuItem});
+            this.cmsDgv.Name = "cmsDgv";
+            this.cmsDgv.Size = new System.Drawing.Size(161, 48);
+            // 
+            // 分配给选中用户ToolStripMenuItem
+            // 
+            this.分配给选中用户ToolStripMenuItem.Name = "分配给选中用户ToolStripMenuItem";
+            this.分配给选中用户ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.分配给选中用户ToolStripMenuItem.Text = "分配给选中用户";
+            this.分配给选中用户ToolStripMenuItem.Click += new System.EventHandler(this.分配给选中用户ToolStripMenuItem_Click);
+            // 
             // FrmSelUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -130,6 +148,7 @@
             this.DoubleClick += new System.EventHandler(this.FrmSelUser_DoubleClick);
             this.panelDgv.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.cmsDgv.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -140,5 +159,7 @@
         private DevComponents.DotNetBar.Controls.DataGridViewX dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn WorkId;
         private System.Windows.Forms.DataGridViewTextBoxColumn UserName;
+        private System.Windows.Forms.ContextMenuStrip cmsDgv;
+        private System.Windows.Forms.ToolStripMenuItem 分配给选中用户ToolStripMenuItem;
     }
 }

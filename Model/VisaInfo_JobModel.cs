@@ -5,9 +5,9 @@ namespace TravelAgency.Model
 	/// VisaInfo:实体类(属性说明自动提取数据库字段的描述信息)
 	/// </summary>
 	[Serializable]
-	public partial class VisaInfo
+	public partial class VisaInfo_Job
 	{
-		public VisaInfo()
+		public VisaInfo_Job()
 		{}
 		#region Model
 		private Guid _visainfo_id;
@@ -57,11 +57,13 @@ namespace TravelAgency.Model
 		private string _issueplaceenglish;
 		private string _birthplaceenglish;
 		private int? _jobid;
-		private string _assignmenttoworkid;
-		/// <summary>
-		/// 
-		/// </summary>
-		public Guid VisaInfo_id
+		private int? _assignmenttoworkid;
+		private DateTime? _assignmenttime;
+		private string _assignmentstate;
+        /// <summary>
+        /// 
+        /// </summary>
+        public Guid VisaInfo_id
 		{
 			set{ _visainfo_id=value;}
 			get{return _visainfo_id;}
@@ -434,16 +436,27 @@ namespace TravelAgency.Model
 			set{ _jobid=value;}
 			get{return _jobid;}
 		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public string AssignmentToWorkId
-		{
-			set{ _assignmenttoworkid=value;}
-			get{return _assignmenttoworkid;}
-		}
-		#endregion Model
 
-	}
+	    public int? AssignmentToWorkId
+	    {
+            set { _assignmenttoworkid = value; }
+            get { return _assignmenttoworkid; }
+	    }
+
+	    public DateTime? AssignmentTime
+        {
+	        set { _assignmenttime = value; }
+	        get { return _assignmenttime; }
+	    }
+
+	    public string AssignmentState
+	    {
+	        set { _assignmentstate = value; }
+	        get { return _assignmentstate; }
+	    }
+
+        #endregion Model
+
+    }
 }
 

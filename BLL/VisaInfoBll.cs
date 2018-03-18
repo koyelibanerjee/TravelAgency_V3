@@ -11,23 +11,23 @@ namespace TravelAgency.BLL
     /// </summary>
     public partial class VisaInfo
     {
-        public List<Model.VisaInfo> GetListByPageOrderByOutState(int pageIndex, int pageSize,string where)
+        public List<Model.VisaInfo> GetListByPageOrderByOutState(int pageIndex, int pageSize, string where)
         {
             int start = (pageIndex - 1) * pageSize + 1;
             int end = pageIndex * pageSize;
 
-            DataSet ds = dal.GetDataByPageOrderByOutState(start, end,where);
+            DataSet ds = dal.GetDataByPageOrderByOutState(start, end, where);
             DataTable dt = ds.Tables[0];
             return DataTableToList(dt);
-            
+
         }
 
-        public List<Model.VisaInfo> GetListByPageOrderByGroupNo(int pageIndex, int pageSize,string where)
+        public List<Model.VisaInfo> GetListByPageOrderByGroupNo(int pageIndex, int pageSize, string where)
         {
             int start = (pageIndex - 1) * pageSize + 1;
             int end = pageIndex * pageSize;
 
-            DataSet ds = dal.GetDataByPageOrderByGroupNo(start, end,where);
+            DataSet ds = dal.GetDataByPageOrderByGroupNo(start, end, where);
             DataTable dt = ds.Tables[0];
             return DataTableToList(dt);
         }
@@ -42,11 +42,6 @@ namespace TravelAgency.BLL
             return DataTableToList(dt);
         }
 
-
-        public int DeleteList(string VisaInfo_idlist)
-        {
-            return dal.DeleteList(VisaInfo_idlist);
-        }
 
         public int DeleteListByPassNo(List<string> passNums)
         {
@@ -69,16 +64,7 @@ namespace TravelAgency.BLL
         }
 
 
-        /// <summary>
-        /// 获得数据列表,并且按照所在团里面的Position进行排序
-        /// </summary>
-        public List<TravelAgency.Model.VisaInfo> GetModelList(string strWhere)
-        {
-            DataSet ds = dal.GetList(strWhere);
-            var list =  DataTableToList(ds.Tables[0]);
-            //list.Sort((model1, model2) => { return model1.Position < model2.Position ? -1 : 1; }); //按照position先排序
-            return list;
-        }
+
 
         /// <summary>
         /// 获得数据列表,并且按照所在团里面的Position进行排序

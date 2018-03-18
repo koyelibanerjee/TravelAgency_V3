@@ -83,7 +83,8 @@ namespace TravelAgency.DAL
 			strSql.Append("Position=@Position,");
 			strSql.Append("IssuePlaceEnglish=@IssuePlaceEnglish,");
 			strSql.Append("BirthPlaceEnglish=@BirthPlaceEnglish,");
-			strSql.Append("JobId=@JobId");
+			strSql.Append("JobId=@JobId,");
+			strSql.Append("AssignmentToWorkId=@AssignmentToWorkId");
 			strSql.Append(" where VisaInfo_id=@VisaInfo_id ");
 			SqlParameter[] parameters = {
 					new SqlParameter("@Visa_id", SqlDbType.VarChar,50),
@@ -132,6 +133,7 @@ namespace TravelAgency.DAL
 					new SqlParameter("@IssuePlaceEnglish", SqlDbType.VarChar,50),
 					new SqlParameter("@BirthPlaceEnglish", SqlDbType.VarChar,50),
 					new SqlParameter("@JobId", SqlDbType.Int,4),
+					new SqlParameter("@AssignmentToWorkId", SqlDbType.VarChar,50),
 					new SqlParameter("@VisaInfo_id", SqlDbType.UniqueIdentifier,16)};
 			parameters[0].Value = model.Visa_id;
 			parameters[1].Value = model.GroupNo;
@@ -179,7 +181,8 @@ namespace TravelAgency.DAL
 			parameters[43].Value = model.IssuePlaceEnglish;
 			parameters[44].Value = model.BirthPlaceEnglish;
 			parameters[45].Value = model.JobId;
-			parameters[46].Value = model.VisaInfo_id;
+			parameters[46].Value = model.AssignmentToWorkId;
+			parameters[47].Value = model.VisaInfo_id;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -225,7 +228,7 @@ namespace TravelAgency.DAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 VisaInfo_id,Visa_id,GroupNo,Name,EnglishName,Sex,Birthday,PassportNo,LicenceTime,ExpiryDate,Birthplace,IssuePlace,Post,Phone,GuideNo,Client,Salesperson,Types,Sale_id,DepartmentId,Tips,EntryTime,EmbassyTime,InTime,OutTime,RealOut,RealOutTime,Country,Call,ExportState,outState,Residence,Occupation,DepartureRecord,Marriaged,Identification,FinancialCapacity,AgencyOpinion,HasTypeIn,AbnormalOutTime,HasChecked,CheckPerson,ReturnTime,Position,IssuePlaceEnglish,BirthPlaceEnglish,JobId from VisaInfo ");
+			strSql.Append("select  top 1 VisaInfo_id,Visa_id,GroupNo,Name,EnglishName,Sex,Birthday,PassportNo,LicenceTime,ExpiryDate,Birthplace,IssuePlace,Post,Phone,GuideNo,Client,Salesperson,Types,Sale_id,DepartmentId,Tips,EntryTime,EmbassyTime,InTime,OutTime,RealOut,RealOutTime,Country,Call,ExportState,outState,Residence,Occupation,DepartureRecord,Marriaged,Identification,FinancialCapacity,AgencyOpinion,HasTypeIn,AbnormalOutTime,HasChecked,CheckPerson,ReturnTime,Position,IssuePlaceEnglish,BirthPlaceEnglish,JobId,AssignmentToWorkId from VisaInfo ");
 			strSql.Append(" where VisaInfo_id=@VisaInfo_id ");
 			SqlParameter[] parameters = {
 					new SqlParameter("@VisaInfo_id", SqlDbType.UniqueIdentifier,16)			};
@@ -440,6 +443,10 @@ namespace TravelAgency.DAL
 				{
 					model.JobId=int.Parse(row["JobId"].ToString());
 				}
+				if(row["AssignmentToWorkId"]!=null)
+				{
+					model.AssignmentToWorkId=row["AssignmentToWorkId"].ToString();
+				}
 			}
 			return model;
 		}
@@ -450,7 +457,7 @@ namespace TravelAgency.DAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select VisaInfo_id,Visa_id,GroupNo,Name,EnglishName,Sex,Birthday,PassportNo,LicenceTime,ExpiryDate,Birthplace,IssuePlace,Post,Phone,GuideNo,Client,Salesperson,Types,Sale_id,DepartmentId,Tips,EntryTime,EmbassyTime,InTime,OutTime,RealOut,RealOutTime,Country,Call,ExportState,outState,Residence,Occupation,DepartureRecord,Marriaged,Identification,FinancialCapacity,AgencyOpinion,HasTypeIn,AbnormalOutTime,HasChecked,CheckPerson,ReturnTime,Position,IssuePlaceEnglish,BirthPlaceEnglish,JobId ");
+			strSql.Append("select VisaInfo_id,Visa_id,GroupNo,Name,EnglishName,Sex,Birthday,PassportNo,LicenceTime,ExpiryDate,Birthplace,IssuePlace,Post,Phone,GuideNo,Client,Salesperson,Types,Sale_id,DepartmentId,Tips,EntryTime,EmbassyTime,InTime,OutTime,RealOut,RealOutTime,Country,Call,ExportState,outState,Residence,Occupation,DepartureRecord,Marriaged,Identification,FinancialCapacity,AgencyOpinion,HasTypeIn,AbnormalOutTime,HasChecked,CheckPerson,ReturnTime,Position,IssuePlaceEnglish,BirthPlaceEnglish,JobId,AssignmentToWorkId ");
 			strSql.Append(" FROM VisaInfo ");
 			if(strWhere.Trim()!="")
 			{
@@ -470,7 +477,7 @@ namespace TravelAgency.DAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" VisaInfo_id,Visa_id,GroupNo,Name,EnglishName,Sex,Birthday,PassportNo,LicenceTime,ExpiryDate,Birthplace,IssuePlace,Post,Phone,GuideNo,Client,Salesperson,Types,Sale_id,DepartmentId,Tips,EntryTime,EmbassyTime,InTime,OutTime,RealOut,RealOutTime,Country,Call,ExportState,outState,Residence,Occupation,DepartureRecord,Marriaged,Identification,FinancialCapacity,AgencyOpinion,HasTypeIn,AbnormalOutTime,HasChecked,CheckPerson,ReturnTime,Position,IssuePlaceEnglish,BirthPlaceEnglish,JobId ");
+			strSql.Append(" VisaInfo_id,Visa_id,GroupNo,Name,EnglishName,Sex,Birthday,PassportNo,LicenceTime,ExpiryDate,Birthplace,IssuePlace,Post,Phone,GuideNo,Client,Salesperson,Types,Sale_id,DepartmentId,Tips,EntryTime,EmbassyTime,InTime,OutTime,RealOut,RealOutTime,Country,Call,ExportState,outState,Residence,Occupation,DepartureRecord,Marriaged,Identification,FinancialCapacity,AgencyOpinion,HasTypeIn,AbnormalOutTime,HasChecked,CheckPerson,ReturnTime,Position,IssuePlaceEnglish,BirthPlaceEnglish,JobId,AssignmentToWorkId ");
 			strSql.Append(" FROM VisaInfo ");
 			if(strWhere.Trim()!="")
 			{

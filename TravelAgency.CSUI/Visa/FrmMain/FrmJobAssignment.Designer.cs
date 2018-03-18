@@ -33,20 +33,6 @@
             this.panelMain = new DevComponents.DotNetBar.PanelEx();
             this.panelDgv = new DevComponents.DotNetBar.PanelEx();
             this.rowMergeView1 = new RowMergeView();
-            this.outState = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.JobId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CountryImage = new System.Windows.Forms.DataGridViewImageColumn();
-            this._Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IssuePlace = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Residence = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DepartureType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReturnTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GroupNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SubmitCondition = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VisaInfo_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Visa_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelBars = new DevComponents.DotNetBar.PanelEx();
             this.panelSerachBar = new DevComponents.DotNetBar.PanelEx();
             this.cbOutState = new DevComponents.DotNetBar.Controls.ComboBoxEx();
@@ -120,10 +106,24 @@
             this.高拍仪做资料ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.删除护照图像ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.上传护照图像ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.指定人员分配ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bgWorkerLoadData = new System.ComponentModel.BackgroundWorker();
             this.cms4AddToExport = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.添加到送签统计ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.指定人员分配ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AssignmentState = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.JobId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CountryImage = new System.Windows.Forms.DataGridViewImageColumn();
+            this._Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IssuePlace = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Residence = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DepartureType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReturnTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GroupNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubmitCondition = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VisaInfo_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Visa_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMain.SuspendLayout();
             this.panelDgv.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.rowMergeView1)).BeginInit();
@@ -181,7 +181,7 @@
             this.rowMergeView1.AllowUserToDeleteRows = false;
             this.rowMergeView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.rowMergeView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.outState,
+            this.AssignmentState,
             this.JobId,
             this.Country,
             this.CountryImage,
@@ -205,105 +205,6 @@
             this.rowMergeView1.RowTemplate.Height = 23;
             this.rowMergeView1.Size = new System.Drawing.Size(1508, 532);
             this.rowMergeView1.TabIndex = 1;
-            // 
-            // outState
-            // 
-            this.outState.DataPropertyName = "outState";
-            this.outState.HeaderText = "导出状态";
-            this.outState.Name = "outState";
-            this.outState.ReadOnly = true;
-            // 
-            // JobId
-            // 
-            this.JobId.HeaderText = "任务编号";
-            this.JobId.Name = "JobId";
-            this.JobId.ReadOnly = true;
-            // 
-            // Country
-            // 
-            this.Country.DataPropertyName = "Country";
-            this.Country.HeaderText = "国家";
-            this.Country.Name = "Country";
-            this.Country.ReadOnly = true;
-            this.Country.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // CountryImage
-            // 
-            this.CountryImage.HeaderText = "国家图标";
-            this.CountryImage.Name = "CountryImage";
-            this.CountryImage.ReadOnly = true;
-            this.CountryImage.Visible = false;
-            this.CountryImage.Width = 200;
-            // 
-            // _Name
-            // 
-            this._Name.DataPropertyName = "Name";
-            this._Name.HeaderText = "姓名";
-            this._Name.Name = "_Name";
-            this._Name.ReadOnly = true;
-            // 
-            // IssuePlace
-            // 
-            this.IssuePlace.DataPropertyName = "IssuePlace";
-            this.IssuePlace.HeaderText = "签发地";
-            this.IssuePlace.Name = "IssuePlace";
-            this.IssuePlace.ReadOnly = true;
-            // 
-            // Residence
-            // 
-            this.Residence.DataPropertyName = "Residence";
-            this.Residence.HeaderText = "居住地";
-            this.Residence.Name = "Residence";
-            this.Residence.ReadOnly = true;
-            // 
-            // DepartureType
-            // 
-            this.DepartureType.DataPropertyName = "DepartureType";
-            this.DepartureType.HeaderText = "签证类型";
-            this.DepartureType.Name = "DepartureType";
-            this.DepartureType.ReadOnly = true;
-            // 
-            // ReturnTime
-            // 
-            this.ReturnTime.DataPropertyName = "ReturnTime";
-            this.ReturnTime.HeaderText = "归国时间";
-            this.ReturnTime.Name = "ReturnTime";
-            this.ReturnTime.ReadOnly = true;
-            // 
-            // Remark
-            // 
-            this.Remark.DataPropertyName = "Remark";
-            this.Remark.HeaderText = "关系";
-            this.Remark.Name = "Remark";
-            this.Remark.ReadOnly = true;
-            // 
-            // GroupNo
-            // 
-            this.GroupNo.HeaderText = "团号";
-            this.GroupNo.Name = "GroupNo";
-            this.GroupNo.ReadOnly = true;
-            // 
-            // SubmitCondition
-            // 
-            this.SubmitCondition.HeaderText = "外领送签条件";
-            this.SubmitCondition.Name = "SubmitCondition";
-            this.SubmitCondition.ReadOnly = true;
-            // 
-            // VisaInfo_id
-            // 
-            this.VisaInfo_id.DataPropertyName = "VisaInfo_id";
-            this.VisaInfo_id.HeaderText = "VisaInfo_id";
-            this.VisaInfo_id.Name = "VisaInfo_id";
-            this.VisaInfo_id.ReadOnly = true;
-            this.VisaInfo_id.Visible = false;
-            // 
-            // Visa_Id
-            // 
-            this.Visa_Id.DataPropertyName = "Visa_Id";
-            this.Visa_Id.HeaderText = "Visa_Id";
-            this.Visa_Id.Name = "Visa_Id";
-            this.Visa_Id.ReadOnly = true;
-            this.Visa_Id.Visible = false;
             // 
             // panelBars
             // 
@@ -884,7 +785,7 @@
             this.上传护照图像ToolStripMenuItem,
             this.指定人员分配ToolStripMenuItem});
             this.cmsDgvRb.Name = "cmsDgvRb";
-            this.cmsDgvRb.Size = new System.Drawing.Size(185, 396);
+            this.cmsDgvRb.Size = new System.Drawing.Size(185, 374);
             // 
             // 复制ToolStripMenuItem
             // 
@@ -1109,6 +1010,13 @@
             this.上传护照图像ToolStripMenuItem.Text = "上传护照图像";
             this.上传护照图像ToolStripMenuItem.Click += new System.EventHandler(this.上传护照图像ToolStripMenuItem_Click);
             // 
+            // 指定人员分配ToolStripMenuItem
+            // 
+            this.指定人员分配ToolStripMenuItem.Name = "指定人员分配ToolStripMenuItem";
+            this.指定人员分配ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.指定人员分配ToolStripMenuItem.Text = "指定人员分配";
+            this.指定人员分配ToolStripMenuItem.Click += new System.EventHandler(this.指定人员分配ToolStripMenuItem_Click);
+            // 
             // bgWorkerLoadData
             // 
             this.bgWorkerLoadData.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgWorkerLoadData_DoWork);
@@ -1129,12 +1037,104 @@
             this.添加到送签统计ToolStripMenuItem.Text = "添加到送签统计";
             this.添加到送签统计ToolStripMenuItem.Click += new System.EventHandler(this.添加到送签统计ToolStripMenuItem_Click);
             // 
-            // 指定人员分配ToolStripMenuItem
+            // AssignmentState
             // 
-            this.指定人员分配ToolStripMenuItem.Name = "指定人员分配ToolStripMenuItem";
-            this.指定人员分配ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.指定人员分配ToolStripMenuItem.Text = "指定人员分配";
-            this.指定人员分配ToolStripMenuItem.Click += new System.EventHandler(this.指定人员分配ToolStripMenuItem_Click);
+            this.AssignmentState.DataPropertyName = "AssignmentState";
+            this.AssignmentState.HeaderText = "分配状态";
+            this.AssignmentState.Name = "AssignmentState";
+            this.AssignmentState.ReadOnly = true;
+            // 
+            // JobId
+            // 
+            this.JobId.HeaderText = "任务编号";
+            this.JobId.Name = "JobId";
+            this.JobId.ReadOnly = true;
+            // 
+            // Country
+            // 
+            this.Country.DataPropertyName = "Country";
+            this.Country.HeaderText = "国家";
+            this.Country.Name = "Country";
+            this.Country.ReadOnly = true;
+            this.Country.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // CountryImage
+            // 
+            this.CountryImage.HeaderText = "国家图标";
+            this.CountryImage.Name = "CountryImage";
+            this.CountryImage.ReadOnly = true;
+            this.CountryImage.Visible = false;
+            this.CountryImage.Width = 200;
+            // 
+            // _Name
+            // 
+            this._Name.DataPropertyName = "Name";
+            this._Name.HeaderText = "姓名";
+            this._Name.Name = "_Name";
+            this._Name.ReadOnly = true;
+            // 
+            // IssuePlace
+            // 
+            this.IssuePlace.DataPropertyName = "IssuePlace";
+            this.IssuePlace.HeaderText = "签发地";
+            this.IssuePlace.Name = "IssuePlace";
+            this.IssuePlace.ReadOnly = true;
+            // 
+            // Residence
+            // 
+            this.Residence.DataPropertyName = "Residence";
+            this.Residence.HeaderText = "居住地";
+            this.Residence.Name = "Residence";
+            this.Residence.ReadOnly = true;
+            // 
+            // DepartureType
+            // 
+            this.DepartureType.DataPropertyName = "DepartureType";
+            this.DepartureType.HeaderText = "签证类型";
+            this.DepartureType.Name = "DepartureType";
+            this.DepartureType.ReadOnly = true;
+            // 
+            // ReturnTime
+            // 
+            this.ReturnTime.DataPropertyName = "ReturnTime";
+            this.ReturnTime.HeaderText = "归国时间";
+            this.ReturnTime.Name = "ReturnTime";
+            this.ReturnTime.ReadOnly = true;
+            // 
+            // Remark
+            // 
+            this.Remark.DataPropertyName = "Remark";
+            this.Remark.HeaderText = "关系";
+            this.Remark.Name = "Remark";
+            this.Remark.ReadOnly = true;
+            // 
+            // GroupNo
+            // 
+            this.GroupNo.HeaderText = "团号";
+            this.GroupNo.Name = "GroupNo";
+            this.GroupNo.ReadOnly = true;
+            // 
+            // SubmitCondition
+            // 
+            this.SubmitCondition.HeaderText = "外领送签条件";
+            this.SubmitCondition.Name = "SubmitCondition";
+            this.SubmitCondition.ReadOnly = true;
+            // 
+            // VisaInfo_id
+            // 
+            this.VisaInfo_id.DataPropertyName = "VisaInfo_id";
+            this.VisaInfo_id.HeaderText = "VisaInfo_id";
+            this.VisaInfo_id.Name = "VisaInfo_id";
+            this.VisaInfo_id.ReadOnly = true;
+            this.VisaInfo_id.Visible = false;
+            // 
+            // Visa_Id
+            // 
+            this.Visa_Id.DataPropertyName = "Visa_Id";
+            this.Visa_Id.HeaderText = "Visa_Id";
+            this.Visa_Id.Name = "Visa_Id";
+            this.Visa_Id.ReadOnly = true;
+            this.Visa_Id.Visible = false;
             // 
             // FrmJobAssignment
             // 
@@ -1239,7 +1239,8 @@
         private System.Windows.Forms.ToolStripMenuItem 删除护照图像ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 上传护照图像ToolStripMenuItem;
         private RowMergeView rowMergeView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn outState;
+        private System.Windows.Forms.ToolStripMenuItem 指定人员分配ToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AssignmentState;
         private System.Windows.Forms.DataGridViewTextBoxColumn JobId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Country;
         private System.Windows.Forms.DataGridViewImageColumn CountryImage;
@@ -1253,7 +1254,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SubmitCondition;
         private System.Windows.Forms.DataGridViewTextBoxColumn VisaInfo_id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Visa_Id;
-        private System.Windows.Forms.ToolStripMenuItem 指定人员分配ToolStripMenuItem;
     }
 }
 

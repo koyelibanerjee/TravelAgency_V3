@@ -24,6 +24,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
     {
         private readonly TravelAgency.BLL.VisaInfo _bllVisaInfo = new TravelAgency.BLL.VisaInfo();
         private readonly TravelAgency.BLL.Visa _bllVisa = new TravelAgency.BLL.Visa();
+        private readonly TravelAgency.BLL.JobAssignment _bllJobAssignment = new TravelAgency.BLL.JobAssignment();
 
         private int _curPage = 1;
         private int _pageCount = 0;
@@ -1290,7 +1291,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         private void 指定人员分配ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var list = GetDgvSelList();
-            List<int> selJobList = new List<int>();
+            HashSet<int> selJobList = new HashSet<int>();
             foreach (var item in list)
             {
                 selJobList.Add(item.JobId ?? 0);
@@ -1302,6 +1303,19 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 return;
 
             string selWorkId = frm.SelWorkId;
+
+            //把这些工作都分配给这个workid
+            foreach (var id in selJobList)
+            {
+                var job = _bllJobAssignment.GetModel(id);
+                job.AssignmentToWorkId = selWorkId;
+                job.AssignmentTime = DateTime.Now;
+                _bllJobAssignment.Update(job);
+            }
+
+            //
+            MessageBoxEx.Show("分配成功!");
+
         }
     }
 }

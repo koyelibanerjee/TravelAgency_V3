@@ -45,8 +45,6 @@ namespace TravelAgency.BLL
 			
 			return dal.Delete(VisaInfo_id);
 		}
-
-
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
@@ -72,7 +70,14 @@ namespace TravelAgency.BLL
 		{
 			return dal.GetList(Top,strWhere,filedOrder);
 		}
-
+		/// <summary>
+		/// 获得数据列表
+		/// </summary>
+		public List<TravelAgency.Model.VisaInfo> GetModelList(string strWhere)
+		{
+			DataSet ds = dal.GetList(strWhere);
+			return DataTableToList(ds.Tables[0]);
+		}
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>

@@ -162,6 +162,7 @@
     <Compile Include="StatisticsDal.cs" />
     <Compile Include="SysManage.cs" />
     <Compile Include="VisaActTypeCountDal.cs" />
+    <Compile Include="VisaInfo_JobDal.cs" />
     <Compile Include="VisaWithActRecords.cs" />
     <Compile Include="Visa.cs" />
     <Compile Include="VisaWithActRecordsDal.cs" />
