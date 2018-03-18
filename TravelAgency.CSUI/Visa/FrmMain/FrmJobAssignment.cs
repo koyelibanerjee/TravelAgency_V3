@@ -1302,9 +1302,6 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 return;
 
             string selWorkId = frm.SelWorkId;
-
-
-
         }
     }
 }

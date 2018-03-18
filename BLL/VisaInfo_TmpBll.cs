@@ -26,8 +26,6 @@ namespace TravelAgency.BLL
             if (dlgResult == DialogResult.Cancel)
                 return 0;
 
-
-
             int retJobId = 0;
             if (dlgResult == DialogResult.Yes)
             {
@@ -54,6 +52,13 @@ namespace TravelAgency.BLL
 
                     if (retJobId != 0) //如果返回值不是0，代表用户设置了一家人
                         model.JobId = retJobId;
+                    else //每本签证单独一个工作编号
+                    {
+                        Model.JobAssignment jobAssignment = new Model.JobAssignment();
+                        jobAssignment.EntryTime = DateTime.Now;
+                        int retId = _bllJobAssignment.Add(jobAssignment); //失败返回0 
+                        model.JobId = retId;
+                    }
 
                     if (_bllVisaInfo.Add(model) && Delete(list[i].VisaInfo_id))
                     {
