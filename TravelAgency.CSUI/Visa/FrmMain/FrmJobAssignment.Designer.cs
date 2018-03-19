@@ -356,6 +356,7 @@
             this.cbCountry.Size = new System.Drawing.Size(83, 21);
             this.cbCountry.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cbCountry.TabIndex = 38;
+            this.cbCountry.Visible = false;
             // 
             // labelX3
             // 
@@ -368,6 +369,7 @@
             this.labelX3.Size = new System.Drawing.Size(46, 21);
             this.labelX3.TabIndex = 37;
             this.labelX3.Text = "国家:";
+            this.labelX3.Visible = false;
             // 
             // btnShowToday
             // 

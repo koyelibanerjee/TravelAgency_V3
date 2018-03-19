@@ -22,7 +22,6 @@ namespace TravelAgency.CSUI.FrmMain
     {
         private readonly TravelAgency.BLL.VisaInfo _bllVisaInfo = new TravelAgency.BLL.VisaInfo();
         private readonly TravelAgency.BLL.Visa _bllVisa = new TravelAgency.BLL.Visa();
-
         private int _curPage = 1;
         private int _pageCount = 0;
         private int _pageSize = 0;
@@ -466,6 +465,7 @@ namespace TravelAgency.CSUI.FrmMain
             if (btnOnlyShowMe.Value == true)
             {
                 conditions.Add(" AssignmentToWorkId = '" + GlobalUtils.LoginUser.WorkId + "' ");
+                conditions.Add(" Country = '" + "日本" + "' ");
             }
 
             string[] arr = conditions.ToArray();

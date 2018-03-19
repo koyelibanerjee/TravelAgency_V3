@@ -25,6 +25,8 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         private readonly TravelAgency.BLL.VisaInfo _bllVisaInfo = new TravelAgency.BLL.VisaInfo();
         private readonly TravelAgency.BLL.Visa _bllVisa = new TravelAgency.BLL.Visa();
         private readonly TravelAgency.BLL.JobAssignment _bllJobAssignment = new TravelAgency.BLL.JobAssignment();
+        private readonly BLL.AuthUser _bllAuthUser = new BLL.AuthUser();
+        private List<Color> _colorList = new List<Color>();
 
         private int _curPage = 1;
         private int _pageCount = 0;
@@ -56,6 +58,13 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            _colorList.Add(Color.IndianRed);
+            _colorList.Add(Color.DarkOrchid);
+            _colorList.Add(Color.LightGoldenrodYellow);
+            _colorList.Add(Color.DarkSeaGreen);
+            _colorList.Add(Color.DarkSlateBlue);
+            _colorList.Add(Color.DeepPink);
+
             _recordCount = _bllVisaInfo.GetRecordCount(_where);
             _pageCount = (int)Math.Ceiling(_recordCount / (double)_pageSize);
 
@@ -70,7 +79,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             cbPageSize.DropDownStyle = ComboBoxStyle.DropDownList;
             cbPageSize.SelectedIndex = 2;
             _pageSize = int.Parse(cbPageSize.Text);
-            
+
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //列宽自适应,一定不能用AllCells
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders; //这里也一定不能AllCell自适应!
@@ -437,14 +446,14 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 conditions.Add(" (Phone like '%" + txtCall.Text + "%') ");
             }
 
-            if (cbCountry.Text == "全部")
-            {
+            //if (cbCountry.Text == "全部")
+            //{
 
-            }
-            else
-            {
-                conditions.Add(" Country = '" + cbCountry.Text + "' ");
-            }
+            //}
+            //else
+            //{
+            //    conditions.Add(" Country = '" + cbCountry.Text + "' ");
+            //}
 
             if (!string.IsNullOrEmpty(txtSalesPerson.Text.Trim()))
             {
@@ -466,6 +475,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             }
 
             conditions.Add(" ((visa_id is null or LEN(Visa_id)=0) and (groupno is null or len(groupno)=0)) "); //默认只显示还未做的
+            conditions.Add(" Country = '" + "日本" + "' ");
 
             string[] arr = conditions.ToArray();
             string where = string.Join(" and ", arr);
@@ -544,6 +554,8 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         {
             int peopleCount = 0, delayCount = 0;
             var total = dataGridView1.Rows.Count;
+            int groupCnt = -1;
+            int pre = -1;
             for (int i = 0; i < total; i++)
             {
                 DataGridViewRow row = dataGridView1.Rows[i];
@@ -564,8 +576,16 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 }
                 if (!string.IsNullOrEmpty(list[i].AssignmentToWorkId))
                 {
-                    dataGridView1.Rows[i].Cells["AssignmentState"].Value = "已分配";
-                    dataGridView1.Rows[i].Cells["AssignmentState"].Style.BackColor = Color.DarkGreen;
+                    dataGridView1.Rows[i].Cells["AssignmentState"].Value = "已分配到\"" + list[i].AssignmentToUserName + "\"";
+                    if (list[i].JobId != pre)
+                    {
+                        dataGridView1.Rows[i].Cells["AssignmentState"].Style.BackColor = _colorList[(++groupCnt) % _colorList.Count];
+                        pre = list[i].JobId.Value;
+                    }
+                    else
+                    {
+                        dataGridView1.Rows[i].Cells["AssignmentState"].Style.BackColor = _colorList[(groupCnt) % _colorList.Count];
+                    }
                 }
                 else
                 {
@@ -1307,17 +1327,24 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 return;
 
             string selWorkId = frm.SelWorkId;
+            var selUser = _bllAuthUser.GetModel(selWorkId);
+            if (selUser == null)
+            {
+                MessageBoxEx.Show("查找指定用户有误，请重试!");
+                return;
+            }
             List<VisaInfo> visainfoList = new List<VisaInfo>();
             //把这些工作都分配给这个workid
             foreach (var id in selJobList)
             {
-                if(id == 0)
+                if (id == 0)
                 {
                     MessageBoxEx.Show("选中项还没有分配任务编号，无法安排!");
                     return;
                 }
                 var job = _bllJobAssignment.GetModel(id);
-                job.AssignmentToWorkId = selWorkId;
+                job.AssignmentToWorkId = selUser.WorkId;
+                job.AssignmentToUserName = selUser.UserName;
                 job.AssignmentTime = DateTime.Now;
                 _bllJobAssignment.Update(job);
 
@@ -1325,17 +1352,16 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 var listtmp = _bllVisaInfo.GetModelList(" JobId = " + id);
                 visainfoList.AddRange(listtmp);
             }
-            
-            for(int i = 0; i != visainfoList.Count; ++i)
+
+            for (int i = 0; i != visainfoList.Count; ++i)
             {
-                visainfoList[i].AssignmentToWorkId = GlobalUtils.LoginUser.WorkId;
+                visainfoList[i].AssignmentToWorkId = selUser.WorkId;
+                visainfoList[i].AssignmentToUserName = selUser.UserName;
                 _bllVisaInfo.Update(visainfoList[i]);
             }
-
-
             //
             MessageBoxEx.Show("分配成功!");
-
+            LoadDataToDgvAsyn();
         }
     }
 }
