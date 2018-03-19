@@ -58,6 +58,7 @@ namespace TravelAgency.Model
 		private string _birthplaceenglish;
 		private int? _jobid;
 		private string _assignmenttoworkid;
+		private string _assignmenttousername;
 		/// <summary>
 		/// 
 		/// </summary>
@@ -441,6 +442,14 @@ namespace TravelAgency.Model
 		{
 			set{ _assignmenttoworkid=value;}
 			get{return _assignmenttoworkid;}
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		public string AssignmentToUserName
+		{
+			set{ _assignmenttousername=value;}
+			get{return _assignmenttousername;}
 		}
 		#endregion Model
 

@@ -17,25 +17,27 @@ namespace TravelAgency.DAL
 
 
 		/// <summary>
-		/// 增加一条数据,返回的就是ID
+		/// 增加一条数据
 		/// </summary>
 		public int Add(TravelAgency.Model.JobAssignment model)
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into JobAssignment(");
-			strSql.Append("EntryTime,AssignmentToWorkId,OperatorId,AssignmentTime)");
+			strSql.Append("EntryTime,AssignmentToWorkId,OperatorId,AssignmentTime,AssignmentToUserName)");
 			strSql.Append(" values (");
-			strSql.Append("@EntryTime,@AssignmentToWorkId,@OperatorId,@AssignmentTime)");
+			strSql.Append("@EntryTime,@AssignmentToWorkId,@OperatorId,@AssignmentTime,@AssignmentToUserName)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@EntryTime", SqlDbType.DateTime),
 					new SqlParameter("@AssignmentToWorkId", SqlDbType.VarChar,50),
 					new SqlParameter("@OperatorId", SqlDbType.VarChar,50),
-					new SqlParameter("@AssignmentTime", SqlDbType.DateTime)};
+					new SqlParameter("@AssignmentTime", SqlDbType.DateTime),
+					new SqlParameter("@AssignmentToUserName", SqlDbType.VarChar,50)};
 			parameters[0].Value = model.EntryTime;
 			parameters[1].Value = model.AssignmentToWorkId;
 			parameters[2].Value = model.OperatorId;
 			parameters[3].Value = model.AssignmentTime;
+			parameters[4].Value = model.AssignmentToUserName;
 
 			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
@@ -57,19 +59,22 @@ namespace TravelAgency.DAL
 			strSql.Append("EntryTime=@EntryTime,");
 			strSql.Append("AssignmentToWorkId=@AssignmentToWorkId,");
 			strSql.Append("OperatorId=@OperatorId,");
-			strSql.Append("AssignmentTime=@AssignmentTime");
+			strSql.Append("AssignmentTime=@AssignmentTime,");
+			strSql.Append("AssignmentToUserName=@AssignmentToUserName");
 			strSql.Append(" where Id=@Id");
 			SqlParameter[] parameters = {
 					new SqlParameter("@EntryTime", SqlDbType.DateTime),
 					new SqlParameter("@AssignmentToWorkId", SqlDbType.VarChar,50),
 					new SqlParameter("@OperatorId", SqlDbType.VarChar,50),
 					new SqlParameter("@AssignmentTime", SqlDbType.DateTime),
+					new SqlParameter("@AssignmentToUserName", SqlDbType.VarChar,50),
 					new SqlParameter("@Id", SqlDbType.Int,4)};
 			parameters[0].Value = model.EntryTime;
 			parameters[1].Value = model.AssignmentToWorkId;
 			parameters[2].Value = model.OperatorId;
 			parameters[3].Value = model.AssignmentTime;
-			parameters[4].Value = model.Id;
+			parameters[4].Value = model.AssignmentToUserName;
+			parameters[5].Value = model.Id;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -133,7 +138,7 @@ namespace TravelAgency.DAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 Id,EntryTime,AssignmentToWorkId,OperatorId,AssignmentTime from JobAssignment ");
+			strSql.Append("select  top 1 Id,EntryTime,AssignmentToWorkId,OperatorId,AssignmentTime,AssignmentToUserName from JobAssignment ");
 			strSql.Append(" where Id=@Id");
 			SqlParameter[] parameters = {
 					new SqlParameter("@Id", SqlDbType.Int,4)
@@ -181,6 +186,10 @@ namespace TravelAgency.DAL
 				{
 					model.AssignmentTime=DateTime.Parse(row["AssignmentTime"].ToString());
 				}
+				if(row["AssignmentToUserName"]!=null)
+				{
+					model.AssignmentToUserName=row["AssignmentToUserName"].ToString();
+				}
 			}
 			return model;
 		}
@@ -191,7 +200,7 @@ namespace TravelAgency.DAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select Id,EntryTime,AssignmentToWorkId,OperatorId,AssignmentTime ");
+			strSql.Append("select Id,EntryTime,AssignmentToWorkId,OperatorId,AssignmentTime,AssignmentToUserName ");
 			strSql.Append(" FROM JobAssignment ");
 			if(strWhere.Trim()!="")
 			{
@@ -211,7 +220,7 @@ namespace TravelAgency.DAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" Id,EntryTime,AssignmentToWorkId,OperatorId,AssignmentTime ");
+			strSql.Append(" Id,EntryTime,AssignmentToWorkId,OperatorId,AssignmentTime,AssignmentToUserName ");
 			strSql.Append(" FROM JobAssignment ");
 			if(strWhere.Trim()!="")
 			{

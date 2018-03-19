@@ -15,6 +15,7 @@ namespace TravelAgency.Model
 		private string _assignmenttoworkid;
 		private string _operatorid;
 		private DateTime? _assignmenttime;
+		private string _assignmenttousername;
 		/// <summary>
 		/// 
 		/// </summary>
@@ -54,6 +55,14 @@ namespace TravelAgency.Model
 		{
 			set{ _assignmenttime=value;}
 			get{return _assignmenttime;}
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		public string AssignmentToUserName
+		{
+			set{ _assignmenttousername=value;}
+			get{return _assignmenttousername;}
 		}
 		#endregion Model
 

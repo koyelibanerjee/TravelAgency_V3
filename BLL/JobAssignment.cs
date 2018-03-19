@@ -38,8 +38,6 @@ namespace TravelAgency.BLL
 			
 			return dal.Delete(Id);
 		}
-
-
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
@@ -48,8 +46,6 @@ namespace TravelAgency.BLL
 			
 			return dal.GetModel(Id);
 		}
-
-
 
 		/// <summary>
 		/// 获得数据列表

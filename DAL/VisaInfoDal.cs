@@ -219,6 +219,8 @@ namespace TravelAgency.DAL
                     new SqlParameter("@IssuePlaceEnglish", SqlDbType.VarChar,50),
                     new SqlParameter("@BirthPlaceEnglish", SqlDbType.VarChar,50),
                     new SqlParameter("@JobId", SqlDbType.Int,4),
+                    new SqlParameter("@AssignmentToWorkId", SqlDbType.Int,4),
+                    new SqlParameter("@AssignmentToUserName", SqlDbType.VarChar,50)
             };
             parameters[0].Value = model.VisaInfo_id; //这里千万不能用new guid
             parameters[1].Value = model.Visa_id;
@@ -266,6 +268,8 @@ namespace TravelAgency.DAL
             parameters[43].Value = model.IssuePlaceEnglish;
             parameters[44].Value = model.BirthPlaceEnglish;
             parameters[45].Value = model.JobId;
+            parameters[46].Value = model.AssignmentToWorkId;
+            parameters[47].Value = model.AssignmentToUserName;
 
             int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
             if (rows > 0)

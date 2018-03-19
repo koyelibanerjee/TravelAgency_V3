@@ -70,23 +70,22 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             cbPageSize.DropDownStyle = ComboBoxStyle.DropDownList;
             cbPageSize.SelectedIndex = 2;
             _pageSize = int.Parse(cbPageSize.Text);
+            
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //列宽自适应,一定不能用AllCells
+            dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders; //这里也一定不能AllCell自适应!
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+            dataGridView1.Columns["GroupNo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            dataGridView1.MultiSelect = true;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
-            rowMergeView1.AutoGenerateColumns = false;
-            rowMergeView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //列宽自适应,一定不能用AllCells
-            rowMergeView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders; //这里也一定不能AllCell自适应!
-            rowMergeView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
-            rowMergeView1.Columns["GroupNo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            rowMergeView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            rowMergeView1.MultiSelect = true;
-            rowMergeView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
 
-            rowMergeView1.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
-            rowMergeView1.MergeColumnNames.Add("JobId");
-            rowMergeView1.MergeColumnNames.Add("GroupNo");
 
-            rowMergeView1.RowsAdded += rowMergeView1_RowsAdded;
-            rowMergeView1.CellMouseUp += rowMergeView1_CellMouseUp;
-            rowMergeView1.DoubleClick += rowMergeView1_DoubleClick;
+            dataGridView1.RowsAdded += dataGridView1_RowsAdded;
+            dataGridView1.CellMouseUp += dataGridView1_CellMouseUp;
+            dataGridView1.DoubleClick += dataGridView1_DoubleClick;
 
             cbDisplayType.Items.Add("全部");
             cbDisplayType.Items.Add("未记录");
@@ -289,12 +288,12 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         {
             _where = GetWhereCondition();
             int curSelectedRow = -1;
-            if (rowMergeView1.SelectedRows.Count > 0)
-                curSelectedRow = rowMergeView1.SelectedRows[0].Index;
-            rowMergeView1.DataSource = _bllVisaInfo.GetListByPageOrderByGroupNo(page, _pageSize, _where);
-            if (curSelectedRow != -1 && rowMergeView1.Rows.Count > curSelectedRow)
-                rowMergeView1.CurrentCell = rowMergeView1.Rows[curSelectedRow].Cells[0];
-            rowMergeView1.Update();
+            if (dataGridView1.SelectedRows.Count > 0)
+                curSelectedRow = dataGridView1.SelectedRows[0].Index;
+            dataGridView1.DataSource = _bllVisaInfo.GetListByPageOrderByGroupNo(page, _pageSize, _where);
+            if (curSelectedRow != -1 && dataGridView1.Rows.Count > curSelectedRow)
+                dataGridView1.CurrentCell = dataGridView1.Rows[curSelectedRow].Cells[0];
+            dataGridView1.Update();
             GlobalStat.UpdateStatistics();
         }
 
@@ -500,9 +499,9 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void rowMergeView1_KeyDown(object sender, KeyEventArgs e)
+        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (rowMergeView1.CurrentCell.Value != null && e.Control && e.KeyCode == Keys.C)
+            if (dataGridView1.CurrentCell.Value != null && e.Control && e.KeyCode == Keys.C)
             {
                 复制ToolStripMenuItem_Click(null, null);
             }
@@ -513,13 +512,13 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void rowMergeView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            //if (rowMergeView1.Columns[e.ColumnIndex].Name == "outState")
+            //if (dataGridView1.Columns[e.ColumnIndex].Name == "outState")
             //{
             //    Color c = Color.Empty;
             //    //string state = e.Value.ToString();
-            //    string state = rowMergeView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+            //    string state = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
             //    if (state == OutState.Type01NoRecord)
             //        c = Color.AliceBlue;
             //    else if (state == OutState.Type01Delay)
@@ -532,7 +531,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             //        c = Color.Red;
             //    else
             //        c = Color.Black;
-            //    rowMergeView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = c;
+            //    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = c;
             //}
         }
 
@@ -541,57 +540,51 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void rowMergeView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             int peopleCount = 0, delayCount = 0;
-            var total = rowMergeView1.Rows.Count;
+            var total = dataGridView1.Rows.Count;
             for (int i = 0; i < total; i++)
             {
-                DataGridViewRow row = rowMergeView1.Rows[i];
+                DataGridViewRow row = dataGridView1.Rows[i];
                 row.HeaderCell.Value = (i + 1).ToString();
 
                 //if (!string.IsNullOrEmpty((string)row.Cells["EnglishName"].Value) && !string.IsNullOrEmpty((string)row.Cells["PassportNo"].Value))
                 //{
-                //    rowMergeView1.Rows[i].Cells["QRCodeImage"].Value = _qrCode.EncodeToImage(row.Cells["EnglishName"].Value + "|" + row.Cells["PassportNo"].Value,
+                //    dataGridView1.Rows[i].Cells["QRCodeImage"].Value = _qrCode.EncodeToImage(row.Cells["EnglishName"].Value + "|" + row.Cells["PassportNo"].Value,
                 //        QRCodeSaveSize.Size165X165);
                 //}
 
-                var list = rowMergeView1.DataSource as List<VisaInfo>;
+                var list = dataGridView1.DataSource as List<VisaInfo>;
 
                 if (list[i].JobId != null)
                 {
-                    rowMergeView1.Rows[i].Cells["JobId"].ValueType = typeof(string);
-                    rowMergeView1.Rows[i].Cells["JobId"].Value = list[i].JobId.ToString();
+                    //dataGridView1.Rows[i].Cells["JobId"].ValueType = typeof(string);
+                    //dataGridView1.Rows[i].Cells["JobId"].Value = list[i].JobId.ToString();
                 }
-
-                if (list[i].GroupNo != null)
-                {
-                    rowMergeView1.Rows[i].Cells["GroupNo"].Value = list[i].GroupNo;
-                }
-
                 if (!string.IsNullOrEmpty(list[i].AssignmentToWorkId))
                 {
-                    rowMergeView1.Rows[i].Cells["AssignmentState"].Value = "已分配";
-                    rowMergeView1.Rows[i].Cells["AssignmentState"].Style.BackColor = Color.DarkGreen;
+                    dataGridView1.Rows[i].Cells["AssignmentState"].Value = "已分配";
+                    dataGridView1.Rows[i].Cells["AssignmentState"].Style.BackColor = Color.DarkGreen;
                 }
                 else
                 {
-                    rowMergeView1.Rows[i].Cells["AssignmentState"].Value = "未分配";
-                    //rowMergeView1.Rows[i].Cells["AssignmentState"].Style.BackColor = Color.DarkGreen;
+                    dataGridView1.Rows[i].Cells["AssignmentState"].Value = "未分配";
+                    //dataGridView1.Rows[i].Cells["AssignmentState"].Style.BackColor = Color.DarkGreen;
                 }
 
-                //if (rowMergeView1.Rows[i].Cells["Country"].Value != null)
-                //{
-                //    string countryName = rowMergeView1.Rows[i].Cells["Country"].Value.ToString();
-                //    rowMergeView1.Rows[i].Cells["CountryImage"].Value =
-                //       TravelAgency.Common.CountryPicHandler.LoadImageByCountryName(countryName);
-                //}
+                if (dataGridView1.Rows[i].Cells["Country"].Value != null)
+                {
+                    string countryName = dataGridView1.Rows[i].Cells["Country"].Value.ToString();
+                    dataGridView1.Rows[i].Cells["CountryImage"].Value =
+                       TravelAgency.Common.CountryPicHandler.LoadImageByCountryName(countryName);
+                }
                 //// 根据送签状态设置单元格颜色
-                //if (rowMergeView1.Rows[i].Cells["outState"].Value != null)
+                //if (dataGridView1.Rows[i].Cells["outState"].Value != null)
                 //{
                 //    Color c = Color.Empty;
                 //    //string state = e.Value.ToString();
-                //    string state = rowMergeView1.Rows[i].Cells["outState"].Value.ToString();
+                //    string state = dataGridView1.Rows[i].Cells["outState"].Value.ToString();
                 //    if (state == OutState.Type01NoRecord)
                 //        c = Color.AliceBlue;
                 //    else if (state == OutState.Type01Delay)
@@ -606,14 +599,14 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 //        c = Color.DarkGreen;
                 //    else
                 //        c = Color.Black;
-                //    rowMergeView1.Rows[i].Cells["outState"].Style.BackColor = c;
+                //    dataGridView1.Rows[i].Cells["outState"].Style.BackColor = c;
                 //}
-                //if (rowMergeView1.Rows[i].Cells["Visa_id"].Value != null &&
-                //    !string.IsNullOrEmpty(rowMergeView1.Rows[i].Cells["Visa_id"].Value.ToString()))
+                //if (dataGridView1.Rows[i].Cells["Visa_id"].Value != null &&
+                //    !string.IsNullOrEmpty(dataGridView1.Rows[i].Cells["Visa_id"].Value.ToString()))
                 //    peopleCount += 1;
 
-                //if (rowMergeView1.Rows[i].Cells["outState"].Value != null &&
-                //    rowMergeView1.Rows[i].Cells["outState"].Value.ToString() == Common.Enums.OutState.Type01Delay)
+                //if (dataGridView1.Rows[i].Cells["outState"].Value != null &&
+                //    dataGridView1.Rows[i].Cells["outState"].Value.ToString() == Common.Enums.OutState.Type01Delay)
                 //    ++delayCount;
             }
 
@@ -626,7 +619,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void rowMergeView1_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        private void dataGridView1_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
             {
@@ -634,19 +627,19 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 {
                     //若行已是选中状态就不再进行设置
                     //如果没选中当前活动行则选中这一行
-                    if (rowMergeView1.Rows[e.RowIndex].Selected == false)
+                    if (dataGridView1.Rows[e.RowIndex].Selected == false)
                     {
-                        rowMergeView1.ClearSelection();
-                        rowMergeView1.Rows[e.RowIndex].Selected = true;
+                        dataGridView1.ClearSelection();
+                        dataGridView1.Rows[e.RowIndex].Selected = true;
                     }
                     //只选中一行时设置活动单元格
-                    if (rowMergeView1.SelectedRows.Count == 1)
+                    if (dataGridView1.SelectedRows.Count == 1)
                     {
                         if (e.ColumnIndex != -1) //选中表头了
-                            rowMergeView1.CurrentCell = rowMergeView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                            dataGridView1.CurrentCell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
                         else
                         {
-                            rowMergeView1.CurrentCell = rowMergeView1.Rows[e.RowIndex].Cells[0];
+                            dataGridView1.CurrentCell = dataGridView1.Rows[e.RowIndex].Cells[0];
                         }
 
                     }
@@ -659,16 +652,16 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             }
         }
 
-        private void rowMergeView1_DoubleClick(object sender, EventArgs e)
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
-            if (rowMergeView1.SelectedRows.Count == 1)
+            if (dataGridView1.SelectedRows.Count == 1)
             {
-                var row = rowMergeView1.CurrentRow;
-                //if (rowMergeView1.CurrentCell.ColumnIndex == rowMergeView1.Columns["QRCodeImage"].Index)
+                var row = dataGridView1.CurrentRow;
+                //if (dataGridView1.CurrentCell.ColumnIndex == dataGridView1.Columns["QRCodeImage"].Index)
                 //{
                 //    if (!string.IsNullOrEmpty((string)row.Cells["EnglishName"].Value) && !string.IsNullOrEmpty((string)row.Cells["PassportNo"].Value))
                 //    {
-                //        FrmQRCode frm = new FrmQRCode((rowMergeView1.DataSource as List<VisaInfo>)[rowMergeView1.SelectedRows[0].Index]);
+                //        FrmQRCode frm = new FrmQRCode((dataGridView1.DataSource as List<VisaInfo>)[dataGridView1.SelectedRows[0].Index]);
                 //        //frm.ShowDialog();
                 //        frm.Show();
                 //    }
@@ -681,7 +674,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                     MessageBoxEx.Show(Resources.FindModelFailedPleaseCheckInfoCorrect);
                     return;
                 }
-                FrmInfoTypeIn frm = new FrmInfoTypeIn(rowMergeView1.DataSource as List<Model.VisaInfo>, rowMergeView1.CurrentRow.Index, LoadDataToDataGridView, _curPage);
+                FrmInfoTypeIn frm = new FrmInfoTypeIn(dataGridView1.DataSource as List<Model.VisaInfo>, dataGridView1.CurrentRow.Index, LoadDataToDataGridView, _curPage);
                 frm.Show();
                 //frm.ShowDialog();
                 //}
@@ -709,16 +702,16 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         private void showQRCode_Click(object sender, EventArgs e)
         {
 
-            if (this.rowMergeView1.SelectedRows.Count > 1)
+            if (this.dataGridView1.SelectedRows.Count > 1)
             {
                 MessageBoxEx.Show(Resources.SelectShowMoreThanOne);
                 return;
             }
 
-            //string passportNo = rowMergeView1.SelectedRows[0].Cells["PassportNo"].Value.ToString();
-            //string name = rowMergeView1.SelectedRows[0].Cells["EnglishName"].Value.ToString();
+            //string passportNo = dataGridView1.SelectedRows[0].Cells["PassportNo"].Value.ToString();
+            //string name = dataGridView1.SelectedRows[0].Cells["EnglishName"].Value.ToString();
 
-            FrmQRCode dlg = new FrmQRCode((rowMergeView1.DataSource as List<VisaInfo>)[rowMergeView1.SelectedRows[0].Index]);
+            FrmQRCode dlg = new FrmQRCode((dataGridView1.DataSource as List<VisaInfo>)[dataGridView1.SelectedRows[0].Index]);
             //dlg.ShowDialog();
             dlg.Show();
         }
@@ -731,7 +724,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         private void cmsItemQRCodeBatchGenerate_Click(object sender, EventArgs e)
         {
 
-            int count = this.rowMergeView1.SelectedRows.Count;
+            int count = this.dataGridView1.SelectedRows.Count;
 
             ////选择保存路径
             //string path;
@@ -745,8 +738,8 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
             for (int i = 0; i != count; ++i)
             {
-                string passportNo = rowMergeView1.SelectedRows[i].Cells["PassportNo"].Value.ToString();
-                string name = rowMergeView1.SelectedRows[i].Cells["EnglishName"].Value.ToString();
+                string passportNo = dataGridView1.SelectedRows[i].Cells["PassportNo"].Value.ToString();
+                string name = dataGridView1.SelectedRows[i].Cells["EnglishName"].Value.ToString();
                 _qrCode.EncodeToPng(passportNo + "|" + name, path + "\\" + passportNo + ".jpg", QRCodeSaveSize.Size660X660);
             }
 
@@ -761,13 +754,13 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         /// <param name="e"></param>
         private void cmsItemTypeInInfo_Click(object sender, EventArgs e)
         {
-            if (this.rowMergeView1.SelectedRows.Count > 1)
+            if (this.dataGridView1.SelectedRows.Count > 1)
             {
                 MessageBoxEx.Show(Resources.SelectEditMoreThanOne);
                 return;
             }
 
-            string visainfoid = rowMergeView1.SelectedRows[0].Cells["VisaInfo_id"].Value.ToString();
+            string visainfoid = dataGridView1.SelectedRows[0].Cells["VisaInfo_id"].Value.ToString();
             Model.VisaInfo model = _bllVisaInfo.GetModel(new Guid(visainfoid));
             if (model == null)
             {
@@ -777,7 +770,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
             Action<int> updateDel = new Action<int>(LoadDataToDataGridView);
             //FrmInfoTypeIn dlg = new FrmInfoTypeIn(model, updateDel, _curPage);
-            FrmInfoTypeIn dlg = new FrmInfoTypeIn(rowMergeView1.DataSource as List<Model.VisaInfo>, rowMergeView1.SelectedRows[0].Index, updateDel, _curPage);
+            FrmInfoTypeIn dlg = new FrmInfoTypeIn(dataGridView1.DataSource as List<Model.VisaInfo>, dataGridView1.SelectedRows[0].Index, updateDel, _curPage);
             //dlg.ShowDialog();
             dlg.Show();
         }
@@ -795,19 +788,19 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 return;
             }
 
-            int count = this.rowMergeView1.SelectedRows.Count;
+            int count = this.dataGridView1.SelectedRows.Count;
             if (MessageBoxEx.Show("确认删除" + count + "条记录?", Resources.Confirm, MessageBoxButtons.OKCancel) == DialogResult.Cancel)
                 return;
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i != count; ++i)
             {
-                if (!string.IsNullOrEmpty((string)rowMergeView1.SelectedRows[i].Cells["Visa_id"].Value))
+                if (!string.IsNullOrEmpty((string)dataGridView1.SelectedRows[i].Cells["Visa_id"].Value))
                 {
                     MessageBoxEx.Show("选中用户已经在团号中，若需删除请先将其移出团号!");
                     return;
                 }
                 sb.Append("'");
-                sb.Append(rowMergeView1.SelectedRows[i].Cells["Visainfo_id"].Value);
+                sb.Append(dataGridView1.SelectedRows[i].Cells["Visainfo_id"].Value);
                 sb.Append("'");
                 if (i == count - 1)
                     break;
@@ -827,7 +820,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         /// <param name="e"></param>
         private void cmsItemSetGroup_Click(object sender, EventArgs e)
         {
-            int count = this.rowMergeView1.SelectedRows.Count;
+            int count = this.dataGridView1.SelectedRows.Count;
             var list = GetDgvSelNotSetGroupList();
             if (list == null)
                 return;
@@ -845,12 +838,12 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         private List<Model.VisaInfo> GetDgvSelNotSetGroupList()
         {
             List<Model.VisaInfo> list = new List<VisaInfo>();
-            int count = this.rowMergeView1.SelectedRows.Count;
-            var dgvList = rowMergeView1.DataSource as List<Model.VisaInfo>;
+            int count = this.dataGridView1.SelectedRows.Count;
+            var dgvList = dataGridView1.DataSource as List<Model.VisaInfo>;
 
             for (int i = count - 1; i >= 0; i--)
             {
-                var model = dgvList[rowMergeView1.SelectedRows[i].Index];
+                var model = dgvList[dataGridView1.SelectedRows[i].Index];
                 if (!string.IsNullOrEmpty(model.Visa_id))
                 {
                     MessageBoxEx.Show("选中项中有已经设置过团号的签证!");
@@ -867,11 +860,11 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         /// <returns></returns>
         private List<Model.VisaInfo> GetDgvSelList()
         {
-            int count = this.rowMergeView1.SelectedRows.Count;
+            int count = this.dataGridView1.SelectedRows.Count;
             List<Model.VisaInfo> list = new List<VisaInfo>();
             for (int i = count - 1; i >= 0; --i)
             {
-                Model.VisaInfo model = (rowMergeView1.DataSource as List<VisaInfo>)[rowMergeView1.SelectedRows[i].Index];
+                Model.VisaInfo model = (dataGridView1.DataSource as List<VisaInfo>)[dataGridView1.SelectedRows[i].Index];
                 if (model != null)
                     list.Add(model);
             }
@@ -946,7 +939,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             GlobalUtils.DocDocxGenerator.SetDocType(DocDocxGenerator.DocType.Type02WaiLingDanBaohan);
             var visainfos = GetDgvSelList();
 
-            if (this.rowMergeView1.SelectedRows.Count > 1)
+            if (this.dataGridView1.SelectedRows.Count > 1)
             {
                 //多余一条的时候生成二维list用于打印
                 List<List<string>> stringinfos = new List<List<string>>();
@@ -1018,9 +1011,9 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
         private void DownloadSelectedPics(PassportPicHandler.PicType type)
         {
-            if (this.rowMergeView1.SelectedRows.Count == 1)
+            if (this.dataGridView1.SelectedRows.Count == 1)
             {
-                string passportNo = rowMergeView1.SelectedRows[0].Cells["PassportNo"].Value.ToString();
+                string passportNo = dataGridView1.SelectedRows[0].Cells["PassportNo"].Value.ToString();
                 string fileName = PassportPicHandler.GetFileName(passportNo, type);
                 string dstName =
                     GlobalUtils.ShowSaveFileDlg(fileName);
@@ -1032,9 +1025,9 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             }
 
             List<string> passList = new List<string>();
-            for (int i = 0; i < rowMergeView1.SelectedRows.Count; i++)
+            for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
             {
-                passList.Add(rowMergeView1.SelectedRows[i].Cells["PassportNo"].Value.ToString());
+                passList.Add(dataGridView1.SelectedRows[i].Cells["PassportNo"].Value.ToString());
             }
 
             string path = GlobalUtils.ShowBrowseFolderDlg();
@@ -1069,9 +1062,9 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         private void 全部ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string path = String.Empty;
-            if (this.rowMergeView1.SelectedRows.Count == 1)
+            if (this.dataGridView1.SelectedRows.Count == 1)
             {
-                string passportNo = rowMergeView1.SelectedRows[0].Cells["PassportNo"].Value.ToString();
+                string passportNo = dataGridView1.SelectedRows[0].Cells["PassportNo"].Value.ToString();
                 path = GlobalUtils.ShowBrowseFolderDlg();
                 if (string.IsNullOrEmpty(path))
                     return;
@@ -1089,9 +1082,9 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             }
 
             List<string> passList = new List<string>();
-            for (int i = 0; i < rowMergeView1.SelectedRows.Count; i++)
+            for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
             {
-                passList.Add(rowMergeView1.SelectedRows[i].Cells["PassportNo"].Value.ToString());
+                passList.Add(dataGridView1.SelectedRows[i].Cells["PassportNo"].Value.ToString());
             }
 
             path = GlobalUtils.ShowBrowseFolderDlg();
@@ -1211,25 +1204,25 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         }
         private void 复制ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (rowMergeView1.SelectedRows.Count > 1)
+            if (dataGridView1.SelectedRows.Count > 1)
             {
                 MessageBoxEx.Show("请选中一条记录复制!");
                 return;
             }
-            string name = rowMergeView1.Columns[rowMergeView1.CurrentCell.ColumnIndex].Name;
+            string name = dataGridView1.Columns[dataGridView1.CurrentCell.ColumnIndex].Name;
             if (name == "CountryImage")
             {
                 return;
             }
             if ((name == "EntryTime" || name == "BirthDay" || name == "LicenceTime" || name == "ExpiryDate")
-                && rowMergeView1.CurrentCell.Value != null) //归国时间的列,是datetime类型,单独判断
+                && dataGridView1.CurrentCell.Value != null) //归国时间的列,是datetime类型,单独判断
             {
-                Clipboard.SetText(DateTimeFormator.DateTimeToString((DateTime)rowMergeView1.CurrentCell.Value));
+                Clipboard.SetText(DateTimeFormator.DateTimeToString((DateTime)dataGridView1.CurrentCell.Value));
                 return;
             }
 
-            if (!string.IsNullOrEmpty((string)rowMergeView1.CurrentCell.Value.ToString()))
-                Clipboard.SetText(rowMergeView1.CurrentCell.Value.ToString());
+            if (!string.IsNullOrEmpty((string)dataGridView1.CurrentCell.Value.ToString()))
+                Clipboard.SetText(dataGridView1.CurrentCell.Value.ToString());
         }
 
         private void 删除护照图像ToolStripMenuItem_Click(object sender, EventArgs e)
