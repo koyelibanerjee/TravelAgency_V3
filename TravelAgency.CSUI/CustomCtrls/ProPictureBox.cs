@@ -80,7 +80,7 @@ namespace TravelAgency.CSUI.CustomCtrls
             set
             {
                 base.Image = value;
-                _imageChanged?.Invoke(this, new EventArgs());
+                //_imageChanged?.Invoke(this, new EventArgs()); //TODO:暂时屏蔽，有bug
             }
         }
 

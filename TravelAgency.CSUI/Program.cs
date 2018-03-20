@@ -30,8 +30,6 @@ namespace TravelAgency.CSUI
                 ex.Message, ex.StackTrace, e.IsTerminating));
 
             GlobalUtils.Logger.Error("--------------未捕获异常--------------",ex);
-            
-
         }
 
         static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)

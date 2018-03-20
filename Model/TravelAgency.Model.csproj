@@ -126,6 +126,7 @@
   <ItemGroup>
     <Compile Include="AppAll.cs" />
     <Compile Include="AppStatus.cs" />
+    <Compile Include="UserQueueModel.cs" />
     <Compile Include="AuthUser.cs" />
     <Compile Include="ClientCharge.cs" />
     <Compile Include="CommisionMoney.cs" />
