@@ -34,6 +34,19 @@ namespace TravelAgency.DAL
                 {
                     model.UserName = row["UserName"].ToString();
                 }
+
+                if (row["IsBusy"] != null && row["IsBusy"].ToString() != "")
+                {
+                    if ((row["IsBusy"].ToString() == "1") || (row["IsBusy"].ToString().ToLower() == "true"))
+                    {
+                        model.IsBusy = true;
+                    }
+                    else
+                    {
+                        model.IsBusy = false;
+                    }
+                }
+
             }
             return model;
         }
@@ -43,15 +56,18 @@ namespace TravelAgency.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.AppendFormat("insert into {0}(", tablename);
-            strSql.Append("WorkId,UserName)");
+            strSql.Append("WorkId,UserName,IsBusy)");
             strSql.Append(" values (");
-            strSql.Append("@WorkId,@UserName)");
+            strSql.Append("@WorkId,@UserName,@IsBusy)");
             strSql.Append(";select @@IDENTITY");
             SqlParameter[] parameters = {
                     new SqlParameter("@WorkId", SqlDbType.VarChar,50),
-                    new SqlParameter("@UserName", SqlDbType.VarChar,50)};
+                    new SqlParameter("@UserName", SqlDbType.VarChar,50),
+                    new SqlParameter("@IsBusy", SqlDbType.Bit)
+            };
             parameters[0].Value = model.WorkId;
             parameters[1].Value = model.UserName;
+            parameters[2].Value = model.IsBusy;
 
             object obj = DbHelperSQL.GetSingle(strSql.ToString(), parameters);
             if (obj == null)
@@ -97,10 +113,8 @@ namespace TravelAgency.DAL
         {
 
             StringBuilder strSql = new StringBuilder();
-            strSql.AppendFormat("select  top 1 WorkId,UserNamee from {0} ",tablename);
+            strSql.AppendFormat("select  top 1 * from {0} ",tablename);
             strSql.Append("order by id asc");
-           
-
             TravelAgency.Model.UserQueueItem model = new TravelAgency.Model.UserQueueItem();
             DataSet ds = DbHelperSQL.Query(strSql.ToString());
             if (ds.Tables[0].Rows.Count > 0)
