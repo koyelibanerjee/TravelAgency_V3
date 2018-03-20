@@ -149,6 +149,7 @@
     <Compile Include="TimeHandlers\DateFormat.cs" />
     <Compile Include="TimeHandlers\TimeHelper.cs" />
     <Compile Include="TimeHandlers\TimeParser.cs" />
+    <Compile Include="UserQueueBll.cs" />
     <Compile Include="VisaActTypeCountBll.cs" />
     <Compile Include="VisaInfo_JobBll.cs" />
     <Compile Include="VisaWithActRecords.cs" />
