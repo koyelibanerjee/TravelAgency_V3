@@ -13,6 +13,7 @@ namespace TravelAgency.Model
 		private string _workid;
 		private string _username;
         private bool _isbusy;
+        private bool _canaccept;
         public int Id
         {
             set { _id = value; }
@@ -42,8 +43,13 @@ namespace TravelAgency.Model
             set { _isbusy = value; }
             get { return _isbusy; }
         }
-		
+        public bool CanAccept
+        {
+            set { _canaccept = value; }
+            get { return _canaccept; }
+        }
 
-	}
+        
+    }
 }
 

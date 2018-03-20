@@ -47,6 +47,19 @@ namespace TravelAgency.DAL
                     }
                 }
 
+                if (row["CanAccept"] != null && row["CanAccept"].ToString() != "")
+                {
+                    if ((row["CanAccept"].ToString() == "1") || (row["CanAccept"].ToString().ToLower() == "true"))
+                    {
+                        model.CanAccept = true;
+                    }
+                    else
+                    {
+                        model.CanAccept = false;
+                    }
+                }
+
+
             }
             return model;
         }
@@ -56,18 +69,20 @@ namespace TravelAgency.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.AppendFormat("insert into {0}(", tablename);
-            strSql.Append("WorkId,UserName,IsBusy)");
+            strSql.Append("WorkId,UserName,IsBusy,CanAccept)");
             strSql.Append(" values (");
-            strSql.Append("@WorkId,@UserName,@IsBusy)");
+            strSql.Append("@WorkId,@UserName,@IsBusy,@CanAccept)");
             strSql.Append(";select @@IDENTITY");
             SqlParameter[] parameters = {
                     new SqlParameter("@WorkId", SqlDbType.VarChar,50),
                     new SqlParameter("@UserName", SqlDbType.VarChar,50),
-                    new SqlParameter("@IsBusy", SqlDbType.Bit)
+                    new SqlParameter("@IsBusy", SqlDbType.Bit),
+                    new SqlParameter("@CanAccept", SqlDbType.Bit)
             };
             parameters[0].Value = model.WorkId;
             parameters[1].Value = model.UserName;
             parameters[2].Value = model.IsBusy;
+            parameters[3].Value = model.CanAccept;
 
             object obj = DbHelperSQL.GetSingle(strSql.ToString(), parameters);
             if (obj == null)
