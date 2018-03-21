@@ -5,32 +5,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace TravelAgency.BLL.Tests
 {
     [TestClass()]
     public class UserQueueTests
     {
-        private readonly BLL.UserQueue _userQueue = new UserQueue();
         [TestMethod()]
-        public void EnqueTest()
+        public void GetAvailableUserTest()
         {
-
-        }
-
-        [TestMethod()]
-        public void PopTest()
-        {
-
-        }
-
-        [TestMethod()]
-        public void TopTest()
-        {
-            Model.UserQueueItem model = _userQueue.Top(UserQueue.QueueType.QueueLow);
-            _userQueue.Pop(UserQueue.QueueType.QueueLow);
-            _userQueue.Enque(UserQueue.QueueType.QueueLow,model);
-
+            for (int i = 0; i != 7; ++i)
+            {
+                BLL.UserQueue userQueue = new UserQueue();
+                var model = userQueue.GetAvailableUser();
+                if (model == null)
+                {
+                    MessageBox.Show("当前无可用用户!");
+                    return;
+                }
+                MessageBox.Show(string.Format("得到一个可用用户:{0},{1}", model.WorkId, model.UserName));
+            }
         }
     }
 }

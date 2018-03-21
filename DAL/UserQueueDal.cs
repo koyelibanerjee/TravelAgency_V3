@@ -141,6 +141,29 @@ namespace TravelAgency.DAL
                 return null;
             }
         }
+
+        /// <summary>
+		/// 获取记录总数
+		/// </summary>
+		public int GetRecordCount(string tablename,string strWhere)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.AppendFormat("select count(1) FROM  {0}",tablename);
+            if (strWhere.Trim() != "")
+            {
+                strSql.Append(" where " + strWhere);
+            }
+            object obj = DbHelperSQL.GetSingle(strSql.ToString());
+            if (obj == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return Convert.ToInt32(obj);
+            }
+        }
+
     }
 }
 
