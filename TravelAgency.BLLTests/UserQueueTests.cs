@@ -18,7 +18,7 @@ namespace TravelAgency.BLL.Tests
         {
             for (int i = 0; i != 7; ++i)
             {
-                
+
                 var model = userQueueBll.GetAvailableUser();
                 if (model == null)
                 {
@@ -38,6 +38,19 @@ namespace TravelAgency.BLL.Tests
             model.UserName = "吴思亭";
             model.CanAccept = true;
             userQueueBll.Update(model);
+        }
+
+        [TestMethod()]
+        public void ChangeUserBusyStateTest()
+        {
+            userQueueBll.ChangeUserBusyState("10304", false);
+        }
+
+        [TestMethod()]
+        public void ChangeUserCanAcceptStateTest()
+        {
+            userQueueBll.ChangeUserCanAcceptState("10304", false);
+            userQueueBll.ChangeUserCanAcceptState("10304", true);
         }
     }
 }

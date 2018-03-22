@@ -129,5 +129,39 @@ namespace TravelAgency.BLL
             return _dal.UpdateByWorkId(model, GetTableName(QueueType.Low));
         }
 
+        public bool ChangeUserBusyState(string workId,bool isBusy)
+        {
+            var retModel = _dal.GetModel(GetTableName(QueueType.Low), workId);
+            if (retModel == null)
+            {
+                retModel = _dal.GetModel(GetTableName(QueueType.High), workId);
+                if (retModel == null)
+                {
+                    throw new Exception("Error On Find User!");
+                }
+                retModel.IsBusy = isBusy;
+                return _dal.UpdateByWorkId(retModel, GetTableName(QueueType.High));
+            }
+            retModel.IsBusy = isBusy;
+            return _dal.UpdateByWorkId(retModel, GetTableName(QueueType.Low));
+        }
+
+        public bool ChangeUserCanAcceptState(string workId, bool canAccept)
+        {
+            var retModel = _dal.GetModel(GetTableName(QueueType.Low), workId);
+            if (retModel == null)
+            {
+                retModel = _dal.GetModel(GetTableName(QueueType.High), workId);
+                if (retModel == null)
+                {
+                    throw new Exception("Error On Find User!");
+                }
+                retModel.CanAccept = canAccept;
+                return _dal.UpdateByWorkId(retModel, GetTableName(QueueType.High));
+            }
+            retModel.CanAccept = canAccept;
+            return _dal.UpdateByWorkId(retModel, GetTableName(QueueType.Low));
+        }
+
     }
 }

@@ -22,10 +22,14 @@ namespace TravelAgency.BLL
             return dal.LatestAssignmented();
         }
         
-        public bool UserWorkFinished(Model.UserQueueItem user)
+        /// <summary>
+        /// 判断指定用户工作完成没有
+        /// </summary>
+        /// <param name="workId"></param>
+        /// <returns></returns>
+        public bool UserWorkFinished(string workId)
         {
-            //return GetModelList(string.Format(" user"));
-            return false;
+            return GetModelList(string.Format("AssignmentToWorkId='{0}' and HasTypeIn = '否'",workId)).Count <= 0;
         }
 
         /// <summary>
