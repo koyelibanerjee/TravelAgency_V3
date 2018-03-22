@@ -94,7 +94,7 @@ namespace TravelAgency.CSUI.FrmSub
 
             string filename = txtPicPath.Text + "\\" + _list[_curIdx].Name + "_" + _list[_curIdx].PassportNo + ".jpg";
             PicHandler.MakeThumbnail(filename, GaopaiPicHandler.GetThumbName(filename), GlobalUtils.ThumbNailRatio);
-            model.HasTypeIn = Common.Enums.HasTypeIn.Yes;
+            //model.HasTypeIn = Common.Enums.HasTypeIn.Yes;
             if (_curIdx < _recordCount - 1)
                 _curIdx += 1;
             UpdateState();

@@ -788,13 +788,7 @@
             this.全部ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.全部ToolStripMenuItem.Text = "全部";
             this.全部ToolStripMenuItem.Click += new System.EventHandler(this.全部ToolStripMenuItem_Click);
-            // 
-            // 高拍仪做资料ToolStripMenuItem
-            // 
-            this.高拍仪做资料ToolStripMenuItem.Name = "高拍仪做资料ToolStripMenuItem";
-            this.高拍仪做资料ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.高拍仪做资料ToolStripMenuItem.Text = "高拍仪做资料";
-            this.高拍仪做资料ToolStripMenuItem.Click += new System.EventHandler(this.高拍仪做资料ToolStripMenuItem_Click);
+
             // 
             // bgWorkerLoadData
             // 

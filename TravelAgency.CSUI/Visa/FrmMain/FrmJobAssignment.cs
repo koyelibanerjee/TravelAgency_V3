@@ -1129,9 +1129,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
         private void 高拍仪做资料ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var list = GetDgvSelList();
-            FrmScanCtrl frm = new FrmScanCtrl(list);
-            frm.ShowDialog();
+
         }
 
 

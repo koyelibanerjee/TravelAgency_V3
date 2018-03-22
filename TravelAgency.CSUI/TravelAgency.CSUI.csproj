@@ -283,12 +283,6 @@
     <Compile Include="Visa\FrmMain\FrmTakePicture.Designer.cs">
       <DependentUpon>FrmTakePicture.cs</DependentUpon>
     </Compile>
-    <Compile Include="Visa\FrmSub\FrmScanCtrl.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Visa\FrmSub\FrmScanCtrl.Designer.cs">
-      <DependentUpon>FrmScanCtrl.cs</DependentUpon>
-    </Compile>
     <Compile Include="Visa\FrmMain\FrmVisaTypeIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -497,9 +491,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Financial\FrmSub\FrmConsulateCharge.resx">
       <DependentUpon>FrmConsulateCharge.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Visa\FrmSub\FrmScanCtrl.resx">
-      <DependentUpon>FrmScanCtrl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visa\FrmMain\FrmVisaTypeIn.resx">
       <DependentUpon>FrmVisaTypeIn.cs</DependentUpon>

@@ -16,24 +16,6 @@ namespace TravelAgency.BLL
 
 
 		#region  BasicMethod
-        
-
-        /// <summary>
-        /// 两种可能调用次函数，1:用户工作做完 2.签证扫描完
-        /// 本函数设定一个调用时间段间隔,10秒以内不能重复调用。
-        /// </summary>
-        public static void AssignWorks()
-        {
-            //1.拿到任务队列里面前n个n=两个队列总人数
-
-            //2.对每一个任务尝试进行分配
-
-            //2.1 for(每个任务) getavailableuser
-            //2.2若找到用户，则指定分配
-            //2.3若没找到用户，则直接return,等待下一次调用
-
-        }
-
 
 		/// <summary>
 		/// 增加一条数据

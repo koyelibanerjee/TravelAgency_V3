@@ -751,14 +751,6 @@
             this.泰航机票ToolStripMenuItem.Text = "泰航机票";
             this.泰航机票ToolStripMenuItem.Click += new System.EventHandler(this.泰航机票ToolStripMenuItem_Click);
             // 
-            // 高拍仪做资料ToolStripMenuItem
-            // 
-            this.高拍仪做资料ToolStripMenuItem.Name = "高拍仪做资料ToolStripMenuItem";
-            this.高拍仪做资料ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.高拍仪做资料ToolStripMenuItem.Text = "高拍仪做资料";
-            this.高拍仪做资料ToolStripMenuItem.Visible = false;
-            this.高拍仪做资料ToolStripMenuItem.Click += new System.EventHandler(this.高拍仪做资料ToolStripMenuItem_Click);
-            // 
             // 复制二维码信息ToolStripMenuItem
             // 
             this.复制二维码信息ToolStripMenuItem.Name = "复制二维码信息ToolStripMenuItem";

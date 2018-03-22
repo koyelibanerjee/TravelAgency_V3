@@ -465,7 +465,7 @@ namespace TravelAgency.CSUI.FrmMain
             if (btnOnlyShowMe.Value == true)
             {
                 conditions.Add(" AssignmentToWorkId = '" + GlobalUtils.LoginUser.WorkId + "' ");
-                conditions.Add(" Country = '" + "日本" + "' ");
+                //conditions.Add(" Country = '" + "日本" + "' ");
             }
 
             string[] arr = conditions.ToArray();
@@ -1109,12 +1109,7 @@ namespace TravelAgency.CSUI.FrmMain
 
         }
 
-        private void 高拍仪做资料ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var list = GetDgvSelList();
-            FrmScanCtrl frm = new FrmScanCtrl(list);
-            frm.ShowDialog();
-        }
+
 
 
         private void 添加到送签统计ToolStripMenuItem_Click(object sender, EventArgs e)

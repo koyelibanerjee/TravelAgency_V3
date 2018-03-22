@@ -1353,12 +1353,7 @@ namespace TravelAgency.CSUI.FrmMain
             frm.ShowDialog();
         }
 
-        private void 高拍仪做资料ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var list = GetSelectedVisaInfoList();
-            FrmScanCtrl frm = new FrmScanCtrl(list);
-            frm.ShowDialog();
-        }
+
 
         private void 修改做资料状态ToolStripMenuItem_Click(object sender, EventArgs e)
         {
