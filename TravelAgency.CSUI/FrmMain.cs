@@ -214,6 +214,11 @@ namespace TravelAgency.CSUI.FrmMain
 
         private void btnJobAssignment_Click(object sender, EventArgs e)
         {
+            if (GlobalUtils.LoginUserLevel != RigthLevel.Manager)
+            {
+                MessageBoxEx.Show("权限不足!");
+                return;
+            }
             FrmJobAssignment frm = new FrmJobAssignment();
             OpenTab(frm, frm.Name);
         }

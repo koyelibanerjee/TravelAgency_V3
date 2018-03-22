@@ -21,10 +21,29 @@ namespace TravelAgency.BLL
         public int MoveCheckedDataToVisaInfo()
         {
             int res = 0;
-            var list = GetModelList(string.Empty);
-            DialogResult dlgResult = MessageBoxEx.Show("即将提交，是否将待提交签证设置为\"一家人\"?", "提示", MessageBoxButtons.YesNoCancel);
-            if (dlgResult == DialogResult.Cancel)
-                return 0;
+            var list = GetModelList(0, string.Empty, " entrytime desc");
+
+
+            string types = null;
+            DialogResult dlgResult = DialogResult.None; //其他国家就不会弹出这个对话框，为None
+            if (list[0].Country == "日本")
+            {
+                FrmGroupOrIndividualValue frm = new FrmGroupOrIndividualValue();
+                if (DialogResult.OK == frm.ShowDialog())
+                {
+                    types = frm.TypesValue;
+                }
+                else
+                {
+                    return 0;
+                }
+
+                if (types != null && types != "团签")
+                    dlgResult = MessageBoxEx.Show("即将提交，是否将待提交签证设置为\"一家人\"?", "提示", MessageBoxButtons.YesNoCancel);
+                //if (dlgResult == DialogResult.Cancel)
+                //    return 0;
+            }
+
 
             int retJobId = 0;
             if (dlgResult == DialogResult.Yes)
@@ -41,6 +60,7 @@ namespace TravelAgency.BLL
                 {
                     Model.VisaInfo model = new Model.VisaInfo();
                     list[i].CopyToVisaInfo(model);
+
                     if (_bllVisaInfo.GetModelList(" passportNo ='" + model.PassportNo + "'").Count > 0)
                     {
                         if (MessageBoxEx.Show("检查到护照号为:" + model.PassportNo + ",姓名为:" + model.Name + "的用户已经录入，是否继续录入?", "提示",
@@ -50,14 +70,21 @@ namespace TravelAgency.BLL
                         }
                     }
 
-                    if (retJobId != 0) //如果返回值不是0，代表用户设置了一家人
+                    if (retJobId != 0 && dlgResult != DialogResult.None) //如果返回值不是0，代表用户设置了一家人
+                    {
                         model.JobId = retJobId;
+                        model.Types = types; //设置类型
+                    }
                     else //每本签证单独一个工作编号
                     {
-                        Model.JobAssignment jobAssignment = new Model.JobAssignment();
-                        jobAssignment.EntryTime = DateTime.Now;
-                        int retId = _bllJobAssignment.Add(jobAssignment); //失败返回0 
-                        model.JobId = retId;
+                        if (dlgResult != DialogResult.None) //None的话代表是其他国家
+                        {
+                            Model.JobAssignment jobAssignment = new Model.JobAssignment();
+                            jobAssignment.EntryTime = DateTime.Now;
+                            int retId = _bllJobAssignment.Add(jobAssignment); //失败返回0 
+                            model.JobId = retId;
+                            model.Types = types; //设置类型
+                        }
                     }
 
                     if (_bllVisaInfo.Add(model) && Delete(list[i].VisaInfo_id)) //从tmp表到数据表
@@ -77,7 +104,10 @@ namespace TravelAgency.BLL
             }
 
             //触发一次工作分配逻辑
-            _bllJobAssignment.AssignmentJob();
+            if (dlgResult != DialogResult.None)
+            {
+                _bllJobAssignment.AssignmentJob();
+            }
 
             return res;
         }

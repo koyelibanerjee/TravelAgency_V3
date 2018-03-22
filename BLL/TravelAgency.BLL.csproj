@@ -117,6 +117,7 @@
     <Reference Include="System.Data">
       <Name>System.Data</Name>
     </Reference>
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
@@ -136,6 +137,12 @@
     <Compile Include="CommisionMoney.cs" />
     <Compile Include="CommonBll.cs" />
     <Compile Include="ConsulateCharge.cs" />
+    <Compile Include="FrmGroupOrIndividualValue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGroupOrIndividualValue.Designer.cs">
+      <DependentUpon>FrmGroupOrIndividualValue.cs</DependentUpon>
+    </Compile>
     <Compile Include="HasExported8ReportBLL.cs" />
     <Compile Include="HasExported8Report.cs" />
     <Compile Include="JobAssignmentBll.cs" />
@@ -206,6 +213,11 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FrmGroupOrIndividualValue.resx">
+      <DependentUpon>FrmGroupOrIndividualValue.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

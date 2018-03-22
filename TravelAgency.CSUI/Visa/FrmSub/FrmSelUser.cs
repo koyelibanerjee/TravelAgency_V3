@@ -19,6 +19,7 @@ namespace TravelAgency.CSUI.Visa.FrmSub
 
         public FrmSelUser()
         {
+            this.StartPosition = FormStartPosition.CenterParent;
             InitializeComponent();
         }
 
@@ -28,6 +29,10 @@ namespace TravelAgency.CSUI.Visa.FrmSub
             this.dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.MultiSelect = false;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+
             LoadDataToDgv();
             dataGridView1.CellMouseUp += dataGridView1_CellMouseUp;
         }

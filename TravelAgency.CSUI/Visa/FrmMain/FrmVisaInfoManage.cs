@@ -36,6 +36,7 @@ namespace TravelAgency.CSUI.FrmMain
         //private readonly Thread _thLoadDataToDgvAndUpdateState;
         private bool _init = false;
         private string _where = string.Empty;
+        private bool _isWorker = false;
 
         public List<Model.VisaInfo> List4AddToExport;
         private bool _b4AddToExport = false;
@@ -57,7 +58,18 @@ namespace TravelAgency.CSUI.FrmMain
             _recordCount = _bllVisaInfo.GetRecordCount(_where);
             _pageCount = (int)Math.Ceiling(_recordCount / (double)_pageSize);
 
-            this.btnCanAcceptNewWork.Value = _bllWorkerQueue.GetModelList(string.Format(" where  workid = '{0}'", GlobalUtils.LoginUser.WorkId))[0].CanAccept;
+            var list = _bllWorkerQueue.GetModelList(string.Format(" workid = '{0}'", GlobalUtils.LoginUser.WorkId));
+            if (list.Count <= 0)
+            {
+                _isWorker = false; //没有在工作用户里面的，不用管这些，是领导
+                btnCanAcceptNewWork.Visible = false;
+                btnOnlyShowMe.Visible = false;
+            }
+            else
+            {
+                _isWorker = true;
+                this.btnCanAcceptNewWork.Value = list[0].CanAccept;
+            }
 
             //初始化一些控件
             //txtPicPath.Text = GlobalInfo.AppPath;
@@ -319,8 +331,12 @@ namespace TravelAgency.CSUI.FrmMain
         }
         private void btnCanAcceptNewWork_ValueChanged(object sender, EventArgs e)
         {
+            if (!_init || !_isWorker)
+                return;
             //_bllUserQueue.ChangeUserCanAcceptState(GlobalUtils.LoginUser.WorkId, btnCanAcceptNewWork.Value);
-            var model = _bllWorkerQueue.GetModelList(string.Format(" where  workid = '{0}'", GlobalUtils.LoginUser.WorkId))[0];
+            var model = _bllWorkerQueue.GetModelList(string.Format(" workid = '{0}'", GlobalUtils.LoginUser.WorkId))[0];
+            if (model.CanAccept == btnCanAcceptNewWork.Value)
+                return;
             model.CanAccept = btnCanAcceptNewWork.Value;
             if (_bllWorkerQueue.Update(model))
                 MessageBoxEx.Show("更新状态失败，请联系管理员!");
@@ -838,6 +854,16 @@ namespace TravelAgency.CSUI.FrmMain
             var list = GetDgvSelNotSetGroupList();
             if (list == null)
                 return;
+
+            foreach (var visainfo in list)
+            {
+                if (visainfo.Country == "日本" && visainfo.Types != "团签" && visainfo.AssignmentToWorkId != GlobalUtils.LoginUser.WorkId)
+                {
+                    MessageBoxEx.Show("日本非团签只能做分配到自己的任务!");
+                    return;
+                }
+            }
+
             FrmGroupOrIndividual frmGroupOrIndividual = new FrmGroupOrIndividual(list, LoadDataToDataGridView, _curPage);
             if (frmGroupOrIndividual.ShowDialog() == DialogResult.Cancel)
                 return;

@@ -474,8 +474,9 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 conditions.Add(" outState = '" + cbOutState.Text + "' ");
             }
 
-            conditions.Add(" ((visa_id is null or LEN(Visa_id)=0) and (groupno is null or len(groupno)=0)) "); //默认只显示还未做的
+            conditions.Add(" HasTypeIn = '否' "); //默认只显示还未做的
             conditions.Add(" Country = '" + "日本" + "' ");
+            conditions.Add(" Types in ('个签','商务','团做个')");
 
             string[] arr = conditions.ToArray();
             string where = string.Join(" and ", arr);
