@@ -21,7 +21,7 @@ namespace TravelAgency.BLL
         {
             return dal.LatestAssignmented();
         }
-
+        
 
         /// <summary>
         /// 负责协调的总的方法，10s限制时间调用一次,每调用一次，最多给每个用户分配一个工作，若无可用用户，提前终止

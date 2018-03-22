@@ -31,6 +31,7 @@ namespace TravelAgency.CSUI.FrmSub
         private readonly BLL.VisaInfo _bllVisaInfo = new BLL.VisaInfo();
         private readonly BLL.Visa _bllVisa = new BLL.Visa();
         private readonly TravelAgency.BLL.ActionRecords _bllLoger = new TravelAgency.BLL.ActionRecords();
+        private readonly TravelAgency.BLL.JobAssignment _bllJobAssignment = new TravelAgency.BLL.JobAssignment();
 
         private string _visaName = string.Empty;
         private readonly Action<int> _updateDel; //副界面传来更新数据库的委托
@@ -816,6 +817,8 @@ namespace TravelAgency.CSUI.FrmSub
                 UpdateInListVisaInfo(_dgvList);
                 //bool hasTypedIn = _bllLoger.HasVisaBeenTypedIn(_visaModel);
                 //3.1更新这些人的录入情况到ActionResult里面
+
+                bool hasOneTypedIn = false; //判断是否有做完任何一本，有的话就可以触发一次分配工作的逻辑
                 for (int i = 0; i < _dgvList.Count; i++)
                 {
                     _bllLoger.AddRecord(Common.Enums.ActType._01TypeIn, Common.GlobalUtils.LoginUser,
@@ -823,10 +826,12 @@ namespace TravelAgency.CSUI.FrmSub
 
                     if (!CheckTypedInComplete(_dgvList[i])) //如果信息也填写完整了就直接也弄成已经做了
                         continue;
+                    hasOneTypedIn = true;
                     _bllLoger.AddRecord(Common.Enums.ActType._02TypeInData, Common.GlobalUtils.LoginUser,
                             _dgvList[i], _visaModel);
-
                 }
+                if (hasOneTypedIn)
+                    _bllJobAssignment.AssignmentJob();
 
                 //添加完成后，删除这几个人
                 for (int i = 0; i < lvIn.Items.Count; i++)
@@ -875,6 +880,7 @@ namespace TravelAgency.CSUI.FrmSub
                 _dgvList = (List<Model.VisaInfo>)dgvGroupInfo.DataSource;
                 //2.1更新还留在团内的人的VisaInfo数据库
                 UpdateInListVisaInfo(_dgvList);
+                bool hasOneTypedIn = false; //判断是否有做完任何一本，有的话就可以触发一次分配工作的逻辑
                 for (int i = 0; i < _dgvList.Count; i++)
                 {
                     if (!CheckTypedInComplete(_dgvList[i]))
@@ -900,6 +906,9 @@ namespace TravelAgency.CSUI.FrmSub
                     _bllLoger.AddRecord(log.ActType, Common.GlobalUtils.LoginUser,
                                         _dgvList[i], _visaModel);
                 }
+
+                if (hasOneTypedIn) //触发一次分配工作的逻辑
+                    _bllJobAssignment.AssignmentJob();
 
                 //2.2更新移出的人的数据库
                 UpdateOutListVisaInfo();

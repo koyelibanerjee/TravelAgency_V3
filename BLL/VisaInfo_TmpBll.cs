@@ -60,7 +60,7 @@ namespace TravelAgency.BLL
                         model.JobId = retId;
                     }
 
-                    if (_bllVisaInfo.Add(model) && Delete(list[i].VisaInfo_id))
+                    if (_bllVisaInfo.Add(model) && Delete(list[i].VisaInfo_id)) //从tmp表到数据表
                     {
                         res++;
                         //添加录入的操作记录
@@ -75,6 +75,10 @@ namespace TravelAgency.BLL
                     else continue;
                 }
             }
+
+            //触发一次工作分配逻辑
+            _bllJobAssignment.AssignmentJob();
+
             return res;
         }
 
