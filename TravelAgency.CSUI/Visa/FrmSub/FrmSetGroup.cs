@@ -813,8 +813,7 @@ namespace TravelAgency.CSUI.FrmSub
 
                 //2.更新model,设置资料已录入，团号，国家等
                 _dgvList = (List<Model.VisaInfo>)dgvGroupInfo.DataSource;
-                //2.1更新VisaInfo数据库
-                UpdateInListVisaInfo(_dgvList);
+
                 //bool hasTypedIn = _bllLoger.HasVisaBeenTypedIn(_visaModel);
                 //3.1更新这些人的录入情况到ActionResult里面
 
@@ -826,10 +825,15 @@ namespace TravelAgency.CSUI.FrmSub
 
                     if (!CheckTypedInComplete(_dgvList[i])) //如果信息也填写完整了就直接也弄成已经做了
                         continue;
+                    _dgvList[i].HasTypeIn = "是"; //默认情况下是"否"
                     hasOneTypedIn = true;
                     _bllLoger.AddRecord(Common.Enums.ActType._02TypeInData, Common.GlobalUtils.LoginUser,
                             _dgvList[i], _visaModel);
                 }
+
+                //2.1更新VisaInfo数据库
+                UpdateInListVisaInfo(_dgvList);
+
                 if (hasOneTypedIn)
                     _bllJobAssignment.AssignmentJob();
 
@@ -878,8 +882,7 @@ namespace TravelAgency.CSUI.FrmSub
                 }
                 //2.更新model,设置资料已录入，团号，国家等
                 _dgvList = (List<Model.VisaInfo>)dgvGroupInfo.DataSource;
-                //2.1更新还留在团内的人的VisaInfo数据库
-                UpdateInListVisaInfo(_dgvList);
+
                 bool hasOneTypedIn = false; //判断是否有做完任何一本，有的话就可以触发一次分配工作的逻辑
                 for (int i = 0; i < _dgvList.Count; i++)
                 {
@@ -905,10 +908,15 @@ namespace TravelAgency.CSUI.FrmSub
                     }
                     _bllLoger.AddRecord(log.ActType, Common.GlobalUtils.LoginUser,
                                         _dgvList[i], _visaModel);
+                    hasOneTypedIn = true;
+                    _dgvList[i].HasTypeIn = "是";
                 }
+                //2.1更新还留在团内的人的VisaInfo数据库
+                UpdateInListVisaInfo(_dgvList);
 
                 if (hasOneTypedIn) //触发一次分配工作的逻辑
                     _bllJobAssignment.AssignmentJob();
+                //触发一次自己的工作状态检查，对IsBusy字段进行更新
 
                 //2.2更新移出的人的数据库
                 UpdateOutListVisaInfo();

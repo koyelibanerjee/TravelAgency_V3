@@ -375,7 +375,6 @@ namespace TravelAgency.CSUI.FrmSub
             for (int i = 0; i < list.Count; i++)
             {
                 list[i].GroupNo = _visaModel.GroupNo;
-                //list[i].HasTypeIn = HasTypeIn.Yes; //修改为已录入状态
                 list[i].Country = cbCountry.Text;
                 list[i].Visa_id = _visaModel.Visa_id.ToString(); //修改visainfo对应visa_id
                 //list[i].Client = txtClient.Text; //这两项设置为跟着dgv走

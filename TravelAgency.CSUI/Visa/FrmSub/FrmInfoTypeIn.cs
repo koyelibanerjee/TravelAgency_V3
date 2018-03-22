@@ -211,8 +211,7 @@ namespace TravelAgency.CSUI.FrmSub
             if (res == DialogResult.Cancel)
                 return;
             CtrlsToModel(_list[_idx]);
-            //if (res == DialogResult.Yes)
-            //    _list[_idx].HasTypeIn = HasTypeIn.Yes;
+
             if (!bll.Update(_list[_idx]))
             {
                 MessageBoxEx.Show("更新失败，请重试!");
