@@ -163,5 +163,19 @@ namespace TravelAgency.BLL
             return _dal.UpdateByWorkId(retModel, GetTableName(QueueType.Low));
         }
 
+        public bool GetUserCanAcceptState(string workId )
+        {
+            var retModel = _dal.GetModel(GetTableName(QueueType.Low), workId);
+            if (retModel == null)
+            {
+                retModel = _dal.GetModel(GetTableName(QueueType.High), workId);
+                if (retModel == null)
+                {
+                    throw new Exception("Error On Find User!");
+                }
+            }
+            return retModel.CanAccept;
+        }
+
     }
 }

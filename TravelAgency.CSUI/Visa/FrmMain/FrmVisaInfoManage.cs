@@ -22,6 +22,7 @@ namespace TravelAgency.CSUI.FrmMain
     {
         private readonly TravelAgency.BLL.VisaInfo _bllVisaInfo = new TravelAgency.BLL.VisaInfo();
         private readonly TravelAgency.BLL.Visa _bllVisa = new TravelAgency.BLL.Visa();
+        private readonly TravelAgency.BLL.UserQueue _bllUserQueue = new TravelAgency.BLL.UserQueue();
         private int _curPage = 1;
         private int _pageCount = 0;
         private int _pageSize = 0;
@@ -54,6 +55,8 @@ namespace TravelAgency.CSUI.FrmMain
         {
             _recordCount = _bllVisaInfo.GetRecordCount(_where);
             _pageCount = (int)Math.Ceiling(_recordCount / (double)_pageSize);
+
+            this.btnCanAcceptNewWork.Value = _bllUserQueue.GetUserCanAcceptState(GlobalUtils.LoginUser.WorkId);
 
             //初始化一些控件
             //txtPicPath.Text = GlobalInfo.AppPath;
@@ -312,6 +315,10 @@ namespace TravelAgency.CSUI.FrmMain
         private void btnOnlyShowMe_ValueChanged(object sender, EventArgs e)
         {
             LoadDataToDgvAsyn();
+        }
+        private void btnCanAcceptNewWork_ValueChanged(object sender, EventArgs e)
+        {
+            _bllUserQueue.ChangeUserCanAcceptState(GlobalUtils.LoginUser.WorkId, btnCanAcceptNewWork.Value);
         }
 
 
@@ -1286,6 +1293,7 @@ namespace TravelAgency.CSUI.FrmMain
             PassportPicHandler.UploadPassportPic(filename, list[0].PassportNo);
             MessageBoxEx.Show("上传成功!");
         }
+
 
         #endregion
 
