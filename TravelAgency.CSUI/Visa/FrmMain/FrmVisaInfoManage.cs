@@ -22,7 +22,8 @@ namespace TravelAgency.CSUI.FrmMain
     {
         private readonly TravelAgency.BLL.VisaInfo _bllVisaInfo = new TravelAgency.BLL.VisaInfo();
         private readonly TravelAgency.BLL.Visa _bllVisa = new TravelAgency.BLL.Visa();
-        private readonly TravelAgency.BLL.UserQueue _bllUserQueue = new TravelAgency.BLL.UserQueue();
+        //private readonly TravelAgency.BLL.UserQueue _bllUserQueue = new TravelAgency.BLL.UserQueue();
+        private readonly TravelAgency.BLL.WorkerQueue _bllWorkerQueue = new TravelAgency.BLL.WorkerQueue();
         private int _curPage = 1;
         private int _pageCount = 0;
         private int _pageSize = 0;
@@ -56,7 +57,7 @@ namespace TravelAgency.CSUI.FrmMain
             _recordCount = _bllVisaInfo.GetRecordCount(_where);
             _pageCount = (int)Math.Ceiling(_recordCount / (double)_pageSize);
 
-            this.btnCanAcceptNewWork.Value = _bllUserQueue.GetUserCanAcceptState(GlobalUtils.LoginUser.WorkId);
+            this.btnCanAcceptNewWork.Value = _bllWorkerQueue.GetModelList(string.Format(" where  workid = '{0}'", GlobalUtils.LoginUser.WorkId))[0].CanAccept;
 
             //初始化一些控件
             //txtPicPath.Text = GlobalInfo.AppPath;
@@ -318,7 +319,11 @@ namespace TravelAgency.CSUI.FrmMain
         }
         private void btnCanAcceptNewWork_ValueChanged(object sender, EventArgs e)
         {
-            _bllUserQueue.ChangeUserCanAcceptState(GlobalUtils.LoginUser.WorkId, btnCanAcceptNewWork.Value);
+            //_bllUserQueue.ChangeUserCanAcceptState(GlobalUtils.LoginUser.WorkId, btnCanAcceptNewWork.Value);
+            var model = _bllWorkerQueue.GetModelList(string.Format(" where  workid = '{0}'", GlobalUtils.LoginUser.WorkId))[0];
+            model.CanAccept = btnCanAcceptNewWork.Value;
+            if (_bllWorkerQueue.Update(model))
+                MessageBoxEx.Show("更新状态失败，请联系管理员!");
         }
 
 

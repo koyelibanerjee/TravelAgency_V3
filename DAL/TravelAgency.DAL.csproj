@@ -175,6 +175,8 @@
     <Compile Include="VisaInfo_TmpDal.cs" />
     <Compile Include="ActionRecordsDal.cs" />
     <Compile Include="ConsulateChargeDal.cs" />
+    <Compile Include="WorkerQueueDal.cs" />
+    <Compile Include="WorkerQueue.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

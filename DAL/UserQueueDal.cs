@@ -5,6 +5,8 @@ using System.Data.SqlClient;
 using Maticsoft.DBUtility;//Please add references
 namespace TravelAgency.DAL
 {
+    //这个类停用，逻辑错误了，直接换用WorkerQueue类
+
     /// <summary>
     /// 数据访问类:AuthUser
     /// </summary>
@@ -126,7 +128,6 @@ namespace TravelAgency.DAL
         /// </summary>
         public TravelAgency.Model.UserQueueItem Top(string tablename)
         {
-
             StringBuilder strSql = new StringBuilder();
             strSql.AppendFormat("select  top 1 * from {0} ", tablename);
             strSql.Append("order by id asc");

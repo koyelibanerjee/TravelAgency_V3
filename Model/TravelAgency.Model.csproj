@@ -150,6 +150,7 @@
     <Compile Include="VisaInfo_Tmp.cs" />
     <Compile Include="VisaInfo_TmpModel.cs" />
     <Compile Include="ActionRecordsModel.cs" />
+    <Compile Include="WorkerQueue.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

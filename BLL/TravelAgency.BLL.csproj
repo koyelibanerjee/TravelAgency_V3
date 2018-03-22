@@ -163,6 +163,8 @@
     <Compile Include="VisaInfoStatisticsBll.cs" />
     <Compile Include="VisaStatisticsBll.cs" />
     <Compile Include="ConsulateChargeBll.cs" />
+    <Compile Include="WorkerQueueBll.cs" />
+    <Compile Include="WorkerQueue.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\TravelAgency.DAL.csproj">

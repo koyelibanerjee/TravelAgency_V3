@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace TravelAgency.BLL
 {
-    public class UserQueue
+    //这个类停用，逻辑错误了，直接换用WorkerQueue类
+
+    public partial class UserQueue
     {
         public DAL.UserQueue _dal = new DAL.UserQueue();
         public enum QueueType

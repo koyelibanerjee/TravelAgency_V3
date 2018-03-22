@@ -32,7 +32,7 @@ namespace TravelAgency.CSUI.FrmSub
         private readonly BLL.Visa _bllVisa = new BLL.Visa();
         private readonly TravelAgency.BLL.ActionRecords _bllLoger = new TravelAgency.BLL.ActionRecords();
         private readonly TravelAgency.BLL.JobAssignment _bllJobAssignment = new TravelAgency.BLL.JobAssignment();
-        private readonly TravelAgency.BLL.UserQueue _bllUserQueue = new TravelAgency.BLL.UserQueue();
+        private readonly TravelAgency.BLL.WorkerQueue _bllWorkerQueue = new TravelAgency.BLL.WorkerQueue();
 
         private string _visaName = string.Empty;
         private readonly Action<int> _updateDel; //副界面传来更新数据库的委托
@@ -757,7 +757,7 @@ namespace TravelAgency.CSUI.FrmSub
         {
             if (_bllJobAssignment.UserWorkFinished(GlobalUtils.LoginUser.WorkId))
             {
-                if (!_bllUserQueue.ChangeUserBusyState(GlobalUtils.LoginUser.WorkId, false))
+                if (!_bllWorkerQueue.ChangeUserBusyState(GlobalUtils.LoginUser.WorkId, false))
                 {
                     MessageBoxEx.Show("修改用户IsBusy状态失败，请联系管理员!");
                     return;
