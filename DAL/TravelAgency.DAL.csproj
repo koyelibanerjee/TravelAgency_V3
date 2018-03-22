@@ -143,6 +143,7 @@
     <Compile Include="AppAll.cs" />
     <Compile Include="AppStatus.cs" />
     <Compile Include="AppStatusDal.cs" />
+    <Compile Include="JobAssignmentDal.cs" />
     <Compile Include="UserQueueDal.cs" />
     <Compile Include="AuthUser.cs" />
     <Compile Include="ClientChargeDal.cs" />

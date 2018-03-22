@@ -12,6 +12,9 @@ namespace TravelAgency.BLL
 		private readonly TravelAgency.DAL.JobAssignment dal=new TravelAgency.DAL.JobAssignment();
 		public JobAssignment()
 		{}
+
+
+
 		#region  BasicMethod
         
 

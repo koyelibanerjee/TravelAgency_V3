@@ -14,8 +14,6 @@ namespace TravelAgency.BLL
             High,
             Low
         }
-
-
         /// <summary>
         /// 每次遍历两个表全部用户，作为一轮
         /// 至多遍历完两个表，提前拿到就不会全部遍历
@@ -102,9 +100,6 @@ namespace TravelAgency.BLL
             return type == QueueType.High ? "UserQueueHigh" : "UserQueueLow";
         }
 
-
-
-
         public int Enque(QueueType type, Model.UserQueueItem model) //选择进那个队列里面
         {
             return _dal.Enque(GetTableName(type), model);
@@ -114,10 +109,25 @@ namespace TravelAgency.BLL
         {
             return _dal.Pop(GetTableName(type));
         }
-
         public TravelAgency.Model.UserQueueItem Top(QueueType type)
         {
             return _dal.Top(GetTableName(type));
         }
+
+        public bool Update(Model.UserQueueItem model)
+        {
+            var retModel = _dal.GetModel(GetTableName(QueueType.Low), model.WorkId);
+            if (retModel == null)
+            {
+                retModel = _dal.GetModel(GetTableName(QueueType.High), model.WorkId);
+                if (retModel == null)
+                {
+                    throw new Exception("Error On Find User!");
+                }
+                return _dal.UpdateByWorkId(model, GetTableName(QueueType.High));
+            }
+            return _dal.UpdateByWorkId(model, GetTableName(QueueType.Low));
+        }
+
     }
 }

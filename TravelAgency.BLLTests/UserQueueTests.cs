@@ -12,13 +12,14 @@ namespace TravelAgency.BLL.Tests
     [TestClass()]
     public class UserQueueTests
     {
+        BLL.UserQueue userQueueBll = new BLL.UserQueue();
         [TestMethod()]
         public void GetAvailableUserTest()
         {
             for (int i = 0; i != 7; ++i)
             {
-                BLL.UserQueue userQueue = new UserQueue();
-                var model = userQueue.GetAvailableUser();
+                
+                var model = userQueueBll.GetAvailableUser();
                 if (model == null)
                 {
                     MessageBox.Show("当前无可用用户!");
@@ -26,6 +27,17 @@ namespace TravelAgency.BLL.Tests
                 }
                 MessageBox.Show(string.Format("得到一个可用用户:{0},{1}", model.WorkId, model.UserName));
             }
+        }
+
+        [TestMethod()]
+        public void UpdateTest()
+        {
+            Model.UserQueueItem model = new Model.UserQueueItem();
+            model.IsBusy = false;
+            model.WorkId = "10309";
+            model.UserName = "吴思亭";
+            model.CanAccept = true;
+            userQueueBll.Update(model);
         }
     }
 }
