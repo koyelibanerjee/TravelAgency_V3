@@ -857,10 +857,14 @@ namespace TravelAgency.CSUI.FrmMain
 
             foreach (var visainfo in list)
             {
-                if (visainfo.Country == "日本" && visainfo.Types != "团签" && visainfo.AssignmentToWorkId != GlobalUtils.LoginUser.WorkId)
+                if (visainfo.Country == "日本"
+                    && visainfo.AssignmentToWorkId != GlobalUtils.LoginUser.WorkId)
                 {
-                    MessageBoxEx.Show("日本非团签只能做分配到自己的任务!");
-                    return;
+                    if (visainfo.Country == "个签" || visainfo.Country == "团做个" || visainfo.Country == "商务")
+                    {
+                        MessageBoxEx.Show("日本非团签只能做分配到自己的任务!");
+                        return;
+                    }
                 }
             }
 

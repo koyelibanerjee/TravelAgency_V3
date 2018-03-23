@@ -623,9 +623,14 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 if (!string.IsNullOrEmpty(list[i].HasTypeIn))
                 {
                     dataGridView1.Rows[i].Cells["HasTypeIn"].Value = list[i].HasTypeIn == "是" ? "已做" : "未做";
+                    //Color c = dataGridView1.Rows[i].Cells["HasTypeIn"].Style.BackColor;
                     if (list[i].HasTypeIn == "是")
                     {
                         dataGridView1.Rows[i].Cells["HasTypeIn"].Style.BackColor = Color.ForestGreen;
+                    }
+                    else
+                    {
+                        dataGridView1.Rows[i].Cells["HasTypeIn"].Style.BackColor = Color.White;
                     }
                 }
 
