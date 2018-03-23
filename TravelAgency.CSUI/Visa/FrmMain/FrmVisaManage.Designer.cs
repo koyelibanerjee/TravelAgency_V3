@@ -100,7 +100,6 @@
             this.川航机票ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.泰航机票ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.两人保险报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.高拍仪做资料ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelBars = new DevComponents.DotNetBar.PanelEx();
             this.panelSerachBar = new DevComponents.DotNetBar.PanelEx();
             this.btnAddVisa = new DevComponents.DotNetBar.ButtonX();
@@ -279,7 +278,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -419,10 +418,9 @@
             this.修改做资料状态ToolStripMenuItem,
             this.修改选中类型ToolStripMenuItem,
             this.toolStripSeparator2,
-            this.导出报表ToolStripMenuItem,
-            this.高拍仪做资料ToolStripMenuItem});
+            this.导出报表ToolStripMenuItem});
             this.cmsDgv.Name = "cmsDgv";
-            this.cmsDgv.Size = new System.Drawing.Size(185, 214);
+            this.cmsDgv.Size = new System.Drawing.Size(185, 192);
             // 
             // 复制ToolStripMenuItem
             // 
@@ -718,7 +716,6 @@
             this.两人保险报表ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.两人保险报表ToolStripMenuItem.Text = "两人保险报表";
             this.两人保险报表ToolStripMenuItem.Click += new System.EventHandler(this.两人保险报表ToolStripMenuItem_Click);
-
             // 
             // panelBars
             // 
@@ -1318,7 +1315,6 @@
         private System.Windows.Forms.ToolStripMenuItem 韩国ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 泰国ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 数据源报表ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 高拍仪做资料ToolStripMenuItem;
         private DevComponents.DotNetBar.LabelItem lbPeopleCount;
         private System.Windows.Forms.ToolStripMenuItem 泰签担保函ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 机票报表ToolStripMenuItem1;

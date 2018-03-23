@@ -80,6 +80,12 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             cbPageSize.SelectedIndex = 2;
             _pageSize = int.Parse(cbPageSize.Text);
 
+            cbState.Items.Add("全部");
+            cbState.Items.Add("已做");
+            cbState.Items.Add("未做");
+            cbState.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbState.SelectedIndex = 0;
+
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //列宽自适应,一定不能用AllCells
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders; //这里也一定不能AllCell自适应!
@@ -455,6 +461,19 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             //    conditions.Add(" Country = '" + cbCountry.Text + "' ");
             //}
 
+
+            if (cbState.Text == "全部")
+            {
+            }
+            else if (cbState.Text == "未做")
+            {
+                conditions.Add(" HasTypeIn = '否' ");
+            }
+            else if (cbState.Text == "已做")
+            {
+                conditions.Add(" HasTypeIn = '是' ");
+            }
+
             if (!string.IsNullOrEmpty(txtSalesPerson.Text.Trim()))
             {
                 conditions.Add(" (Salesperson like '%" + txtSalesPerson.Text + "%') ");
@@ -474,7 +493,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 conditions.Add(" outState = '" + cbOutState.Text + "' ");
             }
 
-            conditions.Add(" HasTypeIn = '否' "); //默认只显示还未做的
+            //conditions.Add(" HasTypeIn = '否' "); //默认只显示还未做的
             conditions.Add(" Country = '" + "日本" + "' ");
             conditions.Add(" Types in ('个签','商务','团做个')");
 
@@ -600,6 +619,16 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                     dataGridView1.Rows[i].Cells["CountryImage"].Value =
                        TravelAgency.Common.CountryPicHandler.LoadImageByCountryName(countryName);
                 }
+
+                if (!string.IsNullOrEmpty(list[i].HasTypeIn))
+                {
+                    dataGridView1.Rows[i].Cells["HasTypeIn"].Value = list[i].HasTypeIn == "是" ? "已做" : "未做";
+                    if (list[i].HasTypeIn == "是")
+                    {
+                        dataGridView1.Rows[i].Cells["HasTypeIn"].Style.BackColor = Color.ForestGreen;
+                    }
+                }
+
                 //// 根据送签状态设置单元格颜色
                 //if (dataGridView1.Rows[i].Cells["outState"].Value != null)
                 //{
@@ -1342,6 +1371,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                     return;
                 }
                 var job = _bllJobAssignment.GetModel(id);
+
                 job.AssignmentToWorkId = selUser.WorkId;
                 job.AssignmentToUserName = selUser.UserName;
                 job.AssignmentTime = DateTime.Now;

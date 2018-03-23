@@ -35,27 +35,6 @@
             this.panelMain = new DevComponents.DotNetBar.PanelEx();
             this.panelDgv = new DevComponents.DotNetBar.PanelEx();
             this.dataGridView1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.AssignmentState = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this._Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EnglishName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CountryImage = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Sex = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BirthDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PassportNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.LicenceTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ExpiryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Birthplace = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IssuePlace = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EntryTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CheckPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.outState = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HasTypeIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GroupNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Types = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VisaInfo_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Visa_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelBars = new DevComponents.DotNetBar.PanelEx();
             this.panelSerachBar = new DevComponents.DotNetBar.PanelEx();
             this.cbOutState = new DevComponents.DotNetBar.Controls.ComboBoxEx();
@@ -132,6 +111,29 @@
             this.bgWorkerLoadData = new System.ComponentModel.BackgroundWorker();
             this.cms4AddToExport = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.添加到送签统计ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cbState = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.labelX6 = new DevComponents.DotNetBar.LabelX();
+            this.AssignmentState = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HasTypeIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this._Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EnglishName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CountryImage = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Sex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BirthDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PassportNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LicenceTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ExpiryDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Birthplace = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IssuePlace = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EntryTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CheckPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.outState = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GroupNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Types = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VisaInfo_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Visa_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMain.SuspendLayout();
             this.panelDgv.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -199,6 +201,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.AssignmentState,
+            this.HasTypeIn,
             this._Name,
             this.EnglishName,
             this.Country,
@@ -213,7 +216,6 @@
             this.EntryTime,
             this.CheckPerson,
             this.outState,
-            this.HasTypeIn,
             this.GroupNo,
             this.Types,
             this.Phone,
@@ -247,156 +249,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(1508, 532);
             this.dataGridView1.TabIndex = 11;
             // 
-            // AssignmentState
-            // 
-            this.AssignmentState.HeaderText = "分配状态";
-            this.AssignmentState.Name = "AssignmentState";
-            this.AssignmentState.ReadOnly = true;
-            // 
-            // _Name
-            // 
-            this._Name.DataPropertyName = "Name";
-            this._Name.HeaderText = "本国姓名";
-            this._Name.Name = "_Name";
-            this._Name.ReadOnly = true;
-            // 
-            // EnglishName
-            // 
-            this.EnglishName.DataPropertyName = "EnglishName";
-            this.EnglishName.HeaderText = "英语姓名";
-            this.EnglishName.Name = "EnglishName";
-            this.EnglishName.ReadOnly = true;
-            // 
-            // Country
-            // 
-            this.Country.DataPropertyName = "Country";
-            this.Country.HeaderText = "国家";
-            this.Country.Name = "Country";
-            this.Country.ReadOnly = true;
-            // 
-            // CountryImage
-            // 
-            this.CountryImage.HeaderText = "国家图标";
-            this.CountryImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.CountryImage.Name = "CountryImage";
-            this.CountryImage.ReadOnly = true;
-            // 
-            // Sex
-            // 
-            this.Sex.DataPropertyName = "Sex";
-            this.Sex.HeaderText = "性别";
-            this.Sex.Name = "Sex";
-            this.Sex.ReadOnly = true;
-            // 
-            // BirthDay
-            // 
-            this.BirthDay.DataPropertyName = "Birthday";
-            this.BirthDay.HeaderText = "生日";
-            this.BirthDay.Name = "BirthDay";
-            this.BirthDay.ReadOnly = true;
-            // 
-            // PassportNo
-            // 
-            this.PassportNo.DataPropertyName = "PassportNo";
-            this.PassportNo.HeaderText = "护照号";
-            this.PassportNo.Name = "PassportNo";
-            this.PassportNo.ReadOnly = true;
-            // 
-            // LicenceTime
-            // 
-            this.LicenceTime.DataPropertyName = "LicenceTime";
-            this.LicenceTime.HeaderText = "发证日期";
-            this.LicenceTime.Name = "LicenceTime";
-            this.LicenceTime.ReadOnly = true;
-            // 
-            // ExpiryDate
-            // 
-            this.ExpiryDate.DataPropertyName = "ExpiryDate";
-            this.ExpiryDate.HeaderText = "有效期";
-            this.ExpiryDate.Name = "ExpiryDate";
-            this.ExpiryDate.ReadOnly = true;
-            // 
-            // Birthplace
-            // 
-            this.Birthplace.DataPropertyName = "Birthplace";
-            this.Birthplace.HeaderText = "出生地";
-            this.Birthplace.Name = "Birthplace";
-            this.Birthplace.ReadOnly = true;
-            // 
-            // IssuePlace
-            // 
-            this.IssuePlace.DataPropertyName = "IssuePlace";
-            this.IssuePlace.HeaderText = "签发地";
-            this.IssuePlace.Name = "IssuePlace";
-            this.IssuePlace.ReadOnly = true;
-            // 
-            // EntryTime
-            // 
-            this.EntryTime.DataPropertyName = "EntryTime";
-            this.EntryTime.HeaderText = "办理时间";
-            this.EntryTime.Name = "EntryTime";
-            this.EntryTime.ReadOnly = true;
-            // 
-            // CheckPerson
-            // 
-            this.CheckPerson.DataPropertyName = "CheckPerson";
-            this.CheckPerson.HeaderText = "办理人";
-            this.CheckPerson.Name = "CheckPerson";
-            this.CheckPerson.ReadOnly = true;
-            // 
-            // outState
-            // 
-            this.outState.DataPropertyName = "outState";
-            this.outState.HeaderText = "送签状态";
-            this.outState.Name = "outState";
-            this.outState.ReadOnly = true;
-            // 
-            // HasTypeIn
-            // 
-            this.HasTypeIn.DataPropertyName = "HasTypeIn";
-            this.HasTypeIn.HeaderText = "资料录入";
-            this.HasTypeIn.Name = "HasTypeIn";
-            this.HasTypeIn.ReadOnly = true;
-            this.HasTypeIn.Visible = false;
-            // 
-            // GroupNo
-            // 
-            this.GroupNo.DataPropertyName = "GroupNo";
-            this.GroupNo.HeaderText = "团号";
-            this.GroupNo.Name = "GroupNo";
-            this.GroupNo.ReadOnly = true;
-            this.GroupNo.Width = 300;
-            // 
-            // Types
-            // 
-            this.Types.DataPropertyName = "Types";
-            this.Types.HeaderText = "类型";
-            this.Types.Name = "Types";
-            this.Types.ReadOnly = true;
-            // 
-            // Phone
-            // 
-            this.Phone.DataPropertyName = "Phone";
-            this.Phone.HeaderText = "手机号码";
-            this.Phone.Name = "Phone";
-            this.Phone.ReadOnly = true;
-            // 
-            // VisaInfo_id
-            // 
-            this.VisaInfo_id.DataPropertyName = "VisaInfo_id";
-            this.VisaInfo_id.HeaderText = "VisaInfo_id";
-            this.VisaInfo_id.Name = "VisaInfo_id";
-            this.VisaInfo_id.ReadOnly = true;
-            this.VisaInfo_id.Visible = false;
-            // 
-            // Visa_id
-            // 
-            this.Visa_id.DataPropertyName = "Visa_id";
-            this.Visa_id.HeaderText = "Visa_id";
-            this.Visa_id.Name = "Visa_id";
-            this.Visa_id.ReadOnly = true;
-            this.Visa_id.Visible = false;
-            // 
             // panelBars
             // 
             this.panelBars.CanvasColor = System.Drawing.SystemColors.Control;
@@ -421,6 +273,8 @@
             // 
             this.panelSerachBar.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelSerachBar.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelSerachBar.Controls.Add(this.cbState);
+            this.panelSerachBar.Controls.Add(this.labelX6);
             this.panelSerachBar.Controls.Add(this.cbOutState);
             this.panelSerachBar.Controls.Add(this.labelX5);
             this.panelSerachBar.Controls.Add(this.labelX4);
@@ -685,7 +539,7 @@
             this.txtSchEntryTimeTo.CustomFormat = "yyyy/MM/dd HH:mm";
             this.txtSchEntryTimeTo.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
             this.txtSchEntryTimeTo.IsPopupCalendarOpen = false;
-            this.txtSchEntryTimeTo.Location = new System.Drawing.Point(243, 32);
+            this.txtSchEntryTimeTo.Location = new System.Drawing.Point(227, 32);
             // 
             // 
             // 
@@ -716,7 +570,7 @@
             this.txtSchEntryTimeTo.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtSchEntryTimeTo.MonthCalendar.TodayButtonVisible = true;
             this.txtSchEntryTimeTo.Name = "txtSchEntryTimeTo";
-            this.txtSchEntryTimeTo.Size = new System.Drawing.Size(160, 21);
+            this.txtSchEntryTimeTo.Size = new System.Drawing.Size(144, 21);
             this.txtSchEntryTimeTo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.txtSchEntryTimeTo.TabIndex = 21;
             // 
@@ -763,7 +617,7 @@
             this.txtSchEntryTimeFrom.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtSchEntryTimeFrom.MonthCalendar.TodayButtonVisible = true;
             this.txtSchEntryTimeFrom.Name = "txtSchEntryTimeFrom";
-            this.txtSchEntryTimeFrom.Size = new System.Drawing.Size(160, 21);
+            this.txtSchEntryTimeFrom.Size = new System.Drawing.Size(145, 21);
             this.txtSchEntryTimeFrom.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.txtSchEntryTimeFrom.TabIndex = 20;
             // 
@@ -773,7 +627,7 @@
             // 
             // 
             this.labelX14.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX14.Location = new System.Drawing.Point(224, 32);
+            this.labelX14.Location = new System.Drawing.Point(208, 32);
             this.labelX14.Name = "labelX14";
             this.labelX14.Size = new System.Drawing.Size(13, 21);
             this.labelX14.TabIndex = 19;
@@ -991,6 +845,7 @@
             this.cmsItemDelete.Name = "cmsItemDelete";
             this.cmsItemDelete.Size = new System.Drawing.Size(184, 22);
             this.cmsItemDelete.Text = "删除";
+            this.cmsItemDelete.Visible = false;
             this.cmsItemDelete.Click += new System.EventHandler(this.cmsItemDelete_Click);
             // 
             // cmsItemRefreshState
@@ -1049,6 +904,7 @@
             this.cmsItemSetGroup.Name = "cmsItemSetGroup";
             this.cmsItemSetGroup.Size = new System.Drawing.Size(184, 22);
             this.cmsItemSetGroup.Text = "设置团号";
+            this.cmsItemSetGroup.Visible = false;
             this.cmsItemSetGroup.Click += new System.EventHandler(this.cmsItemSetGroup_Click);
             // 
             // 添加到团号ToolStripMenuItem
@@ -1056,6 +912,7 @@
             this.添加到团号ToolStripMenuItem.Name = "添加到团号ToolStripMenuItem";
             this.添加到团号ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.添加到团号ToolStripMenuItem.Text = "添加到已有团号";
+            this.添加到团号ToolStripMenuItem.Visible = false;
             this.添加到团号ToolStripMenuItem.Click += new System.EventHandler(this.添加到团号ToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
@@ -1073,6 +930,7 @@
             this.生成报表ToolStripMenuItem.Name = "生成报表ToolStripMenuItem";
             this.生成报表ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.生成报表ToolStripMenuItem.Text = "生成报表";
+            this.生成报表ToolStripMenuItem.Visible = false;
             // 
             // 日本ToolStripMenuItem
             // 
@@ -1151,6 +1009,7 @@
             this.导出图像ToolStripMenuItem.Name = "导出图像ToolStripMenuItem";
             this.导出图像ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.导出图像ToolStripMenuItem.Text = "导出图像";
+            this.导出图像ToolStripMenuItem.Visible = false;
             // 
             // 护照图像ToolStripMenuItem
             // 
@@ -1186,6 +1045,7 @@
             this.删除护照图像ToolStripMenuItem.Name = "删除护照图像ToolStripMenuItem";
             this.删除护照图像ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.删除护照图像ToolStripMenuItem.Text = "删除护照图像";
+            this.删除护照图像ToolStripMenuItem.Visible = false;
             this.删除护照图像ToolStripMenuItem.Click += new System.EventHandler(this.删除护照图像ToolStripMenuItem_Click);
             // 
             // 上传护照图像ToolStripMenuItem
@@ -1193,6 +1053,7 @@
             this.上传护照图像ToolStripMenuItem.Name = "上传护照图像ToolStripMenuItem";
             this.上传护照图像ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.上传护照图像ToolStripMenuItem.Text = "上传护照图像";
+            this.上传护照图像ToolStripMenuItem.Visible = false;
             this.上传护照图像ToolStripMenuItem.Click += new System.EventHandler(this.上传护照图像ToolStripMenuItem_Click);
             // 
             // 指定人员分配ToolStripMenuItem
@@ -1221,6 +1082,178 @@
             this.添加到送签统计ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.添加到送签统计ToolStripMenuItem.Text = "添加到送签统计";
             this.添加到送签统计ToolStripMenuItem.Click += new System.EventHandler(this.添加到送签统计ToolStripMenuItem_Click);
+            // 
+            // cbState
+            // 
+            this.cbState.DisplayMember = "Text";
+            this.cbState.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbState.FormattingEnabled = true;
+            this.cbState.ItemHeight = 15;
+            this.cbState.Location = new System.Drawing.Point(420, 32);
+            this.cbState.Name = "cbState";
+            this.cbState.Size = new System.Drawing.Size(83, 21);
+            this.cbState.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cbState.TabIndex = 45;
+            // 
+            // labelX6
+            // 
+            // 
+            // 
+            // 
+            this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX6.Location = new System.Drawing.Point(385, 32);
+            this.labelX6.Name = "labelX6";
+            this.labelX6.Size = new System.Drawing.Size(46, 21);
+            this.labelX6.TabIndex = 44;
+            this.labelX6.Text = "状态:";
+            // 
+            // AssignmentState
+            // 
+            this.AssignmentState.HeaderText = "分配状态";
+            this.AssignmentState.Name = "AssignmentState";
+            this.AssignmentState.ReadOnly = true;
+            // 
+            // HasTypeIn
+            // 
+            this.HasTypeIn.HeaderText = "资料录入";
+            this.HasTypeIn.Name = "HasTypeIn";
+            this.HasTypeIn.ReadOnly = true;
+            // 
+            // _Name
+            // 
+            this._Name.DataPropertyName = "Name";
+            this._Name.HeaderText = "本国姓名";
+            this._Name.Name = "_Name";
+            this._Name.ReadOnly = true;
+            // 
+            // EnglishName
+            // 
+            this.EnglishName.DataPropertyName = "EnglishName";
+            this.EnglishName.HeaderText = "英语姓名";
+            this.EnglishName.Name = "EnglishName";
+            this.EnglishName.ReadOnly = true;
+            // 
+            // Country
+            // 
+            this.Country.DataPropertyName = "Country";
+            this.Country.HeaderText = "国家";
+            this.Country.Name = "Country";
+            this.Country.ReadOnly = true;
+            // 
+            // CountryImage
+            // 
+            this.CountryImage.HeaderText = "国家图标";
+            this.CountryImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.CountryImage.Name = "CountryImage";
+            this.CountryImage.ReadOnly = true;
+            // 
+            // Sex
+            // 
+            this.Sex.DataPropertyName = "Sex";
+            this.Sex.HeaderText = "性别";
+            this.Sex.Name = "Sex";
+            this.Sex.ReadOnly = true;
+            // 
+            // BirthDay
+            // 
+            this.BirthDay.DataPropertyName = "Birthday";
+            this.BirthDay.HeaderText = "生日";
+            this.BirthDay.Name = "BirthDay";
+            this.BirthDay.ReadOnly = true;
+            // 
+            // PassportNo
+            // 
+            this.PassportNo.DataPropertyName = "PassportNo";
+            this.PassportNo.HeaderText = "护照号";
+            this.PassportNo.Name = "PassportNo";
+            this.PassportNo.ReadOnly = true;
+            // 
+            // LicenceTime
+            // 
+            this.LicenceTime.DataPropertyName = "LicenceTime";
+            this.LicenceTime.HeaderText = "发证日期";
+            this.LicenceTime.Name = "LicenceTime";
+            this.LicenceTime.ReadOnly = true;
+            // 
+            // ExpiryDate
+            // 
+            this.ExpiryDate.DataPropertyName = "ExpiryDate";
+            this.ExpiryDate.HeaderText = "有效期";
+            this.ExpiryDate.Name = "ExpiryDate";
+            this.ExpiryDate.ReadOnly = true;
+            // 
+            // Birthplace
+            // 
+            this.Birthplace.DataPropertyName = "Birthplace";
+            this.Birthplace.HeaderText = "出生地";
+            this.Birthplace.Name = "Birthplace";
+            this.Birthplace.ReadOnly = true;
+            // 
+            // IssuePlace
+            // 
+            this.IssuePlace.DataPropertyName = "IssuePlace";
+            this.IssuePlace.HeaderText = "签发地";
+            this.IssuePlace.Name = "IssuePlace";
+            this.IssuePlace.ReadOnly = true;
+            // 
+            // EntryTime
+            // 
+            this.EntryTime.DataPropertyName = "EntryTime";
+            this.EntryTime.HeaderText = "办理时间";
+            this.EntryTime.Name = "EntryTime";
+            this.EntryTime.ReadOnly = true;
+            // 
+            // CheckPerson
+            // 
+            this.CheckPerson.DataPropertyName = "CheckPerson";
+            this.CheckPerson.HeaderText = "办理人";
+            this.CheckPerson.Name = "CheckPerson";
+            this.CheckPerson.ReadOnly = true;
+            // 
+            // outState
+            // 
+            this.outState.DataPropertyName = "outState";
+            this.outState.HeaderText = "送签状态";
+            this.outState.Name = "outState";
+            this.outState.ReadOnly = true;
+            // 
+            // GroupNo
+            // 
+            this.GroupNo.DataPropertyName = "GroupNo";
+            this.GroupNo.HeaderText = "团号";
+            this.GroupNo.Name = "GroupNo";
+            this.GroupNo.ReadOnly = true;
+            this.GroupNo.Width = 300;
+            // 
+            // Types
+            // 
+            this.Types.DataPropertyName = "Types";
+            this.Types.HeaderText = "类型";
+            this.Types.Name = "Types";
+            this.Types.ReadOnly = true;
+            // 
+            // Phone
+            // 
+            this.Phone.DataPropertyName = "Phone";
+            this.Phone.HeaderText = "手机号码";
+            this.Phone.Name = "Phone";
+            this.Phone.ReadOnly = true;
+            // 
+            // VisaInfo_id
+            // 
+            this.VisaInfo_id.DataPropertyName = "VisaInfo_id";
+            this.VisaInfo_id.HeaderText = "VisaInfo_id";
+            this.VisaInfo_id.Name = "VisaInfo_id";
+            this.VisaInfo_id.ReadOnly = true;
+            this.VisaInfo_id.Visible = false;
+            // 
+            // Visa_id
+            // 
+            this.Visa_id.DataPropertyName = "Visa_id";
+            this.Visa_id.HeaderText = "Visa_id";
+            this.Visa_id.Name = "Visa_id";
+            this.Visa_id.ReadOnly = true;
+            this.Visa_id.Visible = false;
             // 
             // FrmJobAssignment
             // 
@@ -1325,7 +1358,10 @@
         private System.Windows.Forms.ToolStripMenuItem 上传护照图像ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 指定人员分配ToolStripMenuItem;
         private DevComponents.DotNetBar.Controls.DataGridViewX dataGridView1;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cbState;
+        private DevComponents.DotNetBar.LabelX labelX6;
         private System.Windows.Forms.DataGridViewTextBoxColumn AssignmentState;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HasTypeIn;
         private System.Windows.Forms.DataGridViewTextBoxColumn _Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn EnglishName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Country;
@@ -1340,7 +1376,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn EntryTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn CheckPerson;
         private System.Windows.Forms.DataGridViewTextBoxColumn outState;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HasTypeIn;
         private System.Windows.Forms.DataGridViewTextBoxColumn GroupNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Types;
         private System.Windows.Forms.DataGridViewTextBoxColumn Phone;

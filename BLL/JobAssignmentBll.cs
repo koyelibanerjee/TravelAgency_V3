@@ -39,7 +39,10 @@ namespace TravelAgency.BLL
         {
             //check 10s
             var latestModel = LatestAssignmented();
-            if ((latestModel.AssignmentTime.Value - DateTime.Now).Duration().TotalSeconds < 10) //TODO:这里的10s应该读取配置文件，但是这里bll层没法引用common,后面应把所有业务逻辑相关的从common移出到bll
+            //
+
+
+            if ((latestModel != null) && (latestModel.AssignmentTime.Value - DateTime.Now).Duration().TotalSeconds < 10) //TODO:这里的10s应该读取配置文件，但是这里bll层没法引用common,后面应把所有业务逻辑相关的从common移出到bll
             {
                 return;
             }
