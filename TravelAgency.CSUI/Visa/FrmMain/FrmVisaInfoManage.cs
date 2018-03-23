@@ -338,7 +338,7 @@ namespace TravelAgency.CSUI.FrmMain
             if (model.CanAccept == btnCanAcceptNewWork.Value)
                 return;
             model.CanAccept = btnCanAcceptNewWork.Value;
-            if (_bllWorkerQueue.Update(model))
+            if (!_bllWorkerQueue.Update(model))
                 MessageBoxEx.Show("更新状态失败，请联系管理员!");
         }
 
