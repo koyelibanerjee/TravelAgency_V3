@@ -124,6 +124,14 @@ namespace TravelAgency.BLL
             model.IsBusy = v;
             return Update(model);
         }
+
+        public bool ChangeUserAcceptState(string workId, bool v)
+        {
+            var model = GetModelList(string.Format(" workid = '{0}'", workId))[0];
+            model.CanAccept = v;
+            return Update(model);
+        }
+
         /// <summary>
         /// 分页获取数据列表
         /// </summary>

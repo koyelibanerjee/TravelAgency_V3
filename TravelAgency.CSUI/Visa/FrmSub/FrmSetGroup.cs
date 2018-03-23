@@ -755,14 +755,9 @@ namespace TravelAgency.CSUI.FrmSub
 
         private void UpdateUserState()
         {
-            if (_bllJobAssignment.UserWorkFinished(GlobalUtils.LoginUser.WorkId))
-            {
-                if (!_bllWorkerQueue.ChangeUserBusyState(GlobalUtils.LoginUser.WorkId, false))
-                {
-                    MessageBoxEx.Show("修改用户IsBusy状态失败，请联系管理员!");
-                    return;
-                }
-            }
+            bool finished = _bllJobAssignment.UserWorkFinished(GlobalUtils.LoginUser.WorkId);
+            if (!_bllWorkerQueue.ChangeUserBusyState(GlobalUtils.LoginUser.WorkId, !finished))
+                MessageBoxEx.Show("修改用户IsBusy状态失败，请联系管理员!");
         }
 
         /// <summary>

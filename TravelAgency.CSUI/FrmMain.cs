@@ -15,6 +15,7 @@ namespace TravelAgency.CSUI.FrmMain
 {
     public partial class FrmMain : Form
     {
+        private BLL.WorkerQueue _bllWorkerQueue = new BLL.WorkerQueue();
         public FrmMain()
         {
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -149,6 +150,7 @@ namespace TravelAgency.CSUI.FrmMain
 
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
+            _bllWorkerQueue.ChangeUserAcceptState(GlobalUtils.LoginUser.WorkId, false); //退出的时候关闭开关
             Application.Exit();
         }
 
