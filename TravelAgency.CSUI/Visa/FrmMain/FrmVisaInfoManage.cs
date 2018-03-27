@@ -24,6 +24,7 @@ namespace TravelAgency.CSUI.FrmMain
         private readonly TravelAgency.BLL.Visa _bllVisa = new TravelAgency.BLL.Visa();
         //private readonly TravelAgency.BLL.UserQueue _bllUserQueue = new TravelAgency.BLL.UserQueue();
         private readonly TravelAgency.BLL.WorkerQueue _bllWorkerQueue = new TravelAgency.BLL.WorkerQueue();
+        private readonly TravelAgency.BLL.JobAssignment _bllJobAssignment = new TravelAgency.BLL.JobAssignment();
         private int _curPage = 1;
         private int _pageCount = 0;
         private int _pageSize = 0;
@@ -344,7 +345,13 @@ namespace TravelAgency.CSUI.FrmMain
                 return;
             model.CanAccept = btnCanAcceptNewWork.Value;
             if (!_bllWorkerQueue.Update(model))
+            {
                 MessageBoxEx.Show("更新状态失败，请联系管理员!");
+                return;
+            }
+            //触发一下分配工作逻辑
+            _bllJobAssignment.AssignmentJob();
+
         }
 
 

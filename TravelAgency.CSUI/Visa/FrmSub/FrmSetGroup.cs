@@ -842,13 +842,18 @@ namespace TravelAgency.CSUI.FrmSub
                 //2.1更新VisaInfo数据库
                 UpdateInListVisaInfo(_dgvList);
 
-                //触发一次分配任务逻辑
-                if (hasOneTypedIn)
-                    _bllJobAssignment.AssignmentJob();
 
-                //触发一次自己的工作状态检查，对IsBusy字段进行更新
-                UpdateUserState();
+                if (_visaModel.Country == "日本" &&
+                            (_visaModel.Types == "个签" ||
+                            _visaModel.Types == "团做个" ||
+                            _visaModel.Types == "商务"))
+                {   //触发一次分配任务逻辑
+                    if (hasOneTypedIn)
+                        _bllJobAssignment.AssignmentJob();
 
+                    //触发一次自己的工作状态检查，对IsBusy字段进行更新
+                    UpdateUserState();
+                }
 
                 //添加完成后，删除这几个人
                 for (int i = 0; i < lvIn.Items.Count; i++)
@@ -927,10 +932,14 @@ namespace TravelAgency.CSUI.FrmSub
                 //2.1更新还留在团内的人的VisaInfo数据库
                 UpdateInListVisaInfo(_dgvList);
 
-                if (hasOneTypedIn) //触发一次分配工作的逻辑
-                    _bllJobAssignment.AssignmentJob();
-                //触发一次自己的工作状态检查，对IsBusy字段进行更新
-                UpdateUserState();
+                if (_visaModel.Country == "日本" &&
+                    (_visaModel.Types == "个签" || _visaModel.Types == "团做个" || _visaModel.Types == "商务"))
+                {
+                    if (hasOneTypedIn) //触发一次分配工作的逻辑
+                        _bllJobAssignment.AssignmentJob();
+                    //触发一次自己的工作状态检查，对IsBusy字段进行更新
+                    UpdateUserState();
+                }
 
                 //2.2更新移出的人的数据库
                 UpdateOutListVisaInfo();
