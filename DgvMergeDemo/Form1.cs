@@ -183,6 +183,10 @@ namespace DgvMergeDemo
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+            dataGridView1.EnableHeadersVisualStyles = false;
+            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(255, 0, 0);
+
             TravelAgency.BLL.VisaInfo bll = new TravelAgency.BLL.VisaInfo();
             _list = bll.GetListByPageOrderByOutState(1,30,string.Empty);
 

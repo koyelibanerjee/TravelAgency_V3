@@ -325,6 +325,11 @@ namespace TravelAgency.CSUI.FrmMain
 
         #region dgv的bar栏和搜索栏
 
+        private void btnOnlyShowNotDone_ValueChanged(object sender, EventArgs e)
+        {
+            LoadDataToDgvAsyn();
+        }
+
         private void btnOnlyShowMe_ValueChanged(object sender, EventArgs e)
         {
             LoadDataToDgvAsyn();
@@ -495,6 +500,12 @@ namespace TravelAgency.CSUI.FrmMain
                 conditions.Add(" AssignmentToWorkId = '" + GlobalUtils.LoginUser.WorkId + "' ");
                 //conditions.Add(" Country = '" + "日本" + "' ");
             }
+
+            if (btnOnlyShowNotDone.Value == true)
+            {
+                conditions.Add(" HasTypeIn = '否' ");
+            }
+
 
             string[] arr = conditions.ToArray();
             string where = string.Join(" and ", arr);
@@ -1328,6 +1339,7 @@ namespace TravelAgency.CSUI.FrmMain
             PassportPicHandler.UploadPassportPic(filename, list[0].PassportNo);
             MessageBoxEx.Show("上传成功!");
         }
+
 
 
         #endregion

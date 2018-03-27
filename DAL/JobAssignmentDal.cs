@@ -16,7 +16,7 @@ namespace TravelAgency.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select  top 1 * from JobAssignment ");
-            strSql.Append(" where AssignmentToWorkId is null order by entrytime desc");
+            strSql.Append(" where AssignmentToWorkId is null order by entrytime asc");//TODO:这里应该是先录的先出吧
             DataSet ds = DbHelperSQL.Query(strSql.ToString());
             if (ds.Tables[0].Rows.Count > 0)
             {
