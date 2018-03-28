@@ -29,7 +29,7 @@ namespace TravelAgency.BLL
         /// <returns></returns>
         public bool UserWorkFinished(string workId)
         {
-            return _bllVisaInfo.GetModelList(string.Format("AssignmentToWorkId='{0}' and HasTypeIn = '否'", workId)).Count <= 0;
+            return _bllVisaInfo.GetModelList(string.Format("AssignmentToWorkId='{0}' and HasTypeIn = '否'", workId)).Count <= 0;//其他国家根本不会有AssignmentToWorkId，所以不用加国家限制
         }
 
         /// <summary>

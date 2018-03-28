@@ -335,6 +335,14 @@ namespace TravelAgency.CSUI.FrmMain
         {
             LoadDataToDgvAsyn();
         }
+
+        private void UpdateUserState()
+        {
+            bool finished = _bllJobAssignment.UserWorkFinished(GlobalUtils.LoginUser.WorkId);
+            if (!_bllWorkerQueue.ChangeUserBusyState(GlobalUtils.LoginUser.WorkId, !finished))
+                MessageBoxEx.Show("修改用户IsBusy状态失败，请联系管理员!");
+        }
+
         private void btnCanAcceptNewWork_ValueChanged(object sender, EventArgs e)
         {
             if (!_init || !_isWorker)
@@ -351,6 +359,8 @@ namespace TravelAgency.CSUI.FrmMain
             }
             //触发一下分配工作逻辑
             _bllJobAssignment.AssignmentJob();
+            //刷新用户状态
+            UpdateUserState();
 
         }
 
