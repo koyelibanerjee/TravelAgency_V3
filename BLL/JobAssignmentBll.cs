@@ -42,9 +42,9 @@ namespace TravelAgency.BLL
             //
 
 
-            if ((latestModel != null) && 
-                (latestModel.AssignmentTime.Value - DateTime.Now).Duration().TotalSeconds < 10) 
-                //TODO:这里的10s应该读取配置文件，但是这里bll层没法引用common,后面应把所有业务逻辑相关的从common移出到bll
+            if ((latestModel != null) &&
+                (latestModel.AssignmentTime.Value - DateTime.Now).Duration().TotalSeconds < 3)
+            //TODO:这里的10s应该读取配置文件，但是这里bll层没法引用common,后面应把所有业务逻辑相关的从common移出到bll
             {
                 return;
             }
@@ -59,24 +59,32 @@ namespace TravelAgency.BLL
                     return;
 
                 //执行分配
-                AssignmentToUser(jobModel, user);
-                ++userCnt;
+                cnt +=AssignmentToUser(jobModel, user);
                 jobModel = Top();
             }
         }
 
-        public void AssignmentToUser(Model.JobAssignment jobModel, Model.WorkerQueue user)
+        public int AssignmentToUser(Model.JobAssignment jobModel, Model.WorkerQueue user)
         {
             if (jobModel == null || user == null)
-                return;
+                return 0;
             jobModel.AssignmentToWorkId = user.WorkId;
             jobModel.AssignmentToUserName = user.UserName;
             jobModel.AssignmentTime = DateTime.Now;
             var visainfoList = _bllVisaInfo.GetModelList(" jobid = '" + jobModel.Id + "' ");
             if (visainfoList == null)
-                return;
+                return 0;
+
+            bool changed = false;
             foreach (var visainfo in visainfoList)
             {
+                if (!changed && visainfo.HasTypeIn == "否")
+                {
+                    //已经做过的了
+                    user.IsBusy = true;
+                    _bllWorkerQueue.Update(user);  //置为忙的状态
+                    changed = true;
+                }
                 visainfo.AssignmentToWorkId = user.WorkId;
                 visainfo.AssignmentToUserName = user.UserName;
             }
@@ -84,8 +92,7 @@ namespace TravelAgency.BLL
             Update(jobModel);
             _bllVisaInfo.UpdateByList(visainfoList);
 
-            user.IsBusy = true;
-            _bllWorkerQueue.Update(user);  //置为忙的状态
+            return changed ? 1 : 0; //有一个用户变成了忙
 
         }
 

@@ -361,7 +361,7 @@ namespace TravelAgency.CSUI.FrmMain
             _bllJobAssignment.AssignmentJob();
             //刷新用户状态
             UpdateUserState();
-
+            LoadDataToDgvAsyn();
         }
 
 

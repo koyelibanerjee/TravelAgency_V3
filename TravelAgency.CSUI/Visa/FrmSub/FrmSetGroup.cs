@@ -847,12 +847,15 @@ namespace TravelAgency.CSUI.FrmSub
                             (_visaModel.Types == "个签" ||
                             _visaModel.Types == "团做个" ||
                             _visaModel.Types == "商务"))
-                {   //触发一次分配任务逻辑
+                {
+                    //触发一次自己的工作状态检查，对IsBusy字段进行更新
+                    UpdateUserState();
+
+                    //触发一次分配任务逻辑
                     if (hasOneTypedIn)
                         _bllJobAssignment.AssignmentJob();
 
-                    //触发一次自己的工作状态检查，对IsBusy字段进行更新
-                    UpdateUserState();
+
                 }
 
                 //添加完成后，删除这几个人
@@ -935,10 +938,13 @@ namespace TravelAgency.CSUI.FrmSub
                 if (_visaModel.Country == "日本" &&
                     (_visaModel.Types == "个签" || _visaModel.Types == "团做个" || _visaModel.Types == "商务"))
                 {
-                    if (hasOneTypedIn) //触发一次分配工作的逻辑
-                        _bllJobAssignment.AssignmentJob();
+
                     //触发一次自己的工作状态检查，对IsBusy字段进行更新
                     UpdateUserState();
+
+                    if (hasOneTypedIn) //触发一次分配工作的逻辑
+                        _bllJobAssignment.AssignmentJob();
+
                 }
 
                 //2.2更新移出的人的数据库
