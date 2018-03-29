@@ -140,9 +140,9 @@ namespace TravelAgency.CSUI.FrmSub
             chbIsUrgent.Checked = _recentVisa.IsUrgent;
 
             txtRealTime.Text = "";
-            
+
             //txtRealTime.Value =DateTime. ;
-            
+
         }
 
 
@@ -860,7 +860,8 @@ namespace TravelAgency.CSUI.FrmSub
                             _visaModel.Types == "商务"))
                 {
                     //触发一次自己的工作状态检查，对IsBusy字段进行更新
-                    UpdateUserState();
+                    if (GlobalUtils.LoginUserLevel == RigthLevel.Normal)
+                        UpdateUserState();
 
                     //触发一次分配任务逻辑
                     if (hasOneTypedIn)
@@ -951,7 +952,8 @@ namespace TravelAgency.CSUI.FrmSub
                 {
 
                     //触发一次自己的工作状态检查，对IsBusy字段进行更新
-                    UpdateUserState();
+                    if (GlobalUtils.LoginUserLevel == RigthLevel.Normal)
+                        UpdateUserState();
 
                     if (hasOneTypedIn) //触发一次分配工作的逻辑
                         _bllJobAssignment.AssignmentJob();
