@@ -589,14 +589,18 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
                 var list = dataGridView1.DataSource as List<VisaInfo>;
 
-                if (list[i].JobId != null)
+                if (list[i].JobId == null)
                 {
-                    //dataGridView1.Rows[i].Cells["JobId"].ValueType = typeof(string);
-                    //dataGridView1.Rows[i].Cells["JobId"].Value = list[i].JobId.ToString();
+                    dataGridView1.Rows[i].Cells["AssignmentState"].Value = "未设置工作编号";
+                    dataGridView1.Rows[i].Cells["AssignmentState"].Style.BackColor = Color.White;
                 }
-                if (!string.IsNullOrEmpty(list[i].AssignmentToWorkId))
+                else if (!string.IsNullOrEmpty(list[i].AssignmentToWorkId))
                 {
-                    dataGridView1.Rows[i].Cells["AssignmentState"].Value = "已分配到\"" + list[i].AssignmentToUserName + "\"";
+                    var jobmodel = _bllJobAssignment.GetModelList(" Id = " + list[i].JobId + " ");
+                    if (jobmodel != null && jobmodel.Count > 0 && !string.IsNullOrEmpty(jobmodel[0].OperatorId))
+                        dataGridView1.Rows[i].Cells["AssignmentState"].Value = "指定分配到\"" + list[i].AssignmentToUserName + "\"";
+                    else
+                        dataGridView1.Rows[i].Cells["AssignmentState"].Value = "自动分配到\"" + list[i].AssignmentToUserName + "\"";
                     if (list[i].JobId != pre)
                     {
                         dataGridView1.Rows[i].Cells["AssignmentState"].Style.BackColor = _colorList[(++groupCnt) % _colorList.Count];
@@ -610,7 +614,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 else
                 {
                     dataGridView1.Rows[i].Cells["AssignmentState"].Value = "未分配";
-                    //dataGridView1.Rows[i].Cells["AssignmentState"].Style.BackColor = Color.DarkGreen;
+                    dataGridView1.Rows[i].Cells["AssignmentState"].Style.BackColor = Color.White;
                 }
 
                 if (dataGridView1.Rows[i].Cells["Country"].Value != null)
