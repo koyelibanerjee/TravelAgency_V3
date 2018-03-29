@@ -1380,6 +1380,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 job.AssignmentToWorkId = selUser.WorkId;
                 job.AssignmentToUserName = selUser.UserName;
                 job.AssignmentTime = DateTime.Now;
+                job.OperatorId = GlobalUtils.LoginUser.WorkId;
                 _bllJobAssignment.Update(job);
 
                 //visainfo也跟着更新,找到所有工作id对应的visainfo

@@ -111,12 +111,13 @@ namespace TravelAgency.BLL
             model.ActType = acttype;
             model.WorkId = user.WorkId;
             model.UserName = user.UserName;
+            model.Type = visainfo.Types; //visainfo设置了的话也就加一个这个字段
             if (visainfo != null)
                 model.VisaInfo_id = visainfo.VisaInfo_id;
             if (visa != null)
             {
                 model.Visa_id = visa.Visa_id;
-                model.Type = visa.Types;
+                model.Type = visa.Types; //优先保持和visa一致
             }
             model.EntryTime = DateTime.Now;
             if (!string.IsNullOrEmpty(visainfo?.Country))
