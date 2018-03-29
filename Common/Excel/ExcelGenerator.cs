@@ -747,7 +747,7 @@ namespace TravelAgency.Common.Excel
             {
                 int res = model1.SalesPerson.CompareTo(model2.SalesPerson);
                 if(res==0)
-                    res = model1.Client.CompareTo(model2.Client);
+                    res = model1.client.CompareTo(model2.client);
                 return res;
             }); //按照客户排序
 
@@ -793,7 +793,7 @@ namespace TravelAgency.Common.Excel
                 row.CreateCell(4).SetCellValue(list[i].Number.ToString());
                 row.CreateCell(5).SetCellValue("");//资料寄出时间先不设置
                 row.CreateCell(6).SetCellValue(list[i].SalesPerson);
-                row.CreateCell(7).SetCellValue(list[i].Client);
+                row.CreateCell(7).SetCellValue(list[i].client);
                 row.CreateCell(8).SetCellValue(""); //其他备注先不设置
             }
 

@@ -162,7 +162,7 @@ namespace TravelAgency.CSUI.FrmSub
             txtDepartureTime.Text = DateTimeFormator.DateTimeToString(_visaModel.PredictTime);
             cbCountry.Text = _visaModel.Country;
             txtSalesPerson.Text = _visaModel.SalesPerson;
-            txtClient.Text = _visaModel.Client;
+            txtClient.Text = _visaModel.client;
             chbIsUrgent.Checked = _visaModel.IsUrgent;
             txtPerson.Text = _visaModel.Person;
             this.Text += "(" + _visaModel.Types + ")";
@@ -798,7 +798,7 @@ _dgvList[i], _visaModel);
                 _visaModel.GroupNo = txtGroupNo.Text;
                 _visaModel.SalesPerson = txtSalesPerson.Text;
                 _visaModel.TypeInPerson = txtTypeInPerson.Text;
-                _visaModel.Client = txtClient.Text;
+                _visaModel.client = txtClient.Text;
                 _visaModel.Name = txtClient.Text;
                 _visaModel.Country = cbCountry.Text;
                 _visaModel.Number = lvIn.Items.Count; //团号的人数
@@ -838,7 +838,7 @@ _dgvList[i], _visaModel);
                 model.TypeInPerson = txtTypeInPerson.Text;
                 model.Country = cbCountry.Text;
                 model.Number = lvIn.Items.Count;
-                model.Client = txtClient.Text;
+                model.client = txtClient.Text;
                 model.Name = txtClient.Text;
                 model.Types = Common.Enums.Types.Team; //设置为团签
                 model.IsUrgent = chbIsUrgent.Checked;

@@ -137,7 +137,8 @@ namespace TravelAgency.CSUI.FrmSub
                 if (!string.IsNullOrEmpty(txtNumber.Text))
                     visaModel.Number = int.Parse(txtNumber.Text); //团号的人数
 
-                visaModel.Client = txtClient.Text;
+                visaModel.client = txtClient.Text;
+                visaModel.Name = txtClient.Text;
                 visaModel.DepartureType = txtDepartureType.Text;
                 visaModel.SubmitCondition = txtSubmitCondition.Text;
                 visaModel.FetchCondition = txtFetchType.Text;

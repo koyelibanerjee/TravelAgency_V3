@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Collections.Generic;
-//using Maticsoft.Common;
 using TravelAgency.Model;
 namespace TravelAgency.BLL
 {
@@ -21,7 +20,6 @@ namespace TravelAgency.BLL
 		{
 			return dal.Exists(Visa_id);
 		}
-
 
 		/// <summary>
 		/// 更新一条数据

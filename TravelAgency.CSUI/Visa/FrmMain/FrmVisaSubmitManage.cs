@@ -1568,7 +1568,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 _listToAddToGroup[i].Visa_id = visaModel.Visa_id.ToString();
                 _listToAddToGroup[i].GroupNo = visaModel.GroupNo;
                 _listToAddToGroup[i].Types = visaModel.Types;
-                _listToAddToGroup[i].Client = visaModel.Client; //其他与当前团有关的信息也一起带过来
+                _listToAddToGroup[i].Client = visaModel.client; //其他与当前团有关的信息也一起带过来
                 _listToAddToGroup[i].Salesperson = visaModel.SalesPerson;
                 _listToAddToGroup[i].Country = visaModel.Country;
                 _listToAddToGroup[i].Position = visaModel.Number + i + 1;

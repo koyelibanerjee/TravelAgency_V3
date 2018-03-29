@@ -189,7 +189,7 @@ namespace TravelAgency.DAL
 				}
 				if(row["Client"]!=null)
 				{
-					model.Client=row["Client"].ToString();
+					model.client=row["Client"].ToString();
 				}
 				if(row["DepartureType"]!=null)
 				{

@@ -20,9 +20,9 @@ namespace TravelAgency.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into Visa(");
-            strSql.Append("Visa_id,GroupNo,Name,Types,Tips,PredictTime,RealTime,FinishTime,Satus,Person,Number,Picture,ListCount,List,SalesPerson,Receipt,Quidco,Cost,OtherCost,ExpressNo,Call,Sale_id,DepartmentId,EntryTime,Country,Passengers,WorkId,Documenter,Price,ConsulateCost,VisaPersonCost,MailCost,Tips2,SubmitFlag,GroupPrice,InvitationCost,Remark,SubmitTime,InTime,OutTime,Client,DepartureType,SubmitCondition,FetchCondition,TypeInPerson,CheckPerson,IsUrgent)");
+            strSql.Append("Visa_id,GroupNo,Name,Types,Tips,PredictTime,RealTime,FinishTime,Satus,Person,Number,Picture,ListCount,List,SalesPerson,Receipt,Quidco,Cost,OtherCost,ExpressNo,Call,Sale_id,DepartmentId,EntryTime,Country,Passengers,WorkId,Documenter,Price,ConsulateCost,VisaPersonCost,MailCost,Tips2,SubmitFlag,GroupPrice,InvitationCost,Remark,SubmitTime,InTime,OutTime,Client,DepartureType,SubmitCondition,FetchCondition,TypeInPerson,CheckPerson,IsUrgent,PeiQianYuan,QuQianYuan)");
             strSql.Append(" values (");
-            strSql.Append("@Visa_id,@GroupNo,@Name,@Types,@Tips,@PredictTime,@RealTime,@FinishTime,@Satus,@Person,@Number,@Picture,@ListCount,@List,@SalesPerson,@Receipt,@Quidco,@Cost,@OtherCost,@ExpressNo,@Call,@Sale_id,@DepartmentId,@EntryTime,@Country,@Passengers,@WorkId,@Documenter,@Price,@ConsulateCost,@VisaPersonCost,@MailCost,@Tips2,@SubmitFlag,@GroupPrice,@InvitationCost,@Remark,@SubmitTime,@InTime,@OutTime,@Client,@DepartureType,@SubmitCondition,@FetchCondition,@TypeInPerson,@CheckPerson,@IsUrgent)");
+            strSql.Append("@Visa_id,@GroupNo,@Name,@Types,@Tips,@PredictTime,@RealTime,@FinishTime,@Satus,@Person,@Number,@Picture,@ListCount,@List,@SalesPerson,@Receipt,@Quidco,@Cost,@OtherCost,@ExpressNo,@Call,@Sale_id,@DepartmentId,@EntryTime,@Country,@Passengers,@WorkId,@Documenter,@Price,@ConsulateCost,@VisaPersonCost,@MailCost,@Tips2,@SubmitFlag,@GroupPrice,@InvitationCost,@Remark,@SubmitTime,@InTime,@OutTime,@Client,@DepartureType,@SubmitCondition,@FetchCondition,@TypeInPerson,@CheckPerson,@IsUrgent,@PeiQianYuan,@QuQianYuan)");
             SqlParameter[] parameters = {
 					new SqlParameter("@Visa_id", SqlDbType.UniqueIdentifier,16),
 					new SqlParameter("@GroupNo", SqlDbType.VarChar,500),
@@ -70,7 +70,10 @@ namespace TravelAgency.DAL
 					new SqlParameter("@FetchCondition", SqlDbType.VarChar,50),
 					new SqlParameter("@TypeInPerson", SqlDbType.VarChar,50),
 					new SqlParameter("@CheckPerson", SqlDbType.VarChar,50),
-                    new SqlParameter("@IsUrgent",SqlDbType.Bit)};
+                    new SqlParameter("@IsUrgent",SqlDbType.Bit),
+                    new SqlParameter("@PeiQianYuan",SqlDbType.VarChar,50),
+                    new SqlParameter("@QuQianYuan",SqlDbType.VarChar,50)
+            };
             parameters[0].Value = Guid.NewGuid();
             parameters[1].Value = model.GroupNo;
             parameters[2].Value = model.Name;
@@ -111,13 +114,15 @@ namespace TravelAgency.DAL
             parameters[37].Value = model.SubmitTime;
             parameters[38].Value = model.InTime;
             parameters[39].Value = model.OutTime;
-            parameters[40].Value = model.Client;
+            parameters[40].Value = model.client;
             parameters[41].Value = model.DepartureType;
             parameters[42].Value = model.SubmitCondition;
             parameters[43].Value = model.FetchCondition;
             parameters[44].Value = model.TypeInPerson;
             parameters[45].Value = model.CheckPerson;
             parameters[46].Value = model.IsUrgent;
+            parameters[47].Value = model.PeiQianYuan;
+            parameters[48].Value = model.QuQianYuan;
 
             int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
             if (rows > 0)

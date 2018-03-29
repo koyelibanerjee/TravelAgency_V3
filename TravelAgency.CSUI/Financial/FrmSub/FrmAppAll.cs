@@ -131,7 +131,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                     qzApplicationModel.EntryTime = DateTime.Now;
                     qzApplicationModel.Flag = 0;
                     qzApplicationModel.Country = _list[i].Country;
-                    qzApplicationModel.Name = _list[i].Client;
+                    qzApplicationModel.Name = _list[i].client;
                     qzApplicationModel.InvitationCost = _list[i].InvitationCost;
                     qzApplicationModel.cost = _list[i].Cost;
                     qzApplicationModel.App_id = appid;

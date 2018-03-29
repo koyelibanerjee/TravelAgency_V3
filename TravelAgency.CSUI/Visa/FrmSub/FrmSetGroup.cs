@@ -130,7 +130,7 @@ namespace TravelAgency.CSUI.FrmSub
             txtSalesPerson.Text = _recentVisa.SalesPerson;
             txtInTime.Text = DateTimeFormator.DateTimeToString(_recentVisa.InTime);
             txtOutTime.Text = DateTimeFormator.DateTimeToString(_recentVisa.OutTime);
-            txtClient.Text = _recentVisa.Client;
+            txtClient.Text = _recentVisa.client;
             txtPerson.Text = _recentVisa.Person;
             txtSubmitCondition.Text = _recentVisa.SubmitCondition;
             txtFetchType.Text = _recentVisa.FetchCondition;
@@ -138,6 +138,11 @@ namespace TravelAgency.CSUI.FrmSub
             //txtTypeInPerson.Text = GlobalUtils.LoginUser.UserName; //在Frm load里面设置，因为都要设置操作员
             txtCheckPerson.Text = _recentVisa.CheckPerson;
             chbIsUrgent.Checked = _recentVisa.IsUrgent;
+
+            txtRealTime.Text = "";
+            
+            //txtRealTime.Value =DateTime. ;
+            
         }
 
 
@@ -211,7 +216,7 @@ namespace TravelAgency.CSUI.FrmSub
             txtSubmitTime.Text = DateTimeFormator.DateTimeToString(_visaModel.SubmitTime);
             txtInTime.Text = DateTimeFormator.DateTimeToString(_visaModel.InTime);
             txtOutTime.Text = DateTimeFormator.DateTimeToString(_visaModel.OutTime);
-            txtClient.Text = _visaModel.Client;
+            txtClient.Text = _visaModel.client;
             txtDepartureType.Text = _visaModel.DepartureType;
             txtSubmitCondition.Text = _visaModel.SubmitCondition;
             txtFetchType.Text = _visaModel.FetchCondition;
@@ -220,6 +225,12 @@ namespace TravelAgency.CSUI.FrmSub
             txtCheckPerson.Text = _visaModel.CheckPerson;
             chbIsUrgent.Checked = _visaModel.IsUrgent;
             txtPerson.Text = _visaModel.Person;
+
+            txtQuQianYuan.Text = _visaModel.QuQianYuan;
+            txtPeiQianYuan.Text = _visaModel.PeiQianYuan;
+            txtRealTime.Text = DateTimeFormator.DateTimeToString(_visaModel.RealTime);
+
+
 
             txtGroupNo.Text = _visaModel.GroupNo;
             this.Text += "(" + _visaModel.Types + ")";
@@ -1021,7 +1032,7 @@ namespace TravelAgency.CSUI.FrmSub
                 _visaModel.SalesPerson = txtSalesPerson.Text;
                 _visaModel.Country = cbCountry.Text;
                 _visaModel.Number = lvIn.Items.Count; //团号的人数
-                _visaModel.Client = txtClient.Text;
+                _visaModel.client = txtClient.Text;
                 _visaModel.Name = txtClient.Text;
                 _visaModel.DepartureType = txtDepartureType.Text;
                 _visaModel.SubmitCondition = txtSubmitCondition.Text;
@@ -1032,6 +1043,16 @@ namespace TravelAgency.CSUI.FrmSub
                 _visaModel.Types = _type;//设置为指定类型
                 _visaModel.IsUrgent = chbIsUrgent.Checked;
                 _visaModel.Person = txtPerson.Text;
+
+                if (!string.IsNullOrEmpty(txtRealTime.Text))
+                    _visaModel.RealTime = DateTime.Parse(txtRealTime.Text);
+
+                if (!string.IsNullOrEmpty(txtPeiQianYuan.Text))
+                    _visaModel.PeiQianYuan = txtPeiQianYuan.Text;
+
+                if (!string.IsNullOrEmpty(txtQuQianYuan.Text))
+                    _visaModel.QuQianYuan = txtQuQianYuan.Text;
+
                 return true;
             }
             catch (Exception)
@@ -1077,7 +1098,7 @@ namespace TravelAgency.CSUI.FrmSub
                 //_visaModel.SubmitTime = DateTime.Parse(txtSubmitTime.Text);
                 //_visaModel.InTime = DateTime.Parse(txtInTime.Text);
                 //_visaModel.OutTime = DateTime.Parse(txtOutTime.Text);
-                model.Client = txtClient.Text;
+                model.client = txtClient.Text;
                 model.Name = txtClient.Text;
 
                 model.DepartureType = txtDepartureType.Text;
@@ -1088,6 +1109,15 @@ namespace TravelAgency.CSUI.FrmSub
                 //model.Types = _type; //设置为指定类型 type不去修改
                 model.IsUrgent = chbIsUrgent.Checked;
                 model.Person = txtPerson.Text;
+
+                if (!string.IsNullOrEmpty(txtRealTime.Text))
+                    model.RealTime = DateTime.Parse(txtRealTime.Text);
+
+                if (!string.IsNullOrEmpty(txtPeiQianYuan.Text))
+                    model.PeiQianYuan = txtPeiQianYuan.Text;
+
+                if (!string.IsNullOrEmpty(txtQuQianYuan.Text))
+                    model.QuQianYuan = txtQuQianYuan.Text;
 
                 //model.EntryTime = DateTime.Now; //20171217，也跟着操作改变，20171231 改成询问用户
                 return true;

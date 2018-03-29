@@ -57,6 +57,8 @@ namespace TravelAgency.Model
 		private string _typeinperson;
 		private string _checkperson;
 		private bool _isurgent;
+		private string _peiqianyuan;
+		private string _quqianyuan;
 		/// <summary>
 		/// 
 		/// </summary>
@@ -346,7 +348,7 @@ namespace TravelAgency.Model
 			get{return _invitationcost;}
 		}
 		/// <summary>
-		/// 备注:如一家人
+		/// 
 		/// </summary>
 		public string Remark
 		{
@@ -354,7 +356,7 @@ namespace TravelAgency.Model
 			get{return _remark;}
 		}
 		/// <summary>
-		/// 交资料时间
+		/// 
 		/// </summary>
 		public DateTime? SubmitTime
 		{
@@ -362,7 +364,7 @@ namespace TravelAgency.Model
 			get{return _submittime;}
 		}
 		/// <summary>
-		/// 客人人境时间
+		/// 
 		/// </summary>
 		public DateTime? InTime
 		{
@@ -370,7 +372,7 @@ namespace TravelAgency.Model
 			get{return _intime;}
 		}
 		/// <summary>
-		/// 客人出境时间
+		/// 
 		/// </summary>
 		public DateTime? OutTime
 		{
@@ -378,15 +380,15 @@ namespace TravelAgency.Model
 			get{return _outtime;}
 		}
 		/// <summary>
-		/// 客户
+		/// 
 		/// </summary>
-		public string Client
+		public string client
 		{
 			set{ _client=value;}
 			get{return _client;}
 		}
 		/// <summary>
-		/// 出境类型:如三年多往，五年多往
+		/// 
 		/// </summary>
 		public string DepartureType
 		{
@@ -394,7 +396,7 @@ namespace TravelAgency.Model
 			get{return _departuretype;}
 		}
 		/// <summary>
-		/// 外领送签条件
+		/// 
 		/// </summary>
 		public string SubmitCondition
 		{
@@ -402,7 +404,7 @@ namespace TravelAgency.Model
 			get{return _submitcondition;}
 		}
 		/// <summary>
-		/// 客人取签方式
+		/// 
 		/// </summary>
 		public string FetchCondition
 		{
@@ -410,7 +412,7 @@ namespace TravelAgency.Model
 			get{return _fetchcondition;}
 		}
 		/// <summary>
-		/// 录入人员
+		/// 
 		/// </summary>
 		public string TypeInPerson
 		{
@@ -418,7 +420,7 @@ namespace TravelAgency.Model
 			get{return _typeinperson;}
 		}
 		/// <summary>
-		/// 审查人员
+		/// 
 		/// </summary>
 		public string CheckPerson
 		{
@@ -432,6 +434,22 @@ namespace TravelAgency.Model
 		{
 			set{ _isurgent=value;}
 			get{return _isurgent;}
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		public string PeiQianYuan
+		{
+			set{ _peiqianyuan=value;}
+			get{return _peiqianyuan;}
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		public string QuQianYuan
+		{
+			set{ _quqianyuan=value;}
+			get{return _quqianyuan;}
 		}
 		#endregion Model
 
