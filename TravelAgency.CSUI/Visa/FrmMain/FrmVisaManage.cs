@@ -830,6 +830,9 @@ namespace TravelAgency.CSUI.FrmMain
             GlobalUtils.DocDocxGenerator.Generate(list);
         }
 
+
+
+
         private void 日本送签时间表ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count < 1)

@@ -1042,6 +1042,28 @@ namespace TravelAgency.CSUI.FrmMain
             }
         }
 
+
+        private void 金桥担保函ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //DocComGenerator docComGenerator = new DocComGenerator(DocComGenerator.DocType.Type02WaiLingDanBaohan);
+            GlobalUtils.DocDocxGenerator.SetDocType(DocDocxGenerator.DocType.Type02JinQiaoDanBaoHan);
+            var visainfos = GetDgvSelList();
+            if (visainfos.Count > 1)
+            {
+                MessageBoxEx.Show("只能导出一个!");
+                return;
+            }
+
+            List<string> list = new List<string>();
+            list.Add(visainfos[0].Name);
+            list.Add(visainfos[0].PassportNo);
+            list.Add(visainfos[0].IssuePlace);
+            list.Add(DateTime.Now.Year.ToString());
+            list.Add(DateTime.Now.Month.ToString());
+            list.Add(DateTime.Now.Day.ToString());
+            GlobalUtils.DocDocxGenerator.Generate(list);
+        }
+
         private void 人申请表ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var visainfos = GetDgvSelList();
@@ -1356,6 +1378,7 @@ namespace TravelAgency.CSUI.FrmMain
             PassportPicHandler.UploadPassportPic(filename, list[0].PassportNo);
             MessageBoxEx.Show("上传成功!");
         }
+
 
 
 

@@ -304,6 +304,9 @@
     <None Include="Word\Templates\template_成都金桥大名单_添加占位符1-31.docx">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Word\Templates\template_成都金桥担保函.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Word\Templates\template_机票_东东国航.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

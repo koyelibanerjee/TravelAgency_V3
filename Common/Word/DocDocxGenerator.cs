@@ -14,6 +14,7 @@ namespace TravelAgency.Common.Word
         {
             Type01JinQiaoList,
             Type02WaiLingDanBaohan,
+            Type02JinQiaoDanBaoHan,
             Type03JiPiao,
             Type03JiPiaoBBCH,//阪阪川航
             Type03JiPiaoDBCH,//
@@ -69,6 +70,12 @@ namespace TravelAgency.Common.Word
                 PlaceHolderNum = 4;
                 DefaultName = "外领区人员特别担保函 （国旅四川）.docx";
                 TemplaceDocFileName = "template_外领区人员特别担保函 （国旅四川）_添加占位符1-4.docx";
+            }
+            if (type == DocDocxGenerator.DocType.Type02JinQiaoDanBaoHan)
+            {
+                PlaceHolderNum = 6;
+                DefaultName = "成都金桥担保函.docx";
+                TemplaceDocFileName = "template_成都金桥担保函.docx";
             }
             if (type == DocDocxGenerator.DocType.Type03JiPiao)
             {
