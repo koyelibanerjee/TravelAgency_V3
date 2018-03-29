@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelMain = new DevComponents.DotNetBar.PanelEx();
             this.panelMid2 = new DevComponents.DotNetBar.PanelEx();
             this.dgvGroupInfo = new DevComponents.DotNetBar.Controls.DataGridViewX();
@@ -80,8 +80,11 @@
             this.txtTypeInPerson = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.panelTop = new DevComponents.DotNetBar.PanelEx();
-            this.lbPhoneCompleteStatus = new DevComponents.DotNetBar.LabelX();
             this.lbInfoCompleteStatus = new DevComponents.DotNetBar.LabelX();
+            this.lbCount = new DevComponents.DotNetBar.LabelX();
+            this.txtGroupNo = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX2 = new DevComponents.DotNetBar.LabelX();
+            this.lbPhoneCompleteStatus = new DevComponents.DotNetBar.LabelX();
             this.panelBottom = new DevComponents.DotNetBar.PanelEx();
             this.btnDelete = new DevComponents.DotNetBar.ButtonX();
             this.btnReset = new DevComponents.DotNetBar.ButtonX();
@@ -98,9 +101,6 @@
             this.移到顶部ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.移到底部ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查看资料ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lbCount = new DevComponents.DotNetBar.LabelX();
-            this.txtGroupNo = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.panelMain.SuspendLayout();
             this.panelMid2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGroupInfo)).BeginInit();
@@ -162,14 +162,14 @@
             this.dgvGroupInfo.AllowUserToAddRows = false;
             this.dgvGroupInfo.AllowUserToDeleteRows = false;
             this.dgvGroupInfo.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGroupInfo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGroupInfo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvGroupInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGroupInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvGroupInfo_Name,
@@ -185,27 +185,27 @@
             this.Phone,
             this.Client,
             this.SalesPerson});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvGroupInfo.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvGroupInfo.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvGroupInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvGroupInfo.EnableHeadersVisualStyles = false;
             this.dgvGroupInfo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.dgvGroupInfo.Location = new System.Drawing.Point(0, 0);
             this.dgvGroupInfo.Name = "dgvGroupInfo";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGroupInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGroupInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvGroupInfo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvGroupInfo.RowTemplate.Height = 30;
             this.dgvGroupInfo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
@@ -874,19 +874,6 @@
             this.panelTop.Style.GradientAngle = 90;
             this.panelTop.TabIndex = 32;
             // 
-            // lbPhoneCompleteStatus
-            // 
-            // 
-            // 
-            // 
-            this.lbPhoneCompleteStatus.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lbPhoneCompleteStatus.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbPhoneCompleteStatus.Location = new System.Drawing.Point(906, 9);
-            this.lbPhoneCompleteStatus.Name = "lbPhoneCompleteStatus";
-            this.lbPhoneCompleteStatus.Size = new System.Drawing.Size(319, 23);
-            this.lbPhoneCompleteStatus.TabIndex = 8;
-            this.lbPhoneCompleteStatus.Text = "当前手机号录入完整.";
-            // 
             // lbInfoCompleteStatus
             // 
             // 
@@ -899,6 +886,60 @@
             this.lbInfoCompleteStatus.Size = new System.Drawing.Size(248, 23);
             this.lbInfoCompleteStatus.TabIndex = 7;
             this.lbInfoCompleteStatus.Text = "当前信息录入完整.";
+            // 
+            // lbCount
+            // 
+            // 
+            // 
+            // 
+            this.lbCount.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lbCount.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbCount.Location = new System.Drawing.Point(539, 9);
+            this.lbCount.Name = "lbCount";
+            this.lbCount.Size = new System.Drawing.Size(120, 23);
+            this.lbCount.TabIndex = 11;
+            this.lbCount.Text = "团队人数:0人";
+            // 
+            // txtGroupNo
+            // 
+            // 
+            // 
+            // 
+            this.txtGroupNo.Border.Class = "TextBoxBorder";
+            this.txtGroupNo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtGroupNo.DisabledBackColor = System.Drawing.Color.White;
+            this.txtGroupNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.txtGroupNo.Location = new System.Drawing.Point(62, 7);
+            this.txtGroupNo.Name = "txtGroupNo";
+            this.txtGroupNo.PreventEnterBeep = true;
+            this.txtGroupNo.Size = new System.Drawing.Size(471, 29);
+            this.txtGroupNo.TabIndex = 10;
+            // 
+            // labelX2
+            // 
+            // 
+            // 
+            // 
+            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelX2.Location = new System.Drawing.Point(7, 9);
+            this.labelX2.Name = "labelX2";
+            this.labelX2.Size = new System.Drawing.Size(49, 23);
+            this.labelX2.TabIndex = 9;
+            this.labelX2.Text = "团号:";
+            // 
+            // lbPhoneCompleteStatus
+            // 
+            // 
+            // 
+            // 
+            this.lbPhoneCompleteStatus.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lbPhoneCompleteStatus.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbPhoneCompleteStatus.Location = new System.Drawing.Point(906, 9);
+            this.lbPhoneCompleteStatus.Name = "lbPhoneCompleteStatus";
+            this.lbPhoneCompleteStatus.Size = new System.Drawing.Size(319, 23);
+            this.lbPhoneCompleteStatus.TabIndex = 8;
+            this.lbPhoneCompleteStatus.Text = "当前手机号录入完整.";
             // 
             // panelBottom
             // 
@@ -1060,47 +1101,6 @@
             this.查看资料ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.查看资料ToolStripMenuItem.Text = "查看资料";
             this.查看资料ToolStripMenuItem.Click += new System.EventHandler(this.查看资料ToolStripMenuItem_Click);
-            // 
-            // lbCount
-            // 
-            // 
-            // 
-            // 
-            this.lbCount.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lbCount.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbCount.Location = new System.Drawing.Point(539, 9);
-            this.lbCount.Name = "lbCount";
-            this.lbCount.Size = new System.Drawing.Size(120, 23);
-            this.lbCount.TabIndex = 11;
-            this.lbCount.Text = "团队人数:0人";
-            // 
-            // txtGroupNo
-            // 
-            // 
-            // 
-            // 
-            this.txtGroupNo.Border.Class = "TextBoxBorder";
-            this.txtGroupNo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtGroupNo.DisabledBackColor = System.Drawing.Color.White;
-            this.txtGroupNo.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtGroupNo.Location = new System.Drawing.Point(62, 7);
-            this.txtGroupNo.Name = "txtGroupNo";
-            this.txtGroupNo.PreventEnterBeep = true;
-            this.txtGroupNo.Size = new System.Drawing.Size(471, 29);
-            this.txtGroupNo.TabIndex = 10;
-            // 
-            // labelX2
-            // 
-            // 
-            // 
-            // 
-            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelX2.Location = new System.Drawing.Point(7, 9);
-            this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(49, 23);
-            this.labelX2.TabIndex = 9;
-            this.labelX2.Text = "团号:";
             // 
             // FrmSetTeamVisaGroup
             // 

@@ -799,6 +799,7 @@ _dgvList[i], _visaModel);
                 _visaModel.SalesPerson = txtSalesPerson.Text;
                 _visaModel.TypeInPerson = txtTypeInPerson.Text;
                 _visaModel.Client = txtClient.Text;
+                _visaModel.Name = txtClient.Text;
                 _visaModel.Country = cbCountry.Text;
                 _visaModel.Number = lvIn.Items.Count; //团号的人数
                 _visaModel.Types = Common.Enums.Types.Team; //设置为团签
@@ -838,6 +839,7 @@ _dgvList[i], _visaModel);
                 model.Country = cbCountry.Text;
                 model.Number = lvIn.Items.Count;
                 model.Client = txtClient.Text;
+                model.Name = txtClient.Text;
                 model.Types = Common.Enums.Types.Team; //设置为团签
                 model.IsUrgent = chbIsUrgent.Checked;
                 model.Person = txtPerson.Text;

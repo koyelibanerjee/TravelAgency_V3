@@ -1022,6 +1022,7 @@ namespace TravelAgency.CSUI.FrmSub
                 _visaModel.Country = cbCountry.Text;
                 _visaModel.Number = lvIn.Items.Count; //团号的人数
                 _visaModel.Client = txtClient.Text;
+                _visaModel.Name = txtClient.Text;
                 _visaModel.DepartureType = txtDepartureType.Text;
                 _visaModel.SubmitCondition = txtSubmitCondition.Text;
                 _visaModel.FetchCondition = txtFetchType.Text;
@@ -1077,6 +1078,8 @@ namespace TravelAgency.CSUI.FrmSub
                 //_visaModel.InTime = DateTime.Parse(txtInTime.Text);
                 //_visaModel.OutTime = DateTime.Parse(txtOutTime.Text);
                 model.Client = txtClient.Text;
+                model.Name = txtClient.Text;
+
                 model.DepartureType = txtDepartureType.Text;
                 model.SubmitCondition = txtSubmitCondition.Text;
                 model.FetchCondition = txtFetchType.Text;
