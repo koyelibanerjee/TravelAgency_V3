@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using TravelAgency.BLL;
 using TravelAgency.Common;
 using TravelAgency.Common.Enums;
 using TravelAgency.Common.Excel;
@@ -86,6 +87,8 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             cbState.Items.Add("全部");
             cbState.Items.Add("已做");
             cbState.Items.Add("未做");
+            cbState.Items.Add("延迟");
+            cbState.Items.Add("取消");
             cbState.DropDownStyle = ComboBoxStyle.DropDownList;
             cbState.SelectedIndex = 0;
 
@@ -117,15 +120,15 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             //checkShowConfirm.Checked = true;
             //checkRegSucShowDlg.Checked = true;
 
-            cbOutState.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbOutState.Items.Add("全部");
-            cbOutState.Items.Add("01延后");
-            cbOutState.Items.Add("01未记录");
-            cbOutState.Items.Add("02进签");
-            cbOutState.Items.Add("03出签");
-            cbOutState.Items.Add("04未正常出签");
-            cbOutState.Items.Add("10已导出");
-            cbOutState.SelectedIndex = 0;
+            cbAssignmentToUserName.Items.Add("全部");
+            cbAssignmentToUserName.SelectedIndex = 0;
+            cbAssignmentToUserName.DropDownStyle = ComboBoxStyle.DropDownList;
+            var list = CommonBll.GetFieldList("WorkerQueue", "UserName");
+            if (list != null)
+                foreach (var item in list)
+                {
+                    cbAssignmentToUserName.Items.Add(item);
+                }
 
 
             //国家选择框加入
@@ -453,19 +456,16 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                                "') ");
             }
 
-            if (!string.IsNullOrEmpty(txtCall.Text.Trim()))
+
+
+            if (cbAssignmentToUserName.Text == "全部")
             {
-                conditions.Add(" (Phone like '%" + txtCall.Text + "%') ");
+
             }
-
-            //if (cbCountry.Text == "全部")
-            //{
-
-            //}
-            //else
-            //{
-            //    conditions.Add(" Country = '" + cbCountry.Text + "' ");
-            //}
+            else
+            {
+                conditions.Add(" AssignmentToUserName = '" + cbAssignmentToUserName.Text + "' ");
+            }
 
 
             if (cbState.Text == "全部")
@@ -479,25 +479,16 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             {
                 conditions.Add(" HasTypeIn = '是' ");
             }
-
-            if (!string.IsNullOrEmpty(txtSalesPerson.Text.Trim()))
+            else if (cbState.Text == "延迟")
             {
-                conditions.Add(" (Salesperson like '%" + txtSalesPerson.Text + "%') ");
+                conditions.Add(" HasTypeIn = '延' ");
+            }
+            else if (cbState.Text == "取消")
+            {
+                conditions.Add(" HasTypeIn = '取' ");
             }
 
-            if (!string.IsNullOrEmpty(txtClient.Text.Trim()))
-            {
-                conditions.Add(" (Client like '%" + txtClient.Text + "%') ");
-            }
 
-            if (cbOutState.Text == "全部")
-            {
-
-            }
-            else
-            {
-                conditions.Add(" outState = '" + cbOutState.Text + "' ");
-            }
 
             //conditions.Add(" HasTypeIn = '否' "); //默认只显示还未做的
             conditions.Add(" Country = '" + "日本" + "' ");
@@ -516,14 +507,13 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             txtSchEntryTimeTo.Text = string.Empty;
             txtSchGroupNo.Text = string.Empty;
             txtSchName.Text = string.Empty;
-            txtCall.Text = string.Empty;
-            txtClient.Text = string.Empty;
-            txtSalesPerson.Text = string.Empty;
             txtSchPassportNo.Text = string.Empty;
 
             cbDisplayType.Text = "全部";
             cbCountry.Text = "全部";
-            cbOutState.Text = "全部";
+            cbState.Text = "全部";
+            cbAssignmentToUserName.Text = "全部";
+
         }
 
 
@@ -593,7 +583,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 //        QRCodeSaveSize.Size165X165);
                 //}
 
-                var list = dataGridView1.DataSource as List<VisaInfo>;
+                var list = dataGridView1.DataSource as List<Model.VisaInfo>;
 
                 if (list[i].JobId == null)
                 {
@@ -639,7 +629,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                         dataGridView1.Rows[i].Cells["HasTypeIn"].Value = "已做";
                         dataGridView1.Rows[i].Cells["HasTypeIn"].Style.BackColor = Color.ForestGreen;
                     }
-                    else if(list[i].HasTypeIn == "否")
+                    else if (list[i].HasTypeIn == "否")
                     {
                         dataGridView1.Rows[i].Cells["HasTypeIn"].Value = "未做";
                         dataGridView1.Rows[i].Cells["HasTypeIn"].Style.BackColor = Color.White;
@@ -745,7 +735,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 //}
                 //else
                 //{
-                VisaInfo model = GetDgvSelList()[0];
+                Model.VisaInfo model = GetDgvSelList()[0];
                 if (model == null)
                 {
                     MessageBoxEx.Show(Resources.FindModelFailedPleaseCheckInfoCorrect);
@@ -788,7 +778,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             //string passportNo = dataGridView1.SelectedRows[0].Cells["PassportNo"].Value.ToString();
             //string name = dataGridView1.SelectedRows[0].Cells["EnglishName"].Value.ToString();
 
-            FrmQRCode dlg = new FrmQRCode((dataGridView1.DataSource as List<VisaInfo>)[dataGridView1.SelectedRows[0].Index]);
+            FrmQRCode dlg = new FrmQRCode((dataGridView1.DataSource as List<Model.VisaInfo>)[dataGridView1.SelectedRows[0].Index]);
             //dlg.ShowDialog();
             dlg.Show();
         }
@@ -914,7 +904,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         /// <returns></returns>
         private List<Model.VisaInfo> GetDgvSelNotSetGroupList()
         {
-            List<Model.VisaInfo> list = new List<VisaInfo>();
+            List<Model.VisaInfo> list = new List<Model.VisaInfo>();
             int count = this.dataGridView1.SelectedRows.Count;
             var dgvList = dataGridView1.DataSource as List<Model.VisaInfo>;
 
@@ -938,10 +928,10 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         private List<Model.VisaInfo> GetDgvSelList()
         {
             int count = this.dataGridView1.SelectedRows.Count;
-            List<Model.VisaInfo> list = new List<VisaInfo>();
+            List<Model.VisaInfo> list = new List<Model.VisaInfo>();
             for (int i = count - 1; i >= 0; --i)
             {
-                Model.VisaInfo model = (dataGridView1.DataSource as List<VisaInfo>)[dataGridView1.SelectedRows[i].Index];
+                Model.VisaInfo model = (dataGridView1.DataSource as List<Model.VisaInfo>)[dataGridView1.SelectedRows[i].Index];
                 if (model != null)
                     list.Add(model);
             }
@@ -1388,7 +1378,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 MessageBoxEx.Show("查找指定用户有误，请重试!");
                 return;
             }
-            List<VisaInfo> visainfoList = new List<VisaInfo>();
+            List<Model.VisaInfo> visainfoList = new List<Model.VisaInfo>();
             //把这些工作都分配给这个workid
             foreach (var id in selJobList)
             {
