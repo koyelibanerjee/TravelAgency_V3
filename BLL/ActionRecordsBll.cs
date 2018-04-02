@@ -111,9 +111,12 @@ namespace TravelAgency.BLL
             model.ActType = acttype;
             model.WorkId = user.WorkId;
             model.UserName = user.UserName;
-            model.Type = visainfo.Types; //visainfo设置了的话也就加一个这个字段
+
             if (visainfo != null)
+            {
                 model.VisaInfo_id = visainfo.VisaInfo_id;
+                model.Type = visainfo.Types; //visainfo设置了的话也就加一个这个字段
+            }
             if (visa != null)
             {
                 model.Visa_id = visa.Visa_id;

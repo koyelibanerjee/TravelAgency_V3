@@ -169,6 +169,18 @@
     <Compile Include="Visa\FrmSub\FrmScanCtrlImported.Designer.cs">
       <DependentUpon>FrmScanCtrlImported.cs</DependentUpon>
     </Compile>
+    <Compile Include="Visa\FrmSub\FrmSetValue\FrmHasTypeIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visa\FrmSub\FrmSetValue\FrmHasTypeIn.Designer.cs">
+      <DependentUpon>FrmHasTypeIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Visa\FrmSub\FrmWorkerStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visa\FrmSub\FrmWorkerStatus.Designer.cs">
+      <DependentUpon>FrmWorkerStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visa\FrmSub\FrmSelUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -458,6 +470,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visa\FrmSub\FrmScanCtrlImported.resx">
       <DependentUpon>FrmScanCtrlImported.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visa\FrmSub\FrmSetValue\FrmHasTypeIn.resx">
+      <DependentUpon>FrmHasTypeIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visa\FrmSub\FrmWorkerStatus.resx">
+      <DependentUpon>FrmWorkerStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visa\FrmSub\FrmSelUser.resx">
       <DependentUpon>FrmSelUser.cs</DependentUpon>

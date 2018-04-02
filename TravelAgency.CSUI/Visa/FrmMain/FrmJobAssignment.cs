@@ -13,6 +13,7 @@ using TravelAgency.Common.PictureHandler;
 using TravelAgency.Common.QRCode;
 using TravelAgency.Common.Word;
 using TravelAgency.CSUI.FrmMain;
+using TravelAgency.CSUI.FrmSetValue;
 using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Properties;
 using TravelAgency.CSUI.Visa.FrmSub;
@@ -26,6 +27,8 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         private readonly TravelAgency.BLL.Visa _bllVisa = new TravelAgency.BLL.Visa();
         private readonly TravelAgency.BLL.JobAssignment _bllJobAssignment = new TravelAgency.BLL.JobAssignment();
         private readonly BLL.AuthUser _bllAuthUser = new BLL.AuthUser();
+        private readonly BLL.WorkerQueue _bllWorkerQueue = new BLL.WorkerQueue();
+
         private List<Color> _colorList = new List<Color>();
 
         private int _curPage = 1;
@@ -95,6 +98,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             dataGridView1.MultiSelect = true;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
+
             dataGridView1.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
 
 
@@ -153,6 +157,8 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             LoadDataToDgvAsyn();
             _init = true;
         }
+
+
 
         #region model与control
         //private void ModelToCtrls(TravelAgency.Model.VisaInfo model)
@@ -626,15 +632,27 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
                 if (!string.IsNullOrEmpty(list[i].HasTypeIn))
                 {
-                    dataGridView1.Rows[i].Cells["HasTypeIn"].Value = list[i].HasTypeIn == "是" ? "已做" : "未做";
+                    //dataGridView1.Rows[i].Cells["HasTypeIn"].Value = list[i].HasTypeIn == "是" ? "已做" : "未做";
                     //Color c = dataGridView1.Rows[i].Cells["HasTypeIn"].Style.BackColor;
                     if (list[i].HasTypeIn == "是")
                     {
+                        dataGridView1.Rows[i].Cells["HasTypeIn"].Value = "已做";
                         dataGridView1.Rows[i].Cells["HasTypeIn"].Style.BackColor = Color.ForestGreen;
                     }
-                    else
+                    else if(list[i].HasTypeIn == "否")
                     {
+                        dataGridView1.Rows[i].Cells["HasTypeIn"].Value = "未做";
                         dataGridView1.Rows[i].Cells["HasTypeIn"].Style.BackColor = Color.White;
+                    }
+                    else if (list[i].HasTypeIn == "延")
+                    {
+                        dataGridView1.Rows[i].Cells["HasTypeIn"].Value = "延迟";
+                        dataGridView1.Rows[i].Cells["HasTypeIn"].Style.BackColor = Color.DarkRed;
+                    }
+                    else if (list[i].HasTypeIn == "取")
+                    {
+                        dataGridView1.Rows[i].Cells["HasTypeIn"].Value = "取消";
+                        dataGridView1.Rows[i].Cells["HasTypeIn"].Style.BackColor = Color.Orange;
                     }
                 }
 
@@ -1401,6 +1419,51 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             //
             MessageBoxEx.Show("分配成功!");
             LoadDataToDgvAsyn();
+        }
+
+        private void btnShowWorkerStatus_Click(object sender, EventArgs e)
+        {
+            FrmWorkerStatus frm = new FrmWorkerStatus();
+            frm.Show();
+        }
+
+
+        private void UpdateUserState(string workid)
+        {
+            bool finished = _bllJobAssignment.UserWorkFinished(workid);
+            if (!_bllWorkerQueue.ChangeUserBusyState(workid, !finished))
+                MessageBoxEx.Show("修改用户IsBusy状态失败，请联系管理员!");
+        }
+
+        private void 设置做资料状态ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            FrmHasTypeIn frm = new FrmHasTypeIn();
+            if (frm.ShowDialog() == DialogResult.Cancel)
+                return;
+
+            string hasTypeIn = frm.RetValue;
+
+            var list = GetDgvSelList();
+            HashSet<string> usersNeedUpdate = new HashSet<string>();
+
+            for (int i = 0; i < list.Count; ++i)
+            {
+                list[i].HasTypeIn = hasTypeIn;
+                if (!string.IsNullOrEmpty(list[i].AssignmentToWorkId))
+                {
+                    usersNeedUpdate.Add(list[i].AssignmentToWorkId);
+                }
+                _bllVisaInfo.Update(list[i]);
+            }
+
+            foreach (var workId in usersNeedUpdate)
+            {
+                UpdateUserState(workId);
+            }
+
+            LoadDataToDgvAsyn();
+
         }
     }
 }
