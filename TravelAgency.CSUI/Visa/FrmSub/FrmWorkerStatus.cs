@@ -14,6 +14,7 @@ namespace TravelAgency.CSUI.Visa.FrmSub
     public partial class FrmWorkerStatus : Form
     {
         private readonly BLL.WorkerQueue _bllWorkerQueue = new BLL.WorkerQueue();
+        private readonly BLL.JobAssignment _bllJobAssignment = new BLL.JobAssignment();
         public string SelWorkId { get; set; }
 
         public FrmWorkerStatus()
@@ -129,6 +130,28 @@ namespace TravelAgency.CSUI.Visa.FrmSub
         private void 分配给选中用户ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             LoadDataToDgv();
+        }
+
+
+        private void UpdateUserState(string workid)
+        {
+            bool finished = _bllJobAssignment.UserWorkFinished(workid);
+            if (!_bllWorkerQueue.ChangeUserBusyState(workid, !finished))
+                MessageBoxEx.Show("修改用户IsBusy状态失败，请联系管理员!");
+        }
+
+        private void 手动更新选中用户Busy状态ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count < 1)
+                return;
+
+            for(int i = 0; i < dataGridView1.SelectedRows.Count; ++i)
+            {
+                UpdateUserState(dataGridView1.Rows[dataGridView1.SelectedRows[i].Index].Cells["WorkId"].Value.ToString());
+            }
+
+            LoadDataToDgv();
+
         }
     }
 }
