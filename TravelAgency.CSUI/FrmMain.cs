@@ -244,5 +244,11 @@ namespace TravelAgency.CSUI.FrmMain
             ps.StartInfo.WorkingDirectory = Path.GetDirectoryName(path);
             ps.Start();
         }
+
+        private void btnJiaoJiePicManage_Click(object sender, EventArgs e)
+        {
+            FrmJiaoJieManage frm = new FrmJiaoJieManage();
+            OpenTab(frm, frm.Name);
+        }
     }
 }

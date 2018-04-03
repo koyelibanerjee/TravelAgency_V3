@@ -185,6 +185,7 @@
     <Compile Include="FTP\FtpHandler.cs" />
     <Compile Include="InfoChecker.cs" />
     <Compile Include="PayoutUpdateRules.cs" />
+    <Compile Include="PictureHandler\JiaoJiePicHandler.cs" />
     <Compile Include="PictureHandler\GaopaiPicHandler.cs" />
     <Compile Include="PictureHandler\PassportPicHandler.cs" />
     <Compile Include="PicHandler.cs" />

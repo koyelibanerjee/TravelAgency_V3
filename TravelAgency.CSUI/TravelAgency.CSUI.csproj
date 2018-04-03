@@ -127,6 +127,12 @@
     <Compile Include="Financial\FrmSub\FrmQZApplication.Designer.cs">
       <DependentUpon>FrmQZApplication.cs</DependentUpon>
     </Compile>
+    <Compile Include="Visa\FrmMain\FrmJiaoJieManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visa\FrmMain\FrmJiaoJieManage.Designer.cs">
+      <DependentUpon>FrmJiaoJieManage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visa\FrmMain\FrmGaoPaiManage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -446,6 +452,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Financial\FrmSub\FrmQZApplication.resx">
       <DependentUpon>FrmQZApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visa\FrmMain\FrmJiaoJieManage.resx">
+      <DependentUpon>FrmJiaoJieManage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visa\FrmMain\FrmGaoPaiManage.resx">
       <DependentUpon>FrmGaoPaiManage.cs</DependentUpon>

@@ -87,6 +87,24 @@ namespace TravelAgency.Common
         }
 
         /// <summary>
+        /// 本地高拍仪图像保存路径，暂时写死
+        /// </summary>
+        public static string LocalJiaojiePicPath
+        {
+            get
+            {
+                string res = Application.StartupPath + "\\" + "交接图像保存路径";
+                if (!Directory.Exists(res))
+                {
+                    Directory.CreateDirectory(res);
+                }
+                return res;
+            }
+        }
+
+
+
+        /// <summary>
         /// 缩略图比例
         /// </summary>
         public static double ThumbNailRatio

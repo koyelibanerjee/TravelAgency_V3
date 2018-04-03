@@ -52,9 +52,11 @@
             this.button6 = new System.Windows.Forms.Button();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.panelBtns = new DevComponents.DotNetBar.PanelEx();
+            this.lbSuccess = new DevComponents.DotNetBar.LabelX();
             this.btnChoosePath = new System.Windows.Forms.Button();
             this.btnOpenSavePath = new System.Windows.Forms.Button();
-            this.lbSuccess = new DevComponents.DotNetBar.LabelX();
+            this.rbtnGaoPai = new System.Windows.Forms.RadioButton();
+            this.rbtnJiaojie = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.axScanCtrl1)).BeginInit();
             this.panelEx1.SuspendLayout();
             this.panelBtns.SuspendLayout();
@@ -288,6 +290,8 @@
             // 
             this.panelBtns.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelBtns.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelBtns.Controls.Add(this.rbtnJiaojie);
+            this.panelBtns.Controls.Add(this.rbtnGaoPai);
             this.panelBtns.Controls.Add(this.lbSuccess);
             this.panelBtns.Controls.Add(this.btnChoosePath);
             this.panelBtns.Controls.Add(this.button1);
@@ -325,6 +329,20 @@
             this.panelBtns.Style.GradientAngle = 90;
             this.panelBtns.TabIndex = 25;
             // 
+            // lbSuccess
+            // 
+            // 
+            // 
+            // 
+            this.lbSuccess.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lbSuccess.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbSuccess.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lbSuccess.Location = new System.Drawing.Point(12, 596);
+            this.lbSuccess.Name = "lbSuccess";
+            this.lbSuccess.Size = new System.Drawing.Size(185, 23);
+            this.lbSuccess.TabIndex = 22;
+            this.lbSuccess.Text = "待机中...";
+            // 
             // btnChoosePath
             // 
             this.btnChoosePath.Location = new System.Drawing.Point(171, 466);
@@ -345,19 +363,29 @@
             this.btnOpenSavePath.UseVisualStyleBackColor = true;
             this.btnOpenSavePath.Click += new System.EventHandler(this.btnOpenSavePath_Click);
             // 
-            // lbSuccess
+            // rbtnGaoPai
             // 
+            this.rbtnGaoPai.AutoSize = true;
+            this.rbtnGaoPai.Location = new System.Drawing.Point(12, 572);
+            this.rbtnGaoPai.Name = "rbtnGaoPai";
+            this.rbtnGaoPai.Size = new System.Drawing.Size(71, 16);
+            this.rbtnGaoPai.TabIndex = 23;
+            this.rbtnGaoPai.TabStop = true;
+            this.rbtnGaoPai.Text = "高拍图像";
+            this.rbtnGaoPai.UseVisualStyleBackColor = true;
+            this.rbtnGaoPai.CheckedChanged += new System.EventHandler(this.rbtnGaoPai_CheckedChanged);
             // 
+            // rbtnJiaojie
             // 
-            // 
-            this.lbSuccess.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lbSuccess.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbSuccess.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lbSuccess.Location = new System.Drawing.Point(12, 566);
-            this.lbSuccess.Name = "lbSuccess";
-            this.lbSuccess.Size = new System.Drawing.Size(185, 23);
-            this.lbSuccess.TabIndex = 22;
-            this.lbSuccess.Text = "待机中...";
+            this.rbtnJiaojie.AutoSize = true;
+            this.rbtnJiaojie.Location = new System.Drawing.Point(107, 572);
+            this.rbtnJiaojie.Name = "rbtnJiaojie";
+            this.rbtnJiaojie.Size = new System.Drawing.Size(71, 16);
+            this.rbtnJiaojie.TabIndex = 24;
+            this.rbtnJiaojie.TabStop = true;
+            this.rbtnJiaojie.Text = "交接图像";
+            this.rbtnJiaojie.UseVisualStyleBackColor = true;
+            this.rbtnJiaojie.CheckedChanged += new System.EventHandler(this.rbtnJiaojie_CheckedChanged);
             // 
             // FrmTackePicture
             // 
@@ -374,6 +402,7 @@
             this.panelBtns.ResumeLayout(false);
             this.panelBtns.PerformLayout();
             this.ResumeLayout(false);
+
         }
 
         #endregion
@@ -404,6 +433,8 @@
         private System.Windows.Forms.Button btnOpenSavePath;
         private System.Windows.Forms.Button btnChoosePath;
         private DevComponents.DotNetBar.LabelX lbSuccess;
+        private System.Windows.Forms.RadioButton rbtnGaoPai;
+        private System.Windows.Forms.RadioButton rbtnJiaojie;
     }
 }
 

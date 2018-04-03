@@ -66,12 +66,19 @@ namespace ScanCtrlTest
             axScanCtrl1.Scan(filename); //传的参数就是存储路径
 
             //再上传到服务器端
-            GaopaiPicHandler.UploadGaoPaiImageAsync(filename);
+            if (rbtnGaoPai.Checked)
+                GaopaiPicHandler.UploadGaoPaiImageAsync(filename);
+            else
+                JiaoJiePicHandler.UploadJiaoJieImageAsync(filename);
 
             new Thread(UpdateLable) { IsBackground = true }.Start(DateTime.Now.ToString("yyyyMMddHHmmss") + ".jpg 保存成功.");
             PicHandler.MakeThumbnail(filename, GaopaiPicHandler.GetThumbName(filename), GlobalUtils.ThumbNailRatio);
             //再上传缩略图到服务器端
-            GaopaiPicHandler.UploadGaoPaiImage(GaopaiPicHandler.GetThumbName(filename));
+            if (rbtnGaoPai.Checked)
+                GaopaiPicHandler.UploadGaoPaiImage(GaopaiPicHandler.GetThumbName(filename));
+            else
+                JiaoJiePicHandler.UploadJiaoJieImage(JiaoJiePicHandler.GetThumbName(filename));
+
         }
         /// <summary>
         /// 放大
@@ -176,7 +183,7 @@ namespace ScanCtrlTest
             comboBox5.SelectedIndex = 0;
 
             textBox1.Text = GlobalUtils.LocalGaoPaiPicPath + "\\" + DateTime.Now.ToString("yyyyMMdd");
-
+            rbtnGaoPai.Checked = true;
         }
 
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
@@ -258,6 +265,18 @@ namespace ScanCtrlTest
             string str = GlobalUtils.ShowBrowseFolderDlg();
             if (!string.IsNullOrEmpty(str))
                 textBox1.Text = str;
+        }
+
+        private void rbtnGaoPai_CheckedChanged(object sender, EventArgs e)
+        {
+            textBox1.Text = GlobalUtils.LocalGaoPaiPicPath + "\\" + DateTime.Now.ToString("yyyyMMdd");
+
+        }
+
+        private void rbtnJiaojie_CheckedChanged(object sender, EventArgs e)
+        {
+            textBox1.Text = GlobalUtils.LocalJiaojiePicPath + "\\" + DateTime.Now.ToString("yyyyMMdd");
+
         }
     }
 }
