@@ -16,7 +16,7 @@ namespace ScanCtrlTest
 {
     public partial class FrmTackePicture : Form
     {
-
+        string _types = "未分类";
         public FrmTackePicture()
         {
             InitializeComponent();
@@ -184,6 +184,7 @@ namespace ScanCtrlTest
 
             textBox1.Text = GlobalUtils.LocalGaoPaiPicPath + "\\" + DateTime.Now.ToString("yyyyMMdd");
             rbtnGaoPai.Checked = true;
+            rbtn未分类.Checked = true;
         }
 
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)
@@ -281,20 +282,24 @@ namespace ScanCtrlTest
         private void rbtn未分类_CheckedChanged(object sender, EventArgs e)
         {
             textBox1.Text = GlobalUtils.LocalGaoPaiPicPath + "\\" + DateTime.Now.ToString("yyyyMMdd");
+            _types = "未分类";
         }
 
         private void rbtn个签_CheckedChanged(object sender, EventArgs e)
         {
+            _types = "个签";
             textBox1.Text = GlobalUtils.LocalGaoPaiPicPath + "\\个签\\" + DateTime.Now.ToString("yyyyMMdd");
         }
 
         private void rbtn团签_CheckedChanged(object sender, EventArgs e)
         {
+            _types = "团签";
             textBox1.Text = GlobalUtils.LocalGaoPaiPicPath + "\\团签\\" + DateTime.Now.ToString("yyyyMMdd");
         }
 
         private void rbtn团做个_CheckedChanged(object sender, EventArgs e)
         {
+            _types = "团做个";
             textBox1.Text = GlobalUtils.LocalGaoPaiPicPath + "\\团做个\\" + DateTime.Now.ToString("yyyyMMdd");
         }
     }

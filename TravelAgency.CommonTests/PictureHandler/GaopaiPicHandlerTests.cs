@@ -15,7 +15,7 @@ namespace TravelAgency.Common.PictureHandler.Tests
         [TestMethod()]
         public void GetFileListByDateTest()
         {
-            PictureHandler.GaopaiPicHandler.GetFileListByDate(DateTime.Parse("2017-12-27"));
+            //PictureHandler.GaopaiPicHandler.GetFileListByDate(DateTime.Parse("2017-12-27"));
         }
     }
 }

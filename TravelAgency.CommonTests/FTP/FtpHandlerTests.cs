@@ -59,7 +59,26 @@ namespace TravelAgency.Common.FTP.Tests
             //string filename = GlobalUtils.ShowOpenFileDlg();
             //FtpHandler.Upload(filename, "abc.jpg");
             //FtpHandler.Delete("abc1234.jpg");
-            FtpHandler.MakeDir("abc");
+            FtpHandler.MakeDir("abc/123");
+
+
+        }
+
+        [TestMethod()]
+        public void MakeDeepDirTest()
+        {
+            //初始化FTP参数
+            string ftpServer = ConfigurationManager.AppSettings["FTPServer"];
+            string ftpUserId = ConfigurationManager.AppSettings["FtpUserID"];
+            string ftpPassword = ConfigurationManager.AppSettings["FtpPassword"];
+            string passportPics = ConfigurationManager.AppSettings["PassportPicPath"];
+            FtpHandler.SetParams(ftpServer, passportPics, ftpUserId, ftpPassword);
+
+            FtpHandler.ChangeFtpUri(ConfigurationManager.AppSettings["GaopaiPicPath"]);
+            //string filename = GlobalUtils.ShowOpenFileDlg();
+            //FtpHandler.Upload(filename, "abc.jpg");
+            //FtpHandler.Delete("abc1234.jpg");
+            FtpHandler.MakeDeepDir("abc/123/456");
         }
     }
 }

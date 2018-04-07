@@ -385,6 +385,20 @@ namespace TravelAgency.Common.FTP
             }
         }
 
+        public static void MakeDeepDir(string dirName)
+        {
+            if (dirName.StartsWith("/"))
+                dirName.TrimStart('/');
+            string []dirs = dirName.Split('/');
+            if (dirs.Length < 1)
+                return;
+            for(int i = 0; i < dirs.Length; ++i)
+            {
+                MakeDir(dirs[i]);
+                _ftpUri += dirs[i] + "/";
+            }
+
+        }
 
 
         #endregion
