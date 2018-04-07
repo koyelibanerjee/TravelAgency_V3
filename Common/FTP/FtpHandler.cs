@@ -43,6 +43,11 @@ namespace TravelAgency.Common.FTP
             _ftpUri = "ftp://" + _ftpServerIp + "/" + _ftpRemotePath + "/";
         }
 
+        public static string GetFtpUri()
+        {
+            return _ftpUri;
+        }
+
         /// <summary>
         /// 下载，支持子目录级别的下载,调用示例:Download("I:Downloads","aaa/bbb/ccc/ddd.txt")
         /// 则会下载 远程目录根目录/aaa/bbb/ccc/ddd.txt 到 I:Downloads/aaa/bbb/ccc/ddd.txt
@@ -435,7 +440,7 @@ namespace TravelAgency.Common.FTP
         }
 
         /// <summary>
-        /// 在当前目录下创建多级目录，如abc/123/456，也兼容单层目录创建
+        /// 在当前目录下创建多级目录，如abc/123/456，也兼容单层目录创建,目录存在会跳过(内部把异常捕捉了)
         /// </summary>
         /// <param name="dirName"></param>
         public static void DeepMakeDir(string dirName)

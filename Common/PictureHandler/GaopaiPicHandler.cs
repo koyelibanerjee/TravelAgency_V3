@@ -245,19 +245,29 @@ namespace TravelAgency.Common.PictureHandler
         public static void UploadGaoPaiImage(string filename, string types)
         {
             string savePrefix = "";
-            if (types != "未分类")
-                savePrefix += types + '/';
+  
             if (filename.Contains("thumb_"))
-                savePrefix = Path.GetFileName(filename).Substring(6, 8);
+                savePrefix += Path.GetFileName(filename).Substring(6, 8);
             else
-                savePrefix = Path.GetFileName(filename).Substring(0, 8); //日期的文本 20180304
-            FtpHandler.ChangeFtpUri(RemoteRootPath);
+                savePrefix += Path.GetFileName(filename).Substring(0, 8); //日期的文本 20180304
 
-            if (!FtpHandler.DeepDirectoryExist(savePrefix))
-                FtpHandler.DeepMakeDir(savePrefix);
+            if (types != "未分类")
+                savePrefix += '/' + types;
 
-            FtpHandler.ChangeFtpUri(RemoteRootPath + "/" + savePrefix);
-            FtpHandler.Upload(filename);
+            lock ("refConstant")
+            {
+                FtpHandler.ChangeFtpUri(RemoteRootPath);
+                if (!FtpHandler.DeepDirectoryExist(savePrefix))
+                {
+                    //这里一定要先改回来path,在DeepDirectoryExist判断的时候是修改了路径的
+                    FtpHandler.ChangeFtpUri(RemoteRootPath);
+
+                    FtpHandler.DeepMakeDir(savePrefix);
+                }
+                    
+                FtpHandler.ChangeFtpUri(RemoteRootPath + "/" + savePrefix);
+                FtpHandler.Upload(filename);
+            }
         }
 
         //public static bool CheckAndDownloadIfNotExist(string passportNo, PassportPicHandler.PicType type)

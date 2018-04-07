@@ -67,7 +67,7 @@ namespace ScanCtrlTest
 
             //再上传到服务器端
             if (rbtnGaoPai.Checked)
-                GaopaiPicHandler.UploadGaoPaiImageAsync(new List<string> { filename,_types});
+                GaopaiPicHandler.UploadGaoPaiImageAsync(new List<string> { filename, _types });
             else
                 JiaoJiePicHandler.UploadJiaoJieImageAsync(filename);
 
@@ -75,7 +75,7 @@ namespace ScanCtrlTest
             PicHandler.MakeThumbnail(filename, GaopaiPicHandler.GetThumbName(filename), GlobalUtils.ThumbNailRatio);
             //再上传缩略图到服务器端
             if (rbtnGaoPai.Checked)
-                GaopaiPicHandler.UploadGaoPaiImage(GaopaiPicHandler.GetThumbName(filename));
+                GaopaiPicHandler.UploadGaoPaiImageAsync(new List<string> { GaopaiPicHandler.GetThumbName(filename), _types });
             else
                 JiaoJiePicHandler.UploadJiaoJieImage(JiaoJiePicHandler.GetThumbName(filename));
 
@@ -288,19 +288,19 @@ namespace ScanCtrlTest
         private void rbtn个签_CheckedChanged(object sender, EventArgs e)
         {
             _types = "个签";
-            textBox1.Text = GlobalUtils.LocalGaoPaiPicPath + "\\个签\\" + DateTime.Now.ToString("yyyyMMdd");
+            textBox1.Text = GlobalUtils.LocalGaoPaiPicPath + "\\" + DateTime.Now.ToString("yyyyMMdd") + "\\个签";
         }
 
         private void rbtn团签_CheckedChanged(object sender, EventArgs e)
         {
             _types = "团签";
-            textBox1.Text = GlobalUtils.LocalGaoPaiPicPath + "\\团签\\" + DateTime.Now.ToString("yyyyMMdd");
+            textBox1.Text = GlobalUtils.LocalGaoPaiPicPath + "\\" + DateTime.Now.ToString("yyyyMMdd") + "\\团签";
         }
 
         private void rbtn团做个_CheckedChanged(object sender, EventArgs e)
         {
             _types = "团做个";
-            textBox1.Text = GlobalUtils.LocalGaoPaiPicPath + "\\团做个\\" + DateTime.Now.ToString("yyyyMMdd");
+            textBox1.Text = GlobalUtils.LocalGaoPaiPicPath + "\\" + DateTime.Now.ToString("yyyyMMdd") + "\\团做个";
         }
     }
 }

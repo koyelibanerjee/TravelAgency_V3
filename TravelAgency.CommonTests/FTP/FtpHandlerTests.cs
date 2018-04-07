@@ -78,7 +78,9 @@ namespace TravelAgency.Common.FTP.Tests
             //string filename = GlobalUtils.ShowOpenFileDlg();
             //FtpHandler.Upload(filename, "abc.jpg");
             //FtpHandler.Delete("abc1234.jpg");
-            FtpHandler.MakeDeepDir("abc/123/456");
+            FtpHandler.DeepMakeDir("abc/123/456");
+            FtpHandler.ChangeFtpUri(ConfigurationManager.AppSettings["GaopaiPicPath"]);
+            FtpHandler.DeepMakeDir("abc/123/567");
         }
 
         [TestMethod()]
