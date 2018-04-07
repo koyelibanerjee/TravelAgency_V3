@@ -254,16 +254,12 @@ namespace TravelAgency.Common.FTP
         public static bool DeepDirectoryExist(string RemoteDirectoryName)
         {
             if (RemoteDirectoryName.StartsWith("/"))
-            {
                 RemoteDirectoryName.TrimStart('/');
-            }
             if (RemoteDirectoryName.EndsWith("/"))
                 RemoteDirectoryName.TrimEnd('/');
 
             if (!RemoteDirectoryName.Contains('/'))
-            {
                 return DirectoryExist(RemoteDirectoryName);
-            }
 
             string[] dirs = RemoteDirectoryName.Split('/');
 
@@ -442,7 +438,7 @@ namespace TravelAgency.Common.FTP
         /// 在当前目录下创建多级目录，如abc/123/456，也兼容单层目录创建
         /// </summary>
         /// <param name="dirName"></param>
-        public static void MakeDeepDir(string dirName)
+        public static void DeepMakeDir(string dirName)
         {
             if (dirName.StartsWith("/"))
                 dirName.TrimStart('/');

@@ -230,33 +230,32 @@ namespace TravelAgency.Common.PictureHandler
             return File.Exists(picName);
         }
 
-        public static void UploadGaoPaiImageAsync(string filename)
+        public static void UploadGaoPaiImageAsync(List<string> filenameAndTypes)
         {
-            new Thread(UploadGaoPaiImage) { IsBackground = true }.Start(filename);
+            new Thread(UploadGaoPaiImage) { IsBackground = true }.Start(filenameAndTypes);
         }
 
         public static void UploadGaoPaiImage(object filename)
         {
-            UploadGaoPaiImage((string)filename);
+            var list = (List<string>)filename;
+            UploadGaoPaiImage(list[0],list[1]);
         }
 
 
         public static void UploadGaoPaiImage(string filename, string types)
         {
             string savePrefix = "";
+            if (types != "未分类")
+                savePrefix += types + '/';
             if (filename.Contains("thumb_"))
-            {
-                savePrefix = types + '/' + Path.GetFileName(filename).Substring(6, 8);
-            }
+                savePrefix = Path.GetFileName(filename).Substring(6, 8);
             else
-            {
-                savePrefix = types + '/' + Path.GetFileName(filename).Substring(0, 8); //日期的文本 20180304
-            }
+                savePrefix = Path.GetFileName(filename).Substring(0, 8); //日期的文本 20180304
             FtpHandler.ChangeFtpUri(RemoteRootPath);
-            if (!FtpHandler.DirectoryExist(savePrefix))
-            {
-                FtpHandler.MakeDir(savePrefix);
-            }
+
+            if (!FtpHandler.DeepDirectoryExist(savePrefix))
+                FtpHandler.DeepMakeDir(savePrefix);
+
             FtpHandler.ChangeFtpUri(RemoteRootPath + "/" + savePrefix);
             FtpHandler.Upload(filename);
         }

@@ -67,7 +67,7 @@ namespace ScanCtrlTest
 
             //再上传到服务器端
             if (rbtnGaoPai.Checked)
-                GaopaiPicHandler.UploadGaoPaiImageAsync(filename);
+                GaopaiPicHandler.UploadGaoPaiImageAsync(new List<string> { filename,_types});
             else
                 JiaoJiePicHandler.UploadJiaoJieImageAsync(filename);
 
