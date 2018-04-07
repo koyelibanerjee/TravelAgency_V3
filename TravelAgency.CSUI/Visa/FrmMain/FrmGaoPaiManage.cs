@@ -87,6 +87,15 @@ namespace TravelAgency.CSUI.FrmMain
             groupStyle.Name = "groupstyle";
             advTree1.Styles.Add(groupStyle);
 
+
+            ElementStyle dayStyle = new ElementStyle();
+            dayStyle.TextColor = Color.ForestGreen;
+            dayStyle.Font = new Font("微软雅黑", 10.0f, FontStyle.Bold);
+
+            dayStyle.Name = "daystyle";
+            advTree1.Styles.Add(dayStyle);
+
+
             // Define sub-item style, simply to make text gray
             ElementStyle subItemStyle = new ElementStyle();
             subItemStyle.TextColor = Color.OrangeRed;
@@ -121,13 +130,19 @@ namespace TravelAgency.CSUI.FrmMain
 
                 for (int j = folderList[i].Count - 1; j >= 0; j--)
                 {
-                    Node subNode = CreateChildNode(GenChinaDate(folderList[i][j]),
-                        GenChinaDate(folderList[i][j]),
-                        Properties.Resources.Folder,
-                        advTree1.Styles["subitemstyle"]);
+                    //Node subNode = CreateChildNode(GenChinaDate(folderList[i][j]),
+                    //    GenChinaDate(folderList[i][j]),
+                    //    Properties.Resources.Folder,
+                    //    advTree1.Styles["subitemstyle"]);
+                    Node subNode = new Node(GenChinaDate(folderList[i][j]), advTree1.Styles["daystyle"]);
                     subNode.Tag = folderList[i][j]; //存一个组名
-                    subNode.Editable = false;
-                    subNode.DragDropEnabled = false;
+
+                    //每一个这个再添加几类图像名字
+                    //subNode.Nodes.Add(CreateChildNode("aaa1", "bbb1", Properties.Resources.Folder, advTree1.Styles["subitemstyle"]));
+                    //subNode.Nodes.Add(CreateChildNode("aaa2", "bbb2", Properties.Resources.Folder, advTree1.Styles["subitemstyle"]));
+                    //subNode.Nodes.Add(CreateChildNode("aaa3", "bbb3", Properties.Resources.Folder, advTree1.Styles["subitemstyle"]));
+                    //subNode.Nodes.Add(new Node("aaaaa", advTree1.Styles["subitemstyle2"]));
+
                     groupNode.Nodes.Add(subNode);
                 }
 
@@ -138,6 +153,8 @@ namespace TravelAgency.CSUI.FrmMain
             Node childNode = new Node(nodeText);
             childNode.Image = image;
             childNode.Cells.Add(new Cell(subText, subItemStyle));
+            childNode.Editable = false;
+            childNode.DragDropEnabled = false;
             return childNode;
         }
         #endregion
