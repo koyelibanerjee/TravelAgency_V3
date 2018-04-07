@@ -76,14 +76,30 @@ namespace TravelAgency.Common.PictureHandler
             return list;
         }
 
+
+
+        public static List<string> GetFolderListByDate(DateTime date)
+        {
+            //初始化FTP参数(在Common的静态构造函数中做了)
+            FtpHandler.ChangeFtpUri(RemoteRootPath + "/" + date.ToString("yyyyMMdd"));
+
+            List<string> list = FtpHandler.GetDirectoryList();
+            list.Insert(0, "未分类"); //添加一个未分类兼容以前的代码
+            return list;
+        }
+
         /// <summary>
         /// 获取指定某一天的所有文件列表（不包含缩略图）
         /// </summary>
         /// <param name="date"></param>
-        public static List<string> GetFileListByDate(DateTime date)
+        public static List<string> GetFileListByDateAndTypes(DateTime date, string types)
         {
             //初始化FTP参数(在Common的静态构造函数中做了)
-            FtpHandler.ChangeFtpUri(RemoteRootPath + "/" + date.ToString("yyyyMMdd"));
+            if (types != "未分类")
+                FtpHandler.ChangeFtpUri(RemoteRootPath + "/" + date.ToString("yyyyMMdd") + "/" + types);
+            else
+                FtpHandler.ChangeFtpUri(RemoteRootPath + "/" + date.ToString("yyyyMMdd"));
+
             List<string> list = FtpHandler.GetFileList("*.*");
             for (int i = list.Count - 1; i >= 0; i--)
             {
@@ -92,7 +108,6 @@ namespace TravelAgency.Common.PictureHandler
             }
             return list;
         }
-
 
 
         /// <summary>

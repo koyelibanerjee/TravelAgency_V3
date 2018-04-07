@@ -118,9 +118,9 @@ namespace TravelAgency.CSUI.FrmMain
 
             List<List<string>> folderList = GaopaiPicHandler.GetFolderListGroupByMonth();
             //按照年月分类
-            if(folderList==null || folderList.Count==0)
+            if (folderList == null || folderList.Count == 0)
                 return;
-            
+
             for (int i = folderList.Count - 1; i >= 0; i--)
             {
                 Node groupNode = new Node(GenChinaDate(folderList[i][0].Substring(0, 6)), advTree1.Styles["groupstyle"]);
@@ -138,6 +138,17 @@ namespace TravelAgency.CSUI.FrmMain
                     subNode.Tag = folderList[i][j]; //存一个组名
 
                     //每一个这个再添加几类图像名字
+
+                    List<string> typeList = GaopaiPicHandler.GetFolderListByDate(
+                        DateTime.ParseExact(folderList[i][j], "yyyyMMdd",
+                        System.Globalization.CultureInfo.CurrentCulture));
+                    for (int i1 = 0; i1 < typeList.Count; ++i1)
+                    {
+                        Node subImtem = CreateChildNode(typeList[i1], typeList[i1], Properties.Resources.Folder, advTree1.Styles["subitemstyle"]);
+                        subImtem.Tag = typeList[i1];
+                        subNode.Nodes.Add(subImtem);
+                    }
+
                     //subNode.Nodes.Add(CreateChildNode("aaa1", "bbb1", Properties.Resources.Folder, advTree1.Styles["subitemstyle"]));
                     //subNode.Nodes.Add(CreateChildNode("aaa2", "bbb2", Properties.Resources.Folder, advTree1.Styles["subitemstyle"]));
                     //subNode.Nodes.Add(CreateChildNode("aaa3", "bbb3", Properties.Resources.Folder, advTree1.Styles["subitemstyle"]));
@@ -162,7 +173,7 @@ namespace TravelAgency.CSUI.FrmMain
         #region advTree响应事件
         private void advTree1_Click(object sender, EventArgs e)
         {
-            if (advTree1.SelectedNode != null && advTree1.SelectedNode.Tag.ToString().Length == 8) //必须选中有效日期才行20171227这样
+            if (advTree1.SelectedNode != null) //必须选中有效日期才行20171227这样
             {
                 _startLoading = false; //杀死原来的线程
                 LoadSelectItemToDgv();
@@ -172,13 +183,17 @@ namespace TravelAgency.CSUI.FrmMain
 
         private void LoadSelectItemToDgv()
         {
-            if (advTree1.SelectedNode == null || advTree1.SelectedNode.Tag == null)
+            if (advTree1.SelectedNode == null ||
+                advTree1.SelectedNode.Tag == null ||
+                advTree1.SelectedNode.Nodes.Count > 0) //不是最底层节点
                 return;
             _imageList.Images.Clear();
             lvPics.Items.Clear();
             //_imageList.
             _imagenames =
-               GaopaiPicHandler.GetFileListByDate(DateTime.ParseExact(advTree1.SelectedNode.Tag.ToString(), "yyyyMMdd", System.Globalization.CultureInfo.CurrentCulture));
+               GaopaiPicHandler.GetFileListByDateAndTypes(
+                   DateTime.ParseExact(advTree1.SelectedNode.Parent.Tag.ToString(), "yyyyMMdd", System.Globalization.CultureInfo.CurrentCulture),
+                   advTree1.SelectedNode.Tag.ToString());
 
             for (int i = 0; i < _imagenames.Count; ++i)
             {
@@ -205,8 +220,14 @@ namespace TravelAgency.CSUI.FrmMain
             {
                 for (int i = 0; i < _imagenames.Count && _startLoading; i++)
                 {
-                    Image img = GaopaiPicHandler.GetGaoPaiImage(advTree1.SelectedNode.Tag.ToString() + "/" +
-                        GaopaiPicHandler.GetThumbName(_imagenames[i]));
+                    string types = advTree1.SelectedNode.Tag.ToString();
+                    Image img = null;
+                    if (types == "未分类")
+                        img = GaopaiPicHandler.GetGaoPaiImage(advTree1.SelectedNode.Parent.Tag.ToString() + "/" +
+                           GaopaiPicHandler.GetThumbName(_imagenames[i]));
+                    else
+                        img = GaopaiPicHandler.GetGaoPaiImage(advTree1.SelectedNode.Parent.Tag.ToString() + "/" + types + "/" +
+                          GaopaiPicHandler.GetThumbName(_imagenames[i]));
                     if (img != null)
                     {
                         //_imageList.Images[i].Dispose();
@@ -258,7 +279,7 @@ namespace TravelAgency.CSUI.FrmMain
             if (lvPics.SelectedItems.Count == 1)
             {
                 //Image img = GaopaiPicHandler.GetGaoPaiImage(GetSelFileName());
-                FrmShowPicture frm = new FrmShowPicture(_imagenames, advTree1.SelectedNode.Tag.ToString(),lvPics.SelectedItems[0].Index);
+                FrmShowPicture frm = new FrmShowPicture(_imagenames, advTree1.SelectedNode.Tag.ToString(), lvPics.SelectedItems[0].Index);
                 frm.Show();
             }
         }

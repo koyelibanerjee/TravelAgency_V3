@@ -276,7 +276,26 @@ namespace ScanCtrlTest
         private void rbtnJiaojie_CheckedChanged(object sender, EventArgs e)
         {
             textBox1.Text = GlobalUtils.LocalJiaojiePicPath + "\\" + DateTime.Now.ToString("yyyyMMdd");
+        }
 
+        private void rbtn未分类_CheckedChanged(object sender, EventArgs e)
+        {
+            textBox1.Text = GlobalUtils.LocalGaoPaiPicPath + "\\" + DateTime.Now.ToString("yyyyMMdd");
+        }
+
+        private void rbtn个签_CheckedChanged(object sender, EventArgs e)
+        {
+            textBox1.Text = GlobalUtils.LocalGaoPaiPicPath + "\\个签\\" + DateTime.Now.ToString("yyyyMMdd");
+        }
+
+        private void rbtn团签_CheckedChanged(object sender, EventArgs e)
+        {
+            textBox1.Text = GlobalUtils.LocalGaoPaiPicPath + "\\团签\\" + DateTime.Now.ToString("yyyyMMdd");
+        }
+
+        private void rbtn团做个_CheckedChanged(object sender, EventArgs e)
+        {
+            textBox1.Text = GlobalUtils.LocalGaoPaiPicPath + "\\团做个\\" + DateTime.Now.ToString("yyyyMMdd");
         }
     }
 }

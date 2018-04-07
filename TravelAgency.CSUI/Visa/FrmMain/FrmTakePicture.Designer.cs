@@ -52,14 +52,22 @@
             this.button6 = new System.Windows.Forms.Button();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.panelBtns = new DevComponents.DotNetBar.PanelEx();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.rbtn未分类 = new System.Windows.Forms.RadioButton();
+            this.rbtnJiaojie = new System.Windows.Forms.RadioButton();
+            this.rbtnGaoPai = new System.Windows.Forms.RadioButton();
             this.lbSuccess = new DevComponents.DotNetBar.LabelX();
             this.btnChoosePath = new System.Windows.Forms.Button();
             this.btnOpenSavePath = new System.Windows.Forms.Button();
-            this.rbtnGaoPai = new System.Windows.Forms.RadioButton();
-            this.rbtnJiaojie = new System.Windows.Forms.RadioButton();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.rbtn团签 = new System.Windows.Forms.RadioButton();
+            this.rbtn团做个 = new System.Windows.Forms.RadioButton();
+            this.rbtn个签 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.axScanCtrl1)).BeginInit();
             this.panelEx1.SuspendLayout();
             this.panelBtns.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // axScanCtrl1
@@ -69,7 +77,7 @@
             this.axScanCtrl1.Location = new System.Drawing.Point(0, 0);
             this.axScanCtrl1.Name = "axScanCtrl1";
             this.axScanCtrl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axScanCtrl1.OcxState")));
-            this.axScanCtrl1.Size = new System.Drawing.Size(1018, 645);
+            this.axScanCtrl1.Size = new System.Drawing.Size(1018, 704);
             this.axScanCtrl1.TabIndex = 0;
             // 
             // button1
@@ -253,15 +261,15 @@
             this.textBox1.Location = new System.Drawing.Point(12, 466);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(152, 51);
+            this.textBox1.Size = new System.Drawing.Size(152, 34);
             this.textBox1.TabIndex = 19;
             this.textBox1.Text = "D:\\1.jpg";
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(107, 523);
+            this.button6.Location = new System.Drawing.Point(107, 506);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(81, 42);
+            this.button6.Size = new System.Drawing.Size(81, 34);
             this.button6.TabIndex = 20;
             this.button6.Text = "抓拍";
             this.button6.UseVisualStyleBackColor = true;
@@ -276,7 +284,7 @@
             this.panelEx1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEx1.Location = new System.Drawing.Point(0, 0);
             this.panelEx1.Name = "panelEx1";
-            this.panelEx1.Size = new System.Drawing.Size(1018, 645);
+            this.panelEx1.Size = new System.Drawing.Size(1018, 704);
             this.panelEx1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelEx1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -290,8 +298,8 @@
             // 
             this.panelBtns.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelBtns.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelBtns.Controls.Add(this.rbtnJiaojie);
-            this.panelBtns.Controls.Add(this.rbtnGaoPai);
+            this.panelBtns.Controls.Add(this.panel2);
+            this.panelBtns.Controls.Add(this.panel1);
             this.panelBtns.Controls.Add(this.lbSuccess);
             this.panelBtns.Controls.Add(this.btnChoosePath);
             this.panelBtns.Controls.Add(this.button1);
@@ -319,7 +327,7 @@
             this.panelBtns.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelBtns.Location = new System.Drawing.Point(1018, 0);
             this.panelBtns.Name = "panelBtns";
-            this.panelBtns.Size = new System.Drawing.Size(200, 645);
+            this.panelBtns.Size = new System.Drawing.Size(200, 704);
             this.panelBtns.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelBtns.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelBtns.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -329,56 +337,31 @@
             this.panelBtns.Style.GradientAngle = 90;
             this.panelBtns.TabIndex = 25;
             // 
-            // lbSuccess
+            // panel1
             // 
+            this.panel1.Controls.Add(this.rbtnJiaojie);
+            this.panel1.Controls.Add(this.rbtnGaoPai);
+            this.panel1.Location = new System.Drawing.Point(6, 546);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(182, 25);
+            this.panel1.TabIndex = 27;
             // 
+            // rbtn未分类
             // 
-            // 
-            this.lbSuccess.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lbSuccess.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbSuccess.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lbSuccess.Location = new System.Drawing.Point(12, 596);
-            this.lbSuccess.Name = "lbSuccess";
-            this.lbSuccess.Size = new System.Drawing.Size(185, 23);
-            this.lbSuccess.TabIndex = 22;
-            this.lbSuccess.Text = "待机中...";
-            // 
-            // btnChoosePath
-            // 
-            this.btnChoosePath.Location = new System.Drawing.Point(171, 466);
-            this.btnChoosePath.Name = "btnChoosePath";
-            this.btnChoosePath.Size = new System.Drawing.Size(17, 51);
-            this.btnChoosePath.TabIndex = 21;
-            this.btnChoosePath.Text = "...";
-            this.btnChoosePath.UseVisualStyleBackColor = true;
-            this.btnChoosePath.Click += new System.EventHandler(this.btnChoosePath_Click);
-            // 
-            // btnOpenSavePath
-            // 
-            this.btnOpenSavePath.Location = new System.Drawing.Point(12, 523);
-            this.btnOpenSavePath.Name = "btnOpenSavePath";
-            this.btnOpenSavePath.Size = new System.Drawing.Size(81, 42);
-            this.btnOpenSavePath.TabIndex = 10;
-            this.btnOpenSavePath.Text = "打开保存文件夹";
-            this.btnOpenSavePath.UseVisualStyleBackColor = true;
-            this.btnOpenSavePath.Click += new System.EventHandler(this.btnOpenSavePath_Click);
-            // 
-            // rbtnGaoPai
-            // 
-            this.rbtnGaoPai.AutoSize = true;
-            this.rbtnGaoPai.Location = new System.Drawing.Point(12, 572);
-            this.rbtnGaoPai.Name = "rbtnGaoPai";
-            this.rbtnGaoPai.Size = new System.Drawing.Size(71, 16);
-            this.rbtnGaoPai.TabIndex = 23;
-            this.rbtnGaoPai.TabStop = true;
-            this.rbtnGaoPai.Text = "高拍图像";
-            this.rbtnGaoPai.UseVisualStyleBackColor = true;
-            this.rbtnGaoPai.CheckedChanged += new System.EventHandler(this.rbtnGaoPai_CheckedChanged);
+            this.rbtn未分类.AutoSize = true;
+            this.rbtn未分类.Location = new System.Drawing.Point(10, 3);
+            this.rbtn未分类.Name = "rbtn未分类";
+            this.rbtn未分类.Size = new System.Drawing.Size(59, 16);
+            this.rbtn未分类.TabIndex = 25;
+            this.rbtn未分类.TabStop = true;
+            this.rbtn未分类.Text = "未分类";
+            this.rbtn未分类.UseVisualStyleBackColor = true;
+            this.rbtn未分类.CheckedChanged += new System.EventHandler(this.rbtn未分类_CheckedChanged);
             // 
             // rbtnJiaojie
             // 
             this.rbtnJiaojie.AutoSize = true;
-            this.rbtnJiaojie.Location = new System.Drawing.Point(107, 572);
+            this.rbtnJiaojie.Location = new System.Drawing.Point(105, 6);
             this.rbtnJiaojie.Name = "rbtnJiaojie";
             this.rbtnJiaojie.Size = new System.Drawing.Size(71, 16);
             this.rbtnJiaojie.TabIndex = 24;
@@ -387,11 +370,104 @@
             this.rbtnJiaojie.UseVisualStyleBackColor = true;
             this.rbtnJiaojie.CheckedChanged += new System.EventHandler(this.rbtnJiaojie_CheckedChanged);
             // 
+            // rbtnGaoPai
+            // 
+            this.rbtnGaoPai.AutoSize = true;
+            this.rbtnGaoPai.Location = new System.Drawing.Point(10, 6);
+            this.rbtnGaoPai.Name = "rbtnGaoPai";
+            this.rbtnGaoPai.Size = new System.Drawing.Size(71, 16);
+            this.rbtnGaoPai.TabIndex = 23;
+            this.rbtnGaoPai.TabStop = true;
+            this.rbtnGaoPai.Text = "高拍图像";
+            this.rbtnGaoPai.UseVisualStyleBackColor = true;
+            this.rbtnGaoPai.CheckedChanged += new System.EventHandler(this.rbtnGaoPai_CheckedChanged);
+            // 
+            // lbSuccess
+            // 
+            // 
+            // 
+            // 
+            this.lbSuccess.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lbSuccess.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbSuccess.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lbSuccess.Location = new System.Drawing.Point(12, 634);
+            this.lbSuccess.Name = "lbSuccess";
+            this.lbSuccess.Size = new System.Drawing.Size(176, 20);
+            this.lbSuccess.TabIndex = 22;
+            this.lbSuccess.Text = "待机中...";
+            // 
+            // btnChoosePath
+            // 
+            this.btnChoosePath.Location = new System.Drawing.Point(171, 466);
+            this.btnChoosePath.Name = "btnChoosePath";
+            this.btnChoosePath.Size = new System.Drawing.Size(17, 34);
+            this.btnChoosePath.TabIndex = 21;
+            this.btnChoosePath.Text = "...";
+            this.btnChoosePath.UseVisualStyleBackColor = true;
+            this.btnChoosePath.Click += new System.EventHandler(this.btnChoosePath_Click);
+            // 
+            // btnOpenSavePath
+            // 
+            this.btnOpenSavePath.Location = new System.Drawing.Point(12, 506);
+            this.btnOpenSavePath.Name = "btnOpenSavePath";
+            this.btnOpenSavePath.Size = new System.Drawing.Size(81, 34);
+            this.btnOpenSavePath.TabIndex = 10;
+            this.btnOpenSavePath.Text = "打开保存文件夹";
+            this.btnOpenSavePath.UseVisualStyleBackColor = true;
+            this.btnOpenSavePath.Click += new System.EventHandler(this.btnOpenSavePath_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.rbtn团签);
+            this.panel2.Controls.Add(this.rbtn个签);
+            this.panel2.Controls.Add(this.rbtn团做个);
+            this.panel2.Controls.Add(this.rbtn未分类);
+            this.panel2.Location = new System.Drawing.Point(6, 578);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(182, 53);
+            this.panel2.TabIndex = 28;
+            // 
+            // rbtn团签
+            // 
+            this.rbtn团签.AutoSize = true;
+            this.rbtn团签.Location = new System.Drawing.Point(10, 25);
+            this.rbtn团签.Name = "rbtn团签";
+            this.rbtn团签.Size = new System.Drawing.Size(47, 16);
+            this.rbtn团签.TabIndex = 26;
+            this.rbtn团签.TabStop = true;
+            this.rbtn团签.Text = "团签";
+            this.rbtn团签.UseVisualStyleBackColor = true;
+            this.rbtn团签.CheckedChanged += new System.EventHandler(this.rbtn团签_CheckedChanged);
+            // 
+            // rbtn团做个
+            // 
+            this.rbtn团做个.AutoSize = true;
+            this.rbtn团做个.Location = new System.Drawing.Point(105, 28);
+            this.rbtn团做个.Name = "rbtn团做个";
+            this.rbtn团做个.Size = new System.Drawing.Size(59, 16);
+            this.rbtn团做个.TabIndex = 27;
+            this.rbtn团做个.TabStop = true;
+            this.rbtn团做个.Text = "团做个";
+            this.rbtn团做个.UseVisualStyleBackColor = true;
+            this.rbtn团做个.CheckedChanged += new System.EventHandler(this.rbtn团做个_CheckedChanged);
+            // 
+            // rbtn个签
+            // 
+            this.rbtn个签.AutoSize = true;
+            this.rbtn个签.Location = new System.Drawing.Point(105, 6);
+            this.rbtn个签.Name = "rbtn个签";
+            this.rbtn个签.Size = new System.Drawing.Size(47, 16);
+            this.rbtn个签.TabIndex = 28;
+            this.rbtn个签.TabStop = true;
+            this.rbtn个签.Text = "个签";
+            this.rbtn个签.UseVisualStyleBackColor = true;
+            this.rbtn个签.CheckedChanged += new System.EventHandler(this.rbtn个签_CheckedChanged);
+            // 
             // FrmTackePicture
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1218, 645);
+            this.ClientSize = new System.Drawing.Size(1218, 704);
             this.Controls.Add(this.panelEx1);
             this.Controls.Add(this.panelBtns);
             this.Name = "FrmTackePicture";
@@ -401,6 +477,10 @@
             this.panelEx1.ResumeLayout(false);
             this.panelBtns.ResumeLayout(false);
             this.panelBtns.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -435,6 +515,12 @@
         private DevComponents.DotNetBar.LabelX lbSuccess;
         private System.Windows.Forms.RadioButton rbtnGaoPai;
         private System.Windows.Forms.RadioButton rbtnJiaojie;
+        private System.Windows.Forms.RadioButton rbtn未分类;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.RadioButton rbtn个签;
+        private System.Windows.Forms.RadioButton rbtn团做个;
+        private System.Windows.Forms.RadioButton rbtn团签;
     }
 }
 
