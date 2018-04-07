@@ -248,12 +248,65 @@ namespace TravelAgency.Common.FTP
         }
 
         /// <summary>
+        /// 判断当前目录下abc/123/456这种目录是否存在
+        /// </summary>
+        /// <param name="RemoteDirectoryName">指定的目录名</param>
+        public static bool DeepDirectoryExist(string RemoteDirectoryName)
+        {
+            if (RemoteDirectoryName.StartsWith("/"))
+            {
+                RemoteDirectoryName.TrimStart('/');
+            }
+            if (RemoteDirectoryName.EndsWith("/"))
+                RemoteDirectoryName.TrimEnd('/');
+
+            if (!RemoteDirectoryName.Contains('/'))
+            {
+                return DirectoryExist(RemoteDirectoryName);
+            }
+
+            string[] dirs = RemoteDirectoryName.Split('/');
+
+            for (int i = 0; i < dirs.Length; ++i)
+            {
+                List<string> dirList = GetDirectoryList();
+                if (dirList == null)
+                    return false;
+                bool has = false;
+                foreach (string str in dirList)
+                {
+                    if (str.Trim() == dirs[i].Trim()) //找有没有下一级目录
+                    {
+                        _ftpUri += dirs[i] + '/'; //去到下一级
+                        has = true;
+                        break;
+                    }
+                }
+                if(!has)
+                    return false;
+            }
+
+            //List<string> dirList = GetDirectoryList();
+            //if (dirList == null)
+            //    return false;
+            //foreach (string str in dirList)
+            //{
+            //    if (str.Trim() == RemoteDirectoryName.Trim())
+            //    {
+            //        return true;
+            //    }
+            //}
+            return true;
+        }
+
+
+        /// <summary>
         /// 上传,把filename上传上去，比如e:/aaa.jpg上传到当前ftp目录为aaa.jpg,已有同名文件会直接替换，因此最好先调用FileExist检查
         /// </summary>
         public static void Upload(string filename)
         {
             FileInfo fileInf = new FileInfo(filename);
-            string uri = _ftpUri + fileInf.Name; 
+            string uri = _ftpUri + fileInf.Name;
             FtpWebRequest reqFTP;
             reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri(uri));
             reqFTP.Credentials = new NetworkCredential(_ftpUserId, _ftpPassword);
@@ -385,14 +438,28 @@ namespace TravelAgency.Common.FTP
             }
         }
 
+        /// <summary>
+        /// 在当前目录下创建多级目录，如abc/123/456，也兼容单层目录创建
+        /// </summary>
+        /// <param name="dirName"></param>
         public static void MakeDeepDir(string dirName)
         {
             if (dirName.StartsWith("/"))
                 dirName.TrimStart('/');
-            string []dirs = dirName.Split('/');
+            if (dirName.EndsWith("/"))
+                dirName.TrimEnd('/');
+
+            if (!dirName.Contains('/'))
+            {
+                MakeDir(dirName);
+                return;
+            }
+
+            string[] dirs = dirName.Split('/');
+
             if (dirs.Length < 1)
                 return;
-            for(int i = 0; i < dirs.Length; ++i)
+            for (int i = 0; i < dirs.Length; ++i)
             {
                 MakeDir(dirs[i]);
                 _ftpUri += dirs[i] + "/";

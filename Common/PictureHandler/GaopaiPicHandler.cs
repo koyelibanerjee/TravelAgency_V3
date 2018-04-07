@@ -241,16 +241,16 @@ namespace TravelAgency.Common.PictureHandler
         }
 
 
-        public static void UploadGaoPaiImage(string filename,string types)
+        public static void UploadGaoPaiImage(string filename, string types)
         {
             string savePrefix = "";
             if (filename.Contains("thumb_"))
             {
-                savePrefix = Path.GetFileName(filename).Substring(6, 8);
+                savePrefix = types + '/' + Path.GetFileName(filename).Substring(6, 8);
             }
             else
             {
-                savePrefix = Path.GetFileName(filename).Substring(0, 8); //日期的文本 20180304
+                savePrefix = types + '/' + Path.GetFileName(filename).Substring(0, 8); //日期的文本 20180304
             }
             FtpHandler.ChangeFtpUri(RemoteRootPath);
             if (!FtpHandler.DirectoryExist(savePrefix))
