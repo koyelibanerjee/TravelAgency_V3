@@ -116,7 +116,7 @@ namespace TravelAgency.Common.FTP
         }
 
         /// <summary>
-        /// 获取当前目录下文件列表(仅文件)，拿到的列表是按照时间顺序排好的，只有文件名，没有路径
+        /// 获取当前目录下文件列表(目录也算)，拿到的列表是按照时间顺序排好的，只有文件名，没有路径
         /// </summary>
         /// <returns></returns>
         public static List<string> GetFileList(string mask)
@@ -162,6 +162,56 @@ namespace TravelAgency.Common.FTP
                 return null;
             }
         }
+
+
+        public static List<string> GetFileNoDirList(string mask)
+        {
+            FtpWebRequest reqFTP;
+            try
+            {
+                reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri(_ftpUri));
+                reqFTP.UseBinary = true;
+                reqFTP.Credentials = new NetworkCredential(_ftpUserId, _ftpPassword);
+                reqFTP.Method = WebRequestMethods.Ftp.ListDirectoryDetails; //ListDirectory用不了不知道为什么
+
+                // 读取网络流数据
+                WebResponse response = reqFTP.GetResponse();
+                StreamReader reader = new StreamReader(response.GetResponseStream());
+                string ftpResponse = reader.ReadToEnd();
+                reader.Close();
+                response.Close();
+
+                //解析字符串获取  
+                //示例:-r--r--r-- 1 ftp ftp        300290 Nov 08  2017 E18158985.jpg
+                List<string> res = new List<string>();
+                var lines = ftpResponse.TrimEnd().Split('\r');
+                for (int i = 0; i < lines.Length; i++)
+                {
+                    if (lines[i].TrimStart('\n').StartsWith("d"))
+                    {
+                        continue;
+                    }
+                    if (string.IsNullOrWhiteSpace(lines[i])) //所以文件名如果包含空格是会出错的
+                        continue;
+                    int lastSpaceIdx = lines[i].LastIndexOf(' ');
+                    string tmp = lines[i].Substring(lastSpaceIdx + 1, lines[i].Length - lastSpaceIdx - 1);
+                    if (tmp == "." || tmp == ".." )
+                        continue;
+                    res.Add(tmp);
+                }
+
+                return res;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Trim() != "远程服务器返回错误: (550) 文件不可用(例如，未找到文件，无法访问文件)。")
+                {
+                    Insert_Standard_ErrorLog.Insert("FtpWeb", "GetFileList Error --> " + ex.Message.ToString());
+                }
+                return null;
+            }
+        }
+
 
 
         /// <summary>

@@ -100,7 +100,7 @@ namespace TravelAgency.Common.PictureHandler
             else
                 FtpHandler.ChangeFtpUri(RemoteRootPath + "/" + date.ToString("yyyyMMdd"));
 
-            List<string> list = FtpHandler.GetFileList("*.*");
+            List<string> list = FtpHandler.GetFileNoDirList("*.*");
             for (int i = list.Count - 1; i >= 0; i--)
             {
                 if (list[i].Contains("thumb"))
