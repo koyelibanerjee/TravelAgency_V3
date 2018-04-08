@@ -14,6 +14,7 @@ namespace TravelAgency.CSUI.FrmSub
         /// <summary>
         /// 其实这个窗体里面大多数消息都没用，图片框控件里面实现了已经
         /// </summary>
+        private GaopaiPicHandler _gaopaiPicHandler = new GaopaiPicHandler(GaopaiPicHandler.PictureType.Type01_Normal);
 
         private readonly List<string> _imageList; //每张图片的名字
 
@@ -51,7 +52,7 @@ namespace TravelAgency.CSUI.FrmSub
             if (_idx == _imageList.Count - 1)
                 btnNext.Enabled = false;
             this.Text = "图片查看:  " + _imageList[_idx];
-            this.picBox1.Image = GaopaiPicHandler.GetGaoPaiImage(_date + "/" + _imageList[_idx]);
+            this.picBox1.Image = _gaopaiPicHandler.GetGaoPaiImage(_date + "/" + _imageList[_idx]);
             lbPageIdx.Text = (_idx + 1) + "/" + _imageList.Count;
         }
 

@@ -26,6 +26,7 @@ namespace TravelAgency.CSUI.FrmMain
         private Size _origThumbSize = new Size(97, 129);
         private readonly ImageList _imageList = new ImageList() { ImageSize = new Size(97, 129) }; //用于listView展示用的图片集合
         private bool _startLoading = false;
+        private GaopaiPicHandler _gaopaiPicHandler = new GaopaiPicHandler(GaopaiPicHandler.PictureType.Type01_Normal);
         public FrmGaoPaiManage()
         {
             InitializeComponent();
@@ -116,7 +117,7 @@ namespace TravelAgency.CSUI.FrmMain
             //遍历记载矿区节点
             //List<TblField> listFiled = filedBll.GetList();
 
-            List<List<string>> folderList = GaopaiPicHandler.GetFolderListGroupByMonth();
+            List<List<string>> folderList = _gaopaiPicHandler.GetFolderListGroupByMonth();
             //按照年月分类
             if (folderList == null || folderList.Count == 0)
                 return;
@@ -139,7 +140,7 @@ namespace TravelAgency.CSUI.FrmMain
 
                     //每一个这个再添加几类图像名字
 
-                    List<string> typeList = GaopaiPicHandler.GetFolderListByDate(
+                    List<string> typeList = _gaopaiPicHandler.GetFolderListByDate(
                         DateTime.ParseExact(folderList[i][j], "yyyyMMdd",
                         System.Globalization.CultureInfo.CurrentCulture));
                     for (int i1 = 0; i1 < typeList.Count; ++i1)
@@ -191,7 +192,7 @@ namespace TravelAgency.CSUI.FrmMain
             lvPics.Items.Clear();
             //_imageList.
             _imagenames =
-               GaopaiPicHandler.GetFileListByDateAndTypes(
+               _gaopaiPicHandler.GetFileListByDateAndTypes(
                    DateTime.ParseExact(advTree1.SelectedNode.Parent.Tag.ToString(), "yyyyMMdd", System.Globalization.CultureInfo.CurrentCulture),
                    advTree1.SelectedNode.Tag.ToString());
 
@@ -223,11 +224,11 @@ namespace TravelAgency.CSUI.FrmMain
                     string types = advTree1.SelectedNode.Tag.ToString();
                     Image img = null;
                     if (types == "未分类")
-                        img = GaopaiPicHandler.GetGaoPaiImage(advTree1.SelectedNode.Parent.Tag.ToString() + "/" +
-                           GaopaiPicHandler.GetThumbName(_imagenames[i]));
+                        img = _gaopaiPicHandler.GetGaoPaiImage(advTree1.SelectedNode.Parent.Tag.ToString() + "/" +
+                           _gaopaiPicHandler.GetThumbName(_imagenames[i]));
                     else
-                        img = GaopaiPicHandler.GetGaoPaiImage(advTree1.SelectedNode.Parent.Tag.ToString() + "/" + types + "/" +
-                          GaopaiPicHandler.GetThumbName(_imagenames[i]));
+                        img = _gaopaiPicHandler.GetGaoPaiImage(advTree1.SelectedNode.Parent.Tag.ToString() + "/" + types + "/" +
+                          _gaopaiPicHandler.GetThumbName(_imagenames[i]));
                     if (img != null)
                     {
                         //_imageList.Images[i].Dispose();
@@ -278,7 +279,7 @@ namespace TravelAgency.CSUI.FrmMain
         {
             if (lvPics.SelectedItems.Count == 1)
             {
-                //Image img = GaopaiPicHandler.GetGaoPaiImage(GetSelFileName());
+                //Image img = _gaopaiPicHandler.GetGaoPaiImage(GetSelFileName());
                 FrmShowPicture frm = new FrmShowPicture(_imagenames, advTree1.SelectedNode.Tag.ToString(), lvPics.SelectedItems[0].Index);
                 frm.Show();
             }
@@ -302,14 +303,14 @@ namespace TravelAgency.CSUI.FrmMain
             {
                 string dstname = GlobalUtils.ShowSaveFileDlg(GetListViewSelName());
                 if (!string.IsNullOrEmpty(dstname))
-                    GaopaiPicHandler.DownloadGaoPaiImage(GetSelFileName(), dstname);
+                    _gaopaiPicHandler.DownloadGaoPaiImage(GetSelFileName(), dstname);
             }
             else
             {
                 string dstPath = GlobalUtils.ShowBrowseFolderDlg();
                 if (!string.IsNullOrEmpty(dstPath))
                 {
-                    GaopaiPicHandler.DownloadGaoPaiImageBatch(GetSelFileList(), dstPath);
+                    _gaopaiPicHandler.DownloadGaoPaiImageBatch(GetSelFileList(), dstPath);
                     if (MessageBoxEx.Show("成功保存图像:" + lvPics.SelectedItems.Count + "份.\n是否打开所在文件夹?",
                         "提示", MessageBoxButtons.YesNo) == DialogResult.No)
                         return;

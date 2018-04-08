@@ -11,22 +11,43 @@ namespace TravelAgency.Common.PictureHandler
 {
     public class GaopaiPicHandler
     {
-        public static string RemoteRootPath
+        private string _remotePath;
+        public enum PictureType
         {
-            get
+            Type01_Normal,
+            Type02_JiaoJie
+        }
+        public GaopaiPicHandler(PictureType type)
+        {
+            if (type == PictureType.Type01_Normal)
             {
                 string path = AppSettingHandler.ReadConfig("GaopaiPicPath");
                 if (string.IsNullOrEmpty(path)) //如果没读到就返回默认值
                 {
                     AppSettingHandler.AddConfig("GaopaiPicPath", "E:/东瀛假日签证识别管理系统/高拍仪图像保存路径");
-                    return "E:/东瀛假日签证识别管理系统/高拍仪图像保存路径";
+                    path = "E:/东瀛假日签证识别管理系统/高拍仪图像保存路径";
                 }
-                return path;
+                RemoteRootPath = path;
             }
+            else if (type == PictureType.Type02_JiaoJie)
+            {
+                string path = AppSettingHandler.ReadConfig("JiaoJiePicPath");
+                if (string.IsNullOrEmpty(path)) //如果没读到就返回默认值
+                {
+                    AppSettingHandler.AddConfig("JiaoJiePicPath", "E:/东瀛假日签证识别管理系统/交接图像保存路径");
+                    path = "E:/东瀛假日签证识别管理系统/交接图像保存路径";
+                }
+                RemoteRootPath = path;
+            }
+        }
+        public string RemoteRootPath
+        {
+            get { return _remotePath; }
+            private set { _remotePath = value; }
         }
 
 
-        public static List<string> GetFolderList()
+        public List<string> GetFolderList()
         {
             FtpHandler.ChangeFtpUri(RemoteRootPath);
             var list = FtpHandler.GetDirectoryList();
@@ -40,7 +61,7 @@ namespace TravelAgency.Common.PictureHandler
         /// </summary>
         /// <param name="year"></param>
         /// <returns></returns>
-        public static List<string> GetFolderList(int year)
+        public List<string> GetFolderList(int year)
         {
             var list = GetFolderList();
             string strYear = year.ToString();
@@ -62,7 +83,7 @@ namespace TravelAgency.Common.PictureHandler
         /// </summary>
         /// <param name="year"></param>
         /// <returns></returns>
-        public static List<string> GetFolderList(int year, int month)
+        public List<string> GetFolderList(int year, int month)
         {
             var list = GetFolderList(year);
             string strMonth = month.ToString("D2");
@@ -78,7 +99,7 @@ namespace TravelAgency.Common.PictureHandler
 
 
 
-        public static List<string> GetFolderListByDate(DateTime date)
+        public List<string> GetFolderListByDate(DateTime date)
         {
             //初始化FTP参数(在Common的静态构造函数中做了)
             FtpHandler.ChangeFtpUri(RemoteRootPath + "/" + date.ToString("yyyyMMdd"));
@@ -92,7 +113,7 @@ namespace TravelAgency.Common.PictureHandler
         /// 获取指定某一天的所有文件列表（不包含缩略图）
         /// </summary>
         /// <param name="date"></param>
-        public static List<string> GetFileListByDateAndTypes(DateTime date, string types)
+        public List<string> GetFileListByDateAndTypes(DateTime date, string types)
         {
             //初始化FTP参数(在Common的静态构造函数中做了)
             if (types != "未分类")
@@ -114,7 +135,7 @@ namespace TravelAgency.Common.PictureHandler
         /// 返回当前根目录下所有文件夹，按照月份分组
         /// </summary>
         /// <returns></returns>
-        public static List<List<string>> GetFolderListGroupByMonth()
+        public List<List<string>> GetFolderListGroupByMonth()
         {
             var list = GetFolderList();
             return GroupListByMonth(list);
@@ -125,7 +146,7 @@ namespace TravelAgency.Common.PictureHandler
         /// </summary>
         /// <param name="list"></param>
         /// <returns></returns>
-        public static List<List<string>> GroupListByMonth(List<string> list)
+        public List<List<string>> GroupListByMonth(List<string> list)
         {
             if (list == null || list.Count == 0)
                 return null;
@@ -156,7 +177,7 @@ namespace TravelAgency.Common.PictureHandler
         /// </summary>
         /// <param name="filename"></param>
         /// <returns></returns>
-        public static Image GetGaoPaiImage(string filename)
+        public Image GetGaoPaiImage(string filename)
         {
             //string path = Path.GetDirectoryName(filename);
             //FtpHandler.Download()\
@@ -174,7 +195,7 @@ namespace TravelAgency.Common.PictureHandler
         /// </summary>
         /// <param name="filename"></param>
         /// <returns></returns>
-        public static void DownloadGaoPaiImage(string filename, string savefilename)
+        public void DownloadGaoPaiImage(string filename, string savefilename)
         {
             GetGaoPaiImage(filename).Save(savefilename);
         }
@@ -184,7 +205,7 @@ namespace TravelAgency.Common.PictureHandler
         /// </summary>
         /// <param name="filename"></param>
         /// <returns></returns>
-        public static void DownloadGaoPaiImageBatch(List<string> filenames, string savePath)
+        public void DownloadGaoPaiImageBatch(List<string> filenames, string savePath)
         {
             if (string.IsNullOrEmpty(savePath))
                 return;
@@ -202,7 +223,7 @@ namespace TravelAgency.Common.PictureHandler
         /// </summary>
         /// <param name="filename"></param>
         /// <returns></returns>
-        public static string GetThumbName(string filename)
+        public string GetThumbName(string filename)
         {
             string dstName = "thumb_" + Path.GetFileName(filename);
             string path = Path.GetDirectoryName(filename);
@@ -224,25 +245,25 @@ namespace TravelAgency.Common.PictureHandler
         /// </summary>
         /// <param name="filename"></param>
         /// <returns></returns>
-        public static bool CheckLocalExist(string filename)
+        public bool CheckLocalExist(string filename)
         {
             string picName = GlobalUtils.LocalGaoPaiPicPath + "\\" + filename;
             return File.Exists(picName);
         }
 
-        public static void UploadGaoPaiImageAsync(List<string> filenameAndTypes)
+        public void UploadGaoPaiImageAsync(List<string> filenameAndTypes)
         {
             new Thread(UploadGaoPaiImage) { IsBackground = true }.Start(filenameAndTypes);
         }
 
-        public static void UploadGaoPaiImage(object filename)
+        public void UploadGaoPaiImage(object filename)
         {
             var list = (List<string>)filename;
             UploadGaoPaiImage(list[0], list[1]);
         }
 
 
-        public static void UploadGaoPaiImage(string filename, string types)
+        public void UploadGaoPaiImage(string filename, string types)
         {
             string savePrefix = "";
 

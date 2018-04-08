@@ -26,6 +26,7 @@ namespace TravelAgency.CSUI.FrmMain
         private Size _origThumbSize = new Size(97, 129);
         private readonly ImageList _imageList = new ImageList() { ImageSize = new Size(97, 129) }; //用于listView展示用的图片集合
         private bool _startLoading = false;
+        private GaopaiPicHandler _gaopaiPicHandler = new GaopaiPicHandler(GaopaiPicHandler.PictureType.Type02_JiaoJie);
         public FrmJiaoJieManage()
         {
             InitializeComponent();
@@ -107,7 +108,7 @@ namespace TravelAgency.CSUI.FrmMain
             //遍历记载矿区节点
             //List<TblField> listFiled = filedBll.GetList();
 
-            List<List<string>> folderList = JiaoJiePicHandler.GetFolderListGroupByMonth();
+            List<List<string>> folderList = _gaopaiPicHandler.GetFolderListGroupByMonth();
             //按照年月分类
             if(folderList==null || folderList.Count==0)
                 return;
@@ -161,7 +162,7 @@ namespace TravelAgency.CSUI.FrmMain
             lvPics.Items.Clear();
             //_imageList.
             _imagenames =
-               JiaoJiePicHandler.GetFileListByDateAndTypes(
+               _gaopaiPicHandler.GetFileListByDateAndTypes(
                    DateTime.ParseExact(advTree1.SelectedNode.Tag.ToString(), "yyyyMMdd", System.Globalization.CultureInfo.CurrentCulture)
                    ,"未分类");
 
@@ -190,8 +191,8 @@ namespace TravelAgency.CSUI.FrmMain
             {
                 for (int i = 0; i < _imagenames.Count && _startLoading; i++)
                 {
-                    Image img = JiaoJiePicHandler.GetGaoPaiImage(advTree1.SelectedNode.Tag.ToString() + "/" +
-                        JiaoJiePicHandler.GetThumbName(_imagenames[i]));
+                    Image img = _gaopaiPicHandler.GetGaoPaiImage(advTree1.SelectedNode.Tag.ToString() + "/" +
+                        _gaopaiPicHandler.GetThumbName(_imagenames[i]));
                     if (img != null)
                     {
                         //_imageList.Images[i].Dispose();
@@ -242,7 +243,7 @@ namespace TravelAgency.CSUI.FrmMain
         {
             if (lvPics.SelectedItems.Count == 1)
             {
-                //Image img = JiaoJiePicHandler.GetJiaoJieImage(GetSelFileName());
+                //Image img = _gaopaiPicHandler.GetJiaoJieImage(GetSelFileName());
                 FrmShowPicture frm = new FrmShowPicture(_imagenames, advTree1.SelectedNode.Tag.ToString(),lvPics.SelectedItems[0].Index);
                 frm.Show();
             }
@@ -266,14 +267,14 @@ namespace TravelAgency.CSUI.FrmMain
             {
                 string dstname = GlobalUtils.ShowSaveFileDlg(GetListViewSelName());
                 if (!string.IsNullOrEmpty(dstname))
-                    JiaoJiePicHandler.DownloadGaoPaiImage(GetSelFileName(), dstname);
+                    _gaopaiPicHandler.DownloadGaoPaiImage(GetSelFileName(), dstname);
             }
             else
             {
                 string dstPath = GlobalUtils.ShowBrowseFolderDlg();
                 if (!string.IsNullOrEmpty(dstPath))
                 {
-                    JiaoJiePicHandler.DownloadGaoPaiImageBatch(GetSelFileList(), dstPath);
+                    _gaopaiPicHandler.DownloadGaoPaiImageBatch(GetSelFileList(), dstPath);
                     if (MessageBoxEx.Show("成功保存图像:" + lvPics.SelectedItems.Count + "份.\n是否打开所在文件夹?",
                         "提示", MessageBoxButtons.YesNo) == DialogResult.No)
                         return;

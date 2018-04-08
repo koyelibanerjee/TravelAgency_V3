@@ -16,6 +16,8 @@ namespace ScanCtrlTest
 {
     public partial class FrmTackePicture : Form
     {
+        private GaopaiPicHandler _gaopaiPicHandler = new GaopaiPicHandler(GaopaiPicHandler.PictureType.Type01_Normal);
+        private GaopaiPicHandler _jiaojiePicHandler = new GaopaiPicHandler(GaopaiPicHandler.PictureType.Type02_JiaoJie);
         string _types = "未分类";
         public FrmTackePicture()
         {
@@ -67,17 +69,17 @@ namespace ScanCtrlTest
 
             //再上传到服务器端
             if (rbtnGaoPai.Checked)
-                GaopaiPicHandler.UploadGaoPaiImageAsync(new List<string> { filename, _types });
+                _gaopaiPicHandler.UploadGaoPaiImageAsync(new List<string> { filename, _types });
             else
-                JiaoJiePicHandler.UploadGaoPaiImageAsync(new List<string> { filename, _types });
+                _jiaojiePicHandler.UploadGaoPaiImageAsync(new List<string> { filename, _types });
 
             new Thread(UpdateLable) { IsBackground = true }.Start(DateTime.Now.ToString("yyyyMMddHHmmss") + ".jpg 保存成功.");
-            PicHandler.MakeThumbnail(filename, GaopaiPicHandler.GetThumbName(filename), GlobalUtils.ThumbNailRatio);
+            PicHandler.MakeThumbnail(filename, _gaopaiPicHandler.GetThumbName(filename), GlobalUtils.ThumbNailRatio);
             //再上传缩略图到服务器端
             if (rbtnGaoPai.Checked)
-                GaopaiPicHandler.UploadGaoPaiImageAsync(new List<string> { GaopaiPicHandler.GetThumbName(filename), _types });
+                _gaopaiPicHandler.UploadGaoPaiImageAsync(new List<string> { _gaopaiPicHandler.GetThumbName(filename), _types });
             else
-                JiaoJiePicHandler.UploadGaoPaiImageAsync(new List<string> { GaopaiPicHandler.GetThumbName(filename), _types });
+                _jiaojiePicHandler.UploadGaoPaiImageAsync(new List<string> { _gaopaiPicHandler.GetThumbName(filename), _types });
 
         }
         /// <summary>
