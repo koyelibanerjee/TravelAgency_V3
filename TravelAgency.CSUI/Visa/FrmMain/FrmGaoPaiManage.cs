@@ -277,10 +277,17 @@ namespace TravelAgency.CSUI.FrmMain
 
         private void lvPics_DoubleClick(object sender, EventArgs e)
         {
+
             if (lvPics.SelectedItems.Count == 1)
             {
+                string types = advTree1.SelectedNode.Tag.ToString();
+                FrmShowPicture frm;
+                if (types == "未分类")
+                    frm = new FrmShowPicture(_imagenames, advTree1.SelectedNode.Parent.Tag.ToString(), lvPics.SelectedItems[0].Index);
                 //Image img = _gaopaiPicHandler.GetGaoPaiImage(GetSelFileName());
-                FrmShowPicture frm = new FrmShowPicture(_imagenames, advTree1.SelectedNode.Tag.ToString(), lvPics.SelectedItems[0].Index);
+                else
+                    frm = new FrmShowPicture(_imagenames, advTree1.SelectedNode.Parent.Tag.ToString() + "/" +
+                    advTree1.SelectedNode.Tag.ToString(), lvPics.SelectedItems[0].Index);
                 frm.Show();
             }
         }

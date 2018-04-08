@@ -18,7 +18,7 @@ namespace TravelAgency.CSUI.FrmSub
 
         private readonly List<string> _imageList; //每张图片的名字
 
-        private readonly string _date; //20171227
+        private readonly string _prefix; //20171227
 
         private int _idx = 0; //当前位置
 
@@ -32,7 +32,7 @@ namespace TravelAgency.CSUI.FrmSub
             : this()
         {
             _imageList = imageList;
-            _date = date;
+            _prefix = date;
             _idx = idx;
         }
 
@@ -52,7 +52,7 @@ namespace TravelAgency.CSUI.FrmSub
             if (_idx == _imageList.Count - 1)
                 btnNext.Enabled = false;
             this.Text = "图片查看:  " + _imageList[_idx];
-            this.picBox1.Image = _gaopaiPicHandler.GetGaoPaiImage(_date + "/" + _imageList[_idx]);
+            this.picBox1.Image = _gaopaiPicHandler.GetGaoPaiImage(_prefix + "/" + _imageList[_idx]);
             lbPageIdx.Text = (_idx + 1) + "/" + _imageList.Count;
         }
 
