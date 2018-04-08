@@ -161,7 +161,9 @@ namespace TravelAgency.CSUI.FrmMain
             lvPics.Items.Clear();
             //_imageList.
             _imagenames =
-               JiaoJiePicHandler.GetFileListByDate(DateTime.ParseExact(advTree1.SelectedNode.Tag.ToString(), "yyyyMMdd", System.Globalization.CultureInfo.CurrentCulture));
+               JiaoJiePicHandler.GetFileListByDateAndTypes(
+                   DateTime.ParseExact(advTree1.SelectedNode.Tag.ToString(), "yyyyMMdd", System.Globalization.CultureInfo.CurrentCulture)
+                   ,"未分类");
 
             for (int i = 0; i < _imagenames.Count; ++i)
             {
@@ -188,7 +190,7 @@ namespace TravelAgency.CSUI.FrmMain
             {
                 for (int i = 0; i < _imagenames.Count && _startLoading; i++)
                 {
-                    Image img = JiaoJiePicHandler.GetJiaoJieImage(advTree1.SelectedNode.Tag.ToString() + "/" +
+                    Image img = JiaoJiePicHandler.GetGaoPaiImage(advTree1.SelectedNode.Tag.ToString() + "/" +
                         JiaoJiePicHandler.GetThumbName(_imagenames[i]));
                     if (img != null)
                     {
@@ -264,14 +266,14 @@ namespace TravelAgency.CSUI.FrmMain
             {
                 string dstname = GlobalUtils.ShowSaveFileDlg(GetListViewSelName());
                 if (!string.IsNullOrEmpty(dstname))
-                    JiaoJiePicHandler.DownloadJiaoJieImage(GetSelFileName(), dstname);
+                    JiaoJiePicHandler.DownloadGaoPaiImage(GetSelFileName(), dstname);
             }
             else
             {
                 string dstPath = GlobalUtils.ShowBrowseFolderDlg();
                 if (!string.IsNullOrEmpty(dstPath))
                 {
-                    JiaoJiePicHandler.DownloadJiaoJieImageBatch(GetSelFileList(), dstPath);
+                    JiaoJiePicHandler.DownloadGaoPaiImageBatch(GetSelFileList(), dstPath);
                     if (MessageBoxEx.Show("成功保存图像:" + lvPics.SelectedItems.Count + "份.\n是否打开所在文件夹?",
                         "提示", MessageBoxButtons.YesNo) == DialogResult.No)
                         return;

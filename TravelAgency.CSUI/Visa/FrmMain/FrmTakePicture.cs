@@ -69,7 +69,7 @@ namespace ScanCtrlTest
             if (rbtnGaoPai.Checked)
                 GaopaiPicHandler.UploadGaoPaiImageAsync(new List<string> { filename, _types });
             else
-                JiaoJiePicHandler.UploadJiaoJieImageAsync(filename);
+                JiaoJiePicHandler.UploadGaoPaiImageAsync(new List<string> { filename, _types });
 
             new Thread(UpdateLable) { IsBackground = true }.Start(DateTime.Now.ToString("yyyyMMddHHmmss") + ".jpg 保存成功.");
             PicHandler.MakeThumbnail(filename, GaopaiPicHandler.GetThumbName(filename), GlobalUtils.ThumbNailRatio);
@@ -77,7 +77,7 @@ namespace ScanCtrlTest
             if (rbtnGaoPai.Checked)
                 GaopaiPicHandler.UploadGaoPaiImageAsync(new List<string> { GaopaiPicHandler.GetThumbName(filename), _types });
             else
-                JiaoJiePicHandler.UploadJiaoJieImage(JiaoJiePicHandler.GetThumbName(filename));
+                JiaoJiePicHandler.UploadGaoPaiImageAsync(new List<string> { GaopaiPicHandler.GetThumbName(filename), _types });
 
         }
         /// <summary>
@@ -271,12 +271,16 @@ namespace ScanCtrlTest
         private void rbtnGaoPai_CheckedChanged(object sender, EventArgs e)
         {
             textBox1.Text = GlobalUtils.LocalGaoPaiPicPath + "\\" + DateTime.Now.ToString("yyyyMMdd");
+            panel2.Enabled = true;
 
         }
 
         private void rbtnJiaojie_CheckedChanged(object sender, EventArgs e)
         {
             textBox1.Text = GlobalUtils.LocalJiaojiePicPath + "\\" + DateTime.Now.ToString("yyyyMMdd");
+            _types = "未分类";
+            rbtn未分类.Checked = true;
+            panel2.Enabled = false;
         }
 
         private void rbtn未分类_CheckedChanged(object sender, EventArgs e)

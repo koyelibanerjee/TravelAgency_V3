@@ -52,17 +52,17 @@
             this.button6 = new System.Windows.Forms.Button();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.panelBtns = new DevComponents.DotNetBar.PanelEx();
+            this.lbSuccess = new DevComponents.DotNetBar.LabelX();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.rbtn未分类 = new System.Windows.Forms.RadioButton();
             this.rbtnJiaojie = new System.Windows.Forms.RadioButton();
             this.rbtnGaoPai = new System.Windows.Forms.RadioButton();
-            this.lbSuccess = new DevComponents.DotNetBar.LabelX();
             this.btnChoosePath = new System.Windows.Forms.Button();
             this.btnOpenSavePath = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.rbtn团签 = new System.Windows.Forms.RadioButton();
-            this.rbtn团做个 = new System.Windows.Forms.RadioButton();
             this.rbtn个签 = new System.Windows.Forms.RadioButton();
+            this.rbtn团做个 = new System.Windows.Forms.RadioButton();
+            this.rbtn未分类 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.axScanCtrl1)).BeginInit();
             this.panelEx1.SuspendLayout();
             this.panelBtns.SuspendLayout();
@@ -77,7 +77,7 @@
             this.axScanCtrl1.Location = new System.Drawing.Point(0, 0);
             this.axScanCtrl1.Name = "axScanCtrl1";
             this.axScanCtrl1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axScanCtrl1.OcxState")));
-            this.axScanCtrl1.Size = new System.Drawing.Size(1018, 704);
+            this.axScanCtrl1.Size = new System.Drawing.Size(1018, 605);
             this.axScanCtrl1.TabIndex = 0;
             // 
             // button1
@@ -147,7 +147,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(46, 294);
+            this.button3.Location = new System.Drawing.Point(46, 288);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(126, 29);
             this.button3.TabIndex = 8;
@@ -157,7 +157,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(46, 326);
+            this.button4.Location = new System.Drawing.Point(46, 320);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(126, 29);
             this.button4.TabIndex = 9;
@@ -167,7 +167,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(46, 357);
+            this.button5.Location = new System.Drawing.Point(46, 351);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(126, 29);
             this.button5.TabIndex = 10;
@@ -228,7 +228,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(46, 398);
+            this.checkBox1.Location = new System.Drawing.Point(15, 385);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(72, 16);
             this.checkBox1.TabIndex = 16;
@@ -239,7 +239,7 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(46, 420);
+            this.checkBox2.Location = new System.Drawing.Point(93, 385);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(60, 16);
             this.checkBox2.TabIndex = 17;
@@ -250,7 +250,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(10, 451);
+            this.label6.Location = new System.Drawing.Point(10, 403);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(59, 12);
             this.label6.TabIndex = 18;
@@ -258,16 +258,16 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 466);
+            this.textBox1.Location = new System.Drawing.Point(12, 418);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(152, 34);
+            this.textBox1.Size = new System.Drawing.Size(152, 49);
             this.textBox1.TabIndex = 19;
             this.textBox1.Text = "D:\\1.jpg";
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(107, 506);
+            this.button6.Location = new System.Drawing.Point(107, 468);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(81, 34);
             this.button6.TabIndex = 20;
@@ -284,7 +284,7 @@
             this.panelEx1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEx1.Location = new System.Drawing.Point(0, 0);
             this.panelEx1.Name = "panelEx1";
-            this.panelEx1.Size = new System.Drawing.Size(1018, 704);
+            this.panelEx1.Size = new System.Drawing.Size(1018, 605);
             this.panelEx1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelEx1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -298,9 +298,8 @@
             // 
             this.panelBtns.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelBtns.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelBtns.Controls.Add(this.panel2);
-            this.panelBtns.Controls.Add(this.panel1);
             this.panelBtns.Controls.Add(this.lbSuccess);
+            this.panelBtns.Controls.Add(this.panel1);
             this.panelBtns.Controls.Add(this.btnChoosePath);
             this.panelBtns.Controls.Add(this.button1);
             this.panelBtns.Controls.Add(this.button2);
@@ -323,11 +322,12 @@
             this.panelBtns.Controls.Add(this.button5);
             this.panelBtns.Controls.Add(this.comboBox2);
             this.panelBtns.Controls.Add(this.comboBox1);
+            this.panelBtns.Controls.Add(this.panel2);
             this.panelBtns.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelBtns.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelBtns.Location = new System.Drawing.Point(1018, 0);
             this.panelBtns.Name = "panelBtns";
-            this.panelBtns.Size = new System.Drawing.Size(200, 704);
+            this.panelBtns.Size = new System.Drawing.Size(200, 605);
             this.panelBtns.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelBtns.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelBtns.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -337,26 +337,28 @@
             this.panelBtns.Style.GradientAngle = 90;
             this.panelBtns.TabIndex = 25;
             // 
+            // lbSuccess
+            // 
+            // 
+            // 
+            // 
+            this.lbSuccess.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lbSuccess.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbSuccess.ForeColor = System.Drawing.Color.DarkGreen;
+            this.lbSuccess.Location = new System.Drawing.Point(12, 572);
+            this.lbSuccess.Name = "lbSuccess";
+            this.lbSuccess.Size = new System.Drawing.Size(176, 20);
+            this.lbSuccess.TabIndex = 22;
+            this.lbSuccess.Text = "待机中...";
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.rbtnJiaojie);
             this.panel1.Controls.Add(this.rbtnGaoPai);
-            this.panel1.Location = new System.Drawing.Point(6, 546);
+            this.panel1.Location = new System.Drawing.Point(6, 508);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(182, 25);
             this.panel1.TabIndex = 27;
-            // 
-            // rbtn未分类
-            // 
-            this.rbtn未分类.AutoSize = true;
-            this.rbtn未分类.Location = new System.Drawing.Point(10, 3);
-            this.rbtn未分类.Name = "rbtn未分类";
-            this.rbtn未分类.Size = new System.Drawing.Size(59, 16);
-            this.rbtn未分类.TabIndex = 25;
-            this.rbtn未分类.TabStop = true;
-            this.rbtn未分类.Text = "未分类";
-            this.rbtn未分类.UseVisualStyleBackColor = true;
-            this.rbtn未分类.CheckedChanged += new System.EventHandler(this.rbtn未分类_CheckedChanged);
             // 
             // rbtnJiaojie
             // 
@@ -382,25 +384,11 @@
             this.rbtnGaoPai.UseVisualStyleBackColor = true;
             this.rbtnGaoPai.CheckedChanged += new System.EventHandler(this.rbtnGaoPai_CheckedChanged);
             // 
-            // lbSuccess
-            // 
-            // 
-            // 
-            // 
-            this.lbSuccess.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lbSuccess.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbSuccess.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lbSuccess.Location = new System.Drawing.Point(12, 634);
-            this.lbSuccess.Name = "lbSuccess";
-            this.lbSuccess.Size = new System.Drawing.Size(176, 20);
-            this.lbSuccess.TabIndex = 22;
-            this.lbSuccess.Text = "待机中...";
-            // 
             // btnChoosePath
             // 
-            this.btnChoosePath.Location = new System.Drawing.Point(171, 466);
+            this.btnChoosePath.Location = new System.Drawing.Point(171, 418);
             this.btnChoosePath.Name = "btnChoosePath";
-            this.btnChoosePath.Size = new System.Drawing.Size(17, 34);
+            this.btnChoosePath.Size = new System.Drawing.Size(17, 49);
             this.btnChoosePath.TabIndex = 21;
             this.btnChoosePath.Text = "...";
             this.btnChoosePath.UseVisualStyleBackColor = true;
@@ -408,7 +396,7 @@
             // 
             // btnOpenSavePath
             // 
-            this.btnOpenSavePath.Location = new System.Drawing.Point(12, 506);
+            this.btnOpenSavePath.Location = new System.Drawing.Point(12, 468);
             this.btnOpenSavePath.Name = "btnOpenSavePath";
             this.btnOpenSavePath.Size = new System.Drawing.Size(81, 34);
             this.btnOpenSavePath.TabIndex = 10;
@@ -422,9 +410,9 @@
             this.panel2.Controls.Add(this.rbtn个签);
             this.panel2.Controls.Add(this.rbtn团做个);
             this.panel2.Controls.Add(this.rbtn未分类);
-            this.panel2.Location = new System.Drawing.Point(6, 578);
+            this.panel2.Location = new System.Drawing.Point(6, 528);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(182, 53);
+            this.panel2.Size = new System.Drawing.Size(182, 43);
             this.panel2.TabIndex = 28;
             // 
             // rbtn团签
@@ -439,18 +427,6 @@
             this.rbtn团签.UseVisualStyleBackColor = true;
             this.rbtn团签.CheckedChanged += new System.EventHandler(this.rbtn团签_CheckedChanged);
             // 
-            // rbtn团做个
-            // 
-            this.rbtn团做个.AutoSize = true;
-            this.rbtn团做个.Location = new System.Drawing.Point(105, 28);
-            this.rbtn团做个.Name = "rbtn团做个";
-            this.rbtn团做个.Size = new System.Drawing.Size(59, 16);
-            this.rbtn团做个.TabIndex = 27;
-            this.rbtn团做个.TabStop = true;
-            this.rbtn团做个.Text = "团做个";
-            this.rbtn团做个.UseVisualStyleBackColor = true;
-            this.rbtn团做个.CheckedChanged += new System.EventHandler(this.rbtn团做个_CheckedChanged);
-            // 
             // rbtn个签
             // 
             this.rbtn个签.AutoSize = true;
@@ -463,11 +439,35 @@
             this.rbtn个签.UseVisualStyleBackColor = true;
             this.rbtn个签.CheckedChanged += new System.EventHandler(this.rbtn个签_CheckedChanged);
             // 
+            // rbtn团做个
+            // 
+            this.rbtn团做个.AutoSize = true;
+            this.rbtn团做个.Location = new System.Drawing.Point(105, 25);
+            this.rbtn团做个.Name = "rbtn团做个";
+            this.rbtn团做个.Size = new System.Drawing.Size(59, 16);
+            this.rbtn团做个.TabIndex = 27;
+            this.rbtn团做个.TabStop = true;
+            this.rbtn团做个.Text = "团做个";
+            this.rbtn团做个.UseVisualStyleBackColor = true;
+            this.rbtn团做个.CheckedChanged += new System.EventHandler(this.rbtn团做个_CheckedChanged);
+            // 
+            // rbtn未分类
+            // 
+            this.rbtn未分类.AutoSize = true;
+            this.rbtn未分类.Location = new System.Drawing.Point(10, 6);
+            this.rbtn未分类.Name = "rbtn未分类";
+            this.rbtn未分类.Size = new System.Drawing.Size(59, 16);
+            this.rbtn未分类.TabIndex = 25;
+            this.rbtn未分类.TabStop = true;
+            this.rbtn未分类.Text = "未分类";
+            this.rbtn未分类.UseVisualStyleBackColor = true;
+            this.rbtn未分类.CheckedChanged += new System.EventHandler(this.rbtn未分类_CheckedChanged);
+            // 
             // FrmTackePicture
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1218, 704);
+            this.ClientSize = new System.Drawing.Size(1218, 605);
             this.Controls.Add(this.panelEx1);
             this.Controls.Add(this.panelBtns);
             this.Name = "FrmTackePicture";

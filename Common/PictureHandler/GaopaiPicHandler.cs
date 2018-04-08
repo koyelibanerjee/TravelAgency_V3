@@ -9,7 +9,7 @@ using TravelAgency.Common.FTP;
 
 namespace TravelAgency.Common.PictureHandler
 {
-    public static class GaopaiPicHandler
+    public class GaopaiPicHandler
     {
         public static string RemoteRootPath
         {
@@ -238,14 +238,14 @@ namespace TravelAgency.Common.PictureHandler
         public static void UploadGaoPaiImage(object filename)
         {
             var list = (List<string>)filename;
-            UploadGaoPaiImage(list[0],list[1]);
+            UploadGaoPaiImage(list[0], list[1]);
         }
 
 
         public static void UploadGaoPaiImage(string filename, string types)
         {
             string savePrefix = "";
-  
+
             if (filename.Contains("thumb_"))
                 savePrefix += Path.GetFileName(filename).Substring(6, 8);
             else
@@ -264,7 +264,7 @@ namespace TravelAgency.Common.PictureHandler
 
                     FtpHandler.DeepMakeDir(savePrefix);
                 }
-                    
+
                 FtpHandler.ChangeFtpUri(RemoteRootPath + "/" + savePrefix);
                 FtpHandler.Upload(filename);
             }
