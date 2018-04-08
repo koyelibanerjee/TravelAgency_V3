@@ -40,6 +40,7 @@
             this.btnVisaSubmit = new DevComponents.DotNetBar.ButtonItem();
             this.btnScanFrm = new DevComponents.DotNetBar.ButtonItem();
             this.btnGPManage = new DevComponents.DotNetBar.ButtonItem();
+            this.btnJiaoJiePicManage = new DevComponents.DotNetBar.ButtonItem();
             this.btnJobAssignment = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonPanel5 = new DevComponents.DotNetBar.RibbonPanel();
             this.ribbonBar5 = new DevComponents.DotNetBar.RibbonBar();
@@ -68,7 +69,6 @@
             this.btnMCloseOther = new System.Windows.Forms.ToolStripMenuItem();
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
             this.btnFrmGaoPaiManage = new DevComponents.DotNetBar.ButtonItem();
-            this.btnJiaoJiePicManage = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonControl1.SuspendLayout();
             this.ribbonPanel3.SuspendLayout();
             this.ribbonPanel5.SuspendLayout();
@@ -254,6 +254,16 @@
             this.btnGPManage.SubItemsExpandWidth = 14;
             this.btnGPManage.Text = "高拍图像管理";
             this.btnGPManage.Click += new System.EventHandler(this.btnGPManage_Click);
+            // 
+            // btnJiaoJiePicManage
+            // 
+            this.btnJiaoJiePicManage.Icon = ((System.Drawing.Icon)(resources.GetObject("btnJiaoJiePicManage.Icon")));
+            this.btnJiaoJiePicManage.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
+            this.btnJiaoJiePicManage.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnJiaoJiePicManage.Name = "btnJiaoJiePicManage";
+            this.btnJiaoJiePicManage.SubItemsExpandWidth = 14;
+            this.btnJiaoJiePicManage.Text = "交接表管理";
+            this.btnJiaoJiePicManage.Click += new System.EventHandler(this.btnJiaoJiePicManage_Click);
             // 
             // btnJobAssignment
             // 
@@ -635,16 +645,6 @@
             this.btnFrmGaoPaiManage.Name = "btnFrmGaoPaiManage";
             this.btnFrmGaoPaiManage.SubItemsExpandWidth = 14;
             this.btnFrmGaoPaiManage.Text = "高排图像管理";
-            // 
-            // btnJiaoJiePicManage
-            // 
-            this.btnJiaoJiePicManage.Icon = ((System.Drawing.Icon)(resources.GetObject("btnJiaoJiePicManage.Icon")));
-            this.btnJiaoJiePicManage.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
-            this.btnJiaoJiePicManage.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnJiaoJiePicManage.Name = "btnJiaoJiePicManage";
-            this.btnJiaoJiePicManage.SubItemsExpandWidth = 14;
-            this.btnJiaoJiePicManage.Text = "交接表管理";
-            this.btnJiaoJiePicManage.Click += new System.EventHandler(this.btnJiaoJiePicManage_Click);
             // 
             // FrmMain
             // 
