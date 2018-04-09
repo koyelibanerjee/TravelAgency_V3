@@ -883,17 +883,23 @@ namespace TravelAgency.CSUI.FrmMain
             if (list == null)
                 return;
 
+
+            bool canDo = false;bool hasJapan = false;
             foreach (var visainfo in list)
             {
                 if (visainfo.Country == "日本"
-                    && visainfo.AssignmentToWorkId != GlobalUtils.LoginUser.WorkId)
+                    && (visainfo.Types == "个签" || visainfo.Types == "团做个" || visainfo.Types == "商务"))
                 {
-                    if (visainfo.Country == "个签" || visainfo.Country == "团做个" || visainfo.Country == "商务")
-                    {
-                        MessageBoxEx.Show("日本非团签只能做分配到自己的任务!");
-                        return;
-                    }
+                    if(visainfo.AssignmentToWorkId == GlobalUtils.LoginUser.WorkId)
+                        canDo = true;
+                    hasJapan = true;
                 }
+            }
+
+            if (hasJapan && !canDo)
+            {
+                MessageBoxEx.Show("日本非团签只能做分配到自己的任务!");
+                return;
             }
 
             FrmGroupOrIndividual frmGroupOrIndividual = new FrmGroupOrIndividual(list, LoadDataToDataGridView, _curPage);

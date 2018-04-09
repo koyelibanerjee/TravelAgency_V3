@@ -244,7 +244,7 @@ namespace TravelAgency.CSUI.FrmMain
             if (lvPics.SelectedItems.Count == 1)
             {
                 //Image img = _gaopaiPicHandler.GetJiaoJieImage(GetSelFileName());
-                FrmShowPicture frm = new FrmShowPicture(_imagenames, advTree1.SelectedNode.Tag.ToString(),lvPics.SelectedItems[0].Index);
+                FrmShowPicture frm = new FrmShowPicture(_imagenames, advTree1.SelectedNode.Tag.ToString(),lvPics.SelectedItems[0].Index, GaopaiPicHandler.PictureType.Type02_JiaoJie);
                 frm.Show();
             }
         }

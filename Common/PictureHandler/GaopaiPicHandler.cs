@@ -28,6 +28,7 @@ namespace TravelAgency.Common.PictureHandler
                     path = "E:/东瀛假日签证识别管理系统/高拍仪图像保存路径";
                 }
                 RemoteRootPath = path;
+                LocalGaoPaiPicPath = GlobalUtils.LocalGaoPaiPicPath;
             }
             else if (type == PictureType.Type02_JiaoJie)
             {
@@ -38,12 +39,18 @@ namespace TravelAgency.Common.PictureHandler
                     path = "E:/东瀛假日签证识别管理系统/交接图像保存路径";
                 }
                 RemoteRootPath = path;
+                LocalGaoPaiPicPath = GlobalUtils.LocalJiaojiePicPath;
             }
         }
         public string RemoteRootPath
         {
             get { return _remotePath; }
             private set { _remotePath = value; }
+        }
+
+        public string LocalGaoPaiPicPath
+        {
+            get;set;
         }
 
 
@@ -184,10 +191,10 @@ namespace TravelAgency.Common.PictureHandler
             FtpHandler.ChangeFtpUri(RemoteRootPath);
             if (!CheckLocalExist(filename))
             {
-                if (!FtpHandler.Download(GlobalUtils.LocalGaoPaiPicPath, filename)) //就不检查存在与否了，直接看下载成功没有
+                if (!FtpHandler.Download(LocalGaoPaiPicPath, filename)) //就不检查存在与否了，直接看下载成功没有
                     return null;
             }
-            return GlobalUtils.LoadImageFromFileNoBlock(GlobalUtils.LocalGaoPaiPicPath + "\\" + filename);
+            return GlobalUtils.LoadImageFromFileNoBlock(LocalGaoPaiPicPath + "\\" + filename);
         }
 
         /// <summary>
@@ -247,7 +254,7 @@ namespace TravelAgency.Common.PictureHandler
         /// <returns></returns>
         public bool CheckLocalExist(string filename)
         {
-            string picName = GlobalUtils.LocalGaoPaiPicPath + "\\" + filename;
+            string picName = LocalGaoPaiPicPath + "\\" + filename;
             return File.Exists(picName);
         }
 

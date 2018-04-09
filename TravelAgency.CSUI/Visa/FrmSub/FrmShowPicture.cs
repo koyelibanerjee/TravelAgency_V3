@@ -14,7 +14,7 @@ namespace TravelAgency.CSUI.FrmSub
         /// <summary>
         /// 其实这个窗体里面大多数消息都没用，图片框控件里面实现了已经
         /// </summary>
-        private GaopaiPicHandler _gaopaiPicHandler = new GaopaiPicHandler(GaopaiPicHandler.PictureType.Type01_Normal);
+        private GaopaiPicHandler _gaopaiPicHandler;
 
         private readonly List<string> _imageList; //每张图片的名字
 
@@ -28,12 +28,13 @@ namespace TravelAgency.CSUI.FrmSub
             InitializeComponent();
         }
 
-        public FrmShowPicture(List<string> imageList, string date, int idx)
+        public FrmShowPicture(List<string> imageList, string date, int idx, GaopaiPicHandler.PictureType type)
             : this()
         {
             _imageList = imageList;
             _prefix = date;
             _idx = idx;
+            _gaopaiPicHandler = new GaopaiPicHandler(type);
         }
 
         #region 窗体事件

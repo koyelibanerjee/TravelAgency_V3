@@ -283,11 +283,11 @@ namespace TravelAgency.CSUI.FrmMain
                 string types = advTree1.SelectedNode.Tag.ToString();
                 FrmShowPicture frm;
                 if (types == "未分类")
-                    frm = new FrmShowPicture(_imagenames, advTree1.SelectedNode.Parent.Tag.ToString(), lvPics.SelectedItems[0].Index);
+                    frm = new FrmShowPicture(_imagenames, advTree1.SelectedNode.Parent.Tag.ToString(), lvPics.SelectedItems[0].Index, GaopaiPicHandler.PictureType.Type01_Normal);
                 //Image img = _gaopaiPicHandler.GetGaoPaiImage(GetSelFileName());
                 else
                     frm = new FrmShowPicture(_imagenames, advTree1.SelectedNode.Parent.Tag.ToString() + "/" +
-                    advTree1.SelectedNode.Tag.ToString(), lvPics.SelectedItems[0].Index);
+                    advTree1.SelectedNode.Tag.ToString(), lvPics.SelectedItems[0].Index, GaopaiPicHandler.PictureType.Type01_Normal);
                 frm.Show();
             }
         }
