@@ -623,18 +623,20 @@ namespace TravelAgency.CSUI.FrmMain
 
         private void btnUpLoadLocal_Click(object sender, EventArgs e)
         {
-            var localFileList = Directory.GetFiles(GlobalUtils.LocalPassportPicPath);
-            FtpHandler.ChangeFtpUri(ConfigurationManager.AppSettings["PassportPicPath"]);
-            int notexist = 0;
-            foreach (var localFile in localFileList)
-            {
-                if (!FtpHandler.FileExist(Path.GetFileName(localFile)))
-                {
-                    FtpHandler.Upload(localFile);
-                    notexist += 1;
-                }
-            }
-            MessageBoxEx.Show("上传" + notexist + "张图像成功!");
+            //var localFileList = Directory.GetFiles(GlobalUtils.LocalPassportPicPath);
+            //FtpHandler.ChangeFtpUri(ConfigurationManager.AppSettings["PassportPicPath"]);
+            //int notexist = 0;
+            //foreach (var localFile in localFileList)
+            //{
+            //    if (!FtpHandler.FileExist(Path.GetFileName(localFile)))
+            //    {
+            //        FtpHandler.Upload(localFile);
+            //        notexist += 1;
+            //    }
+            //}
+            //MessageBoxEx.Show("上传" + notexist + "张图像成功!");
+            FrmUploadLocalImages frm = new FrmUploadLocalImages();
+            frm.ShowDialog();
         }
 
 
