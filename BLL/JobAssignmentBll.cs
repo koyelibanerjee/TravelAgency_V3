@@ -29,7 +29,9 @@ namespace TravelAgency.BLL
         /// <returns></returns>
         public bool UserWorkFinished(string workId)
         {
-            return _bllVisaInfo.GetModelList(string.Format("AssignmentToWorkId='{0}' and HasTypeIn = '否'", workId)).Count <= 0;//其他国家根本不会有AssignmentToWorkId，所以不用加国家限制
+            return _bllVisaInfo.GetModelList(
+                string.Format("AssignmentToWorkId='{0}' and HasTypeIn = '否' and Country='日本' and Types in ('个签','团做个','商务') ", workId))
+                .Count <= 0;//其他国家根本不会有AssignmentToWorkId，所以不用加国家限制,还是加上国家限制。。
         }
 
         /// <summary>
