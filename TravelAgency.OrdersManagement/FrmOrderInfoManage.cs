@@ -66,33 +66,26 @@ namespace TravelAgency.OrdersManagement
         {
             string tablename = "OrderInfo";
 
-            cbName.Items.Add("全部");
             cbOrderType.Items.Add("全部");
             cbOrderInfoState.Items.Add("全部");
-            cbName.SelectedIndex = 0;
-            cbOrderType.SelectedIndex = 0;
+            
             cbOrderInfoState.SelectedIndex = 0;
+            cbOrderType.SelectedIndex = 0;
 
-            //var list = BLL.CommonBll.GetFieldList(tablename, "Name");
-            //if (list != null)
-            //    foreach (var item in list)
-            //    {
-            //        cbName.Items.Add(item);
-            //    }
+            cbOrderInfoState.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbOrderType.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            //list = BLL.CommonBll.GetFieldList(tablename, "ProducePlace");
-            //if (list != null)
-            //    foreach (var item in list)
-            //    {
-            //        cbProducePlace.Items.Add(item);
-            //    }
+            var list = Common.Enums.OrderInfo_OrderType.valueKeyMap.Keys;
+            if (list != null)
+                foreach (var item in list)
+                    cbOrderType.Items.Add(item);
 
-            //list = BLL.CommonBll.GetFieldList(tablename, "Texture");
-            //if (list != null)
-            //    foreach (var item in list)
-            //    {
-            //        cbTexture.Items.Add(item);
-            //    }
+            list = Common.Enums.OrderInfo_OrderInfoState.valueKeyMap.Keys;
+            if (list != null)
+                foreach (var item in list)
+                    cbOrderInfoState.Items.Add(item);
+
+            
 
         }
 
@@ -247,20 +240,14 @@ namespace TravelAgency.OrdersManagement
         private string GetWhereCondition()
         {
             List<string> conditions = new List<string>();
-            if (cbName.Text == "全部")
-            {
-            }
-            else
-            {
-                conditions.Add(" (Name = '" + cbName.Text + "') ");
-            }
+
 
             if (cbOrderType.Text == "全部")
             {
             }
             else
             {
-                conditions.Add(" (ProducePlace = '" + cbOrderType.Text + "') ");
+                conditions.Add(" (OrderType = " + Common.Enums.OrderInfo_OrderType.ValueToKey(cbOrderType.Text) + ") ");
             }
 
             if (cbOrderInfoState.Text == "全部")
@@ -268,38 +255,23 @@ namespace TravelAgency.OrdersManagement
             }
             else
             {
-                conditions.Add(" (Texture = '" + cbOrderInfoState.Text + "') ");
+                conditions.Add(" (OrderInfoState = '" + Common.Enums.OrderInfo_OrderInfoState.ValueToKey(cbOrderInfoState.Text) + "') ");
             }
 
 
-            //if (cbCountry.Text == "全部")
-            //{
-
-            //}
-            //else
-            //{
-            //    conditions.Add(" Country = '" + cbCountry.Text + "' ");
-            //}
-
-            //if (!string.IsNullOrEmpty(txtClient.Text.Trim()))
-            //{
-            //    conditions.Add(" (Client like '%" + txtClient.Text + "%') ");
-            //}
-
-            //if (cbDepatureType.Text == "全部")
-            //{
-
-            //}
-            //else
-            //{
-            //    conditions.Add(" DepartureType = '" + cbDepatureType.Text + "' ");
-            //}
+            
 
             if (!string.IsNullOrEmpty(txtSchEntryTimeFrom.Text.Trim()) && !string.IsNullOrEmpty(txtSchEntryTimeTo.Text.Trim()))
             {
-                conditions.Add(" (InfoTime between '" + txtSchEntryTimeFrom.Text + "' and " + " '" + txtSchEntryTimeTo.Text +
+                conditions.Add(" (OrderTime between '" + txtSchEntryTimeFrom.Text + "' and " + " '" + txtSchEntryTimeTo.Text +
                                "') ");
             }
+
+            if (!string.IsNullOrEmpty(txtOrderNo.Text.Trim()))
+            {
+                conditions.Add(" (OrderNo like '%" + txtOrderNo.Text.Trim() + "%' ) ");
+            }
+
 
             string[] arr = conditions.ToArray();
             string where = string.Join(" and ", arr);
@@ -311,11 +283,11 @@ namespace TravelAgency.OrdersManagement
         {
             //txtClient.Text = "";
             cbOrderType.Text = "全部";
-            cbName.Text = "全部";
             cbOrderInfoState.Text = "全部";
             //cbDepatureType.Text = "";
             txtSchEntryTimeFrom.Text = "";
             txtSchEntryTimeTo.Text = "";
+            txtOrderNo.Text = "";
         }
 
 
