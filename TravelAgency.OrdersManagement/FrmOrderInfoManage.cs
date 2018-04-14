@@ -348,6 +348,7 @@ namespace TravelAgency.OrdersManagement
 
                 row.Cells["OrderType"].Value = Common.Enums.OrderInfo_OrderType.KeyToValue(list[i].OrderType);
                 row.Cells["OrderInfoState"].Value = Common.Enums.OrderInfo_OrderInfoState.KeyToValue(list[i].OrderInfoState);
+                row.Cells["OrderInfoState"].Value = Common.Enums.OrderInfo_OrderInfoState.KeyToValue(list[i].OrderInfoState);
 
             }
         }

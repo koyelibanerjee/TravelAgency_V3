@@ -13,14 +13,14 @@ namespace TravelAgency.Model
 		private int _id;
 		private string _orderno;
 		private decimal? _amount;
-		private int? _ordertype;
-		private int? _paymentplatform;
+		private int _ordertype;
+		private int _paymentplatform;
 		private string _productname;
 		private DateTime? _ordertime;
 		private DateTime? _entrytime;
 		private string _extradata;
 		private int? _orderexcelid;
-		private int? _orderinfostate;
+		private int _orderinfostate;
 		private string _operatorname;
 		private string _operatorworkid;
 		/// <summary>
@@ -50,7 +50,7 @@ namespace TravelAgency.Model
 		/// <summary>
 		/// 
 		/// </summary>
-		public int? OrderType
+		public int OrderType
 		{
 			set{ _ordertype=value;}
 			get{return _ordertype;}
@@ -58,7 +58,7 @@ namespace TravelAgency.Model
 		/// <summary>
 		/// 
 		/// </summary>
-		public int? PaymentPlatform
+		public int PaymentPlatform
 		{
 			set{ _paymentplatform=value;}
 			get{return _paymentplatform;}
@@ -106,7 +106,7 @@ namespace TravelAgency.Model
 		/// <summary>
 		/// 
 		/// </summary>
-		public int? OrderInfoState
+		public int OrderInfoState
 		{
 			set{ _orderinfostate=value;}
 			get{return _orderinfostate;}
