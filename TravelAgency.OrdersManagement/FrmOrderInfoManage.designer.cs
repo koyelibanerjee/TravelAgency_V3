@@ -86,6 +86,8 @@
             this.OrderInfoState = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OperatorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbPaymentPlatform = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.labelX2 = new DevComponents.DotNetBar.LabelX();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panelDgv.SuspendLayout();
@@ -216,6 +218,8 @@
             // 
             this.panelSerachBar.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelSerachBar.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelSerachBar.Controls.Add(this.cbPaymentPlatform);
+            this.panelSerachBar.Controls.Add(this.labelX2);
             this.panelSerachBar.Controls.Add(this.txtOrderNo);
             this.panelSerachBar.Controls.Add(this.labelX4);
             this.panelSerachBar.Controls.Add(this.cbOrderInfoState);
@@ -727,6 +731,30 @@
             this.Id.Name = "Id";
             this.Id.Visible = false;
             // 
+            // cbPaymentPlatform
+            // 
+            this.cbPaymentPlatform.DisplayMember = "Text";
+            this.cbPaymentPlatform.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbPaymentPlatform.FormattingEnabled = true;
+            this.cbPaymentPlatform.ItemHeight = 15;
+            this.cbPaymentPlatform.Location = new System.Drawing.Point(662, 6);
+            this.cbPaymentPlatform.Name = "cbPaymentPlatform";
+            this.cbPaymentPlatform.Size = new System.Drawing.Size(79, 21);
+            this.cbPaymentPlatform.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cbPaymentPlatform.TabIndex = 115;
+            // 
+            // labelX2
+            // 
+            // 
+            // 
+            // 
+            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX2.Location = new System.Drawing.Point(584, 6);
+            this.labelX2.Name = "labelX2";
+            this.labelX2.Size = new System.Drawing.Size(72, 21);
+            this.labelX2.TabIndex = 114;
+            this.labelX2.Text = "交易平台:";
+            // 
             // FrmOrderInfoManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -805,6 +833,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn OrderInfoState;
         private System.Windows.Forms.DataGridViewTextBoxColumn OperatorName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cbPaymentPlatform;
+        private DevComponents.DotNetBar.LabelX labelX2;
     }
 }
 

@@ -45,7 +45,7 @@ namespace TravelAgency.OrdersManagement
                 txtProductName.Text = _model.ProductName;
                 txtOrderType.Text = Common.Enums.OrderInfo_OrderType.KeyToValue(_model.OrderType);
                 txtOrderInfoState.Text = Common.Enums.OrderInfo_OrderInfoState.KeyToValue(_model.OrderInfoState);
-
+                txtPaymentPlatform.Text = Common.Enums.OrderInfo_PaymentPlatform.KeyToValue(_model.PaymentPlatform);
                 this.Text = "修改订单信息";
             }
         }
@@ -65,6 +65,7 @@ namespace TravelAgency.OrdersManagement
 
             txtOrderInfoState.DropDownStyle = ComboBoxStyle.DropDownList;
             txtOrderType.DropDownStyle = ComboBoxStyle.DropDownList;
+            txtPaymentPlatform.DropDownStyle = ComboBoxStyle.DropDownList;
 
             var list = Common.Enums.OrderInfo_OrderType.valueKeyMap.Keys; 
             if (list != null)
@@ -75,6 +76,11 @@ namespace TravelAgency.OrdersManagement
             if (list != null)
                 foreach (var item in list)
                     txtOrderInfoState.Items.Add(item);
+
+            list = Common.Enums.OrderInfo_PaymentPlatform.valueKeyMap.Keys;
+            if (list != null)
+                foreach (var item in list)
+                    txtPaymentPlatform.Items.Add(item);
 
         }
         #endregion
@@ -101,6 +107,7 @@ namespace TravelAgency.OrdersManagement
                     _model.ProductName = txtProductName.Text;
                     _model.OrderType = Common.Enums.OrderInfo_OrderType.ValueToKey(txtOrderType.Text);
                     _model.OrderInfoState = Common.Enums.OrderInfo_OrderType.ValueToKey(txtOrderInfoState.Text);
+                    _model.PaymentPlatform = Common.Enums.OrderInfo_PaymentPlatform.ValueToKey(txtPaymentPlatform.Text);
 
 
                     //下面的字段暂时不进行修改
@@ -143,6 +150,7 @@ namespace TravelAgency.OrdersManagement
                     model.ProductName = txtProductName.Text;
                     model.OrderType = Common.Enums.OrderInfo_OrderType.ValueToKey(txtOrderType.Text);
                     model.OrderInfoState = Common.Enums.OrderInfo_OrderInfoState.ValueToKey(txtOrderInfoState.Text);
+                    model.PaymentPlatform = Common.Enums.OrderInfo_PaymentPlatform.ValueToKey(txtPaymentPlatform.Text);
                     model.EntryTime = DateTime.Now;
                     model.OperatorWorkId = GlobalUtils.LoginUser.WorkId;
                     model.OperatorName = GlobalUtils.LoginUser.UserName;

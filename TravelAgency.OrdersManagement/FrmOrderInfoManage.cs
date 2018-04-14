@@ -68,12 +68,15 @@ namespace TravelAgency.OrdersManagement
 
             cbOrderType.Items.Add("全部");
             cbOrderInfoState.Items.Add("全部");
-            
+            cbPaymentPlatform.Items.Add("全部");
+
             cbOrderInfoState.SelectedIndex = 0;
             cbOrderType.SelectedIndex = 0;
+            cbPaymentPlatform.SelectedIndex = 0;
 
             cbOrderInfoState.DropDownStyle = ComboBoxStyle.DropDownList;
             cbOrderType.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbPaymentPlatform.DropDownStyle = ComboBoxStyle.DropDownList;
 
             var list = Common.Enums.OrderInfo_OrderType.valueKeyMap.Keys;
             if (list != null)
@@ -85,7 +88,10 @@ namespace TravelAgency.OrdersManagement
                 foreach (var item in list)
                     cbOrderInfoState.Items.Add(item);
 
-            
+            list = Common.Enums.OrderInfo_PaymentPlatform.valueKeyMap.Keys;
+            if (list != null)
+                foreach (var item in list)
+                    cbPaymentPlatform.Items.Add(item);
 
         }
 
@@ -258,8 +264,15 @@ namespace TravelAgency.OrdersManagement
                 conditions.Add(" (OrderInfoState = '" + Common.Enums.OrderInfo_OrderInfoState.ValueToKey(cbOrderInfoState.Text) + "') ");
             }
 
+            if (cbPaymentPlatform.Text == "全部")
+            {
+            }
+            else
+            {
+                conditions.Add(" (PaymentPlatform = '" + Common.Enums.OrderInfo_PaymentPlatform.ValueToKey(cbPaymentPlatform.Text) + "') ");
+            }
 
-            
+
 
             if (!string.IsNullOrEmpty(txtSchEntryTimeFrom.Text.Trim()) && !string.IsNullOrEmpty(txtSchEntryTimeTo.Text.Trim()))
             {
@@ -348,8 +361,7 @@ namespace TravelAgency.OrdersManagement
 
                 row.Cells["OrderType"].Value = Common.Enums.OrderInfo_OrderType.KeyToValue(list[i].OrderType);
                 row.Cells["OrderInfoState"].Value = Common.Enums.OrderInfo_OrderInfoState.KeyToValue(list[i].OrderInfoState);
-                row.Cells["OrderInfoState"].Value = Common.Enums.OrderInfo_OrderInfoState.KeyToValue(list[i].OrderInfoState);
-
+                row.Cells["PaymentPlatform"].Value = Common.Enums.OrderInfo_PaymentPlatform.KeyToValue(list[i].PaymentPlatform);
             }
         }
 
