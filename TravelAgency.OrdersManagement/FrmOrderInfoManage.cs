@@ -4,9 +4,10 @@ using System.Drawing;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using TravelAgency.Common;
+using TravelAgency.CSUI.FrmSub;
 using TravelAgency.Model;
 
-namespace TravelAgency.CSUI.FrmMain
+namespace TravelAgency.OrdersManagement
 {
     public partial class FrmOrderInfoManage : Form
     {
@@ -45,6 +46,7 @@ namespace TravelAgency.CSUI.FrmMain
 
             _pageSize = int.Parse(cbPageSize.Text);
             cbPageSize.TextChanged += CbPageSize_TextChanged;
+            this.FormClosed += FrmOrderInfoManage_FormClosed;
 
             dataGridView1.DoubleClick += DataGridView1_DoubleClick;
             StyleControler.SetDgvStyle(dataGridView1);
@@ -55,40 +57,42 @@ namespace TravelAgency.CSUI.FrmMain
             LoadDataToDgvAsyn();
         }
 
-
-
+        private void FrmOrderInfoManage_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
 
         private void InitComboboxs()
         {
             string tablename = "OrderInfo";
 
             cbName.Items.Add("全部");
-            cbProducePlace.Items.Add("全部");
-            cbTexture.Items.Add("全部");
+            cbOrderType.Items.Add("全部");
+            cbOrderInfoState.Items.Add("全部");
             cbName.SelectedIndex = 0;
-            cbProducePlace.SelectedIndex = 0;
-            cbTexture.SelectedIndex = 0;
+            cbOrderType.SelectedIndex = 0;
+            cbOrderInfoState.SelectedIndex = 0;
 
-            var list = BLL.CommonBll.GetFieldList(tablename, "Name");
-            if (list != null)
-                foreach (var item in list)
-                {
-                    cbName.Items.Add(item);
-                }
+            //var list = BLL.CommonBll.GetFieldList(tablename, "Name");
+            //if (list != null)
+            //    foreach (var item in list)
+            //    {
+            //        cbName.Items.Add(item);
+            //    }
 
-            list = BLL.CommonBll.GetFieldList(tablename, "ProducePlace");
-            if (list != null)
-                foreach (var item in list)
-                {
-                    cbProducePlace.Items.Add(item);
-                }
+            //list = BLL.CommonBll.GetFieldList(tablename, "ProducePlace");
+            //if (list != null)
+            //    foreach (var item in list)
+            //    {
+            //        cbProducePlace.Items.Add(item);
+            //    }
 
-            list = BLL.CommonBll.GetFieldList(tablename, "Texture");
-            if (list != null)
-                foreach (var item in list)
-                {
-                    cbTexture.Items.Add(item);
-                }
+            //list = BLL.CommonBll.GetFieldList(tablename, "Texture");
+            //if (list != null)
+            //    foreach (var item in list)
+            //    {
+            //        cbTexture.Items.Add(item);
+            //    }
 
         }
 
@@ -251,20 +255,20 @@ namespace TravelAgency.CSUI.FrmMain
                 conditions.Add(" (Name = '" + cbName.Text + "') ");
             }
 
-            if (cbProducePlace.Text == "全部")
+            if (cbOrderType.Text == "全部")
             {
             }
             else
             {
-                conditions.Add(" (ProducePlace = '" + cbProducePlace.Text + "') ");
+                conditions.Add(" (ProducePlace = '" + cbOrderType.Text + "') ");
             }
 
-            if (cbTexture.Text == "全部")
+            if (cbOrderInfoState.Text == "全部")
             {
             }
             else
             {
-                conditions.Add(" (Texture = '" + cbTexture.Text + "') ");
+                conditions.Add(" (Texture = '" + cbOrderInfoState.Text + "') ");
             }
 
 
@@ -306,9 +310,9 @@ namespace TravelAgency.CSUI.FrmMain
         private void btnClearSchConditions_Click(object sender, EventArgs e)
         {
             //txtClient.Text = "";
-            cbProducePlace.Text = "全部";
+            cbOrderType.Text = "全部";
             cbName.Text = "全部";
-            cbTexture.Text = "全部";
+            cbOrderInfoState.Text = "全部";
             //cbDepatureType.Text = "";
             txtSchEntryTimeFrom.Text = "";
             txtSchEntryTimeTo.Text = "";
@@ -352,8 +356,8 @@ namespace TravelAgency.CSUI.FrmMain
         /// <param name="e"></param>
         private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            int digit = GlobalUtils.DecimalDigits;
-
+            //int digit = GlobalUtils.DecimalDigits;
+            var list = DgvDataSourceToList();
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 DataGridViewRow row = dataGridView1.Rows[i];
@@ -366,21 +370,13 @@ namespace TravelAgency.CSUI.FrmMain
                     var value = dataGridView1.Rows[i].Cells[j].Value;
                     if (dataGridView1.Rows[i].Cells[j].ValueType == typeof(decimal?) && value != null)
                     {
-                        if (digit == -1)
-                            dataGridView1.Rows[i].Cells[j].Value = DecimalHandler.DecimalToString((decimal?)value);
-                        else
-                            dataGridView1.Rows[i].Cells[j].Value = DecimalHandler.DecimalToString((decimal?)value,digit);
+                        dataGridView1.Rows[i].Cells[j].Value = DecimalHandler.DecimalToString((decimal?)value);
                     }
                 }
 
+                row.Cells["OrderType"].Value = Common.Enums.OrderInfo_OrderType.KeyToValue(list[i].OrderType);
+                row.Cells["OrderInfoState"].Value = Common.Enums.OrderInfo_OrderInfoState.KeyToValue(list[i].OrderInfoState);
 
-                //var price = DgvDataSourceToList()[i].Price;
-                //if (price != null)
-                //    dataGridView1["Price", i].Value = DecimalHandler.DecimalToString(price.Value, 1);
-
-                //var fluctuation = DgvDataSourceToList()[i].Fluctuation;
-                //if (fluctuation != null)
-                //    dataGridView1["Fluctuation", i].Value = DecimalHandler.DecimalToString(fluctuation.Value, 1);
             }
         }
 
@@ -491,28 +487,24 @@ namespace TravelAgency.CSUI.FrmMain
             if (string.IsNullOrEmpty(filename))
                 return;
 
-            FrmTimeChoose frm = new FrmTimeChoose();
-
-            if (DialogResult.Cancel == frm.ShowDialog())
-                return;
 
 
-            var list = Common.Excel.ExcelParser.GetSteelListFromExcel(filename,frm.RetValue);
-            if (list == null || list.Count == 0)
-                return;
-            int res = _bllOrderInfo.AddList(list);
-            GlobalUtils.MessageBoxWithRecordNum("导入", res, list.Count);
+            //var list = Common.Excel.ExcelParser.GetSteelListFromExcel(filename,frm.RetValue);
+            //if (list == null || list.Count == 0)
+            //    return;
+            //int res = _bllOrderInfo.AddList(list);
+            //GlobalUtils.MessageBoxWithRecordNum("导入", res, list.Count);
 
             LoadDataToDgvAsyn();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (GlobalUtils.LoginUser.UserLevel == Common.Enums.UserLevel.Checker)
-            {
-                MessageBoxEx.Show("权限不足!");
-                return;
-            }
+            //if (GlobalUtils.LoginUser.UserLevel == Common.Enums.UserLevel.Checker)
+            //{
+            //    MessageBoxEx.Show("权限不足!");
+            //    return;
+            //}
             FrmAddOrderInfo frm = new FrmAddOrderInfo(LoadDataToDataGridView, _curPage);
             if (DialogResult.Cancel == frm.ShowDialog())
                 return;
@@ -584,27 +576,11 @@ namespace TravelAgency.CSUI.FrmMain
                 MessageBoxEx.Show("请选中一条进行修改!");
                 return;
             }
-            //FrmAddOrderInfo frm = new FrmAddOrderInfo(LoadDataToDataGridView, _curPage, true, list[0]);
-            //frm.ShowDialog();
-        }
-
-        private void 采购ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (GlobalUtils.LoginUser.UserLevel == Common.Enums.UserLevel.Checker)
-            {
-                MessageBoxEx.Show("权限不足!");
-                return;
-            }
-            var list = GetSelectedModelList();
-
-            if (list.Count > 1)
-            {
-                MessageBoxEx.Show("请选中一条进行采购!");
-                return;
-            }
-            FrmAddPurchaseInfo frm = new FrmAddPurchaseInfo(LoadDataToDataGridView, _curPage, list[0]);
+            FrmAddOrderInfo frm = new FrmAddOrderInfo(LoadDataToDataGridView, _curPage, true, list[0]);
             frm.ShowDialog();
         }
+
+
         #endregion
 
 

@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using TravelAgency.Common;
 
-namespace TravelAgency.CSUI.FrmSub
+namespace TravelAgency.OrdersManagement
 {
     public partial class FrmAddOrderInfo : Form
     {
@@ -61,22 +61,21 @@ namespace TravelAgency.CSUI.FrmSub
 
         private void InitComboBoxs()
         {
-            string tablename = "OrderInfo";
+            //string tablename = "OrderInfo";
 
-            //var list = BLL.CommonBll.GetFieldList(tablename, "Corporation");
-            //if (list != null)
-            //    foreach (var item in list)
-            //        txtCorporation.Items.Add(item);
+            txtOrderInfoState.DropDownStyle = ComboBoxStyle.DropDownList;
+            txtOrderType.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            //list = BLL.CommonBll.GetFieldList(tablename, "Project");
-            //if (list != null)
-            //    foreach (var item in list)
-            //        txtProject.Items.Add(item);
+            var list = Common.Enums.OrderInfo_OrderType.valueKeyMap.Keys; 
+            if (list != null)
+                foreach (var item in list)
+                    txtOrderType.Items.Add(item);
 
-            //list = BLL.CommonBll.GetFieldList(tablename, "Supplier");
-            //if (list != null)
-            //    foreach (var item in list)
-            //        txtSupplier.Items.Add(item);
+            list = Common.Enums.OrderInfo_OrderInfoState.valueKeyMap.Keys;
+            if (list != null)
+                foreach (var item in list)
+                    txtOrderInfoState.Items.Add(item);
+
         }
         #endregion
 
@@ -143,7 +142,7 @@ namespace TravelAgency.CSUI.FrmSub
                     model.ExtraData = txtExtraData.Text;
                     model.ProductName = txtProductName.Text;
                     model.OrderType = Common.Enums.OrderInfo_OrderType.ValueToKey(txtOrderType.Text);
-                    model.OrderInfoState = Common.Enums.OrderInfo_OrderType.ValueToKey(txtOrderInfoState.Text);
+                    model.OrderInfoState = Common.Enums.OrderInfo_OrderInfoState.ValueToKey(txtOrderInfoState.Text);
                     model.EntryTime = DateTime.Now;
                     model.OperatorWorkId = GlobalUtils.LoginUser.WorkId;
                     model.OperatorName = GlobalUtils.LoginUser.UserName;
@@ -158,8 +157,9 @@ namespace TravelAgency.CSUI.FrmSub
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    MessageBoxEx.Show(ex.Message);
                     MessageBoxEx.Show("请检查输入是否有误!");
                     //throw;
                 }

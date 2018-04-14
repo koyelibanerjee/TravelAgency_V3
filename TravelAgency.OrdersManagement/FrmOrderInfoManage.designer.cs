@@ -1,4 +1,4 @@
-﻿namespace TravelAgency.CSUI.FrmMain
+﻿namespace TravelAgency.OrdersManagement
 {
     partial class FrmOrderInfoManage
     {
@@ -37,7 +37,7 @@
             this.panelDgv = new DevComponents.DotNetBar.PanelEx();
             this.panelBars = new DevComponents.DotNetBar.PanelEx();
             this.panelSerachBar = new DevComponents.DotNetBar.PanelEx();
-            this.cbTexture = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.cbOrderInfoState = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.btnTimeSpanChoose = new DevComponents.DotNetBar.ButtonX();
             this.txtSchEntryTimeTo = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
@@ -45,7 +45,7 @@
             this.labelX14 = new DevComponents.DotNetBar.LabelX();
             this.labelX12 = new DevComponents.DotNetBar.LabelX();
             this.btnAddFromExcel = new DevComponents.DotNetBar.ButtonX();
-            this.cbProducePlace = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.cbOrderType = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.cbName = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX15 = new DevComponents.DotNetBar.LabelX();
@@ -70,23 +70,20 @@
             this.cmsItemRefreshState = new System.Windows.Forms.ToolStripMenuItem();
             this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.采购ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.人申请表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.机票报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.外领担保函ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.韩国担保函ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.韩国加急申请书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bgWorkerLoadData = new System.ComponentModel.BackgroundWorker();
+            this.OrderNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EntryTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InfoTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvCol_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvCol_Size = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Texture = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProducePlace = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fluctuation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Remark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.State = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderInfoState = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OperatorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelMain.SuspendLayout();
@@ -115,16 +112,14 @@
             this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.OrderNo,
+            this.Amount,
+            this.OrderType,
+            this.ProductName,
+            this.OrderTime,
             this.EntryTime,
-            this.InfoTime,
-            this.dgvCol_Name,
-            this.dgvCol_Size,
-            this.Texture,
-            this.ProducePlace,
-            this.Price,
-            this.Fluctuation,
-            this.Remark,
-            this.State,
+            this.OrderInfoState,
+            this.OperatorName,
             this.Id});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
@@ -219,7 +214,7 @@
             // 
             this.panelSerachBar.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelSerachBar.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelSerachBar.Controls.Add(this.cbTexture);
+            this.panelSerachBar.Controls.Add(this.cbOrderInfoState);
             this.panelSerachBar.Controls.Add(this.labelX1);
             this.panelSerachBar.Controls.Add(this.btnTimeSpanChoose);
             this.panelSerachBar.Controls.Add(this.txtSchEntryTimeTo);
@@ -227,7 +222,7 @@
             this.panelSerachBar.Controls.Add(this.labelX14);
             this.panelSerachBar.Controls.Add(this.labelX12);
             this.panelSerachBar.Controls.Add(this.btnAddFromExcel);
-            this.panelSerachBar.Controls.Add(this.cbProducePlace);
+            this.panelSerachBar.Controls.Add(this.cbOrderType);
             this.panelSerachBar.Controls.Add(this.labelX3);
             this.panelSerachBar.Controls.Add(this.cbName);
             this.panelSerachBar.Controls.Add(this.labelX15);
@@ -249,17 +244,17 @@
             this.panelSerachBar.Style.GradientAngle = 90;
             this.panelSerachBar.TabIndex = 24;
             // 
-            // cbTexture
+            // cbOrderInfoState
             // 
-            this.cbTexture.DisplayMember = "Text";
-            this.cbTexture.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbTexture.FormattingEnabled = true;
-            this.cbTexture.ItemHeight = 15;
-            this.cbTexture.Location = new System.Drawing.Point(323, 34);
-            this.cbTexture.Name = "cbTexture";
-            this.cbTexture.Size = new System.Drawing.Size(79, 21);
-            this.cbTexture.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbTexture.TabIndex = 63;
+            this.cbOrderInfoState.DisplayMember = "Text";
+            this.cbOrderInfoState.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbOrderInfoState.FormattingEnabled = true;
+            this.cbOrderInfoState.ItemHeight = 15;
+            this.cbOrderInfoState.Location = new System.Drawing.Point(364, 34);
+            this.cbOrderInfoState.Name = "cbOrderInfoState";
+            this.cbOrderInfoState.Size = new System.Drawing.Size(79, 21);
+            this.cbOrderInfoState.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cbOrderInfoState.TabIndex = 63;
             // 
             // labelX1
             // 
@@ -269,9 +264,9 @@
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX1.Location = new System.Drawing.Point(286, 34);
             this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(43, 21);
+            this.labelX1.Size = new System.Drawing.Size(72, 21);
             this.labelX1.TabIndex = 62;
-            this.labelX1.Text = "材质:";
+            this.labelX1.Text = "校验状态:";
             // 
             // btnTimeSpanChoose
             // 
@@ -401,7 +396,7 @@
             this.labelX12.Name = "labelX12";
             this.labelX12.Size = new System.Drawing.Size(63, 21);
             this.labelX12.TabIndex = 57;
-            this.labelX12.Text = "信息时间:";
+            this.labelX12.Text = "提交时间:";
             // 
             // btnAddFromExcel
             // 
@@ -415,17 +410,17 @@
             this.btnAddFromExcel.Text = "从excel导入";
             this.btnAddFromExcel.Click += new System.EventHandler(this.btnAddFromExcel_Click);
             // 
-            // cbProducePlace
+            // cbOrderType
             // 
-            this.cbProducePlace.DisplayMember = "Text";
-            this.cbProducePlace.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbProducePlace.FormattingEnabled = true;
-            this.cbProducePlace.ItemHeight = 15;
-            this.cbProducePlace.Location = new System.Drawing.Point(197, 34);
-            this.cbProducePlace.Name = "cbProducePlace";
-            this.cbProducePlace.Size = new System.Drawing.Size(79, 21);
-            this.cbProducePlace.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbProducePlace.TabIndex = 51;
+            this.cbOrderType.DisplayMember = "Text";
+            this.cbOrderType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbOrderType.FormattingEnabled = true;
+            this.cbOrderType.ItemHeight = 15;
+            this.cbOrderType.Location = new System.Drawing.Point(197, 34);
+            this.cbOrderType.Name = "cbOrderType";
+            this.cbOrderType.Size = new System.Drawing.Size(79, 21);
+            this.cbOrderType.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cbOrderType.TabIndex = 51;
             // 
             // labelX3
             // 
@@ -437,7 +432,7 @@
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(70, 21);
             this.labelX3.TabIndex = 50;
-            this.labelX3.Text = "钢厂/产地:";
+            this.labelX3.Text = "订单类型:";
             // 
             // cbName
             // 
@@ -616,10 +611,9 @@
             this.cmsDgvRb.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cmsItemRefreshState,
             this.删除ToolStripMenuItem,
-            this.修改ToolStripMenuItem,
-            this.采购ToolStripMenuItem});
+            this.修改ToolStripMenuItem});
             this.cmsDgvRb.Name = "cmsDgvRb";
-            this.cmsDgvRb.Size = new System.Drawing.Size(161, 92);
+            this.cmsDgvRb.Size = new System.Drawing.Size(161, 70);
             // 
             // cmsItemRefreshState
             // 
@@ -641,13 +635,6 @@
             this.修改ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.修改ToolStripMenuItem.Text = "修改";
             this.修改ToolStripMenuItem.Click += new System.EventHandler(this.修改ToolStripMenuItem_Click);
-            // 
-            // 采购ToolStripMenuItem
-            // 
-            this.采购ToolStripMenuItem.Name = "采购ToolStripMenuItem";
-            this.采购ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.采购ToolStripMenuItem.Text = "采购";
-            this.采购ToolStripMenuItem.Click += new System.EventHandler(this.采购ToolStripMenuItem_Click);
             // 
             // 人申请表ToolStripMenuItem
             // 
@@ -680,65 +667,51 @@
             this.bgWorkerLoadData.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgWorkerLoadData_ProgressChanged);
             this.bgWorkerLoadData.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgWorkerLoadData_RunWorkerCompleted);
             // 
+            // OrderNo
+            // 
+            this.OrderNo.DataPropertyName = "OrderNo";
+            this.OrderNo.HeaderText = "订单编号";
+            this.OrderNo.Name = "OrderNo";
+            // 
+            // Amount
+            // 
+            this.Amount.DataPropertyName = "Amount";
+            this.Amount.HeaderText = "金额";
+            this.Amount.Name = "Amount";
+            // 
+            // OrderType
+            // 
+            this.OrderType.HeaderText = "交易类型";
+            this.OrderType.Name = "OrderType";
+            // 
+            // ProductName
+            // 
+            this.ProductName.DataPropertyName = "ProductName";
+            this.ProductName.HeaderText = "产品名称";
+            this.ProductName.Name = "ProductName";
+            // 
+            // OrderTime
+            // 
+            this.OrderTime.DataPropertyName = "OrderTime";
+            this.OrderTime.HeaderText = "结算时间";
+            this.OrderTime.Name = "OrderTime";
+            // 
             // EntryTime
             // 
             this.EntryTime.DataPropertyName = "EntryTime";
             this.EntryTime.HeaderText = "录入时间";
             this.EntryTime.Name = "EntryTime";
             // 
-            // InfoTime
+            // OrderInfoState
             // 
-            this.InfoTime.DataPropertyName = "InfoTime";
-            this.InfoTime.HeaderText = "信息时间";
-            this.InfoTime.Name = "InfoTime";
+            this.OrderInfoState.HeaderText = "校验状态";
+            this.OrderInfoState.Name = "OrderInfoState";
             // 
-            // dgvCol_Name
+            // OperatorName
             // 
-            this.dgvCol_Name.DataPropertyName = "Name";
-            this.dgvCol_Name.HeaderText = "品名";
-            this.dgvCol_Name.Name = "dgvCol_Name";
-            // 
-            // dgvCol_Size
-            // 
-            this.dgvCol_Size.DataPropertyName = "Size";
-            this.dgvCol_Size.HeaderText = "规格(mm)";
-            this.dgvCol_Size.Name = "dgvCol_Size";
-            // 
-            // Texture
-            // 
-            this.Texture.DataPropertyName = "Texture";
-            this.Texture.HeaderText = "材质";
-            this.Texture.Name = "Texture";
-            // 
-            // ProducePlace
-            // 
-            this.ProducePlace.DataPropertyName = "ProducePlace";
-            this.ProducePlace.HeaderText = "钢厂/产地";
-            this.ProducePlace.Name = "ProducePlace";
-            // 
-            // Price
-            // 
-            this.Price.DataPropertyName = "Price";
-            this.Price.HeaderText = "价格(元/吨)";
-            this.Price.Name = "Price";
-            // 
-            // Fluctuation
-            // 
-            this.Fluctuation.DataPropertyName = "Fluctuation";
-            this.Fluctuation.HeaderText = "涨跌";
-            this.Fluctuation.Name = "Fluctuation";
-            // 
-            // Remark
-            // 
-            this.Remark.DataPropertyName = "Remark";
-            this.Remark.HeaderText = "备注";
-            this.Remark.Name = "Remark";
-            // 
-            // State
-            // 
-            this.State.DataPropertyName = "State";
-            this.State.HeaderText = "状态";
-            this.State.Name = "State";
+            this.OperatorName.DataPropertyName = "OperatorName";
+            this.OperatorName.HeaderText = "操作人";
+            this.OperatorName.Name = "OperatorName";
             // 
             // Id
             // 
@@ -803,29 +776,26 @@
         private DevComponents.DotNetBar.ButtonX btnAdd;
         private System.Windows.Forms.ToolStripMenuItem 删除ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 修改ToolStripMenuItem;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx cbProducePlace;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cbOrderType;
         private DevComponents.DotNetBar.LabelX labelX3;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cbName;
         private DevComponents.DotNetBar.LabelX labelX15;
         private DevComponents.DotNetBar.ButtonX btnAddFromExcel;
-        private System.Windows.Forms.ToolStripMenuItem 采购ToolStripMenuItem;
         private DevComponents.DotNetBar.ButtonX btnTimeSpanChoose;
         private DevComponents.Editors.DateTimeAdv.DateTimeInput txtSchEntryTimeTo;
         private DevComponents.Editors.DateTimeAdv.DateTimeInput txtSchEntryTimeFrom;
         private DevComponents.DotNetBar.LabelX labelX14;
         private DevComponents.DotNetBar.LabelX labelX12;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx cbTexture;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cbOrderInfoState;
         private DevComponents.DotNetBar.LabelX labelX1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn EntryTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn InfoTime;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvCol_Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvCol_Size;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Texture;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProducePlace;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fluctuation;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Remark;
-        private System.Windows.Forms.DataGridViewTextBoxColumn State;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderInfoState;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OperatorName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
     }
 }

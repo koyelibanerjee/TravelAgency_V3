@@ -1,4 +1,4 @@
-﻿namespace TravelAgency.CSUI.FrmSub
+﻿namespace TravelAgency.OrdersManagement
 {
     partial class FrmAddOrderInfo
     {

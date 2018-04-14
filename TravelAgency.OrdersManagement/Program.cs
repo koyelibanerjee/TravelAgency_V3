@@ -16,7 +16,7 @@ namespace TravelAgency.OrdersManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new OrdersManagement());
+            Application.Run(new FrmLogin());
         }
     }
 }
