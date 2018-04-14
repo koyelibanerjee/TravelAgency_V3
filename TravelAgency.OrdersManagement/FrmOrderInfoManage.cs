@@ -474,6 +474,8 @@ namespace TravelAgency.OrdersManagement
 
 
 
+            Common.Excel.OrderInfoExcelParser.ParseExcel(filename, Common.Excel.OrderInfoExcelParser.ExcelType.Type01_DaZhong);
+
             //var list = Common.Excel.ExcelParser.GetSteelListFromExcel(filename,frm.RetValue);
             //if (list == null || list.Count == 0)
             //    return;

@@ -29,6 +29,8 @@ namespace TravelAgency.Common.PictureHandler
                 }
                 RemoteRootPath = path;
                 LocalGaoPaiPicPath = GlobalUtils.LocalGaoPaiPicPath;
+                if (!Directory.Exists(path))
+                    Directory.CreateDirectory(path);
             }
             else if (type == PictureType.Type02_JiaoJie)
             {
@@ -40,6 +42,8 @@ namespace TravelAgency.Common.PictureHandler
                 }
                 RemoteRootPath = path;
                 LocalGaoPaiPicPath = GlobalUtils.LocalJiaojiePicPath;
+                if (!Directory.Exists(path))
+                    Directory.CreateDirectory(path);
             }
         }
         public string RemoteRootPath
