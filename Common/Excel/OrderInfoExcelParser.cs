@@ -46,7 +46,7 @@ namespace TravelAgency.Common.Excel
                 }
 
                 //上传文件，生成记录
-                 excelModel = new OrderExcelHandler().UploadOrderExcel(filename);
+                excelModel = new OrderExcelHandler().UploadOrderExcel(filename);
             }
             catch (Exception)
             {
@@ -55,10 +55,11 @@ namespace TravelAgency.Common.Excel
             }
             List<Model.OrderInfo> modelList = new List<Model.OrderInfo>();
             if (excelType == ExcelType.Type01_DaZhong)
-                modelList =  GetModelFromExcelDazhong(wkbook);
+                modelList = GetModelFromExcelDazhong(wkbook);
 
 
             //全部添加excelid记录 //执行添加
+            int res = 0;
             foreach (var item in modelList)
             {
                 item.OrderExcelId = excelModel.Id;
@@ -66,9 +67,9 @@ namespace TravelAgency.Common.Excel
                 item.OperatorName = GlobalUtils.LoginUser.UserName;
                 item.OperatorWorkId = GlobalUtils.LoginUser.WorkId;
                 item.OrderInfoState = Enums.OrderInfo_OrderInfoState.valueKeyMap["未校验"];
-                _bllOrderInfo.Add(item);
+                res += _bllOrderInfo.Add(item) == 0 ? 0 : 1;
             }
-            return 0;
+            return res;
         }
 
         /// <summary>
@@ -89,7 +90,7 @@ namespace TravelAgency.Common.Excel
                     Model.OrderInfo modelPay = new Model.OrderInfo();
                     Model.OrderInfo modelRec = new Model.OrderInfo();
 
-                   
+
                     modelPay.OrderTime = DateTime.Parse(row.GetCell(0)?.StringCellValue);
                     modelRec.OrderTime = DateTime.Parse(row.GetCell(0)?.StringCellValue);
                     modelPay.OrderNo = row.GetCell(3)?.StringCellValue;
@@ -97,7 +98,7 @@ namespace TravelAgency.Common.Excel
                     modelPay.ProductName = row.GetCell(6)?.StringCellValue;
                     modelRec.ProductName = row.GetCell(6)?.StringCellValue;
                     modelPay.Amount = -1 * DecimalHandler.Parse(row.GetCell(13)?.StringCellValue); //佣金乘以-1
-                    modelRec.Amount =  DecimalHandler.Parse(row.GetCell(14)?.StringCellValue); //佣金乘以-1
+                    modelRec.Amount = DecimalHandler.Parse(row.GetCell(14)?.StringCellValue); //佣金乘以-1
                     modelPay.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["佣金"];
                     modelRec.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["收入"];
                     modelRec.PaymentPlatform = Enums.OrderInfo_PaymentPlatform.valueKeyMap["大众"];
