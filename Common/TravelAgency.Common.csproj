@@ -182,6 +182,7 @@
     <Compile Include="Enums\ActType.cs" />
     <Compile Include="Enums\OrderInfo_OrderType.cs" />
     <Compile Include="Enums\OrderInfo_OrderInfoState.cs" />
+    <Compile Include="Excel\OrderInfoExcelParser.cs" />
     <Compile Include="Excel\XlsGenerator.cs" />
     <Compile Include="Financial\CommisionMoneyCounter.cs" />
     <Compile Include="FrmsManager.cs" />

@@ -6,11 +6,11 @@ using Maticsoft.DBUtility;//Please add references
 namespace TravelAgency.DAL
 {
 	/// <summary>
-	/// 数据访问类:Enums_OrderInfo_OrderType
+	/// 数据访问类:Enums_OrderInfo_PaymentPlatform
 	/// </summary>
-	public partial class Enums_OrderInfo_OrderType
+	public partial class Enums_OrderInfo_PaymentPlatform
 	{
-		public Enums_OrderInfo_OrderType()
+		public Enums_OrderInfo_PaymentPlatform()
 		{}
 		#region  BasicMethod
 
@@ -19,22 +19,22 @@ namespace TravelAgency.DAL
 		/// </summary>
 		public int GetMaxId()
 		{
-		return DbHelperSQL.GetMaxID("TypeNo", "Enums_OrderInfo_OrderType"); 
+		return DbHelperSQL.GetMaxID("PlatNo", "Enums_OrderInfo_PaymentPlatform"); 
 		}
 
 		/// <summary>
 		/// 是否存在该记录
 		/// </summary>
-		public bool Exists(int TypeNo,string TypeName)
+		public bool Exists(int PlatNo,string PlateName)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select count(1) from Enums_OrderInfo_OrderType");
-			strSql.Append(" where TypeNo=@TypeNo and TypeName=@TypeName ");
+			strSql.Append("select count(1) from Enums_OrderInfo_PaymentPlatform");
+			strSql.Append(" where PlatNo=@PlatNo and PlateName=@PlateName ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@TypeNo", SqlDbType.TinyInt,1),
-					new SqlParameter("@TypeName", SqlDbType.VarChar,50)			};
-			parameters[0].Value = TypeNo;
-			parameters[1].Value = TypeName;
+					new SqlParameter("@PlatNo", SqlDbType.TinyInt,1),
+					new SqlParameter("@PlateName", SqlDbType.VarChar,50)			};
+			parameters[0].Value = PlatNo;
+			parameters[1].Value = PlateName;
 
 			return DbHelperSQL.Exists(strSql.ToString(),parameters);
 		}
@@ -43,18 +43,18 @@ namespace TravelAgency.DAL
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public bool Add(TravelAgency.Model.Enums_OrderInfo_OrderType model)
+		public bool Add(TravelAgency.Model.Enums_OrderInfo_PaymentPlatform model)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("insert into Enums_OrderInfo_OrderType(");
-			strSql.Append("TypeNo,TypeName)");
+			strSql.Append("insert into Enums_OrderInfo_PaymentPlatform(");
+			strSql.Append("PlatNo,PlateName)");
 			strSql.Append(" values (");
-			strSql.Append("@TypeNo,@TypeName)");
+			strSql.Append("@PlatNo,@PlateName)");
 			SqlParameter[] parameters = {
-					new SqlParameter("@TypeNo", SqlDbType.TinyInt,1),
-					new SqlParameter("@TypeName", SqlDbType.VarChar,50)};
-			parameters[0].Value = model.TypeNo;
-			parameters[1].Value = model.TypeName;
+					new SqlParameter("@PlatNo", SqlDbType.TinyInt,1),
+					new SqlParameter("@PlateName", SqlDbType.VarChar,50)};
+			parameters[0].Value = model.PlatNo;
+			parameters[1].Value = model.PlateName;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -69,19 +69,19 @@ namespace TravelAgency.DAL
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
-		public bool Update(TravelAgency.Model.Enums_OrderInfo_OrderType model)
+		public bool Update(TravelAgency.Model.Enums_OrderInfo_PaymentPlatform model)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("update Enums_OrderInfo_OrderType set ");
+			strSql.Append("update Enums_OrderInfo_PaymentPlatform set ");
 #warning 系统发现缺少更新的字段，请手工确认如此更新是否正确！ 
-			strSql.Append("TypeNo=@TypeNo,");
-			strSql.Append("TypeName=@TypeName");
-			strSql.Append(" where TypeNo=@TypeNo and TypeName=@TypeName ");
+			strSql.Append("PlatNo=@PlatNo,");
+			strSql.Append("PlateName=@PlateName");
+			strSql.Append(" where PlatNo=@PlatNo and PlateName=@PlateName ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@TypeNo", SqlDbType.TinyInt,1),
-					new SqlParameter("@TypeName", SqlDbType.VarChar,50)};
-			parameters[0].Value = model.TypeNo;
-			parameters[1].Value = model.TypeName;
+					new SqlParameter("@PlatNo", SqlDbType.TinyInt,1),
+					new SqlParameter("@PlateName", SqlDbType.VarChar,50)};
+			parameters[0].Value = model.PlatNo;
+			parameters[1].Value = model.PlateName;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -97,17 +97,17 @@ namespace TravelAgency.DAL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete(int TypeNo,string TypeName)
+		public bool Delete(int PlatNo,string PlateName)
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("delete from Enums_OrderInfo_OrderType ");
-			strSql.Append(" where TypeNo=@TypeNo and TypeName=@TypeName ");
+			strSql.Append("delete from Enums_OrderInfo_PaymentPlatform ");
+			strSql.Append(" where PlatNo=@PlatNo and PlateName=@PlateName ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@TypeNo", SqlDbType.TinyInt,1),
-					new SqlParameter("@TypeName", SqlDbType.VarChar,50)			};
-			parameters[0].Value = TypeNo;
-			parameters[1].Value = TypeName;
+					new SqlParameter("@PlatNo", SqlDbType.TinyInt,1),
+					new SqlParameter("@PlateName", SqlDbType.VarChar,50)			};
+			parameters[0].Value = PlatNo;
+			parameters[1].Value = PlateName;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -124,19 +124,19 @@ namespace TravelAgency.DAL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public TravelAgency.Model.Enums_OrderInfo_OrderType GetModel(int TypeNo,string TypeName)
+		public TravelAgency.Model.Enums_OrderInfo_PaymentPlatform GetModel(int PlatNo,string PlateName)
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 TypeNo,TypeName from Enums_OrderInfo_OrderType ");
-			strSql.Append(" where TypeNo=@TypeNo and TypeName=@TypeName ");
+			strSql.Append("select  top 1 PlatNo,PlateName from Enums_OrderInfo_PaymentPlatform ");
+			strSql.Append(" where PlatNo=@PlatNo and PlateName=@PlateName ");
 			SqlParameter[] parameters = {
-					new SqlParameter("@TypeNo", SqlDbType.TinyInt,1),
-					new SqlParameter("@TypeName", SqlDbType.VarChar,50)			};
-			parameters[0].Value = TypeNo;
-			parameters[1].Value = TypeName;
+					new SqlParameter("@PlatNo", SqlDbType.TinyInt,1),
+					new SqlParameter("@PlateName", SqlDbType.VarChar,50)			};
+			parameters[0].Value = PlatNo;
+			parameters[1].Value = PlateName;
 
-			TravelAgency.Model.Enums_OrderInfo_OrderType model=new TravelAgency.Model.Enums_OrderInfo_OrderType();
+			TravelAgency.Model.Enums_OrderInfo_PaymentPlatform model=new TravelAgency.Model.Enums_OrderInfo_PaymentPlatform();
 			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
 			if(ds.Tables[0].Rows.Count>0)
 			{
@@ -152,18 +152,18 @@ namespace TravelAgency.DAL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public TravelAgency.Model.Enums_OrderInfo_OrderType DataRowToModel(DataRow row)
+		public TravelAgency.Model.Enums_OrderInfo_PaymentPlatform DataRowToModel(DataRow row)
 		{
-			TravelAgency.Model.Enums_OrderInfo_OrderType model=new TravelAgency.Model.Enums_OrderInfo_OrderType();
+			TravelAgency.Model.Enums_OrderInfo_PaymentPlatform model=new TravelAgency.Model.Enums_OrderInfo_PaymentPlatform();
 			if (row != null)
 			{
-				if(row["TypeNo"]!=null && row["TypeNo"].ToString()!="")
+				if(row["PlatNo"]!=null && row["PlatNo"].ToString()!="")
 				{
-					model.TypeNo=int.Parse(row["TypeNo"].ToString());
+					model.PlatNo=int.Parse(row["PlatNo"].ToString());
 				}
-				if(row["TypeName"]!=null)
+				if(row["PlateName"]!=null)
 				{
-					model.TypeName=row["TypeName"].ToString();
+					model.PlateName=row["PlateName"].ToString();
 				}
 			}
 			return model;
@@ -175,8 +175,8 @@ namespace TravelAgency.DAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select TypeNo,TypeName ");
-			strSql.Append(" FROM Enums_OrderInfo_OrderType ");
+			strSql.Append("select PlatNo,PlateName ");
+			strSql.Append(" FROM Enums_OrderInfo_PaymentPlatform ");
 			if(strWhere.Trim()!="")
 			{
 				strSql.Append(" where "+strWhere);
@@ -195,8 +195,8 @@ namespace TravelAgency.DAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" TypeNo,TypeName ");
-			strSql.Append(" FROM Enums_OrderInfo_OrderType ");
+			strSql.Append(" PlatNo,PlateName ");
+			strSql.Append(" FROM Enums_OrderInfo_PaymentPlatform ");
 			if(strWhere.Trim()!="")
 			{
 				strSql.Append(" where "+strWhere);
@@ -211,7 +211,7 @@ namespace TravelAgency.DAL
 		public int GetRecordCount(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select count(1) FROM Enums_OrderInfo_OrderType ");
+			strSql.Append("select count(1) FROM Enums_OrderInfo_PaymentPlatform ");
 			if(strWhere.Trim()!="")
 			{
 				strSql.Append(" where "+strWhere);
@@ -240,9 +240,9 @@ namespace TravelAgency.DAL
 			}
 			else
 			{
-				strSql.Append("order by T.TypeName desc");
+				strSql.Append("order by T.PlateName desc");
 			}
-			strSql.Append(")AS Row, T.*  from Enums_OrderInfo_OrderType T ");
+			strSql.Append(")AS Row, T.*  from Enums_OrderInfo_PaymentPlatform T ");
 			if (!string.IsNullOrEmpty(strWhere.Trim()))
 			{
 				strSql.Append(" WHERE " + strWhere);
@@ -267,8 +267,8 @@ namespace TravelAgency.DAL
 					new SqlParameter("@OrderType", SqlDbType.Bit),
 					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
-			parameters[0].Value = "Enums_OrderInfo_OrderType";
-			parameters[1].Value = "TypeName";
+			parameters[0].Value = "Enums_OrderInfo_PaymentPlatform";
+			parameters[1].Value = "PlateName";
 			parameters[2].Value = PageSize;
 			parameters[3].Value = PageIndex;
 			parameters[4].Value = 0;

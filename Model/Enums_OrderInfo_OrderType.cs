@@ -10,12 +10,12 @@ namespace TravelAgency.Model
 		public Enums_OrderInfo_OrderType()
 		{}
 		#region Model
-		private int? _typeno;
+		private int _typeno;
 		private string _typename;
 		/// <summary>
 		/// 
 		/// </summary>
-		public int? TypeNo
+		public int TypeNo
 		{
 			set{ _typeno=value;}
 			get{return _typeno;}

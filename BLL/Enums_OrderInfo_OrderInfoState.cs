@@ -15,6 +15,22 @@ namespace TravelAgency.BLL
 		#region  BasicMethod
 
 		/// <summary>
+		/// 得到最大ID
+		/// </summary>
+		public int GetMaxId()
+		{
+			return dal.GetMaxId();
+		}
+
+		/// <summary>
+		/// 是否存在该记录
+		/// </summary>
+		public bool Exists(int StateNo,string StateInfo)
+		{
+			return dal.Exists(StateNo,StateInfo);
+		}
+
+		/// <summary>
 		/// 增加一条数据
 		/// </summary>
 		public bool Add(TravelAgency.Model.Enums_OrderInfo_OrderInfoState model)
@@ -33,22 +49,20 @@ namespace TravelAgency.BLL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete()
+		public bool Delete(int StateNo,string StateInfo)
 		{
-			//该表无主键信息，请自定义主键/条件字段
-			return dal.Delete();
+			
+			return dal.Delete(StateNo,StateInfo);
 		}
 
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public TravelAgency.Model.Enums_OrderInfo_OrderInfoState GetModel()
+		public TravelAgency.Model.Enums_OrderInfo_OrderInfoState GetModel(int StateNo,string StateInfo)
 		{
-			//该表无主键信息，请自定义主键/条件字段
-			return dal.GetModel();
+			
+			return dal.GetModel(StateNo,StateInfo);
 		}
-
-		
 
 		/// <summary>
 		/// 获得数据列表

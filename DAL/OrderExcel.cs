@@ -14,6 +14,29 @@ namespace TravelAgency.DAL
 		{}
 		#region  BasicMethod
 
+		/// <summary>
+		/// 得到最大ID
+		/// </summary>
+		public int GetMaxId()
+		{
+		return DbHelperSQL.GetMaxID("Id", "OrderExcel"); 
+		}
+
+		/// <summary>
+		/// 是否存在该记录
+		/// </summary>
+		public bool Exists(int Id)
+		{
+			StringBuilder strSql=new StringBuilder();
+			strSql.Append("select count(1) from OrderExcel");
+			strSql.Append(" where Id=@Id");
+			SqlParameter[] parameters = {
+					new SqlParameter("@Id", SqlDbType.Int,4)
+			};
+			parameters[0].Value = Id;
+
+			return DbHelperSQL.Exists(strSql.ToString(),parameters);
+		}
 
 
 		/// <summary>

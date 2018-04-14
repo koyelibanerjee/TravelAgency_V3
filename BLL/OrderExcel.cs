@@ -15,6 +15,22 @@ namespace TravelAgency.BLL
 		#region  BasicMethod
 
 		/// <summary>
+		/// 得到最大ID
+		/// </summary>
+		public int GetMaxId()
+		{
+			return dal.GetMaxId();
+		}
+
+		/// <summary>
+		/// 是否存在该记录
+		/// </summary>
+		public bool Exists(int Id)
+		{
+			return dal.Exists(Id);
+		}
+
+		/// <summary>
 		/// 增加一条数据
 		/// </summary>
 		public int  Add(TravelAgency.Model.OrderExcel model)

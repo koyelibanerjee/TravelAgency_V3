@@ -14,6 +14,30 @@ namespace TravelAgency.DAL
 		{}
 		#region  BasicMethod
 
+		/// <summary>
+		/// 得到最大ID
+		/// </summary>
+		public int GetMaxId()
+		{
+		return DbHelperSQL.GetMaxID("StateNo", "Enums_OrderInfo_OrderInfoState"); 
+		}
+
+		/// <summary>
+		/// 是否存在该记录
+		/// </summary>
+		public bool Exists(int StateNo,string StateInfo)
+		{
+			StringBuilder strSql=new StringBuilder();
+			strSql.Append("select count(1) from Enums_OrderInfo_OrderInfoState");
+			strSql.Append(" where StateNo=@StateNo and StateInfo=@StateInfo ");
+			SqlParameter[] parameters = {
+					new SqlParameter("@StateNo", SqlDbType.TinyInt,1),
+					new SqlParameter("@StateInfo", SqlDbType.VarChar,50)			};
+			parameters[0].Value = StateNo;
+			parameters[1].Value = StateInfo;
+
+			return DbHelperSQL.Exists(strSql.ToString(),parameters);
+		}
 
 
 		/// <summary>
@@ -49,9 +73,10 @@ namespace TravelAgency.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update Enums_OrderInfo_OrderInfoState set ");
+#warning 系统发现缺少更新的字段，请手工确认如此更新是否正确！ 
 			strSql.Append("StateNo=@StateNo,");
 			strSql.Append("StateInfo=@StateInfo");
-			strSql.Append(" where ");
+			strSql.Append(" where StateNo=@StateNo and StateInfo=@StateInfo ");
 			SqlParameter[] parameters = {
 					new SqlParameter("@StateNo", SqlDbType.TinyInt,1),
 					new SqlParameter("@StateInfo", SqlDbType.VarChar,50)};
@@ -72,14 +97,17 @@ namespace TravelAgency.DAL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete()
+		public bool Delete(int StateNo,string StateInfo)
 		{
-			//该表无主键信息，请自定义主键/条件字段
+			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("delete from Enums_OrderInfo_OrderInfoState ");
-			strSql.Append(" where ");
+			strSql.Append(" where StateNo=@StateNo and StateInfo=@StateInfo ");
 			SqlParameter[] parameters = {
-			};
+					new SqlParameter("@StateNo", SqlDbType.TinyInt,1),
+					new SqlParameter("@StateInfo", SqlDbType.VarChar,50)			};
+			parameters[0].Value = StateNo;
+			parameters[1].Value = StateInfo;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -96,14 +124,17 @@ namespace TravelAgency.DAL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public TravelAgency.Model.Enums_OrderInfo_OrderInfoState GetModel()
+		public TravelAgency.Model.Enums_OrderInfo_OrderInfoState GetModel(int StateNo,string StateInfo)
 		{
-			//该表无主键信息，请自定义主键/条件字段
+			
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("select  top 1 StateNo,StateInfo from Enums_OrderInfo_OrderInfoState ");
-			strSql.Append(" where ");
+			strSql.Append(" where StateNo=@StateNo and StateInfo=@StateInfo ");
 			SqlParameter[] parameters = {
-			};
+					new SqlParameter("@StateNo", SqlDbType.TinyInt,1),
+					new SqlParameter("@StateInfo", SqlDbType.VarChar,50)			};
+			parameters[0].Value = StateNo;
+			parameters[1].Value = StateInfo;
 
 			TravelAgency.Model.Enums_OrderInfo_OrderInfoState model=new TravelAgency.Model.Enums_OrderInfo_OrderInfoState();
 			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
@@ -209,7 +240,7 @@ namespace TravelAgency.DAL
 			}
 			else
 			{
-				strSql.Append("order by T.Id desc");
+				strSql.Append("order by T.StateInfo desc");
 			}
 			strSql.Append(")AS Row, T.*  from Enums_OrderInfo_OrderInfoState T ");
 			if (!string.IsNullOrEmpty(strWhere.Trim()))
@@ -237,7 +268,7 @@ namespace TravelAgency.DAL
 					new SqlParameter("@strWhere", SqlDbType.VarChar,1000),
 					};
 			parameters[0].Value = "Enums_OrderInfo_OrderInfoState";
-			parameters[1].Value = "Id";
+			parameters[1].Value = "StateInfo";
 			parameters[2].Value = PageSize;
 			parameters[3].Value = PageIndex;
 			parameters[4].Value = 0;

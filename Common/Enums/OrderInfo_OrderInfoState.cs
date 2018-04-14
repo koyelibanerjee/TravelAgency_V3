@@ -15,8 +15,8 @@ namespace TravelAgency.Common.Enums
             var list = new BLL.Enums_OrderInfo_OrderInfoState().GetModelList(string.Empty);
             foreach (var item in list)
             {
-                keyValueMap.Add(item.StateNo.Value, item.StateInfo);
-                valueKeyMap.Add(item.StateInfo, item.StateNo.Value);
+                keyValueMap.Add(item.StateNo, item.StateInfo);
+                valueKeyMap.Add(item.StateInfo, item.StateNo);
             }
         }
 
@@ -35,14 +35,6 @@ namespace TravelAgency.Common.Enums
             else return null;
         }
 
-        public static string KeyToValue(int? key) //这种表应该在数据库加非空约束
-        {
-            if (!key.HasValue)
-                return null;
-            if (keyValueMap.ContainsKey(key.Value))
-                return keyValueMap[key.Value];
-            else return null;
-        }
 
     }
 }

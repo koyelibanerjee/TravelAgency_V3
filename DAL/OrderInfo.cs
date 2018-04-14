@@ -14,6 +14,29 @@ namespace TravelAgency.DAL
 		{}
 		#region  BasicMethod
 
+		/// <summary>
+		/// 得到最大ID
+		/// </summary>
+		public int GetMaxId()
+		{
+		return DbHelperSQL.GetMaxID("Id", "OrderInfo"); 
+		}
+
+		/// <summary>
+		/// 是否存在该记录
+		/// </summary>
+		public bool Exists(int Id)
+		{
+			StringBuilder strSql=new StringBuilder();
+			strSql.Append("select count(1) from OrderInfo");
+			strSql.Append(" where Id=@Id");
+			SqlParameter[] parameters = {
+					new SqlParameter("@Id", SqlDbType.Int,4)
+			};
+			parameters[0].Value = Id;
+
+			return DbHelperSQL.Exists(strSql.ToString(),parameters);
+		}
 
 
 		/// <summary>
@@ -23,14 +46,15 @@ namespace TravelAgency.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into OrderInfo(");
-			strSql.Append("OrderNo,Amount,OrderType,ProductName,OrderTime,EntryTime,ExtraData,OrderExcelId,OrderInfoState,OperatorName,OperatorWorkId)");
+			strSql.Append("OrderNo,Amount,OrderType,PaymentPlatform,ProductName,OrderTime,EntryTime,ExtraData,OrderExcelId,OrderInfoState,OperatorName,OperatorWorkId)");
 			strSql.Append(" values (");
-			strSql.Append("@OrderNo,@Amount,@OrderType,@ProductName,@OrderTime,@EntryTime,@ExtraData,@OrderExcelId,@OrderInfoState,@OperatorName,@OperatorWorkId)");
+			strSql.Append("@OrderNo,@Amount,@OrderType,@PaymentPlatform,@ProductName,@OrderTime,@EntryTime,@ExtraData,@OrderExcelId,@OrderInfoState,@OperatorName,@OperatorWorkId)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@OrderNo", SqlDbType.VarChar,50),
 					new SqlParameter("@Amount", SqlDbType.Money,8),
 					new SqlParameter("@OrderType", SqlDbType.TinyInt,1),
+					new SqlParameter("@PaymentPlatform", SqlDbType.TinyInt,1),
 					new SqlParameter("@ProductName", SqlDbType.VarChar,200),
 					new SqlParameter("@OrderTime", SqlDbType.DateTime),
 					new SqlParameter("@EntryTime", SqlDbType.DateTime),
@@ -42,14 +66,15 @@ namespace TravelAgency.DAL
 			parameters[0].Value = model.OrderNo;
 			parameters[1].Value = model.Amount;
 			parameters[2].Value = model.OrderType;
-			parameters[3].Value = model.ProductName;
-			parameters[4].Value = model.OrderTime;
-			parameters[5].Value = model.EntryTime;
-			parameters[6].Value = model.ExtraData;
-			parameters[7].Value = model.OrderExcelId;
-			parameters[8].Value = model.OrderInfoState;
-			parameters[9].Value = model.OperatorName;
-			parameters[10].Value = model.OperatorWorkId;
+			parameters[3].Value = model.PaymentPlatform;
+			parameters[4].Value = model.ProductName;
+			parameters[5].Value = model.OrderTime;
+			parameters[6].Value = model.EntryTime;
+			parameters[7].Value = model.ExtraData;
+			parameters[8].Value = model.OrderExcelId;
+			parameters[9].Value = model.OrderInfoState;
+			parameters[10].Value = model.OperatorName;
+			parameters[11].Value = model.OperatorWorkId;
 
 			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
@@ -71,6 +96,7 @@ namespace TravelAgency.DAL
 			strSql.Append("OrderNo=@OrderNo,");
 			strSql.Append("Amount=@Amount,");
 			strSql.Append("OrderType=@OrderType,");
+			strSql.Append("PaymentPlatform=@PaymentPlatform,");
 			strSql.Append("ProductName=@ProductName,");
 			strSql.Append("OrderTime=@OrderTime,");
 			strSql.Append("EntryTime=@EntryTime,");
@@ -84,6 +110,7 @@ namespace TravelAgency.DAL
 					new SqlParameter("@OrderNo", SqlDbType.VarChar,50),
 					new SqlParameter("@Amount", SqlDbType.Money,8),
 					new SqlParameter("@OrderType", SqlDbType.TinyInt,1),
+					new SqlParameter("@PaymentPlatform", SqlDbType.TinyInt,1),
 					new SqlParameter("@ProductName", SqlDbType.VarChar,200),
 					new SqlParameter("@OrderTime", SqlDbType.DateTime),
 					new SqlParameter("@EntryTime", SqlDbType.DateTime),
@@ -96,15 +123,16 @@ namespace TravelAgency.DAL
 			parameters[0].Value = model.OrderNo;
 			parameters[1].Value = model.Amount;
 			parameters[2].Value = model.OrderType;
-			parameters[3].Value = model.ProductName;
-			parameters[4].Value = model.OrderTime;
-			parameters[5].Value = model.EntryTime;
-			parameters[6].Value = model.ExtraData;
-			parameters[7].Value = model.OrderExcelId;
-			parameters[8].Value = model.OrderInfoState;
-			parameters[9].Value = model.OperatorName;
-			parameters[10].Value = model.OperatorWorkId;
-			parameters[11].Value = model.Id;
+			parameters[3].Value = model.PaymentPlatform;
+			parameters[4].Value = model.ProductName;
+			parameters[5].Value = model.OrderTime;
+			parameters[6].Value = model.EntryTime;
+			parameters[7].Value = model.ExtraData;
+			parameters[8].Value = model.OrderExcelId;
+			parameters[9].Value = model.OrderInfoState;
+			parameters[10].Value = model.OperatorName;
+			parameters[11].Value = model.OperatorWorkId;
+			parameters[12].Value = model.Id;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -168,7 +196,7 @@ namespace TravelAgency.DAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 Id,OrderNo,Amount,OrderType,ProductName,OrderTime,EntryTime,ExtraData,OrderExcelId,OrderInfoState,OperatorName,OperatorWorkId from OrderInfo ");
+			strSql.Append("select  top 1 Id,OrderNo,Amount,OrderType,PaymentPlatform,ProductName,OrderTime,EntryTime,ExtraData,OrderExcelId,OrderInfoState,OperatorName,OperatorWorkId from OrderInfo ");
 			strSql.Append(" where Id=@Id");
 			SqlParameter[] parameters = {
 					new SqlParameter("@Id", SqlDbType.Int,4)
@@ -212,6 +240,10 @@ namespace TravelAgency.DAL
 				{
 					model.OrderType=int.Parse(row["OrderType"].ToString());
 				}
+				if(row["PaymentPlatform"]!=null && row["PaymentPlatform"].ToString()!="")
+				{
+					model.PaymentPlatform=int.Parse(row["PaymentPlatform"].ToString());
+				}
 				if(row["ProductName"]!=null)
 				{
 					model.ProductName=row["ProductName"].ToString();
@@ -254,7 +286,7 @@ namespace TravelAgency.DAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select Id,OrderNo,Amount,OrderType,ProductName,OrderTime,EntryTime,ExtraData,OrderExcelId,OrderInfoState,OperatorName,OperatorWorkId ");
+			strSql.Append("select Id,OrderNo,Amount,OrderType,PaymentPlatform,ProductName,OrderTime,EntryTime,ExtraData,OrderExcelId,OrderInfoState,OperatorName,OperatorWorkId ");
 			strSql.Append(" FROM OrderInfo ");
 			if(strWhere.Trim()!="")
 			{
@@ -274,7 +306,7 @@ namespace TravelAgency.DAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" Id,OrderNo,Amount,OrderType,ProductName,OrderTime,EntryTime,ExtraData,OrderExcelId,OrderInfoState,OperatorName,OperatorWorkId ");
+			strSql.Append(" Id,OrderNo,Amount,OrderType,PaymentPlatform,ProductName,OrderTime,EntryTime,ExtraData,OrderExcelId,OrderInfoState,OperatorName,OperatorWorkId ");
 			strSql.Append(" FROM OrderInfo ");
 			if(strWhere.Trim()!="")
 			{

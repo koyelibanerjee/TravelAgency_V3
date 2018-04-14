@@ -14,6 +14,7 @@ namespace TravelAgency.Model
 		private string _orderno;
 		private decimal? _amount;
 		private int? _ordertype;
+		private int? _paymentplatform;
 		private string _productname;
 		private DateTime? _ordertime;
 		private DateTime? _entrytime;
@@ -53,6 +54,14 @@ namespace TravelAgency.Model
 		{
 			set{ _ordertype=value;}
 			get{return _ordertype;}
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		public int? PaymentPlatform
+		{
+			set{ _paymentplatform=value;}
+			get{return _paymentplatform;}
 		}
 		/// <summary>
 		/// 
