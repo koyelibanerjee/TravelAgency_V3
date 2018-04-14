@@ -137,6 +137,8 @@
     <Compile Include="CommisionMoney.cs" />
     <Compile Include="CommonBll.cs" />
     <Compile Include="ConsulateCharge.cs" />
+    <Compile Include="Enums_OrderInfo_OrderInfoState.cs" />
+    <Compile Include="Enums_OrderInfo_OrderType.cs" />
     <Compile Include="FrmGroupOrIndividualValue.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,12 +149,15 @@
     <Compile Include="HasExported8Report.cs" />
     <Compile Include="JobAssignmentBll.cs" />
     <Compile Include="JobAssignment.cs" />
+    <Compile Include="OrderExcel.cs" />
+    <Compile Include="OrderInfo.cs" />
     <Compile Include="ProgramVersion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="QZApplication.cs" />
     <Compile Include="StatisticsBll.cs" />
+    <Compile Include="OrderInfoBll.cs" />
     <Compile Include="SysManage.cs" />
     <Compile Include="TimeHandlers\DateFormat.cs" />
     <Compile Include="TimeHandlers\TimeHelper.cs" />

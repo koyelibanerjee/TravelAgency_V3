@@ -190,6 +190,7 @@
     <Compile Include="PicHandler.cs" />
     <Compile Include="PinyinParse\FirstLetterHelper.cs" />
     <Compile Include="RngWord.cs" />
+    <Compile Include="StyleControler.cs" />
     <Compile Include="TextHandler.cs" />
     <Compile Include="Word\DocCOMHandler.cs" />
     <Compile Include="Enums\HasChecked.cs" />
