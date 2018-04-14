@@ -172,6 +172,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DecimalHandler.cs" />
     <Compile Include="Enums\AirInfos.cs" />
     <Compile Include="AppSettingHandler.cs" />
     <Compile Include="CmdHandler.cs" />
@@ -179,6 +180,8 @@
     <Compile Include="CountryPicHandler.cs" />
     <Compile Include="DateTimeFormator.cs" />
     <Compile Include="Enums\ActType.cs" />
+    <Compile Include="Enums\OrderInfo_OrderType.cs" />
+    <Compile Include="Enums\OrderInfo_OrderInfoState.cs" />
     <Compile Include="Excel\XlsGenerator.cs" />
     <Compile Include="Financial\CommisionMoneyCounter.cs" />
     <Compile Include="FrmsManager.cs" />
