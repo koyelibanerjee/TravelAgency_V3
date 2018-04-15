@@ -33,10 +33,24 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.OrderNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PaymentPlatform = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EntryTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderInfoState = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OperatorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMain = new DevComponents.DotNetBar.PanelEx();
             this.panelDgv = new DevComponents.DotNetBar.PanelEx();
             this.panelBars = new DevComponents.DotNetBar.PanelEx();
             this.panelSerachBar = new DevComponents.DotNetBar.PanelEx();
+            this.cbPaymentPlatform = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.labelX2 = new DevComponents.DotNetBar.LabelX();
+            this.txtOrderNo = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX4 = new DevComponents.DotNetBar.LabelX();
             this.cbOrderInfoState = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.btnTimeSpanChoose = new DevComponents.DotNetBar.ButtonX();
@@ -74,20 +88,6 @@
             this.韩国担保函ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.韩国加急申请书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bgWorkerLoadData = new System.ComponentModel.BackgroundWorker();
-            this.txtOrderNo = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX4 = new DevComponents.DotNetBar.LabelX();
-            this.OrderNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrderType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PaymentPlatform = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrderTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EntryTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrderInfoState = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OperatorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cbPaymentPlatform = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.labelX2 = new DevComponents.DotNetBar.LabelX();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panelDgv.SuspendLayout();
@@ -154,6 +154,64 @@
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridView1.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseUp);
             this.dataGridView1.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
+            // 
+            // OrderNo
+            // 
+            this.OrderNo.DataPropertyName = "OrderNo";
+            this.OrderNo.HeaderText = "订单编号";
+            this.OrderNo.Name = "OrderNo";
+            // 
+            // Amount
+            // 
+            this.Amount.DataPropertyName = "Amount";
+            this.Amount.HeaderText = "金额";
+            this.Amount.Name = "Amount";
+            // 
+            // OrderType
+            // 
+            this.OrderType.HeaderText = "交易类型";
+            this.OrderType.Name = "OrderType";
+            // 
+            // PaymentPlatform
+            // 
+            this.PaymentPlatform.HeaderText = "交易平台";
+            this.PaymentPlatform.Name = "PaymentPlatform";
+            // 
+            // ProductName
+            // 
+            this.ProductName.DataPropertyName = "ProductName";
+            this.ProductName.HeaderText = "产品名称";
+            this.ProductName.Name = "ProductName";
+            // 
+            // OrderTime
+            // 
+            this.OrderTime.DataPropertyName = "OrderTime";
+            this.OrderTime.HeaderText = "结算时间";
+            this.OrderTime.Name = "OrderTime";
+            // 
+            // EntryTime
+            // 
+            this.EntryTime.DataPropertyName = "EntryTime";
+            this.EntryTime.HeaderText = "录入时间";
+            this.EntryTime.Name = "EntryTime";
+            // 
+            // OrderInfoState
+            // 
+            this.OrderInfoState.HeaderText = "校验状态";
+            this.OrderInfoState.Name = "OrderInfoState";
+            // 
+            // OperatorName
+            // 
+            this.OperatorName.DataPropertyName = "OperatorName";
+            this.OperatorName.HeaderText = "操作人";
+            this.OperatorName.Name = "OperatorName";
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
             // 
             // panelMain
             // 
@@ -249,6 +307,54 @@
             this.panelSerachBar.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.panelSerachBar.Style.GradientAngle = 90;
             this.panelSerachBar.TabIndex = 24;
+            // 
+            // cbPaymentPlatform
+            // 
+            this.cbPaymentPlatform.DisplayMember = "Text";
+            this.cbPaymentPlatform.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbPaymentPlatform.FormattingEnabled = true;
+            this.cbPaymentPlatform.ItemHeight = 15;
+            this.cbPaymentPlatform.Location = new System.Drawing.Point(662, 6);
+            this.cbPaymentPlatform.Name = "cbPaymentPlatform";
+            this.cbPaymentPlatform.Size = new System.Drawing.Size(79, 21);
+            this.cbPaymentPlatform.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cbPaymentPlatform.TabIndex = 115;
+            // 
+            // labelX2
+            // 
+            // 
+            // 
+            // 
+            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX2.Location = new System.Drawing.Point(584, 6);
+            this.labelX2.Name = "labelX2";
+            this.labelX2.Size = new System.Drawing.Size(72, 21);
+            this.labelX2.TabIndex = 114;
+            this.labelX2.Text = "交易平台:";
+            // 
+            // txtOrderNo
+            // 
+            // 
+            // 
+            // 
+            this.txtOrderNo.Border.Class = "TextBoxBorder";
+            this.txtOrderNo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtOrderNo.Location = new System.Drawing.Point(70, 34);
+            this.txtOrderNo.Name = "txtOrderNo";
+            this.txtOrderNo.Size = new System.Drawing.Size(345, 21);
+            this.txtOrderNo.TabIndex = 113;
+            // 
+            // labelX4
+            // 
+            // 
+            // 
+            // 
+            this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX4.Location = new System.Drawing.Point(8, 34);
+            this.labelX4.Name = "labelX4";
+            this.labelX4.Size = new System.Drawing.Size(81, 23);
+            this.labelX4.TabIndex = 112;
+            this.labelX4.Text = "订单号:";
             // 
             // cbOrderInfoState
             // 
@@ -649,112 +755,6 @@
             this.bgWorkerLoadData.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgWorkerLoadData_ProgressChanged);
             this.bgWorkerLoadData.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgWorkerLoadData_RunWorkerCompleted);
             // 
-            // txtOrderNo
-            // 
-            // 
-            // 
-            // 
-            this.txtOrderNo.Border.Class = "TextBoxBorder";
-            this.txtOrderNo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtOrderNo.Location = new System.Drawing.Point(70, 34);
-            this.txtOrderNo.Name = "txtOrderNo";
-            this.txtOrderNo.Size = new System.Drawing.Size(345, 21);
-            this.txtOrderNo.TabIndex = 113;
-            // 
-            // labelX4
-            // 
-            // 
-            // 
-            // 
-            this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(8, 34);
-            this.labelX4.Name = "labelX4";
-            this.labelX4.Size = new System.Drawing.Size(81, 23);
-            this.labelX4.TabIndex = 112;
-            this.labelX4.Text = "订单号:";
-            // 
-            // OrderNo
-            // 
-            this.OrderNo.DataPropertyName = "OrderNo";
-            this.OrderNo.HeaderText = "订单编号";
-            this.OrderNo.Name = "OrderNo";
-            // 
-            // Amount
-            // 
-            this.Amount.DataPropertyName = "Amount";
-            this.Amount.HeaderText = "金额";
-            this.Amount.Name = "Amount";
-            // 
-            // OrderType
-            // 
-            this.OrderType.HeaderText = "交易类型";
-            this.OrderType.Name = "OrderType";
-            // 
-            // PaymentPlatform
-            // 
-            this.PaymentPlatform.HeaderText = "交易平台";
-            this.PaymentPlatform.Name = "PaymentPlatform";
-            // 
-            // ProductName
-            // 
-            this.ProductName.DataPropertyName = "ProductName";
-            this.ProductName.HeaderText = "产品名称";
-            this.ProductName.Name = "ProductName";
-            // 
-            // OrderTime
-            // 
-            this.OrderTime.DataPropertyName = "OrderTime";
-            this.OrderTime.HeaderText = "结算时间";
-            this.OrderTime.Name = "OrderTime";
-            // 
-            // EntryTime
-            // 
-            this.EntryTime.DataPropertyName = "EntryTime";
-            this.EntryTime.HeaderText = "录入时间";
-            this.EntryTime.Name = "EntryTime";
-            // 
-            // OrderInfoState
-            // 
-            this.OrderInfoState.HeaderText = "校验状态";
-            this.OrderInfoState.Name = "OrderInfoState";
-            // 
-            // OperatorName
-            // 
-            this.OperatorName.DataPropertyName = "OperatorName";
-            this.OperatorName.HeaderText = "操作人";
-            this.OperatorName.Name = "OperatorName";
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.Visible = false;
-            // 
-            // cbPaymentPlatform
-            // 
-            this.cbPaymentPlatform.DisplayMember = "Text";
-            this.cbPaymentPlatform.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbPaymentPlatform.FormattingEnabled = true;
-            this.cbPaymentPlatform.ItemHeight = 15;
-            this.cbPaymentPlatform.Location = new System.Drawing.Point(662, 6);
-            this.cbPaymentPlatform.Name = "cbPaymentPlatform";
-            this.cbPaymentPlatform.Size = new System.Drawing.Size(79, 21);
-            this.cbPaymentPlatform.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbPaymentPlatform.TabIndex = 115;
-            // 
-            // labelX2
-            // 
-            // 
-            // 
-            // 
-            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Location = new System.Drawing.Point(584, 6);
-            this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(72, 21);
-            this.labelX2.TabIndex = 114;
-            this.labelX2.Text = "交易平台:";
-            // 
             // FrmOrderInfoManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -762,7 +762,7 @@
             this.ClientSize = new System.Drawing.Size(1271, 623);
             this.Controls.Add(this.panelMain);
             this.Name = "FrmOrderInfoManage";
-            this.Text = "钢材信息管理";
+            this.Text = "订单信息管理";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panelMain.ResumeLayout(false);

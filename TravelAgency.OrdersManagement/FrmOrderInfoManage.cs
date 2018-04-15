@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using TravelAgency.Common;
@@ -483,6 +484,18 @@ namespace TravelAgency.OrdersManagement
             //    MessageBoxEx.Show("权限不足!");
             //    return;
             //}
+
+
+            //FrmProgress frm = new FrmProgress(10, 0,this);
+            //frm.Show();
+            //for(int i = 0; i < 10; ++i)
+            //{
+            //    frm.CurValue += 1;
+            //    Thread.Sleep(300);
+            //}
+
+
+
             FrmAddOrderInfo frm = new FrmAddOrderInfo(LoadDataToDataGridView, _curPage);
             if (DialogResult.Cancel == frm.ShowDialog())
                 return;
