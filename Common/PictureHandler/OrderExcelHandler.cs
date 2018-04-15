@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Threading;
@@ -45,6 +46,13 @@ namespace TravelAgency.Common.PictureHandler
             model.Id = _bllOrderExcel.Add(model);
 
             return model;
+        }
+
+        public void DownloadOrderExcel(string excelName,string dstPath)
+        {
+            FtpHandler.ChangeFtpUri(RemoteRootPath);
+            FtpHandler.Download(dstPath, excelName);
+        
         }
 
 

@@ -189,6 +189,7 @@
     <Compile Include="FrmsManager.cs" />
     <Compile Include="FTP\FtpHandler.cs" />
     <Compile Include="InfoChecker.cs" />
+    <Compile Include="JsonHandler.cs" />
     <Compile Include="PayoutUpdateRules.cs" />
     <Compile Include="PictureHandler\OrderExcelHandler.cs" />
     <Compile Include="PictureHandler\GaopaiPicHandler.cs" />

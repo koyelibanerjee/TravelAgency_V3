@@ -1,13 +1,16 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using TravelAgency.Common;
+using TravelAgency.Common.PictureHandler;
 
 namespace TravelAgency.OrdersManagement
 {
     public partial class FrmAddOrderInfo : Form
     {
         private readonly BLL.OrderInfo _bllOrderInfo = new BLL.OrderInfo();
+        private readonly BLL.OrderExcel _bllOrderExcel = new BLL.OrderExcel();
         private readonly Action<int> _updateDel; //副界面传来更新数据库的委托
         private readonly int _curPage; //主界面更新数据库需要一个当前页
         private readonly bool _is4Modify = false;
@@ -67,7 +70,7 @@ namespace TravelAgency.OrdersManagement
             txtOrderType.DropDownStyle = ComboBoxStyle.DropDownList;
             txtPaymentPlatform.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            var list = Common.Enums.OrderInfo_OrderType.valueKeyMap.Keys; 
+            var list = Common.Enums.OrderInfo_OrderType.valueKeyMap.Keys;
             if (list != null)
                 foreach (var item in list)
                     txtOrderType.Items.Add(item);
@@ -106,7 +109,7 @@ namespace TravelAgency.OrdersManagement
                     _model.ExtraData = txtExtraData.Text;
                     _model.ProductName = txtProductName.Text;
                     _model.OrderType = Common.Enums.OrderInfo_OrderType.ValueToKey(txtOrderType.Text);
-                    _model.OrderInfoState = Common.Enums.OrderInfo_OrderType.ValueToKey(txtOrderInfoState.Text);
+                    _model.OrderInfoState = Common.Enums.OrderInfo_OrderInfoState.ValueToKey(txtOrderInfoState.Text);
                     _model.PaymentPlatform = Common.Enums.OrderInfo_PaymentPlatform.ValueToKey(txtPaymentPlatform.Text);
 
 
@@ -181,6 +184,28 @@ namespace TravelAgency.OrdersManagement
             this.Close();
         }
 
+        private void btnShowExcel_Click(object sender, EventArgs e)
+        {
+            //下载对应Excel
+            if (!_model.OrderExcelId.HasValue)
+            {
+                MessageBoxEx.Show("未找到对应Excel!");
+                return;
+            }
+            Model.OrderExcel model = _bllOrderExcel.GetModel(_model.OrderExcelId.Value);
 
+            if (model == null)
+            {
+                MessageBoxEx.Show("查找对应Excel失败!");
+                return;
+            }
+
+            string dstPath = GlobalUtils.ShowBrowseFolderDlg();
+            if (string.IsNullOrEmpty(dstPath))
+                return;
+
+            new OrderExcelHandler().DownloadOrderExcel(model.FileName, dstPath);
+            Process.Start(dstPath + "\\" + model.FileName);
+        }
     }
 }

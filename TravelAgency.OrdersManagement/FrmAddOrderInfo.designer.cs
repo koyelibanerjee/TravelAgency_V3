@@ -36,6 +36,8 @@
             this.txtOrderTime = new System.Windows.Forms.DateTimePicker();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.panelMain = new DevComponents.DotNetBar.PanelEx();
+            this.txtPaymentPlatform = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.labelX5 = new DevComponents.DotNetBar.LabelX();
             this.txtOrderInfoState = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.btnShowExcel = new DevComponents.DotNetBar.ButtonX();
@@ -50,8 +52,6 @@
             this.btnAddFromExcel = new DevComponents.DotNetBar.ButtonX();
             this.btnAdd = new DevComponents.DotNetBar.ButtonX();
             this.progressLoading = new DevComponents.DotNetBar.Controls.CircularProgress();
-            this.txtPaymentPlatform = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.labelX5 = new DevComponents.DotNetBar.LabelX();
             this.panelEx1.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.SuspendLayout();
@@ -185,6 +185,30 @@
             this.panelMain.Style.GradientAngle = 90;
             this.panelMain.TabIndex = 106;
             // 
+            // txtPaymentPlatform
+            // 
+            this.txtPaymentPlatform.DisplayMember = "Text";
+            this.txtPaymentPlatform.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.txtPaymentPlatform.FormattingEnabled = true;
+            this.txtPaymentPlatform.ItemHeight = 15;
+            this.txtPaymentPlatform.Location = new System.Drawing.Point(106, 93);
+            this.txtPaymentPlatform.Name = "txtPaymentPlatform";
+            this.txtPaymentPlatform.Size = new System.Drawing.Size(107, 21);
+            this.txtPaymentPlatform.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.txtPaymentPlatform.TabIndex = 122;
+            // 
+            // labelX5
+            // 
+            // 
+            // 
+            // 
+            this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX5.Location = new System.Drawing.Point(18, 93);
+            this.labelX5.Name = "labelX5";
+            this.labelX5.Size = new System.Drawing.Size(63, 23);
+            this.labelX5.TabIndex = 121;
+            this.labelX5.Text = "交易平台:";
+            // 
             // txtOrderInfoState
             // 
             this.txtOrderInfoState.DisplayMember = "Text";
@@ -219,6 +243,7 @@
             this.btnShowExcel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnShowExcel.TabIndex = 118;
             this.btnShowExcel.Text = "查看导入数据Excel";
+            this.btnShowExcel.Click += new System.EventHandler(this.btnShowExcel_Click);
             // 
             // txtProductName
             // 
@@ -356,30 +381,6 @@
             this.progressLoading.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeXP;
             this.progressLoading.TabIndex = 27;
             this.progressLoading.Value = 100;
-            // 
-            // txtPaymentPlatform
-            // 
-            this.txtPaymentPlatform.DisplayMember = "Text";
-            this.txtPaymentPlatform.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.txtPaymentPlatform.FormattingEnabled = true;
-            this.txtPaymentPlatform.ItemHeight = 15;
-            this.txtPaymentPlatform.Location = new System.Drawing.Point(106, 93);
-            this.txtPaymentPlatform.Name = "txtPaymentPlatform";
-            this.txtPaymentPlatform.Size = new System.Drawing.Size(107, 21);
-            this.txtPaymentPlatform.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.txtPaymentPlatform.TabIndex = 122;
-            // 
-            // labelX5
-            // 
-            // 
-            // 
-            // 
-            this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX5.Location = new System.Drawing.Point(18, 93);
-            this.labelX5.Name = "labelX5";
-            this.labelX5.Size = new System.Drawing.Size(63, 23);
-            this.labelX5.TabIndex = 121;
-            this.labelX5.Text = "交易平台:";
             // 
             // FrmAddOrderInfo
             // 

@@ -60,6 +60,7 @@
     <Compile Include="FTP\FtpHandlerTests.cs" />
     <Compile Include="IDCard\IDCardTests.cs" />
     <Compile Include="InfoCheckerTests.cs" />
+    <Compile Include="JsonHandlerTests.cs" />
     <Compile Include="PicHandlerTests.cs" />
     <Compile Include="PictureHandler\GaopaiPicHandlerTests.cs" />
     <Compile Include="PictureHandler\OrderExcelHandlerTests.cs" />

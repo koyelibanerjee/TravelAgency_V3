@@ -157,10 +157,11 @@ namespace TravelAgency.Common
             return null;
         }
 
-        public static string ShowBrowseFolderDlg()
+        public static string ShowBrowseFolderDlg(string description = "请选择保存文件夹")
         {
             //选择保存路径
             FolderBrowserDialog fbd = new System.Windows.Forms.FolderBrowserDialog();
+            fbd.Description = description;
             if (fbd.ShowDialog() != System.Windows.Forms.DialogResult.OK)
                 return null;
             return fbd.SelectedPath;

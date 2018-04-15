@@ -52,14 +52,14 @@ namespace TravelAgency.Common.FTP
         /// 下载，支持子目录级别的下载,调用示例:Download("I:Downloads","aaa/bbb/ccc/ddd.txt")
         /// 则会下载 远程目录根目录/aaa/bbb/ccc/ddd.txt 到 I:Downloads/aaa/bbb/ccc/ddd.txt
         /// </summary>
-        /// <param name="filePath"></param>
-        /// <param name="fileName"></param>
-        public static bool Download(string filePath, string fileName)
+        /// <param name="dstPath"></param>
+        /// <param name="remoteName"></param>
+        public static bool Download(string dstPath, string remoteName)
         {
             FtpWebRequest reqFTP;
             try
             {
-                reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri(_ftpUri + fileName));
+                reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri(_ftpUri + remoteName));
                 reqFTP.Method = WebRequestMethods.Ftp.DownloadFile;
                 reqFTP.UseBinary = true;
                 reqFTP.Credentials = new NetworkCredential(_ftpUserId, _ftpPassword);
@@ -72,11 +72,11 @@ namespace TravelAgency.Common.FTP
                 byte[] buffer = new byte[bufferSize];
                 readCount = ftpStream.Read(buffer, 0, bufferSize);
 
-                string path = Path.GetDirectoryName(filePath + '\\' + fileName);
+                string path = Path.GetDirectoryName(dstPath + '\\' + remoteName);
                 if (!Directory.Exists(path))
                     Directory.CreateDirectory(path);
 
-                FileStream outputStream = new FileStream(filePath + "\\" + fileName, FileMode.Create); //会直接覆盖源文件
+                FileStream outputStream = new FileStream(dstPath + "\\" + remoteName, FileMode.Create); //会直接覆盖源文件
                 while (readCount > 0)
                 {
                     outputStream.Write(buffer, 0, readCount);

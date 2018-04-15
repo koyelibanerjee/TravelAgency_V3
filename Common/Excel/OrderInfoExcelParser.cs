@@ -82,6 +82,11 @@ namespace TravelAgency.Common.Excel
             //2.创建工作表对象
             ISheet sheet = wbBook.GetSheet("应付金额");
             List<Model.OrderInfo> res = new List<Model.OrderInfo>();
+
+            List<string> keyList = new List<string> { "确认时间", "支付时间", "美团供应商ID", "产品ID",
+                "产品类型", "客人姓名", "出发日期", "份数", "结算方式", "佣金比例" };
+            
+
             for (int i = 1; i <= sheet.LastRowNum; ++i) //第0行是表头
             {
                 try
@@ -103,28 +108,27 @@ namespace TravelAgency.Common.Excel
                     modelRec.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["收入"];
                     modelRec.PaymentPlatform = Enums.OrderInfo_PaymentPlatform.valueKeyMap["大众"];
                     modelPay.PaymentPlatform = Enums.OrderInfo_PaymentPlatform.valueKeyMap["大众"];
-                    modelPay.ExtraData = ""; //TODOs
-                    modelRec.ExtraData = "";
 
-                    //try
-                    //{
-                    //    modelPay.Fluctuation = DecimalHandler.Parse(row.GetCell(5)?.NumericCellValue.ToString());
-                    //}
-                    //catch (Exception)
-                    //{
-                    //    try
-                    //    {
-                    //        if (row.GetCell(5)?.StringCellValue == "-")
-                    //            modelPay.Fluctuation = null;
-                    //    }
-                    //    catch (Exception e)
-                    //    {
-                    //        throw e;
-                    //    }
-                    //}
-                    //modelPay.Remark = row.GetCell(6)?.StringCellValue;
-                    //modelPay.State = row.GetCell(7)?.StringCellValue;
+                    List<string> valueList = new List<string>();
+                    valueList.Add(row.GetCell(1)?.StringCellValue);
+                    valueList.Add(row.GetCell(2)?.StringCellValue);
+                    valueList.Add(row.GetCell(4)?.StringCellValue);
+                    valueList.Add(row.GetCell(5)?.StringCellValue);
+                    valueList.Add(row.GetCell(7)?.StringCellValue);
+                    valueList.Add(row.GetCell(8)?.StringCellValue);
+                    valueList.Add(row.GetCell(9)?.StringCellValue);
+                    valueList.Add(row.GetCell(10)?.StringCellValue);
+                    valueList.Add(row.GetCell(11)?.StringCellValue);
+                    valueList.Add(row.GetCell(12)?.StringCellValue);
+
+
+                    string extraData = JsonHandler.GenJson(keyList, valueList);
+                    modelPay.ExtraData = extraData;
+                    modelRec.ExtraData = extraData;
+
+                    
                     res.Add(modelPay);
+                    res.Add(modelRec);
                 }
                 catch (Exception e)
                 {
