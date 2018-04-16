@@ -34,31 +34,35 @@ namespace TravelAgency.CSUI.Visa.FrmSub
         }
         private void UploadThread()
         {
+            var localFileList = Directory.GetFiles(GlobalUtils.LocalPassportPicPath);
             this.Invoke(new Action(() =>
             {
-                var localFileList = Directory.GetFiles(GlobalUtils.LocalPassportPicPath);
-
                 progressBarX1.Value = 0;
                 progressBarX1.Maximum = localFileList.Length;
-                int notexist = 0;
-                FtpHandler.ChangeFtpUri(ConfigurationManager.AppSettings["PassportPicPath"]);
-                //var modellist = bllVisaInfo.GetModelList(string.Empty);
-                for (int i = 0; i < localFileList.Length; i++)
+            }));
+            int notexist = 0;
+            FtpHandler.ChangeFtpUri(ConfigurationManager.AppSettings["PassportPicPath"]);
+            //var modellist = bllVisaInfo.GetModelList(string.Empty);
+            for (int i = 0; i < localFileList.Length; i++)
+            {
+                if (!FtpHandler.FileExist(Path.GetFileName(localFileList[i])))
                 {
-                    if (!FtpHandler.FileExist(Path.GetFileName(localFileList[i])))
-                    {
-                        FtpHandler.Upload(localFileList[i]);
-                        notexist += 1;
-                    }
-                    //Thread.Sleep(30);
+                    FtpHandler.Upload(localFileList[i]);
+                    notexist += 1;
+                }
+                //Thread.Sleep(30);
+                this.Invoke(new Action(() =>
+                {
                     lbSuccess.Text = "已扫描" + (i + 1) + "张图像,找到并上传" + notexist + "张服务器不存在图像.";
                     progressBarX1.Value++;
-                }
-                MessageBoxEx.Show("上传" + notexist + "张图像成功!");
+                }));
+            }
+
+            MessageBoxEx.Show("上传" + notexist + "张图像成功!");
+            this.Invoke(new Action(() =>
+            {
                 this.Close();
             }));
-
-
         }
 
         private void btnStart_Click(object sender, EventArgs e)

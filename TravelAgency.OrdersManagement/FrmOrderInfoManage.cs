@@ -486,12 +486,13 @@ namespace TravelAgency.OrdersManagement
             //}
 
 
-            //FrmProgress frm = new FrmProgress(10, 0,this);
+            //FrmProgress frm = new FrmProgress(10, 0, this);
             //frm.Show();
-            //for(int i = 0; i < 10; ++i)
+            //for (int i = 0; i < 10; ++i)
             //{
-            //    frm.CurValue += 1;
-            //    Thread.Sleep(300);
+            //    //frm.CurValue += 1;
+            //    frm.UpdateProgressDel();
+            //    Thread.Sleep(1000);
             //}
 
 

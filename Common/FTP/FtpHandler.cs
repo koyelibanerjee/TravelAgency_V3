@@ -116,7 +116,7 @@ namespace TravelAgency.Common.FTP
         }
 
         /// <summary>
-        /// 获取当前目录下文件列表(目录也算)，拿到的列表是按照时间顺序排好的，只有文件名，没有路径
+        /// 获取当前目录下文件列表(目录也算)，拿到的列表是按照时间顺序排好的，只有文件名，没有路径,有空格的文件名会出错
         /// </summary>
         /// <returns></returns>
         public static List<string> GetFileList(string mask)
@@ -142,7 +142,7 @@ namespace TravelAgency.Common.FTP
                 var lines = ftpResponse.TrimEnd().Split('\r');
                 for (int i = 0; i < lines.Length; i++)
                 {
-                    if (string.IsNullOrWhiteSpace(lines[i]))
+                    if (string.IsNullOrWhiteSpace(lines[i])) //,有空格的文件名会出错
                         continue;
                     int lastSpaceIdx = lines[i].LastIndexOf(' ');
                     string tmp = lines[i].Substring(lastSpaceIdx + 1, lines[i].Length - lastSpaceIdx - 1);

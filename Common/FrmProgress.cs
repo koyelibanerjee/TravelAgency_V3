@@ -17,14 +17,15 @@ namespace TravelAgency.Common
         private int _max;
         private Form _parent;
         public int CurValue { get; set; }
-        public FrmProgress(int max, int cur,Form parent, string caption = "处理进度", string context = "正在处理")
+        public FrmProgress(int max, int cur, Form parent, string caption = "处理进度", string context = "正在处理")
         {
             this.Text = caption;
             _context = context;
             _max = max;
             CurValue = cur;
             this.ControlBox = false;
-            
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+
             this._parent = parent;
             parent.Enabled = false;
             InitializeComponent();
@@ -34,28 +35,41 @@ namespace TravelAgency.Common
         {
             this.progressBarX1.Maximum = _max;
             this.progressBarX1.Value = CurValue;
-            new Thread(UpdateProgressbarThread) { IsBackground = true }.Start();
+
         }
 
+        public void UpdateProgressDel()
+        {
+            //new Thread(UpdateProgressbarThread) { IsBackground = true }.Start();
+        }
 
         private void UpdateProgressbarThread()
         {
-            this.BeginInvoke(new Action(() =>
+
+            if (CurValue++ < _max)
             {
-                while (CurValue < _max)
+                this.BeginInvoke(new Action(() =>
                 {
                     this.progressBarX1.Value = CurValue;
                     this.lbProgress.Text = string.Format("{0}   {1}/{2}", _context, CurValue, _max);
-                    Thread.Sleep(300);
-                }
-                this.lbProgress.Text = "处理完成";
 
+                }));
+
+                Thread.Sleep(300);
+                return;
+            }
+            this.BeginInvoke(new Action(() =>
+            {
+                this.lbProgress.Text = "处理完成";
                 Thread.Sleep(500);
                 this.Close();
                 _parent.Enabled = true;
             }));
         }
 
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
