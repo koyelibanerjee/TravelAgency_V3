@@ -24,8 +24,8 @@ namespace TravelAgency.Common.PictureHandler
                 
                 path = "E:/东瀛假日订单管理系统/订单Excel保存路径";
             }
-            if (!Directory.Exists(path))
-                Directory.CreateDirectory(path);
+            //if (!Directory.Exists(path))
+            //    Directory.CreateDirectory(path);
             RemoteRootPath = path;
         }
         public string RemoteRootPath
