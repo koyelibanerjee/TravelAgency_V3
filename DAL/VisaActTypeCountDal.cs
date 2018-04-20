@@ -13,7 +13,7 @@ namespace TravelAgency.DAL
         public DataSet GetVisaActTypeCountModels(List<Model.Visa> visaList, string type)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("select Visa_id, COUNT(distinct VisaInfo_id) as Count from ActionRcords where ActType = '" + type + "' ");
+            sb.Append("select Visa_id, COUNT(distinct VisaInfo_id) as Count from ActionRecords where ActType = '" + type + "' ");
             if (visaList.Count > 0)
             {
                 sb.Append(" and visa_id in (");
