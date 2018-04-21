@@ -397,24 +397,7 @@ namespace TravelAgency.OrdersManagement
             //LoadDataToDgvAsyn();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            //if (GlobalUtils.LoginUser.UserLevel == Common.Enums.UserLevel.Checker)
-            //{
-            //    MessageBoxEx.Show("权限不足!");
-            //    return;
-            //}
-
-
-            //new Thread(Proc) { IsBackground = true }.Start();
-
-            //FrmProgressBar frm = new FrmProgressBar();
-            //frm.Show();
-
-            FrmAddOrders frm = new FrmAddOrders(LoadDataToDataGridView, _curPage);
-            if (DialogResult.Cancel == frm.ShowDialog())
-                return;
-        }
+        
 
         void Proc()
         {
@@ -500,6 +483,26 @@ namespace TravelAgency.OrdersManagement
             }
             FrmAddOrders frm = new FrmAddOrders(LoadDataToDataGridView, _curPage, true, list[0]);
             frm.ShowDialog();
+        }
+
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            //if (GlobalUtils.LoginUser.UserLevel == Common.Enums.UserLevel.Checker)
+            //{
+            //    MessageBoxEx.Show("权限不足!");
+            //    return;
+            //}
+
+
+            //new Thread(Proc) { IsBackground = true }.Start();
+
+            //FrmProgressBar frm = new FrmProgressBar();
+            //frm.Show();
+
+            FrmAddOrders frm = new FrmAddOrders(LoadDataToDataGridView, _curPage);
+            if (DialogResult.Cancel == frm.ShowDialog())
+                return;
         }
 
 
