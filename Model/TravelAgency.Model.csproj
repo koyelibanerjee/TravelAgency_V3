@@ -131,6 +131,7 @@
     <Compile Include="Enums_OrderInfo_PaymentPlatform.cs" />
     <Compile Include="OrderExcel.cs" />
     <Compile Include="OrderInfo.cs" />
+    <Compile Include="Orders.cs" />
     <Compile Include="UserQueueModel.cs" />
     <Compile Include="AuthUser.cs" />
     <Compile Include="ClientCharge.cs" />

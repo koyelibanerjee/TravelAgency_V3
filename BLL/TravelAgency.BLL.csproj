@@ -152,6 +152,8 @@
     <Compile Include="JobAssignment.cs" />
     <Compile Include="OrderExcel.cs" />
     <Compile Include="OrderInfo.cs" />
+    <Compile Include="OrdersBll.cs" />
+    <Compile Include="Orders.cs" />
     <Compile Include="ProgramVersion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
