@@ -83,7 +83,6 @@ namespace TravelAgency.OrdersManagement
             else
             {
                 GlobalUtils.LoginUserLevel = RigthLevel.Normal;
-
             }
 
             if (FrmsManager.MainForm != null)
@@ -92,7 +91,7 @@ namespace TravelAgency.OrdersManagement
             }
             else
             {
-                FrmOrderInfoManage frm = new FrmOrderInfoManage();
+                FrmOrdersManage_Waitor frm = new FrmOrdersManage_Waitor();
                 frm.Show();
             }
             this.Visible = false;

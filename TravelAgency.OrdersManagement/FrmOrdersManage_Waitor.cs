@@ -228,7 +228,8 @@ namespace TravelAgency.OrdersManagement
             //string[] arr = conditions.ToArray();
             //string where = string.Join(" and ", arr);
             //return where;
-            return null;
+            //return null;
+            return "";
         }
 
 
