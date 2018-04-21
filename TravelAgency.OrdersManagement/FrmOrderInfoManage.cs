@@ -486,21 +486,31 @@ namespace TravelAgency.OrdersManagement
             //}
 
 
-            //FrmProgress frm = new FrmProgress(10, 0, this);
+            //new Thread(Proc) { IsBackground = true }.Start();
+
+            //FrmProgressBar frm = new FrmProgressBar();
             //frm.Show();
-            //for (int i = 0; i < 10; ++i)
-            //{
-            //    //frm.CurValue += 1;
-            //    frm.UpdateProgressDel();
-            //    Thread.Sleep(1000);
-            //}
-
-
 
             FrmAddOrderInfo frm = new FrmAddOrderInfo(LoadDataToDataGridView, _curPage);
             if (DialogResult.Cancel == frm.ShowDialog())
                 return;
         }
+
+        void Proc()
+        {
+            FrmProgress.ProgObject proObj = new FrmProgress.ProgObject();
+            proObj.CurValue = 0;
+
+
+            //for (int i = 0; i < 10; ++i)
+            //{
+            //    //frm.CurValue += 1;
+            //    //frm.UpdateProgressDel();
+            //    proObj.CurValue++;
+            //    Thread.Sleep(1000);
+            //}
+        }
+
 
         private void btnTimeSpanChoose_Click(object sender, EventArgs e)
         {
