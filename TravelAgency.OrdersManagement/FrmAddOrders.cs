@@ -41,14 +41,21 @@ namespace TravelAgency.OrdersManagement
             if (_is4Modify)
             {
                 //把选中的加载到这里面
-                //txtOrderNo.Text = _model.OrderNo;
-                //txtAmount.Text = DecimalHandler.DecimalToString(_model.Amount);
-                //txtGuestOrderTime.Text = _model.OrderTime.ToString();
-                //txtExtraData.Text = _model.ExtraData;
-                //txtProductName.Text = _model.ProductName;
-                //txtReplyResult.Text = _model.type;
-                //txtOrdersState.Text = Common.Enums.Orders_OrdersState.KeyToValue(_model.OrdersState);
-                //txtPaymentPlatform.Text = Common.Enums.Orders_PaymentPlatform.KeyToValue(_model.PaymentPlatform);
+                txtOrderNo.Text = _model.OrderNo;
+
+                txtPaymentPlatform.Text = Common.Enums.OrderInfo_PaymentPlatform.KeyToValue(_model.PaymentPlatform); 
+                txtGroupNo.Text = _model.GroupNo;
+                txtProductName.Text = _model.ProductName;
+                txtProductId.Text = _model.ProductId.ToString();
+                txtProductType.Text = _model.ProductType;
+                txtPurchaseNum.Text = DecimalHandler.DecimalToString(_model.PurchaseNum);
+                txtOrderAmount.Text = DecimalHandler.DecimalToString(_model.OrderAmount);
+                txtGuestOrderTime.Text = _model.GuestOrderTime.ToString();
+                txtWaitorOrderTime.Text = _model.WaitorOrderTime.ToString();
+                txtWaitorConfirmTime.Text = _model.WaitorConfirmTime.ToString();
+                txtReallyPay.Text = _model.ReallyPay.ToString();
+                txtPlatformActivity.Text = _model.PlatformActivity;
+                txtReplyResult.Text = _model.ReplyResult;
                 this.Text = "修改订单信息";
             }
         }
@@ -134,7 +141,7 @@ namespace TravelAgency.OrdersManagement
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     MessageBoxEx.Show("请检查输入是否有误，价格为0请填入0!");
                     //throw;
