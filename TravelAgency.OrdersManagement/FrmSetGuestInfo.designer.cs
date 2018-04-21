@@ -1,6 +1,6 @@
 ﻿namespace TravelAgency.OrdersManagement
 {
-    partial class FrmAddGuest
+    partial class FrmSetGuestInfo
     {
         /// <summary>
         /// Required designer variable.

@@ -19,7 +19,9 @@ namespace TravelAgency.Common
 
     {
         Manager,
-        Normal
+        Normal,
+        Waitor,
+        Operator
     }
     public static class GlobalUtils
     {

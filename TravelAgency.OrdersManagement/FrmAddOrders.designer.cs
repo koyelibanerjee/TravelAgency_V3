@@ -35,6 +35,8 @@
             this.txtGuestOrderTime = new System.Windows.Forms.DateTimePicker();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.panelMain = new DevComponents.DotNetBar.PanelEx();
+            this.btnOperInfo = new DevComponents.DotNetBar.ButtonX();
+            this.btnGuestInfo = new DevComponents.DotNetBar.ButtonX();
             this.txtPlatformActivity = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX15 = new DevComponents.DotNetBar.LabelX();
             this.txtReallyPay = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -63,7 +65,6 @@
             this.btnAddFromExcel = new DevComponents.DotNetBar.ButtonX();
             this.btnAdd = new DevComponents.DotNetBar.ButtonX();
             this.progressLoading = new DevComponents.DotNetBar.Controls.CircularProgress();
-            this.btnGuestInfo = new DevComponents.DotNetBar.ButtonX();
             this.panelEx1.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.SuspendLayout();
@@ -149,6 +150,7 @@
             // 
             this.panelMain.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelMain.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelMain.Controls.Add(this.btnOperInfo);
             this.panelMain.Controls.Add(this.btnGuestInfo);
             this.panelMain.Controls.Add(this.txtPlatformActivity);
             this.panelMain.Controls.Add(this.labelX15);
@@ -196,6 +198,30 @@
             this.panelMain.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.panelMain.Style.GradientAngle = 90;
             this.panelMain.TabIndex = 106;
+            // 
+            // btnOperInfo
+            // 
+            this.btnOperInfo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnOperInfo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnOperInfo.Location = new System.Drawing.Point(474, 133);
+            this.btnOperInfo.Name = "btnOperInfo";
+            this.btnOperInfo.Size = new System.Drawing.Size(110, 49);
+            this.btnOperInfo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnOperInfo.TabIndex = 141;
+            this.btnOperInfo.Text = "设置(查看)操作信息";
+            this.btnOperInfo.Click += new System.EventHandler(this.btnOperInfo_Click);
+            // 
+            // btnGuestInfo
+            // 
+            this.btnGuestInfo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnGuestInfo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnGuestInfo.Location = new System.Drawing.Point(345, 133);
+            this.btnGuestInfo.Name = "btnGuestInfo";
+            this.btnGuestInfo.Size = new System.Drawing.Size(110, 49);
+            this.btnGuestInfo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnGuestInfo.TabIndex = 140;
+            this.btnGuestInfo.Text = "设置(查看)客户信息";
+            this.btnGuestInfo.Click += new System.EventHandler(this.btnGuestInfo_Click);
             // 
             // txtPlatformActivity
             // 
@@ -537,18 +563,6 @@
             this.progressLoading.TabIndex = 27;
             this.progressLoading.Value = 100;
             // 
-            // btnGuestInfo
-            // 
-            this.btnGuestInfo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnGuestInfo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnGuestInfo.Location = new System.Drawing.Point(345, 133);
-            this.btnGuestInfo.Name = "btnGuestInfo";
-            this.btnGuestInfo.Size = new System.Drawing.Size(110, 23);
-            this.btnGuestInfo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnGuestInfo.TabIndex = 140;
-            this.btnGuestInfo.Text = "查看客户信息";
-            this.btnGuestInfo.Click += new System.EventHandler(this.btnGuestInfo_Click);
-            // 
             // FrmAddOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -601,5 +615,6 @@
         private DevComponents.DotNetBar.Controls.TextBoxX txtPlatformActivity;
         private DevComponents.DotNetBar.LabelX labelX15;
         private DevComponents.DotNetBar.ButtonX btnGuestInfo;
+        private DevComponents.DotNetBar.ButtonX btnOperInfo;
     }
 }

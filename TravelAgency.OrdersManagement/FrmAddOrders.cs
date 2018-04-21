@@ -43,7 +43,7 @@ namespace TravelAgency.OrdersManagement
                 //把选中的加载到这里面
                 txtOrderNo.Text = _model.OrderNo;
 
-                txtPaymentPlatform.Text = Common.Enums.OrderInfo_PaymentPlatform.KeyToValue(_model.PaymentPlatform); 
+                txtPaymentPlatform.Text = Common.Enums.OrderInfo_PaymentPlatform.KeyToValue(_model.PaymentPlatform);
                 txtGroupNo.Text = _model.GroupNo;
                 txtProductName.Text = _model.ProductName;
                 txtProductId.Text = _model.ProductId.ToString();
@@ -204,7 +204,14 @@ namespace TravelAgency.OrdersManagement
 
         private void btnGuestInfo_Click(object sender, EventArgs e)
         {
-            FrmAddGuest frm = new FrmAddGuest(_updateDel, _curPage, true, _model);
+            FrmSetGuestInfo frm = new FrmSetGuestInfo(_updateDel, _curPage, true, _model);
+            frm.Show();
+        }
+
+        private void btnOperInfo_Click(object sender, EventArgs e)
+        {
+
+            FrmSetOperInfo frm = new FrmSetOperInfo(_updateDel, _curPage, true, _model);
             frm.Show();
         }
     }

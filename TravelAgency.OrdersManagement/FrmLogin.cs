@@ -91,7 +91,7 @@ namespace TravelAgency.OrdersManagement
             }
             else
             {
-                FrmOrdersManage_Waitor frm = new FrmOrdersManage_Waitor();
+                FrmOrdersManage_Oper frm = new FrmOrdersManage_Oper();
                 frm.Show();
             }
             this.Visible = false;

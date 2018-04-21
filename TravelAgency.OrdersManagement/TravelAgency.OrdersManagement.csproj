@@ -60,11 +60,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmAddGuest.cs">
+    <Compile Include="FrmSetOperInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAddGuest.designer.cs">
-      <DependentUpon>FrmAddGuest.cs</DependentUpon>
+    <Compile Include="FrmSetOperInfo.designer.cs">
+      <DependentUpon>FrmSetOperInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSetGuestInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSetGuestInfo.designer.cs">
+      <DependentUpon>FrmSetGuestInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmAddOrders.cs">
       <SubType>Form</SubType>
@@ -90,6 +96,12 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmOrdersManage_Oper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOrdersManage_Oper.designer.cs">
+      <DependentUpon>FrmOrdersManage_Oper.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmOrdersManage_Waitor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,8 +116,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmAddGuest.resx">
-      <DependentUpon>FrmAddGuest.cs</DependentUpon>
+    <EmbeddedResource Include="FrmSetOperInfo.resx">
+      <DependentUpon>FrmSetOperInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSetGuestInfo.resx">
+      <DependentUpon>FrmSetGuestInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAddOrders.resx">
       <DependentUpon>FrmAddOrders.cs</DependentUpon>
@@ -118,6 +133,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOrdersManage_Oper.resx">
+      <DependentUpon>FrmOrdersManage_Oper.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmOrdersManage_Waitor.resx">
       <DependentUpon>FrmOrdersManage_Waitor.cs</DependentUpon>
