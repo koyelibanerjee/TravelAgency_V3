@@ -202,6 +202,10 @@ namespace TravelAgency.OrdersManagement
             this.Close();
         }
 
-
+        private void btnGuestInfo_Click(object sender, EventArgs e)
+        {
+            FrmAddGuest frm = new FrmAddGuest(_updateDel, _curPage, true, _model);
+            frm.Show();
+        }
     }
 }
