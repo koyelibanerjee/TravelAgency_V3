@@ -35,7 +35,7 @@
             this.ribbonBar2 = new DevComponents.DotNetBar.RibbonBar();
             this.btnOrderManagementWaitor = new DevComponents.DotNetBar.ButtonItem();
             this.btnOrderManagementOperator = new DevComponents.DotNetBar.ButtonItem();
-            this.btnVisaQuery = new DevComponents.DotNetBar.ButtonItem();
+            this.btnOrderInfoManage = new DevComponents.DotNetBar.ButtonItem();
             this.btnVisaSubmit = new DevComponents.DotNetBar.ButtonItem();
             this.btnScanFrm = new DevComponents.DotNetBar.ButtonItem();
             this.btnGPManage = new DevComponents.DotNetBar.ButtonItem();
@@ -158,7 +158,7 @@
             this.ribbonBar2.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.btnOrderManagementWaitor,
             this.btnOrderManagementOperator,
-            this.btnVisaQuery,
+            this.btnOrderInfoManage,
             this.btnVisaSubmit,
             this.btnScanFrm,
             this.btnGPManage,
@@ -200,15 +200,15 @@
             this.btnOrderManagementOperator.Text = "操作(录入、管理)";
             this.btnOrderManagementOperator.Click += new System.EventHandler(this.btnVisaInfoManage_Click);
             // 
-            // btnVisaQuery
+            // btnOrderInfoManage
             // 
-            this.btnVisaQuery.Icon = ((System.Drawing.Icon)(resources.GetObject("btnVisaQuery.Icon")));
-            this.btnVisaQuery.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
-            this.btnVisaQuery.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnVisaQuery.Name = "btnVisaQuery";
-            this.btnVisaQuery.SubItemsExpandWidth = 14;
-            this.btnVisaQuery.Text = "团号管理";
-            this.btnVisaQuery.Visible = false;
+            this.btnOrderInfoManage.Icon = ((System.Drawing.Icon)(resources.GetObject("btnOrderInfoManage.Icon")));
+            this.btnOrderInfoManage.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
+            this.btnOrderInfoManage.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnOrderInfoManage.Name = "btnOrderInfoManage";
+            this.btnOrderInfoManage.SubItemsExpandWidth = 14;
+            this.btnOrderInfoManage.Text = "网络平台订单";
+            this.btnOrderInfoManage.Click += new System.EventHandler(this.btnOrderInfoManage_Click);
             // 
             // btnVisaSubmit
             // 
@@ -655,7 +655,7 @@
         private DevComponents.DotNetBar.RibbonControl ribbonControl1;
         private DevComponents.DotNetBar.RibbonPanel ribbonPanel3;
         private DevComponents.DotNetBar.RibbonBar ribbonBar2;
-        private DevComponents.DotNetBar.ButtonItem btnVisaQuery;
+        private DevComponents.DotNetBar.ButtonItem btnOrderInfoManage;
         private DevComponents.DotNetBar.ButtonItem btnVisaSubmit;
         private DevComponents.DotNetBar.RibbonPanel ribbonPanel5;
         private DevComponents.DotNetBar.RibbonTabItem ribbonTabItem3;

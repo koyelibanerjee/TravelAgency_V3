@@ -108,23 +108,29 @@ namespace TravelAgency.OrdersManagement
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            this.Text = "东瀛假日:签证自动扫描识别系统V" + XmlHandler.GetPropramVersion();
-            this.Text = this.Text + "     当前登录用户:" + Common.GlobalUtils.LoginUser.UserName;
+            
             MinimumSize = Size;
             FrmsManager.OpenedForms.Add(this);
             string workId = GlobalUtils.LoginUser.WorkId;
+            string role = "";
             if (GlobalUtils.LoginUserLevel == RigthLevel.Operator)
             {
                 btnOrderManagementWaitor.Enabled = false;
+                role = "操作";
             }
             else if (GlobalUtils.LoginUserLevel == RigthLevel.Waitor)
             {
                 btnOrderManagementOperator.Enabled = false;
+                role = "客服";
             }
             else //管理员全部都可以
             {
-
+                role = "管理员";
             }
+
+            this.Text = "EasyGo 网络订单管理系统" + XmlHandler.GetPropramVersion();
+            this.Text = this.Text + "     当前登录用户:" + Common.GlobalUtils.LoginUser.UserName;
+            this.Text += "  身份:(" + role + ")";
         }
 
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
@@ -165,5 +171,10 @@ namespace TravelAgency.OrdersManagement
             ps.Start();
         }
 
+        private void btnOrderInfoManage_Click(object sender, EventArgs e)
+        {
+            FrmOrderInfoManage frm = new FrmOrderInfoManage();
+            OpenTab(frm, frm.Name);
+        }
     }
 }
