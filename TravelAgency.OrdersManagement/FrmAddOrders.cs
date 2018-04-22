@@ -37,6 +37,15 @@ namespace TravelAgency.OrdersManagement
 
             InitComboBoxs();
 
+            if (GlobalUtils.LoginUserLevel == RigthLevel.Operator) //操作不能修改基本订单信息和客人信息
+            {
+                btnOK.Enabled = false;
+            }
+
+            if (GlobalUtils.LoginUserLevel == RigthLevel.Waitor) //操作不能查看操作的信息
+            {
+                btnOperInfo.Enabled = false;
+            }
 
             if (_is4Modify)
             {
@@ -204,12 +213,26 @@ namespace TravelAgency.OrdersManagement
 
         private void btnGuestInfo_Click(object sender, EventArgs e)
         {
+            if (_model == null)
+            {
+                MessageBoxEx.Show("请先添加订单信息后再录入客人信息!!!");
+                return;
+            }
+
             FrmSetGuestInfo frm = new FrmSetGuestInfo(_updateDel, _curPage, true, _model);
             frm.Show();
         }
 
         private void btnOperInfo_Click(object sender, EventArgs e)
         {
+            if (_model == null)
+            {
+                MessageBoxEx.Show("请先添加订单信息后再录入操作信息!!!");
+                return;
+            }
+
+
+
 
             FrmSetOperInfo frm = new FrmSetOperInfo(_updateDel, _curPage, true, _model);
             frm.Show();

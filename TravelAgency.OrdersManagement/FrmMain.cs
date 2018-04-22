@@ -19,13 +19,13 @@ namespace TravelAgency.OrdersManagement
         }
 
 
-        
+
 
         public void OpenTab(Form frm, string Name)
         {
             if (IsOpenTab(Name))
                 return;
-            
+
             DevComponents.DotNetBar.TabItem tp = new DevComponents.DotNetBar.TabItem();
             DevComponents.DotNetBar.TabControlPanel tcp = new DevComponents.DotNetBar.TabControlPanel();
             tp.MouseDown += new MouseEventHandler(tp_MouseDown);
@@ -112,10 +112,18 @@ namespace TravelAgency.OrdersManagement
             this.Text = this.Text + "     当前登录用户:" + Common.GlobalUtils.LoginUser.UserName;
             MinimumSize = Size;
             FrmsManager.OpenedForms.Add(this);
-           string workId =  GlobalUtils.LoginUser.WorkId;
-            if (workId != "10000" && workId != "10301" && workId != "10302")
+            string workId = GlobalUtils.LoginUser.WorkId;
+            if (GlobalUtils.LoginUserLevel == RigthLevel.Operator)
             {
-                btnCommisionMoneyManage.Enabled = false;
+                btnOrderManagementWaitor.Enabled = false;
+            }
+            else if (GlobalUtils.LoginUserLevel == RigthLevel.Waitor)
+            {
+                btnOrderManagementOperator.Enabled = false;
+            }
+            else //管理员全部都可以
+            {
+
             }
         }
 
@@ -136,5 +144,26 @@ namespace TravelAgency.OrdersManagement
             FrmOrdersManage_Oper frm = new FrmOrdersManage_Oper();
             OpenTab(frm, frm.Name);
         }
+
+        private void btnChangeLoginUser_Click(object sender, EventArgs e)
+        {
+            if (MessageBoxEx.Show("是否切换用户", "提示", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+            {
+                StartExe(Application.ExecutablePath);
+                Application.ExitThread();
+            }
+        }
+
+        private static void StartExe(string appName)
+        {
+            string path = appName;
+            Process ps = new Process();
+            ps.StartInfo.FileName = path;
+            ps.StartInfo.Arguments = "T";
+            ps.StartInfo.CreateNoWindow = true;
+            ps.StartInfo.WorkingDirectory = Path.GetDirectoryName(path);
+            ps.Start();
+        }
+
     }
 }

@@ -78,11 +78,11 @@ namespace TravelAgency.OrdersManagement
             Common.GlobalUtils.LoginUser = list[0];
             if (list[0].WorkId == "10000" || list[0].WorkId == "10301" || list[0].WorkId == "10302")
             {
-                GlobalUtils.LoginUserLevel = RigthLevel.Manager;
+                GlobalUtils.LoginUserLevel = RigthLevel.Waitor;
             }
             else
             {
-                GlobalUtils.LoginUserLevel = RigthLevel.Normal;
+                GlobalUtils.LoginUserLevel = RigthLevel.Operator;
             }
 
             if (FrmsManager.MainForm != null)

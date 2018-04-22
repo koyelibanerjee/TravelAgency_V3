@@ -36,6 +36,11 @@ namespace TravelAgency.OrdersManagement
             InitComboBoxs();
 
 
+            if (GlobalUtils.LoginUserLevel == RigthLevel.Operator) //操作不能修改基本订单信息和客人信息
+            {
+                btnOK.Enabled = false;
+            }
+
             if (_is4Modify)
             {
                 //基本信息
