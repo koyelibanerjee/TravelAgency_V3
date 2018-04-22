@@ -18,7 +18,11 @@ namespace TravelAgency.OrdersManagement
 
         public FrmSetOperInfo(Action<int> updateDel, int curPage, bool is4Modify = false, TravelAgency.Model.Orders model = null)
         {
-            this.StartPosition = FormStartPosition.CenterParent;
+            if (this.Modal)
+                this.StartPosition = FormStartPosition.CenterParent;
+            else
+                this.StartPosition = FormStartPosition.CenterScreen;
+
             InitializeComponent();
             _updateDel = updateDel;
             _curPage = curPage;
