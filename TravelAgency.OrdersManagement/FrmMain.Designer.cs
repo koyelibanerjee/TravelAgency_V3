@@ -1,4 +1,4 @@
-﻿namespace TravelAgency.CSUI.FrmMain
+﻿namespace TravelAgency.OrdersManagement
 {
     partial class FrmMain
     {
@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.ribbonControl1 = new DevComponents.DotNetBar.RibbonControl();
             this.ribbonPanel3 = new DevComponents.DotNetBar.RibbonPanel();
-            this.lbVisaInfoCount = new System.Windows.Forms.Label();
             this.ribbonBar2 = new DevComponents.DotNetBar.RibbonBar();
             this.btnVisaTypeIn = new DevComponents.DotNetBar.ButtonItem();
             this.btnVisaInfoManage = new DevComponents.DotNetBar.ButtonItem();
@@ -63,10 +63,10 @@
             this.btnVip = new DevComponents.DotNetBar.ButtonItem();
             this.btnUsers = new DevComponents.DotNetBar.ButtonItem();
             this.tabMain = new DevComponents.DotNetBar.TabControl();
-            this.cms = new System.Windows.Forms.ContextMenuStrip();
+            this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnMCloseAll = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMCloseOther = new System.Windows.Forms.ToolStripMenuItem();
-            this.styleManager1 = new DevComponents.DotNetBar.StyleManager();
+            this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
             this.btnFrmGaoPaiManage = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonControl1.SuspendLayout();
             this.ribbonPanel3.SuspendLayout();
@@ -84,8 +84,8 @@
             // 
             this.ribbonControl1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonControl1.Controls.Add(this.ribbonPanel3);
-            this.ribbonControl1.Controls.Add(this.ribbonPanel2);
             this.ribbonControl1.Controls.Add(this.ribbonPanel1);
+            this.ribbonControl1.Controls.Add(this.ribbonPanel2);
             this.ribbonControl1.Controls.Add(this.ribbonPanel5);
             this.ribbonControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.ribbonControl1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
@@ -121,7 +121,6 @@
             // ribbonPanel3
             // 
             this.ribbonPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribbonPanel3.Controls.Add(this.lbVisaInfoCount);
             this.ribbonPanel3.Controls.Add(this.ribbonBar2);
             this.ribbonPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ribbonPanel3.Location = new System.Drawing.Point(0, 25);
@@ -141,19 +140,6 @@
             // 
             this.ribbonPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonPanel3.TabIndex = 3;
-            // 
-            // lbVisaInfoCount
-            // 
-            this.lbVisaInfoCount.BackColor = System.Drawing.Color.Transparent;
-            this.lbVisaInfoCount.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lbVisaInfoCount.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbVisaInfoCount.ForeColor = System.Drawing.Color.ForestGreen;
-            this.lbVisaInfoCount.Location = new System.Drawing.Point(791, 0);
-            this.lbVisaInfoCount.Name = "lbVisaInfoCount";
-            this.lbVisaInfoCount.Size = new System.Drawing.Size(490, 58);
-            this.lbVisaInfoCount.TabIndex = 2;
-            this.lbVisaInfoCount.Text = "dasdasdsadasdas";
-            this.lbVisaInfoCount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // ribbonBar2
             // 
@@ -201,7 +187,7 @@
             this.btnVisaTypeIn.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
             this.btnVisaTypeIn.Name = "btnVisaTypeIn";
             this.btnVisaTypeIn.SubItemsExpandWidth = 14;
-            this.btnVisaTypeIn.Text = "签证录入";
+            this.btnVisaTypeIn.Text = "客服(录入、管理)";
             this.btnVisaTypeIn.Click += new System.EventHandler(this.btnVisaTypeIn_Click);
             // 
             // btnVisaInfoManage
@@ -211,7 +197,7 @@
             this.btnVisaInfoManage.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
             this.btnVisaInfoManage.Name = "btnVisaInfoManage";
             this.btnVisaInfoManage.SubItemsExpandWidth = 14;
-            this.btnVisaInfoManage.Text = "签证管理";
+            this.btnVisaInfoManage.Text = "操作(录入、管理)";
             this.btnVisaInfoManage.Click += new System.EventHandler(this.btnVisaInfoManage_Click);
             // 
             // btnVisaQuery
@@ -222,7 +208,6 @@
             this.btnVisaQuery.Name = "btnVisaQuery";
             this.btnVisaQuery.SubItemsExpandWidth = 14;
             this.btnVisaQuery.Text = "团号管理";
-            this.btnVisaQuery.Click += new System.EventHandler(this.btnVisaQuery_Click);
             // 
             // btnVisaSubmit
             // 
@@ -232,7 +217,6 @@
             this.btnVisaSubmit.Name = "btnVisaSubmit";
             this.btnVisaSubmit.SubItemsExpandWidth = 14;
             this.btnVisaSubmit.Text = "送签管理";
-            this.btnVisaSubmit.Click += new System.EventHandler(this.buttonItem1_Click);
             // 
             // btnScanFrm
             // 
@@ -242,7 +226,6 @@
             this.btnScanFrm.Name = "btnScanFrm";
             this.btnScanFrm.SubItemsExpandWidth = 14;
             this.btnScanFrm.Text = "高拍仪做资料";
-            this.btnScanFrm.Click += new System.EventHandler(this.btnScanFrm_Click);
             // 
             // btnGPManage
             // 
@@ -252,7 +235,6 @@
             this.btnGPManage.Name = "btnGPManage";
             this.btnGPManage.SubItemsExpandWidth = 14;
             this.btnGPManage.Text = "高拍图像管理";
-            this.btnGPManage.Click += new System.EventHandler(this.btnGPManage_Click);
             // 
             // btnJiaoJiePicManage
             // 
@@ -262,7 +244,6 @@
             this.btnJiaoJiePicManage.Name = "btnJiaoJiePicManage";
             this.btnJiaoJiePicManage.SubItemsExpandWidth = 14;
             this.btnJiaoJiePicManage.Text = "交接表管理";
-            this.btnJiaoJiePicManage.Click += new System.EventHandler(this.btnJiaoJiePicManage_Click);
             // 
             // btnJobAssignment
             // 
@@ -272,7 +253,6 @@
             this.btnJobAssignment.Name = "btnJobAssignment";
             this.btnJobAssignment.SubItemsExpandWidth = 14;
             this.btnJobAssignment.Text = "任务分配";
-            this.btnJobAssignment.Click += new System.EventHandler(this.btnJobAssignment_Click);
             // 
             // ribbonPanel2
             // 
@@ -338,7 +318,6 @@
             this.btnClientManage.Name = "btnClientManage";
             this.btnClientManage.SubItemsExpandWidth = 14;
             this.btnClientManage.Text = "客户收费管理";
-            this.btnClientManage.Click += new System.EventHandler(this.btnClientManage_Click);
             // 
             // btnConsulateManage
             // 
@@ -348,7 +327,6 @@
             this.btnConsulateManage.Name = "btnConsulateManage";
             this.btnConsulateManage.SubItemsExpandWidth = 14;
             this.btnConsulateManage.Text = "领馆收费管理";
-            this.btnConsulateManage.Click += new System.EventHandler(this.btnConsulateManage_Click);
             // 
             // ribbonBar3
             // 
@@ -389,7 +367,6 @@
             this.btnVisaRequestPayoutManage.Name = "btnVisaRequestPayoutManage";
             this.btnVisaRequestPayoutManage.SubItemsExpandWidth = 14;
             this.btnVisaRequestPayoutManage.Text = "签证请款管理";
-            this.btnVisaRequestPayoutManage.Click += new System.EventHandler(this.buttonItem1_Click_1);
             // 
             // btnAppAllManage
             // 
@@ -399,7 +376,6 @@
             this.btnAppAllManage.Name = "btnAppAllManage";
             this.btnAppAllManage.SubItemsExpandWidth = 14;
             this.btnAppAllManage.Text = "待审批请款";
-            this.btnAppAllManage.Click += new System.EventHandler(this.btnAppAllManage_Click);
             // 
             // ribbonPanel1
             // 
@@ -465,7 +441,6 @@
             this.btntActionRecordsCount.Name = "btntActionRecordsCount";
             this.btntActionRecordsCount.SubItemsExpandWidth = 14;
             this.btntActionRecordsCount.Text = "操作记录明细";
-            this.btntActionRecordsCount.Click += new System.EventHandler(this.btntActionRecordsCount_Click);
             // 
             // btnPersonalCount
             // 
@@ -475,7 +450,6 @@
             this.btnPersonalCount.Name = "btnPersonalCount";
             this.btnPersonalCount.SubItemsExpandWidth = 14;
             this.btnPersonalCount.Text = "个人工作量统计";
-            this.btnPersonalCount.Click += new System.EventHandler(this.btnPersonalCount_Click);
             // 
             // btnCommisionMoneyManage
             // 
@@ -485,7 +459,6 @@
             this.btnCommisionMoneyManage.Name = "btnCommisionMoneyManage";
             this.btnCommisionMoneyManage.SubItemsExpandWidth = 14;
             this.btnCommisionMoneyManage.Text = "工作提成管理";
-            this.btnCommisionMoneyManage.Click += new System.EventHandler(this.btnCommisionMoneyManage_Click);
             // 
             // ribbonPanel5
             // 
@@ -549,7 +522,6 @@
             this.btnChangeLoginUser.Name = "btnChangeLoginUser";
             this.btnChangeLoginUser.SubItemsExpandWidth = 14;
             this.btnChangeLoginUser.Text = "切换用户";
-            this.btnChangeLoginUser.Click += new System.EventHandler(this.btnChangeLoginUser_Click);
             // 
             // ribbonTabItem3
             // 
@@ -691,7 +663,6 @@
         private DevComponents.DotNetBar.ButtonItem btnScanFrm;
         private DevComponents.DotNetBar.ButtonItem btnGPManage;
         private DevComponents.DotNetBar.ButtonItem btnFrmGaoPaiManage;
-        private System.Windows.Forms.Label lbVisaInfoCount;
         private DevComponents.DotNetBar.RibbonPanel ribbonPanel1;
         private DevComponents.DotNetBar.RibbonTabItem ribbonTabItem1;
         private DevComponents.DotNetBar.RibbonBar ribbonBar1;

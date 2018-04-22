@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -105,7 +106,7 @@
             this.rbtnAbOut = new System.Windows.Forms.RadioButton();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.txtInput = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.cmsDgvRb = new System.Windows.Forms.ContextMenuStrip();
+            this.cmsDgvRb = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmsItemQRCodeShow = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsItemQRCodeBatchGenerate = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsItemQRCodeBatchPrint = new System.Windows.Forms.ToolStripMenuItem();
@@ -244,7 +245,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
