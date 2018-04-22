@@ -107,7 +107,7 @@ namespace TravelAgency.OrdersManagement
             LoadDataToDgvAsyn();
         }
 
-        
+
 
         #region dgv用到的相关方法
 
@@ -398,7 +398,7 @@ namespace TravelAgency.OrdersManagement
             //LoadDataToDgvAsyn();
         }
 
-        
+
 
         void Proc()
         {
@@ -507,8 +507,19 @@ namespace TravelAgency.OrdersManagement
         }
 
 
+
         #endregion
 
-
+        private void 查看录入订单客人信息ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 1)
+            {
+                MessageBoxEx.Show("请选中一条数据进行操作!");
+                return;
+            }
+            FrmSetGuestInfo frm = new FrmSetGuestInfo(LoadDataToDataGridView, _curPage, true,
+                DgvDataSourceToList()[dataGridView1.SelectedRows[0].Index]);
+            frm.Show();
+        }
     }
 }
