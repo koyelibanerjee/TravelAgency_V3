@@ -56,7 +56,8 @@ namespace TravelAgency.Common.Excel
             List<Model.OrderInfo> modelList = new List<Model.OrderInfo>();
             if (excelType == ExcelType.Type01_DaZhong)
                 modelList = GetModelFromExcelDazhong(wkbook);
-
+            if (excelType == ExcelType.Type03_MaYi)
+                modelList = GetModelFromExcelFengWo(wkbook);
 
             //全部添加excelid记录 //执行添加
             int res = 0;
@@ -83,9 +84,8 @@ namespace TravelAgency.Common.Excel
             ISheet sheet = wbBook.GetSheet("应付金额");
             List<Model.OrderInfo> res = new List<Model.OrderInfo>();
 
-            List<string> keyList = new List<string> { "确认时间", "支付时间", "美团供应商ID", "产品ID",
-                "产品类型", "客人姓名", "出发日期", "份数", "结算方式", "佣金比例" };
-            
+            var headerRow = sheet.GetRow(0); //表头
+            List<string> keyList = GetRowStringValueList(headerRow);
 
             for (int i = 1; i <= sheet.LastRowNum; ++i) //第0行是表头
             {
@@ -109,24 +109,11 @@ namespace TravelAgency.Common.Excel
                     modelRec.PaymentPlatform = Enums.OrderInfo_PaymentPlatform.valueKeyMap["大众"];
                     modelPay.PaymentPlatform = Enums.OrderInfo_PaymentPlatform.valueKeyMap["大众"];
 
-                    List<string> valueList = new List<string>();
-                    valueList.Add(row.GetCell(1)?.StringCellValue);
-                    valueList.Add(row.GetCell(2)?.StringCellValue);
-                    valueList.Add(row.GetCell(4)?.StringCellValue);
-                    valueList.Add(row.GetCell(5)?.StringCellValue);
-                    valueList.Add(row.GetCell(7)?.StringCellValue);
-                    valueList.Add(row.GetCell(8)?.StringCellValue);
-                    valueList.Add(row.GetCell(9)?.StringCellValue);
-                    valueList.Add(row.GetCell(10)?.StringCellValue);
-                    valueList.Add(row.GetCell(11)?.StringCellValue);
-                    valueList.Add(row.GetCell(12)?.StringCellValue);
-
-
-                    string extraData = JsonHandler.GenJson(keyList, valueList);
+                    string extraData = JsonHandler.GenJson(keyList, GetRowStringValueList(row));
                     modelPay.ExtraData = extraData;
                     modelRec.ExtraData = extraData;
 
-                    
+
                     res.Add(modelPay);
                     res.Add(modelRec);
                 }
@@ -139,5 +126,84 @@ namespace TravelAgency.Common.Excel
 
             return res;
         }
+
+
+        /// <summary>
+        /// 只拿到四项信息
+        /// </summary>
+        /// <param name="wbBook"></param>
+        /// <returns></returns>
+        private static List<Model.OrderInfo> GetModelFromExcelFengWo(IWorkbook wbBook)
+        {
+            //2.创建工作表对象
+            ISheet sheet = wbBook.GetSheet("sheet");
+            List<Model.OrderInfo> res = new List<Model.OrderInfo>();
+
+            var headerRow = sheet.GetRow(0); //表头
+            List<string> keyList = GetRowStringValueList(headerRow);
+            for (int i = 1; i <= sheet.LastRowNum; ++i) //第0行是表头
+            {
+                try
+                {
+                    var row = sheet.GetRow(i); //每行两个model,一个佣金，一个收入金额
+                    Model.OrderInfo modelPay = new Model.OrderInfo();
+                    Model.OrderInfo modelRec = new Model.OrderInfo();
+
+                    modelPay.OrderNo = row.GetCell(0)?.StringCellValue;
+                    modelPay.ProductName = row.GetCell(1)?.StringCellValue;
+                    modelPay.Amount = DecimalHandler.Parse(row.GetCell(9)?.NumericCellValue.ToString()); //佣金
+                    modelPay.OrderTime = DateTime.Parse(row.GetCell(16)?.StringCellValue); //结算时间
+                    modelPay.PaymentPlatform = Enums.OrderInfo_PaymentPlatform.valueKeyMap["蚂蜂"];
+                    modelPay.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["佣金"];
+
+                    modelRec.OrderNo = row.GetCell(0)?.StringCellValue;
+                    modelRec.ProductName = row.GetCell(1)?.StringCellValue;
+                    modelRec.Amount = DecimalHandler.Parse(row.GetCell(11)?.NumericCellValue.ToString()); //收入
+                    modelRec.OrderTime = DateTime.Parse(row.GetCell(16)?.StringCellValue); //结算时间
+                    modelRec.PaymentPlatform = Enums.OrderInfo_PaymentPlatform.valueKeyMap["大众"];
+                    modelRec.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["收入"];
+
+
+
+                    string extraData = JsonHandler.GenJson(keyList, GetRowStringValueList(row));
+                    modelPay.ExtraData = extraData;
+                    modelRec.ExtraData = extraData;
+
+
+                    res.Add(modelPay);
+                    res.Add(modelRec);
+                }
+                catch (Exception e)
+                {
+                    MessageBoxEx.Show("第" + (i + 1) + "行数据有误");
+                }
+            }
+            //return res.Count == 0 ? null : res;
+
+            return res;
+        }
+
+        private static List<string> GetRowStringValueList(IRow row)
+        {
+            List<string> res = new List<string>();
+            for (int i = 0; i < row.LastCellNum; ++i)
+            {
+                string val = "";
+                try
+                {
+                    val = row.GetCell(i)?.StringCellValue;
+                }
+                catch (Exception e)
+                {
+                    val = row.GetCell(i)?.NumericCellValue.ToString();
+                }
+                res.Add(val);
+            }
+
+            return res;
+        }
     }
+
+
+
 }
