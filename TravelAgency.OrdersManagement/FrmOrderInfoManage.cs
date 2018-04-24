@@ -472,8 +472,9 @@ namespace TravelAgency.OrdersManagement
             string filename = GlobalUtils.ShowOpenFileDlg("Excel文件|*.xls;*.xlsx");
             if (string.IsNullOrEmpty(filename))
                 return;
-            int res = Common.Excel.OrderInfoExcelParser.ParseExcel(filename, Common.Excel.OrderInfoExcelParser.ExcelType.Type01_DaZhong);
+            //int res = Common.Excel.OrderInfoExcelParser.ParseExcel(filename, Common.Excel.OrderInfoExcelParser.ExcelType.Type01_DaZhong);
             //int res = Common.Excel.OrderInfoExcelParser.ParseExcel(filename, Common.Excel.OrderInfoExcelParser.ExcelType.Type03_MaYi);
+            int res = Common.Excel.OrderInfoExcelParser.ParseExcel(filename, Common.Excel.OrderInfoExcelParser.ExcelType.Type04_XieCheng);
             MessageBoxEx.Show("导入" + res + "条数据成功！");
             LoadDataToDgvAsyn();
         }

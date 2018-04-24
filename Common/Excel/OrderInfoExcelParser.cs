@@ -59,6 +59,9 @@ namespace TravelAgency.Common.Excel
             if (excelType == ExcelType.Type03_MaYi)
                 modelList = GetModelFromExcelFengWo(wkbook);
 
+            if (excelType == ExcelType.Type04_XieCheng)
+                modelList = GetModelFromExcelXieCheng(wkbook);
+
             //全部添加excelid记录 //执行添加
             int res = 0;
             foreach (var item in modelList)
@@ -182,6 +185,107 @@ namespace TravelAgency.Common.Excel
 
             return res;
         }
+
+
+
+        /// <summary>
+        /// 结算价<0 无佣金  是退款
+        //  结算价>0 有佣金>0  空或=0  没有佣金
+        /// </summary>
+        /// <param name="wbBook"></param>
+        /// <returns></returns>
+        private static List<Model.OrderInfo> GetModelFromExcelXieCheng(IWorkbook wbBook)
+        {
+            //2.创建工作表对象
+            ISheet sheet = wbBook.GetSheetAt(0);
+            List<Model.OrderInfo> res = new List<Model.OrderInfo>();
+
+            var headerRow = sheet.GetRow(4); //表头
+            List<string> keyList = GetRowStringValueList(headerRow);
+            for (int i = 5; i <= sheet.LastRowNum; ++i) //第0行是表头
+            {
+                try
+                {
+                    var row = sheet.GetRow(i); //每行两个model,一个佣金，一个收入金额
+
+                    string extraData = JsonHandler.GenJson(keyList, GetRowStringValueList(row));
+                    var amount = DecimalHandler.Parse(row.GetCell(2)?.NumericCellValue.ToString());
+                    if (amount < 0) //是退款
+                    {
+                        Model.OrderInfo modeRefund = new Model.OrderInfo();
+                        modeRefund.OrderNo = row.GetCell(0)?.StringCellValue;
+                        modeRefund.ProductName = row.GetCell(1)?.StringCellValue;
+                        modeRefund.Amount = amount; //佣金
+
+                        modeRefund.OrderTime = DateTime.Parse(row.GetCell(7)?.StringCellValue); //结算时间
+                        modeRefund.PaymentPlatform = Enums.OrderInfo_PaymentPlatform.valueKeyMap["携程"];
+                        modeRefund.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["退款"];
+                        modeRefund.ExtraData = extraData;
+                        res.Add(modeRefund);
+                    }
+                    else //收入
+                    {
+                        Model.OrderInfo modelPay = new Model.OrderInfo();
+                        Model.OrderInfo modelRec = new Model.OrderInfo();
+                        var str = row.GetCell(5)?.StringCellValue;
+                        decimal amount1 = 0;
+                        if (string.IsNullOrEmpty(str)) //空单元格
+                        {
+                            amount1 = 0;
+                        }
+                        else
+                        {
+                            int idx = str.IndexOf(' ');
+                            amount1 = DecimalHandler.Parse(str.Substring(0, idx));
+                        }
+
+                        if (amount1 > 0) //有佣金，需要两个model
+                        {
+                            modelPay.OrderNo = row.GetCell(0)?.StringCellValue;
+                            modelPay.ProductName = row.GetCell(1)?.StringCellValue;
+                            modelPay.Amount = -1 * amount1; //佣金
+                            modelPay.OrderTime = DateTime.Parse(row.GetCell(7)?.StringCellValue); //结算时间
+                            modelPay.PaymentPlatform = Enums.OrderInfo_PaymentPlatform.valueKeyMap["携程"];
+                            modelPay.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["佣金"];
+
+
+                            modelRec.OrderNo = row.GetCell(0)?.StringCellValue;
+                            modelRec.ProductName = row.GetCell(1)?.StringCellValue;
+                            modelRec.Amount = amount; //收入
+                            modelRec.OrderTime = DateTime.Parse(row.GetCell(7)?.StringCellValue); //结算时间
+                            modelRec.PaymentPlatform = Enums.OrderInfo_PaymentPlatform.valueKeyMap["携程"];
+                            modelRec.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["收入"];
+
+
+                            modelPay.ExtraData = extraData;
+                            modelRec.ExtraData = extraData;
+
+                            res.Add(modelPay);
+                            res.Add(modelRec);
+                        }
+                        else //只有收入
+                        {
+                            modelRec.OrderNo = row.GetCell(0)?.StringCellValue;
+                            modelRec.ProductName = row.GetCell(1)?.StringCellValue;
+                            modelRec.Amount = amount; //收入
+                            modelRec.OrderTime = DateTime.Parse(row.GetCell(7)?.StringCellValue); //结算时间
+                            modelRec.PaymentPlatform = Enums.OrderInfo_PaymentPlatform.valueKeyMap["携程"];
+                            modelRec.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["收入"];
+                            modelRec.ExtraData = extraData;
+
+                            res.Add(modelRec);
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    MessageBoxEx.Show("第" + (i + 1) + "行数据有误");
+                }
+            }
+            return res;
+        }
+
+
 
         private static List<string> GetRowStringValueList(IRow row)
         {
