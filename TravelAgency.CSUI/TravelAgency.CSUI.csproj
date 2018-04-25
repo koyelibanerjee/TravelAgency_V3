@@ -50,7 +50,7 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\Icons\东瀛假日.ico</ApplicationIcon>
+    <ApplicationIcon>微信图片_20180423141952~1.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AxInterop.SCANCTRLLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -682,6 +682,7 @@
     <None Include="Resources\CountryImages\PassportPictureNotFound.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="微信图片_20180423141952~1.ico" />
     <None Include="Resources\tables.png" />
     <None Include="Resources\Loading.png" />
     <None Include="Resources\Loading.jpg" />

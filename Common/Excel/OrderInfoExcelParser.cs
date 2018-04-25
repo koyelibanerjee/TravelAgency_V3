@@ -236,7 +236,7 @@ namespace TravelAgency.Common.Excel
                         else
                         {
                             int idx = str.IndexOf(' ');
-                            amount1 = DecimalHandler.Parse(str.Substring(0, idx));
+                            amount1 = DecimalHandler.Parse(str.Substring(0, idx)); //去掉后缀的 RMB
                         }
 
                         if (amount1 > 0) //有佣金，需要两个model

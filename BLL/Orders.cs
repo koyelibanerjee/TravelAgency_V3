@@ -54,6 +54,8 @@ namespace TravelAgency.BLL
 			
 			return dal.Delete(Id);
 		}
+
+
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>

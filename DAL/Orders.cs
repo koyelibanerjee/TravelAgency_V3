@@ -57,12 +57,12 @@ namespace TravelAgency.DAL
 					new SqlParameter("@ProductName", SqlDbType.VarChar,200),
 					new SqlParameter("@ProductId", SqlDbType.Int,4),
 					new SqlParameter("@ProductType", SqlDbType.VarChar,50),
-					new SqlParameter("@GuestId", SqlDbType.Int,4),
+					new SqlParameter("@GuestId", SqlDbType.VarChar,100),
 					new SqlParameter("@GuestName", SqlDbType.VarChar,20),
 					new SqlParameter("@GuestNamePinYin", SqlDbType.VarChar,50),
 					new SqlParameter("@GuestSex", SqlDbType.VarChar,10),
 					new SqlParameter("@GuestBirthday", SqlDbType.DateTime,3),
-					new SqlParameter("@GuestUseTime", SqlDbType.Int,4),
+					new SqlParameter("@GuestUseTime", SqlDbType.DateTime),
 					new SqlParameter("@GuestPhone", SqlDbType.VarChar,20),
 					new SqlParameter("@GuestWeiChat", SqlDbType.VarChar,50),
 					new SqlParameter("@GuestEMail", SqlDbType.VarChar,50),
@@ -227,12 +227,12 @@ namespace TravelAgency.DAL
 					new SqlParameter("@ProductName", SqlDbType.VarChar,200),
 					new SqlParameter("@ProductId", SqlDbType.Int,4),
 					new SqlParameter("@ProductType", SqlDbType.VarChar,50),
-					new SqlParameter("@GuestId", SqlDbType.Int,4),
+					new SqlParameter("@GuestId", SqlDbType.VarChar,100),
 					new SqlParameter("@GuestName", SqlDbType.VarChar,20),
 					new SqlParameter("@GuestNamePinYin", SqlDbType.VarChar,50),
 					new SqlParameter("@GuestSex", SqlDbType.VarChar,10),
 					new SqlParameter("@GuestBirthday", SqlDbType.DateTime,3),
-					new SqlParameter("@GuestUseTime", SqlDbType.Int,4),
+					new SqlParameter("@GuestUseTime", SqlDbType.DateTime),
 					new SqlParameter("@GuestPhone", SqlDbType.VarChar,20),
 					new SqlParameter("@GuestWeiChat", SqlDbType.VarChar,50),
 					new SqlParameter("@GuestEMail", SqlDbType.VarChar,50),
@@ -442,9 +442,9 @@ namespace TravelAgency.DAL
 				{
 					model.ProductType=row["ProductType"].ToString();
 				}
-				if(row["GuestId"]!=null && row["GuestId"].ToString()!="")
+				if(row["GuestId"]!=null)
 				{
-					model.GuestId=int.Parse(row["GuestId"].ToString());
+					model.GuestId=row["GuestId"].ToString();
 				}
 				if(row["GuestName"]!=null)
 				{
@@ -464,7 +464,7 @@ namespace TravelAgency.DAL
 				}
 				if(row["GuestUseTime"]!=null && row["GuestUseTime"].ToString()!="")
 				{
-					model.GuestUseTime=int.Parse(row["GuestUseTime"].ToString());
+					model.GuestUseTime=DateTime.Parse(row["GuestUseTime"].ToString());
 				}
 				if(row["GuestPhone"]!=null)
 				{

@@ -17,12 +17,12 @@ namespace TravelAgency.Model
 		private string _productname;
 		private int? _productid;
 		private string _producttype;
-		private int? _guestid;
+		private string _guestid;
 		private string _guestname;
 		private string _guestnamepinyin;
 		private string _guestsex;
 		private DateTime? _guestbirthday;
-		private int? _guestusetime;
+		private DateTime? _guestusetime;
 		private string _guestphone;
 		private string _guestweichat;
 		private string _guestemail;
@@ -120,7 +120,7 @@ namespace TravelAgency.Model
 		/// <summary>
 		/// 
 		/// </summary>
-		public int? GuestId
+		public string GuestId
 		{
 			set{ _guestid=value;}
 			get{return _guestid;}
@@ -160,7 +160,7 @@ namespace TravelAgency.Model
 		/// <summary>
 		/// 
 		/// </summary>
-		public int? GuestUseTime
+		public DateTime? GuestUseTime
 		{
 			set{ _guestusetime=value;}
 			get{return _guestusetime;}
