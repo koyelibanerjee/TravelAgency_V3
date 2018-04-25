@@ -98,7 +98,7 @@ namespace TravelAgency.OrdersManagement
 
         private void DataGridView1_DoubleClick(object sender, EventArgs e)
         {
-            修改ToolStripMenuItem_Click(null, null);
+            查看录入订单操作信息ToolStripMenuItem_Click(null, null);
         }
 
         private void CbPageSize_TextChanged(object sender, EventArgs e)
