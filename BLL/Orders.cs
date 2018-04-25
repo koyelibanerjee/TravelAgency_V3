@@ -51,7 +51,6 @@ namespace TravelAgency.BLL
 		/// </summary>
 		public bool Delete(int Id)
 		{
-			
 			return dal.Delete(Id);
 		}
 

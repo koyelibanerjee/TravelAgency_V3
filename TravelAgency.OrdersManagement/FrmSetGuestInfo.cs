@@ -47,7 +47,7 @@ namespace TravelAgency.OrdersManagement
             if (_is4Modify)
             {
                 //基本信息
-                txtGuestId.Text = _model.GuestId.ToString();
+                txtGuestId.Text = _model.GuestId;
                 txtGuestName.Text = _model.GuestName;
                 txtGuestNamePinYin.Text = _model.GuestNamePinYin;
                 txtGuestSex.Text = _model.GuestSex;
@@ -117,12 +117,12 @@ namespace TravelAgency.OrdersManagement
             {
                 try
                 {
-                    _model.GuestId = CtrlParser.Parse2Int(txtGuestId);
+                    _model.GuestId = CtrlParser.Parse2String(txtGuestId);
                     _model.GuestName = CtrlParser.Parse2String(txtGuestName);
                     _model.GuestNamePinYin = CtrlParser.Parse2String(txtGuestNamePinYin);
                     _model.GuestSex = CtrlParser.Parse2String(txtGuestSex);
                     _model.GuestBirthday = CtrlParser.Parse2Datetime(txtGuestBirthday);
-                    _model.GuestUseTime = CtrlParser.Parse2Int(txtGuestUseTime);
+                    _model.GuestUseTime = CtrlParser.Parse2Datetime(txtGuestUseTime);
                     _model.GuestPhone = CtrlParser.Parse2String(txtGuestPhone);
                     _model.GuestWeiChat = CtrlParser.Parse2String(txtGuestWeiChat);
                     _model.GuestEMail = CtrlParser.Parse2String(txtGuestEMail);

@@ -56,15 +56,14 @@
             this.txtReserveTime = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX11 = new DevComponents.DotNetBar.LabelX();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtGuestBirthday = new System.Windows.Forms.DateTimePicker();
             this.txtGuestEMail = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX23 = new DevComponents.DotNetBar.LabelX();
             this.txtGuestWeiChat = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX22 = new DevComponents.DotNetBar.LabelX();
             this.txtGuestPhone = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX21 = new DevComponents.DotNetBar.LabelX();
-            this.txtGuestUseTime = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX19 = new DevComponents.DotNetBar.LabelX();
-            this.txtGuestBirthday = new System.Windows.Forms.DateTimePicker();
             this.txtGuestBirthday2 = new DevComponents.DotNetBar.LabelX();
             this.txtGuestSex = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.asda = new DevComponents.DotNetBar.LabelX();
@@ -77,6 +76,7 @@
             this.btnAddFromExcel = new DevComponents.DotNetBar.ButtonX();
             this.btnOK = new DevComponents.DotNetBar.ButtonX();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
+            this.txtGuestUseTime = new System.Windows.Forms.DateTimePicker();
             this.panelEx1.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -446,6 +446,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtGuestUseTime);
             this.groupBox1.Controls.Add(this.txtGuestBirthday);
             this.groupBox1.Controls.Add(this.txtGuestEMail);
             this.groupBox1.Controls.Add(this.labelX23);
@@ -453,7 +454,6 @@
             this.groupBox1.Controls.Add(this.labelX22);
             this.groupBox1.Controls.Add(this.txtGuestPhone);
             this.groupBox1.Controls.Add(this.labelX21);
-            this.groupBox1.Controls.Add(this.txtGuestUseTime);
             this.groupBox1.Controls.Add(this.labelX19);
             this.groupBox1.Controls.Add(this.txtGuestBirthday2);
             this.groupBox1.Controls.Add(this.txtGuestSex);
@@ -466,10 +466,19 @@
             this.groupBox1.Controls.Add(this.labelX1);
             this.groupBox1.Location = new System.Drawing.Point(21, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(226, 299);
+            this.groupBox1.Size = new System.Drawing.Size(239, 299);
             this.groupBox1.TabIndex = 140;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "基本信息";
+            // 
+            // txtGuestBirthday
+            // 
+            this.txtGuestBirthday.CustomFormat = "yyyy/MM/dd";
+            this.txtGuestBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.txtGuestBirthday.Location = new System.Drawing.Point(93, 139);
+            this.txtGuestBirthday.Name = "txtGuestBirthday";
+            this.txtGuestBirthday.Size = new System.Drawing.Size(133, 21);
+            this.txtGuestBirthday.TabIndex = 137;
             // 
             // txtGuestEMail
             // 
@@ -481,7 +490,7 @@
             this.txtGuestEMail.Location = new System.Drawing.Point(93, 253);
             this.txtGuestEMail.Multiline = true;
             this.txtGuestEMail.Name = "txtGuestEMail";
-            this.txtGuestEMail.Size = new System.Drawing.Size(114, 23);
+            this.txtGuestEMail.Size = new System.Drawing.Size(133, 21);
             this.txtGuestEMail.TabIndex = 145;
             // 
             // labelX23
@@ -506,7 +515,7 @@
             this.txtGuestWeiChat.Location = new System.Drawing.Point(93, 224);
             this.txtGuestWeiChat.Multiline = true;
             this.txtGuestWeiChat.Name = "txtGuestWeiChat";
-            this.txtGuestWeiChat.Size = new System.Drawing.Size(114, 23);
+            this.txtGuestWeiChat.Size = new System.Drawing.Size(133, 21);
             this.txtGuestWeiChat.TabIndex = 143;
             // 
             // labelX22
@@ -531,7 +540,7 @@
             this.txtGuestPhone.Location = new System.Drawing.Point(93, 195);
             this.txtGuestPhone.Multiline = true;
             this.txtGuestPhone.Name = "txtGuestPhone";
-            this.txtGuestPhone.Size = new System.Drawing.Size(114, 23);
+            this.txtGuestPhone.Size = new System.Drawing.Size(133, 21);
             this.txtGuestPhone.TabIndex = 141;
             // 
             // labelX21
@@ -546,19 +555,6 @@
             this.labelX21.TabIndex = 140;
             this.labelX21.Text = "手机号:";
             // 
-            // txtGuestUseTime
-            // 
-            // 
-            // 
-            // 
-            this.txtGuestUseTime.Border.Class = "TextBoxBorder";
-            this.txtGuestUseTime.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtGuestUseTime.Location = new System.Drawing.Point(93, 166);
-            this.txtGuestUseTime.Multiline = true;
-            this.txtGuestUseTime.Name = "txtGuestUseTime";
-            this.txtGuestUseTime.Size = new System.Drawing.Size(114, 23);
-            this.txtGuestUseTime.TabIndex = 139;
-            // 
             // labelX19
             // 
             // 
@@ -571,23 +567,14 @@
             this.labelX19.TabIndex = 138;
             this.labelX19.Text = "使用时间:";
             // 
-            // txtGuestBirthday
-            // 
-            this.txtGuestBirthday.CustomFormat = "yyyy/MM/dd";
-            this.txtGuestBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtGuestBirthday.Location = new System.Drawing.Point(93, 139);
-            this.txtGuestBirthday.Name = "txtGuestBirthday1";
-            this.txtGuestBirthday.Size = new System.Drawing.Size(114, 21);
-            this.txtGuestBirthday.TabIndex = 137;
-            // 
-            // txtGuestBirthday
+            // txtGuestBirthday2
             // 
             // 
             // 
             // 
             this.txtGuestBirthday2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtGuestBirthday2.Location = new System.Drawing.Point(7, 139);
-            this.txtGuestBirthday2.Name = "txtGuestBirthday";
+            this.txtGuestBirthday2.Name = "txtGuestBirthday2";
             this.txtGuestBirthday2.Size = new System.Drawing.Size(61, 23);
             this.txtGuestBirthday2.TabIndex = 136;
             this.txtGuestBirthday2.Text = "出生日期:";
@@ -600,7 +587,7 @@
             this.txtGuestSex.ItemHeight = 15;
             this.txtGuestSex.Location = new System.Drawing.Point(93, 110);
             this.txtGuestSex.Name = "txtGuestSex";
-            this.txtGuestSex.Size = new System.Drawing.Size(114, 21);
+            this.txtGuestSex.Size = new System.Drawing.Size(133, 21);
             this.txtGuestSex.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.txtGuestSex.TabIndex = 133;
             // 
@@ -626,7 +613,7 @@
             this.txtGuestNamePinYin.Location = new System.Drawing.Point(93, 81);
             this.txtGuestNamePinYin.Multiline = true;
             this.txtGuestNamePinYin.Name = "txtGuestNamePinYin";
-            this.txtGuestNamePinYin.Size = new System.Drawing.Size(114, 23);
+            this.txtGuestNamePinYin.Size = new System.Drawing.Size(133, 21);
             this.txtGuestNamePinYin.TabIndex = 131;
             // 
             // labelX16
@@ -651,7 +638,7 @@
             this.txtGuestName.Location = new System.Drawing.Point(93, 52);
             this.txtGuestName.Multiline = true;
             this.txtGuestName.Name = "txtGuestName";
-            this.txtGuestName.Size = new System.Drawing.Size(114, 23);
+            this.txtGuestName.Size = new System.Drawing.Size(133, 21);
             this.txtGuestName.TabIndex = 129;
             // 
             // labelX3
@@ -676,7 +663,7 @@
             this.txtGuestId.Location = new System.Drawing.Point(93, 23);
             this.txtGuestId.Multiline = true;
             this.txtGuestId.Name = "txtGuestId";
-            this.txtGuestId.Size = new System.Drawing.Size(114, 23);
+            this.txtGuestId.Size = new System.Drawing.Size(133, 21);
             this.txtGuestId.TabIndex = 127;
             // 
             // labelX1
@@ -726,6 +713,15 @@
             this.btnCancel.Text = "取消";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // txtGuestUseTime
+            // 
+            this.txtGuestUseTime.CustomFormat = "yyyy/MM/dd HH:mm:ss";
+            this.txtGuestUseTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.txtGuestUseTime.Location = new System.Drawing.Point(93, 166);
+            this.txtGuestUseTime.Name = "txtGuestUseTime";
+            this.txtGuestUseTime.Size = new System.Drawing.Size(133, 21);
+            this.txtGuestUseTime.TabIndex = 146;
+            // 
             // FrmSetGuestInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -753,7 +749,6 @@
         private DevComponents.DotNetBar.LabelX labelX22;
         private DevComponents.DotNetBar.Controls.TextBoxX txtGuestPhone;
         private DevComponents.DotNetBar.LabelX labelX21;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtGuestUseTime;
         private DevComponents.DotNetBar.LabelX labelX19;
         private System.Windows.Forms.DateTimePicker txtGuestBirthday;
         private DevComponents.DotNetBar.LabelX txtGuestBirthday2;
@@ -793,5 +788,6 @@
         private DevComponents.DotNetBar.Controls.TextBoxX txtRefundReason;
         private DevComponents.DotNetBar.Controls.TextBoxX txtWaitorRemark;
         private DevComponents.DotNetBar.LabelX labelX14;
+        private System.Windows.Forms.DateTimePicker txtGuestUseTime;
     }
 }
