@@ -63,6 +63,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmCheckState.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCheckState.Designer.cs">
+      <DependentUpon>FrmCheckState.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSetOperInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -119,6 +125,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmCheckState.resx">
+      <DependentUpon>FrmCheckState.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmSetOperInfo.resx">
       <DependentUpon>FrmSetOperInfo.cs</DependentUpon>
     </EmbeddedResource>

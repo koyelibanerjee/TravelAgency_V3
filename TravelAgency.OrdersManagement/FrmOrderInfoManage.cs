@@ -23,7 +23,6 @@ namespace TravelAgency.OrdersManagement
         public FrmOrderInfoManage()
         {
             InitializeComponent();
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -362,6 +361,16 @@ namespace TravelAgency.OrdersManagement
 
                 row.Cells["OrderType"].Value = Common.Enums.OrderInfo_OrderType.KeyToValue(list[i].OrderType);
                 row.Cells["OrderInfoState"].Value = Common.Enums.OrderInfo_OrderInfoState.KeyToValue(list[i].OrderInfoState);
+
+                if (row.Cells["OrderInfoState"].Value.ToString() == "未校验")
+                {
+                    row.Cells["OrderInfoState"].Style.BackColor = Color.White;
+                }
+                else
+                {
+                    row.Cells["OrderInfoState"].Style.BackColor = Color.LimeGreen;
+                }
+
                 row.Cells["PaymentPlatform"].Value = Common.Enums.OrderInfo_PaymentPlatform.KeyToValue(list[i].PaymentPlatform);
             }
         }
@@ -585,8 +594,29 @@ namespace TravelAgency.OrdersManagement
         }
 
 
+
         #endregion
 
+        private void 校验状态修改ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var list = GetSelectedModelList();
 
+            FrmCheckState frm = new FrmCheckState();
+            if (frm.ShowDialog() == DialogResult.Cancel)
+                return;
+
+            int orderInfoState = 0;
+
+            orderInfoState = Common.Enums.OrderInfo_OrderInfoState.ValueToKey(frm.RetValue);
+            int suc = 0;
+            for (int i = 0; i < list.Count; ++i)
+            {
+                list[i].OrderInfoState = orderInfoState;
+                suc += _bllOrderInfo.Update(list[i]) ? 1 : 0;
+            }
+            GlobalUtils.MessageBoxWithRecordNum("更新订单状态", suc, list.Count);
+            LoadDataToDgvAsyn();
+
+        }
     }
 }
