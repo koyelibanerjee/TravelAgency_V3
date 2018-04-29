@@ -60,7 +60,6 @@ namespace TravelAgency.OrdersManagement
 
         private void FrmOrdersManage_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
         }
 
         private void InitComboboxs()
@@ -400,7 +399,7 @@ namespace TravelAgency.OrdersManagement
 
 
 
-       
+
 
 
         private void btnTimeSpanChoose_Click(object sender, EventArgs e)
@@ -506,6 +505,19 @@ namespace TravelAgency.OrdersManagement
             }
             FrmSetOperInfo frm = new FrmSetOperInfo(LoadDataToDataGridView, _curPage, true,
                 DgvDataSourceToList()[dataGridView1.SelectedRows[0].Index]);
+            frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void 查看订单明细ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 1)
+            {
+                MessageBoxEx.Show("请选中一条数据进行查看!");
+                return;
+            }
+
+            FrmOrderInfoManage frm = new FrmOrderInfoManage(DgvDataSourceToList()[dataGridView1.SelectedRows[0].Index].OrderNo);
             frm.StartPosition = FormStartPosition.CenterScreen;
             frm.Show();
         }

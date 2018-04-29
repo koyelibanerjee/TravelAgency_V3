@@ -61,6 +61,7 @@ namespace TravelAgency.Model
 		private decimal? _commission;
 		private decimal? _waitorcommision;
 		private string _adminremark;
+		private string _opername;
 		/// <summary>
 		/// 
 		/// </summary>
@@ -468,6 +469,14 @@ namespace TravelAgency.Model
 		{
 			set{ _adminremark=value;}
 			get{return _adminremark;}
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		public string OperName
+		{
+			set{ _opername=value;}
+			get{return _opername;}
 		}
 		#endregion Model
 

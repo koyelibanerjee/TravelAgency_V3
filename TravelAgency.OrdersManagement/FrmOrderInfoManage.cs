@@ -19,10 +19,19 @@ namespace TravelAgency.OrdersManagement
         private int _pageSize;
         private int _recordCount = 0;
         private string _where = string.Empty;
+        private bool _showDetail = false;
+        private string _orderNo = "";
 
         public FrmOrderInfoManage()
         {
             InitializeComponent();
+        }
+
+        public FrmOrderInfoManage(string orderNo)
+        {
+            InitializeComponent();
+            _showDetail = true;
+            _orderNo = orderNo;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -54,12 +63,17 @@ namespace TravelAgency.OrdersManagement
             bgWorkerLoadData.WorkerReportsProgress = true;
 
             progressLoading.Visible = false;
+
+            if (!string.IsNullOrEmpty(_orderNo))
+            {
+                this.txtOrderNo.Text = _orderNo;
+            }
+
             LoadDataToDgvAsyn();
         }
 
         private void FrmOrderInfoManage_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
         }
 
         private void InitComboboxs()
