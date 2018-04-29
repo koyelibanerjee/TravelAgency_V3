@@ -107,6 +107,7 @@ namespace TravelAgency.OrdersManagement
                     _model.SettlePrice = CtrlParser.Parse2Int(txtSettlePrice);
                     _model.ExchangeRate = CtrlParser.Parse2Decimal(txtExchangeRate);
                     _model.OperRemark = CtrlParser.Parse2String(txtOperRemark);
+                    _model.OperName = GlobalUtils.LoginUser.UserName;
 
                     //下面的字段暂时不进行修改
                     //_model.EntryTime = DateTime.Now;
