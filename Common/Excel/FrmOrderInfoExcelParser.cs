@@ -4,17 +4,77 @@ using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using TravelAgency.Common.PictureHandler;
 
-namespace TravelAgency.Common.Excel
+namespace TravelAgency.Common
 {
-    public class OrderInfoExcelParser
+    public partial class FrmOrderInfoExcelParser : Form
     {
-        private static readonly BLL.OrderInfo _bllOrderInfo = new BLL.OrderInfo();
+        //public int CurValue { get; set; }
+        private ExcelType _excelType;
+        private string _filename;
+
+        public FrmOrderInfoExcelParser(string filename, ExcelType excelType)
+        {
+            _excelType = excelType;
+            _filename = filename;
+            this.ControlBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.StartPosition = FormStartPosition.CenterParent;
+            this.Text = "正在处理";
+            InitializeComponent();
+        }
+
+        private void FrmProgress_Load(object sender, EventArgs e)
+        {
+            new Thread(() =>
+            {
+                ParseExcel(_filename, _excelType);
+            })
+            { IsBackground = true }.
+            Start();
+        }
+
+        //private void UpdateState(int cur, int max)
+        //{
+        //    this.Invoke(new Action(() =>
+        //    {
+        //        this.lbProgress.Text = string.Format("正在解析:{0}/{1}条数据.", cur, max);
+        //        this.progressBarX1.Value = cur;
+        //    }));
+        //}
+
+        //private void UpdateState(int cur)
+        //{
+        //    this.Invoke(new Action(() =>
+        //    {
+        //        this.lbProgress.Text = string.Format("正在解析:{0}/{1}条数据.", cur, progressBarX1.Maximum);
+        //        this.progressBarX1.Value = cur;
+        //    }));
+        //}
+
+        private void UpdateState()
+        {
+            this.Invoke(new Action(() =>
+            {
+                this.lbProgress.Text = string.Format("正在解析Excel第:{0}/{1}行.", ++progressBarX1.Value, progressBarX1.Maximum);
+            }));
+        }
+
+
+
+        #region 解析部分
+        public int RetValue = 0;
+        private BLL.OrderInfo _bllOrderInfo = new BLL.OrderInfo();
         public enum ExcelType
         {
             Type01_DaZhong,
@@ -23,7 +83,7 @@ namespace TravelAgency.Common.Excel
             Type04_XieCheng
         }
 
-        public static int ParseExcel(string filename, ExcelType excelType)
+        public void ParseExcel(string filename, ExcelType excelType)
         {
 
             //1.创建工作簿对象
@@ -42,7 +102,7 @@ namespace TravelAgency.Common.Excel
                 else
                 {
                     MessageBoxEx.Show("打开文件错误，请重试!");
-                    return 0;
+                    return;
                 }
 
                 //上传文件，生成记录
@@ -51,9 +111,15 @@ namespace TravelAgency.Common.Excel
             catch (Exception)
             {
                 MessageBoxEx.Show("文件占用，请关闭Excel后再打开文件!");
-                return 0;
+                return;
             }
             List<Model.OrderInfo> modelList = new List<Model.OrderInfo>();
+
+            this.Invoke(new Action(() =>
+            {
+                progressBarX1.Value = 0;
+            }));
+
             if (excelType == ExcelType.Type01_DaZhong)
                 modelList = GetModelFromExcelDazhong(wkbook);
             if (excelType == ExcelType.Type03_MaYi)
@@ -75,14 +141,20 @@ namespace TravelAgency.Common.Excel
                 item.OrderInfoState = Enums.OrderInfo_OrderInfoState.valueKeyMap["未校验"];
                 res += _bllOrderInfo.Add(item) == 0 ? 0 : 1;
             }
-            return res;
+            RetValue = res;
+            //return res;
+            Thread.Sleep(1000);
+            this.Invoke(new Action(() =>
+            {
+                this.Close();
+            }));
         }
         /// <summary>
         /// 只拿到四项信息
         /// </summary>
         /// <param name="wbBook"></param>
         /// <returns></returns>
-        private static List<Model.OrderInfo> GetModelFromExcelDazhong(IWorkbook wbBook)
+        private List<Model.OrderInfo> GetModelFromExcelDazhong(IWorkbook wbBook)
         {
             //2.创建工作表对象
             ISheet sheet = wbBook.GetSheet("应付金额");
@@ -90,7 +162,10 @@ namespace TravelAgency.Common.Excel
 
             var headerRow = sheet.GetRow(0); //表头
             List<string> keyList = GetRowStringValueList(headerRow);
-
+            this.Invoke(new Action(() =>
+            {
+                progressBarX1.Maximum = sheet.LastRowNum;
+            }));
             for (int i = 1; i <= sheet.LastRowNum; ++i) //第0行是表头
             {
                 try
@@ -125,9 +200,8 @@ namespace TravelAgency.Common.Excel
                 {
                     MessageBoxEx.Show("第" + (i + 1) + "行数据有误");
                 }
+                UpdateState();
             }
-            //return res.Count == 0 ? null : res;
-
             return res;
         }
 
@@ -136,7 +210,7 @@ namespace TravelAgency.Common.Excel
         /// </summary>
         /// <param name="wbBook"></param>
         /// <returns></returns>
-        private static List<Model.OrderInfo> GetModelFromExcelFeiZhu(IWorkbook wbBook)
+        private List<Model.OrderInfo> GetModelFromExcelFeiZhu(IWorkbook wbBook)
         {
             //2.创建工作表对象
             ISheet sheet = wbBook.GetSheetAt(0);
@@ -145,7 +219,11 @@ namespace TravelAgency.Common.Excel
             var headerRow = sheet.GetRow(4); //表头
             List<string> keyList = GetRowStringValueList(headerRow);
             int skipNum = 0;
-            for (int i = 5; i <= sheet.LastRowNum; ++i) //从第6行开始才是数据
+            this.Invoke(new Action(() =>
+            {
+                progressBarX1.Maximum = sheet.LastRowNum - 9;
+            }));
+            for (int i = 5; i <= sheet.LastRowNum - 4; ++i) //从第6行开始才是数据
             {
                 try
                 {
@@ -275,6 +353,7 @@ namespace TravelAgency.Common.Excel
                     }
                     else
                     {
+                        UpdateState();
                         ++skipNum;
                         continue;
                     }
@@ -289,6 +368,7 @@ namespace TravelAgency.Common.Excel
                 {
                     MessageBoxEx.Show("第" + (i + 1) + "行数据有误" + e.ToString());
                 }
+                UpdateState();
             }
             MessageBoxEx.Show("跳过" + skipNum + "条未知类型数据");
             return res;
@@ -299,12 +379,15 @@ namespace TravelAgency.Common.Excel
         /// </summary>
         /// <param name="wbBook"></param>
         /// <returns></returns>
-        private static List<Model.OrderInfo> GetModelFromExcelFengWo(IWorkbook wbBook)
+        private List<Model.OrderInfo> GetModelFromExcelFengWo(IWorkbook wbBook)
         {
             //2.创建工作表对象
             ISheet sheet = wbBook.GetSheet("sheet");
             List<Model.OrderInfo> res = new List<Model.OrderInfo>();
-
+            this.Invoke(new Action(() =>
+            {
+                progressBarX1.Maximum = sheet.LastRowNum;
+            }));
             var headerRow = sheet.GetRow(0); //表头
             List<string> keyList = GetRowStringValueList(headerRow);
             for (int i = 1; i <= sheet.LastRowNum; ++i) //第0行是表头
@@ -338,11 +421,13 @@ namespace TravelAgency.Common.Excel
 
                     res.Add(modelPay);
                     res.Add(modelRec);
+
                 }
                 catch (Exception e)
                 {
                     MessageBoxEx.Show("第" + (i + 1) + "行数据有误");
                 }
+                UpdateState();
             }
             //return res.Count == 0 ? null : res;
 
@@ -354,12 +439,15 @@ namespace TravelAgency.Common.Excel
         /// </summary>
         /// <param name="wbBook"></param>
         /// <returns></returns>
-        private static List<Model.OrderInfo> GetModelFromExcelXieCheng(IWorkbook wbBook)
+        private List<Model.OrderInfo> GetModelFromExcelXieCheng(IWorkbook wbBook)
         {
             //2.创建工作表对象
             ISheet sheet = wbBook.GetSheetAt(0);
             List<Model.OrderInfo> res = new List<Model.OrderInfo>();
-
+            this.Invoke(new Action(() =>
+            {
+                progressBarX1.Maximum = sheet.LastRowNum - 5;
+            }));
             var headerRow = sheet.GetRow(4); //表头
             List<string> keyList = GetRowStringValueList(headerRow);
             for (int i = 5; i <= sheet.LastRowNum; ++i) //第0行是表头
@@ -432,7 +520,6 @@ namespace TravelAgency.Common.Excel
                             modelRec.PaymentPlatform = Enums.OrderInfo_PaymentPlatform.valueKeyMap["携程"];
                             modelRec.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["收入"];
                             modelRec.ExtraData = extraData;
-
                             res.Add(modelRec);
                         }
                     }
@@ -441,6 +528,7 @@ namespace TravelAgency.Common.Excel
                 {
                     MessageBoxEx.Show("第" + (i + 1) + "行数据有误");
                 }
+                UpdateState();
             }
             return res;
         }
@@ -480,5 +568,12 @@ namespace TravelAgency.Common.Excel
 
             return res;
         }
+
+
+
+        #endregion
+
+
+
     }
 }

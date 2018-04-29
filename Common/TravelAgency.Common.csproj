@@ -183,6 +183,12 @@
     <Compile Include="Enums\OrderInfo_PaymentPlatform.cs" />
     <Compile Include="Enums\OrderInfo_OrderType.cs" />
     <Compile Include="Enums\OrderInfo_OrderInfoState.cs" />
+    <Compile Include="Excel\FrmOrderInfoExcelParser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Excel\FrmOrderInfoExcelParser.Designer.cs">
+      <DependentUpon>FrmOrderInfoExcelParser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Excel\OrderInfoExcelParser.cs" />
     <Compile Include="Excel\XlsGenerator.cs" />
     <Compile Include="Financial\CommisionMoneyCounter.cs" />
@@ -378,6 +384,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Excel\FrmOrderInfoExcelParser.resx">
+      <DependentUpon>FrmOrderInfoExcelParser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmProgress.resx">
       <DependentUpon>FrmProgress.cs</DependentUpon>
     </EmbeddedResource>

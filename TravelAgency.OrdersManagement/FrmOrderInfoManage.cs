@@ -485,28 +485,29 @@ namespace TravelAgency.OrdersManagement
             if (frm.ShowDialog() == DialogResult.Cancel)
                 return;
             int res = 0;
+            FrmOrderInfoExcelParser frm1;
             switch (frm.RetValue)
             {
                 case "大众点评":
-                    res = Common.Excel.OrderInfoExcelParser.ParseExcel(filename, Common.Excel.OrderInfoExcelParser.ExcelType.Type01_DaZhong);
+                    //res = Common.Excel.OrderInfoExcelParser.ParseExcel(filename, Common.Excel.OrderInfoExcelParser.ExcelType.Type01_DaZhong);
+                    frm1 = new FrmOrderInfoExcelParser(filename, FrmOrderInfoExcelParser.ExcelType.Type01_DaZhong);
                     break;
-
                 case "飞猪支付宝":
-                    res = Common.Excel.OrderInfoExcelParser.ParseExcel(filename, Common.Excel.OrderInfoExcelParser.ExcelType.Type02_FeiZhu);
+                    frm1 = new FrmOrderInfoExcelParser(filename, FrmOrderInfoExcelParser.ExcelType.Type02_FeiZhu);
                     break;
                 case "蚂蜂窝":
-                    res = Common.Excel.OrderInfoExcelParser.ParseExcel(filename, Common.Excel.OrderInfoExcelParser.ExcelType.Type03_MaYi);
+                    frm1 = new FrmOrderInfoExcelParser(filename, FrmOrderInfoExcelParser.ExcelType.Type03_MaYi);
                     break;
                 case "携程":
-                    res = Common.Excel.OrderInfoExcelParser.ParseExcel(filename, Common.Excel.OrderInfoExcelParser.ExcelType.Type04_XieCheng);
+                    frm1 = new FrmOrderInfoExcelParser(filename, FrmOrderInfoExcelParser.ExcelType.Type04_XieCheng);
                     break;
                 default:
+                    frm1 = null;
                     break;
             }
 
-            //int res = Common.Excel.OrderInfoExcelParser.ParseExcel(filename, Common.Excel.OrderInfoExcelParser.ExcelType.Type01_DaZhong);
-            //int res = Common.Excel.OrderInfoExcelParser.ParseExcel(filename, Common.Excel.OrderInfoExcelParser.ExcelType.Type03_MaYi);
-            //int res = Common.Excel.OrderInfoExcelParser.ParseExcel(filename, Common.Excel.OrderInfoExcelParser.ExcelType.Type04_XieCheng);
+            frm1.ShowDialog();
+            res = frm1.RetValue;
             MessageBoxEx.Show("导入" + res + "条数据成功！");
             LoadDataToDgvAsyn();
         }
