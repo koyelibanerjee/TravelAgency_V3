@@ -61,6 +61,8 @@ namespace TravelAgency.Common.Excel
 
             if (excelType == ExcelType.Type04_XieCheng)
                 modelList = GetModelFromExcelXieCheng(wkbook);
+            if (excelType == ExcelType.Type02_FeiZhu)
+                modelList = GetModelFromExcelFeiZhu(wkbook);
 
             //全部添加excelid记录 //执行添加
             int res = 0;
@@ -129,6 +131,173 @@ namespace TravelAgency.Common.Excel
 
             return res;
         }
+
+
+
+        /// <summary>
+        /// 只拿到四项信息
+        /// </summary>
+        /// <param name="wbBook"></param>
+        /// <returns></returns>
+        private static List<Model.OrderInfo> GetModelFromExcelFeiZhu(IWorkbook wbBook)
+        {
+            //2.创建工作表对象
+            ISheet sheet = wbBook.GetSheetAt(0);
+            List<Model.OrderInfo> res = new List<Model.OrderInfo>();
+
+            var headerRow = sheet.GetRow(4); //表头
+            List<string> keyList = GetRowStringValueList(headerRow);
+            int skipNum = 0;
+            for (int i = 5; i <= sheet.LastRowNum; ++i) //从第6行开始才是数据
+            {
+                try
+                {
+                    var row = sheet.GetRow(i); //每行两个model,一个佣金，一个收入金额
+                    var strOrderNoCellValue = row.GetCell(2).StringCellValue;
+                    Model.OrderInfo orderModel = new Model.OrderInfo();
+
+                    if (strOrderNoCellValue.StartsWith("T200P"))
+                    {
+                        orderModel.OrderNo = strOrderNoCellValue.Remove(0, 5).TrimEnd();
+                        decimal rcvNum = DecimalHandler.Parse(row.GetCell(6).NumericCellValue.ToString());
+                        decimal payNum = DecimalHandler.Parse(row.GetCell(7).NumericCellValue.ToString());
+                        if (rcvNum > 0 && payNum == 0)
+                        {
+                            orderModel.Amount = rcvNum;
+                            orderModel.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["收入"];
+                        }
+                        else if (rcvNum == 0 && payNum < 0)
+                        {
+                            orderModel.Amount = payNum;
+                            var remark = row.GetCell(11)?.StringCellValue;
+                            if (remark.Contains("售后退款"))
+                            {
+                                orderModel.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["退款"];
+                            }
+                            else if (remark.Contains("信用卡支付服务费"))
+                            {
+                                orderModel.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["其他"];
+                            }
+                            else if (remark.Contains("淘宝客佣金代扣款"))
+                            {
+                                orderModel.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["佣金"];
+                            }
+                            else
+                            {
+                                throw new Exception("解析单元格出现错误@1!!!");
+                            }
+                        }
+                        else
+                        {
+                            throw new Exception("解析单元格出现错误@2!!!");
+                        }
+
+                    }
+                    else if (strOrderNoCellValue.StartsWith("T10000P"))
+                    {
+                        orderModel.OrderNo = strOrderNoCellValue.Remove(0, 7).TrimEnd();
+                        decimal rcvNum = DecimalHandler.Parse(row.GetCell(6).NumericCellValue.ToString());
+                        decimal payNum = DecimalHandler.Parse(row.GetCell(7).NumericCellValue.ToString());
+                        if (rcvNum > 0 && payNum == 0)
+                        {
+                            orderModel.Amount = rcvNum;
+                            orderModel.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["收入"];
+                        }
+                        else if (rcvNum == 0 && payNum < 0)
+                        {
+                            orderModel.Amount = payNum;
+                            orderModel.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["其他"];
+                        }
+                        else
+                        {
+                            throw new Exception("解析单元格出现错误@4!!!");
+                        }
+                    }
+                    else if (strOrderNoCellValue.StartsWith("HJCOM"))
+                    {
+
+                        var remark = row.GetCell(11)?.StringCellValue.TrimEnd();
+                        int idxFirstParent = remark.IndexOf('{');
+                        int idxLastParent = remark.LastIndexOf('}');
+                        orderModel.OrderNo = remark.Substring(idxFirstParent + 1, idxLastParent - idxFirstParent - 1);
+
+                        decimal rcvNum = DecimalHandler.Parse(row.GetCell(6).NumericCellValue.ToString());
+                        decimal payNum = DecimalHandler.Parse(row.GetCell(7).NumericCellValue.ToString());
+                        if (rcvNum > 0 && payNum == 0)
+                        {
+                            orderModel.Amount = rcvNum;
+                            orderModel.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["其他"];
+                        }
+                        else if (rcvNum == 0 && payNum < 0)
+                        {
+                            orderModel.Amount = payNum;
+                            orderModel.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["佣金"];
+                        }
+                        else
+                        {
+                            throw new Exception("解析单元格出现错误@5!!!");
+                        }
+                    }
+                    else if (strOrderNoCellValue.StartsWith("CAE"))
+                    {
+                        var remark = row.GetCell(11)?.StringCellValue.Trim();
+                        int idx = remark.IndexOf("订单号");
+                        orderModel.OrderNo = remark.Substring(idx + 3, remark.Length - (idx + 3));
+
+                        decimal rcvNum = DecimalHandler.Parse(row.GetCell(6).NumericCellValue.ToString());
+                        decimal payNum = DecimalHandler.Parse(row.GetCell(7).NumericCellValue.ToString());
+                        if (rcvNum == 0 && payNum < 0)
+                        {
+                            orderModel.Amount = payNum;
+                            orderModel.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["扣垂直积分"];
+                        }
+                        else
+                        {
+                            throw new Exception("解析单元格出现错误@1!!!");
+                        }
+                    }
+
+                    else if (strOrderNoCellValue.StartsWith("aBe"))
+                    {
+                        var remark = row.GetCell(11)?.StringCellValue.Trim();
+                        int idxFirstParent = remark.IndexOf('[');
+                        int idxLastParent = remark.LastIndexOf(']');
+                        orderModel.OrderNo = remark.Substring(idxFirstParent + 1, idxLastParent - idxFirstParent - 1);
+
+                        decimal rcvNum = DecimalHandler.Parse(row.GetCell(6).NumericCellValue.ToString());
+                        decimal payNum = DecimalHandler.Parse(row.GetCell(7).NumericCellValue.ToString());
+                        if (rcvNum == 0 && payNum < 0)
+                        {
+                            orderModel.Amount = payNum;
+                            orderModel.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["佣金"];
+                        }
+                        else
+                        {
+                            throw new Exception("解析单元格出现错误@8!!!");
+                        }
+                    }
+                    else
+                    {
+                        ++skipNum;
+                        continue;
+                    }
+                    orderModel.OrderTime = row.GetCell(4)?.DateCellValue;
+                    orderModel.ProductName = row.GetCell(3)?.StringCellValue;
+                    orderModel.PaymentPlatform = Enums.OrderInfo_PaymentPlatform.valueKeyMap["飞猪"];
+                    string extraData = JsonHandler.GenJson(keyList, GetRowStringValueList(row));
+                    orderModel.ExtraData = extraData;
+                    res.Add(orderModel);
+                }
+                catch (Exception e)
+                {
+                    MessageBoxEx.Show("第" + (i + 1) + "行数据有误" + e.ToString());
+                }
+            }
+            MessageBoxEx.Show("跳过" + skipNum + "条未知类型数据");
+            return res;
+        }
+
+
 
 
         /// <summary>
@@ -286,6 +455,7 @@ namespace TravelAgency.Common.Excel
         }
 
 
+        private static bool _bIsStringCellValue = false;
 
         private static List<string> GetRowStringValueList(IRow row)
         {
@@ -295,11 +465,26 @@ namespace TravelAgency.Common.Excel
                 string val = "";
                 try
                 {
-                    val = row.GetCell(i)?.StringCellValue;
+                    if (_bIsStringCellValue)
+                    {
+                        val = row.GetCell(i)?.StringCellValue;
+                    }
+                    else
+                    {
+                        val = row.GetCell(i)?.NumericCellValue.ToString();
+                    }
                 }
                 catch (Exception e)
                 {
-                    val = row.GetCell(i)?.NumericCellValue.ToString();
+                    if (_bIsStringCellValue)
+                    {
+                        val = row.GetCell(i)?.NumericCellValue.ToString();
+                    }
+                    else
+                    {
+                        val = row.GetCell(i)?.StringCellValue;
+                    }
+                    _bIsStringCellValue = !_bIsStringCellValue;
                 }
                 res.Add(val);
             }

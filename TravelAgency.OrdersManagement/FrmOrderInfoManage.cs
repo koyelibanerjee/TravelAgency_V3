@@ -481,9 +481,32 @@ namespace TravelAgency.OrdersManagement
             string filename = GlobalUtils.ShowOpenFileDlg("Excel文件|*.xls;*.xlsx");
             if (string.IsNullOrEmpty(filename))
                 return;
+            FrmPlatformSet frm = new FrmPlatformSet();
+            if (frm.ShowDialog() == DialogResult.Cancel)
+                return;
+            int res = 0;
+            switch (frm.RetValue)
+            {
+                case "大众点评":
+                    res = Common.Excel.OrderInfoExcelParser.ParseExcel(filename, Common.Excel.OrderInfoExcelParser.ExcelType.Type01_DaZhong);
+                    break;
+
+                case "飞猪支付宝":
+                    res = Common.Excel.OrderInfoExcelParser.ParseExcel(filename, Common.Excel.OrderInfoExcelParser.ExcelType.Type02_FeiZhu);
+                    break;
+                case "蚂蜂窝":
+                    res = Common.Excel.OrderInfoExcelParser.ParseExcel(filename, Common.Excel.OrderInfoExcelParser.ExcelType.Type03_MaYi);
+                    break;
+                case "携程":
+                    res = Common.Excel.OrderInfoExcelParser.ParseExcel(filename, Common.Excel.OrderInfoExcelParser.ExcelType.Type04_XieCheng);
+                    break;
+                default:
+                    break;
+            }
+
             //int res = Common.Excel.OrderInfoExcelParser.ParseExcel(filename, Common.Excel.OrderInfoExcelParser.ExcelType.Type01_DaZhong);
             //int res = Common.Excel.OrderInfoExcelParser.ParseExcel(filename, Common.Excel.OrderInfoExcelParser.ExcelType.Type03_MaYi);
-            int res = Common.Excel.OrderInfoExcelParser.ParseExcel(filename, Common.Excel.OrderInfoExcelParser.ExcelType.Type04_XieCheng);
+            //int res = Common.Excel.OrderInfoExcelParser.ParseExcel(filename, Common.Excel.OrderInfoExcelParser.ExcelType.Type04_XieCheng);
             MessageBoxEx.Show("导入" + res + "条数据成功！");
             LoadDataToDgvAsyn();
         }

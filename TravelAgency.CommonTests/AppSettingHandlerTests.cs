@@ -35,5 +35,13 @@ namespace TravelAgency.Common.Tests
         {
             Assert.Fail();
         }
+
+        [TestMethod()]
+        public void TestStringLen()
+        {
+            string str = "订单号abc的";
+            Assert.IsTrue(str.Length == 7);
+        }
+
     }
 }
