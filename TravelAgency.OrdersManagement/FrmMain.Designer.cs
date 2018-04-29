@@ -36,6 +36,7 @@
             this.btnOrderManagementWaitor = new DevComponents.DotNetBar.ButtonItem();
             this.btnOrderManagementOperator = new DevComponents.DotNetBar.ButtonItem();
             this.btnOrderInfoManage = new DevComponents.DotNetBar.ButtonItem();
+            this.btnOrdersSummary = new DevComponents.DotNetBar.ButtonItem();
             this.btnVisaSubmit = new DevComponents.DotNetBar.ButtonItem();
             this.btnScanFrm = new DevComponents.DotNetBar.ButtonItem();
             this.btnGPManage = new DevComponents.DotNetBar.ButtonItem();
@@ -160,6 +161,7 @@
             this.btnOrderManagementWaitor,
             this.btnOrderManagementOperator,
             this.btnOrderInfoManage,
+            this.btnOrdersSummary,
             this.btnVisaSubmit,
             this.btnScanFrm,
             this.btnGPManage,
@@ -210,6 +212,16 @@
             this.btnOrderInfoManage.SubItemsExpandWidth = 14;
             this.btnOrderInfoManage.Text = "网络平台订单";
             this.btnOrderInfoManage.Click += new System.EventHandler(this.btnOrderInfoManage_Click);
+            // 
+            // btnOrdersSummary
+            // 
+            this.btnOrdersSummary.Icon = ((System.Drawing.Icon)(resources.GetObject("btnOrdersSummary.Icon")));
+            this.btnOrdersSummary.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
+            this.btnOrdersSummary.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnOrdersSummary.Name = "btnOrdersSummary";
+            this.btnOrdersSummary.SubItemsExpandWidth = 14;
+            this.btnOrdersSummary.Text = "订单信息汇总";
+            this.btnOrdersSummary.Click += new System.EventHandler(this.btnOrdersSummary_Click);
             // 
             // btnVisaSubmit
             // 
@@ -667,6 +679,7 @@
         private DevComponents.DotNetBar.RibbonPanel ribbonPanel3;
         private DevComponents.DotNetBar.RibbonBar ribbonBar2;
         private DevComponents.DotNetBar.ButtonItem btnOrderInfoManage;
+        private DevComponents.DotNetBar.ButtonItem btnOrdersSummary;
         private DevComponents.DotNetBar.ButtonItem btnVisaSubmit;
         private DevComponents.DotNetBar.RibbonPanel ribbonPanel5;
         private DevComponents.DotNetBar.RibbonTabItem ribbonTabItem3;

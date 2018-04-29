@@ -108,7 +108,7 @@ namespace TravelAgency.OrdersManagement
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            
+
             MinimumSize = Size;
             FrmsManager.OpenedForms.Add(this);
             string workId = GlobalUtils.LoginUser.WorkId;
@@ -177,11 +177,18 @@ namespace TravelAgency.OrdersManagement
             OpenTab(frm, frm.Name);
         }
 
-        private void BtnSummary_Click(object sender, EventArgs e)
+        //private void BtnSummary_Click(object sender, EventArgs e)
+        //{
+        //    FrmOrdersManage_Summary frm = new FrmOrdersManage_Summary();
+        //    OpenTab(frm, frm.Name);
+        //}
+
+        private void btnOrdersSummary_Click(object sender, EventArgs e)
         {
             FrmOrdersManage_Summary frm = new FrmOrdersManage_Summary();
             OpenTab(frm, frm.Name);
         }
+
 
     }
 }
