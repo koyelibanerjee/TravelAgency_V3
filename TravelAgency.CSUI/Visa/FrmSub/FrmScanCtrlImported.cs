@@ -15,7 +15,6 @@ namespace TravelAgency.CSUI.FrmSub
         //private List<Model.VisaInfo> _list; //当前dgv对应的list
         private readonly BLL.VisaInfo _bllVisaInfo = new BLL.VisaInfo();
         private string _tmpname = "_tmp.jpg";
-        private int _curIdx = 0;
         private FrmScanCtrlImported()
         {
             this.StartPosition = FormStartPosition.CenterParent;
@@ -27,7 +26,6 @@ namespace TravelAgency.CSUI.FrmSub
         {
             //_list = list;
             _model = model;
-            _curIdx = 0;
         }
 
         #region 拍照窗口按钮事件

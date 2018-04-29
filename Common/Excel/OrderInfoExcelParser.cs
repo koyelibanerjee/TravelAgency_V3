@@ -121,7 +121,7 @@ namespace TravelAgency.Common.Excel
                     res.Add(modelPay);
                     res.Add(modelRec);
                 }
-                catch (Exception e)
+                catch (Exception )
                 {
                     MessageBoxEx.Show("第" + (i + 1) + "行数据有误");
                 }
@@ -339,7 +339,7 @@ namespace TravelAgency.Common.Excel
                     res.Add(modelPay);
                     res.Add(modelRec);
                 }
-                catch (Exception e)
+                catch (Exception )
                 {
                     MessageBoxEx.Show("第" + (i + 1) + "行数据有误");
                 }
@@ -437,7 +437,7 @@ namespace TravelAgency.Common.Excel
                         }
                     }
                 }
-                catch (Exception e)
+                catch (Exception )
                 {
                     MessageBoxEx.Show("第" + (i + 1) + "行数据有误");
                 }
@@ -463,7 +463,7 @@ namespace TravelAgency.Common.Excel
                         val = row.GetCell(i)?.NumericCellValue.ToString();
                     }
                 }
-                catch (Exception e)
+                catch (Exception )
                 {
                     if (_bIsStringCellValue)
                     {

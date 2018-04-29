@@ -400,20 +400,7 @@ namespace TravelAgency.OrdersManagement
 
 
 
-        void Proc()
-        {
-            FrmProgress.ProgObject proObj = new FrmProgress.ProgObject();
-            proObj.CurValue = 0;
-
-
-            //for (int i = 0; i < 10; ++i)
-            //{
-            //    //frm.CurValue += 1;
-            //    //frm.UpdateProgressDel();
-            //    proObj.CurValue++;
-            //    Thread.Sleep(1000);
-            //}
-        }
+       
 
 
         private void btnTimeSpanChoose_Click(object sender, EventArgs e)

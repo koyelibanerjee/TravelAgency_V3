@@ -568,7 +568,6 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         /// <param name="e"></param>
         private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            int peopleCount = 0, delayCount = 0;
             var total = dataGridView1.Rows.Count;
             int groupCnt = -1;
             int pre = -1;

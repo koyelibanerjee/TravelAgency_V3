@@ -176,5 +176,12 @@ namespace TravelAgency.OrdersManagement
             FrmOrderInfoManage frm = new FrmOrderInfoManage();
             OpenTab(frm, frm.Name);
         }
+
+        private void BtnSummary_Click(object sender, EventArgs e)
+        {
+            FrmOrdersManage_Summary frm = new FrmOrdersManage_Summary();
+            OpenTab(frm, frm.Name);
+        }
+
     }
 }

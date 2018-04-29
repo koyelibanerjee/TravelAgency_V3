@@ -10,7 +10,7 @@ using TravelAgency.Model;
 
 namespace TravelAgency.OrdersManagement
 {
-    public partial class FrmOrdersManage_Oper : Form
+    public partial class FrmOrdersManage_Summary : Form
     {
         private readonly TravelAgency.BLL.Orders _bllOrders = new TravelAgency.BLL.Orders();
 
@@ -20,7 +20,7 @@ namespace TravelAgency.OrdersManagement
         private int _recordCount = 0;
         private string _where = string.Empty;
 
-        public FrmOrdersManage_Oper()
+        public FrmOrdersManage_Summary()
         {
             InitializeComponent();
 
@@ -398,6 +398,9 @@ namespace TravelAgency.OrdersManagement
             //LoadDataToDgvAsyn();
         }
 
+
+
+       
 
 
         private void btnTimeSpanChoose_Click(object sender, EventArgs e)

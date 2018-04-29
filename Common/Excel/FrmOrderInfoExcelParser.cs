@@ -196,7 +196,7 @@ namespace TravelAgency.Common
                     res.Add(modelPay);
                     res.Add(modelRec);
                 }
-                catch (Exception e)
+                catch (Exception )
                 {
                     MessageBoxEx.Show("第" + (i + 1) + "行数据有误");
                 }
@@ -423,7 +423,7 @@ namespace TravelAgency.Common
                     res.Add(modelRec);
 
                 }
-                catch (Exception e)
+                catch (Exception )
                 {
                     MessageBoxEx.Show("第" + (i + 1) + "行数据有误");
                 }
@@ -524,7 +524,7 @@ namespace TravelAgency.Common
                         }
                     }
                 }
-                catch (Exception e)
+                catch (Exception )
                 {
                     MessageBoxEx.Show("第" + (i + 1) + "行数据有误");
                 }
@@ -551,7 +551,7 @@ namespace TravelAgency.Common
                         val = row.GetCell(i)?.NumericCellValue.ToString();
                     }
                 }
-                catch (Exception e)
+                catch (Exception )
                 {
                     if (_bIsStringCellValue)
                     {

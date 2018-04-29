@@ -220,7 +220,6 @@ namespace TravelAgency.Common.FTP
         /// <returns></returns>
         public static List<string> GetFilesDetailList()
         {
-            string[] downloadFiles;
             try
             {
                 StringBuilder result = new StringBuilder();
@@ -248,7 +247,6 @@ namespace TravelAgency.Common.FTP
             }
             catch (Exception ex)
             {
-                downloadFiles = null;
                 Insert_Standard_ErrorLog.Insert("FtpWeb", "GetFilesDetailList Error --> " + ex.Message);
                 return null;
             }
@@ -455,7 +453,7 @@ namespace TravelAgency.Common.FTP
                 response.Close();
                 return true;
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 //Insert_Standard_ErrorLog.Insert("FtpWeb", "Delete Error --> " + ex.Message + "  文件名:" + fileName);
                 return false; //远程没有文件或者其他

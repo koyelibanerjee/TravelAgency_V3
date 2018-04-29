@@ -64,7 +64,6 @@ namespace TravelAgency.OrdersManagement
 
         private void InitComboboxs()
         {
-            string tablename = "OrderInfo";
 
             cbOrderType.Items.Add("全部");
             cbOrderInfoState.Items.Add("全部");
@@ -531,20 +530,6 @@ namespace TravelAgency.OrdersManagement
                 return;
         }
 
-        void Proc()
-        {
-            FrmProgress.ProgObject proObj = new FrmProgress.ProgObject();
-            proObj.CurValue = 0;
-
-
-            //for (int i = 0; i < 10; ++i)
-            //{
-            //    //frm.CurValue += 1;
-            //    //frm.UpdateProgressDel();
-            //    proObj.CurValue++;
-            //    Thread.Sleep(1000);
-            //}
-        }
 
 
         private void btnTimeSpanChoose_Click(object sender, EventArgs e)

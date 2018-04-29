@@ -153,7 +153,7 @@ namespace TravelAgency.OrdersManagement
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
-                catch (Exception ex)
+                catch (Exception )
                 {
                     MessageBoxEx.Show("请检查输入是否有误，价格为0请填入0!");
                     //throw;

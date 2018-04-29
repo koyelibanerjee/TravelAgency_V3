@@ -498,33 +498,6 @@ namespace TravelAgency.CSUI.Statistics.FrmMain
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
-            return; //这个窗体是复制过来的，底下的也先留着不删除
-            if (dataGridView1.SelectedRows.Count == 1)
-            {
-                var row = dataGridView1.CurrentRow;
-                //if (dataGridView1.CurrentCell.ColumnIndex == dataGridView1.Columns["QRCodeImage"].Index)
-                //{
-                //    if (!string.IsNullOrEmpty((string)row.Cells["EnglishName"].Value) && !string.IsNullOrEmpty((string)row.Cells["PassportNo"].Value))
-                //    {
-                //        FrmQRCode frm = new FrmQRCode((dataGridView1.DataSource as List<VisaInfo>)[dataGridView1.SelectedRows[0].Index]);
-                //        //frm.ShowDialog();
-                //        frm.Show();
-                //    }
-                //}
-                //else
-                //{
-                VisaInfo model = GetDgvSelList()[0];
-                if (model == null)
-                {
-                    MessageBoxEx.Show(Resources.FindModelFailedPleaseCheckInfoCorrect);
-                    return;
-                }
-                FrmInfoTypeIn frm = new FrmInfoTypeIn(dataGridView1.DataSource as List<Model.VisaInfo>, dataGridView1.CurrentRow.Index, LoadDataToDataGridView, _curPage);
-                frm.Show();
-                //frm.ShowDialog();
-                //}
-
-            }
         }
         #endregion
 
