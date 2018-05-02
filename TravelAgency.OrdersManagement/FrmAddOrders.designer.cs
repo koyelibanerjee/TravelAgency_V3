@@ -98,7 +98,7 @@
             // 
             this.btnCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnCancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnCancel.Location = new System.Drawing.Point(193, 311);
+            this.btnCancel.Location = new System.Drawing.Point(466, 246);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -110,7 +110,7 @@
             // 
             this.btnOK.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnOK.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnOK.Location = new System.Drawing.Point(112, 311);
+            this.btnOK.Location = new System.Drawing.Point(385, 246);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -136,7 +136,7 @@
             this.panelEx1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEx1.Location = new System.Drawing.Point(0, 0);
             this.panelEx1.Name = "panelEx1";
-            this.panelEx1.Size = new System.Drawing.Size(658, 358);
+            this.panelEx1.Size = new System.Drawing.Size(633, 307);
             this.panelEx1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelEx1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -189,7 +189,7 @@
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(658, 358);
+            this.panelMain.Size = new System.Drawing.Size(633, 307);
             this.panelMain.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelMain.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelMain.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -203,7 +203,7 @@
             // 
             this.btnOperInfo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnOperInfo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnOperInfo.Location = new System.Drawing.Point(474, 133);
+            this.btnOperInfo.Location = new System.Drawing.Point(466, 135);
             this.btnOperInfo.Name = "btnOperInfo";
             this.btnOperInfo.Size = new System.Drawing.Size(110, 49);
             this.btnOperInfo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -215,7 +215,7 @@
             // 
             this.btnGuestInfo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnGuestInfo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnGuestInfo.Location = new System.Drawing.Point(345, 133);
+            this.btnGuestInfo.Location = new System.Drawing.Point(350, 135);
             this.btnGuestInfo.Name = "btnGuestInfo";
             this.btnGuestInfo.Size = new System.Drawing.Size(110, 49);
             this.btnGuestInfo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -325,7 +325,7 @@
             this.txtOrderAmount.Location = new System.Drawing.Point(345, 104);
             this.txtOrderAmount.Multiline = true;
             this.txtOrderAmount.Name = "txtOrderAmount";
-            this.txtOrderAmount.Size = new System.Drawing.Size(162, 23);
+            this.txtOrderAmount.Size = new System.Drawing.Size(78, 23);
             this.txtOrderAmount.TabIndex = 131;
             // 
             // labelX9
@@ -372,10 +372,10 @@
             // 
             this.txtProductType.Border.Class = "TextBoxBorder";
             this.txtProductType.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtProductType.Location = new System.Drawing.Point(474, 75);
+            this.txtProductType.Location = new System.Drawing.Point(504, 75);
             this.txtProductType.Multiline = true;
             this.txtProductType.Name = "txtProductType";
-            this.txtProductType.Size = new System.Drawing.Size(162, 23);
+            this.txtProductType.Size = new System.Drawing.Size(121, 23);
             this.txtProductType.TabIndex = 127;
             // 
             // labelX7
@@ -384,7 +384,7 @@
             // 
             // 
             this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX7.Location = new System.Drawing.Point(417, 75);
+            this.labelX7.Location = new System.Drawing.Point(435, 75);
             this.labelX7.Name = "labelX7";
             this.labelX7.Size = new System.Drawing.Size(63, 23);
             this.labelX7.TabIndex = 126;
@@ -397,7 +397,7 @@
             // 
             this.txtProductId.Border.Class = "TextBoxBorder";
             this.txtProductId.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtProductId.Location = new System.Drawing.Point(324, 75);
+            this.txtProductId.Location = new System.Drawing.Point(345, 75);
             this.txtProductId.Multiline = true;
             this.txtProductId.Name = "txtProductId";
             this.txtProductId.Size = new System.Drawing.Size(78, 23);
@@ -484,7 +484,7 @@
             this.txtReplyResult.ItemHeight = 15;
             this.txtReplyResult.Location = new System.Drawing.Point(108, 246);
             this.txtReplyResult.Name = "txtReplyResult";
-            this.txtReplyResult.Size = new System.Drawing.Size(107, 21);
+            this.txtReplyResult.Size = new System.Drawing.Size(160, 21);
             this.txtReplyResult.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.txtReplyResult.TabIndex = 113;
             // 
@@ -509,7 +509,7 @@
             this.txtOrderNo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtOrderNo.Location = new System.Drawing.Point(108, 12);
             this.txtOrderNo.Name = "txtOrderNo";
-            this.txtOrderNo.Size = new System.Drawing.Size(319, 21);
+            this.txtOrderNo.Size = new System.Drawing.Size(517, 21);
             this.txtOrderNo.TabIndex = 111;
             // 
             // labelX4
@@ -567,7 +567,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(658, 358);
+            this.ClientSize = new System.Drawing.Size(633, 307);
             this.Controls.Add(this.panelEx1);
             this.Name = "FrmAddOrders";
             this.Text = "新增订单信息:";

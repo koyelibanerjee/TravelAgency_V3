@@ -46,9 +46,10 @@ namespace TravelAgency.OrdersManagement
                 btnOK.Enabled = false;
             }
 
-            if (GlobalUtils.LoginUserLevel == RigthLevel.Waitor) //操作不能查看操作的信息
+            if (GlobalUtils.LoginUserLevel == RigthLevel.Waitor) //客服不能查看操作的信息
             {
                 btnOperInfo.Enabled = false;
+                txtReplyResult.Enabled = false;
             }
 
             if (_is4Modify)

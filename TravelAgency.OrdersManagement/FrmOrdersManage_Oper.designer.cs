@@ -96,6 +96,7 @@
             this.cmsItemRefreshState = new System.Windows.Forms.ToolStripMenuItem();
             this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.查看录入订单操作信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.人申请表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.机票报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.外领担保函ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -103,7 +104,7 @@
             this.韩国加急申请书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bgWorkerLoadData = new System.ComponentModel.BackgroundWorker();
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
-            this.查看录入订单操作信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.查看客人信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panelDgv.SuspendLayout();
@@ -638,6 +639,7 @@
             this.btnAddFromExcel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnAddFromExcel.TabIndex = 56;
             this.btnAddFromExcel.Text = "从excel导入";
+            this.btnAddFromExcel.Visible = false;
             this.btnAddFromExcel.Click += new System.EventHandler(this.btnAddFromExcel_Click);
             // 
             // cbOrderType
@@ -819,30 +821,38 @@
             this.cmsItemRefreshState,
             this.删除ToolStripMenuItem,
             this.修改ToolStripMenuItem,
-            this.查看录入订单操作信息ToolStripMenuItem});
+            this.查看录入订单操作信息ToolStripMenuItem,
+            this.查看客人信息ToolStripMenuItem});
             this.cmsDgvRb.Name = "cmsDgvRb";
             this.cmsDgvRb.Size = new System.Drawing.Size(205, 114);
             // 
             // cmsItemRefreshState
             // 
             this.cmsItemRefreshState.Name = "cmsItemRefreshState";
-            this.cmsItemRefreshState.Size = new System.Drawing.Size(160, 22);
+            this.cmsItemRefreshState.Size = new System.Drawing.Size(204, 22);
             this.cmsItemRefreshState.Text = "刷新数据库状态";
             this.cmsItemRefreshState.Click += new System.EventHandler(this.cmsItemRefreshState_Click);
             // 
             // 删除ToolStripMenuItem
             // 
             this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
-            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.删除ToolStripMenuItem.Text = "删除";
             this.删除ToolStripMenuItem.Click += new System.EventHandler(this.删除ToolStripMenuItem_Click);
             // 
             // 修改ToolStripMenuItem
             // 
             this.修改ToolStripMenuItem.Name = "修改ToolStripMenuItem";
-            this.修改ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.修改ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.修改ToolStripMenuItem.Text = "修改";
             this.修改ToolStripMenuItem.Click += new System.EventHandler(this.修改ToolStripMenuItem_Click);
+            // 
+            // 查看录入订单操作信息ToolStripMenuItem
+            // 
+            this.查看录入订单操作信息ToolStripMenuItem.Name = "查看录入订单操作信息ToolStripMenuItem";
+            this.查看录入订单操作信息ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.查看录入订单操作信息ToolStripMenuItem.Text = "查看(录入)订单操作信息";
+            this.查看录入订单操作信息ToolStripMenuItem.Click += new System.EventHandler(this.查看录入订单操作信息ToolStripMenuItem_Click);
             // 
             // 人申请表ToolStripMenuItem
             // 
@@ -880,12 +890,12 @@
             this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2010Blue;
             this.styleManager1.MetroColorParameters = new DevComponents.DotNetBar.Metro.ColorTables.MetroColorGeneratorParameters(System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255))))), System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199))))));
             // 
-            // 查看录入订单操作信息ToolStripMenuItem
+            // 查看客人信息ToolStripMenuItem
             // 
-            this.查看录入订单操作信息ToolStripMenuItem.Name = "查看录入订单操作信息ToolStripMenuItem";
-            this.查看录入订单操作信息ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.查看录入订单操作信息ToolStripMenuItem.Text = "查看(录入)订单操作信息";
-            this.查看录入订单操作信息ToolStripMenuItem.Click += new System.EventHandler(this.查看录入订单操作信息ToolStripMenuItem_Click);
+            this.查看客人信息ToolStripMenuItem.Name = "查看客人信息ToolStripMenuItem";
+            this.查看客人信息ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.查看客人信息ToolStripMenuItem.Text = "查看客人信息";
+            this.查看客人信息ToolStripMenuItem.Click += new System.EventHandler(this.查看客人信息ToolStripMenuItem_Click);
             // 
             // FrmOrdersManage_Oper
             // 
@@ -983,6 +993,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn WaitorName;
         private System.Windows.Forms.ToolStripMenuItem 查看录入订单操作信息ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 查看客人信息ToolStripMenuItem;
     }
 }
 

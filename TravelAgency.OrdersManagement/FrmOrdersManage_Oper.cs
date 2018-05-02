@@ -98,7 +98,7 @@ namespace TravelAgency.OrdersManagement
 
         private void DataGridView1_DoubleClick(object sender, EventArgs e)
         {
-            查看录入订单操作信息ToolStripMenuItem_Click(null, null);
+            查看客人信息ToolStripMenuItem_Click(null, null);
         }
 
         private void CbPageSize_TextChanged(object sender, EventArgs e)
@@ -504,6 +504,18 @@ namespace TravelAgency.OrdersManagement
             FrmSetOperInfo frm = new FrmSetOperInfo(LoadDataToDataGridView, _curPage, true,
                 DgvDataSourceToList()[dataGridView1.SelectedRows[0].Index]);
             frm.StartPosition = FormStartPosition.CenterScreen;
+            frm.Show();
+        }
+
+        private void 查看客人信息ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 1)
+            {
+                MessageBoxEx.Show("请选中一条数据进行操作!");
+                return;
+            }
+            FrmSetGuestInfo frm = new FrmSetGuestInfo(LoadDataToDataGridView, _curPage, true,
+                DgvDataSourceToList()[dataGridView1.SelectedRows[0].Index]);
             frm.Show();
         }
     }
