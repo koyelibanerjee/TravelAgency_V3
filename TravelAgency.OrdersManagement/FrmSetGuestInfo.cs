@@ -129,7 +129,7 @@ namespace TravelAgency.OrdersManagement
                     _model.GuestEMail = CtrlParser.Parse2String(txtGuestEMail);
 
 
-                    _model.ReserveTime = CtrlParser.Parse2Int(txtReserveTime);
+                    _model.ReserveTime = CtrlParser.Parse2Datetime(txtReserveTime);
                     _model.DiningTime = CtrlParser.Parse2Datetime(txtDiningTime);
                     _model.DiningShop = CtrlParser.Parse2String(txtDiningShop);
                     _model.CheckMoneyTime = CtrlParser.Parse2Datetime(txtCheckMoneyTime);

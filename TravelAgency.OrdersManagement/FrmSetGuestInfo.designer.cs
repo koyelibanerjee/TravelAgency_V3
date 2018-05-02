@@ -53,7 +53,6 @@
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.txtDiningTime = new System.Windows.Forms.DateTimePicker();
             this.labelX13 = new DevComponents.DotNetBar.LabelX();
-            this.txtReserveTime = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX11 = new DevComponents.DotNetBar.LabelX();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtGuestUseTime = new System.Windows.Forms.DateTimePicker();
@@ -77,10 +76,12 @@
             this.btnAddFromExcel = new DevComponents.DotNetBar.ButtonX();
             this.btnOK = new DevComponents.DotNetBar.ButtonX();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
+            this.txtReserveTime = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.panelEx1.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtReserveTime)).BeginInit();
             this.SuspendLayout();
             // 
             // panelEx1
@@ -92,7 +93,7 @@
             this.panelEx1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEx1.Location = new System.Drawing.Point(0, 0);
             this.panelEx1.Name = "panelEx1";
-            this.panelEx1.Size = new System.Drawing.Size(686, 483);
+            this.panelEx1.Size = new System.Drawing.Size(608, 473);
             this.panelEx1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelEx1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -115,7 +116,7 @@
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(686, 483);
+            this.panelMain.Size = new System.Drawing.Size(608, 473);
             this.panelMain.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelMain.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelMain.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -127,6 +128,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtReserveTime);
             this.groupBox2.Controls.Add(this.txtWaitorRemark);
             this.groupBox2.Controls.Add(this.labelX14);
             this.groupBox2.Controls.Add(this.txtRefundReason);
@@ -149,11 +151,10 @@
             this.groupBox2.Controls.Add(this.labelX2);
             this.groupBox2.Controls.Add(this.txtDiningTime);
             this.groupBox2.Controls.Add(this.labelX13);
-            this.groupBox2.Controls.Add(this.txtReserveTime);
             this.groupBox2.Controls.Add(this.labelX11);
             this.groupBox2.Location = new System.Drawing.Point(286, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(388, 461);
+            this.groupBox2.Size = new System.Drawing.Size(319, 458);
             this.groupBox2.TabIndex = 141;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "补充信息:";
@@ -168,7 +169,7 @@
             this.txtWaitorRemark.Location = new System.Drawing.Point(151, 384);
             this.txtWaitorRemark.Multiline = true;
             this.txtWaitorRemark.Name = "txtWaitorRemark";
-            this.txtWaitorRemark.Size = new System.Drawing.Size(230, 69);
+            this.txtWaitorRemark.Size = new System.Drawing.Size(160, 69);
             this.txtWaitorRemark.TabIndex = 161;
             // 
             // labelX14
@@ -193,7 +194,7 @@
             this.txtRefundReason.Location = new System.Drawing.Point(151, 309);
             this.txtRefundReason.Multiline = true;
             this.txtRefundReason.Name = "txtRefundReason";
-            this.txtRefundReason.Size = new System.Drawing.Size(230, 69);
+            this.txtRefundReason.Size = new System.Drawing.Size(160, 69);
             this.txtRefundReason.TabIndex = 159;
             // 
             // labelX12
@@ -216,7 +217,7 @@
             this.txtIsPraise.ItemHeight = 15;
             this.txtIsPraise.Location = new System.Drawing.Point(151, 282);
             this.txtIsPraise.Name = "txtIsPraise";
-            this.txtIsPraise.Size = new System.Drawing.Size(114, 21);
+            this.txtIsPraise.Size = new System.Drawing.Size(160, 21);
             this.txtIsPraise.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.txtIsPraise.TabIndex = 157;
             // 
@@ -240,7 +241,7 @@
             this.txtGuestCountry.ItemHeight = 15;
             this.txtGuestCountry.Location = new System.Drawing.Point(151, 253);
             this.txtGuestCountry.Name = "txtGuestCountry";
-            this.txtGuestCountry.Size = new System.Drawing.Size(114, 21);
+            this.txtGuestCountry.Size = new System.Drawing.Size(160, 21);
             this.txtGuestCountry.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.txtGuestCountry.TabIndex = 155;
             // 
@@ -266,7 +267,7 @@
             this.txtGuestLastNightHotel.Location = new System.Drawing.Point(151, 228);
             this.txtGuestLastNightHotel.Multiline = true;
             this.txtGuestLastNightHotel.Name = "txtGuestLastNightHotel";
-            this.txtGuestLastNightHotel.Size = new System.Drawing.Size(114, 23);
+            this.txtGuestLastNightHotel.Size = new System.Drawing.Size(160, 23);
             this.txtGuestLastNightHotel.TabIndex = 153;
             // 
             // labelX8
@@ -291,7 +292,7 @@
             this.txtGuestPassportNo.Location = new System.Drawing.Point(151, 199);
             this.txtGuestPassportNo.Multiline = true;
             this.txtGuestPassportNo.Name = "txtGuestPassportNo";
-            this.txtGuestPassportNo.Size = new System.Drawing.Size(114, 23);
+            this.txtGuestPassportNo.Size = new System.Drawing.Size(160, 23);
             this.txtGuestPassportNo.TabIndex = 151;
             // 
             // labelX7
@@ -337,7 +338,7 @@
             this.txtRefundAmout.Location = new System.Drawing.Point(151, 139);
             this.txtRefundAmout.Multiline = true;
             this.txtRefundAmout.Name = "txtRefundAmout";
-            this.txtRefundAmout.Size = new System.Drawing.Size(114, 23);
+            this.txtRefundAmout.Size = new System.Drawing.Size(160, 23);
             this.txtRefundAmout.TabIndex = 147;
             // 
             // labelX5
@@ -383,7 +384,7 @@
             this.txtDiningShop.Location = new System.Drawing.Point(151, 79);
             this.txtDiningShop.Multiline = true;
             this.txtDiningShop.Name = "txtDiningShop";
-            this.txtDiningShop.Size = new System.Drawing.Size(114, 23);
+            this.txtDiningShop.Size = new System.Drawing.Size(160, 23);
             this.txtDiningShop.TabIndex = 143;
             // 
             // labelX2
@@ -418,19 +419,6 @@
             this.labelX13.Size = new System.Drawing.Size(104, 23);
             this.labelX13.TabIndex = 136;
             this.labelX13.Text = "用餐时间:";
-            // 
-            // txtReserveTime
-            // 
-            // 
-            // 
-            // 
-            this.txtReserveTime.Border.Class = "TextBoxBorder";
-            this.txtReserveTime.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtReserveTime.Location = new System.Drawing.Point(151, 23);
-            this.txtReserveTime.Multiline = true;
-            this.txtReserveTime.Name = "txtReserveTime";
-            this.txtReserveTime.Size = new System.Drawing.Size(169, 23);
-            this.txtReserveTime.TabIndex = 127;
             // 
             // labelX11
             // 
@@ -722,11 +710,58 @@
             this.btnCancel.Text = "取消";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // txtReserveTime
+            // 
+            // 
+            // 
+            // 
+            this.txtReserveTime.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.txtReserveTime.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtReserveTime.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
+            this.txtReserveTime.ButtonDropDown.Visible = true;
+            this.txtReserveTime.CustomFormat = "yyyy/MM/dd HH:mm";
+            this.txtReserveTime.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
+            this.txtReserveTime.IsPopupCalendarOpen = false;
+            this.txtReserveTime.Location = new System.Drawing.Point(151, 20);
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            this.txtReserveTime.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtReserveTime.MonthCalendar.CalendarDimensions = new System.Drawing.Size(1, 1);
+            this.txtReserveTime.MonthCalendar.ClearButtonVisible = true;
+            // 
+            // 
+            // 
+            this.txtReserveTime.MonthCalendar.CommandsBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
+            this.txtReserveTime.MonthCalendar.CommandsBackgroundStyle.BackColorGradientAngle = 90;
+            this.txtReserveTime.MonthCalendar.CommandsBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+            this.txtReserveTime.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.txtReserveTime.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
+            this.txtReserveTime.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1;
+            this.txtReserveTime.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtReserveTime.MonthCalendar.DisplayMonth = new System.DateTime(2018, 3, 1, 0, 0, 0, 0);
+            this.txtReserveTime.MonthCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
+            // 
+            // 
+            // 
+            this.txtReserveTime.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.txtReserveTime.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90;
+            this.txtReserveTime.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.txtReserveTime.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtReserveTime.MonthCalendar.TodayButtonVisible = true;
+            this.txtReserveTime.Name = "txtReserveTime";
+            this.txtReserveTime.Size = new System.Drawing.Size(160, 21);
+            this.txtReserveTime.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.txtReserveTime.TabIndex = 162;
+            // 
             // FrmSetGuestInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(686, 483);
+            this.ClientSize = new System.Drawing.Size(608, 473);
             this.Controls.Add(this.panelEx1);
             this.Name = "FrmSetGuestInfo";
             this.Text = "订单客户信息:";
@@ -735,6 +770,7 @@
             this.panelMain.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtReserveTime)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -764,7 +800,6 @@
         private DevComponents.DotNetBar.ButtonX btnOK;
         private DevComponents.DotNetBar.ButtonX btnCancel;
         private System.Windows.Forms.GroupBox groupBox2;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtReserveTime;
         private DevComponents.DotNetBar.LabelX labelX11;
         private System.Windows.Forms.DateTimePicker txtDiningTime;
         private DevComponents.DotNetBar.LabelX labelX13;
@@ -789,5 +824,6 @@
         private DevComponents.DotNetBar.Controls.TextBoxX txtWaitorRemark;
         private DevComponents.DotNetBar.LabelX labelX14;
         private System.Windows.Forms.DateTimePicker txtGuestUseTime;
+        private DevComponents.Editors.DateTimeAdv.DateTimeInput txtReserveTime;
     }
 }

@@ -36,7 +36,7 @@ namespace TravelAgency.Model
 		private DateTime? _guestordertime;
 		private DateTime? _waitorordertime;
 		private DateTime? _waitorconfirmtime;
-		private int? _reservetime;
+		private DateTime? _reservetime;
 		private DateTime? _diningtime;
 		private string _diningshop;
 		private DateTime? _checkmoneytime;
@@ -62,6 +62,7 @@ namespace TravelAgency.Model
 		private decimal? _waitorcommision;
 		private string _adminremark;
 		private string _opername;
+		private bool _guestinfotypedin;
 		/// <summary>
 		/// 
 		/// </summary>
@@ -273,7 +274,7 @@ namespace TravelAgency.Model
 		/// <summary>
 		/// 
 		/// </summary>
-		public int? ReserveTime
+		public DateTime? ReserveTime
 		{
 			set{ _reservetime=value;}
 			get{return _reservetime;}
@@ -477,6 +478,14 @@ namespace TravelAgency.Model
 		{
 			set{ _opername=value;}
 			get{return _opername;}
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		public bool GuestInfoTypedIn
+		{
+			set{ _guestinfotypedin=value;}
+			get{return _guestinfotypedin;}
 		}
 		#endregion Model
 
