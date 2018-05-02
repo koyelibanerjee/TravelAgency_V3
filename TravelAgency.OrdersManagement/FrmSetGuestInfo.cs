@@ -87,24 +87,23 @@ namespace TravelAgency.OrdersManagement
         {
             //string tablename = "Orders";
 
-            //txtOrdersState.DropDownStyle = ComboBoxStyle.DropDownList;
-            //txtReplyResult.DropDownStyle = ComboBoxStyle.DropDownList;
-            //txtPaymentPlatform.DropDownStyle = ComboBoxStyle.DropDownList;
+            txtGuestSex.DropDownStyle = ComboBoxStyle.DropDown;
+            txtGuestCountry.DropDownStyle = ComboBoxStyle.DropDown;
+            txtIsPraise.DropDownStyle = ComboBoxStyle.DropDown;
 
-            //var list = Common.Enums.Orders_OrderType.valueKeyMap.Keys;
-            //if (list != null)
-            //    foreach (var item in list)
-            //        txtReplyResult.Items.Add(item);
+            txtGuestSex.Items.Add("男");
+            txtGuestSex.Items.Add("女");
+            txtGuestSex.Items.Add("保密");
 
-            //list = Common.Enums.Orders_OrdersState.valueKeyMap.Keys;
-            //if (list != null)
-            //    foreach (var item in list)
-            //        txtOrdersState.Items.Add(item);
+            foreach (string countryName in CountryCode.CountryNameArr)
+            {
+                txtGuestCountry.Items.Add(countryName);
+            }
 
-            //list = Common.Enums.Orders_PaymentPlatform.valueKeyMap.Keys;
-            //if (list != null)
-            //    foreach (var item in list)
-            //        txtPaymentPlatform.Items.Add(item);
+            txtIsPraise.Items.Add("是");
+            txtIsPraise.Items.Add("否");
+
+
 
         }
         #endregion

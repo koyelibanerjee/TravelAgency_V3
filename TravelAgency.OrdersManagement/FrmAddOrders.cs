@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
@@ -83,26 +84,23 @@ namespace TravelAgency.OrdersManagement
 
         private void InitComboBoxs()
         {
-            //string tablename = "Orders";
+            string tablename = "Orders";
 
-            //txtOrdersState.DropDownStyle = ComboBoxStyle.DropDownList;
-            //txtReplyResult.DropDownStyle = ComboBoxStyle.DropDownList;
-            //txtPaymentPlatform.DropDownStyle = ComboBoxStyle.DropDownList;
+            txtReplyResult.DropDownStyle = ComboBoxStyle.DropDown;
+            txtPaymentPlatform.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            //var list = Common.Enums.Orders_OrderType.valueKeyMap.Keys;
-            //if (list != null)
-            //    foreach (var item in list)
-            //        txtReplyResult.Items.Add(item);
 
-            //list = Common.Enums.Orders_OrdersState.valueKeyMap.Keys;
-            //if (list != null)
-            //    foreach (var item in list)
-            //        txtOrdersState.Items.Add(item);
+            var list = Common.Enums.OrderInfo_PaymentPlatform.valueKeyMap.Keys;
+            if (list != null)
+                foreach (var item in list)
+                    txtPaymentPlatform.Items.Add(item);
 
-            //list = Common.Enums.Orders_PaymentPlatform.valueKeyMap.Keys;
-            //if (list != null)
-            //    foreach (var item in list)
-            //        txtPaymentPlatform.Items.Add(item);
+            List<string> strList = new List<string> { "成功", "处理中", "拒绝", "未处理" };
+                foreach (var item in strList)
+                    txtReplyResult.Items.Add(item);
+            txtReplyResult.SelectedIndex = 3;
+
+
 
         }
         #endregion
@@ -153,7 +151,7 @@ namespace TravelAgency.OrdersManagement
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
-                catch (Exception )
+                catch (Exception)
                 {
                     MessageBoxEx.Show("请检查输入是否有误，价格为0请填入0!");
                     //throw;

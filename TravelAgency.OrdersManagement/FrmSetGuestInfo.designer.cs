@@ -56,6 +56,7 @@
             this.txtReserveTime = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX11 = new DevComponents.DotNetBar.LabelX();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtGuestUseTime = new System.Windows.Forms.DateTimePicker();
             this.txtGuestBirthday = new System.Windows.Forms.DateTimePicker();
             this.txtGuestEMail = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX23 = new DevComponents.DotNetBar.LabelX();
@@ -76,7 +77,6 @@
             this.btnAddFromExcel = new DevComponents.DotNetBar.ButtonX();
             this.btnOK = new DevComponents.DotNetBar.ButtonX();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
-            this.txtGuestUseTime = new System.Windows.Forms.DateTimePicker();
             this.panelEx1.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -250,7 +250,7 @@
             // 
             // 
             this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX9.Location = new System.Drawing.Point(7, 253);
+            this.labelX9.Location = new System.Drawing.Point(8, 254);
             this.labelX9.Name = "labelX9";
             this.labelX9.Size = new System.Drawing.Size(94, 23);
             this.labelX9.TabIndex = 154;
@@ -470,6 +470,15 @@
             this.groupBox1.TabIndex = 140;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "基本信息";
+            // 
+            // txtGuestUseTime
+            // 
+            this.txtGuestUseTime.CustomFormat = "yyyy/MM/dd HH:mm:ss";
+            this.txtGuestUseTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.txtGuestUseTime.Location = new System.Drawing.Point(93, 166);
+            this.txtGuestUseTime.Name = "txtGuestUseTime";
+            this.txtGuestUseTime.Size = new System.Drawing.Size(133, 21);
+            this.txtGuestUseTime.TabIndex = 146;
             // 
             // txtGuestBirthday
             // 
@@ -712,15 +721,6 @@
             this.btnCancel.TabIndex = 30;
             this.btnCancel.Text = "取消";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // txtGuestUseTime
-            // 
-            this.txtGuestUseTime.CustomFormat = "yyyy/MM/dd HH:mm:ss";
-            this.txtGuestUseTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtGuestUseTime.Location = new System.Drawing.Point(93, 166);
-            this.txtGuestUseTime.Name = "txtGuestUseTime";
-            this.txtGuestUseTime.Size = new System.Drawing.Size(133, 21);
-            this.txtGuestUseTime.TabIndex = 146;
             // 
             // FrmSetGuestInfo
             // 
