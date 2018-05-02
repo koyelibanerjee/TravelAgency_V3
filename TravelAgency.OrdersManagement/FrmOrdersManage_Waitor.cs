@@ -185,7 +185,7 @@ namespace TravelAgency.OrdersManagement
 
             if (!string.IsNullOrEmpty(txtSchEntryTimeFrom.Text.Trim()) && !string.IsNullOrEmpty(txtSchEntryTimeTo.Text.Trim()))
             {
-                conditions.Add(" (OrderTime between '" + txtSchEntryTimeFrom.Text + "' and " + " '" + txtSchEntryTimeTo.Text +
+                conditions.Add(" (GuestOrderTime between '" + txtSchEntryTimeFrom.Text + "' and " + " '" + txtSchEntryTimeTo.Text +
                                "') ");
             }
 
@@ -198,7 +198,7 @@ namespace TravelAgency.OrdersManagement
                 conditions.Add(" OrderType = '" + cbOrderType.Text + "' ");
 
             if (cbPaymentPlatform.Text != "全部")
-                conditions.Add(" PaymentPlatform = " + Common.Enums.OrderInfo_PaymentPlatform.ValueToKey(cbOrderType.Text) + " ");
+                conditions.Add(" PaymentPlatform = " + Common.Enums.OrderInfo_PaymentPlatform.ValueToKey(cbPaymentPlatform.Text) + " ");
 
             if (cbReplyResult.Text != "全部")
                 conditions.Add(" ReplyResult = '" + cbReplyResult.Text + "' ");
