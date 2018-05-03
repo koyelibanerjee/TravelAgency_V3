@@ -10,6 +10,10 @@ namespace TravelAgency.Common
 {
     public class StyleControler
     {
+        public static Color CellDefaultBackColor { get { return Color.FromArgb(255,255,255); } }
+        public static Color CellDefaultAlterBackColor { get { return Color.FromArgb(244, 244, 244); } }
+
+
         public static void SetDgvStyle(DataGridView dgv)
         {
             dgv.AutoGenerateColumns = false;
@@ -19,7 +23,7 @@ namespace TravelAgency.Common
             dgv.EnableHeadersVisualStyles = false;
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //列宽自适应,一定不能用AllCells
             dgv.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders; //这里也一定不能AllCell自适应!
- 
+
 
             //dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(244, 244, 244);
             //dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("宋体", 10.0f, FontStyle.Bold);
@@ -36,11 +40,11 @@ namespace TravelAgency.Common
             //dataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
 
 
-            dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(244, 244, 244);
+            dgv.AlternatingRowsDefaultCellStyle.BackColor = CellDefaultAlterBackColor;
 
             dgv.ColumnHeadersDefaultCellStyle.Font = new Font("微软雅黑", 10.0f, FontStyle.Bold);
             dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(48, 126, 204);
-            dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.White;
+            //dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.White;
             dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(234, 242, 251); 
             dgv.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(165, 227, 242);
             dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
@@ -59,6 +63,7 @@ namespace TravelAgency.Common
             dgv.DefaultCellStyle.SelectionBackColor = Color.FromArgb(165, 227, 242);
             dgv.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
             dgv.DefaultCellStyle.ForeColor = Color.FromArgb(110, 110, 110);
+            dgv.DefaultCellStyle.BackColor = CellDefaultBackColor;
 
         }
 

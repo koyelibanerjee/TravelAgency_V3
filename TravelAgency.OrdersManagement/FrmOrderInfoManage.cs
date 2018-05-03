@@ -21,7 +21,7 @@ namespace TravelAgency.OrdersManagement
         private string _where = string.Empty;
         private bool _showDetail = false;
         private string _orderNo = "";
-        private  Common.DataOrderByHelper _orderByHelpter;
+        private Common.DataOrderByHelper _orderByHelpter;
 
         public FrmOrderInfoManage()
         {
@@ -42,7 +42,7 @@ namespace TravelAgency.OrdersManagement
             },
             new List<string> {
                 "Id","OrderNo","OrderTime","EntryTime"
-            }, cbOrderBy, cbOrder,LoadDataToDgvAsyn);
+            }, cbOrderBy, cbOrder, LoadDataToDgvAsyn);
 
             _recordCount = _bllOrderInfo.GetRecordCount(_where);
             _pageCount = (int)Math.Ceiling(_recordCount / (double)_pageSize);
@@ -220,7 +220,7 @@ namespace TravelAgency.OrdersManagement
             int curSelectedRow = -1;
             if (dataGridView1.SelectedRows.Count > 0)
                 curSelectedRow = dataGridView1.SelectedRows[0].Index;
-            dataGridView1.DataSource = _bllOrderInfo.GetListOfPage(_where, 
+            dataGridView1.DataSource = _bllOrderInfo.GetListOfPage(_where,
                 _orderByHelpter.GetOrderByCondition(cbOrderBy, cbOrder),
                 _curPage, _pageSize);
             if (curSelectedRow != -1 && dataGridView1.Rows.Count > curSelectedRow)
@@ -398,7 +398,8 @@ namespace TravelAgency.OrdersManagement
 
                 if (row.Cells["OrderInfoState"].Value.ToString() == "未校验")
                 {
-                    row.Cells["OrderInfoState"].Style.BackColor = Color.White;
+                    row.Cells["OrderInfoState"].Style.BackColor = i % 2 == 0 ? StyleControler.CellDefaultBackColor 
+                        : StyleControler.CellDefaultAlterBackColor; //保持原有样式不变
                 }
                 else
                 {
