@@ -44,7 +44,7 @@ namespace TravelAgency.OrdersManagement
                 btnOK.Enabled = false;
             }
 
-        
+
 
             if (_is4Modify)
             {
@@ -142,6 +142,14 @@ namespace TravelAgency.OrdersManagement
                     _model.RefundReason = CtrlParser.Parse2String(txtRefundReason);
                     _model.WaitorRemark = CtrlParser.Parse2String(txtWaitorRemark);
 
+                    if (!string.IsNullOrEmpty(_model.GuestId) &&
+                        !string.IsNullOrEmpty(_model.GuestPhone) &&
+                        !string.IsNullOrEmpty(_model.GuestName))
+                    {
+                        _model.GuestInfoTypedIn = true;
+                    }
+                    else
+                        _model.GuestInfoTypedIn = false;
 
 
                     //下面的字段暂时不进行修改
@@ -158,7 +166,7 @@ namespace TravelAgency.OrdersManagement
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
-                catch (Exception )
+                catch (Exception)
                 {
                     MessageBoxEx.Show("请检查输入是否有误，价格为0请填入0!");
                     //throw;

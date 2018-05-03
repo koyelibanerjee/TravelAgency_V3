@@ -68,7 +68,7 @@ namespace TravelAgency.OrdersManagement
             string tablename = "Orders";
 
             cbOrderType.Items.Add("全部");
-            
+
             cbPaymentPlatform.Items.Add("全部");
             cbReplyResult.Items.Add("全部");
 
@@ -202,7 +202,7 @@ namespace TravelAgency.OrdersManagement
 
             if (cbReplyResult.Text != "全部")
                 conditions.Add(" ReplyResult = '" + cbReplyResult.Text + "' ");
-            
+
 
             string[] arr = conditions.ToArray();
             string where = string.Join(" and ", arr);
@@ -242,12 +242,14 @@ namespace TravelAgency.OrdersManagement
         {
             //int digit = GlobalUtils.DecimalDigits;
             var list = DgvDataSourceToList();
+            int hasTypedInGuestInfoCount = 0;
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 DataGridViewRow row = dataGridView1.Rows[i];
                 row.HeaderCell.Value = (i + 1).ToString();
 
                 //在这里控制单元格的显示
+                if (list[i].GuestInfoTypedIn) ++hasTypedInGuestInfoCount;
 
                 for (int j = 0; j != dataGridView1.ColumnCount; ++j)
                 {
@@ -262,6 +264,9 @@ namespace TravelAgency.OrdersManagement
                 //row.Cells["OrdersState"].Value = Common.Enums.Orders_OrdersState.KeyToValue(list[i].OrdersState);
                 row.Cells["PaymentPlatform"].Value = Common.Enums.OrderInfo_PaymentPlatform.KeyToValue(list[i].PaymentPlatform);
             }
+
+            lbGuestInfoTypedInCount.Text = string.Format("客人信息已录入: {0}/{1}", hasTypedInGuestInfoCount, dataGridView1.Rows.Count);
+
         }
 
         /// <summary>
