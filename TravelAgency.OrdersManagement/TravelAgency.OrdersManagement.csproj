@@ -214,6 +214,10 @@
       <Project>{3FE063B6-57A1-4890-98CF-C23811BCBDD9}</Project>
       <Name>TravelAgency.CSUI</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TravelAgency.OrdersManagement.AutoUpdate\TravelAgency.OrdersManagement.AutoUpdate.csproj">
+      <Project>{118e5bfc-b56f-430b-ac70-d7f9aff6b760}</Project>
+      <Name>TravelAgency.OrdersManagement.AutoUpdate</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="微信图片_20180423141959~1.ico" />

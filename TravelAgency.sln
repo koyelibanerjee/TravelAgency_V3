@@ -72,6 +72,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoDBDemo", "MongoDBDemo\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAgency.OrdersManagement", "TravelAgency.OrdersManagement\TravelAgency.OrdersManagement.csproj", "{767CA2F9-93BF-474D-B6BA-E97A03A8DDF9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAgency.OrdersManagement.AutoUpdate", "TravelAgency.OrdersManagement.AutoUpdate\TravelAgency.OrdersManagement.AutoUpdate.csproj", "{118E5BFC-B56F-430B-AC70-D7F9AFF6B760}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|.NET = Debug|.NET
@@ -530,6 +532,22 @@ Global
 		{767CA2F9-93BF-474D-B6BA-E97A03A8DDF9}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{767CA2F9-93BF-474D-B6BA-E97A03A8DDF9}.Release|x86.ActiveCfg = Release|Any CPU
 		{767CA2F9-93BF-474D-B6BA-E97A03A8DDF9}.Release|x86.Build.0 = Release|Any CPU
+		{118E5BFC-B56F-430B-AC70-D7F9AFF6B760}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{118E5BFC-B56F-430B-AC70-D7F9AFF6B760}.Debug|.NET.Build.0 = Debug|Any CPU
+		{118E5BFC-B56F-430B-AC70-D7F9AFF6B760}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{118E5BFC-B56F-430B-AC70-D7F9AFF6B760}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{118E5BFC-B56F-430B-AC70-D7F9AFF6B760}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{118E5BFC-B56F-430B-AC70-D7F9AFF6B760}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{118E5BFC-B56F-430B-AC70-D7F9AFF6B760}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{118E5BFC-B56F-430B-AC70-D7F9AFF6B760}.Debug|x86.Build.0 = Debug|Any CPU
+		{118E5BFC-B56F-430B-AC70-D7F9AFF6B760}.Release|.NET.ActiveCfg = Release|Any CPU
+		{118E5BFC-B56F-430B-AC70-D7F9AFF6B760}.Release|.NET.Build.0 = Release|Any CPU
+		{118E5BFC-B56F-430B-AC70-D7F9AFF6B760}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{118E5BFC-B56F-430B-AC70-D7F9AFF6B760}.Release|Any CPU.Build.0 = Release|Any CPU
+		{118E5BFC-B56F-430B-AC70-D7F9AFF6B760}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{118E5BFC-B56F-430B-AC70-D7F9AFF6B760}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{118E5BFC-B56F-430B-AC70-D7F9AFF6B760}.Release|x86.ActiveCfg = Release|Any CPU
+		{118E5BFC-B56F-430B-AC70-D7F9AFF6B760}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

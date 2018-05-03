@@ -128,7 +128,7 @@ namespace TravelAgency.OrdersManagement
                 role = "管理员";
             }
 
-            this.Text = "EasyGo 销售订单管理系统" + XmlHandler.GetPropramVersion();
+            this.Text = "EasyGo 销售订单管理系统" + TravelAgency.OrdersManagement.AutoUpdate.Common.XmlHandler.GetPropramVersion();
             this.Text = this.Text + "     当前登录用户:" + Common.GlobalUtils.LoginUser.UserName;
             this.Text += "  身份:(" + role + ")";
         }

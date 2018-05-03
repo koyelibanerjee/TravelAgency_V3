@@ -148,35 +148,32 @@ namespace TravelAgency.OrdersManagement
                 Application.Exit();
                 return;
             }
-            _model = _bll.GetModel(_bll.GetMaxId() - 1); //取出来是错的，加了1，这里如果数据库里没有数据，返回的是1，所以还不好判断，就假设数据库一致都有数据吧
-            if (_model == null)
+            TravelAgency.OrdersManagement.AutoUpdate.BLL.ProgramUpdateBll bllProgramUpdate = new TravelAgency.OrdersManagement.AutoUpdate.BLL.ProgramUpdateBll();
+            var latest = bllProgramUpdate.GetLatestModel();
+
+
+            if (latest == null)
             {
                 MessageBoxEx.Show("检查更新失败，程序将退出");
                 Application.Exit();
                 return;
             }
             //执行检查更新操作
-            if (NeedUpdate())
+            if (NeedUpdate(latest.Version))
             {
-                //获取更新文件列表
-                string[] list = _model.update_files.Split('|');
-
-                //显示更新描述
-                labelX1.Text = _model.udapte_details;
-
                 //执行更新
                 MessageBoxEx.Show("发现新版本，即将开始升级");
-                Process.Start(GlobalUtils.AppPath + "\\" + "TravelAgency.AutoUpdate.exe");
+                Process.Start(GlobalUtils.AppPath + "\\" + "TravelAgency.OrdersManagement.AutoUpdate.exe");
                 Application.Exit();
                 return;
             }
 
         }
 
-        private bool NeedUpdate()
+        private bool NeedUpdate(string remoteVersion)
         {
-            float localVersion = XmlHandler.GetPropramVersion();
-            return localVersion < (float)_model.version;
+            string localVersion = AppSettingHandler.ReadConfig("Version");
+            return string.Compare(localVersion, remoteVersion) < 0;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
