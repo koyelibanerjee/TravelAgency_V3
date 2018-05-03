@@ -98,6 +98,7 @@
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
             this.bar2 = new DevComponents.DotNetBar.Bar();
             this.lbGuestInfoTypedInCount = new DevComponents.DotNetBar.LabelItem();
+            this.lbReplyResultCount = new DevComponents.DotNetBar.LabelItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panelDgv.SuspendLayout();
@@ -834,7 +835,8 @@
             this.bar2.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
             this.bar2.IsMaximized = false;
             this.bar2.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.lbGuestInfoTypedInCount});
+            this.lbGuestInfoTypedInCount,
+            this.lbReplyResultCount});
             this.bar2.ItemSpacing = 5;
             this.bar2.Location = new System.Drawing.Point(0, 506);
             this.bar2.Name = "bar2";
@@ -851,6 +853,13 @@
             this.lbGuestInfoTypedInCount.ForeColor = System.Drawing.Color.ForestGreen;
             this.lbGuestInfoTypedInCount.Name = "lbGuestInfoTypedInCount";
             this.lbGuestInfoTypedInCount.Text = "--";
+            // 
+            // lbReplyResultCount
+            // 
+            this.lbReplyResultCount.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbReplyResultCount.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lbReplyResultCount.Name = "lbReplyResultCount";
+            this.lbReplyResultCount.Text = "--";
             // 
             // FrmOrdersManage_Waitor
             // 
@@ -943,6 +952,7 @@
         private DevComponents.DotNetBar.LabelX labelX5;
         private DevComponents.DotNetBar.Bar bar2;
         private DevComponents.DotNetBar.LabelItem lbGuestInfoTypedInCount;
+        private DevComponents.DotNetBar.LabelItem lbReplyResultCount;
     }
 }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
@@ -243,6 +244,7 @@ namespace TravelAgency.OrdersManagement
             //int digit = GlobalUtils.DecimalDigits;
             var list = DgvDataSourceToList();
             int hasTypedInGuestInfoCount = 0;
+            int sucNum = 0, proNum = 0, refuseNum = 0, notHandleNum = 0;
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 DataGridViewRow row = dataGridView1.Rows[i];
@@ -250,6 +252,14 @@ namespace TravelAgency.OrdersManagement
 
                 //在这里控制单元格的显示
                 if (list[i].GuestInfoTypedIn) ++hasTypedInGuestInfoCount;
+                if (list[i].ReplyResult == "成功")
+                    ++sucNum;
+                if (list[i].ReplyResult == "处理中")
+                    ++proNum;
+                if (list[i].ReplyResult == "拒绝")
+                    ++refuseNum;
+                if (list[i].ReplyResult == "未处理")
+                    ++notHandleNum;
 
                 for (int j = 0; j != dataGridView1.ColumnCount; ++j)
                 {
@@ -266,7 +276,17 @@ namespace TravelAgency.OrdersManagement
             }
 
             lbGuestInfoTypedInCount.Text = string.Format("客人信息已录入: {0}/{1}", hasTypedInGuestInfoCount, dataGridView1.Rows.Count);
-
+            StringBuilder sb = new StringBuilder();
+            sb.Append(" 回复结果统计:");
+            if (sucNum > 0)
+                sb.AppendFormat("成功:{0} ", sucNum);
+            if (proNum > 0)
+                sb.AppendFormat("处理中:{0} ", proNum);
+            if (refuseNum > 0)
+                sb.AppendFormat("拒绝:{0} ", refuseNum);
+            if (notHandleNum > 0)
+                sb.AppendFormat("未处理:{0} ", notHandleNum);
+            lbReplyResultCount.Text = sb.ToString();
         }
 
         /// <summary>
