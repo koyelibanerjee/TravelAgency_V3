@@ -21,6 +21,7 @@ namespace TravelAgency.OrdersManagement
         private string _where = string.Empty;
         private bool _showDetail = false;
         private string _orderNo = "";
+        private  Common.DataOrderByHelper _orderByHelpter;
 
         public FrmOrderInfoManage()
         {
@@ -31,11 +32,18 @@ namespace TravelAgency.OrdersManagement
         {
             InitializeComponent();
             _showDetail = true;
-            _orderNo = orderNo;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            _orderByHelpter = new DataOrderByHelper(
+            new List<string> {
+                "编号","订单号","订单提交时间","录入时间"
+            },
+            new List<string> {
+                "Id","OrderNo","OrderTime","EntryTime"
+            }, cbOrderBy, cbOrder,LoadDataToDgvAsyn);
+
             _recordCount = _bllOrderInfo.GetRecordCount(_where);
             _pageCount = (int)Math.Ceiling(_recordCount / (double)_pageSize);
 
@@ -55,6 +63,12 @@ namespace TravelAgency.OrdersManagement
 
             _pageSize = int.Parse(cbPageSize.Text);
             cbPageSize.TextChanged += CbPageSize_TextChanged;
+
+
+            //_orderByHelpter.InitCommboBox(cbOrderBy, cbOrder,LoadDataToDgvAsyn);
+            //cbOrderBy.SelectedIndexChanged += OrderByChanged;
+            //cbOrder.SelectedIndexChanged += OrderByChanged;
+
             this.FormClosed += FrmOrderInfoManage_FormClosed;
 
             dataGridView1.DoubleClick += DataGridView1_DoubleClick;
@@ -71,6 +85,11 @@ namespace TravelAgency.OrdersManagement
 
             LoadDataToDgvAsyn();
         }
+
+        //private void OrderByChanged(object sender, EventArgs e)
+        //{
+        //    LoadDataToDgvAsyn(); 
+        //}
 
         private void FrmOrderInfoManage_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -197,15 +216,17 @@ namespace TravelAgency.OrdersManagement
         public void LoadDataToDataGridView(int page) //刷新后保持选中
         {
             _where = GetWhereCondition();
+
             int curSelectedRow = -1;
             if (dataGridView1.SelectedRows.Count > 0)
                 curSelectedRow = dataGridView1.SelectedRows[0].Index;
-            dataGridView1.DataSource = _bllOrderInfo.GetListByPageOrderById(_where, _curPage, _pageSize);
+            dataGridView1.DataSource = _bllOrderInfo.GetListOfPage(_where, 
+                _orderByHelpter.GetOrderByCondition(cbOrderBy, cbOrder),
+                _curPage, _pageSize);
             if (curSelectedRow != -1 && dataGridView1.Rows.Count > curSelectedRow)
                 dataGridView1.CurrentCell = dataGridView1.Rows[curSelectedRow].Cells[0];
             dataGridView1.Update();
         }
-
         private void UpdateState()
         {
             _recordCount = _bllOrderInfo.GetRecordCount(_where);
@@ -251,7 +272,7 @@ namespace TravelAgency.OrdersManagement
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            _where = GetWhereCondition();
+            //_where = GetWhereCondition();
             _curPage = 1;
             LoadDataToDgvAsyn();
         }
