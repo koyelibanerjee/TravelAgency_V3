@@ -32,6 +32,7 @@ namespace TravelAgency.OrdersManagement
         {
             InitializeComponent();
             _showDetail = true;
+            _orderNo = orderNo;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -46,7 +47,6 @@ namespace TravelAgency.OrdersManagement
 
             _recordCount = _bllOrderInfo.GetRecordCount(_where);
             _pageCount = (int)Math.Ceiling(_recordCount / (double)_pageSize);
-
 
             InitComboboxs();
 

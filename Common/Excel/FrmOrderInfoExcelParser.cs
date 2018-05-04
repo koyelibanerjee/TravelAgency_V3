@@ -124,7 +124,6 @@ namespace TravelAgency.Common
                 modelList = GetModelFromExcelDazhong(wkbook);
             if (excelType == ExcelType.Type03_MaYi)
                 modelList = GetModelFromExcelFengWo(wkbook);
-
             if (excelType == ExcelType.Type04_XieCheng)
                 modelList = GetModelFromExcelXieCheng(wkbook);
             if (excelType == ExcelType.Type02_FeiZhu)
@@ -409,7 +408,7 @@ namespace TravelAgency.Common
                     modelRec.ProductName = row.GetCell(1)?.StringCellValue;
                     modelRec.Amount = DecimalHandler.Parse(row.GetCell(11)?.NumericCellValue.ToString()); //收入
                     modelRec.OrderTime = DateTime.Parse(row.GetCell(16)?.StringCellValue); //结算时间
-                    modelRec.PaymentPlatform = Enums.OrderInfo_PaymentPlatform.valueKeyMap["大众"];
+                    modelRec.PaymentPlatform = Enums.OrderInfo_PaymentPlatform.valueKeyMap["蚂蜂"];
                     modelRec.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["收入"];
 
 
