@@ -250,5 +250,11 @@ namespace TravelAgency.CSUI.FrmMain
             FrmJiaoJieManage frm = new FrmJiaoJieManage();
             OpenTab(frm, frm.Name);
         }
+
+        private void btnBackUp_Click(object sender, EventArgs e)
+        {
+            FrmDataBackUp frm = new FrmDataBackUp();
+            OpenTab(frm, frm.Name);
+        }
     }
 }

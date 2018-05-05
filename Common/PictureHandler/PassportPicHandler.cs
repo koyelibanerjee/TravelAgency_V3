@@ -121,11 +121,12 @@ namespace TravelAgency.Common.PictureHandler
         /// <param name="type"></param>
         /// <param name="dstname"></param>
         /// <returns></returns>
-        public static bool DownloadPic(string passportNo, PicType type, string dstname)
+        public static bool DownloadPic(string passportNo, PicType type, string dstname, bool hintWhenNotExist = true)
         {
             if (!CheckAndDownloadIfNotExist(passportNo, type))
             {
-                MessageBoxEx.Show("找不到指定图像!");
+                if (hintWhenNotExist)
+                    MessageBoxEx.Show("找不到指定图像!");
                 return false;
             }
             string fileName = GetFileName(passportNo, type);
@@ -136,6 +137,8 @@ namespace TravelAgency.Common.PictureHandler
             return true;
         }
 
+        
+
         /// <summary>
         /// 批量下载护照指定类型图像
         /// </summary>
@@ -143,13 +146,13 @@ namespace TravelAgency.Common.PictureHandler
         /// <param name="type"></param>
         /// <param name="dstname"></param>
         /// <returns></returns>
-        public static int DownloadPicBatch(string[] passportNoList, PicType type, string dstPath)
+        public static int DownloadPicBatch(string[] passportNoList, PicType type, string dstPath, bool hintWhenNotExist = true)
         {
             int res = 0;
             for (int i = 0; i < passportNoList.Length; i++)
             {
                 string fileName = GetFileName(passportNoList[i], type);
-                if (DownloadPic(passportNoList[i], type, dstPath + "\\" + fileName))
+                if (DownloadPic(passportNoList[i], type, dstPath + "\\" + fileName, hintWhenNotExist))
                     ++res;
             }
             return res;

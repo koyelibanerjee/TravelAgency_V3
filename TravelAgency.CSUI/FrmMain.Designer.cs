@@ -69,6 +69,7 @@
             this.btnMCloseOther = new System.Windows.Forms.ToolStripMenuItem();
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
             this.btnFrmGaoPaiManage = new DevComponents.DotNetBar.ButtonItem();
+            this.btnBackUp = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonControl1.SuspendLayout();
             this.ribbonPanel3.SuspendLayout();
             this.ribbonPanel5.SuspendLayout();
@@ -85,9 +86,9 @@
             // 
             this.ribbonControl1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonControl1.Controls.Add(this.ribbonPanel3);
+            this.ribbonControl1.Controls.Add(this.ribbonPanel1);
             this.ribbonControl1.Controls.Add(this.ribbonPanel5);
             this.ribbonControl1.Controls.Add(this.ribbonPanel2);
-            this.ribbonControl1.Controls.Add(this.ribbonPanel1);
             this.ribbonControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.ribbonControl1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.ribbonTabItem3,
@@ -507,10 +508,11 @@
             this.ribbonBar1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.btntActionRecordsCount,
             this.btnPersonalCount,
-            this.btnCommisionMoneyManage});
+            this.btnCommisionMoneyManage,
+            this.btnBackUp});
             this.ribbonBar1.Location = new System.Drawing.Point(3, 0);
             this.ribbonBar1.Name = "ribbonBar1";
-            this.ribbonBar1.Size = new System.Drawing.Size(282, 58);
+            this.ribbonBar1.Size = new System.Drawing.Size(498, 58);
             this.ribbonBar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonBar1.TabIndex = 0;
             // 
@@ -646,6 +648,16 @@
             this.btnFrmGaoPaiManage.SubItemsExpandWidth = 14;
             this.btnFrmGaoPaiManage.Text = "高排图像管理";
             // 
+            // btnBackUp
+            // 
+            this.btnBackUp.Icon = ((System.Drawing.Icon)(resources.GetObject("btnBackUp.Icon")));
+            this.btnBackUp.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
+            this.btnBackUp.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnBackUp.Name = "btnBackUp";
+            this.btnBackUp.SubItemsExpandWidth = 14;
+            this.btnBackUp.Text = "数据备份";
+            this.btnBackUp.Click += new System.EventHandler(this.btnBackUp_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -711,5 +723,6 @@
         private DevComponents.DotNetBar.RibbonBar ribbonBar5;
         private DevComponents.DotNetBar.ButtonItem btnChangeLoginUser;
         private DevComponents.DotNetBar.ButtonItem btnJiaoJiePicManage;
+        private DevComponents.DotNetBar.ButtonItem btnBackUp;
     }
 }
