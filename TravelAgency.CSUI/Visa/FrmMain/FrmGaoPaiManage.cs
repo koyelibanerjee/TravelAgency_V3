@@ -50,7 +50,9 @@ namespace TravelAgency.CSUI.FrmMain
             //lvPics.
 
             SetAdvStyle();
-            LoadDataToAdvTree();
+
+
+            new Thread(LoadDataToAdvTree) { IsBackground = true }.Start();
             UpdateLabels();
 
         }
@@ -111,12 +113,11 @@ namespace TravelAgency.CSUI.FrmMain
         /// </summary>
         private void LoadDataToAdvTree()
         {
-            advTree1.Nodes.Clear();
-            //cb_field.Items.Clear();
-            //cb_field.Items.Add("全部");
-            //遍历记载矿区节点
-            //List<TblField> listFiled = filedBll.GetList();
-
+            this.Invoke(new Action(() => 
+            {
+                advTree1.Nodes.Clear();
+            }));
+            
             List<List<string>> folderList = _gaopaiPicHandler.GetFolderListGroupByMonth();
             //按照年月分类
             if (folderList == null || folderList.Count == 0)
@@ -127,8 +128,11 @@ namespace TravelAgency.CSUI.FrmMain
                 Node groupNode = new Node(GenChinaDate(folderList[i][0].Substring(0, 6)), advTree1.Styles["groupstyle"]);
                 groupNode.Expanded = true;
                 groupNode.Tag = folderList[i][0].Substring(0, 6); //存一个组名
-                advTree1.Nodes.Add(groupNode);
-
+              
+                this.Invoke(new Action(() =>
+                {
+                    advTree1.Nodes.Add(groupNode);
+                }));
                 for (int j = folderList[i].Count - 1; j >= 0; j--)
                 {
                     //Node subNode = CreateChildNode(GenChinaDate(folderList[i][j]),
@@ -147,17 +151,17 @@ namespace TravelAgency.CSUI.FrmMain
                     {
                         Node subImtem = CreateChildNode(typeList[i1], typeList[i1], Properties.Resources.Folder, advTree1.Styles["subitemstyle"]);
                         subImtem.Tag = typeList[i1];
-                        subNode.Nodes.Add(subImtem);
+                        this.Invoke(new Action(() =>
+                        {
+                            subNode.Nodes.Add(subImtem);
+                        }));
                     }
-
-                    //subNode.Nodes.Add(CreateChildNode("aaa1", "bbb1", Properties.Resources.Folder, advTree1.Styles["subitemstyle"]));
-                    //subNode.Nodes.Add(CreateChildNode("aaa2", "bbb2", Properties.Resources.Folder, advTree1.Styles["subitemstyle"]));
-                    //subNode.Nodes.Add(CreateChildNode("aaa3", "bbb3", Properties.Resources.Folder, advTree1.Styles["subitemstyle"]));
-                    //subNode.Nodes.Add(new Node("aaaaa", advTree1.Styles["subitemstyle2"]));
-
-                    groupNode.Nodes.Add(subNode);
+                    this.Invoke(new Action(() =>
+                    {
+                        groupNode.Nodes.Add(subNode);
+                    }));
+                    
                 }
-
             }
         }
         private Node CreateChildNode(string nodeText, string subText, Image image, ElementStyle subItemStyle)
