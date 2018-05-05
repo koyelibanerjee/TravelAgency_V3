@@ -270,6 +270,12 @@ namespace TravelAgency.OrdersManagement
                 DataGridViewRow row = dataGridView1.Rows[i];
                 row.HeaderCell.Value = (i + 1).ToString();
 
+
+                SetRowColorByReserveTime(row);
+
+
+
+
                 //在这里控制单元格的显示
 
                 for (int j = 0; j != dataGridView1.ColumnCount; ++j)
@@ -285,6 +291,35 @@ namespace TravelAgency.OrdersManagement
                 //row.Cells["OrdersState"].Value = Common.Enums.Orders_OrdersState.KeyToValue(list[i].OrdersState);
                 row.Cells["PaymentPlatform"].Value = Common.Enums.OrderInfo_PaymentPlatform.KeyToValue(list[i].PaymentPlatform);
             }
+        }
+
+        private void SetRowColorByReserveTime(DataGridViewRow row)
+        {
+            if (row.Cells["ReplyResult"].Value.ToString() != "未处理" || !DgvDataSourceToList()[row.Index].ReserveTime.HasValue)
+            {
+                row.Cells["ReplyResult"].Style.BackColor = row.Index % 2 == 0 ? StyleControler.CellDefaultBackColor
+                        : StyleControler.CellDefaultAlterBackColor; //保持原有样式不变
+                return;
+            }
+
+            DateTime reserveTime = DgvDataSourceToList()[row.Index].ReserveTime.Value;
+            var span = reserveTime - DateTime.Now;
+            var style = row.Cells["ReplyResult"].Style;
+            row.Cells["ReplyResult"].Style.ForeColor = Color.Black;
+            if (span.TotalHours <= 4)
+            {
+                style.BackColor = Color.Red;
+            }
+            else if (span.TotalHours <= 8)
+            {
+                style.BackColor = Color.Orange;
+            }
+            else
+            {
+                style.BackColor = Color.ForestGreen;
+            }
+            
+
         }
 
         /// <summary>
