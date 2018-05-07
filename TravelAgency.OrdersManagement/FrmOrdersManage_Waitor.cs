@@ -260,6 +260,8 @@ namespace TravelAgency.OrdersManagement
                     ++refuseNum;
                 if (list[i].ReplyResult == "未处理")
                     ++notHandleNum;
+                SetRowColorByReserveTime(row);
+                SetRowColorByGuestInfoTypedIn(row);
 
                 for (int j = 0; j != dataGridView1.ColumnCount; ++j)
                 {
@@ -288,6 +290,52 @@ namespace TravelAgency.OrdersManagement
                 sb.AppendFormat("未处理:{0} ", notHandleNum);
             lbReplyResultCount.Text = sb.ToString();
         }
+
+        private void SetRowColorByGuestInfoTypedIn(DataGridViewRow row)
+        {
+            if (DgvDataSourceToList()[row.Index].GuestInfoTypedIn)
+            {
+                row.Cells["GuestInfoTypedIn"].Value = "已录入";
+                row.Cells["GuestInfoTypedIn"].Style.BackColor = row.Index % 2 == 0 ? StyleControler.CellDefaultBackColor
+: StyleControler.CellDefaultAlterBackColor; //保持原有样式不变
+            }
+            else
+            {
+                row.Cells["GuestInfoTypedIn"].Value = "未录入";
+                row.Cells["GuestInfoTypedIn"].Style.BackColor = Color.Orange;
+            }
+        }
+
+
+        private void SetRowColorByReserveTime(DataGridViewRow row)
+        {
+            if (row.Cells["ReplyResult"].Value.ToString() != "未处理" || !DgvDataSourceToList()[row.Index].ReserveTime.HasValue)
+            {
+                row.Cells["ReplyResult"].Style.BackColor = row.Index % 2 == 0 ? StyleControler.CellDefaultBackColor
+                        : StyleControler.CellDefaultAlterBackColor; //保持原有样式不变
+                return;
+            }
+
+            DateTime reserveTime = DgvDataSourceToList()[row.Index].ReserveTime.Value;
+            var span = reserveTime - DateTime.Now;
+            var style = row.Cells["ReplyResult"].Style;
+            row.Cells["ReplyResult"].Style.ForeColor = Color.Black;
+            if (span.TotalHours <= 4)
+            {
+                style.BackColor = Color.Red;
+            }
+            else if (span.TotalHours <= 8)
+            {
+                style.BackColor = Color.Orange;
+            }
+            else
+            {
+                style.BackColor = Color.ForestGreen;
+            }
+
+
+        }
+
 
         /// <summary>
         /// dgv右键响应

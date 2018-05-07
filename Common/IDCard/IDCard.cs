@@ -47,7 +47,7 @@ namespace TravelAgency.Common.IDCard
             }
 
             //Load engine
-            string userID = "65205296201279543068";
+            string userID = "65205296201279543068";//TH-PR410
             char[] arr = userID.ToCharArray();
             nRet = IDCardDll.InitIDCard(arr, 1, null);
             if (nRet != 0)

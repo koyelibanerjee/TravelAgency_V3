@@ -42,6 +42,12 @@
             this.btnGPManage = new DevComponents.DotNetBar.ButtonItem();
             this.btnJiaoJiePicManage = new DevComponents.DotNetBar.ButtonItem();
             this.btnJobAssignment = new DevComponents.DotNetBar.ButtonItem();
+            this.ribbonPanel1 = new DevComponents.DotNetBar.RibbonPanel();
+            this.ribbonBar1 = new DevComponents.DotNetBar.RibbonBar();
+            this.btntActionRecordsCount = new DevComponents.DotNetBar.ButtonItem();
+            this.btnPersonalCount = new DevComponents.DotNetBar.ButtonItem();
+            this.btnCommisionMoneyManage = new DevComponents.DotNetBar.ButtonItem();
+            this.btnBackUp = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonPanel5 = new DevComponents.DotNetBar.RibbonPanel();
             this.ribbonBar5 = new DevComponents.DotNetBar.RibbonBar();
             this.btnChangeLoginUser = new DevComponents.DotNetBar.ButtonItem();
@@ -52,11 +58,6 @@
             this.ribbonBar3 = new DevComponents.DotNetBar.RibbonBar();
             this.btnVisaRequestPayoutManage = new DevComponents.DotNetBar.ButtonItem();
             this.btnAppAllManage = new DevComponents.DotNetBar.ButtonItem();
-            this.ribbonPanel1 = new DevComponents.DotNetBar.RibbonPanel();
-            this.ribbonBar1 = new DevComponents.DotNetBar.RibbonBar();
-            this.btntActionRecordsCount = new DevComponents.DotNetBar.ButtonItem();
-            this.btnPersonalCount = new DevComponents.DotNetBar.ButtonItem();
-            this.btnCommisionMoneyManage = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonTabItem3 = new DevComponents.DotNetBar.RibbonTabItem();
             this.ribbonTabItem1 = new DevComponents.DotNetBar.RibbonTabItem();
             this.ribbonTabItem2 = new DevComponents.DotNetBar.RibbonTabItem();
@@ -69,12 +70,11 @@
             this.btnMCloseOther = new System.Windows.Forms.ToolStripMenuItem();
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
             this.btnFrmGaoPaiManage = new DevComponents.DotNetBar.ButtonItem();
-            this.btnBackUp = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonControl1.SuspendLayout();
             this.ribbonPanel3.SuspendLayout();
+            this.ribbonPanel1.SuspendLayout();
             this.ribbonPanel5.SuspendLayout();
             this.ribbonPanel2.SuspendLayout();
-            this.ribbonPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabMain)).BeginInit();
             this.cms.SuspendLayout();
             this.SuspendLayout();
@@ -276,6 +276,103 @@
             this.btnJobAssignment.Text = "任务分配";
             this.btnJobAssignment.Click += new System.EventHandler(this.btnJobAssignment_Click);
             // 
+            // ribbonPanel1
+            // 
+            this.ribbonPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribbonPanel1.Controls.Add(this.ribbonBar1);
+            this.ribbonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ribbonPanel1.Location = new System.Drawing.Point(0, 25);
+            this.ribbonPanel1.Name = "ribbonPanel1";
+            this.ribbonPanel1.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.ribbonPanel1.Size = new System.Drawing.Size(1284, 61);
+            // 
+            // 
+            // 
+            this.ribbonPanel1.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonPanel1.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonPanel1.TabIndex = 6;
+            this.ribbonPanel1.Visible = false;
+            // 
+            // ribbonBar1
+            // 
+            this.ribbonBar1.AutoOverflowEnabled = true;
+            // 
+            // 
+            // 
+            this.ribbonBar1.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonBar1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonBar1.ContainerControlProcessDialogKey = true;
+            this.ribbonBar1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ribbonBar1.DragDropSupport = true;
+            this.ribbonBar1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.btntActionRecordsCount,
+            this.btnPersonalCount,
+            this.btnCommisionMoneyManage,
+            this.btnBackUp});
+            this.ribbonBar1.Location = new System.Drawing.Point(3, 0);
+            this.ribbonBar1.Name = "ribbonBar1";
+            this.ribbonBar1.Size = new System.Drawing.Size(498, 58);
+            this.ribbonBar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribbonBar1.TabIndex = 0;
+            // 
+            // 
+            // 
+            this.ribbonBar1.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonBar1.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // btntActionRecordsCount
+            // 
+            this.btntActionRecordsCount.Icon = ((System.Drawing.Icon)(resources.GetObject("btntActionRecordsCount.Icon")));
+            this.btntActionRecordsCount.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
+            this.btntActionRecordsCount.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btntActionRecordsCount.Name = "btntActionRecordsCount";
+            this.btntActionRecordsCount.SubItemsExpandWidth = 14;
+            this.btntActionRecordsCount.Text = "操作记录明细";
+            this.btntActionRecordsCount.Click += new System.EventHandler(this.btntActionRecordsCount_Click);
+            // 
+            // btnPersonalCount
+            // 
+            this.btnPersonalCount.Icon = ((System.Drawing.Icon)(resources.GetObject("btnPersonalCount.Icon")));
+            this.btnPersonalCount.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
+            this.btnPersonalCount.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnPersonalCount.Name = "btnPersonalCount";
+            this.btnPersonalCount.SubItemsExpandWidth = 14;
+            this.btnPersonalCount.Text = "个人工作量统计";
+            this.btnPersonalCount.Click += new System.EventHandler(this.btnPersonalCount_Click);
+            // 
+            // btnCommisionMoneyManage
+            // 
+            this.btnCommisionMoneyManage.Icon = ((System.Drawing.Icon)(resources.GetObject("btnCommisionMoneyManage.Icon")));
+            this.btnCommisionMoneyManage.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
+            this.btnCommisionMoneyManage.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnCommisionMoneyManage.Name = "btnCommisionMoneyManage";
+            this.btnCommisionMoneyManage.SubItemsExpandWidth = 14;
+            this.btnCommisionMoneyManage.Text = "工作提成管理";
+            this.btnCommisionMoneyManage.Click += new System.EventHandler(this.btnCommisionMoneyManage_Click);
+            // 
+            // btnBackUp
+            // 
+            this.btnBackUp.Icon = ((System.Drawing.Icon)(resources.GetObject("btnBackUp.Icon")));
+            this.btnBackUp.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
+            this.btnBackUp.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnBackUp.Name = "btnBackUp";
+            this.btnBackUp.SubItemsExpandWidth = 14;
+            this.btnBackUp.Text = "数据备份";
+            this.btnBackUp.Click += new System.EventHandler(this.btnBackUp_Click);
+            // 
             // ribbonPanel5
             // 
             this.ribbonPanel5.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -467,93 +564,6 @@
             this.btnAppAllManage.Text = "待审批请款";
             this.btnAppAllManage.Click += new System.EventHandler(this.btnAppAllManage_Click);
             // 
-            // ribbonPanel1
-            // 
-            this.ribbonPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribbonPanel1.Controls.Add(this.ribbonBar1);
-            this.ribbonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ribbonPanel1.Location = new System.Drawing.Point(0, 25);
-            this.ribbonPanel1.Name = "ribbonPanel1";
-            this.ribbonPanel1.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.ribbonPanel1.Size = new System.Drawing.Size(1284, 61);
-            // 
-            // 
-            // 
-            this.ribbonPanel1.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonPanel1.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonPanel1.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribbonPanel1.TabIndex = 6;
-            this.ribbonPanel1.Visible = false;
-            // 
-            // ribbonBar1
-            // 
-            this.ribbonBar1.AutoOverflowEnabled = true;
-            // 
-            // 
-            // 
-            this.ribbonBar1.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonBar1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribbonBar1.ContainerControlProcessDialogKey = true;
-            this.ribbonBar1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ribbonBar1.DragDropSupport = true;
-            this.ribbonBar1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.btntActionRecordsCount,
-            this.btnPersonalCount,
-            this.btnCommisionMoneyManage,
-            this.btnBackUp});
-            this.ribbonBar1.Location = new System.Drawing.Point(3, 0);
-            this.ribbonBar1.Name = "ribbonBar1";
-            this.ribbonBar1.Size = new System.Drawing.Size(498, 58);
-            this.ribbonBar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribbonBar1.TabIndex = 0;
-            // 
-            // 
-            // 
-            this.ribbonBar1.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonBar1.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // btntActionRecordsCount
-            // 
-            this.btntActionRecordsCount.Icon = ((System.Drawing.Icon)(resources.GetObject("btntActionRecordsCount.Icon")));
-            this.btntActionRecordsCount.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
-            this.btntActionRecordsCount.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btntActionRecordsCount.Name = "btntActionRecordsCount";
-            this.btntActionRecordsCount.SubItemsExpandWidth = 14;
-            this.btntActionRecordsCount.Text = "操作记录明细";
-            this.btntActionRecordsCount.Click += new System.EventHandler(this.btntActionRecordsCount_Click);
-            // 
-            // btnPersonalCount
-            // 
-            this.btnPersonalCount.Icon = ((System.Drawing.Icon)(resources.GetObject("btnPersonalCount.Icon")));
-            this.btnPersonalCount.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
-            this.btnPersonalCount.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnPersonalCount.Name = "btnPersonalCount";
-            this.btnPersonalCount.SubItemsExpandWidth = 14;
-            this.btnPersonalCount.Text = "个人工作量统计";
-            this.btnPersonalCount.Click += new System.EventHandler(this.btnPersonalCount_Click);
-            // 
-            // btnCommisionMoneyManage
-            // 
-            this.btnCommisionMoneyManage.Icon = ((System.Drawing.Icon)(resources.GetObject("btnCommisionMoneyManage.Icon")));
-            this.btnCommisionMoneyManage.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
-            this.btnCommisionMoneyManage.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnCommisionMoneyManage.Name = "btnCommisionMoneyManage";
-            this.btnCommisionMoneyManage.SubItemsExpandWidth = 14;
-            this.btnCommisionMoneyManage.Text = "工作提成管理";
-            this.btnCommisionMoneyManage.Click += new System.EventHandler(this.btnCommisionMoneyManage_Click);
-            // 
             // ribbonTabItem3
             // 
             this.ribbonTabItem3.Checked = true;
@@ -648,16 +658,6 @@
             this.btnFrmGaoPaiManage.SubItemsExpandWidth = 14;
             this.btnFrmGaoPaiManage.Text = "高排图像管理";
             // 
-            // btnBackUp
-            // 
-            this.btnBackUp.Icon = ((System.Drawing.Icon)(resources.GetObject("btnBackUp.Icon")));
-            this.btnBackUp.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
-            this.btnBackUp.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnBackUp.Name = "btnBackUp";
-            this.btnBackUp.SubItemsExpandWidth = 14;
-            this.btnBackUp.Text = "数据备份";
-            this.btnBackUp.Click += new System.EventHandler(this.btnBackUp_Click);
-            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -673,9 +673,9 @@
             this.ribbonControl1.ResumeLayout(false);
             this.ribbonControl1.PerformLayout();
             this.ribbonPanel3.ResumeLayout(false);
+            this.ribbonPanel1.ResumeLayout(false);
             this.ribbonPanel5.ResumeLayout(false);
             this.ribbonPanel2.ResumeLayout(false);
-            this.ribbonPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tabMain)).EndInit();
             this.cms.ResumeLayout(false);
             this.ResumeLayout(false);

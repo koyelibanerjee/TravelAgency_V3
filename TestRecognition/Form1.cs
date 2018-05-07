@@ -28,7 +28,9 @@ namespace TestRecognition
             //Load engine
             string userID = "65205296201279543068";
             char[] arr = userID.ToCharArray();
-            //nRet = IDCardDll.InitIDCard(arr, 1, null);
+            int ret;
+            //textBoxX1.Text = @"I:\My Documents\My Desktop\待识别\06.jpg";
+            nRet = IDCardDll.InitIDCard(arr, 1, null);
             //if (nRet != 0)
             //{
             //    //MessageBoxEx.Show("Failed to initialize the recognition engine.\r\n");
@@ -40,8 +42,12 @@ namespace TestRecognition
             //IDCardDll.SetSpecialAttribute(1, 1);
             bool _kernelLoaded = true;
 
-            int ret = IDCardDll.LoadImageToMemory(textBoxX2.Text, 1); //0成功
-            ret = IDCardDll.RecogIDCardEX(13, 0); //>0 表示成功
+            ret = IDCardDll.SetIDCardID(13, new int[] { 0 }, 1); //0成功
+            ret = IDCardDll.AddIDCardID(13, new int[] { 0 }, 1); //0 成功
+
+            ret = IDCardDll.LoadImageToMemory(textBoxX2.Text, 1); //0成功
+            //ret = IDCardDll.RecogIDCardEX(13, 0); //>0 表示成功
+            ret = IDCardDll.RecogIDCard();
 
             int MAX_CH_NUM = 512;
             char[] cArrFieldValue = new char[MAX_CH_NUM];
@@ -69,12 +75,12 @@ namespace TestRecognition
                 strFiledValue = strFiledValue.Substring(0, strFiledValue.IndexOf('\0'));
                 string strFiledName = new string(cArrFieldName);
                 strFiledName = strFiledName.Substring(0, strFiledName.IndexOf('\0'));
-                MessageBoxEx.Show(strFiledName);
-                MessageBoxEx.Show(strFiledValue);
+                //MessageBoxEx.Show(strFiledName);
+                //MessageBoxEx.Show(strFiledValue);
                 sb.Append(strFiledName);
                 sb.Append(":");
                 sb.Append(strFiledValue);
-                sb.Append("\n");
+                sb.Append("\r\n");
 
             }
             MessageBoxEx.Show("识别成功!");
@@ -101,6 +107,11 @@ namespace TestRecognition
                 //MessageBoxEx.Show("解析信息出现错误，请放好签证后重新进行识别!");
                 //return null;
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
