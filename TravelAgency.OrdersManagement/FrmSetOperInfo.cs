@@ -40,6 +40,8 @@ namespace TravelAgency.OrdersManagement
 
             InitComboBoxs();
 
+            txtMoneyType.Text = "日本";
+            txtExchangeRate.Text = "0.0584";
 
             if (_is4Modify)
             {
@@ -52,6 +54,7 @@ namespace TravelAgency.OrdersManagement
                 txtSettlePrice.Text = DecimalHandler.DecimalToString(_model.SettlePrice);
                 txtExchangeRate.Text = DecimalHandler.DecimalToString(_model.ExchangeRate);
                 txtOperRemark.Text = _model.OperRemark;
+                txtMoneyType.Text = _model.MoneyType;
                 this.Text = "修改订单操作信息";
             }
         }
@@ -93,6 +96,7 @@ namespace TravelAgency.OrdersManagement
                     _model.ExchangeRate = CtrlParser.Parse2Decimal(txtExchangeRate);
                     _model.OperRemark = CtrlParser.Parse2String(txtOperRemark);
                     _model.OperName = GlobalUtils.LoginUser.UserName;
+                    _model.MoneyType = CtrlParser.Parse2String(txtMoneyType);
 
                     //下面的字段暂时不进行修改
                     //_model.EntryTime = DateTime.Now;
@@ -108,7 +112,7 @@ namespace TravelAgency.OrdersManagement
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
-                catch (Exception )
+                catch (Exception)
                 {
                     MessageBoxEx.Show("请检查输入是否有误，价格为0请填入0!");
                     //throw;
