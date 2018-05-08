@@ -29,10 +29,8 @@
         private void InitializeComponent()
         {
             this.labelX20 = new DevComponents.DotNetBar.LabelX();
-            this.labelX10 = new DevComponents.DotNetBar.LabelX();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.btnOK = new DevComponents.DotNetBar.ButtonX();
-            this.txtGuestOrderTime = new System.Windows.Forms.DateTimePicker();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.panelMain = new DevComponents.DotNetBar.PanelEx();
             this.btnOperInfo = new DevComponents.DotNetBar.ButtonX();
@@ -43,8 +41,6 @@
             this.labelX14 = new DevComponents.DotNetBar.LabelX();
             this.txtWaitorConfirmTime = new System.Windows.Forms.DateTimePicker();
             this.labelX13 = new DevComponents.DotNetBar.LabelX();
-            this.txtWaitorOrderTime = new System.Windows.Forms.DateTimePicker();
-            this.labelX12 = new DevComponents.DotNetBar.LabelX();
             this.txtOrderAmount = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX9 = new DevComponents.DotNetBar.LabelX();
             this.txtPurchaseNum = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -65,6 +61,8 @@
             this.btnAddFromExcel = new DevComponents.DotNetBar.ButtonX();
             this.btnAdd = new DevComponents.DotNetBar.ButtonX();
             this.progressLoading = new DevComponents.DotNetBar.Controls.CircularProgress();
+            this.labelX10 = new DevComponents.DotNetBar.LabelX();
+            this.txtGuestOrderTime = new System.Windows.Forms.DateTimePicker();
             this.panelEx1.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.SuspendLayout();
@@ -82,23 +80,11 @@
             this.labelX20.Text = "团号:";
             this.labelX20.WordWrap = true;
             // 
-            // labelX10
-            // 
-            // 
-            // 
-            // 
-            this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX10.Location = new System.Drawing.Point(17, 132);
-            this.labelX10.Name = "labelX10";
-            this.labelX10.Size = new System.Drawing.Size(104, 23);
-            this.labelX10.TabIndex = 80;
-            this.labelX10.Text = "客人下单时间:";
-            // 
             // btnCancel
             // 
             this.btnCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnCancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnCancel.Location = new System.Drawing.Point(466, 246);
+            this.btnCancel.Location = new System.Drawing.Point(466, 237);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -110,22 +96,13 @@
             // 
             this.btnOK.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnOK.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnOK.Location = new System.Drawing.Point(385, 246);
+            this.btnOK.Location = new System.Drawing.Point(385, 237);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnOK.TabIndex = 29;
             this.btnOK.Text = "确认";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
-            // 
-            // txtGuestOrderTime
-            // 
-            this.txtGuestOrderTime.CustomFormat = "yyyy/MM/dd HH:mm:ss";
-            this.txtGuestOrderTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtGuestOrderTime.Location = new System.Drawing.Point(108, 132);
-            this.txtGuestOrderTime.Name = "txtGuestOrderTime";
-            this.txtGuestOrderTime.Size = new System.Drawing.Size(160, 21);
-            this.txtGuestOrderTime.TabIndex = 81;
             // 
             // panelEx1
             // 
@@ -136,7 +113,7 @@
             this.panelEx1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEx1.Location = new System.Drawing.Point(0, 0);
             this.panelEx1.Name = "panelEx1";
-            this.panelEx1.Size = new System.Drawing.Size(633, 307);
+            this.panelEx1.Size = new System.Drawing.Size(633, 294);
             this.panelEx1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelEx1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -158,8 +135,6 @@
             this.panelMain.Controls.Add(this.labelX14);
             this.panelMain.Controls.Add(this.txtWaitorConfirmTime);
             this.panelMain.Controls.Add(this.labelX13);
-            this.panelMain.Controls.Add(this.txtWaitorOrderTime);
-            this.panelMain.Controls.Add(this.labelX12);
             this.panelMain.Controls.Add(this.txtOrderAmount);
             this.panelMain.Controls.Add(this.labelX9);
             this.panelMain.Controls.Add(this.txtPurchaseNum);
@@ -189,7 +164,7 @@
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(633, 307);
+            this.panelMain.Size = new System.Drawing.Size(633, 294);
             this.panelMain.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelMain.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelMain.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -203,7 +178,7 @@
             // 
             this.btnOperInfo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnOperInfo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnOperInfo.Location = new System.Drawing.Point(466, 135);
+            this.btnOperInfo.Location = new System.Drawing.Point(466, 126);
             this.btnOperInfo.Name = "btnOperInfo";
             this.btnOperInfo.Size = new System.Drawing.Size(110, 49);
             this.btnOperInfo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -215,7 +190,7 @@
             // 
             this.btnGuestInfo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnGuestInfo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnGuestInfo.Location = new System.Drawing.Point(350, 135);
+            this.btnGuestInfo.Location = new System.Drawing.Point(350, 126);
             this.btnGuestInfo.Name = "btnGuestInfo";
             this.btnGuestInfo.Size = new System.Drawing.Size(110, 49);
             this.btnGuestInfo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -230,7 +205,7 @@
             // 
             this.txtPlatformActivity.Border.Class = "TextBoxBorder";
             this.txtPlatformActivity.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtPlatformActivity.Location = new System.Drawing.Point(108, 273);
+            this.txtPlatformActivity.Location = new System.Drawing.Point(108, 264);
             this.txtPlatformActivity.Multiline = true;
             this.txtPlatformActivity.Name = "txtPlatformActivity";
             this.txtPlatformActivity.Size = new System.Drawing.Size(162, 23);
@@ -242,7 +217,7 @@
             // 
             // 
             this.labelX15.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX15.Location = new System.Drawing.Point(22, 273);
+            this.labelX15.Location = new System.Drawing.Point(22, 264);
             this.labelX15.Name = "labelX15";
             this.labelX15.Size = new System.Drawing.Size(99, 23);
             this.labelX15.TabIndex = 138;
@@ -255,7 +230,7 @@
             // 
             this.txtReallyPay.Border.Class = "TextBoxBorder";
             this.txtReallyPay.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtReallyPay.Location = new System.Drawing.Point(108, 217);
+            this.txtReallyPay.Location = new System.Drawing.Point(108, 208);
             this.txtReallyPay.Multiline = true;
             this.txtReallyPay.Name = "txtReallyPay";
             this.txtReallyPay.Size = new System.Drawing.Size(162, 23);
@@ -267,7 +242,7 @@
             // 
             // 
             this.labelX14.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX14.Location = new System.Drawing.Point(20, 217);
+            this.labelX14.Location = new System.Drawing.Point(22, 208);
             this.labelX14.Name = "labelX14";
             this.labelX14.Size = new System.Drawing.Size(99, 23);
             this.labelX14.TabIndex = 136;
@@ -277,7 +252,7 @@
             // 
             this.txtWaitorConfirmTime.CustomFormat = "yyyy/MM/dd HH:mm:ss";
             this.txtWaitorConfirmTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtWaitorConfirmTime.Location = new System.Drawing.Point(108, 190);
+            this.txtWaitorConfirmTime.Location = new System.Drawing.Point(108, 181);
             this.txtWaitorConfirmTime.Name = "txtWaitorConfirmTime";
             this.txtWaitorConfirmTime.Size = new System.Drawing.Size(160, 21);
             this.txtWaitorConfirmTime.TabIndex = 135;
@@ -288,32 +263,11 @@
             // 
             // 
             this.labelX13.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX13.Location = new System.Drawing.Point(17, 190);
+            this.labelX13.Location = new System.Drawing.Point(22, 181);
             this.labelX13.Name = "labelX13";
             this.labelX13.Size = new System.Drawing.Size(104, 23);
             this.labelX13.TabIndex = 134;
             this.labelX13.Text = "客服确认时间:";
-            // 
-            // txtWaitorOrderTime
-            // 
-            this.txtWaitorOrderTime.CustomFormat = "yyyy/MM/dd HH:mm:ss";
-            this.txtWaitorOrderTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtWaitorOrderTime.Location = new System.Drawing.Point(108, 161);
-            this.txtWaitorOrderTime.Name = "txtWaitorOrderTime";
-            this.txtWaitorOrderTime.Size = new System.Drawing.Size(160, 21);
-            this.txtWaitorOrderTime.TabIndex = 133;
-            // 
-            // labelX12
-            // 
-            // 
-            // 
-            // 
-            this.labelX12.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX12.Location = new System.Drawing.Point(17, 161);
-            this.labelX12.Name = "labelX12";
-            this.labelX12.Size = new System.Drawing.Size(104, 23);
-            this.labelX12.TabIndex = 132;
-            this.labelX12.Text = "客服下单时间:";
             // 
             // txtOrderAmount
             // 
@@ -322,7 +276,7 @@
             // 
             this.txtOrderAmount.Border.Class = "TextBoxBorder";
             this.txtOrderAmount.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtOrderAmount.Location = new System.Drawing.Point(345, 104);
+            this.txtOrderAmount.Location = new System.Drawing.Point(345, 95);
             this.txtOrderAmount.Multiline = true;
             this.txtOrderAmount.Name = "txtOrderAmount";
             this.txtOrderAmount.Size = new System.Drawing.Size(78, 23);
@@ -334,7 +288,7 @@
             // 
             // 
             this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX9.Location = new System.Drawing.Point(276, 104);
+            this.labelX9.Location = new System.Drawing.Point(276, 95);
             this.labelX9.Name = "labelX9";
             this.labelX9.Size = new System.Drawing.Size(63, 23);
             this.labelX9.TabIndex = 130;
@@ -347,7 +301,7 @@
             // 
             this.txtPurchaseNum.Border.Class = "TextBoxBorder";
             this.txtPurchaseNum.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtPurchaseNum.Location = new System.Drawing.Point(108, 104);
+            this.txtPurchaseNum.Location = new System.Drawing.Point(108, 95);
             this.txtPurchaseNum.Multiline = true;
             this.txtPurchaseNum.Name = "txtPurchaseNum";
             this.txtPurchaseNum.Size = new System.Drawing.Size(162, 23);
@@ -359,7 +313,7 @@
             // 
             // 
             this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX8.Location = new System.Drawing.Point(19, 104);
+            this.labelX8.Location = new System.Drawing.Point(22, 95);
             this.labelX8.Name = "labelX8";
             this.labelX8.Size = new System.Drawing.Size(63, 23);
             this.labelX8.TabIndex = 128;
@@ -372,7 +326,7 @@
             // 
             this.txtProductType.Border.Class = "TextBoxBorder";
             this.txtProductType.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtProductType.Location = new System.Drawing.Point(504, 75);
+            this.txtProductType.Location = new System.Drawing.Point(504, 66);
             this.txtProductType.Multiline = true;
             this.txtProductType.Name = "txtProductType";
             this.txtProductType.Size = new System.Drawing.Size(121, 23);
@@ -384,7 +338,7 @@
             // 
             // 
             this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX7.Location = new System.Drawing.Point(435, 75);
+            this.labelX7.Location = new System.Drawing.Point(435, 66);
             this.labelX7.Name = "labelX7";
             this.labelX7.Size = new System.Drawing.Size(63, 23);
             this.labelX7.TabIndex = 126;
@@ -397,7 +351,7 @@
             // 
             this.txtProductId.Border.Class = "TextBoxBorder";
             this.txtProductId.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtProductId.Location = new System.Drawing.Point(345, 75);
+            this.txtProductId.Location = new System.Drawing.Point(345, 66);
             this.txtProductId.Multiline = true;
             this.txtProductId.Name = "txtProductId";
             this.txtProductId.Size = new System.Drawing.Size(78, 23);
@@ -409,7 +363,7 @@
             // 
             // 
             this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX6.Location = new System.Drawing.Point(278, 75);
+            this.labelX6.Location = new System.Drawing.Point(278, 66);
             this.labelX6.Name = "labelX6";
             this.labelX6.Size = new System.Drawing.Size(63, 23);
             this.labelX6.TabIndex = 124;
@@ -445,7 +399,7 @@
             // 
             // 
             this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX5.Location = new System.Drawing.Point(18, 39);
+            this.labelX5.Location = new System.Drawing.Point(22, 39);
             this.labelX5.Name = "labelX5";
             this.labelX5.Size = new System.Drawing.Size(63, 23);
             this.labelX5.TabIndex = 121;
@@ -458,7 +412,7 @@
             // 
             this.txtProductName.Border.Class = "TextBoxBorder";
             this.txtProductName.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtProductName.Location = new System.Drawing.Point(108, 75);
+            this.txtProductName.Location = new System.Drawing.Point(108, 66);
             this.txtProductName.Multiline = true;
             this.txtProductName.Name = "txtProductName";
             this.txtProductName.Size = new System.Drawing.Size(162, 23);
@@ -470,7 +424,7 @@
             // 
             // 
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Location = new System.Drawing.Point(19, 75);
+            this.labelX2.Location = new System.Drawing.Point(22, 66);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(63, 23);
             this.labelX2.TabIndex = 116;
@@ -482,7 +436,7 @@
             this.txtReplyResult.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.txtReplyResult.FormattingEnabled = true;
             this.txtReplyResult.ItemHeight = 15;
-            this.txtReplyResult.Location = new System.Drawing.Point(108, 246);
+            this.txtReplyResult.Location = new System.Drawing.Point(108, 237);
             this.txtReplyResult.Name = "txtReplyResult";
             this.txtReplyResult.Size = new System.Drawing.Size(160, 21);
             this.txtReplyResult.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -494,7 +448,7 @@
             // 
             // 
             this.labelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX11.Location = new System.Drawing.Point(20, 246);
+            this.labelX11.Location = new System.Drawing.Point(22, 237);
             this.labelX11.Name = "labelX11";
             this.labelX11.Size = new System.Drawing.Size(63, 23);
             this.labelX11.TabIndex = 112;
@@ -518,7 +472,7 @@
             // 
             // 
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(18, 12);
+            this.labelX4.Location = new System.Drawing.Point(22, 12);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(81, 23);
             this.labelX4.TabIndex = 110;
@@ -563,11 +517,32 @@
             this.progressLoading.TabIndex = 27;
             this.progressLoading.Value = 100;
             // 
+            // labelX10
+            // 
+            // 
+            // 
+            // 
+            this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX10.Location = new System.Drawing.Point(22, 123);
+            this.labelX10.Name = "labelX10";
+            this.labelX10.Size = new System.Drawing.Size(104, 23);
+            this.labelX10.TabIndex = 80;
+            this.labelX10.Text = "客人下单时间:";
+            // 
+            // txtGuestOrderTime
+            // 
+            this.txtGuestOrderTime.CustomFormat = "yyyy/MM/dd HH:mm:ss";
+            this.txtGuestOrderTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.txtGuestOrderTime.Location = new System.Drawing.Point(108, 123);
+            this.txtGuestOrderTime.Name = "txtGuestOrderTime";
+            this.txtGuestOrderTime.Size = new System.Drawing.Size(160, 21);
+            this.txtGuestOrderTime.TabIndex = 81;
+            // 
             // FrmAddOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(633, 307);
+            this.ClientSize = new System.Drawing.Size(633, 294);
             this.Controls.Add(this.panelEx1);
             this.Name = "FrmAddOrders";
             this.Text = "新增订单信息:";
@@ -580,10 +555,8 @@
 
         #endregion
         private DevComponents.DotNetBar.LabelX labelX20;
-        private DevComponents.DotNetBar.LabelX labelX10;
         private DevComponents.DotNetBar.ButtonX btnCancel;
         private DevComponents.DotNetBar.ButtonX btnOK;
-        private System.Windows.Forms.DateTimePicker txtGuestOrderTime;
         private DevComponents.DotNetBar.PanelEx panelEx1;
         private DevComponents.DotNetBar.PanelEx panelMain;
         private DevComponents.DotNetBar.ButtonX btnAddFromExcel;
@@ -608,13 +581,13 @@
         private DevComponents.DotNetBar.LabelX labelX9;
         private System.Windows.Forms.DateTimePicker txtWaitorConfirmTime;
         private DevComponents.DotNetBar.LabelX labelX13;
-        private System.Windows.Forms.DateTimePicker txtWaitorOrderTime;
-        private DevComponents.DotNetBar.LabelX labelX12;
         private DevComponents.DotNetBar.Controls.TextBoxX txtReallyPay;
         private DevComponents.DotNetBar.LabelX labelX14;
         private DevComponents.DotNetBar.Controls.TextBoxX txtPlatformActivity;
         private DevComponents.DotNetBar.LabelX labelX15;
         private DevComponents.DotNetBar.ButtonX btnGuestInfo;
         private DevComponents.DotNetBar.ButtonX btnOperInfo;
+        private System.Windows.Forms.DateTimePicker txtGuestOrderTime;
+        private DevComponents.DotNetBar.LabelX labelX10;
     }
 }

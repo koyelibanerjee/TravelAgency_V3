@@ -65,7 +65,7 @@ namespace TravelAgency.OrdersManagement
                 txtPurchaseNum.Text = DecimalHandler.DecimalToString(_model.PurchaseNum);
                 txtOrderAmount.Text = DecimalHandler.DecimalToString(_model.OrderAmount);
                 txtGuestOrderTime.Text = _model.GuestOrderTime.ToString();
-                txtWaitorOrderTime.Text = _model.WaitorOrderTime.ToString();
+                //txtWaitorOrderTime.Text = _model.WaitorOrderTime.ToString(); //客服下单时间
                 txtWaitorConfirmTime.Text = _model.WaitorConfirmTime.ToString();
                 txtReallyPay.Text = _model.ReallyPay.ToString();
                 txtPlatformActivity.Text = _model.PlatformActivity;
@@ -131,7 +131,7 @@ namespace TravelAgency.OrdersManagement
                     _model.PurchaseNum = CtrlParser.Parse2Int(txtPurchaseNum);
                     _model.OrderAmount = CtrlParser.Parse2Decimal(txtOrderAmount);
                     _model.GuestOrderTime = CtrlParser.Parse2Datetime(txtGuestOrderTime);
-                    _model.WaitorOrderTime = CtrlParser.Parse2Datetime(txtWaitorOrderTime);
+                    //_model.WaitorOrderTime = CtrlParser.Parse2Datetime(txtWaitorOrderTime);
                     _model.WaitorConfirmTime = CtrlParser.Parse2Datetime(txtWaitorConfirmTime);
                     _model.ReallyPay = CtrlParser.Parse2Decimal(txtReallyPay);
                     _model.PlatformActivity = CtrlParser.Parse2String(txtPlatformActivity);
@@ -181,7 +181,8 @@ namespace TravelAgency.OrdersManagement
                     model.PurchaseNum = CtrlParser.Parse2Int(txtPurchaseNum);
                     model.OrderAmount = CtrlParser.Parse2Decimal(txtOrderAmount);
                     model.GuestOrderTime = CtrlParser.Parse2Datetime(txtGuestOrderTime);
-                    model.WaitorOrderTime = CtrlParser.Parse2Datetime(txtWaitorOrderTime);
+                    //model.WaitorOrderTime = CtrlParser.Parse2Datetime(txtWaitorOrderTime);
+                    model.WaitorOrderTime = DateTime.Now;
                     model.WaitorConfirmTime = CtrlParser.Parse2Datetime(txtWaitorConfirmTime);
                     model.ReallyPay = CtrlParser.Parse2Decimal(txtReallyPay);
                     model.PlatformActivity = CtrlParser.Parse2String(txtPlatformActivity);
