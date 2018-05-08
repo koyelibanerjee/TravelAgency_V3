@@ -40,8 +40,7 @@ namespace TravelAgency.OrdersManagement
 
             InitComboBoxs();
 
-            txtMoneyType.Text = "日本";
-            txtExchangeRate.Text = "0.0584";
+
 
             if (_is4Modify)
             {
@@ -53,6 +52,11 @@ namespace TravelAgency.OrdersManagement
                 txtReplyResult.Text = _model.ReplyResult;
                 txtSettlePrice.Text = DecimalHandler.DecimalToString(_model.SettlePrice);
                 txtExchangeRate.Text = DecimalHandler.DecimalToString(_model.ExchangeRate);
+                if (string.IsNullOrEmpty(txtExchangeRate.Text))
+                    txtExchangeRate.Text = "0.0584";
+                if (string.IsNullOrEmpty(txtMoneyType.Text))
+                    txtMoneyType.Text = "日本";
+
                 txtOperRemark.Text = _model.OperRemark;
                 txtMoneyType.Text = _model.MoneyType;
                 this.Text = "修改订单操作信息";
