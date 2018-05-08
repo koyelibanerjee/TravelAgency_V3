@@ -31,6 +31,7 @@
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.panelMain = new DevComponents.DotNetBar.PanelEx();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtReserveTime = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.txtWaitorRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX14 = new DevComponents.DotNetBar.LabelX();
             this.txtRefundReason = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -76,12 +77,11 @@
             this.btnAddFromExcel = new DevComponents.DotNetBar.ButtonX();
             this.btnOK = new DevComponents.DotNetBar.ButtonX();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
-            this.txtReserveTime = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.panelEx1.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtReserveTime)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelEx1
@@ -158,6 +158,53 @@
             this.groupBox2.TabIndex = 141;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "补充信息:";
+            // 
+            // txtReserveTime
+            // 
+            // 
+            // 
+            // 
+            this.txtReserveTime.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.txtReserveTime.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtReserveTime.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
+            this.txtReserveTime.ButtonDropDown.Visible = true;
+            this.txtReserveTime.CustomFormat = "yyyy/MM/dd HH:mm";
+            this.txtReserveTime.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
+            this.txtReserveTime.IsPopupCalendarOpen = false;
+            this.txtReserveTime.Location = new System.Drawing.Point(151, 20);
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            this.txtReserveTime.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtReserveTime.MonthCalendar.CalendarDimensions = new System.Drawing.Size(1, 1);
+            this.txtReserveTime.MonthCalendar.ClearButtonVisible = true;
+            // 
+            // 
+            // 
+            this.txtReserveTime.MonthCalendar.CommandsBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
+            this.txtReserveTime.MonthCalendar.CommandsBackgroundStyle.BackColorGradientAngle = 90;
+            this.txtReserveTime.MonthCalendar.CommandsBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+            this.txtReserveTime.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.txtReserveTime.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
+            this.txtReserveTime.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1;
+            this.txtReserveTime.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtReserveTime.MonthCalendar.DisplayMonth = new System.DateTime(2018, 3, 1, 0, 0, 0, 0);
+            this.txtReserveTime.MonthCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
+            // 
+            // 
+            // 
+            this.txtReserveTime.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.txtReserveTime.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90;
+            this.txtReserveTime.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.txtReserveTime.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtReserveTime.MonthCalendar.TodayButtonVisible = true;
+            this.txtReserveTime.Name = "txtReserveTime";
+            this.txtReserveTime.Size = new System.Drawing.Size(160, 21);
+            this.txtReserveTime.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.txtReserveTime.TabIndex = 162;
             // 
             // txtWaitorRemark
             // 
@@ -498,7 +545,7 @@
             this.labelX23.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX23.Location = new System.Drawing.Point(7, 253);
             this.labelX23.Name = "labelX23";
-            this.labelX23.Size = new System.Drawing.Size(94, 23);
+            this.labelX23.Size = new System.Drawing.Size(80, 23);
             this.labelX23.TabIndex = 144;
             this.labelX23.Text = "邮箱:";
             // 
@@ -523,7 +570,7 @@
             this.labelX22.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX22.Location = new System.Drawing.Point(7, 224);
             this.labelX22.Name = "labelX22";
-            this.labelX22.Size = new System.Drawing.Size(94, 23);
+            this.labelX22.Size = new System.Drawing.Size(80, 23);
             this.labelX22.TabIndex = 142;
             this.labelX22.Text = "微信号:";
             // 
@@ -546,11 +593,13 @@
             // 
             // 
             this.labelX21.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX21.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold);
+            this.labelX21.ForeColor = System.Drawing.Color.DarkOrange;
             this.labelX21.Location = new System.Drawing.Point(7, 195);
             this.labelX21.Name = "labelX21";
-            this.labelX21.Size = new System.Drawing.Size(94, 23);
+            this.labelX21.Size = new System.Drawing.Size(80, 23);
             this.labelX21.TabIndex = 140;
-            this.labelX21.Text = "手机号:";
+            this.labelX21.Text = "*手机号:";
             // 
             // labelX19
             // 
@@ -560,7 +609,7 @@
             this.labelX19.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX19.Location = new System.Drawing.Point(7, 166);
             this.labelX19.Name = "labelX19";
-            this.labelX19.Size = new System.Drawing.Size(94, 23);
+            this.labelX19.Size = new System.Drawing.Size(80, 23);
             this.labelX19.TabIndex = 138;
             this.labelX19.Text = "使用时间:";
             // 
@@ -572,7 +621,7 @@
             this.txtGuestBirthday2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtGuestBirthday2.Location = new System.Drawing.Point(7, 139);
             this.txtGuestBirthday2.Name = "txtGuestBirthday2";
-            this.txtGuestBirthday2.Size = new System.Drawing.Size(61, 23);
+            this.txtGuestBirthday2.Size = new System.Drawing.Size(80, 23);
             this.txtGuestBirthday2.TabIndex = 136;
             this.txtGuestBirthday2.Text = "出生日期:";
             // 
@@ -596,7 +645,7 @@
             this.asda.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.asda.Location = new System.Drawing.Point(7, 110);
             this.asda.Name = "asda";
-            this.asda.Size = new System.Drawing.Size(94, 23);
+            this.asda.Size = new System.Drawing.Size(80, 23);
             this.asda.TabIndex = 132;
             this.asda.Text = "性别:";
             // 
@@ -621,7 +670,7 @@
             this.labelX16.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX16.Location = new System.Drawing.Point(7, 81);
             this.labelX16.Name = "labelX16";
-            this.labelX16.Size = new System.Drawing.Size(94, 23);
+            this.labelX16.Size = new System.Drawing.Size(80, 23);
             this.labelX16.TabIndex = 130;
             this.labelX16.Text = "姓名拼音:";
             // 
@@ -644,11 +693,13 @@
             // 
             // 
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold);
+            this.labelX3.ForeColor = System.Drawing.Color.DarkOrange;
             this.labelX3.Location = new System.Drawing.Point(7, 52);
             this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(94, 23);
+            this.labelX3.Size = new System.Drawing.Size(80, 23);
             this.labelX3.TabIndex = 128;
-            this.labelX3.Text = "客人姓名:";
+            this.labelX3.Text = "*客人姓名:";
             // 
             // txtGuestId
             // 
@@ -669,11 +720,13 @@
             // 
             // 
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelX1.ForeColor = System.Drawing.Color.DarkOrange;
             this.labelX1.Location = new System.Drawing.Point(7, 23);
             this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(94, 23);
+            this.labelX1.Size = new System.Drawing.Size(80, 23);
             this.labelX1.TabIndex = 126;
-            this.labelX1.Text = "客人平台ID:";
+            this.labelX1.Text = "*客人平台ID:";
             // 
             // btnAddFromExcel
             // 
@@ -710,53 +763,6 @@
             this.btnCancel.Text = "取消";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // txtReserveTime
-            // 
-            // 
-            // 
-            // 
-            this.txtReserveTime.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.txtReserveTime.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtReserveTime.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
-            this.txtReserveTime.ButtonDropDown.Visible = true;
-            this.txtReserveTime.CustomFormat = "yyyy/MM/dd HH:mm";
-            this.txtReserveTime.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
-            this.txtReserveTime.IsPopupCalendarOpen = false;
-            this.txtReserveTime.Location = new System.Drawing.Point(151, 20);
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            this.txtReserveTime.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtReserveTime.MonthCalendar.CalendarDimensions = new System.Drawing.Size(1, 1);
-            this.txtReserveTime.MonthCalendar.ClearButtonVisible = true;
-            // 
-            // 
-            // 
-            this.txtReserveTime.MonthCalendar.CommandsBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
-            this.txtReserveTime.MonthCalendar.CommandsBackgroundStyle.BackColorGradientAngle = 90;
-            this.txtReserveTime.MonthCalendar.CommandsBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-            this.txtReserveTime.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.txtReserveTime.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
-            this.txtReserveTime.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1;
-            this.txtReserveTime.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtReserveTime.MonthCalendar.DisplayMonth = new System.DateTime(2018, 3, 1, 0, 0, 0, 0);
-            this.txtReserveTime.MonthCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
-            // 
-            // 
-            // 
-            this.txtReserveTime.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.txtReserveTime.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90;
-            this.txtReserveTime.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.txtReserveTime.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtReserveTime.MonthCalendar.TodayButtonVisible = true;
-            this.txtReserveTime.Name = "txtReserveTime";
-            this.txtReserveTime.Size = new System.Drawing.Size(160, 21);
-            this.txtReserveTime.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.txtReserveTime.TabIndex = 162;
-            // 
             // FrmSetGuestInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -769,8 +775,8 @@
             this.panelEx1.ResumeLayout(false);
             this.panelMain.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtReserveTime)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

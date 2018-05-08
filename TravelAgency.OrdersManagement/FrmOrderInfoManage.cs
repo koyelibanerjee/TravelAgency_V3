@@ -39,7 +39,7 @@ namespace TravelAgency.OrdersManagement
         {
             _orderByHelpter = new DataOrderByHelper(
             new List<string> {
-                "编号","订单号","订单提交时间","录入时间"
+                "默认","订单号","订单提交时间","录入时间"
             },
             new List<string> {
                 "Id","OrderNo","OrderTime","EntryTime"
