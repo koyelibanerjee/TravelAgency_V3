@@ -63,6 +63,8 @@ namespace TravelAgency.Model
 		private string _adminremark;
 		private string _opername;
 		private bool _guestinfotypedin;
+		private string _moneytype;
+		private string _comboname;
 		/// <summary>
 		/// 
 		/// </summary>
@@ -486,6 +488,22 @@ namespace TravelAgency.Model
 		{
 			set{ _guestinfotypedin=value;}
 			get{return _guestinfotypedin;}
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		public string MoneyType
+		{
+			set{ _moneytype=value;}
+			get{return _moneytype;}
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		public string ComboName
+		{
+			set{ _comboname=value;}
+			get{return _comboname;}
 		}
 		#endregion Model
 
