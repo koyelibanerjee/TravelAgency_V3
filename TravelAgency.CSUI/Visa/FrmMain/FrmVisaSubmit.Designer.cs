@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -106,7 +105,7 @@
             this.rbtnAbOut = new System.Windows.Forms.RadioButton();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.txtInput = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.cmsDgvRb = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmsDgvRb = new System.Windows.Forms.ContextMenuStrip();
             this.cmsItemQRCodeShow = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsItemQRCodeBatchGenerate = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsItemQRCodeBatchPrint = new System.Windows.Forms.ToolStripMenuItem();
