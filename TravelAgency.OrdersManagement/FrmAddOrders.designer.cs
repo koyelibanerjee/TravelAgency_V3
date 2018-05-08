@@ -39,7 +39,6 @@
             this.labelX15 = new DevComponents.DotNetBar.LabelX();
             this.txtReallyPay = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX14 = new DevComponents.DotNetBar.LabelX();
-            this.txtWaitorConfirmTime = new System.Windows.Forms.DateTimePicker();
             this.labelX13 = new DevComponents.DotNetBar.LabelX();
             this.txtOrderAmount = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX9 = new DevComponents.DotNetBar.LabelX();
@@ -63,8 +62,12 @@
             this.progressLoading = new DevComponents.DotNetBar.Controls.CircularProgress();
             this.labelX10 = new DevComponents.DotNetBar.LabelX();
             this.txtGuestOrderTime = new System.Windows.Forms.DateTimePicker();
+            this.txtWaitorConfirmTime = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
+            this.txtComboName = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.panelEx1.SuspendLayout();
             this.panelMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtWaitorConfirmTime)).BeginInit();
             this.SuspendLayout();
             // 
             // labelX20
@@ -127,13 +130,15 @@
             // 
             this.panelMain.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelMain.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelMain.Controls.Add(this.txtComboName);
+            this.panelMain.Controls.Add(this.labelX1);
+            this.panelMain.Controls.Add(this.txtWaitorConfirmTime);
             this.panelMain.Controls.Add(this.btnOperInfo);
             this.panelMain.Controls.Add(this.btnGuestInfo);
             this.panelMain.Controls.Add(this.txtPlatformActivity);
             this.panelMain.Controls.Add(this.labelX15);
             this.panelMain.Controls.Add(this.txtReallyPay);
             this.panelMain.Controls.Add(this.labelX14);
-            this.panelMain.Controls.Add(this.txtWaitorConfirmTime);
             this.panelMain.Controls.Add(this.labelX13);
             this.panelMain.Controls.Add(this.txtOrderAmount);
             this.panelMain.Controls.Add(this.labelX9);
@@ -248,15 +253,6 @@
             this.labelX14.TabIndex = 136;
             this.labelX14.Text = "实际支付金额:";
             // 
-            // txtWaitorConfirmTime
-            // 
-            this.txtWaitorConfirmTime.CustomFormat = "yyyy/MM/dd HH:mm:ss";
-            this.txtWaitorConfirmTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtWaitorConfirmTime.Location = new System.Drawing.Point(108, 181);
-            this.txtWaitorConfirmTime.Name = "txtWaitorConfirmTime";
-            this.txtWaitorConfirmTime.Size = new System.Drawing.Size(160, 21);
-            this.txtWaitorConfirmTime.TabIndex = 135;
-            // 
             // labelX13
             // 
             // 
@@ -301,7 +297,7 @@
             // 
             this.txtPurchaseNum.Border.Class = "TextBoxBorder";
             this.txtPurchaseNum.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtPurchaseNum.Location = new System.Drawing.Point(108, 95);
+            this.txtPurchaseNum.Location = new System.Drawing.Point(108, 126);
             this.txtPurchaseNum.Multiline = true;
             this.txtPurchaseNum.Name = "txtPurchaseNum";
             this.txtPurchaseNum.Size = new System.Drawing.Size(162, 23);
@@ -313,7 +309,7 @@
             // 
             // 
             this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX8.Location = new System.Drawing.Point(22, 95);
+            this.labelX8.Location = new System.Drawing.Point(22, 126);
             this.labelX8.Name = "labelX8";
             this.labelX8.Size = new System.Drawing.Size(63, 23);
             this.labelX8.TabIndex = 128;
@@ -523,7 +519,7 @@
             // 
             // 
             this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX10.Location = new System.Drawing.Point(22, 123);
+            this.labelX10.Location = new System.Drawing.Point(22, 154);
             this.labelX10.Name = "labelX10";
             this.labelX10.Size = new System.Drawing.Size(104, 23);
             this.labelX10.TabIndex = 80;
@@ -533,10 +529,82 @@
             // 
             this.txtGuestOrderTime.CustomFormat = "yyyy/MM/dd HH:mm:ss";
             this.txtGuestOrderTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtGuestOrderTime.Location = new System.Drawing.Point(108, 123);
+            this.txtGuestOrderTime.Location = new System.Drawing.Point(108, 154);
             this.txtGuestOrderTime.Name = "txtGuestOrderTime";
             this.txtGuestOrderTime.Size = new System.Drawing.Size(160, 21);
             this.txtGuestOrderTime.TabIndex = 81;
+            // 
+            // txtWaitorConfirmTime
+            // 
+            // 
+            // 
+            // 
+            this.txtWaitorConfirmTime.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.txtWaitorConfirmTime.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtWaitorConfirmTime.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
+            this.txtWaitorConfirmTime.ButtonDropDown.Visible = true;
+            this.txtWaitorConfirmTime.CustomFormat = "yyyy/MM/dd HH:mm";
+            this.txtWaitorConfirmTime.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
+            this.txtWaitorConfirmTime.IsPopupCalendarOpen = false;
+            this.txtWaitorConfirmTime.Location = new System.Drawing.Point(108, 181);
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            this.txtWaitorConfirmTime.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtWaitorConfirmTime.MonthCalendar.CalendarDimensions = new System.Drawing.Size(1, 1);
+            this.txtWaitorConfirmTime.MonthCalendar.ClearButtonVisible = true;
+            // 
+            // 
+            // 
+            this.txtWaitorConfirmTime.MonthCalendar.CommandsBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
+            this.txtWaitorConfirmTime.MonthCalendar.CommandsBackgroundStyle.BackColorGradientAngle = 90;
+            this.txtWaitorConfirmTime.MonthCalendar.CommandsBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+            this.txtWaitorConfirmTime.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.txtWaitorConfirmTime.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
+            this.txtWaitorConfirmTime.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1;
+            this.txtWaitorConfirmTime.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtWaitorConfirmTime.MonthCalendar.DisplayMonth = new System.DateTime(2018, 3, 1, 0, 0, 0, 0);
+            this.txtWaitorConfirmTime.MonthCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
+            // 
+            // 
+            // 
+            this.txtWaitorConfirmTime.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.txtWaitorConfirmTime.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90;
+            this.txtWaitorConfirmTime.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.txtWaitorConfirmTime.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtWaitorConfirmTime.MonthCalendar.TodayButtonVisible = true;
+            this.txtWaitorConfirmTime.Name = "txtWaitorConfirmTime";
+            this.txtWaitorConfirmTime.Size = new System.Drawing.Size(160, 21);
+            this.txtWaitorConfirmTime.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.txtWaitorConfirmTime.TabIndex = 163;
+            // 
+            // txtComboName
+            // 
+            // 
+            // 
+            // 
+            this.txtComboName.Border.Class = "TextBoxBorder";
+            this.txtComboName.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtComboName.Location = new System.Drawing.Point(108, 97);
+            this.txtComboName.Multiline = true;
+            this.txtComboName.Name = "txtComboName";
+            this.txtComboName.Size = new System.Drawing.Size(162, 23);
+            this.txtComboName.TabIndex = 165;
+            // 
+            // labelX1
+            // 
+            // 
+            // 
+            // 
+            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX1.Location = new System.Drawing.Point(22, 97);
+            this.labelX1.Name = "labelX1";
+            this.labelX1.Size = new System.Drawing.Size(63, 23);
+            this.labelX1.TabIndex = 164;
+            this.labelX1.Text = "套餐名:";
             // 
             // FrmAddOrders
             // 
@@ -549,6 +617,7 @@
             this.Load += new System.EventHandler(this.FrmAddOrders_Load);
             this.panelEx1.ResumeLayout(false);
             this.panelMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtWaitorConfirmTime)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -579,7 +648,6 @@
         private DevComponents.DotNetBar.LabelX labelX8;
         private DevComponents.DotNetBar.Controls.TextBoxX txtOrderAmount;
         private DevComponents.DotNetBar.LabelX labelX9;
-        private System.Windows.Forms.DateTimePicker txtWaitorConfirmTime;
         private DevComponents.DotNetBar.LabelX labelX13;
         private DevComponents.DotNetBar.Controls.TextBoxX txtReallyPay;
         private DevComponents.DotNetBar.LabelX labelX14;
@@ -589,5 +657,8 @@
         private DevComponents.DotNetBar.ButtonX btnOperInfo;
         private System.Windows.Forms.DateTimePicker txtGuestOrderTime;
         private DevComponents.DotNetBar.LabelX labelX10;
+        private DevComponents.Editors.DateTimeAdv.DateTimeInput txtWaitorConfirmTime;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtComboName;
+        private DevComponents.DotNetBar.LabelX labelX1;
     }
 }

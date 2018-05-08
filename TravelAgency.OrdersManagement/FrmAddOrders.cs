@@ -41,6 +41,8 @@ namespace TravelAgency.OrdersManagement
 
             InitComboBoxs();
 
+            txtWaitorConfirmTime.Enabled = false; //客服确认时间默认禁用
+
             if (GlobalUtils.LoginUserLevel == RigthLevel.Operator) //操作不能修改基本订单信息和客人信息
             {
                 btnOK.Enabled = false;
@@ -70,6 +72,7 @@ namespace TravelAgency.OrdersManagement
                 txtReallyPay.Text = _model.ReallyPay.ToString();
                 txtPlatformActivity.Text = _model.PlatformActivity;
                 txtReplyResult.Text = _model.ReplyResult;
+                txtComboName.Text = _model.ComboName;
                 this.Text = "修改订单信息";
             }
         }
@@ -136,6 +139,7 @@ namespace TravelAgency.OrdersManagement
                     _model.ReallyPay = CtrlParser.Parse2Decimal(txtReallyPay);
                     _model.PlatformActivity = CtrlParser.Parse2String(txtPlatformActivity);
                     _model.ReplyResult = CtrlParser.Parse2String(txtReplyResult);
+                    _model.ComboName = CtrlParser.Parse2String(txtComboName);
 
 
                     //下面的字段暂时不进行修改
@@ -187,6 +191,8 @@ namespace TravelAgency.OrdersManagement
                     model.ReallyPay = CtrlParser.Parse2Decimal(txtReallyPay);
                     model.PlatformActivity = CtrlParser.Parse2String(txtPlatformActivity);
                     model.ReplyResult = CtrlParser.Parse2String(txtReplyResult);
+                    model.ComboName = CtrlParser.Parse2String(txtComboName);
+
 
                     if (_bllOrders.Add(model) <= 0)
                     {
