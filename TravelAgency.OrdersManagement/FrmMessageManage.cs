@@ -203,8 +203,9 @@ namespace TravelAgency.OrdersManagement
             if (!string.IsNullOrEmpty(txtToUser.Text.Trim()))
                 conditions.Add(" (ToUser like '%" + txtToUser.Text + "%') ");
 
-            conditions.Add(string.Format(" (ToUser = '{0}' or FromUser = '{1}') ",
-                GlobalUtils.LoginUser.UserName, GlobalUtils.LoginUser.UserName));
+            if (btnOnlyShowMe.Value)
+                conditions.Add(string.Format(" (ToUser = '{0}' or FromUser = '{1}') ",
+                    GlobalUtils.LoginUser.UserName, GlobalUtils.LoginUser.UserName));
 
             string[] arr = conditions.ToArray();
             string where = string.Join(" and ", arr);
@@ -504,5 +505,10 @@ namespace TravelAgency.OrdersManagement
 
 
         #endregion
+
+        private void btnOnlyShowMe_ValueChanged(object sender, EventArgs e)
+        {
+            LoadDataToDgvAsyn();
+        }
     }
 }
