@@ -150,6 +150,7 @@
     <Compile Include="HasExported8Report.cs" />
     <Compile Include="JobAssignmentBll.cs" />
     <Compile Include="JobAssignment.cs" />
+    <Compile Include="Message.cs" />
     <Compile Include="OrderExcel.cs" />
     <Compile Include="OrderInfo.cs" />
     <Compile Include="OrdersBll.cs" />
