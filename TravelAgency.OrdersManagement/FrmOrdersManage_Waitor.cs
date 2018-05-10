@@ -561,5 +561,41 @@ namespace TravelAgency.OrdersManagement
                 DgvDataSourceToList()[dataGridView1.SelectedRows[0].Index]);
             frm.Show();
         }
+
+        private void 确认订单ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var list = GetSelectedModelList();
+
+            //if (list.Count > 1)
+            //{
+            //    MessageBoxEx.Show("请选中一条进行修改!");
+            //    return;
+            //}
+
+            foreach (var item in list)
+            {
+                if (item.WaitorConfirmTime != null)
+                {
+                    MessageBoxEx.Show("选中项中存在已经确认过的订单，请不要重复操作!!!");
+                    return;
+                }
+            }
+
+                if (MessageBoxEx.Show("是否确认提交所选订单?") == DialogResult.Cancel)
+                return;
+
+            int res = 0;
+            foreach (var item in list)
+            {
+                item.WaitorConfirmTime = DateTime.Now;
+                res += _bllOrders.Update(item) ? 1 : 0;
+            }
+
+            Common.GlobalUtils.MessageBoxWithRecordNum("提交", res, list.Count);
+
+
+
+
+        }
     }
 }
