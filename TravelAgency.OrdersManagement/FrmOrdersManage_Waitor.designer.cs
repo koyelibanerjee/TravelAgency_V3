@@ -83,6 +83,8 @@
             this.韩国加急申请书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bgWorkerLoadData = new System.ComponentModel.BackgroundWorker();
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
+            this.txtWaitorName = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.OrderNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OperName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GuestInfoTypedIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -276,6 +278,8 @@
             // 
             this.panelSerachBar.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelSerachBar.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelSerachBar.Controls.Add(this.txtWaitorName);
+            this.panelSerachBar.Controls.Add(this.labelX1);
             this.panelSerachBar.Controls.Add(this.cbReplyResult);
             this.panelSerachBar.Controls.Add(this.labelX5);
             this.panelSerachBar.Controls.Add(this.cbPaymentPlatform);
@@ -769,6 +773,31 @@
             this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2010Blue;
             this.styleManager1.MetroColorParameters = new DevComponents.DotNetBar.Metro.ColorTables.MetroColorGeneratorParameters(System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255))))), System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199))))));
             // 
+            // txtWaitorName
+            // 
+            // 
+            // 
+            // 
+            this.txtWaitorName.Border.Class = "TextBoxBorder";
+            this.txtWaitorName.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtWaitorName.DisabledBackColor = System.Drawing.Color.White;
+            this.txtWaitorName.Location = new System.Drawing.Point(819, 33);
+            this.txtWaitorName.Name = "txtWaitorName";
+            this.txtWaitorName.Size = new System.Drawing.Size(80, 21);
+            this.txtWaitorName.TabIndex = 119;
+            // 
+            // labelX1
+            // 
+            // 
+            // 
+            // 
+            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX1.Location = new System.Drawing.Point(759, 33);
+            this.labelX1.Name = "labelX1";
+            this.labelX1.Size = new System.Drawing.Size(79, 23);
+            this.labelX1.TabIndex = 118;
+            this.labelX1.Text = "销售姓名:";
+            // 
             // OrderNo
             // 
             this.OrderNo.DataPropertyName = "OrderNo";
@@ -952,6 +981,8 @@
         private DevComponents.DotNetBar.Bar bar2;
         private DevComponents.DotNetBar.LabelItem lbGuestInfoTypedInCount;
         private DevComponents.DotNetBar.LabelItem lbReplyResultCount;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtWaitorName;
+        private DevComponents.DotNetBar.LabelX labelX1;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrderNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn OperName;
         private System.Windows.Forms.DataGridViewTextBoxColumn GuestInfoTypedIn;

@@ -265,12 +265,20 @@ namespace TravelAgency.OrdersManagement
         {
             //int digit = GlobalUtils.DecimalDigits;
             var list = DgvDataSourceToList();
+
+            var dict = _bllOrders.GetOrderOnlineTotal(list);
+
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 DataGridViewRow row = dataGridView1.Rows[i];
                 row.HeaderCell.Value = (i + 1).ToString();
 
                 //在这里控制单元格的显示
+
+                row.Cells["OrderCost"].Value = (list[i].SettlePrice * list[i].ExchangeRate ?? 1).ToString(); //成本= 汇率*计算成本单价
+                row.Cells["OnlineTotal"].Value = dict.ContainsKey(list[i].OrderNo) ?
+                    DecimalHandler.DecimalToString(dict[list[i].OrderNo]) :
+                    "0";
 
                 for (int j = 0; j != dataGridView1.ColumnCount; ++j)
                 {

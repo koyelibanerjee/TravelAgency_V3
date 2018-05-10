@@ -9,6 +9,12 @@ namespace TravelAgency.BLL
     /// </summary>
     public partial class Orders
     {
+
+        public Dictionary<string, decimal> GetOrderOnlineTotal(List<Model.Orders> ordersList)
+        {
+            return dal.GetOrderOnlineTotal(ordersList);
+        }
+
         public List<Model.Orders> GetListByPageOrderById(string strWhere, int pageNo, int pageSize)
         {
             int start = (pageNo - 1) * pageSize + 1;

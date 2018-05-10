@@ -204,6 +204,9 @@ namespace TravelAgency.OrdersManagement
             if (cbReplyResult.Text != "全部")
                 conditions.Add(" ReplyResult = '" + cbReplyResult.Text + "' ");
 
+            if (!string.IsNullOrEmpty(txtWaitorName.Text.Trim()))
+                conditions.Add(" (WaitorName like '%" + txtWaitorName.Text + "%') ");
+
 
             string[] arr = conditions.ToArray();
             string where = string.Join(" and ", arr);
