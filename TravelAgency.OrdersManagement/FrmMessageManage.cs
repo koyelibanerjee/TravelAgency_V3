@@ -67,29 +67,26 @@ namespace TravelAgency.OrdersManagement
         {
             string tablename = "Message";
 
-            cbOrderType.Items.Add("全部");
+            cbMsgType.Items.Add("全部");
 
-            cbPaymentPlatform.Items.Add("全部");
-            cbReplyResult.Items.Add("全部");
+            cbMsgState.Items.Add("全部");
 
-            cbReplyResult.SelectedIndex = 0;
-            cbOrderType.SelectedIndex = 0;
-            cbPaymentPlatform.SelectedIndex = 0;
+            cbMsgState.SelectedIndex = 0;
+            cbMsgType.SelectedIndex = 0;
 
-            cbReplyResult.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbOrderType.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbPaymentPlatform.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbMsgState.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbMsgType.DropDownStyle = ComboBoxStyle.DropDownList;
 
 
-            var list = Common.Enums.OrderInfo_PaymentPlatform.valueKeyMap.Keys;
-            if (list != null)
-                foreach (var item in list)
-                    cbPaymentPlatform.Items.Add(item);
+            //var list = Common.Enums.OrderInfo_PaymentPlatform.valueKeyMap.Keys;
+            //if (list != null)
+            //    foreach (var item in list)
+            //        cbToUser.Items.Add(item);
 
-            var list1 = Common.Enums.ReplyResult.valList;
-            if (list1 != null)
-                foreach (var item in list1)
-                    cbReplyResult.Items.Add(item);
+            //var list1 = Common.Enums.ReplyResult.valList;
+            //if (list1 != null)
+            //    foreach (var item in list1)
+            //        cbMsgState.Items.Add(item);
 
         }
 
@@ -185,7 +182,7 @@ namespace TravelAgency.OrdersManagement
 
             if (!string.IsNullOrEmpty(txtSchEntryTimeFrom.Text.Trim()) && !string.IsNullOrEmpty(txtSchEntryTimeTo.Text.Trim()))
             {
-                conditions.Add(" (GuestOrderTime between '" + txtSchEntryTimeFrom.Text + "' and " + " '" + txtSchEntryTimeTo.Text +
+                conditions.Add(" (EntryTime between '" + txtSchEntryTimeFrom.Text + "' and " + " '" + txtSchEntryTimeTo.Text +
                                "') ");
             }
 
@@ -194,18 +191,20 @@ namespace TravelAgency.OrdersManagement
                 conditions.Add(" (OrderNo like '%" + txtOrderNo.Text + "%') ");
             }
 
-            if (cbOrderType.Text != "全部")
-                conditions.Add(" OrderType = '" + cbOrderType.Text + "' ");
+            if (cbMsgType.Text != "全部")
+                conditions.Add(" MsgType = '" + cbMsgType.Text + "' ");
 
-            if (cbPaymentPlatform.Text != "全部")
-                conditions.Add(" PaymentPlatform = " + Common.Enums.OrderInfo_PaymentPlatform.ValueToKey(cbPaymentPlatform.Text) + " ");
+            if (cbMsgState.Text != "全部")
+                conditions.Add(" MsgState = '" + cbMsgState.Text + "' ");
 
-            if (cbReplyResult.Text != "全部")
-                conditions.Add(" ReplyResult = '" + cbReplyResult.Text + "' ");
+            if (!string.IsNullOrEmpty(txtMsgContent.Text.Trim()))
+                conditions.Add(" (MsgContent like '%" + txtMsgContent.Text + "%') ");
 
-            if (!string.IsNullOrEmpty(txtWaitorName.Text.Trim()))
-                conditions.Add(" (WaitorName like '%" + txtWaitorName.Text + "%') ");
+            if (!string.IsNullOrEmpty(txtToUser.Text.Trim()))
+                conditions.Add(" (ToUser like '%" + txtToUser.Text + "%') ");
 
+            conditions.Add(string.Format(" (ToUser = '{0}' or FromUser = '{1}') ",
+                GlobalUtils.LoginUser.UserName, GlobalUtils.LoginUser.UserName));
 
             string[] arr = conditions.ToArray();
             string where = string.Join(" and ", arr);
@@ -216,7 +215,9 @@ namespace TravelAgency.OrdersManagement
         private void btnClearSchConditions_Click(object sender, EventArgs e)
         {
             //txtClient.Text = "";
-            cbOrderType.Text = "全部";
+            cbMsgType.Text = "全部";
+            cbMsgState.Text = "全部";
+            txtToUser.Text = "全部";
             //cbMessageState.Text = "全部";
             //cbDepatureType.Text = "";
             txtSchEntryTimeFrom.Text = "";
@@ -245,8 +246,8 @@ namespace TravelAgency.OrdersManagement
         {
             //int digit = GlobalUtils.DecimalDigits;
             var list = DgvDataSourceToList();
-            int hasTypedInGuestInfoCount = 0;
-            int sucNum = 0, proNum = 0, refuseNum = 0, notHandleNum = 0;
+            //int hasTypedInGuestInfoCount = 0;
+            //int sucNum = 0, proNum = 0, refuseNum = 0, notHandleNum = 0;
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 DataGridViewRow row = dataGridView1.Rows[i];
@@ -279,18 +280,18 @@ namespace TravelAgency.OrdersManagement
                 //row.Cells["PaymentPlatform"].Value = Common.Enums.OrderInfo_PaymentPlatform.KeyToValue(list[i].PaymentPlatform);
             }
 
-            lbGuestInfoTypedInCount.Text = string.Format("客人信息已录入: {0}/{1}", hasTypedInGuestInfoCount, dataGridView1.Rows.Count);
-            StringBuilder sb = new StringBuilder();
-            sb.Append(" 回复结果统计:");
-            if (sucNum > 0)
-                sb.AppendFormat("成功:{0} ", sucNum);
-            if (proNum > 0)
-                sb.AppendFormat("处理中:{0} ", proNum);
-            if (refuseNum > 0)
-                sb.AppendFormat("拒绝:{0} ", refuseNum);
-            if (notHandleNum > 0)
-                sb.AppendFormat("未处理:{0} ", notHandleNum);
-            lbReplyResultCount.Text = sb.ToString();
+            //lbGuestInfoTypedInCount.Text = string.Format("客人信息已录入: {0}/{1}", hasTypedInGuestInfoCount, dataGridView1.Rows.Count);
+            //StringBuilder sb = new StringBuilder();
+            //sb.Append(" 回复结果统计:");
+            //if (sucNum > 0)
+            //    sb.AppendFormat("成功:{0} ", sucNum);
+            //if (proNum > 0)
+            //    sb.AppendFormat("处理中:{0} ", proNum);
+            //if (refuseNum > 0)
+            //    sb.AppendFormat("拒绝:{0} ", refuseNum);
+            //if (notHandleNum > 0)
+            //    sb.AppendFormat("未处理:{0} ", notHandleNum);
+            //lbReplyResultCount.Text = sb.ToString();
         }
 
 

@@ -33,6 +33,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.EntryTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FromUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ToUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MsgType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MsgState = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MsgContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMain = new DevComponents.DotNetBar.PanelEx();
             this.panelDgv = new DevComponents.DotNetBar.PanelEx();
             this.bar2 = new DevComponents.DotNetBar.Bar();
@@ -40,11 +48,10 @@
             this.lbReplyResultCount = new DevComponents.DotNetBar.LabelItem();
             this.panelBars = new DevComponents.DotNetBar.PanelEx();
             this.panelSerachBar = new DevComponents.DotNetBar.PanelEx();
-            this.txtWaitorName = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtMsgContent = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
-            this.cbReplyResult = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.cbMsgState = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX5 = new DevComponents.DotNetBar.LabelX();
-            this.cbPaymentPlatform = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.txtOrderNo = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX4 = new DevComponents.DotNetBar.LabelX();
@@ -54,7 +61,7 @@
             this.labelX14 = new DevComponents.DotNetBar.LabelX();
             this.labelX12 = new DevComponents.DotNetBar.LabelX();
             this.btnAddFromExcel = new DevComponents.DotNetBar.ButtonX();
-            this.cbOrderType = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.cbMsgType = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.btnAdd = new DevComponents.DotNetBar.ButtonX();
             this.progressLoading = new DevComponents.DotNetBar.Controls.CircularProgress();
@@ -84,14 +91,7 @@
             this.韩国加急申请书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bgWorkerLoadData = new System.ComponentModel.BackgroundWorker();
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
-            this.EntryTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FromUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ToUser = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MsgType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MsgState = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MsgContent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrderNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtToUser = new DevComponents.DotNetBar.Controls.TextBoxX();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panelDgv.SuspendLayout();
@@ -157,6 +157,55 @@
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridView1.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseUp);
             this.dataGridView1.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
+            // 
+            // EntryTime
+            // 
+            this.EntryTime.DataPropertyName = "EntryTime";
+            this.EntryTime.HeaderText = "时间";
+            this.EntryTime.Name = "EntryTime";
+            // 
+            // FromUser
+            // 
+            this.FromUser.DataPropertyName = "FromUser";
+            this.FromUser.HeaderText = "发信人";
+            this.FromUser.Name = "FromUser";
+            // 
+            // ToUser
+            // 
+            this.ToUser.DataPropertyName = "ToUser";
+            this.ToUser.HeaderText = "收信人";
+            this.ToUser.Name = "ToUser";
+            // 
+            // MsgType
+            // 
+            this.MsgType.DataPropertyName = "MsgType";
+            this.MsgType.HeaderText = "消息类型";
+            this.MsgType.Name = "MsgType";
+            // 
+            // MsgState
+            // 
+            this.MsgState.DataPropertyName = "MsgState";
+            this.MsgState.HeaderText = "消息状态";
+            this.MsgState.Name = "MsgState";
+            // 
+            // MsgContent
+            // 
+            this.MsgContent.DataPropertyName = "MsgContent";
+            this.MsgContent.HeaderText = "消息内容";
+            this.MsgContent.Name = "MsgContent";
+            // 
+            // OrderNo
+            // 
+            this.OrderNo.DataPropertyName = "OrderNo";
+            this.OrderNo.HeaderText = "订单号";
+            this.OrderNo.Name = "OrderNo";
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
             // 
             // panelMain
             // 
@@ -257,11 +306,11 @@
             // 
             this.panelSerachBar.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelSerachBar.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelSerachBar.Controls.Add(this.txtWaitorName);
+            this.panelSerachBar.Controls.Add(this.txtToUser);
+            this.panelSerachBar.Controls.Add(this.txtMsgContent);
             this.panelSerachBar.Controls.Add(this.labelX1);
-            this.panelSerachBar.Controls.Add(this.cbReplyResult);
+            this.panelSerachBar.Controls.Add(this.cbMsgState);
             this.panelSerachBar.Controls.Add(this.labelX5);
-            this.panelSerachBar.Controls.Add(this.cbPaymentPlatform);
             this.panelSerachBar.Controls.Add(this.labelX2);
             this.panelSerachBar.Controls.Add(this.txtOrderNo);
             this.panelSerachBar.Controls.Add(this.labelX4);
@@ -271,7 +320,7 @@
             this.panelSerachBar.Controls.Add(this.labelX14);
             this.panelSerachBar.Controls.Add(this.labelX12);
             this.panelSerachBar.Controls.Add(this.btnAddFromExcel);
-            this.panelSerachBar.Controls.Add(this.cbOrderType);
+            this.panelSerachBar.Controls.Add(this.cbMsgType);
             this.panelSerachBar.Controls.Add(this.labelX3);
             this.panelSerachBar.Controls.Add(this.btnAdd);
             this.panelSerachBar.Controls.Add(this.progressLoading);
@@ -291,18 +340,18 @@
             this.panelSerachBar.Style.GradientAngle = 90;
             this.panelSerachBar.TabIndex = 24;
             // 
-            // txtWaitorName
+            // txtMsgContent
             // 
             // 
             // 
             // 
-            this.txtWaitorName.Border.Class = "TextBoxBorder";
-            this.txtWaitorName.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtWaitorName.DisabledBackColor = System.Drawing.Color.White;
-            this.txtWaitorName.Location = new System.Drawing.Point(819, 33);
-            this.txtWaitorName.Name = "txtWaitorName";
-            this.txtWaitorName.Size = new System.Drawing.Size(80, 21);
-            this.txtWaitorName.TabIndex = 119;
+            this.txtMsgContent.Border.Class = "TextBoxBorder";
+            this.txtMsgContent.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtMsgContent.DisabledBackColor = System.Drawing.Color.White;
+            this.txtMsgContent.Location = new System.Drawing.Point(499, 35);
+            this.txtMsgContent.Name = "txtMsgContent";
+            this.txtMsgContent.Size = new System.Drawing.Size(339, 21);
+            this.txtMsgContent.TabIndex = 119;
             // 
             // labelX1
             // 
@@ -310,23 +359,23 @@
             // 
             // 
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(759, 33);
+            this.labelX1.Location = new System.Drawing.Point(439, 35);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(79, 23);
             this.labelX1.TabIndex = 118;
-            this.labelX1.Text = "销售姓名:";
+            this.labelX1.Text = "消息内容:";
             // 
-            // cbReplyResult
+            // cbMsgState
             // 
-            this.cbReplyResult.DisplayMember = "Text";
-            this.cbReplyResult.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbReplyResult.FormattingEnabled = true;
-            this.cbReplyResult.ItemHeight = 15;
-            this.cbReplyResult.Location = new System.Drawing.Point(819, 6);
-            this.cbReplyResult.Name = "cbReplyResult";
-            this.cbReplyResult.Size = new System.Drawing.Size(79, 21);
-            this.cbReplyResult.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbReplyResult.TabIndex = 117;
+            this.cbMsgState.DisplayMember = "Text";
+            this.cbMsgState.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbMsgState.FormattingEnabled = true;
+            this.cbMsgState.ItemHeight = 15;
+            this.cbMsgState.Location = new System.Drawing.Point(759, 8);
+            this.cbMsgState.Name = "cbMsgState";
+            this.cbMsgState.Size = new System.Drawing.Size(79, 21);
+            this.cbMsgState.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cbMsgState.TabIndex = 117;
             // 
             // labelX5
             // 
@@ -334,23 +383,11 @@
             // 
             // 
             this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX5.Location = new System.Drawing.Point(759, 7);
+            this.labelX5.Location = new System.Drawing.Point(699, 8);
             this.labelX5.Name = "labelX5";
             this.labelX5.Size = new System.Drawing.Size(72, 21);
             this.labelX5.TabIndex = 116;
             this.labelX5.Text = "回复结果:";
-            // 
-            // cbPaymentPlatform
-            // 
-            this.cbPaymentPlatform.DisplayMember = "Text";
-            this.cbPaymentPlatform.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbPaymentPlatform.FormattingEnabled = true;
-            this.cbPaymentPlatform.ItemHeight = 15;
-            this.cbPaymentPlatform.Location = new System.Drawing.Point(662, 6);
-            this.cbPaymentPlatform.Name = "cbPaymentPlatform";
-            this.cbPaymentPlatform.Size = new System.Drawing.Size(79, 21);
-            this.cbPaymentPlatform.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbPaymentPlatform.TabIndex = 115;
             // 
             // labelX2
             // 
@@ -358,11 +395,11 @@
             // 
             // 
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Location = new System.Drawing.Point(597, 6);
+            this.labelX2.Location = new System.Drawing.Point(541, 8);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(72, 21);
             this.labelX2.TabIndex = 114;
-            this.labelX2.Text = "交易平台:";
+            this.labelX2.Text = "收件人:";
             // 
             // txtOrderNo
             // 
@@ -372,9 +409,9 @@
             this.txtOrderNo.Border.Class = "TextBoxBorder";
             this.txtOrderNo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtOrderNo.DisabledBackColor = System.Drawing.Color.White;
-            this.txtOrderNo.Location = new System.Drawing.Point(118, 33);
+            this.txtOrderNo.Location = new System.Drawing.Point(75, 35);
             this.txtOrderNo.Name = "txtOrderNo";
-            this.txtOrderNo.Size = new System.Drawing.Size(345, 21);
+            this.txtOrderNo.Size = new System.Drawing.Size(179, 21);
             this.txtOrderNo.TabIndex = 113;
             // 
             // labelX4
@@ -383,7 +420,7 @@
             // 
             // 
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(8, 34);
+            this.labelX4.Location = new System.Drawing.Point(8, 35);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(81, 23);
             this.labelX4.TabIndex = 112;
@@ -393,7 +430,7 @@
             // 
             this.btnTimeSpanChoose.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnTimeSpanChoose.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnTimeSpanChoose.Location = new System.Drawing.Point(481, 5);
+            this.btnTimeSpanChoose.Location = new System.Drawing.Point(438, 8);
             this.btnTimeSpanChoose.Name = "btnTimeSpanChoose";
             this.btnTimeSpanChoose.Size = new System.Drawing.Size(91, 23);
             this.btnTimeSpanChoose.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -413,7 +450,7 @@
             this.txtSchEntryTimeTo.CustomFormat = "yyyy/MM/dd HH:mm";
             this.txtSchEntryTimeTo.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
             this.txtSchEntryTimeTo.IsPopupCalendarOpen = false;
-            this.txtSchEntryTimeTo.Location = new System.Drawing.Point(303, 7);
+            this.txtSchEntryTimeTo.Location = new System.Drawing.Point(260, 8);
             // 
             // 
             // 
@@ -460,7 +497,7 @@
             this.txtSchEntryTimeFrom.CustomFormat = "yyyy/MM/dd HH:mm";
             this.txtSchEntryTimeFrom.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
             this.txtSchEntryTimeFrom.IsPopupCalendarOpen = false;
-            this.txtSchEntryTimeFrom.Location = new System.Drawing.Point(118, 7);
+            this.txtSchEntryTimeFrom.Location = new System.Drawing.Point(75, 8);
             // 
             // 
             // 
@@ -501,7 +538,7 @@
             // 
             // 
             this.labelX14.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX14.Location = new System.Drawing.Point(284, 7);
+            this.labelX14.Location = new System.Drawing.Point(241, 8);
             this.labelX14.Name = "labelX14";
             this.labelX14.Size = new System.Drawing.Size(13, 21);
             this.labelX14.TabIndex = 58;
@@ -515,15 +552,15 @@
             this.labelX12.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX12.Location = new System.Drawing.Point(8, 8);
             this.labelX12.Name = "labelX12";
-            this.labelX12.Size = new System.Drawing.Size(97, 21);
+            this.labelX12.Size = new System.Drawing.Size(81, 21);
             this.labelX12.TabIndex = 57;
-            this.labelX12.Text = "客人下单时间:";
+            this.labelX12.Text = "消息时间:";
             // 
             // btnAddFromExcel
             // 
             this.btnAddFromExcel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnAddFromExcel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnAddFromExcel.Location = new System.Drawing.Point(1073, 5);
+            this.btnAddFromExcel.Location = new System.Drawing.Point(1073, 6);
             this.btnAddFromExcel.Name = "btnAddFromExcel";
             this.btnAddFromExcel.Size = new System.Drawing.Size(92, 23);
             this.btnAddFromExcel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -531,17 +568,17 @@
             this.btnAddFromExcel.Text = "从excel导入";
             this.btnAddFromExcel.Click += new System.EventHandler(this.btnAddFromExcel_Click);
             // 
-            // cbOrderType
+            // cbMsgType
             // 
-            this.cbOrderType.DisplayMember = "Text";
-            this.cbOrderType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbOrderType.FormattingEnabled = true;
-            this.cbOrderType.ItemHeight = 15;
-            this.cbOrderType.Location = new System.Drawing.Point(662, 34);
-            this.cbOrderType.Name = "cbOrderType";
-            this.cbOrderType.Size = new System.Drawing.Size(79, 21);
-            this.cbOrderType.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbOrderType.TabIndex = 51;
+            this.cbMsgType.DisplayMember = "Text";
+            this.cbMsgType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbMsgType.FormattingEnabled = true;
+            this.cbMsgType.ItemHeight = 15;
+            this.cbMsgType.Location = new System.Drawing.Point(341, 35);
+            this.cbMsgType.Name = "cbMsgType";
+            this.cbMsgType.Size = new System.Drawing.Size(79, 21);
+            this.cbMsgType.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cbMsgType.TabIndex = 51;
             // 
             // labelX3
             // 
@@ -549,17 +586,17 @@
             // 
             // 
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX3.Location = new System.Drawing.Point(597, 33);
+            this.labelX3.Location = new System.Drawing.Point(265, 35);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(70, 21);
             this.labelX3.TabIndex = 50;
-            this.labelX3.Text = "订单类型:";
+            this.labelX3.Text = "消息类型:";
             // 
             // btnAdd
             // 
             this.btnAdd.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnAdd.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnAdd.Location = new System.Drawing.Point(1073, 34);
+            this.btnAdd.Location = new System.Drawing.Point(1073, 35);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(92, 23);
             this.btnAdd.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -588,7 +625,7 @@
             // 
             this.btnClearSchConditions.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnClearSchConditions.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnClearSchConditions.Location = new System.Drawing.Point(975, 6);
+            this.btnClearSchConditions.Location = new System.Drawing.Point(975, 7);
             this.btnClearSchConditions.Name = "btnClearSchConditions";
             this.btnClearSchConditions.Size = new System.Drawing.Size(92, 23);
             this.btnClearSchConditions.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -600,7 +637,7 @@
             // 
             this.btnSearch.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnSearch.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnSearch.Location = new System.Drawing.Point(975, 34);
+            this.btnSearch.Location = new System.Drawing.Point(975, 35);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(92, 23);
             this.btnSearch.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -769,54 +806,18 @@
             this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2010Blue;
             this.styleManager1.MetroColorParameters = new DevComponents.DotNetBar.Metro.ColorTables.MetroColorGeneratorParameters(System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255))))), System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199))))));
             // 
-            // EntryTime
+            // txtToUser
             // 
-            this.EntryTime.DataPropertyName = "EntryTime";
-            this.EntryTime.HeaderText = "时间";
-            this.EntryTime.Name = "EntryTime";
             // 
-            // FromUser
             // 
-            this.FromUser.DataPropertyName = "FromUser";
-            this.FromUser.HeaderText = "发信人";
-            this.FromUser.Name = "FromUser";
             // 
-            // ToUser
-            // 
-            this.ToUser.DataPropertyName = "ToUser";
-            this.ToUser.HeaderText = "收信人";
-            this.ToUser.Name = "ToUser";
-            // 
-            // MsgType
-            // 
-            this.MsgType.DataPropertyName = "MsgType";
-            this.MsgType.HeaderText = "消息类型";
-            this.MsgType.Name = "MsgType";
-            // 
-            // MsgState
-            // 
-            this.MsgState.DataPropertyName = "MsgState";
-            this.MsgState.HeaderText = "消息状态";
-            this.MsgState.Name = "MsgState";
-            // 
-            // MsgContent
-            // 
-            this.MsgContent.DataPropertyName = "MsgContent";
-            this.MsgContent.HeaderText = "消息内容";
-            this.MsgContent.Name = "MsgContent";
-            // 
-            // OrderNo
-            // 
-            this.OrderNo.DataPropertyName = "OrderNo";
-            this.OrderNo.HeaderText = "订单号";
-            this.OrderNo.Name = "OrderNo";
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.Visible = false;
+            this.txtToUser.Border.Class = "TextBoxBorder";
+            this.txtToUser.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtToUser.DisabledBackColor = System.Drawing.Color.White;
+            this.txtToUser.Location = new System.Drawing.Point(588, 8);
+            this.txtToUser.Name = "txtToUser";
+            this.txtToUser.Size = new System.Drawing.Size(94, 21);
+            this.txtToUser.TabIndex = 120;
             // 
             // FrmMessageManage
             // 
@@ -875,7 +876,7 @@
         private DevComponents.DotNetBar.ButtonX btnAdd;
         private System.Windows.Forms.ToolStripMenuItem 删除ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 修改ToolStripMenuItem;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx cbOrderType;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cbMsgType;
         private DevComponents.DotNetBar.LabelX labelX3;
         private DevComponents.DotNetBar.ButtonX btnAddFromExcel;
         private DevComponents.DotNetBar.ButtonX btnTimeSpanChoose;
@@ -885,15 +886,14 @@
         private DevComponents.DotNetBar.LabelX labelX12;
         private DevComponents.DotNetBar.Controls.TextBoxX txtOrderNo;
         private DevComponents.DotNetBar.LabelX labelX4;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx cbPaymentPlatform;
         private DevComponents.DotNetBar.LabelX labelX2;
         private DevComponents.DotNetBar.StyleManager styleManager1;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx cbReplyResult;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cbMsgState;
         private DevComponents.DotNetBar.LabelX labelX5;
         private DevComponents.DotNetBar.Bar bar2;
         private DevComponents.DotNetBar.LabelItem lbGuestInfoTypedInCount;
         private DevComponents.DotNetBar.LabelItem lbReplyResultCount;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtWaitorName;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtMsgContent;
         private DevComponents.DotNetBar.LabelX labelX1;
         private System.Windows.Forms.DataGridViewTextBoxColumn EntryTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn FromUser;
@@ -903,6 +903,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn MsgContent;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrderNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtToUser;
     }
 }
 

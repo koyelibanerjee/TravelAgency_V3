@@ -51,8 +51,12 @@ namespace TravelAgency.OrdersManagement
                 txtMsgState.Text = _model.MsgState;
                 txtToUser.Text = _model.ToUser;
 
+                if (_model.ToUser != GlobalUtils.LoginUser.UserName) //只能自己接收的信息才能修改状态
+                {
+                    txtMsgState.Enabled = false;
+                }
 
-             
+
                 //_model.FromUser = GlobalUtils.LoginUser.UserName;
                 //_model.EntryTime = DateTime.Now;
                 //_model.IsUrgent
