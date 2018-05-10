@@ -1538,7 +1538,7 @@ namespace TravelAgency.CSUI.FrmSub
         /// <summary>  
         /// ESC退出编辑
         /// </summary>  
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        protected override bool ProcessCmdKey(ref System.Windows.Forms.Message msg, Keys keyData)
         {
             if (keyData == Keys.Escape)
             {

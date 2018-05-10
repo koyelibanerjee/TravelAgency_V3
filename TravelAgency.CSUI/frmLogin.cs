@@ -185,7 +185,7 @@ namespace TravelAgency.CSUI.FrmMain
             Application.Exit();
         }
 
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        protected override bool ProcessCmdKey(ref System.Windows.Forms.Message msg, Keys keyData)
         {
             switch (keyData)
             {

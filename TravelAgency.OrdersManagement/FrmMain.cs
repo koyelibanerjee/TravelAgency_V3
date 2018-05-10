@@ -189,6 +189,10 @@ namespace TravelAgency.OrdersManagement
             OpenTab(frm, frm.Name);
         }
 
-
+        private void btnMessageManage_Click(object sender, EventArgs e)
+        {
+            FrmMessageManage frm = new FrmMessageManage();
+            OpenTab(frm, frm.Name);
+        }
     }
 }

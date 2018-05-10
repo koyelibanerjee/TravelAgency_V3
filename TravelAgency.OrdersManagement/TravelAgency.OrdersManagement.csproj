@@ -63,6 +63,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmAddMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAddMessage.designer.cs">
+      <DependentUpon>FrmAddMessage.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmIsPraise.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,12 @@
     </Compile>
     <Compile Include="FrmOrdersManage_Summary.designer.cs">
       <DependentUpon>FrmOrdersManage_Summary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMessageManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMessageManage.designer.cs">
+      <DependentUpon>FrmMessageManage.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmPlatformSet.cs">
       <SubType>Form</SubType>
@@ -149,11 +161,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmAddMessage.resx">
+      <DependentUpon>FrmAddMessage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmIsPraise.resx">
       <DependentUpon>FrmIsPraise.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmOrdersManage_Summary.resx">
       <DependentUpon>FrmOrdersManage_Summary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMessageManage.resx">
+      <DependentUpon>FrmMessageManage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPlatformSet.resx">
       <DependentUpon>FrmPlatformSet.cs</DependentUpon>

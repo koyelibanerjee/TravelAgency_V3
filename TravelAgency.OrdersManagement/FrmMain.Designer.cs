@@ -37,7 +37,7 @@
             this.btnOrderManagementOperator = new DevComponents.DotNetBar.ButtonItem();
             this.btnOrderInfoManage = new DevComponents.DotNetBar.ButtonItem();
             this.btnOrdersSummary = new DevComponents.DotNetBar.ButtonItem();
-            this.btnVisaSubmit = new DevComponents.DotNetBar.ButtonItem();
+            this.btnMessageManage = new DevComponents.DotNetBar.ButtonItem();
             this.btnScanFrm = new DevComponents.DotNetBar.ButtonItem();
             this.btnGPManage = new DevComponents.DotNetBar.ButtonItem();
             this.btnJiaoJiePicManage = new DevComponents.DotNetBar.ButtonItem();
@@ -162,14 +162,14 @@
             this.btnOrderManagementOperator,
             this.btnOrderInfoManage,
             this.btnOrdersSummary,
-            this.btnVisaSubmit,
+            this.btnMessageManage,
             this.btnScanFrm,
             this.btnGPManage,
             this.btnJiaoJiePicManage,
             this.btnJobAssignment});
             this.ribbonBar2.Location = new System.Drawing.Point(3, 0);
             this.ribbonBar2.Name = "ribbonBar2";
-            this.ribbonBar2.Size = new System.Drawing.Size(670, 58);
+            this.ribbonBar2.Size = new System.Drawing.Size(783, 58);
             this.ribbonBar2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonBar2.TabIndex = 0;
             this.ribbonBar2.Text = "ribbonBar2";
@@ -223,15 +223,15 @@
             this.btnOrdersSummary.Text = "订单信息汇总";
             this.btnOrdersSummary.Click += new System.EventHandler(this.btnOrdersSummary_Click);
             // 
-            // btnVisaSubmit
+            // btnMessageManage
             // 
-            this.btnVisaSubmit.Icon = ((System.Drawing.Icon)(resources.GetObject("btnVisaSubmit.Icon")));
-            this.btnVisaSubmit.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
-            this.btnVisaSubmit.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnVisaSubmit.Name = "btnVisaSubmit";
-            this.btnVisaSubmit.SubItemsExpandWidth = 14;
-            this.btnVisaSubmit.Text = "送签管理";
-            this.btnVisaSubmit.Visible = false;
+            this.btnMessageManage.Icon = ((System.Drawing.Icon)(resources.GetObject("btnMessageManage.Icon")));
+            this.btnMessageManage.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
+            this.btnMessageManage.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnMessageManage.Name = "btnMessageManage";
+            this.btnMessageManage.SubItemsExpandWidth = 14;
+            this.btnMessageManage.Text = "消息管理";
+            this.btnMessageManage.Click += new System.EventHandler(this.btnMessageManage_Click);
             // 
             // btnScanFrm
             // 
@@ -680,7 +680,7 @@
         private DevComponents.DotNetBar.RibbonBar ribbonBar2;
         private DevComponents.DotNetBar.ButtonItem btnOrderInfoManage;
         private DevComponents.DotNetBar.ButtonItem btnOrdersSummary;
-        private DevComponents.DotNetBar.ButtonItem btnVisaSubmit;
+        private DevComponents.DotNetBar.ButtonItem btnMessageManage;
         private DevComponents.DotNetBar.RibbonPanel ribbonPanel5;
         private DevComponents.DotNetBar.RibbonTabItem ribbonTabItem3;
         private DevComponents.DotNetBar.RibbonTabItem ribbonTabItem5;
