@@ -566,12 +566,6 @@ namespace TravelAgency.OrdersManagement
         {
             var list = GetSelectedModelList();
 
-            //if (list.Count > 1)
-            //{
-            //    MessageBoxEx.Show("请选中一条进行修改!");
-            //    return;
-            //}
-
             foreach (var item in list)
             {
                 if (item.WaitorConfirmTime != null)
@@ -581,7 +575,7 @@ namespace TravelAgency.OrdersManagement
                 }
             }
 
-                if (MessageBoxEx.Show("是否确认提交所选订单?") == DialogResult.Cancel)
+            if (MessageBoxEx.Show("是否确认提交所选订单?", "确认", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
                 return;
 
             int res = 0;
@@ -592,10 +586,24 @@ namespace TravelAgency.OrdersManagement
             }
 
             Common.GlobalUtils.MessageBoxWithRecordNum("提交", res, list.Count);
+        }
 
+        private void 评价录入ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var list = GetSelectedModelList();
 
+            FrmIsPraise frm = new FrmIsPraise();
+            if (DialogResult.Cancel == frm.ShowDialog())
+                return;
 
+            int res = 0;
+            foreach (var item in list)
+            {
+                item.IsPraise = frm.RetValue;
+                res += _bllOrders.Update(item) ? 1 : 0;
+            }
 
+            Common.GlobalUtils.MessageBoxWithRecordNum("提交", res, list.Count);
         }
     }
 }

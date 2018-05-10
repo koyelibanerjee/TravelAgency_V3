@@ -63,6 +63,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmIsPraise.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmIsPraise.Designer.cs">
+      <DependentUpon>FrmIsPraise.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmOrdersManage_Summary.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmIsPraise.resx">
+      <DependentUpon>FrmIsPraise.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmOrdersManage_Summary.resx">
       <DependentUpon>FrmOrdersManage_Summary.cs</DependentUpon>
     </EmbeddedResource>
