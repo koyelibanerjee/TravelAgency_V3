@@ -605,5 +605,41 @@ namespace TravelAgency.OrdersManagement
 
             Common.GlobalUtils.MessageBoxWithRecordNum("提交", res, list.Count);
         }
+
+        private void 申请退款ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 1)
+            {
+                MessageBoxEx.Show("请选中一条数据进行操作!");
+                return;
+            }
+
+            var list = GetSelectedModelList();
+
+            if (!list[0].RefundAmout.HasValue || !list[0].GuestRefundApplyTime.HasValue)
+            {
+                MessageBoxEx.Show("请先填写退款信息(\"金额\"及\"时间\")后再发起退款!");
+                return;
+            }
+
+            FrmAddMessage frm = new FrmAddMessage(list[0], refund: true);
+            frm.ShowDialog();
+
+
+        }
+
+        private void 订单发送消息ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 1)
+            {
+                MessageBoxEx.Show("请选中一条数据进行操作!");
+                return;
+            }
+
+            var list = GetSelectedModelList();
+
+            FrmAddMessage frm = new FrmAddMessage(list[0], refund: false);
+            frm.ShowDialog();
+        }
     }
 }

@@ -16,6 +16,8 @@ namespace TravelAgency.OrdersManagement
         private readonly int _curPage; //主界面更新数据库需要一个当前页
         private readonly bool _is4Modify = false;
         private readonly TravelAgency.Model.Message _model = null;
+        private readonly TravelAgency.Model.Orders _ordersModel = null;
+        private readonly bool _isRefund = false;
 
         public FrmAddMessage(Action<int> updateDel, int curPage, bool is4Modify = false, TravelAgency.Model.Message model = null)
         {
@@ -28,6 +30,17 @@ namespace TravelAgency.OrdersManagement
             _curPage = curPage;
             _is4Modify = is4Modify;
             _model = model;
+        }
+
+        public FrmAddMessage(TravelAgency.Model.Orders ordermodel, bool refund)
+        {
+            if (this.Modal)
+                this.StartPosition = FormStartPosition.CenterParent;
+            else
+                this.StartPosition = FormStartPosition.CenterScreen;
+            InitializeComponent();
+            _ordersModel = ordermodel;
+            _isRefund = refund;
         }
 
 
@@ -67,6 +80,22 @@ namespace TravelAgency.OrdersManagement
             {
                 txtMsgState.Text = "未读";
                 txtMsgState.Enabled = false;
+
+                if (_ordersModel != null)
+                {
+                    if (_isRefund)
+                    {
+                        txtMsgType.Text = "退款申请";
+                        txtMsgContent.Text = string.Format("订单:{0}\r\n{1}\r\n申请退款:{2}\r\n客服:{3}",
+                            _ordersModel.OrderNo,
+                            DateTime.Now,
+                            _ordersModel.RefundAmout,
+                            _ordersModel.WaitorName);
+                    }
+                    else
+                        txtMsgType.Text = "普通";
+                    txtOrderNo.Text = _ordersModel.OrderNo;
+                }
             }
         }
 
@@ -191,13 +220,13 @@ namespace TravelAgency.OrdersManagement
                         return;
                     }
                     MessageBoxEx.Show("添加成功");
-                    _updateDel(_curPage);
+                    if (_updateDel != null)
+                        _updateDel(_curPage);
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
                 catch (Exception ex)
                 {
-                    MessageBoxEx.Show(ex.Message);
                     MessageBoxEx.Show("请检查输入是否有误!");
                     //throw;
                 }
