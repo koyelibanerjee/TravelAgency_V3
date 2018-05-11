@@ -47,7 +47,7 @@
             this.panelEx1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEx1.Location = new System.Drawing.Point(0, 0);
             this.panelEx1.Name = "panelEx1";
-            this.panelEx1.Size = new System.Drawing.Size(201, 83);
+            this.panelEx1.Size = new System.Drawing.Size(234, 97);
             this.panelEx1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelEx1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -69,7 +69,7 @@
             this.txtTime.CustomFormat = "yyyy/MM/dd HH:mm";
             this.txtTime.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
             this.txtTime.IsPopupCalendarOpen = false;
-            this.txtTime.Location = new System.Drawing.Point(27, 12);
+            this.txtTime.Location = new System.Drawing.Point(24, 12);
             // 
             // 
             // 
@@ -100,7 +100,7 @@
             this.txtTime.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtTime.MonthCalendar.TodayButtonVisible = true;
             this.txtTime.Name = "txtTime";
-            this.txtTime.Size = new System.Drawing.Size(170, 21);
+            this.txtTime.Size = new System.Drawing.Size(198, 23);
             this.txtTime.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.txtTime.TabIndex = 0;
             // 
@@ -108,9 +108,9 @@
             // 
             this.btnCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnCancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnCancel.Location = new System.Drawing.Point(114, 48);
+            this.btnCancel.Location = new System.Drawing.Point(133, 56);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(62, 23);
+            this.btnCancel.Size = new System.Drawing.Size(72, 27);
             this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "取消";
@@ -120,9 +120,9 @@
             // 
             this.btnOk.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnOk.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnOk.Location = new System.Drawing.Point(36, 48);
+            this.btnOk.Location = new System.Drawing.Point(42, 56);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(62, 23);
+            this.btnOk.Size = new System.Drawing.Size(72, 27);
             this.btnOk.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnOk.TabIndex = 2;
             this.btnOk.Text = "确定";
@@ -130,10 +130,11 @@
             // 
             // FrmTimeChoose
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(201, 83);
+            this.ClientSize = new System.Drawing.Size(234, 97);
             this.Controls.Add(this.panelEx1);
+            this.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Name = "FrmTimeChoose";
             this.Text = "时间选择:";
             this.Load += new System.EventHandler(this.FrmTimeSpanChoose_Load);

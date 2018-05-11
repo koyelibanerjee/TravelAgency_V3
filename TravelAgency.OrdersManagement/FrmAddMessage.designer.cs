@@ -113,6 +113,7 @@
             this.panelMain.Controls.Add(this.btnCancel);
             this.panelMain.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMain.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(437, 299);
@@ -130,10 +131,10 @@
             this.txtMsgType.DisplayMember = "Text";
             this.txtMsgType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.txtMsgType.FormattingEnabled = true;
-            this.txtMsgType.ItemHeight = 15;
+            this.txtMsgType.ItemHeight = 17;
             this.txtMsgType.Location = new System.Drawing.Point(107, 40);
             this.txtMsgType.Name = "txtMsgType";
-            this.txtMsgType.Size = new System.Drawing.Size(107, 21);
+            this.txtMsgType.Size = new System.Drawing.Size(107, 23);
             this.txtMsgType.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.txtMsgType.TabIndex = 122;
             // 
@@ -145,7 +146,7 @@
             this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX5.Location = new System.Drawing.Point(19, 38);
             this.labelX5.Name = "labelX5";
-            this.labelX5.Size = new System.Drawing.Size(63, 23);
+            this.labelX5.Size = new System.Drawing.Size(82, 23);
             this.labelX5.TabIndex = 121;
             this.labelX5.Text = "消息类型:";
             // 
@@ -154,10 +155,10 @@
             this.txtMsgState.DisplayMember = "Text";
             this.txtMsgState.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.txtMsgState.FormattingEnabled = true;
-            this.txtMsgState.ItemHeight = 15;
+            this.txtMsgState.ItemHeight = 17;
             this.txtMsgState.Location = new System.Drawing.Point(318, 40);
             this.txtMsgState.Name = "txtMsgState";
-            this.txtMsgState.Size = new System.Drawing.Size(107, 21);
+            this.txtMsgState.Size = new System.Drawing.Size(107, 23);
             this.txtMsgState.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.txtMsgState.TabIndex = 120;
             // 
@@ -167,9 +168,9 @@
             // 
             // 
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX3.Location = new System.Drawing.Point(247, 40);
+            this.labelX3.Location = new System.Drawing.Point(235, 40);
             this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(63, 23);
+            this.labelX3.Size = new System.Drawing.Size(75, 23);
             this.labelX3.TabIndex = 119;
             this.labelX3.Text = "消息状态:";
             // 
@@ -203,10 +204,10 @@
             this.txtToUser.DisplayMember = "Text";
             this.txtToUser.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.txtToUser.FormattingEnabled = true;
-            this.txtToUser.ItemHeight = 15;
+            this.txtToUser.ItemHeight = 17;
             this.txtToUser.Location = new System.Drawing.Point(107, 11);
             this.txtToUser.Name = "txtToUser";
-            this.txtToUser.Size = new System.Drawing.Size(107, 21);
+            this.txtToUser.Size = new System.Drawing.Size(107, 23);
             this.txtToUser.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.txtToUser.TabIndex = 113;
             // 
@@ -218,7 +219,7 @@
             this.labelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX11.Location = new System.Drawing.Point(19, 11);
             this.labelX11.Name = "labelX11";
-            this.labelX11.Size = new System.Drawing.Size(63, 23);
+            this.labelX11.Size = new System.Drawing.Size(82, 23);
             this.labelX11.TabIndex = 112;
             this.labelX11.Text = "收件人:";
             // 
@@ -231,7 +232,7 @@
             this.txtOrderNo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtOrderNo.Location = new System.Drawing.Point(107, 225);
             this.txtOrderNo.Name = "txtOrderNo";
-            this.txtOrderNo.Size = new System.Drawing.Size(319, 21);
+            this.txtOrderNo.Size = new System.Drawing.Size(319, 23);
             this.txtOrderNo.TabIndex = 111;
             // 
             // labelX4

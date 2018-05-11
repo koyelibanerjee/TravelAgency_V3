@@ -48,7 +48,7 @@
             this.panelEx1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEx1.Location = new System.Drawing.Point(0, 0);
             this.panelEx1.Name = "panelEx1";
-            this.panelEx1.Size = new System.Drawing.Size(266, 69);
+            this.panelEx1.Size = new System.Drawing.Size(310, 80);
             this.panelEx1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelEx1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -63,10 +63,10 @@
             this.txtExcelType.DisplayMember = "Text";
             this.txtExcelType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.txtExcelType.FormattingEnabled = true;
-            this.txtExcelType.ItemHeight = 15;
-            this.txtExcelType.Location = new System.Drawing.Point(109, 12);
+            this.txtExcelType.ItemHeight = 17;
+            this.txtExcelType.Location = new System.Drawing.Point(127, 14);
             this.txtExcelType.Name = "txtExcelType";
-            this.txtExcelType.Size = new System.Drawing.Size(116, 21);
+            this.txtExcelType.Size = new System.Drawing.Size(135, 23);
             this.txtExcelType.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.txtExcelType.TabIndex = 114;
             // 
@@ -74,9 +74,9 @@
             // 
             this.btnCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnCancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnCancel.Location = new System.Drawing.Point(150, 39);
+            this.btnCancel.Location = new System.Drawing.Point(175, 45);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(87, 27);
             this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "取消";
@@ -86,9 +86,9 @@
             // 
             this.btnOK.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnOK.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnOK.Location = new System.Drawing.Point(40, 39);
+            this.btnOK.Location = new System.Drawing.Point(47, 45);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.Size = new System.Drawing.Size(87, 27);
             this.btnOK.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnOK.TabIndex = 1;
             this.btnOK.Text = "确认";
@@ -100,18 +100,19 @@
             // 
             // 
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(36, 12);
+            this.labelX1.Location = new System.Drawing.Point(42, 14);
             this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(67, 23);
+            this.labelX1.Size = new System.Drawing.Size(78, 27);
             this.labelX1.TabIndex = 1;
             this.labelX1.Text = "excel来源:";
             // 
             // FrmPlatformSet
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(266, 69);
+            this.ClientSize = new System.Drawing.Size(310, 80);
             this.Controls.Add(this.panelEx1);
+            this.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Name = "FrmPlatformSet";
             this.Text = "导入订单平台选择:";
             this.Load += new System.EventHandler(this.FrmGroupOrIndividual_Load);

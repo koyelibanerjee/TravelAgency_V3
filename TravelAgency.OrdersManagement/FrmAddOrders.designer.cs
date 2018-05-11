@@ -33,6 +33,9 @@
             this.btnOK = new DevComponents.DotNetBar.ButtonX();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.panelMain = new DevComponents.DotNetBar.PanelEx();
+            this.txtComboName = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX1 = new DevComponents.DotNetBar.LabelX();
+            this.txtWaitorConfirmTime = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.btnOperInfo = new DevComponents.DotNetBar.ButtonX();
             this.btnGuestInfo = new DevComponents.DotNetBar.ButtonX();
             this.txtPlatformActivity = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -60,11 +63,8 @@
             this.btnAddFromExcel = new DevComponents.DotNetBar.ButtonX();
             this.btnAdd = new DevComponents.DotNetBar.ButtonX();
             this.progressLoading = new DevComponents.DotNetBar.Controls.CircularProgress();
-            this.labelX10 = new DevComponents.DotNetBar.LabelX();
             this.txtGuestOrderTime = new System.Windows.Forms.DateTimePicker();
-            this.txtWaitorConfirmTime = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
-            this.txtComboName = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX1 = new DevComponents.DotNetBar.LabelX();
+            this.labelX10 = new DevComponents.DotNetBar.LabelX();
             this.panelEx1.SuspendLayout();
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtWaitorConfirmTime)).BeginInit();
@@ -76,9 +76,9 @@
             // 
             // 
             this.labelX20.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX20.Location = new System.Drawing.Point(225, 41);
+            this.labelX20.Location = new System.Drawing.Point(262, 48);
             this.labelX20.Name = "labelX20";
-            this.labelX20.Size = new System.Drawing.Size(43, 19);
+            this.labelX20.Size = new System.Drawing.Size(50, 22);
             this.labelX20.TabIndex = 98;
             this.labelX20.Text = "团号:";
             this.labelX20.WordWrap = true;
@@ -87,9 +87,9 @@
             // 
             this.btnCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnCancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnCancel.Location = new System.Drawing.Point(466, 237);
+            this.btnCancel.Location = new System.Drawing.Point(544, 276);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(87, 27);
             this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnCancel.TabIndex = 30;
             this.btnCancel.Text = "取消";
@@ -99,9 +99,9 @@
             // 
             this.btnOK.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnOK.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnOK.Location = new System.Drawing.Point(385, 237);
+            this.btnOK.Location = new System.Drawing.Point(449, 276);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.Size = new System.Drawing.Size(87, 27);
             this.btnOK.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnOK.TabIndex = 29;
             this.btnOK.Text = "确认";
@@ -116,7 +116,7 @@
             this.panelEx1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEx1.Location = new System.Drawing.Point(0, 0);
             this.panelEx1.Name = "panelEx1";
-            this.panelEx1.Size = new System.Drawing.Size(633, 294);
+            this.panelEx1.Size = new System.Drawing.Size(738, 343);
             this.panelEx1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelEx1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -169,7 +169,7 @@
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(633, 294);
+            this.panelMain.Size = new System.Drawing.Size(738, 343);
             this.panelMain.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelMain.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelMain.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -179,360 +179,30 @@
             this.panelMain.Style.GradientAngle = 90;
             this.panelMain.TabIndex = 106;
             // 
-            // btnOperInfo
+            // txtComboName
             // 
-            this.btnOperInfo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnOperInfo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnOperInfo.Location = new System.Drawing.Point(466, 126);
-            this.btnOperInfo.Name = "btnOperInfo";
-            this.btnOperInfo.Size = new System.Drawing.Size(110, 49);
-            this.btnOperInfo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnOperInfo.TabIndex = 141;
-            this.btnOperInfo.Text = "设置(查看)操作信息";
-            this.btnOperInfo.Click += new System.EventHandler(this.btnOperInfo_Click);
             // 
-            // btnGuestInfo
             // 
-            this.btnGuestInfo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnGuestInfo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnGuestInfo.Location = new System.Drawing.Point(350, 126);
-            this.btnGuestInfo.Name = "btnGuestInfo";
-            this.btnGuestInfo.Size = new System.Drawing.Size(110, 49);
-            this.btnGuestInfo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnGuestInfo.TabIndex = 140;
-            this.btnGuestInfo.Text = "设置(查看)客户信息";
-            this.btnGuestInfo.Click += new System.EventHandler(this.btnGuestInfo_Click);
             // 
-            // txtPlatformActivity
+            this.txtComboName.Border.Class = "TextBoxBorder";
+            this.txtComboName.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtComboName.Location = new System.Drawing.Point(126, 113);
+            this.txtComboName.Multiline = true;
+            this.txtComboName.Name = "txtComboName";
+            this.txtComboName.Size = new System.Drawing.Size(189, 27);
+            this.txtComboName.TabIndex = 165;
             // 
+            // labelX1
             // 
             // 
             // 
-            this.txtPlatformActivity.Border.Class = "TextBoxBorder";
-            this.txtPlatformActivity.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtPlatformActivity.Location = new System.Drawing.Point(108, 264);
-            this.txtPlatformActivity.Multiline = true;
-            this.txtPlatformActivity.Name = "txtPlatformActivity";
-            this.txtPlatformActivity.Size = new System.Drawing.Size(162, 23);
-            this.txtPlatformActivity.TabIndex = 139;
             // 
-            // labelX15
-            // 
-            // 
-            // 
-            // 
-            this.labelX15.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX15.Location = new System.Drawing.Point(22, 264);
-            this.labelX15.Name = "labelX15";
-            this.labelX15.Size = new System.Drawing.Size(99, 23);
-            this.labelX15.TabIndex = 138;
-            this.labelX15.Text = "平台活动:";
-            // 
-            // txtReallyPay
-            // 
-            // 
-            // 
-            // 
-            this.txtReallyPay.Border.Class = "TextBoxBorder";
-            this.txtReallyPay.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtReallyPay.Location = new System.Drawing.Point(108, 208);
-            this.txtReallyPay.Multiline = true;
-            this.txtReallyPay.Name = "txtReallyPay";
-            this.txtReallyPay.Size = new System.Drawing.Size(162, 23);
-            this.txtReallyPay.TabIndex = 137;
-            // 
-            // labelX14
-            // 
-            // 
-            // 
-            // 
-            this.labelX14.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX14.Location = new System.Drawing.Point(22, 208);
-            this.labelX14.Name = "labelX14";
-            this.labelX14.Size = new System.Drawing.Size(99, 23);
-            this.labelX14.TabIndex = 136;
-            this.labelX14.Text = "实际支付金额:";
-            // 
-            // labelX13
-            // 
-            // 
-            // 
-            // 
-            this.labelX13.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX13.Location = new System.Drawing.Point(22, 181);
-            this.labelX13.Name = "labelX13";
-            this.labelX13.Size = new System.Drawing.Size(104, 23);
-            this.labelX13.TabIndex = 134;
-            this.labelX13.Text = "客服确认时间:";
-            // 
-            // txtOrderAmount
-            // 
-            // 
-            // 
-            // 
-            this.txtOrderAmount.Border.Class = "TextBoxBorder";
-            this.txtOrderAmount.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtOrderAmount.Location = new System.Drawing.Point(345, 95);
-            this.txtOrderAmount.Multiline = true;
-            this.txtOrderAmount.Name = "txtOrderAmount";
-            this.txtOrderAmount.Size = new System.Drawing.Size(78, 23);
-            this.txtOrderAmount.TabIndex = 131;
-            // 
-            // labelX9
-            // 
-            // 
-            // 
-            // 
-            this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX9.Location = new System.Drawing.Point(276, 95);
-            this.labelX9.Name = "labelX9";
-            this.labelX9.Size = new System.Drawing.Size(63, 23);
-            this.labelX9.TabIndex = 130;
-            this.labelX9.Text = "订单金额:";
-            // 
-            // txtPurchaseNum
-            // 
-            // 
-            // 
-            // 
-            this.txtPurchaseNum.Border.Class = "TextBoxBorder";
-            this.txtPurchaseNum.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtPurchaseNum.Location = new System.Drawing.Point(108, 126);
-            this.txtPurchaseNum.Multiline = true;
-            this.txtPurchaseNum.Name = "txtPurchaseNum";
-            this.txtPurchaseNum.Size = new System.Drawing.Size(162, 23);
-            this.txtPurchaseNum.TabIndex = 129;
-            // 
-            // labelX8
-            // 
-            // 
-            // 
-            // 
-            this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX8.Location = new System.Drawing.Point(22, 126);
-            this.labelX8.Name = "labelX8";
-            this.labelX8.Size = new System.Drawing.Size(63, 23);
-            this.labelX8.TabIndex = 128;
-            this.labelX8.Text = "购买数量:";
-            // 
-            // txtProductType
-            // 
-            // 
-            // 
-            // 
-            this.txtProductType.Border.Class = "TextBoxBorder";
-            this.txtProductType.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtProductType.Location = new System.Drawing.Point(504, 66);
-            this.txtProductType.Multiline = true;
-            this.txtProductType.Name = "txtProductType";
-            this.txtProductType.Size = new System.Drawing.Size(121, 23);
-            this.txtProductType.TabIndex = 127;
-            // 
-            // labelX7
-            // 
-            // 
-            // 
-            // 
-            this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX7.Location = new System.Drawing.Point(435, 66);
-            this.labelX7.Name = "labelX7";
-            this.labelX7.Size = new System.Drawing.Size(63, 23);
-            this.labelX7.TabIndex = 126;
-            this.labelX7.Text = "商品类型:";
-            // 
-            // txtProductId
-            // 
-            // 
-            // 
-            // 
-            this.txtProductId.Border.Class = "TextBoxBorder";
-            this.txtProductId.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtProductId.Location = new System.Drawing.Point(345, 66);
-            this.txtProductId.Multiline = true;
-            this.txtProductId.Name = "txtProductId";
-            this.txtProductId.Size = new System.Drawing.Size(78, 23);
-            this.txtProductId.TabIndex = 125;
-            // 
-            // labelX6
-            // 
-            // 
-            // 
-            // 
-            this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX6.Location = new System.Drawing.Point(278, 66);
-            this.labelX6.Name = "labelX6";
-            this.labelX6.Size = new System.Drawing.Size(63, 23);
-            this.labelX6.TabIndex = 124;
-            this.labelX6.Text = "商品ID:";
-            // 
-            // txtGroupNo
-            // 
-            this.txtGroupNo.DisplayMember = "Text";
-            this.txtGroupNo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.txtGroupNo.FormattingEnabled = true;
-            this.txtGroupNo.ItemHeight = 15;
-            this.txtGroupNo.Location = new System.Drawing.Point(274, 39);
-            this.txtGroupNo.Name = "txtGroupNo";
-            this.txtGroupNo.Size = new System.Drawing.Size(351, 21);
-            this.txtGroupNo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.txtGroupNo.TabIndex = 123;
-            // 
-            // txtPaymentPlatform
-            // 
-            this.txtPaymentPlatform.DisplayMember = "Text";
-            this.txtPaymentPlatform.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.txtPaymentPlatform.FormattingEnabled = true;
-            this.txtPaymentPlatform.ItemHeight = 15;
-            this.txtPaymentPlatform.Location = new System.Drawing.Point(108, 39);
-            this.txtPaymentPlatform.Name = "txtPaymentPlatform";
-            this.txtPaymentPlatform.Size = new System.Drawing.Size(107, 21);
-            this.txtPaymentPlatform.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.txtPaymentPlatform.TabIndex = 122;
-            // 
-            // labelX5
-            // 
-            // 
-            // 
-            // 
-            this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX5.Location = new System.Drawing.Point(22, 39);
-            this.labelX5.Name = "labelX5";
-            this.labelX5.Size = new System.Drawing.Size(63, 23);
-            this.labelX5.TabIndex = 121;
-            this.labelX5.Text = "交易平台:";
-            // 
-            // txtProductName
-            // 
-            // 
-            // 
-            // 
-            this.txtProductName.Border.Class = "TextBoxBorder";
-            this.txtProductName.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtProductName.Location = new System.Drawing.Point(108, 66);
-            this.txtProductName.Multiline = true;
-            this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(162, 23);
-            this.txtProductName.TabIndex = 117;
-            // 
-            // labelX2
-            // 
-            // 
-            // 
-            // 
-            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Location = new System.Drawing.Point(22, 66);
-            this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(63, 23);
-            this.labelX2.TabIndex = 116;
-            this.labelX2.Text = "商品名:";
-            // 
-            // txtReplyResult
-            // 
-            this.txtReplyResult.DisplayMember = "Text";
-            this.txtReplyResult.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.txtReplyResult.FormattingEnabled = true;
-            this.txtReplyResult.ItemHeight = 15;
-            this.txtReplyResult.Location = new System.Drawing.Point(108, 237);
-            this.txtReplyResult.Name = "txtReplyResult";
-            this.txtReplyResult.Size = new System.Drawing.Size(160, 21);
-            this.txtReplyResult.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.txtReplyResult.TabIndex = 113;
-            // 
-            // labelX11
-            // 
-            // 
-            // 
-            // 
-            this.labelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX11.Location = new System.Drawing.Point(22, 237);
-            this.labelX11.Name = "labelX11";
-            this.labelX11.Size = new System.Drawing.Size(63, 23);
-            this.labelX11.TabIndex = 112;
-            this.labelX11.Text = "回复结果:";
-            // 
-            // txtOrderNo
-            // 
-            // 
-            // 
-            // 
-            this.txtOrderNo.Border.Class = "TextBoxBorder";
-            this.txtOrderNo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtOrderNo.Location = new System.Drawing.Point(108, 12);
-            this.txtOrderNo.Name = "txtOrderNo";
-            this.txtOrderNo.Size = new System.Drawing.Size(517, 21);
-            this.txtOrderNo.TabIndex = 111;
-            // 
-            // labelX4
-            // 
-            // 
-            // 
-            // 
-            this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(22, 12);
-            this.labelX4.Name = "labelX4";
-            this.labelX4.Size = new System.Drawing.Size(81, 23);
-            this.labelX4.TabIndex = 110;
-            this.labelX4.Text = "订单号:";
-            // 
-            // btnAddFromExcel
-            // 
-            this.btnAddFromExcel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnAddFromExcel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnAddFromExcel.Location = new System.Drawing.Point(996, 6);
-            this.btnAddFromExcel.Name = "btnAddFromExcel";
-            this.btnAddFromExcel.Size = new System.Drawing.Size(92, 23);
-            this.btnAddFromExcel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnAddFromExcel.TabIndex = 56;
-            this.btnAddFromExcel.Text = "从excel导入";
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnAdd.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnAdd.Location = new System.Drawing.Point(884, 6);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(92, 23);
-            this.btnAdd.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnAdd.TabIndex = 29;
-            this.btnAdd.Text = "新增";
-            // 
-            // progressLoading
-            // 
-            // 
-            // 
-            // 
-            this.progressLoading.BackgroundStyle.BackgroundImageAlpha = ((byte)(64));
-            this.progressLoading.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.progressLoading.FocusCuesEnabled = false;
-            this.progressLoading.Location = new System.Drawing.Point(833, 0);
-            this.progressLoading.Name = "progressLoading";
-            this.progressLoading.ProgressBarType = DevComponents.DotNetBar.eCircularProgressType.Dot;
-            this.progressLoading.ProgressColor = System.Drawing.Color.YellowGreen;
-            this.progressLoading.Size = new System.Drawing.Size(45, 28);
-            this.progressLoading.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeXP;
-            this.progressLoading.TabIndex = 27;
-            this.progressLoading.Value = 100;
-            // 
-            // labelX10
-            // 
-            // 
-            // 
-            // 
-            this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX10.Location = new System.Drawing.Point(22, 154);
-            this.labelX10.Name = "labelX10";
-            this.labelX10.Size = new System.Drawing.Size(104, 23);
-            this.labelX10.TabIndex = 80;
-            this.labelX10.Text = "客人下单时间:";
-            // 
-            // txtGuestOrderTime
-            // 
-            this.txtGuestOrderTime.CustomFormat = "yyyy/MM/dd HH:mm:ss";
-            this.txtGuestOrderTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtGuestOrderTime.Location = new System.Drawing.Point(108, 154);
-            this.txtGuestOrderTime.Name = "txtGuestOrderTime";
-            this.txtGuestOrderTime.Size = new System.Drawing.Size(160, 21);
-            this.txtGuestOrderTime.TabIndex = 81;
+            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX1.Location = new System.Drawing.Point(26, 113);
+            this.labelX1.Name = "labelX1";
+            this.labelX1.Size = new System.Drawing.Size(73, 27);
+            this.labelX1.TabIndex = 164;
+            this.labelX1.Text = "套餐名:";
             // 
             // txtWaitorConfirmTime
             // 
@@ -546,7 +216,7 @@
             this.txtWaitorConfirmTime.CustomFormat = "yyyy/MM/dd HH:mm";
             this.txtWaitorConfirmTime.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
             this.txtWaitorConfirmTime.IsPopupCalendarOpen = false;
-            this.txtWaitorConfirmTime.Location = new System.Drawing.Point(108, 181);
+            this.txtWaitorConfirmTime.Location = new System.Drawing.Point(126, 211);
             // 
             // 
             // 
@@ -577,41 +247,372 @@
             this.txtWaitorConfirmTime.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtWaitorConfirmTime.MonthCalendar.TodayButtonVisible = true;
             this.txtWaitorConfirmTime.Name = "txtWaitorConfirmTime";
-            this.txtWaitorConfirmTime.Size = new System.Drawing.Size(160, 21);
+            this.txtWaitorConfirmTime.Size = new System.Drawing.Size(187, 23);
             this.txtWaitorConfirmTime.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.txtWaitorConfirmTime.TabIndex = 163;
             // 
-            // txtComboName
+            // btnOperInfo
+            // 
+            this.btnOperInfo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnOperInfo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnOperInfo.Location = new System.Drawing.Point(544, 147);
+            this.btnOperInfo.Name = "btnOperInfo";
+            this.btnOperInfo.Size = new System.Drawing.Size(128, 57);
+            this.btnOperInfo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnOperInfo.TabIndex = 141;
+            this.btnOperInfo.Text = "设置(查看)操作信息";
+            this.btnOperInfo.Click += new System.EventHandler(this.btnOperInfo_Click);
+            // 
+            // btnGuestInfo
+            // 
+            this.btnGuestInfo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnGuestInfo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnGuestInfo.Location = new System.Drawing.Point(408, 147);
+            this.btnGuestInfo.Name = "btnGuestInfo";
+            this.btnGuestInfo.Size = new System.Drawing.Size(128, 57);
+            this.btnGuestInfo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnGuestInfo.TabIndex = 140;
+            this.btnGuestInfo.Text = "设置(查看)客户信息";
+            this.btnGuestInfo.Click += new System.EventHandler(this.btnGuestInfo_Click);
+            // 
+            // txtPlatformActivity
             // 
             // 
             // 
             // 
-            this.txtComboName.Border.Class = "TextBoxBorder";
-            this.txtComboName.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtComboName.Location = new System.Drawing.Point(108, 97);
-            this.txtComboName.Multiline = true;
-            this.txtComboName.Name = "txtComboName";
-            this.txtComboName.Size = new System.Drawing.Size(162, 23);
-            this.txtComboName.TabIndex = 165;
+            this.txtPlatformActivity.Border.Class = "TextBoxBorder";
+            this.txtPlatformActivity.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtPlatformActivity.Location = new System.Drawing.Point(126, 308);
+            this.txtPlatformActivity.Multiline = true;
+            this.txtPlatformActivity.Name = "txtPlatformActivity";
+            this.txtPlatformActivity.Size = new System.Drawing.Size(189, 27);
+            this.txtPlatformActivity.TabIndex = 139;
             // 
-            // labelX1
-            // 
-            // 
+            // labelX15
             // 
             // 
-            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(22, 97);
-            this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(63, 23);
-            this.labelX1.TabIndex = 164;
-            this.labelX1.Text = "套餐名:";
+            // 
+            // 
+            this.labelX15.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX15.Location = new System.Drawing.Point(26, 308);
+            this.labelX15.Name = "labelX15";
+            this.labelX15.Size = new System.Drawing.Size(115, 27);
+            this.labelX15.TabIndex = 138;
+            this.labelX15.Text = "平台活动:";
+            // 
+            // txtReallyPay
+            // 
+            // 
+            // 
+            // 
+            this.txtReallyPay.Border.Class = "TextBoxBorder";
+            this.txtReallyPay.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtReallyPay.Location = new System.Drawing.Point(126, 243);
+            this.txtReallyPay.Multiline = true;
+            this.txtReallyPay.Name = "txtReallyPay";
+            this.txtReallyPay.Size = new System.Drawing.Size(189, 27);
+            this.txtReallyPay.TabIndex = 137;
+            // 
+            // labelX14
+            // 
+            // 
+            // 
+            // 
+            this.labelX14.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX14.Location = new System.Drawing.Point(26, 243);
+            this.labelX14.Name = "labelX14";
+            this.labelX14.Size = new System.Drawing.Size(115, 27);
+            this.labelX14.TabIndex = 136;
+            this.labelX14.Text = "实际支付金额:";
+            // 
+            // labelX13
+            // 
+            // 
+            // 
+            // 
+            this.labelX13.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX13.Location = new System.Drawing.Point(26, 211);
+            this.labelX13.Name = "labelX13";
+            this.labelX13.Size = new System.Drawing.Size(121, 27);
+            this.labelX13.TabIndex = 134;
+            this.labelX13.Text = "客服确认时间:";
+            // 
+            // txtOrderAmount
+            // 
+            // 
+            // 
+            // 
+            this.txtOrderAmount.Border.Class = "TextBoxBorder";
+            this.txtOrderAmount.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtOrderAmount.Location = new System.Drawing.Point(402, 111);
+            this.txtOrderAmount.Multiline = true;
+            this.txtOrderAmount.Name = "txtOrderAmount";
+            this.txtOrderAmount.Size = new System.Drawing.Size(91, 27);
+            this.txtOrderAmount.TabIndex = 131;
+            // 
+            // labelX9
+            // 
+            // 
+            // 
+            // 
+            this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX9.Location = new System.Drawing.Point(322, 111);
+            this.labelX9.Name = "labelX9";
+            this.labelX9.Size = new System.Drawing.Size(73, 27);
+            this.labelX9.TabIndex = 130;
+            this.labelX9.Text = "订单金额:";
+            // 
+            // txtPurchaseNum
+            // 
+            // 
+            // 
+            // 
+            this.txtPurchaseNum.Border.Class = "TextBoxBorder";
+            this.txtPurchaseNum.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtPurchaseNum.Location = new System.Drawing.Point(126, 147);
+            this.txtPurchaseNum.Multiline = true;
+            this.txtPurchaseNum.Name = "txtPurchaseNum";
+            this.txtPurchaseNum.Size = new System.Drawing.Size(189, 27);
+            this.txtPurchaseNum.TabIndex = 129;
+            // 
+            // labelX8
+            // 
+            // 
+            // 
+            // 
+            this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX8.Location = new System.Drawing.Point(26, 147);
+            this.labelX8.Name = "labelX8";
+            this.labelX8.Size = new System.Drawing.Size(73, 27);
+            this.labelX8.TabIndex = 128;
+            this.labelX8.Text = "购买数量:";
+            // 
+            // txtProductType
+            // 
+            // 
+            // 
+            // 
+            this.txtProductType.Border.Class = "TextBoxBorder";
+            this.txtProductType.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtProductType.Location = new System.Drawing.Point(588, 77);
+            this.txtProductType.Multiline = true;
+            this.txtProductType.Name = "txtProductType";
+            this.txtProductType.Size = new System.Drawing.Size(141, 27);
+            this.txtProductType.TabIndex = 127;
+            // 
+            // labelX7
+            // 
+            // 
+            // 
+            // 
+            this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX7.Location = new System.Drawing.Point(507, 77);
+            this.labelX7.Name = "labelX7";
+            this.labelX7.Size = new System.Drawing.Size(73, 27);
+            this.labelX7.TabIndex = 126;
+            this.labelX7.Text = "商品类型:";
+            // 
+            // txtProductId
+            // 
+            // 
+            // 
+            // 
+            this.txtProductId.Border.Class = "TextBoxBorder";
+            this.txtProductId.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtProductId.Location = new System.Drawing.Point(402, 77);
+            this.txtProductId.Multiline = true;
+            this.txtProductId.Name = "txtProductId";
+            this.txtProductId.Size = new System.Drawing.Size(91, 27);
+            this.txtProductId.TabIndex = 125;
+            // 
+            // labelX6
+            // 
+            // 
+            // 
+            // 
+            this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX6.Location = new System.Drawing.Point(324, 77);
+            this.labelX6.Name = "labelX6";
+            this.labelX6.Size = new System.Drawing.Size(73, 27);
+            this.labelX6.TabIndex = 124;
+            this.labelX6.Text = "商品ID:";
+            // 
+            // txtGroupNo
+            // 
+            this.txtGroupNo.DisplayMember = "Text";
+            this.txtGroupNo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.txtGroupNo.FormattingEnabled = true;
+            this.txtGroupNo.ItemHeight = 17;
+            this.txtGroupNo.Location = new System.Drawing.Point(320, 45);
+            this.txtGroupNo.Name = "txtGroupNo";
+            this.txtGroupNo.Size = new System.Drawing.Size(409, 23);
+            this.txtGroupNo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.txtGroupNo.TabIndex = 123;
+            // 
+            // txtPaymentPlatform
+            // 
+            this.txtPaymentPlatform.DisplayMember = "Text";
+            this.txtPaymentPlatform.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.txtPaymentPlatform.FormattingEnabled = true;
+            this.txtPaymentPlatform.ItemHeight = 17;
+            this.txtPaymentPlatform.Location = new System.Drawing.Point(126, 45);
+            this.txtPaymentPlatform.Name = "txtPaymentPlatform";
+            this.txtPaymentPlatform.Size = new System.Drawing.Size(124, 23);
+            this.txtPaymentPlatform.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.txtPaymentPlatform.TabIndex = 122;
+            // 
+            // labelX5
+            // 
+            // 
+            // 
+            // 
+            this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX5.Location = new System.Drawing.Point(26, 45);
+            this.labelX5.Name = "labelX5";
+            this.labelX5.Size = new System.Drawing.Size(73, 27);
+            this.labelX5.TabIndex = 121;
+            this.labelX5.Text = "交易平台:";
+            // 
+            // txtProductName
+            // 
+            // 
+            // 
+            // 
+            this.txtProductName.Border.Class = "TextBoxBorder";
+            this.txtProductName.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtProductName.Location = new System.Drawing.Point(126, 77);
+            this.txtProductName.Multiline = true;
+            this.txtProductName.Name = "txtProductName";
+            this.txtProductName.Size = new System.Drawing.Size(189, 27);
+            this.txtProductName.TabIndex = 117;
+            // 
+            // labelX2
+            // 
+            // 
+            // 
+            // 
+            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX2.Location = new System.Drawing.Point(26, 77);
+            this.labelX2.Name = "labelX2";
+            this.labelX2.Size = new System.Drawing.Size(73, 27);
+            this.labelX2.TabIndex = 116;
+            this.labelX2.Text = "商品名:";
+            // 
+            // txtReplyResult
+            // 
+            this.txtReplyResult.DisplayMember = "Text";
+            this.txtReplyResult.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.txtReplyResult.FormattingEnabled = true;
+            this.txtReplyResult.ItemHeight = 17;
+            this.txtReplyResult.Location = new System.Drawing.Point(126, 276);
+            this.txtReplyResult.Name = "txtReplyResult";
+            this.txtReplyResult.Size = new System.Drawing.Size(186, 23);
+            this.txtReplyResult.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.txtReplyResult.TabIndex = 113;
+            // 
+            // labelX11
+            // 
+            // 
+            // 
+            // 
+            this.labelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX11.Location = new System.Drawing.Point(26, 276);
+            this.labelX11.Name = "labelX11";
+            this.labelX11.Size = new System.Drawing.Size(73, 27);
+            this.labelX11.TabIndex = 112;
+            this.labelX11.Text = "回复结果:";
+            // 
+            // txtOrderNo
+            // 
+            // 
+            // 
+            // 
+            this.txtOrderNo.Border.Class = "TextBoxBorder";
+            this.txtOrderNo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtOrderNo.Location = new System.Drawing.Point(126, 14);
+            this.txtOrderNo.Name = "txtOrderNo";
+            this.txtOrderNo.Size = new System.Drawing.Size(603, 23);
+            this.txtOrderNo.TabIndex = 111;
+            // 
+            // labelX4
+            // 
+            // 
+            // 
+            // 
+            this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX4.Location = new System.Drawing.Point(26, 14);
+            this.labelX4.Name = "labelX4";
+            this.labelX4.Size = new System.Drawing.Size(94, 27);
+            this.labelX4.TabIndex = 110;
+            this.labelX4.Text = "订单号:";
+            // 
+            // btnAddFromExcel
+            // 
+            this.btnAddFromExcel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnAddFromExcel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnAddFromExcel.Location = new System.Drawing.Point(1162, 7);
+            this.btnAddFromExcel.Name = "btnAddFromExcel";
+            this.btnAddFromExcel.Size = new System.Drawing.Size(107, 27);
+            this.btnAddFromExcel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnAddFromExcel.TabIndex = 56;
+            this.btnAddFromExcel.Text = "从excel导入";
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnAdd.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnAdd.Location = new System.Drawing.Point(1031, 7);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(107, 27);
+            this.btnAdd.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnAdd.TabIndex = 29;
+            this.btnAdd.Text = "新增";
+            // 
+            // progressLoading
+            // 
+            // 
+            // 
+            // 
+            this.progressLoading.BackgroundStyle.BackgroundImageAlpha = ((byte)(64));
+            this.progressLoading.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.progressLoading.FocusCuesEnabled = false;
+            this.progressLoading.Location = new System.Drawing.Point(972, 0);
+            this.progressLoading.Name = "progressLoading";
+            this.progressLoading.ProgressBarType = DevComponents.DotNetBar.eCircularProgressType.Dot;
+            this.progressLoading.ProgressColor = System.Drawing.Color.YellowGreen;
+            this.progressLoading.Size = new System.Drawing.Size(52, 33);
+            this.progressLoading.Style = DevComponents.DotNetBar.eDotNetBarStyle.OfficeXP;
+            this.progressLoading.TabIndex = 27;
+            this.progressLoading.Value = 100;
+            // 
+            // txtGuestOrderTime
+            // 
+            this.txtGuestOrderTime.CustomFormat = "yyyy/MM/dd HH:mm:ss";
+            this.txtGuestOrderTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.txtGuestOrderTime.Location = new System.Drawing.Point(126, 180);
+            this.txtGuestOrderTime.Name = "txtGuestOrderTime";
+            this.txtGuestOrderTime.Size = new System.Drawing.Size(186, 23);
+            this.txtGuestOrderTime.TabIndex = 81;
+            // 
+            // labelX10
+            // 
+            // 
+            // 
+            // 
+            this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX10.Location = new System.Drawing.Point(26, 180);
+            this.labelX10.Name = "labelX10";
+            this.labelX10.Size = new System.Drawing.Size(121, 27);
+            this.labelX10.TabIndex = 80;
+            this.labelX10.Text = "客人下单时间:";
             // 
             // FrmAddOrders
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(633, 294);
+            this.ClientSize = new System.Drawing.Size(738, 343);
             this.Controls.Add(this.panelEx1);
+            this.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Name = "FrmAddOrders";
             this.Text = "新增订单信息:";
             this.Load += new System.EventHandler(this.FrmAddOrders_Load);

@@ -34,7 +34,5 @@ namespace TravelAgency.Common.Enums
                 return keyValueMap[key];
             else return null;
         }
-
-
     }
 }

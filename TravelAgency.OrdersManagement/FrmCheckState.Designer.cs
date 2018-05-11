@@ -50,7 +50,7 @@
             this.panelEx1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEx1.Location = new System.Drawing.Point(0, 0);
             this.panelEx1.Name = "panelEx1";
-            this.panelEx1.Size = new System.Drawing.Size(266, 99);
+            this.panelEx1.Size = new System.Drawing.Size(310, 115);
             this.panelEx1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelEx1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -65,9 +65,9 @@
             this.rbtnNotCheck.AutoSize = true;
             this.rbtnNotCheck.BackColor = System.Drawing.Color.Transparent;
             this.rbtnNotCheck.ForeColor = System.Drawing.Color.OrangeRed;
-            this.rbtnNotCheck.Location = new System.Drawing.Point(42, 41);
+            this.rbtnNotCheck.Location = new System.Drawing.Point(49, 48);
             this.rbtnNotCheck.Name = "rbtnNotCheck";
-            this.rbtnNotCheck.Size = new System.Drawing.Size(59, 16);
+            this.rbtnNotCheck.Size = new System.Drawing.Size(67, 18);
             this.rbtnNotCheck.TabIndex = 23;
             this.rbtnNotCheck.TabStop = true;
             this.rbtnNotCheck.Text = "未校验";
@@ -77,9 +77,9 @@
             // 
             this.rbtnChecked.AutoSize = true;
             this.rbtnChecked.ForeColor = System.Drawing.Color.OrangeRed;
-            this.rbtnChecked.Location = new System.Drawing.Point(152, 41);
+            this.rbtnChecked.Location = new System.Drawing.Point(177, 48);
             this.rbtnChecked.Name = "rbtnChecked";
-            this.rbtnChecked.Size = new System.Drawing.Size(59, 16);
+            this.rbtnChecked.Size = new System.Drawing.Size(67, 18);
             this.rbtnChecked.TabIndex = 22;
             this.rbtnChecked.TabStop = true;
             this.rbtnChecked.Text = "已校验";
@@ -89,9 +89,9 @@
             // 
             this.btnCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnCancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnCancel.Location = new System.Drawing.Point(152, 63);
+            this.btnCancel.Location = new System.Drawing.Point(177, 73);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(87, 27);
             this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "取消";
@@ -101,9 +101,9 @@
             // 
             this.btnOK.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnOK.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnOK.Location = new System.Drawing.Point(42, 63);
+            this.btnOK.Location = new System.Drawing.Point(49, 73);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.Size = new System.Drawing.Size(87, 27);
             this.btnOK.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnOK.TabIndex = 1;
             this.btnOK.Text = "确认";
@@ -115,18 +115,19 @@
             // 
             // 
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(12, 12);
+            this.labelX1.Location = new System.Drawing.Point(14, 14);
             this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(96, 23);
+            this.labelX1.Size = new System.Drawing.Size(112, 27);
             this.labelX1.TabIndex = 1;
             this.labelX1.Text = "信息状态选择:";
             // 
             // FrmCheckState
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(266, 99);
+            this.ClientSize = new System.Drawing.Size(310, 115);
             this.Controls.Add(this.panelEx1);
+            this.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Name = "FrmCheckState";
             this.Text = "订单信息状态选择";
             this.Load += new System.EventHandler(this.FrmGroupOrIndividual_Load);
