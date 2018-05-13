@@ -70,6 +70,7 @@
             this.btnMCloseOther = new System.Windows.Forms.ToolStripMenuItem();
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
             this.btnFrmGaoPaiManage = new DevComponents.DotNetBar.ButtonItem();
+            this.lbUnReadNum = new System.Windows.Forms.Label();
             this.ribbonControl1.SuspendLayout();
             this.ribbonPanel3.SuspendLayout();
             this.ribbonPanel5.SuspendLayout();
@@ -123,6 +124,7 @@
             // ribbonPanel3
             // 
             this.ribbonPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribbonPanel3.Controls.Add(this.lbUnReadNum);
             this.ribbonPanel3.Controls.Add(this.ribbonBar2);
             this.ribbonPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ribbonPanel3.Location = new System.Drawing.Point(0, 25);
@@ -649,6 +651,19 @@
             this.btnFrmGaoPaiManage.SubItemsExpandWidth = 14;
             this.btnFrmGaoPaiManage.Text = "高排图像管理";
             // 
+            // lbUnReadNum
+            // 
+            this.lbUnReadNum.BackColor = System.Drawing.Color.Transparent;
+            this.lbUnReadNum.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbUnReadNum.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbUnReadNum.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lbUnReadNum.Location = new System.Drawing.Point(791, 0);
+            this.lbUnReadNum.Name = "lbUnReadNum";
+            this.lbUnReadNum.Size = new System.Drawing.Size(490, 58);
+            this.lbUnReadNum.TabIndex = 3;
+            this.lbUnReadNum.Text = "----------------";
+            this.lbUnReadNum.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -715,5 +730,6 @@
         private DevComponents.DotNetBar.ButtonItem btnChangeLoginUser;
         private DevComponents.DotNetBar.ButtonItem btnJiaoJiePicManage;
         private DevComponents.DotNetBar.ButtonItem btnChangeUI;
+        private System.Windows.Forms.Label lbUnReadNum;
     }
 }

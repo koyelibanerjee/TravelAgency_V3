@@ -9,6 +9,13 @@ namespace TravelAgency.BLL
     /// </summary>
     public partial class Message
     {
+
+        public int GetUnReadMsgNum(string userName)
+        {
+            var list = GetModelList(string.Format(" ToUser = '{0}' and MsgState = '未读' ", userName)); //TODO:这里用select count(1)是性能最好的
+            return list == null ? 0 : list.Count;
+        }
+
         public List<Model.Message> GetListByPageOrderById(string strWhere, int pageNo, int pageSize)
         {
             int start = (pageNo - 1) * pageSize + 1;

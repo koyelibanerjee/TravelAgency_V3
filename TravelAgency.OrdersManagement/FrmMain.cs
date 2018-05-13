@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Threading;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using ScanCtrlTest;
@@ -131,6 +132,9 @@ namespace TravelAgency.OrdersManagement
             this.Text = "EasyGo 销售订单管理系统" + TravelAgency.OrdersManagement.AutoUpdate.Common.XmlHandler.GetPropramVersion();
             this.Text = this.Text + "     当前登录用户:" + Common.GlobalUtils.LoginUser.UserName;
             this.Text += "  身份:(" + role + ")";
+
+            new Thread(ThUpdateUnreadNum) { IsBackground = true }.Start();
+
         }
 
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
@@ -194,5 +198,22 @@ namespace TravelAgency.OrdersManagement
             FrmMessageManage frm = new FrmMessageManage();
             OpenTab(frm, frm.Name);
         }
+
+        private void ThUpdateUnreadNum()
+        {
+            string username = GlobalUtils.LoginUser.UserName;
+            BLL.Message bllMessage = new BLL.Message();
+            while (true)
+            {
+                int num = bllMessage.GetUnReadMsgNum(username);
+                lbUnReadNum.Invoke(new Action(() =>
+                {
+                    lbUnReadNum.Text = string.Format("你有{0}条未读消息.", num);
+                }));
+                Thread.Sleep(10000);
+            }
+
+        }
+
     }
 }

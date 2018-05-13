@@ -574,5 +574,19 @@ namespace TravelAgency.OrdersManagement
                 DgvDataSourceToList()[dataGridView1.SelectedRows[0].Index]);
             frm.Show();
         }
+
+        private void 订单发送消息ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 1)
+            {
+                MessageBoxEx.Show("请选中一条数据进行操作!");
+                return;
+            }
+
+            var list = GetSelectedModelList();
+
+            FrmAddMessage frm = new FrmAddMessage(list[0], refund: false);
+            frm.ShowDialog();
+        }
     }
 }

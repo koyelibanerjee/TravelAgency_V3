@@ -63,6 +63,7 @@ namespace TravelAgency.OrdersManagement
                 txtMsgType.Text = _model.MsgType;
                 txtMsgState.Text = _model.MsgState;
                 txtToUser.Text = _model.ToUser;
+                txtToUser.Enabled = false;
 
                 if (_model.ToUser != GlobalUtils.LoginUser.UserName) //只能自己接收的信息才能修改状态
                 {
@@ -95,6 +96,9 @@ namespace TravelAgency.OrdersManagement
                     else
                         txtMsgType.Text = "普通";
                     txtOrderNo.Text = _ordersModel.OrderNo;
+                    txtOrderNo.Enabled = false;
+                    txtToUser.Text = _ordersModel.OperName;
+                    txtToUser.Enabled = _ordersModel.OperName == "" ? true : false;
                 }
             }
         }
