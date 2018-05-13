@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.ribbonControl1 = new DevComponents.DotNetBar.RibbonControl();
             this.ribbonPanel3 = new DevComponents.DotNetBar.RibbonPanel();
+            this.lbUnReadNum = new System.Windows.Forms.Label();
             this.ribbonBar2 = new DevComponents.DotNetBar.RibbonBar();
             this.btnOrderManagementWaitor = new DevComponents.DotNetBar.ButtonItem();
             this.btnOrderManagementOperator = new DevComponents.DotNetBar.ButtonItem();
@@ -64,12 +66,11 @@
             this.btnVip = new DevComponents.DotNetBar.ButtonItem();
             this.btnUsers = new DevComponents.DotNetBar.ButtonItem();
             this.tabMain = new DevComponents.DotNetBar.TabControl();
-            this.cms = new System.Windows.Forms.ContextMenuStrip();
+            this.cms = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnMCloseAll = new System.Windows.Forms.ToolStripMenuItem();
             this.btnMCloseOther = new System.Windows.Forms.ToolStripMenuItem();
-            this.styleManager1 = new DevComponents.DotNetBar.StyleManager();
+            this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
             this.btnFrmGaoPaiManage = new DevComponents.DotNetBar.ButtonItem();
-            this.lbUnReadNum = new System.Windows.Forms.Label();
             this.ribbonControl1.SuspendLayout();
             this.ribbonPanel3.SuspendLayout();
             this.ribbonPanel5.SuspendLayout();
@@ -143,6 +144,20 @@
             // 
             this.ribbonPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonPanel3.TabIndex = 3;
+            // 
+            // lbUnReadNum
+            // 
+            this.lbUnReadNum.BackColor = System.Drawing.Color.Transparent;
+            this.lbUnReadNum.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbUnReadNum.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbUnReadNum.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lbUnReadNum.Location = new System.Drawing.Point(791, 0);
+            this.lbUnReadNum.Name = "lbUnReadNum";
+            this.lbUnReadNum.Size = new System.Drawing.Size(490, 58);
+            this.lbUnReadNum.TabIndex = 3;
+            this.lbUnReadNum.Text = "----------------";
+            this.lbUnReadNum.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbUnReadNum.Click += new System.EventHandler(this.lbUnReadNum_Click);
             // 
             // ribbonBar2
             // 
@@ -649,19 +664,6 @@
             this.btnFrmGaoPaiManage.Name = "btnFrmGaoPaiManage";
             this.btnFrmGaoPaiManage.SubItemsExpandWidth = 14;
             this.btnFrmGaoPaiManage.Text = "高排图像管理";
-            // 
-            // lbUnReadNum
-            // 
-            this.lbUnReadNum.BackColor = System.Drawing.Color.Transparent;
-            this.lbUnReadNum.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lbUnReadNum.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbUnReadNum.ForeColor = System.Drawing.Color.ForestGreen;
-            this.lbUnReadNum.Location = new System.Drawing.Point(791, 0);
-            this.lbUnReadNum.Name = "lbUnReadNum";
-            this.lbUnReadNum.Size = new System.Drawing.Size(490, 58);
-            this.lbUnReadNum.TabIndex = 3;
-            this.lbUnReadNum.Text = "----------------";
-            this.lbUnReadNum.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // FrmMain
             // 

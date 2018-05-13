@@ -215,5 +215,10 @@ namespace TravelAgency.OrdersManagement
 
         }
 
+        private void lbUnReadNum_Click(object sender, EventArgs e)
+        {
+            FrmMessageManage frm = new FrmMessageManage(true);
+            OpenTab(frm, frm.Name);
+        }
     }
 }

@@ -26,6 +26,13 @@ namespace TravelAgency.OrdersManagement
             InitializeComponent();
         }
 
+        public FrmMessageManage(bool showUnRead) : this()
+        {
+            this.cbMsgState.Text = "未读";
+            this.txtToUser.Text = GlobalUtils.LoginUser.UserName;
+        }
+
+
         private void Form1_Load(object sender, EventArgs e)
         {
             _recordCount = _bllMessage.GetRecordCount(_where);
@@ -218,7 +225,7 @@ namespace TravelAgency.OrdersManagement
             //txtClient.Text = "";
             cbMsgType.Text = "全部";
             cbMsgState.Text = "全部";
-            txtToUser.Text = "全部";
+            txtToUser.Text = "";
             //cbMessageState.Text = "全部";
             //cbDepatureType.Text = "";
             txtSchEntryTimeFrom.Text = "";
