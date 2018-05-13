@@ -622,7 +622,7 @@ namespace TravelAgency.OrdersManagement
                 return;
             }
 
-            FrmAddMessage frm = new FrmAddMessage(list[0], refund: true);
+            FrmAddMessage frm = new FrmAddMessage(null, 0, list[0], refund: true);
             frm.ShowDialog();
 
 
@@ -638,7 +638,7 @@ namespace TravelAgency.OrdersManagement
 
             var list = GetSelectedModelList();
 
-            FrmAddMessage frm = new FrmAddMessage(list[0], refund: false);
+            FrmAddMessage frm = new FrmAddMessage(null, 0, list[0], refund: false);
             frm.ShowDialog();
         }
     }

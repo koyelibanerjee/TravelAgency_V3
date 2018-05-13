@@ -510,5 +510,26 @@ namespace TravelAgency.OrdersManagement
         {
             LoadDataToDgvAsyn();
         }
+
+        private void 回复消息ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var list = GetSelectedModelList();
+            if (list.Count > 1)
+            {
+                MessageBoxEx.Show("请选择一条记录操作!!");
+                return;
+            }
+
+            if (list[0].ToUser != GlobalUtils.LoginUser.UserName)
+            {
+                MessageBoxEx.Show("你不是收件人，无法回复!!");
+                return;
+            }
+
+            FrmAddMessage frm = new FrmAddMessage(LoadDataToDataGridView, _curPage, list[0], true);
+            frm.ShowDialog();
+
+
+        }
     }
 }

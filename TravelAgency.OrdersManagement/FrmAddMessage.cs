@@ -18,8 +18,9 @@ namespace TravelAgency.OrdersManagement
         private readonly TravelAgency.Model.Message _model = null;
         private readonly TravelAgency.Model.Orders _ordersModel = null;
         private readonly bool _isRefund = false;
+        private readonly bool _isReply = false;
 
-        public FrmAddMessage(Action<int> updateDel, int curPage, bool is4Modify = false, TravelAgency.Model.Message model = null)
+        private FrmAddMessage(Action<int> updateDel, int curPage)
         {
             if (this.Modal)
                 this.StartPosition = FormStartPosition.CenterParent;
@@ -28,20 +29,33 @@ namespace TravelAgency.OrdersManagement
             InitializeComponent();
             _updateDel = updateDel;
             _curPage = curPage;
+        }
+
+
+        public FrmAddMessage(Action<int> updateDel, int curPage, bool is4Modify = false, TravelAgency.Model.Message model = null)
+            : this(updateDel, curPage)
+        {
+
             _is4Modify = is4Modify;
             _model = model;
         }
 
-        public FrmAddMessage(TravelAgency.Model.Orders ordermodel, bool refund)
+        public FrmAddMessage(Action<int> updateDel, int curPage, TravelAgency.Model.Orders ordermodel, bool refund)
+            : this(updateDel, curPage)
         {
-            if (this.Modal)
-                this.StartPosition = FormStartPosition.CenterParent;
-            else
-                this.StartPosition = FormStartPosition.CenterScreen;
-            InitializeComponent();
             _ordersModel = ordermodel;
             _isRefund = refund;
         }
+
+        public FrmAddMessage(Action<int> updateDel, int curPage, TravelAgency.Model.Message model, bool reply)
+    : this(updateDel, curPage)
+        {
+            //_ordersModel = ordermodel;
+            _model = model;
+            _isReply = reply;
+        }
+
+
 
 
 
@@ -55,7 +69,7 @@ namespace TravelAgency.OrdersManagement
             InitComboBoxs();
 
 
-            if (_is4Modify)
+            if (_is4Modify) //修改
             {
                 //把选中的加载到这里面
                 txtOrderNo.Text = _model.OrderNo;
@@ -77,14 +91,14 @@ namespace TravelAgency.OrdersManagement
                 //_model.ReplyId
                 this.Text = "修改消息";
             }
-            else
+            else //新增
             {
                 txtMsgState.Text = "未读";
                 txtMsgState.Enabled = false;
 
-                if (_ordersModel != null)
+                if (_ordersModel != null) //根据订单新增
                 {
-                    if (_isRefund)
+                    if (_isRefund) //退款才有的
                     {
                         txtMsgType.Text = "退款申请";
                         txtMsgContent.Text = string.Format("订单:{0}\r\n{1}\r\n申请退款:{2}\r\n客服:{3}",
@@ -93,12 +107,20 @@ namespace TravelAgency.OrdersManagement
                             _ordersModel.RefundAmout,
                             _ordersModel.WaitorName);
                     }
-                    else
-                        txtMsgType.Text = "普通";
+
                     txtOrderNo.Text = _ordersModel.OrderNo;
                     txtOrderNo.Enabled = false;
                     txtToUser.Text = _ordersModel.OperName;
                     txtToUser.Enabled = _ordersModel.OperName == "" ? true : false;
+                }
+                else if (_isReply) //回复
+                {
+                    txtMsgType.Text = _model.MsgType;
+                    txtToUser.Text = _model.FromUser;
+                    txtOrderNo.Text = _model.OrderNo;
+                    txtMsgType.Enabled = false;
+                    txtToUser.Enabled = false;
+                    txtOrderNo.Enabled = false;
                 }
             }
         }
@@ -217,6 +239,10 @@ namespace TravelAgency.OrdersManagement
                     model.ToUser = CtrlParser.Parse2String(txtToUser);
                     model.FromUser = GlobalUtils.LoginUser.UserName;
                     model.EntryTime = DateTime.Now;
+                    if (_isReply)
+                    {
+                        model.ReplyId = _model.Id;
+                    }
 
                     if (_bllMessage.Add(model) <= 0)
                     {
