@@ -13,6 +13,9 @@ namespace TravelAgency.OrdersManagement
     public partial class FrmMain : Form
     {
         private BLL.WorkerQueue _bllWorkerQueue = new BLL.WorkerQueue();
+        private int _unreadNum = 0;
+        private System.Windows.Forms.Timer _lableBlinkTimer = new System.Windows.Forms.Timer();
+
         public FrmMain()
         {
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -134,7 +137,18 @@ namespace TravelAgency.OrdersManagement
             this.Text += "  身份:(" + role + ")";
 
             new Thread(ThUpdateUnreadNum) { IsBackground = true }.Start();
+            _lableBlinkTimer.Tick += _lableBlinkTimer_Tick;
+            _lableBlinkTimer.Interval = 1000;
+            _lableBlinkTimer.Start();
 
+        }
+
+        private void _lableBlinkTimer_Tick(object sender, EventArgs e)
+        {
+            if (_unreadNum != 0)
+            {
+                lbUnReadNum.Visible = !lbUnReadNum.Visible;
+            }
         }
 
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)
@@ -198,17 +212,23 @@ namespace TravelAgency.OrdersManagement
             FrmMessageManage frm = new FrmMessageManage();
             OpenTab(frm, frm.Name);
         }
-
         private void ThUpdateUnreadNum()
         {
             string username = GlobalUtils.LoginUser.UserName;
             BLL.Message bllMessage = new BLL.Message();
             while (true)
             {
-                int num = bllMessage.GetUnReadMsgNum(username);
+                _unreadNum = bllMessage.GetUnReadMsgNum(username);
+
                 lbUnReadNum.Invoke(new Action(() =>
                 {
-                    lbUnReadNum.Text = string.Format("你有{0}条未读消息.", num);
+                    if (_unreadNum == 0)
+                        lbUnReadNum.Visible = false;
+                    else
+                    {
+                        lbUnReadNum.Visible = true;
+                        lbUnReadNum.Text = string.Format("你有{0}条未读消息.", _unreadNum);
+                    }
                 }));
                 Thread.Sleep(10000);
             }

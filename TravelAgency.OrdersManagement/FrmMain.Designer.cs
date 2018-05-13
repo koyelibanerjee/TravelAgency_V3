@@ -150,7 +150,7 @@
             this.lbUnReadNum.BackColor = System.Drawing.Color.Transparent;
             this.lbUnReadNum.Dock = System.Windows.Forms.DockStyle.Right;
             this.lbUnReadNum.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbUnReadNum.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lbUnReadNum.ForeColor = System.Drawing.Color.Crimson;
             this.lbUnReadNum.Location = new System.Drawing.Point(791, 0);
             this.lbUnReadNum.Name = "lbUnReadNum";
             this.lbUnReadNum.Size = new System.Drawing.Size(490, 58);
