@@ -14,7 +14,7 @@ namespace TravelAgency.OrdersManagement
     public partial class FrmOrdersManage_Waitor : Form
     {
         private readonly TravelAgency.BLL.Orders _bllOrders = new TravelAgency.BLL.Orders();
-
+        private readonly BLL.OrdersLogs _bllLoger = new BLL.OrdersLogs();
         private int _curPage = 1;
         private int _pageCount = 0;
         private int _pageSize;
@@ -583,6 +583,7 @@ namespace TravelAgency.OrdersManagement
             {
                 item.WaitorConfirmTime = DateTime.Now;
                 res += _bllOrders.Update(item) ? 1 : 0;
+                _bllLoger.AddLog(GlobalUtils.LoginUser.UserName, Common.Enums.OrdersActtype.value2Key("客服:确认订单"), item.Id);
             }
 
             Common.GlobalUtils.MessageBoxWithRecordNum("提交", res, list.Count);

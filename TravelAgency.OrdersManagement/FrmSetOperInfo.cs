@@ -16,6 +16,7 @@ namespace TravelAgency.OrdersManagement
         private readonly int _curPage; //主界面更新数据库需要一个当前页
         private readonly bool _is4Modify = false;
         private readonly TravelAgency.Model.Orders _model = null;
+        private readonly BLL.OrdersLogs _bllLoger = new BLL.OrdersLogs();
 
         public FrmSetOperInfo(Action<int> updateDel, int curPage, bool is4Modify = false, TravelAgency.Model.Orders model = null)
         {
@@ -101,6 +102,15 @@ namespace TravelAgency.OrdersManagement
                     _model.OperRemark = CtrlParser.Parse2String(txtOperRemark);
                     _model.OperName = GlobalUtils.LoginUser.UserName;
                     _model.MoneyType = CtrlParser.Parse2String(txtMoneyType);
+
+                    if (_model.ReplyResult == "处理中")
+                    {
+                        _bllLoger.AddLog(GlobalUtils.LoginUser.UserName, Common.Enums.OrdersActtype.value2Key("操作:开始处理"), _model.Id);
+                    }
+                    else if (_model.ReplyResult == "成功" || _model.ReplyResult == "拒绝")
+                    {
+                        _bllLoger.AddLog(GlobalUtils.LoginUser.UserName, Common.Enums.OrdersActtype.value2Key("操作:处理完成"), _model.Id);
+                    }
 
                     //下面的字段暂时不进行修改
                     //_model.EntryTime = DateTime.Now;

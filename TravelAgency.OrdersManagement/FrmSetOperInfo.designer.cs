@@ -40,9 +40,7 @@
             this.labelX14 = new DevComponents.DotNetBar.LabelX();
             this.txtOrderWay = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX15 = new DevComponents.DotNetBar.LabelX();
-            this.txtOperOrderTime = new System.Windows.Forms.DateTimePicker();
             this.labelX12 = new DevComponents.DotNetBar.LabelX();
-            this.txtJpConfirmTime = new System.Windows.Forms.DateTimePicker();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.txtReplyResult = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
@@ -51,10 +49,15 @@
             this.labelX5 = new DevComponents.DotNetBar.LabelX();
             this.btnOK = new DevComponents.DotNetBar.ButtonX();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
-            this.txtReplyWaitorConfirmTime = new System.Windows.Forms.DateTimePicker();
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
+            this.txtOperOrderTime = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
+            this.txtJpConfirmTime = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
+            this.txtReplyWaitorConfirmTime = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.panelEx1.SuspendLayout();
             this.panelMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtOperOrderTime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJpConfirmTime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtReplyWaitorConfirmTime)).BeginInit();
             this.SuspendLayout();
             // 
             // panelEx1
@@ -80,6 +83,9 @@
             // 
             this.panelMain.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelMain.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelMain.Controls.Add(this.txtReplyWaitorConfirmTime);
+            this.panelMain.Controls.Add(this.txtJpConfirmTime);
+            this.panelMain.Controls.Add(this.txtOperOrderTime);
             this.panelMain.Controls.Add(this.txtMoneyType);
             this.panelMain.Controls.Add(this.labelX7);
             this.panelMain.Controls.Add(this.txtExchangeRate);
@@ -90,9 +96,7 @@
             this.panelMain.Controls.Add(this.labelX14);
             this.panelMain.Controls.Add(this.txtOrderWay);
             this.panelMain.Controls.Add(this.labelX15);
-            this.panelMain.Controls.Add(this.txtOperOrderTime);
             this.panelMain.Controls.Add(this.labelX12);
-            this.panelMain.Controls.Add(this.txtJpConfirmTime);
             this.panelMain.Controls.Add(this.labelX3);
             this.panelMain.Controls.Add(this.txtReplyResult);
             this.panelMain.Controls.Add(this.labelX1);
@@ -101,7 +105,6 @@
             this.panelMain.Controls.Add(this.labelX5);
             this.panelMain.Controls.Add(this.btnOK);
             this.panelMain.Controls.Add(this.btnCancel);
-            this.panelMain.Controls.Add(this.txtReplyWaitorConfirmTime);
             this.panelMain.Controls.Add(this.labelX6);
             this.panelMain.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -240,15 +243,6 @@
             this.labelX15.TabIndex = 168;
             this.labelX15.Text = "下单方式:";
             // 
-            // txtOperOrderTime
-            // 
-            this.txtOperOrderTime.CustomFormat = "yyyy/MM/dd HH:mm:ss";
-            this.txtOperOrderTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtOperOrderTime.Location = new System.Drawing.Point(154, 80);
-            this.txtOperOrderTime.Name = "txtOperOrderTime";
-            this.txtOperOrderTime.Size = new System.Drawing.Size(268, 23);
-            this.txtOperOrderTime.TabIndex = 167;
-            // 
             // labelX12
             // 
             // 
@@ -260,15 +254,6 @@
             this.labelX12.Size = new System.Drawing.Size(140, 27);
             this.labelX12.TabIndex = 166;
             this.labelX12.Text = "操作下单时间:";
-            // 
-            // txtJpConfirmTime
-            // 
-            this.txtJpConfirmTime.CustomFormat = "yyyy/MM/dd HH:mm:ss";
-            this.txtJpConfirmTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtJpConfirmTime.Location = new System.Drawing.Point(154, 114);
-            this.txtJpConfirmTime.Name = "txtJpConfirmTime";
-            this.txtJpConfirmTime.Size = new System.Drawing.Size(268, 23);
-            this.txtJpConfirmTime.TabIndex = 165;
             // 
             // labelX3
             // 
@@ -366,15 +351,6 @@
             this.btnCancel.Text = "取消";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // txtReplyWaitorConfirmTime
-            // 
-            this.txtReplyWaitorConfirmTime.CustomFormat = "yyyy/MM/dd HH:mm:ss";
-            this.txtReplyWaitorConfirmTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtReplyWaitorConfirmTime.Location = new System.Drawing.Point(154, 148);
-            this.txtReplyWaitorConfirmTime.Name = "txtReplyWaitorConfirmTime";
-            this.txtReplyWaitorConfirmTime.Size = new System.Drawing.Size(268, 23);
-            this.txtReplyWaitorConfirmTime.TabIndex = 149;
-            // 
             // labelX6
             // 
             // 
@@ -386,6 +362,147 @@
             this.labelX6.Size = new System.Drawing.Size(140, 27);
             this.labelX6.TabIndex = 148;
             this.labelX6.Text = "回复客服确认时间:";
+            // 
+            // txtOperOrderTime
+            // 
+            // 
+            // 
+            // 
+            this.txtOperOrderTime.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.txtOperOrderTime.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtOperOrderTime.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
+            this.txtOperOrderTime.ButtonDropDown.Visible = true;
+            this.txtOperOrderTime.CustomFormat = "yyyy/MM/dd HH:mm";
+            this.txtOperOrderTime.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
+            this.txtOperOrderTime.IsPopupCalendarOpen = false;
+            this.txtOperOrderTime.Location = new System.Drawing.Point(154, 80);
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            this.txtOperOrderTime.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtOperOrderTime.MonthCalendar.CalendarDimensions = new System.Drawing.Size(1, 1);
+            this.txtOperOrderTime.MonthCalendar.ClearButtonVisible = true;
+            // 
+            // 
+            // 
+            this.txtOperOrderTime.MonthCalendar.CommandsBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
+            this.txtOperOrderTime.MonthCalendar.CommandsBackgroundStyle.BackColorGradientAngle = 90;
+            this.txtOperOrderTime.MonthCalendar.CommandsBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+            this.txtOperOrderTime.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.txtOperOrderTime.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
+            this.txtOperOrderTime.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1;
+            this.txtOperOrderTime.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtOperOrderTime.MonthCalendar.DisplayMonth = new System.DateTime(2018, 3, 1, 0, 0, 0, 0);
+            this.txtOperOrderTime.MonthCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
+            // 
+            // 
+            // 
+            this.txtOperOrderTime.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.txtOperOrderTime.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90;
+            this.txtOperOrderTime.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.txtOperOrderTime.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtOperOrderTime.MonthCalendar.TodayButtonVisible = true;
+            this.txtOperOrderTime.Name = "txtOperOrderTime";
+            this.txtOperOrderTime.Size = new System.Drawing.Size(267, 23);
+            this.txtOperOrderTime.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.txtOperOrderTime.TabIndex = 177;
+            // 
+            // txtJpConfirmTime
+            // 
+            // 
+            // 
+            // 
+            this.txtJpConfirmTime.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.txtJpConfirmTime.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtJpConfirmTime.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
+            this.txtJpConfirmTime.ButtonDropDown.Visible = true;
+            this.txtJpConfirmTime.CustomFormat = "yyyy/MM/dd HH:mm";
+            this.txtJpConfirmTime.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
+            this.txtJpConfirmTime.IsPopupCalendarOpen = false;
+            this.txtJpConfirmTime.Location = new System.Drawing.Point(154, 114);
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            this.txtJpConfirmTime.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtJpConfirmTime.MonthCalendar.CalendarDimensions = new System.Drawing.Size(1, 1);
+            this.txtJpConfirmTime.MonthCalendar.ClearButtonVisible = true;
+            // 
+            // 
+            // 
+            this.txtJpConfirmTime.MonthCalendar.CommandsBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
+            this.txtJpConfirmTime.MonthCalendar.CommandsBackgroundStyle.BackColorGradientAngle = 90;
+            this.txtJpConfirmTime.MonthCalendar.CommandsBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+            this.txtJpConfirmTime.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.txtJpConfirmTime.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
+            this.txtJpConfirmTime.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1;
+            this.txtJpConfirmTime.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtJpConfirmTime.MonthCalendar.DisplayMonth = new System.DateTime(2018, 3, 1, 0, 0, 0, 0);
+            this.txtJpConfirmTime.MonthCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
+            // 
+            // 
+            // 
+            this.txtJpConfirmTime.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.txtJpConfirmTime.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90;
+            this.txtJpConfirmTime.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.txtJpConfirmTime.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtJpConfirmTime.MonthCalendar.TodayButtonVisible = true;
+            this.txtJpConfirmTime.Name = "txtJpConfirmTime";
+            this.txtJpConfirmTime.Size = new System.Drawing.Size(267, 23);
+            this.txtJpConfirmTime.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.txtJpConfirmTime.TabIndex = 177;
+            // 
+            // txtReplyWaitorConfirmTime
+            // 
+            // 
+            // 
+            // 
+            this.txtReplyWaitorConfirmTime.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.txtReplyWaitorConfirmTime.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtReplyWaitorConfirmTime.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
+            this.txtReplyWaitorConfirmTime.ButtonDropDown.Visible = true;
+            this.txtReplyWaitorConfirmTime.CustomFormat = "yyyy/MM/dd HH:mm";
+            this.txtReplyWaitorConfirmTime.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
+            this.txtReplyWaitorConfirmTime.IsPopupCalendarOpen = false;
+            this.txtReplyWaitorConfirmTime.Location = new System.Drawing.Point(154, 148);
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            this.txtReplyWaitorConfirmTime.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtReplyWaitorConfirmTime.MonthCalendar.CalendarDimensions = new System.Drawing.Size(1, 1);
+            this.txtReplyWaitorConfirmTime.MonthCalendar.ClearButtonVisible = true;
+            // 
+            // 
+            // 
+            this.txtReplyWaitorConfirmTime.MonthCalendar.CommandsBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
+            this.txtReplyWaitorConfirmTime.MonthCalendar.CommandsBackgroundStyle.BackColorGradientAngle = 90;
+            this.txtReplyWaitorConfirmTime.MonthCalendar.CommandsBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+            this.txtReplyWaitorConfirmTime.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.txtReplyWaitorConfirmTime.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
+            this.txtReplyWaitorConfirmTime.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1;
+            this.txtReplyWaitorConfirmTime.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtReplyWaitorConfirmTime.MonthCalendar.DisplayMonth = new System.DateTime(2018, 3, 1, 0, 0, 0, 0);
+            this.txtReplyWaitorConfirmTime.MonthCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
+            // 
+            // 
+            // 
+            this.txtReplyWaitorConfirmTime.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.txtReplyWaitorConfirmTime.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90;
+            this.txtReplyWaitorConfirmTime.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.txtReplyWaitorConfirmTime.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtReplyWaitorConfirmTime.MonthCalendar.TodayButtonVisible = true;
+            this.txtReplyWaitorConfirmTime.Name = "txtReplyWaitorConfirmTime";
+            this.txtReplyWaitorConfirmTime.Size = new System.Drawing.Size(267, 23);
+            this.txtReplyWaitorConfirmTime.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.txtReplyWaitorConfirmTime.TabIndex = 177;
             // 
             // FrmSetOperInfo
             // 
@@ -399,6 +516,9 @@
             this.Load += new System.EventHandler(this.FrmAddOrders_Load);
             this.panelEx1.ResumeLayout(false);
             this.panelMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtOperOrderTime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtJpConfirmTime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtReplyWaitorConfirmTime)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -411,15 +531,12 @@
         private DevComponents.DotNetBar.ButtonX btnCancel;
         private DevComponents.DotNetBar.Controls.TextBoxX txtJpOrderNo;
         private DevComponents.DotNetBar.LabelX labelX5;
-        private System.Windows.Forms.DateTimePicker txtReplyWaitorConfirmTime;
         private DevComponents.DotNetBar.LabelX labelX6;
         private DevComponents.DotNetBar.Controls.TextBoxX txtOperRemark;
         private DevComponents.DotNetBar.LabelX labelX14;
         private DevComponents.DotNetBar.Controls.ComboBoxEx txtReplyResult;
         private DevComponents.DotNetBar.LabelX labelX1;
-        private System.Windows.Forms.DateTimePicker txtOperOrderTime;
         private DevComponents.DotNetBar.LabelX labelX12;
-        private System.Windows.Forms.DateTimePicker txtJpConfirmTime;
         private DevComponents.DotNetBar.LabelX labelX3;
         private DevComponents.DotNetBar.Controls.ComboBoxEx txtOrderWay;
         private DevComponents.DotNetBar.LabelX labelX15;
@@ -429,5 +546,8 @@
         private DevComponents.DotNetBar.Controls.TextBoxX txtSettlePrice;
         private DevComponents.DotNetBar.Controls.ComboBoxEx txtMoneyType;
         private DevComponents.DotNetBar.LabelX labelX7;
+        private DevComponents.Editors.DateTimeAdv.DateTimeInput txtOperOrderTime;
+        private DevComponents.Editors.DateTimeAdv.DateTimeInput txtJpConfirmTime;
+        private DevComponents.Editors.DateTimeAdv.DateTimeInput txtReplyWaitorConfirmTime;
     }
 }

@@ -156,6 +156,7 @@
     <Compile Include="MessageBll.cs" />
     <Compile Include="OrdersBll.cs" />
     <Compile Include="Orders.cs" />
+    <Compile Include="OrdersLogsBll.cs" />
     <Compile Include="OrdersLogs.cs" />
     <Compile Include="ProgramVersion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

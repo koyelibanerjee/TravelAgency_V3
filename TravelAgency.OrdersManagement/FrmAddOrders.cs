@@ -16,6 +16,7 @@ namespace TravelAgency.OrdersManagement
         private readonly int _curPage; //主界面更新数据库需要一个当前页
         private readonly bool _is4Modify = false;
         private readonly TravelAgency.Model.Orders _model = null;
+        private readonly BLL.OrdersLogs _bllLoger = new BLL.OrdersLogs();
 
         public FrmAddOrders(Action<int> updateDel, int curPage, bool is4Modify = false, TravelAgency.Model.Orders model = null)
         {
@@ -100,8 +101,8 @@ namespace TravelAgency.OrdersManagement
                     txtPaymentPlatform.Items.Add(item);
 
             List<string> strList = new List<string> { "成功", "处理中", "拒绝", "未处理" };
-                foreach (var item in strList)
-                    txtReplyResult.Items.Add(item);
+            foreach (var item in strList)
+                txtReplyResult.Items.Add(item);
             txtReplyResult.SelectedIndex = 3;
 
 
@@ -193,12 +194,14 @@ namespace TravelAgency.OrdersManagement
                     model.ReplyResult = CtrlParser.Parse2String(txtReplyResult);
                     model.ComboName = CtrlParser.Parse2String(txtComboName);
 
-
-                    if (_bllOrders.Add(model) <= 0)
+                    int id = _bllOrders.Add(model);
+                    if (id <= 0)
                     {
                         MessageBoxEx.Show("添加失败，请稍后重试!");
                         return;
                     }
+                    _bllLoger.AddLog(GlobalUtils.LoginUser.UserName, Common.Enums.OrdersActtype.value2Key("客服:录入订单"), id);
+
                     MessageBoxEx.Show("添加成功");
                     _updateDel(_curPage);
                     this.DialogResult = DialogResult.OK;
