@@ -10,6 +10,39 @@ namespace TravelAgency.BLL
     public partial class Message
     {
 
+        public List<Model.Message> GetCorrespondingMsg(Model.Message msg)
+        {
+            List<Model.Message> res = new List<Model.Message>();
+
+            while (msg.ReplyId.HasValue) //先找到最头上的消息
+            {
+                msg = GetModel(msg.ReplyId.Value);
+            }
+
+            res.Add(msg);
+            Queue<Model.Message> queue = new Queue<Model.Message>();
+            queue.Enqueue(msg);
+            while (queue.Count > 0)
+            {
+                var list = GetReplyModelList(queue.Dequeue());
+                res.AddRange(list);
+                if (list != null)
+                    foreach (var item in list)
+                    {
+                        queue.Enqueue(item);
+                    }
+            }
+            res.Sort((Model.Message msg1, Model.Message msg2) => { return msg1.EntryTime < msg2.EntryTime ? -1 : 1; });
+            return res;
+        }
+
+        public List<Model.Message> GetReplyModelList(Model.Message msg)
+        {
+            List<Model.Message> list = GetModelList(" ReplyId = " + msg.Id + " ");
+
+            return list;
+        }
+
         public int GetUnReadMsgNum(string userName)
         {
             var list = GetModelList(string.Format(" ToUser = '{0}' and MsgState = '未读' ", userName)); //TODO:这里用select count(1)是性能最好的

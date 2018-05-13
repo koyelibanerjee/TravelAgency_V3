@@ -11,7 +11,7 @@ using TravelAgency.Model;
 
 namespace TravelAgency.OrdersManagement
 {
-    public partial class FrmMessageManage : Form
+    public partial class FrmReplyMessages : Form
     {
         private readonly TravelAgency.BLL.Message _bllMessage = new TravelAgency.BLL.Message();
 
@@ -20,9 +20,11 @@ namespace TravelAgency.OrdersManagement
         private int _pageSize;
         private int _recordCount = 0;
         private string _where = string.Empty;
+        private List<Model.Message> _list;
 
-        public FrmMessageManage()
+        public FrmReplyMessages(List<Model.Message> list)
         {
+            _list = list;
             InitializeComponent();
         }
 
@@ -55,12 +57,12 @@ namespace TravelAgency.OrdersManagement
             bgWorkerLoadData.WorkerReportsProgress = true;
 
             progressLoading.Visible = false;
-            LoadDataToDgvAsyn();
+            //LoadDataToDgvAsyn();
+            dataGridView1.DataSource = _list;
         }
 
         private void FrmMessageManage_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
         }
 
         private void InitComboboxs()
@@ -543,8 +545,7 @@ namespace TravelAgency.OrdersManagement
 
             var replyList = _bllMessage.GetCorrespondingMsg(list[0]);
 
-            FrmReplyMessages frm = new FrmReplyMessages(replyList);
-            frm.Show();
+
 
         }
     }

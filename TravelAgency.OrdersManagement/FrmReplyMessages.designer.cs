@@ -1,6 +1,6 @@
 ﻿namespace TravelAgency.OrdersManagement
 {
-    partial class FrmMessageManage
+    partial class FrmReplyMessages
     {
         /// <summary>
         /// 必需的设计器变量。
