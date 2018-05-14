@@ -75,8 +75,13 @@ namespace TravelAgency.OrdersManagement
             string tablename = "Message";
 
             cbMsgType.Items.Add("全部");
+            cbMsgType.Items.Add("普通");
+            cbMsgType.Items.Add("退款申请");
 
             cbMsgState.Items.Add("全部");
+            cbMsgState.Items.Add("已读");
+            cbMsgState.Items.Add("未读");
+
 
             cbMsgState.SelectedIndex = 0;
             cbMsgType.SelectedIndex = 0;
