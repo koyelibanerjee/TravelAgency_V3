@@ -39,7 +39,7 @@
             this.btnOrderInfoManage = new DevComponents.DotNetBar.ButtonItem();
             this.btnOrdersSummary = new DevComponents.DotNetBar.ButtonItem();
             this.btnMessageManage = new DevComponents.DotNetBar.ButtonItem();
-            this.btnScanFrm = new DevComponents.DotNetBar.ButtonItem();
+            this.btnLogsManage = new DevComponents.DotNetBar.ButtonItem();
             this.btnGPManage = new DevComponents.DotNetBar.ButtonItem();
             this.btnJiaoJiePicManage = new DevComponents.DotNetBar.ButtonItem();
             this.btnJobAssignment = new DevComponents.DotNetBar.ButtonItem();
@@ -179,7 +179,7 @@
             this.btnOrderInfoManage,
             this.btnOrdersSummary,
             this.btnMessageManage,
-            this.btnScanFrm,
+            this.btnLogsManage,
             this.btnGPManage,
             this.btnJiaoJiePicManage,
             this.btnJobAssignment});
@@ -249,15 +249,15 @@
             this.btnMessageManage.Text = "消息管理";
             this.btnMessageManage.Click += new System.EventHandler(this.btnMessageManage_Click);
             // 
-            // btnScanFrm
+            // btnLogsManage
             // 
-            this.btnScanFrm.Icon = ((System.Drawing.Icon)(resources.GetObject("btnScanFrm.Icon")));
-            this.btnScanFrm.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
-            this.btnScanFrm.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnScanFrm.Name = "btnScanFrm";
-            this.btnScanFrm.SubItemsExpandWidth = 14;
-            this.btnScanFrm.Text = "高拍仪做资料";
-            this.btnScanFrm.Visible = false;
+            this.btnLogsManage.Icon = ((System.Drawing.Icon)(resources.GetObject("btnLogsManage.Icon")));
+            this.btnLogsManage.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
+            this.btnLogsManage.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnLogsManage.Name = "btnLogsManage";
+            this.btnLogsManage.SubItemsExpandWidth = 14;
+            this.btnLogsManage.Text = "日志管理";
+            this.btnLogsManage.Click += new System.EventHandler(this.btnLogsManage_Click);
             // 
             // btnGPManage
             // 
@@ -709,7 +709,7 @@
         private DevComponents.DotNetBar.StyleManager styleManager1;
         private DevComponents.DotNetBar.ButtonItem btnOrderManagementOperator;
         private DevComponents.DotNetBar.ButtonItem btnOrderManagementWaitor;
-        private DevComponents.DotNetBar.ButtonItem btnScanFrm;
+        private DevComponents.DotNetBar.ButtonItem btnLogsManage;
         private DevComponents.DotNetBar.ButtonItem btnGPManage;
         private DevComponents.DotNetBar.ButtonItem btnFrmGaoPaiManage;
         private DevComponents.DotNetBar.RibbonPanel ribbonPanel1;

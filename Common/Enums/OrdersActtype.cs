@@ -31,7 +31,7 @@ namespace TravelAgency.Common.Enums
         }
 
 
-        public static string value2Key(int key)
+        public static string key2Value(int key)
         {
             return valueList[keyList.IndexOf(key)];
         }

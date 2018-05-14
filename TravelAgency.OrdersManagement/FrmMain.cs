@@ -141,6 +141,8 @@ namespace TravelAgency.OrdersManagement
             _lableBlinkTimer.Interval = 1000;
             _lableBlinkTimer.Start();
 
+            
+
         }
 
         private void _lableBlinkTimer_Tick(object sender, EventArgs e)
@@ -238,6 +240,18 @@ namespace TravelAgency.OrdersManagement
         private void lbUnReadNum_Click(object sender, EventArgs e)
         {
             FrmMessageManage frm = new FrmMessageManage(true);
+            OpenTab(frm, frm.Name);
+        }
+
+        private void btnLogManage_Click(object sender, EventArgs e)
+        {
+            FrmOrdersLogsManage frm = new FrmOrdersLogsManage();
+            OpenTab(frm, frm.Name);
+        }
+
+        private void btnLogsManage_Click(object sender, EventArgs e)
+        {
+            FrmOrdersLogsManage frm = new FrmOrdersLogsManage();
             OpenTab(frm, frm.Name);
         }
     }

@@ -63,12 +63,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmActionRecordsManage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmActionRecordsManage.designer.cs">
-      <DependentUpon>FrmActionRecordsManage.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmAddMessage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +74,12 @@
     </Compile>
     <Compile Include="FrmIsPraise.Designer.cs">
       <DependentUpon>FrmIsPraise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmOrdersLogsManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOrdersLogsManage.designer.cs">
+      <DependentUpon>FrmOrdersLogsManage.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmReplyMessages.cs">
       <SubType>Form</SubType>
@@ -173,14 +173,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmActionRecordsManage.resx">
-      <DependentUpon>FrmActionRecordsManage.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmAddMessage.resx">
       <DependentUpon>FrmAddMessage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmIsPraise.resx">
       <DependentUpon>FrmIsPraise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOrdersLogsManage.resx">
+      <DependentUpon>FrmOrdersLogsManage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReplyMessages.resx">
       <DependentUpon>FrmReplyMessages.cs</DependentUpon>
