@@ -49,6 +49,8 @@ namespace TravelAgency.CSUI.FrmSetValue
             string CunkunaPattern = "存款证明:（(\\S+?)万）";
             string LiuShuiPattern = "流水:（(\\S+?)）";
             string NianXinPattern = "年薪:（(\\S+?)万）";
+            string OtherPattern = "其他:（(\\S+?)）";
+
 
             //其实一种方式的正则也就够了
             MatchCollection m = Regex.Matches(txtFinancialCapacity.Text, FangchanPattern);
@@ -66,6 +68,9 @@ namespace TravelAgency.CSUI.FrmSetValue
             m1 = Regex.Match(txtFinancialCapacity.Text, LiuShuiPattern);
             if (m1.Success)
                 txtLiuShui.Text = m1.Groups[1].Value;
+            m1 = Regex.Match(txtFinancialCapacity.Text, OtherPattern);
+            if (m1.Success)
+                txtFinacialCapacityOther.Text = m1.Groups[1].Value;
 
             //初始化出境记录
             if (!string.IsNullOrEmpty(_model.DepartureRecord))
@@ -155,6 +160,7 @@ namespace TravelAgency.CSUI.FrmSetValue
             txtCunkuan.TextChanged += UpdateFinacial;
             txtNianXin.TextChanged += UpdateFinacial;
             txtChechan.TextChanged += UpdateFinacial;
+            txtFinacialCapacityOther.TextChanged += UpdateFinacial;
 
             btnAll.Click+=btnAll_Click;
             btnNo.Click+=btnNo_Click;
@@ -222,6 +228,10 @@ namespace TravelAgency.CSUI.FrmSetValue
 
             if (!string.IsNullOrEmpty(txtChechan.Text.Trim()))
                 sb.AppendFormat("车产证明:（{0}牌）、", txtChechan.Text);
+
+            if (!string.IsNullOrEmpty(txtFinacialCapacityOther.Text.Trim()))
+                sb.AppendFormat("其他:（{0}）、", txtFinacialCapacityOther.Text);
+
 
             string res = sb.ToString();
             if (res.EndsWith("、"))

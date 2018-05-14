@@ -29,39 +29,6 @@
         private void InitializeComponent()
         {
             this.panelMain = new DevComponents.DotNetBar.PanelEx();
-            this.btnCancel = new DevComponents.DotNetBar.ButtonX();
-            this.btnOK = new DevComponents.DotNetBar.ButtonX();
-            this.panelDepartureRecord = new DevComponents.DotNetBar.PanelEx();
-            this.rbtnGood = new System.Windows.Forms.RadioButton();
-            this.rbtnNormal = new System.Windows.Forms.RadioButton();
-            this.rbtnNone = new System.Windows.Forms.RadioButton();
-            this.panelMarrige = new DevComponents.DotNetBar.PanelEx();
-            this.rbtnLosePair = new System.Windows.Forms.RadioButton();
-            this.rbtnDivorced = new System.Windows.Forms.RadioButton();
-            this.rbtnMarriged = new System.Windows.Forms.RadioButton();
-            this.rbtnNotMarriged = new System.Windows.Forms.RadioButton();
-            this.txtMarrige = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.txtResidence = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX8 = new DevComponents.DotNetBar.LabelX();
-            this.labelX5 = new DevComponents.DotNetBar.LabelX();
-            this.lbName = new DevComponents.DotNetBar.LabelX();
-            this.txtPhone = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX17 = new DevComponents.DotNetBar.LabelX();
-            this.txtOccupation = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX15 = new DevComponents.DotNetBar.LabelX();
-            this.labelX16 = new DevComponents.DotNetBar.LabelX();
-            this.txtDepartureRecord = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
-            this.checkBoxX8 = new DevComponents.DotNetBar.Controls.CheckBoxX();
-            this.checkBoxX4 = new DevComponents.DotNetBar.Controls.CheckBoxX();
-            this.checkBoxX7 = new DevComponents.DotNetBar.Controls.CheckBoxX();
-            this.checkBoxX3 = new DevComponents.DotNetBar.Controls.CheckBoxX();
-            this.checkBoxX6 = new DevComponents.DotNetBar.Controls.CheckBoxX();
-            this.checkBoxX2 = new DevComponents.DotNetBar.Controls.CheckBoxX();
-            this.checkBoxX5 = new DevComponents.DotNetBar.Controls.CheckBoxX();
-            this.checkBoxX1 = new DevComponents.DotNetBar.Controls.CheckBoxX();
-            this.txtIdentification = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX9 = new DevComponents.DotNetBar.LabelX();
             this.panelEx2 = new DevComponents.DotNetBar.PanelEx();
             this.txtLiuShui = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtNianXin = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -80,14 +47,50 @@
             this.labelX14 = new DevComponents.DotNetBar.LabelX();
             this.txtFinancialCapacity = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX10 = new DevComponents.DotNetBar.LabelX();
+            this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
+            this.btnReverse = new DevComponents.DotNetBar.ButtonX();
             this.btnNo = new DevComponents.DotNetBar.ButtonX();
             this.btnAll = new DevComponents.DotNetBar.ButtonX();
-            this.btnReverse = new DevComponents.DotNetBar.ButtonX();
+            this.checkBoxX8 = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.checkBoxX4 = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.checkBoxX7 = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.checkBoxX3 = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.checkBoxX6 = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.checkBoxX2 = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.checkBoxX5 = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.checkBoxX1 = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.txtIdentification = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX9 = new DevComponents.DotNetBar.LabelX();
+            this.txtPhone = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX17 = new DevComponents.DotNetBar.LabelX();
+            this.txtOccupation = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX15 = new DevComponents.DotNetBar.LabelX();
+            this.lbName = new DevComponents.DotNetBar.LabelX();
+            this.btnCancel = new DevComponents.DotNetBar.ButtonX();
+            this.btnOK = new DevComponents.DotNetBar.ButtonX();
+            this.panelDepartureRecord = new DevComponents.DotNetBar.PanelEx();
+            this.rbtnGood = new System.Windows.Forms.RadioButton();
+            this.rbtnNormal = new System.Windows.Forms.RadioButton();
+            this.rbtnNone = new System.Windows.Forms.RadioButton();
+            this.panelMarrige = new DevComponents.DotNetBar.PanelEx();
+            this.rbtnLosePair = new System.Windows.Forms.RadioButton();
+            this.rbtnDivorced = new System.Windows.Forms.RadioButton();
+            this.rbtnMarriged = new System.Windows.Forms.RadioButton();
+            this.rbtnNotMarriged = new System.Windows.Forms.RadioButton();
+            this.txtDepartureRecord = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX16 = new DevComponents.DotNetBar.LabelX();
+            this.txtMarrige = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtResidence = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX8 = new DevComponents.DotNetBar.LabelX();
+            this.labelX5 = new DevComponents.DotNetBar.LabelX();
+            this.txtFinacialCapacityOther = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX18 = new DevComponents.DotNetBar.LabelX();
+            this.labelX19 = new DevComponents.DotNetBar.LabelX();
             this.panelMain.SuspendLayout();
+            this.panelEx2.SuspendLayout();
+            this.panelEx1.SuspendLayout();
             this.panelDepartureRecord.SuspendLayout();
             this.panelMarrige.SuspendLayout();
-            this.panelEx1.SuspendLayout();
-            this.panelEx2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMain
@@ -124,6 +127,514 @@
             this.panelMain.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.panelMain.Style.GradientAngle = 90;
             this.panelMain.TabIndex = 0;
+            // 
+            // panelEx2
+            // 
+            this.panelEx2.CanvasColor = System.Drawing.SystemColors.Control;
+            this.panelEx2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx2.Controls.Add(this.txtFinacialCapacityOther);
+            this.panelEx2.Controls.Add(this.labelX18);
+            this.panelEx2.Controls.Add(this.labelX19);
+            this.panelEx2.Controls.Add(this.txtLiuShui);
+            this.panelEx2.Controls.Add(this.txtNianXin);
+            this.panelEx2.Controls.Add(this.labelX1);
+            this.panelEx2.Controls.Add(this.labelX2);
+            this.panelEx2.Controls.Add(this.labelX3);
+            this.panelEx2.Controls.Add(this.labelX7);
+            this.panelEx2.Controls.Add(this.txtCunkuan);
+            this.panelEx2.Controls.Add(this.txtChechan);
+            this.panelEx2.Controls.Add(this.txtFangchan);
+            this.panelEx2.Controls.Add(this.labelX6);
+            this.panelEx2.Controls.Add(this.labelX4);
+            this.panelEx2.Controls.Add(this.labelX11);
+            this.panelEx2.Controls.Add(this.labelX12);
+            this.panelEx2.Controls.Add(this.labelX13);
+            this.panelEx2.Controls.Add(this.labelX14);
+            this.panelEx2.Controls.Add(this.txtFinancialCapacity);
+            this.panelEx2.Controls.Add(this.labelX10);
+            this.panelEx2.DisabledBackColor = System.Drawing.Color.Empty;
+            this.panelEx2.Location = new System.Drawing.Point(21, 245);
+            this.panelEx2.Name = "panelEx2";
+            this.panelEx2.Size = new System.Drawing.Size(533, 210);
+            this.panelEx2.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelEx2.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.panelEx2.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.panelEx2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.panelEx2.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.panelEx2.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.panelEx2.Style.GradientAngle = 90;
+            this.panelEx2.TabIndex = 107;
+            // 
+            // txtLiuShui
+            // 
+            // 
+            // 
+            // 
+            this.txtLiuShui.Border.Class = "TextBoxBorder";
+            this.txtLiuShui.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtLiuShui.Location = new System.Drawing.Point(344, 9);
+            this.txtLiuShui.Multiline = true;
+            this.txtLiuShui.Name = "txtLiuShui";
+            this.txtLiuShui.PreventEnterBeep = true;
+            this.txtLiuShui.Size = new System.Drawing.Size(139, 23);
+            this.txtLiuShui.TabIndex = 84;
+            // 
+            // txtNianXin
+            // 
+            // 
+            // 
+            // 
+            this.txtNianXin.Border.Class = "TextBoxBorder";
+            this.txtNianXin.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtNianXin.Location = new System.Drawing.Point(344, 93);
+            this.txtNianXin.Name = "txtNianXin";
+            this.txtNianXin.PreventEnterBeep = true;
+            this.txtNianXin.Size = new System.Drawing.Size(139, 21);
+            this.txtNianXin.TabIndex = 93;
+            // 
+            // labelX1
+            // 
+            // 
+            // 
+            // 
+            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX1.Location = new System.Drawing.Point(479, 93);
+            this.labelX1.Name = "labelX1";
+            this.labelX1.Size = new System.Drawing.Size(46, 23);
+            this.labelX1.TabIndex = 98;
+            this.labelX1.Text = "）万";
+            // 
+            // labelX2
+            // 
+            // 
+            // 
+            // 
+            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX2.Location = new System.Drawing.Point(306, 94);
+            this.labelX2.Name = "labelX2";
+            this.labelX2.Size = new System.Drawing.Size(35, 23);
+            this.labelX2.TabIndex = 97;
+            this.labelX2.Text = "年薪(";
+            // 
+            // labelX3
+            // 
+            // 
+            // 
+            // 
+            this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX3.Location = new System.Drawing.Point(480, 9);
+            this.labelX3.Name = "labelX3";
+            this.labelX3.Size = new System.Drawing.Size(75, 23);
+            this.labelX3.TabIndex = 96;
+            this.labelX3.Text = "）";
+            // 
+            // labelX7
+            // 
+            // 
+            // 
+            // 
+            this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX7.Location = new System.Drawing.Point(306, 8);
+            this.labelX7.Name = "labelX7";
+            this.labelX7.Size = new System.Drawing.Size(44, 23);
+            this.labelX7.TabIndex = 95;
+            this.labelX7.Text = "流水（";
+            // 
+            // txtCunkuan
+            // 
+            // 
+            // 
+            // 
+            this.txtCunkuan.Border.Class = "TextBoxBorder";
+            this.txtCunkuan.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtCunkuan.Location = new System.Drawing.Point(344, 66);
+            this.txtCunkuan.Name = "txtCunkuan";
+            this.txtCunkuan.PreventEnterBeep = true;
+            this.txtCunkuan.Size = new System.Drawing.Size(139, 21);
+            this.txtCunkuan.TabIndex = 92;
+            // 
+            // txtChechan
+            // 
+            // 
+            // 
+            // 
+            this.txtChechan.Border.Class = "TextBoxBorder";
+            this.txtChechan.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtChechan.Location = new System.Drawing.Point(344, 123);
+            this.txtChechan.Name = "txtChechan";
+            this.txtChechan.PreventEnterBeep = true;
+            this.txtChechan.Size = new System.Drawing.Size(139, 21);
+            this.txtChechan.TabIndex = 94;
+            // 
+            // txtFangchan
+            // 
+            // 
+            // 
+            // 
+            this.txtFangchan.Border.Class = "TextBoxBorder";
+            this.txtFangchan.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtFangchan.Location = new System.Drawing.Point(344, 37);
+            this.txtFangchan.Multiline = true;
+            this.txtFangchan.Name = "txtFangchan";
+            this.txtFangchan.PreventEnterBeep = true;
+            this.txtFangchan.Size = new System.Drawing.Size(139, 24);
+            this.txtFangchan.TabIndex = 85;
+            // 
+            // labelX6
+            // 
+            // 
+            // 
+            // 
+            this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX6.Location = new System.Drawing.Point(479, 67);
+            this.labelX6.Name = "labelX6";
+            this.labelX6.Size = new System.Drawing.Size(46, 23);
+            this.labelX6.TabIndex = 86;
+            this.labelX6.Text = "）万";
+            // 
+            // labelX4
+            // 
+            // 
+            // 
+            // 
+            this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX4.Location = new System.Drawing.Point(284, 67);
+            this.labelX4.Name = "labelX4";
+            this.labelX4.Size = new System.Drawing.Size(75, 23);
+            this.labelX4.TabIndex = 87;
+            this.labelX4.Text = "存款证明(";
+            // 
+            // labelX11
+            // 
+            // 
+            // 
+            // 
+            this.labelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX11.Location = new System.Drawing.Point(480, 124);
+            this.labelX11.Name = "labelX11";
+            this.labelX11.Size = new System.Drawing.Size(45, 23);
+            this.labelX11.TabIndex = 88;
+            this.labelX11.Text = "）牌";
+            // 
+            // labelX12
+            // 
+            // 
+            // 
+            // 
+            this.labelX12.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX12.Location = new System.Drawing.Point(285, 124);
+            this.labelX12.Name = "labelX12";
+            this.labelX12.Size = new System.Drawing.Size(75, 23);
+            this.labelX12.TabIndex = 89;
+            this.labelX12.Text = "车产证明(";
+            // 
+            // labelX13
+            // 
+            // 
+            // 
+            // 
+            this.labelX13.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX13.Location = new System.Drawing.Point(480, 38);
+            this.labelX13.Name = "labelX13";
+            this.labelX13.Size = new System.Drawing.Size(58, 23);
+            this.labelX13.TabIndex = 90;
+            this.labelX13.Text = "）平方米";
+            // 
+            // labelX14
+            // 
+            // 
+            // 
+            // 
+            this.labelX14.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX14.Location = new System.Drawing.Point(285, 38);
+            this.labelX14.Name = "labelX14";
+            this.labelX14.Size = new System.Drawing.Size(75, 23);
+            this.labelX14.TabIndex = 91;
+            this.labelX14.Text = "房产证明(";
+            // 
+            // txtFinancialCapacity
+            // 
+            // 
+            // 
+            // 
+            this.txtFinancialCapacity.Border.Class = "TextBoxBorder";
+            this.txtFinancialCapacity.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtFinancialCapacity.Location = new System.Drawing.Point(86, 5);
+            this.txtFinancialCapacity.Multiline = true;
+            this.txtFinancialCapacity.Name = "txtFinancialCapacity";
+            this.txtFinancialCapacity.PreventEnterBeep = true;
+            this.txtFinancialCapacity.Size = new System.Drawing.Size(174, 197);
+            this.txtFinancialCapacity.TabIndex = 65;
+            // 
+            // labelX10
+            // 
+            // 
+            // 
+            // 
+            this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX10.Location = new System.Drawing.Point(0, 5);
+            this.labelX10.Name = "labelX10";
+            this.labelX10.Size = new System.Drawing.Size(87, 23);
+            this.labelX10.TabIndex = 82;
+            this.labelX10.Text = "经济能力确认:";
+            // 
+            // panelEx1
+            // 
+            this.panelEx1.CanvasColor = System.Drawing.SystemColors.Control;
+            this.panelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx1.Controls.Add(this.btnReverse);
+            this.panelEx1.Controls.Add(this.btnNo);
+            this.panelEx1.Controls.Add(this.btnAll);
+            this.panelEx1.Controls.Add(this.checkBoxX8);
+            this.panelEx1.Controls.Add(this.checkBoxX4);
+            this.panelEx1.Controls.Add(this.checkBoxX7);
+            this.panelEx1.Controls.Add(this.checkBoxX3);
+            this.panelEx1.Controls.Add(this.checkBoxX6);
+            this.panelEx1.Controls.Add(this.checkBoxX2);
+            this.panelEx1.Controls.Add(this.checkBoxX5);
+            this.panelEx1.Controls.Add(this.checkBoxX1);
+            this.panelEx1.Controls.Add(this.txtIdentification);
+            this.panelEx1.Controls.Add(this.labelX9);
+            this.panelEx1.DisabledBackColor = System.Drawing.Color.Empty;
+            this.panelEx1.Location = new System.Drawing.Point(21, 111);
+            this.panelEx1.Name = "panelEx1";
+            this.panelEx1.Size = new System.Drawing.Size(533, 128);
+            this.panelEx1.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelEx1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.panelEx1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.panelEx1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.panelEx1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.panelEx1.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.panelEx1.Style.GradientAngle = 90;
+            this.panelEx1.TabIndex = 103;
+            // 
+            // btnReverse
+            // 
+            this.btnReverse.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnReverse.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnReverse.Location = new System.Drawing.Point(267, 85);
+            this.btnReverse.Name = "btnReverse";
+            this.btnReverse.Size = new System.Drawing.Size(75, 23);
+            this.btnReverse.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnReverse.TabIndex = 94;
+            this.btnReverse.Text = "反选";
+            // 
+            // btnNo
+            // 
+            this.btnNo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnNo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnNo.Location = new System.Drawing.Point(267, 56);
+            this.btnNo.Name = "btnNo";
+            this.btnNo.Size = new System.Drawing.Size(75, 23);
+            this.btnNo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnNo.TabIndex = 94;
+            this.btnNo.Text = "全不选";
+            // 
+            // btnAll
+            // 
+            this.btnAll.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnAll.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnAll.Location = new System.Drawing.Point(267, 27);
+            this.btnAll.Name = "btnAll";
+            this.btnAll.Size = new System.Drawing.Size(75, 23);
+            this.btnAll.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnAll.TabIndex = 95;
+            this.btnAll.Text = "全选";
+            // 
+            // checkBoxX8
+            // 
+            // 
+            // 
+            // 
+            this.checkBoxX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.checkBoxX8.Location = new System.Drawing.Point(450, 97);
+            this.checkBoxX8.Name = "checkBoxX8";
+            this.checkBoxX8.Size = new System.Drawing.Size(100, 23);
+            this.checkBoxX8.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.checkBoxX8.TabIndex = 85;
+            this.checkBoxX8.Text = "退休证";
+            // 
+            // checkBoxX4
+            // 
+            // 
+            // 
+            // 
+            this.checkBoxX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.checkBoxX4.Location = new System.Drawing.Point(353, 97);
+            this.checkBoxX4.Name = "checkBoxX4";
+            this.checkBoxX4.Size = new System.Drawing.Size(100, 23);
+            this.checkBoxX4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.checkBoxX4.TabIndex = 86;
+            this.checkBoxX4.Text = "营业执照";
+            // 
+            // checkBoxX7
+            // 
+            // 
+            // 
+            // 
+            this.checkBoxX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.checkBoxX7.Location = new System.Drawing.Point(450, 68);
+            this.checkBoxX7.Name = "checkBoxX7";
+            this.checkBoxX7.Size = new System.Drawing.Size(100, 23);
+            this.checkBoxX7.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.checkBoxX7.TabIndex = 87;
+            this.checkBoxX7.Text = "结婚证";
+            // 
+            // checkBoxX3
+            // 
+            // 
+            // 
+            // 
+            this.checkBoxX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.checkBoxX3.Location = new System.Drawing.Point(353, 68);
+            this.checkBoxX3.Name = "checkBoxX3";
+            this.checkBoxX3.Size = new System.Drawing.Size(100, 23);
+            this.checkBoxX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.checkBoxX3.TabIndex = 88;
+            this.checkBoxX3.Text = "在职证明";
+            // 
+            // checkBoxX6
+            // 
+            // 
+            // 
+            // 
+            this.checkBoxX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.checkBoxX6.Location = new System.Drawing.Point(450, 39);
+            this.checkBoxX6.Name = "checkBoxX6";
+            this.checkBoxX6.Size = new System.Drawing.Size(100, 23);
+            this.checkBoxX6.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.checkBoxX6.TabIndex = 89;
+            this.checkBoxX6.Text = "出生证";
+            // 
+            // checkBoxX2
+            // 
+            // 
+            // 
+            // 
+            this.checkBoxX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.checkBoxX2.Location = new System.Drawing.Point(353, 39);
+            this.checkBoxX2.Name = "checkBoxX2";
+            this.checkBoxX2.Size = new System.Drawing.Size(100, 23);
+            this.checkBoxX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.checkBoxX2.TabIndex = 90;
+            this.checkBoxX2.Text = "全家户口本";
+            // 
+            // checkBoxX5
+            // 
+            // 
+            // 
+            // 
+            this.checkBoxX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.checkBoxX5.Location = new System.Drawing.Point(450, 10);
+            this.checkBoxX5.Name = "checkBoxX5";
+            this.checkBoxX5.Size = new System.Drawing.Size(100, 23);
+            this.checkBoxX5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.checkBoxX5.TabIndex = 91;
+            this.checkBoxX5.Text = "学生证";
+            // 
+            // checkBoxX1
+            // 
+            // 
+            // 
+            // 
+            this.checkBoxX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.checkBoxX1.Location = new System.Drawing.Point(353, 10);
+            this.checkBoxX1.Name = "checkBoxX1";
+            this.checkBoxX1.Size = new System.Drawing.Size(100, 23);
+            this.checkBoxX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.checkBoxX1.TabIndex = 92;
+            this.checkBoxX1.Text = "身份证";
+            // 
+            // txtIdentification
+            // 
+            // 
+            // 
+            // 
+            this.txtIdentification.Border.Class = "TextBoxBorder";
+            this.txtIdentification.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtIdentification.Location = new System.Drawing.Point(86, 7);
+            this.txtIdentification.Multiline = true;
+            this.txtIdentification.Name = "txtIdentification";
+            this.txtIdentification.PreventEnterBeep = true;
+            this.txtIdentification.Size = new System.Drawing.Size(174, 114);
+            this.txtIdentification.TabIndex = 64;
+            // 
+            // labelX9
+            // 
+            // 
+            // 
+            // 
+            this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX9.Location = new System.Drawing.Point(3, 51);
+            this.labelX9.Name = "labelX9";
+            this.labelX9.Size = new System.Drawing.Size(80, 23);
+            this.labelX9.TabIndex = 83;
+            this.labelX9.Text = "身份确认:";
+            // 
+            // txtPhone
+            // 
+            // 
+            // 
+            // 
+            this.txtPhone.Border.Class = "TextBoxBorder";
+            this.txtPhone.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtPhone.Location = new System.Drawing.Point(365, 458);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.PreventEnterBeep = true;
+            this.txtPhone.Size = new System.Drawing.Size(139, 21);
+            this.txtPhone.TabIndex = 67;
+            // 
+            // labelX17
+            // 
+            // 
+            // 
+            // 
+            this.labelX17.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX17.Location = new System.Drawing.Point(306, 458);
+            this.labelX17.Name = "labelX17";
+            this.labelX17.Size = new System.Drawing.Size(75, 23);
+            this.labelX17.TabIndex = 101;
+            this.labelX17.Text = "电话号码:";
+            // 
+            // txtOccupation
+            // 
+            // 
+            // 
+            // 
+            this.txtOccupation.Border.Class = "TextBoxBorder";
+            this.txtOccupation.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtOccupation.Location = new System.Drawing.Point(107, 458);
+            this.txtOccupation.Name = "txtOccupation";
+            this.txtOccupation.PreventEnterBeep = true;
+            this.txtOccupation.Size = new System.Drawing.Size(174, 21);
+            this.txtOccupation.TabIndex = 66;
+            // 
+            // labelX15
+            // 
+            // 
+            // 
+            // 
+            this.labelX15.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX15.Location = new System.Drawing.Point(21, 458);
+            this.labelX15.Name = "labelX15";
+            this.labelX15.Size = new System.Drawing.Size(80, 23);
+            this.labelX15.TabIndex = 99;
+            this.labelX15.Text = "职业:";
+            // 
+            // lbName
+            // 
+            // 
+            // 
+            // 
+            this.lbName.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lbName.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbName.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.lbName.Location = new System.Drawing.Point(288, 3);
+            this.lbName.Name = "lbName";
+            this.lbName.Size = new System.Drawing.Size(266, 51);
+            this.lbName.TabIndex = 98;
+            this.lbName.Text = "养大宿";
+            this.lbName.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
             // btnCancel
             // 
@@ -267,6 +778,31 @@
             this.rbtnNotMarriged.Text = "未婚";
             this.rbtnNotMarriged.UseVisualStyleBackColor = true;
             // 
+            // txtDepartureRecord
+            // 
+            // 
+            // 
+            // 
+            this.txtDepartureRecord.Border.Class = "TextBoxBorder";
+            this.txtDepartureRecord.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtDepartureRecord.Location = new System.Drawing.Point(107, 60);
+            this.txtDepartureRecord.Name = "txtDepartureRecord";
+            this.txtDepartureRecord.PreventEnterBeep = true;
+            this.txtDepartureRecord.Size = new System.Drawing.Size(174, 21);
+            this.txtDepartureRecord.TabIndex = 62;
+            // 
+            // labelX16
+            // 
+            // 
+            // 
+            // 
+            this.labelX16.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX16.Location = new System.Drawing.Point(21, 62);
+            this.labelX16.Name = "labelX16";
+            this.labelX16.Size = new System.Drawing.Size(80, 23);
+            this.labelX16.TabIndex = 66;
+            this.labelX16.Text = "出境记录:";
+            // 
             // txtMarrige
             // 
             // 
@@ -318,535 +854,43 @@
             this.labelX5.TabIndex = 60;
             this.labelX5.Text = "居住地点:";
             // 
-            // lbName
+            // txtFinacialCapacityOther
             // 
             // 
             // 
             // 
-            this.labelX15.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lbName.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbName.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.lbName.Location = new System.Drawing.Point(288, 3);
-            this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(266, 51);
-            this.lbName.TabIndex = 98;
-            this.lbName.Text = "养大宿";
-            this.lbName.TextAlignment = System.Drawing.StringAlignment.Center;
+            this.txtFinacialCapacityOther.Border.Class = "TextBoxBorder";
+            this.txtFinacialCapacityOther.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtFinacialCapacityOther.Location = new System.Drawing.Point(344, 150);
+            this.txtFinacialCapacityOther.Multiline = true;
+            this.txtFinacialCapacityOther.Name = "txtFinacialCapacityOther";
+            this.txtFinacialCapacityOther.PreventEnterBeep = true;
+            this.txtFinacialCapacityOther.Size = new System.Drawing.Size(139, 52);
+            this.txtFinacialCapacityOther.TabIndex = 101;
             // 
-            // txtPhone
+            // labelX18
             // 
             // 
             // 
             // 
-            this.txtPhone.Border.Class = "TextBoxBorder";
-            this.txtPhone.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtPhone.Location = new System.Drawing.Point(365, 458);
-            this.txtPhone.Name = "txtPhone";
-            this.txtPhone.PreventEnterBeep = true;
-            this.txtPhone.Size = new System.Drawing.Size(139, 21);
-            this.txtPhone.TabIndex = 67;
+            this.labelX18.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX18.Location = new System.Drawing.Point(480, 151);
+            this.labelX18.Name = "labelX18";
+            this.labelX18.Size = new System.Drawing.Size(45, 23);
+            this.labelX18.TabIndex = 99;
+            this.labelX18.Text = "）";
             // 
-            // labelX17
+            // labelX19
             // 
             // 
             // 
             // 
-            this.labelX17.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX17.Location = new System.Drawing.Point(306, 458);
-            this.labelX17.Name = "labelX17";
-            this.labelX17.Size = new System.Drawing.Size(75, 23);
-            this.labelX17.TabIndex = 101;
-            this.labelX17.Text = "电话号码:";
-            // 
-            // txtOccupation
-            // 
-            // 
-            // 
-            // 
-            this.txtOccupation.Border.Class = "TextBoxBorder";
-            this.txtOccupation.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtOccupation.Location = new System.Drawing.Point(107, 458);
-            this.txtOccupation.Name = "txtOccupation";
-            this.txtOccupation.PreventEnterBeep = true;
-            this.txtOccupation.Size = new System.Drawing.Size(174, 21);
-            this.txtOccupation.TabIndex = 66;
-            // 
-            // labelX15
-            // 
-            // 
-            // 
-            // 
-            this.labelX15.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX15.Location = new System.Drawing.Point(21, 458);
-            this.labelX15.Name = "labelX15";
-            this.labelX15.Size = new System.Drawing.Size(80, 23);
-            this.labelX15.TabIndex = 99;
-            this.labelX15.Text = "职业:";
-            // 
-            // labelX16
-            // 
-            // 
-            // 
-            // 
-            this.labelX16.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX16.Location = new System.Drawing.Point(21, 62);
-            this.labelX16.Name = "labelX16";
-            this.labelX16.Size = new System.Drawing.Size(80, 23);
-            this.labelX16.TabIndex = 66;
-            this.labelX16.Text = "出境记录:";
-            // 
-            // txtDepartureRecord
-            // 
-            // 
-            // 
-            // 
-            this.txtDepartureRecord.Border.Class = "TextBoxBorder";
-            this.txtDepartureRecord.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtDepartureRecord.Location = new System.Drawing.Point(107, 60);
-            this.txtDepartureRecord.Name = "txtDepartureRecord";
-            this.txtDepartureRecord.PreventEnterBeep = true;
-            this.txtDepartureRecord.Size = new System.Drawing.Size(174, 21);
-            this.txtDepartureRecord.TabIndex = 62;
-            // 
-            // panelEx1
-            // 
-            this.panelEx1.CanvasColor = System.Drawing.SystemColors.Control;
-            this.panelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelEx1.Controls.Add(this.btnReverse);
-            this.panelEx1.Controls.Add(this.btnNo);
-            this.panelEx1.Controls.Add(this.btnAll);
-            this.panelEx1.Controls.Add(this.checkBoxX8);
-            this.panelEx1.Controls.Add(this.checkBoxX4);
-            this.panelEx1.Controls.Add(this.checkBoxX7);
-            this.panelEx1.Controls.Add(this.checkBoxX3);
-            this.panelEx1.Controls.Add(this.checkBoxX6);
-            this.panelEx1.Controls.Add(this.checkBoxX2);
-            this.panelEx1.Controls.Add(this.checkBoxX5);
-            this.panelEx1.Controls.Add(this.checkBoxX1);
-            this.panelEx1.Controls.Add(this.txtIdentification);
-            this.panelEx1.Controls.Add(this.labelX9);
-            this.panelEx1.DisabledBackColor = System.Drawing.Color.Empty;
-            this.panelEx1.Location = new System.Drawing.Point(21, 111);
-            this.panelEx1.Name = "panelEx1";
-            this.panelEx1.Size = new System.Drawing.Size(533, 128);
-            this.panelEx1.Style.Alignment = System.Drawing.StringAlignment.Center;
-            this.panelEx1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.panelEx1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.panelEx1.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.panelEx1.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.panelEx1.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.panelEx1.Style.GradientAngle = 90;
-            this.panelEx1.TabIndex = 103;
-            // 
-            // checkBoxX8
-            // 
-            // 
-            // 
-            // 
-            this.checkBoxX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.checkBoxX8.Location = new System.Drawing.Point(450, 97);
-            this.checkBoxX8.Name = "checkBoxX8";
-            this.checkBoxX8.Size = new System.Drawing.Size(100, 23);
-            this.checkBoxX8.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.checkBoxX8.TabIndex = 85;
-            this.checkBoxX8.Text = "退休证";
-            // 
-            // checkBoxX4
-            // 
-            // 
-            // 
-            // 
-            this.checkBoxX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.checkBoxX4.Location = new System.Drawing.Point(353, 97);
-            this.checkBoxX4.Name = "checkBoxX4";
-            this.checkBoxX4.Size = new System.Drawing.Size(100, 23);
-            this.checkBoxX4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.checkBoxX4.TabIndex = 86;
-            this.checkBoxX4.Text = "营业执照";
-            // 
-            // checkBoxX7
-            // 
-            // 
-            // 
-            // 
-            this.checkBoxX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.checkBoxX7.Location = new System.Drawing.Point(450, 68);
-            this.checkBoxX7.Name = "checkBoxX7";
-            this.checkBoxX7.Size = new System.Drawing.Size(100, 23);
-            this.checkBoxX7.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.checkBoxX7.TabIndex = 87;
-            this.checkBoxX7.Text = "结婚证";
-            // 
-            // checkBoxX3
-            // 
-            // 
-            // 
-            // 
-            this.checkBoxX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.checkBoxX3.Location = new System.Drawing.Point(353, 68);
-            this.checkBoxX3.Name = "checkBoxX3";
-            this.checkBoxX3.Size = new System.Drawing.Size(100, 23);
-            this.checkBoxX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.checkBoxX3.TabIndex = 88;
-            this.checkBoxX3.Text = "在职证明";
-            // 
-            // checkBoxX6
-            // 
-            // 
-            // 
-            // 
-            this.checkBoxX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.checkBoxX6.Location = new System.Drawing.Point(450, 39);
-            this.checkBoxX6.Name = "checkBoxX6";
-            this.checkBoxX6.Size = new System.Drawing.Size(100, 23);
-            this.checkBoxX6.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.checkBoxX6.TabIndex = 89;
-            this.checkBoxX6.Text = "出生证";
-            // 
-            // checkBoxX2
-            // 
-            // 
-            // 
-            // 
-            this.checkBoxX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.checkBoxX2.Location = new System.Drawing.Point(353, 39);
-            this.checkBoxX2.Name = "checkBoxX2";
-            this.checkBoxX2.Size = new System.Drawing.Size(100, 23);
-            this.checkBoxX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.checkBoxX2.TabIndex = 90;
-            this.checkBoxX2.Text = "全家户口本";
-            // 
-            // checkBoxX5
-            // 
-            // 
-            // 
-            // 
-            this.checkBoxX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.checkBoxX5.Location = new System.Drawing.Point(450, 10);
-            this.checkBoxX5.Name = "checkBoxX5";
-            this.checkBoxX5.Size = new System.Drawing.Size(100, 23);
-            this.checkBoxX5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.checkBoxX5.TabIndex = 91;
-            this.checkBoxX5.Text = "学生证";
-            // 
-            // checkBoxX1
-            // 
-            // 
-            // 
-            // 
-            this.checkBoxX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.checkBoxX1.Location = new System.Drawing.Point(353, 10);
-            this.checkBoxX1.Name = "checkBoxX1";
-            this.checkBoxX1.Size = new System.Drawing.Size(100, 23);
-            this.checkBoxX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.checkBoxX1.TabIndex = 92;
-            this.checkBoxX1.Text = "身份证";
-            // 
-            // txtIdentification
-            // 
-            // 
-            // 
-            // 
-            this.txtIdentification.Border.Class = "TextBoxBorder";
-            this.txtIdentification.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtIdentification.Location = new System.Drawing.Point(86, 7);
-            this.txtIdentification.Multiline = true;
-            this.txtIdentification.Name = "txtIdentification";
-            this.txtIdentification.PreventEnterBeep = true;
-            this.txtIdentification.Size = new System.Drawing.Size(174, 114);
-            this.txtIdentification.TabIndex = 64;
-            // 
-            // labelX9
-            // 
-            // 
-            // 
-            // 
-            this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX9.Location = new System.Drawing.Point(3, 51);
-            this.labelX9.Name = "labelX9";
-            this.labelX9.Size = new System.Drawing.Size(80, 23);
-            this.labelX9.TabIndex = 83;
-            this.labelX9.Text = "身份确认:";
-            // 
-            // panelEx2
-            // 
-            this.panelEx2.CanvasColor = System.Drawing.SystemColors.Control;
-            this.panelEx2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelEx2.Controls.Add(this.txtLiuShui);
-            this.panelEx2.Controls.Add(this.txtNianXin);
-            this.panelEx2.Controls.Add(this.labelX1);
-            this.panelEx2.Controls.Add(this.labelX2);
-            this.panelEx2.Controls.Add(this.labelX3);
-            this.panelEx2.Controls.Add(this.labelX7);
-            this.panelEx2.Controls.Add(this.txtCunkuan);
-            this.panelEx2.Controls.Add(this.txtChechan);
-            this.panelEx2.Controls.Add(this.txtFangchan);
-            this.panelEx2.Controls.Add(this.labelX6);
-            this.panelEx2.Controls.Add(this.labelX4);
-            this.panelEx2.Controls.Add(this.labelX11);
-            this.panelEx2.Controls.Add(this.labelX12);
-            this.panelEx2.Controls.Add(this.labelX13);
-            this.panelEx2.Controls.Add(this.labelX14);
-            this.panelEx2.Controls.Add(this.txtFinancialCapacity);
-            this.panelEx2.Controls.Add(this.labelX10);
-            this.panelEx2.DisabledBackColor = System.Drawing.Color.Empty;
-            this.panelEx2.Location = new System.Drawing.Point(21, 245);
-            this.panelEx2.Name = "panelEx2";
-            this.panelEx2.Size = new System.Drawing.Size(533, 210);
-            this.panelEx2.Style.Alignment = System.Drawing.StringAlignment.Center;
-            this.panelEx2.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.panelEx2.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.panelEx2.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.panelEx2.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.panelEx2.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.panelEx2.Style.GradientAngle = 90;
-            this.panelEx2.TabIndex = 107;
-            // 
-            // txtLiuShui
-            // 
-            // 
-            // 
-            // 
-            this.txtLiuShui.Border.Class = "TextBoxBorder";
-            this.txtLiuShui.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtLiuShui.Location = new System.Drawing.Point(344, 9);
-            this.txtLiuShui.Multiline = true;
-            this.txtLiuShui.Name = "txtLiuShui";
-            this.txtLiuShui.PreventEnterBeep = true;
-            this.txtLiuShui.Size = new System.Drawing.Size(139, 49);
-            this.txtLiuShui.TabIndex = 84;
-            // 
-            // txtNianXin
-            // 
-            // 
-            // 
-            // 
-            this.txtNianXin.Border.Class = "TextBoxBorder";
-            this.txtNianXin.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtNianXin.Location = new System.Drawing.Point(344, 149);
-            this.txtNianXin.Name = "txtNianXin";
-            this.txtNianXin.PreventEnterBeep = true;
-            this.txtNianXin.Size = new System.Drawing.Size(139, 21);
-            this.txtNianXin.TabIndex = 93;
-            // 
-            // labelX1
-            // 
-            // 
-            // 
-            // 
-            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(479, 149);
-            this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(46, 23);
-            this.labelX1.TabIndex = 98;
-            this.labelX1.Text = "）万";
-            // 
-            // labelX2
-            // 
-            // 
-            // 
-            // 
-            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Location = new System.Drawing.Point(306, 150);
-            this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(35, 23);
-            this.labelX2.TabIndex = 97;
-            this.labelX2.Text = "年薪(";
-            // 
-            // labelX3
-            // 
-            // 
-            // 
-            // 
-            this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX3.Location = new System.Drawing.Point(480, 9);
-            this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(75, 23);
-            this.labelX3.TabIndex = 96;
-            this.labelX3.Text = "）";
-            // 
-            // labelX7
-            // 
-            // 
-            // 
-            // 
-            this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX7.Location = new System.Drawing.Point(306, 8);
-            this.labelX7.Name = "labelX7";
-            this.labelX7.Size = new System.Drawing.Size(44, 23);
-            this.labelX7.TabIndex = 95;
-            this.labelX7.Text = "流水（";
-            // 
-            // txtCunkuan
-            // 
-            // 
-            // 
-            // 
-            this.txtCunkuan.Border.Class = "TextBoxBorder";
-            this.txtCunkuan.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtCunkuan.Location = new System.Drawing.Point(344, 122);
-            this.txtCunkuan.Name = "txtCunkuan";
-            this.txtCunkuan.PreventEnterBeep = true;
-            this.txtCunkuan.Size = new System.Drawing.Size(139, 21);
-            this.txtCunkuan.TabIndex = 92;
-            // 
-            // txtChechan
-            // 
-            // 
-            // 
-            // 
-            this.txtChechan.Border.Class = "TextBoxBorder";
-            this.txtChechan.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtChechan.Location = new System.Drawing.Point(344, 179);
-            this.txtChechan.Name = "txtChechan";
-            this.txtChechan.PreventEnterBeep = true;
-            this.txtChechan.Size = new System.Drawing.Size(139, 21);
-            this.txtChechan.TabIndex = 94;
-            // 
-            // txtFangchan
-            // 
-            // 
-            // 
-            // 
-            this.txtFangchan.Border.Class = "TextBoxBorder";
-            this.txtFangchan.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtFangchan.Location = new System.Drawing.Point(344, 63);
-            this.txtFangchan.Multiline = true;
-            this.txtFangchan.Name = "txtFangchan";
-            this.txtFangchan.PreventEnterBeep = true;
-            this.txtFangchan.Size = new System.Drawing.Size(139, 49);
-            this.txtFangchan.TabIndex = 85;
-            // 
-            // labelX6
-            // 
-            // 
-            // 
-            // 
-            this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX6.Location = new System.Drawing.Point(479, 123);
-            this.labelX6.Name = "labelX6";
-            this.labelX6.Size = new System.Drawing.Size(46, 23);
-            this.labelX6.TabIndex = 86;
-            this.labelX6.Text = "）万";
-            // 
-            // labelX4
-            // 
-            // 
-            // 
-            // 
-            this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(284, 123);
-            this.labelX4.Name = "labelX4";
-            this.labelX4.Size = new System.Drawing.Size(75, 23);
-            this.labelX4.TabIndex = 87;
-            this.labelX4.Text = "存款证明(";
-            // 
-            // labelX11
-            // 
-            // 
-            // 
-            // 
-            this.labelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX11.Location = new System.Drawing.Point(480, 180);
-            this.labelX11.Name = "labelX11";
-            this.labelX11.Size = new System.Drawing.Size(75, 23);
-            this.labelX11.TabIndex = 88;
-            this.labelX11.Text = "）牌";
-            // 
-            // labelX12
-            // 
-            // 
-            // 
-            // 
-            this.labelX12.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX12.Location = new System.Drawing.Point(285, 180);
-            this.labelX12.Name = "labelX12";
-            this.labelX12.Size = new System.Drawing.Size(75, 23);
-            this.labelX12.TabIndex = 89;
-            this.labelX12.Text = "车产证明(";
-            // 
-            // labelX13
-            // 
-            // 
-            // 
-            // 
-            this.labelX13.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX13.Location = new System.Drawing.Point(480, 64);
-            this.labelX13.Name = "labelX13";
-            this.labelX13.Size = new System.Drawing.Size(58, 23);
-            this.labelX13.TabIndex = 90;
-            this.labelX13.Text = "）平方米";
-            // 
-            // labelX14
-            // 
-            // 
-            // 
-            // 
-            this.labelX14.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX14.Location = new System.Drawing.Point(285, 64);
-            this.labelX14.Name = "labelX14";
-            this.labelX14.Size = new System.Drawing.Size(75, 23);
-            this.labelX14.TabIndex = 91;
-            this.labelX14.Text = "房产证明(";
-            // 
-            // txtFinancialCapacity
-            // 
-            // 
-            // 
-            // 
-            this.txtFinancialCapacity.Border.Class = "TextBoxBorder";
-            this.txtFinancialCapacity.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtFinancialCapacity.Location = new System.Drawing.Point(86, 5);
-            this.txtFinancialCapacity.Multiline = true;
-            this.txtFinancialCapacity.Name = "txtFinancialCapacity";
-            this.txtFinancialCapacity.PreventEnterBeep = true;
-            this.txtFinancialCapacity.Size = new System.Drawing.Size(174, 197);
-            this.txtFinancialCapacity.TabIndex = 65;
-            // 
-            // labelX10
-            // 
-            // 
-            // 
-            // 
-            this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX10.Location = new System.Drawing.Point(0, 5);
-            this.labelX10.Name = "labelX10";
-            this.labelX10.Size = new System.Drawing.Size(87, 23);
-            this.labelX10.TabIndex = 82;
-            this.labelX10.Text = "经济能力确认:";
-            // 
-            // btnNo
-            // 
-            this.btnNo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnNo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnNo.Location = new System.Drawing.Point(267, 56);
-            this.btnNo.Name = "btnNo";
-            this.btnNo.Size = new System.Drawing.Size(75, 23);
-            this.btnNo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnNo.TabIndex = 94;
-            this.btnNo.Text = "全不选";
-            // 
-            // btnAll
-            // 
-            this.btnAll.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnAll.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnAll.Location = new System.Drawing.Point(267, 27);
-            this.btnAll.Name = "btnAll";
-            this.btnAll.Size = new System.Drawing.Size(75, 23);
-            this.btnAll.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnAll.TabIndex = 95;
-            this.btnAll.Text = "全选";
-            // 
-            // btnReverse
-            // 
-            this.btnReverse.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnReverse.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnReverse.Location = new System.Drawing.Point(267, 85);
-            this.btnReverse.Name = "btnReverse";
-            this.btnReverse.Size = new System.Drawing.Size(75, 23);
-            this.btnReverse.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnReverse.TabIndex = 94;
-            this.btnReverse.Text = "反选";
+            this.labelX19.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX19.Location = new System.Drawing.Point(306, 150);
+            this.labelX19.Name = "labelX19";
+            this.labelX19.Size = new System.Drawing.Size(56, 23);
+            this.labelX19.TabIndex = 100;
+            this.labelX19.Text = "其他（";
             // 
             // FrmSetValue
             // 
@@ -858,12 +902,12 @@
             this.Text = "设置资料";
             this.Load += new System.EventHandler(this.FrmSetValue_Load);
             this.panelMain.ResumeLayout(false);
+            this.panelEx2.ResumeLayout(false);
+            this.panelEx1.ResumeLayout(false);
             this.panelDepartureRecord.ResumeLayout(false);
             this.panelDepartureRecord.PerformLayout();
             this.panelMarrige.ResumeLayout(false);
             this.panelMarrige.PerformLayout();
-            this.panelEx1.ResumeLayout(false);
-            this.panelEx2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -925,5 +969,8 @@
         private DevComponents.DotNetBar.ButtonX btnNo;
         private DevComponents.DotNetBar.ButtonX btnAll;
         private DevComponents.DotNetBar.ButtonX btnReverse;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtFinacialCapacityOther;
+        private DevComponents.DotNetBar.LabelX labelX18;
+        private DevComponents.DotNetBar.LabelX labelX19;
     }
 }
