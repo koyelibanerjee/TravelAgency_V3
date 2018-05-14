@@ -15,6 +15,8 @@ namespace TravelAgency.Model
 		private string _username;
 		private int? _ordersid;
 		private DateTime? _entrytime;
+		private string _workid;
+		private string _orderno;
 		/// <summary>
 		/// 
 		/// </summary>
@@ -54,6 +56,22 @@ namespace TravelAgency.Model
 		{
 			set{ _entrytime=value;}
 			get{return _entrytime;}
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		public string WorkId
+		{
+			set{ _workid=value;}
+			get{return _workid;}
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		public string OrderNo
+		{
+			set{ _orderno=value;}
+			get{return _orderno;}
 		}
 		#endregion Model
 

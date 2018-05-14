@@ -275,7 +275,9 @@ namespace TravelAgency.OrdersManagement
 
                 //在这里控制单元格的显示
 
-                row.Cells["OrderCost"].Value = (list[i].SettlePrice * list[i].ExchangeRate ?? 1).ToString(); //成本= 汇率*计算成本单价
+                row.Cells["OrderCost"].Value = string.Format("采购价格:{0},币种:{1},汇率:{2}", list[i].SettlePrice, list[i].MoneyType, list[i].ExchangeRate);
+
+                //(list[i].SettlePrice * list[i].ExchangeRate ?? 1).ToString(); //成本= 汇率*计算成本单价
                 row.Cells["OnlineTotal"].Value = dict.ContainsKey(list[i].OrderNo) ?
                     DecimalHandler.DecimalToString(dict[list[i].OrderNo]) :
                     "0";

@@ -200,7 +200,8 @@ namespace TravelAgency.OrdersManagement
                         MessageBoxEx.Show("添加失败，请稍后重试!");
                         return;
                     }
-                    _bllLoger.AddLog(GlobalUtils.LoginUser.UserName, Common.Enums.OrdersActtype.value2Key("客服:录入订单"), id);
+                    model.Id = id;
+                    _bllLoger.AddLog(GlobalUtils.LoginUser, Common.Enums.OrdersActtype.value2Key("客服:录入订单"), model);
 
                     MessageBoxEx.Show("添加成功");
                     _updateDel(_curPage);

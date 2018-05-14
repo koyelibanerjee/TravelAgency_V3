@@ -53,13 +53,15 @@ namespace TravelAgency.OrdersManagement
                 txtReplyResult.Text = _model.ReplyResult;
                 txtSettlePrice.Text = DecimalHandler.DecimalToString(_model.SettlePrice);
                 txtExchangeRate.Text = DecimalHandler.DecimalToString(_model.ExchangeRate);
-                if (string.IsNullOrEmpty(txtExchangeRate.Text))
+                txtMoneyType.Text = _model.MoneyType;
+
+
+                if (string.IsNullOrEmpty(txtExchangeRate.Text) || txtExchangeRate.Text == "0")
                     txtExchangeRate.Text = "0.0584";
                 if (string.IsNullOrEmpty(txtMoneyType.Text))
                     txtMoneyType.Text = "日本";
 
                 txtOperRemark.Text = _model.OperRemark;
-                txtMoneyType.Text = _model.MoneyType;
                 this.Text = "修改订单操作信息";
             }
         }
@@ -105,11 +107,11 @@ namespace TravelAgency.OrdersManagement
 
                     if (_model.ReplyResult == "处理中")
                     {
-                        _bllLoger.AddLog(GlobalUtils.LoginUser.UserName, Common.Enums.OrdersActtype.value2Key("操作:开始处理"), _model.Id);
+                        _bllLoger.AddLog(GlobalUtils.LoginUser, Common.Enums.OrdersActtype.value2Key("操作:开始处理"), _model);
                     }
                     else if (_model.ReplyResult == "成功" || _model.ReplyResult == "拒绝")
                     {
-                        _bllLoger.AddLog(GlobalUtils.LoginUser.UserName, Common.Enums.OrdersActtype.value2Key("操作:处理完成"), _model.Id);
+                        _bllLoger.AddLog(GlobalUtils.LoginUser, Common.Enums.OrdersActtype.value2Key("操作:处理完成"), _model);
                     }
 
                     //下面的字段暂时不进行修改

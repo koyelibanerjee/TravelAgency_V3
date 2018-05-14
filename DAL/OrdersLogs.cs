@@ -46,19 +46,23 @@ namespace TravelAgency.DAL
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into OrdersLogs(");
-			strSql.Append("ActType,UserName,OrdersId,EntryTime)");
+			strSql.Append("ActType,UserName,OrdersId,EntryTime,WorkId,OrderNo)");
 			strSql.Append(" values (");
-			strSql.Append("@ActType,@UserName,@OrdersId,@EntryTime)");
+			strSql.Append("@ActType,@UserName,@OrdersId,@EntryTime,@WorkId,@OrderNo)");
 			strSql.Append(";select @@IDENTITY");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ActType", SqlDbType.TinyInt,1),
 					new SqlParameter("@UserName", SqlDbType.VarChar,100),
 					new SqlParameter("@OrdersId", SqlDbType.Int,4),
-					new SqlParameter("@EntryTime", SqlDbType.DateTime)};
+					new SqlParameter("@EntryTime", SqlDbType.DateTime),
+					new SqlParameter("@WorkId", SqlDbType.VarChar,10),
+					new SqlParameter("@OrderNo", SqlDbType.VarChar,50)};
 			parameters[0].Value = model.ActType;
 			parameters[1].Value = model.UserName;
 			parameters[2].Value = model.OrdersId;
 			parameters[3].Value = model.EntryTime;
+			parameters[4].Value = model.WorkId;
+			parameters[5].Value = model.OrderNo;
 
 			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);
 			if (obj == null)
@@ -80,19 +84,25 @@ namespace TravelAgency.DAL
 			strSql.Append("ActType=@ActType,");
 			strSql.Append("UserName=@UserName,");
 			strSql.Append("OrdersId=@OrdersId,");
-			strSql.Append("EntryTime=@EntryTime");
+			strSql.Append("EntryTime=@EntryTime,");
+			strSql.Append("WorkId=@WorkId,");
+			strSql.Append("OrderNo=@OrderNo");
 			strSql.Append(" where id=@id");
 			SqlParameter[] parameters = {
 					new SqlParameter("@ActType", SqlDbType.TinyInt,1),
 					new SqlParameter("@UserName", SqlDbType.VarChar,100),
 					new SqlParameter("@OrdersId", SqlDbType.Int,4),
 					new SqlParameter("@EntryTime", SqlDbType.DateTime),
+					new SqlParameter("@WorkId", SqlDbType.VarChar,10),
+					new SqlParameter("@OrderNo", SqlDbType.VarChar,50),
 					new SqlParameter("@id", SqlDbType.Int,4)};
 			parameters[0].Value = model.ActType;
 			parameters[1].Value = model.UserName;
 			parameters[2].Value = model.OrdersId;
 			parameters[3].Value = model.EntryTime;
-			parameters[4].Value = model.id;
+			parameters[4].Value = model.WorkId;
+			parameters[5].Value = model.OrderNo;
+			parameters[6].Value = model.id;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -156,7 +166,7 @@ namespace TravelAgency.DAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 id,ActType,UserName,OrdersId,EntryTime from OrdersLogs ");
+			strSql.Append("select  top 1 id,ActType,UserName,OrdersId,EntryTime,WorkId,OrderNo from OrdersLogs ");
 			strSql.Append(" where id=@id");
 			SqlParameter[] parameters = {
 					new SqlParameter("@id", SqlDbType.Int,4)
@@ -204,6 +214,14 @@ namespace TravelAgency.DAL
 				{
 					model.EntryTime=DateTime.Parse(row["EntryTime"].ToString());
 				}
+				if(row["WorkId"]!=null)
+				{
+					model.WorkId=row["WorkId"].ToString();
+				}
+				if(row["OrderNo"]!=null)
+				{
+					model.OrderNo=row["OrderNo"].ToString();
+				}
 			}
 			return model;
 		}
@@ -214,7 +232,7 @@ namespace TravelAgency.DAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select id,ActType,UserName,OrdersId,EntryTime ");
+			strSql.Append("select id,ActType,UserName,OrdersId,EntryTime,WorkId,OrderNo ");
 			strSql.Append(" FROM OrdersLogs ");
 			if(strWhere.Trim()!="")
 			{
@@ -234,7 +252,7 @@ namespace TravelAgency.DAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" id,ActType,UserName,OrdersId,EntryTime ");
+			strSql.Append(" id,ActType,UserName,OrdersId,EntryTime,WorkId,OrderNo ");
 			strSql.Append(" FROM OrdersLogs ");
 			if(strWhere.Trim()!="")
 			{

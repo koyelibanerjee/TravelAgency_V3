@@ -583,7 +583,7 @@ namespace TravelAgency.OrdersManagement
             {
                 item.WaitorConfirmTime = DateTime.Now;
                 res += _bllOrders.Update(item) ? 1 : 0;
-                _bllLoger.AddLog(GlobalUtils.LoginUser.UserName, Common.Enums.OrdersActtype.value2Key("客服:确认订单"), item.Id);
+                _bllLoger.AddLog(GlobalUtils.LoginUser, Common.Enums.OrdersActtype.value2Key("客服:确认订单"), item);
             }
 
             Common.GlobalUtils.MessageBoxWithRecordNum("提交", res, list.Count);

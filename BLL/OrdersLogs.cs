@@ -54,16 +54,18 @@ namespace TravelAgency.BLL
 			
 			return dal.Delete(id);
 		}
+
+
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
 		public TravelAgency.Model.OrdersLogs GetModel(int id)
 		{
+			
 			return dal.GetModel(id);
 		}
 
-
-		/// <summary>
+				/// <summary>
 		/// 获得数据列表
 		/// </summary>
 		public DataSet GetList(string strWhere)
