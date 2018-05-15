@@ -65,6 +65,8 @@ namespace TravelAgency.Common.PictureHandler
             for (int i = 0; i < fileList.Count; ++i)
             {
                 FtpHandler.Download(dstPath,fileList[i].FileName);
+                if (File.Exists(dstPath + "/" + fileList[i].OrigFileName))
+                    File.Delete(dstPath + "/" + fileList[i].OrigFileName);
                 File.Move(dstPath + "/" + fileList[i].FileName, dstPath + "/" + fileList[i].OrigFileName);
             }
 

@@ -219,29 +219,34 @@ namespace TravelAgency.OrdersManagement
             //                   "') ");
             //}
 
-            //if (!string.IsNullOrEmpty(txtOrderNo.Text.Trim()))
-            //{
-            //    conditions.Add(" (OrderNo like '%" + txtOrderNo.Text.Trim() + "%' ) ");
-            //}
+            if (!string.IsNullOrEmpty(txtOrderNo.Text.Trim()))
+            {
+                conditions.Add(" (OrderNo like '%" + txtOrderNo.Text.Trim() + "%' ) ");
+            }
+
+            if (!string.IsNullOrEmpty(txtWaitorName.Text.Trim()))
+            {
+                conditions.Add(" (WaitorName like '%" + txtWaitorName.Text.Trim() + "%' ) ");
+            }
 
 
-            //string[] arr = conditions.ToArray();
-            //string where = string.Join(" and ", arr);
-            //return where;
+            string[] arr = conditions.ToArray();
+            string where = string.Join(" and ", arr);
+            return where;
             //return null;
-            return "";
         }
 
 
         private void btnClearSchConditions_Click(object sender, EventArgs e)
         {
             //txtClient.Text = "";
-            cbOrderType.Text = "全部";
+            //cbOrderType.Text = "全部";
             //cbOrdersState.Text = "全部";
             //cbDepatureType.Text = "";
             txtSchEntryTimeFrom.Text = "";
             txtSchEntryTimeTo.Text = "";
             txtOrderNo.Text = "";
+            txtWaitorName.Text = "";
         }
 
 
@@ -275,7 +280,7 @@ namespace TravelAgency.OrdersManagement
 
                 //在这里控制单元格的显示
 
-                row.Cells["OrderCost"].Value = string.Format("采购价格:{0},币种:{1},汇率:{2}", list[i].SettlePrice, list[i].MoneyType, list[i].ExchangeRate);
+                //row.Cells["OrderCost"].Value = string.Format("采购价格:{0},币种:{1},汇率:{2}", list[i].SettlePrice, list[i].MoneyType, list[i].ExchangeRate);
 
                 //(list[i].SettlePrice * list[i].ExchangeRate ?? 1).ToString(); //成本= 汇率*计算成本单价
                 row.Cells["OnlineTotal"].Value = dict.ContainsKey(list[i].OrderNo) ?

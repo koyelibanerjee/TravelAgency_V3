@@ -101,6 +101,7 @@
             this.修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查看录入订单操作信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查看客人信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.订单发送消息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.人申请表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.机票报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.外领担保函ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -108,7 +109,8 @@
             this.韩国加急申请书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bgWorkerLoadData = new System.ComponentModel.BackgroundWorker();
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
-            this.订单发送消息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panelDgv.SuspendLayout();
@@ -861,11 +863,13 @@
             this.cmsItemRefreshState,
             this.删除ToolStripMenuItem,
             this.修改ToolStripMenuItem,
+            this.toolStripSeparator1,
             this.查看录入订单操作信息ToolStripMenuItem,
             this.查看客人信息ToolStripMenuItem,
+            this.toolStripSeparator2,
             this.订单发送消息ToolStripMenuItem});
             this.cmsDgvRb.Name = "cmsDgvRb";
-            this.cmsDgvRb.Size = new System.Drawing.Size(205, 158);
+            this.cmsDgvRb.Size = new System.Drawing.Size(205, 170);
             // 
             // cmsItemRefreshState
             // 
@@ -901,6 +905,13 @@
             this.查看客人信息ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.查看客人信息ToolStripMenuItem.Text = "查看客人信息";
             this.查看客人信息ToolStripMenuItem.Click += new System.EventHandler(this.查看客人信息ToolStripMenuItem_Click);
+            // 
+            // 订单发送消息ToolStripMenuItem
+            // 
+            this.订单发送消息ToolStripMenuItem.Name = "订单发送消息ToolStripMenuItem";
+            this.订单发送消息ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.订单发送消息ToolStripMenuItem.Text = "订单发送消息";
+            this.订单发送消息ToolStripMenuItem.Click += new System.EventHandler(this.订单发送消息ToolStripMenuItem_Click);
             // 
             // 人申请表ToolStripMenuItem
             // 
@@ -938,12 +949,15 @@
             this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2010Blue;
             this.styleManager1.MetroColorParameters = new DevComponents.DotNetBar.Metro.ColorTables.MetroColorGeneratorParameters(System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255))))), System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199))))));
             // 
-            // 订单发送消息ToolStripMenuItem
+            // toolStripSeparator1
             // 
-            this.订单发送消息ToolStripMenuItem.Name = "订单发送消息ToolStripMenuItem";
-            this.订单发送消息ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.订单发送消息ToolStripMenuItem.Text = "订单发送消息";
-            this.订单发送消息ToolStripMenuItem.Click += new System.EventHandler(this.订单发送消息ToolStripMenuItem_Click);
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(201, 6);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(201, 6);
             // 
             // FrmOrdersManage_Oper
             // 
@@ -1047,6 +1061,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn OperRemark;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.ToolStripMenuItem 订单发送消息ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
     }
 }
 

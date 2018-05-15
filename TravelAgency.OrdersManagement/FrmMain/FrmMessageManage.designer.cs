@@ -95,6 +95,7 @@
             this.韩国加急申请书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bgWorkerLoadData = new System.ComponentModel.BackgroundWorker();
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panelDgv.SuspendLayout();
@@ -769,10 +770,11 @@
             this.cmsItemRefreshState,
             this.删除ToolStripMenuItem,
             this.修改ToolStripMenuItem,
+            this.toolStripSeparator1,
             this.回复消息ToolStripMenuItem,
             this.查看消息链ToolStripMenuItem});
             this.cmsDgvRb.Name = "cmsDgvRb";
-            this.cmsDgvRb.Size = new System.Drawing.Size(161, 114);
+            this.cmsDgvRb.Size = new System.Drawing.Size(161, 142);
             // 
             // cmsItemRefreshState
             // 
@@ -844,6 +846,11 @@
             // 
             this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2010Blue;
             this.styleManager1.MetroColorParameters = new DevComponents.DotNetBar.Metro.ColorTables.MetroColorGeneratorParameters(System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255))))), System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199))))));
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
             // 
             // FrmMessageManage
             // 
@@ -933,6 +940,7 @@
         private DevComponents.DotNetBar.SwitchButtonItem btnOnlyShowMe;
         private System.Windows.Forms.ToolStripMenuItem 回复消息ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 查看消息链ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
 
