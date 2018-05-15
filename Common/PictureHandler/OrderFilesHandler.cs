@@ -10,19 +10,19 @@ using TravelAgency.Common.FTP;
 
 namespace TravelAgency.Common.PictureHandler
 {
-    public class OrderExcelHandler
+    public class OrderFilesHandler
     {
         private string _remotePath;
-        private BLL.OrderExcel _bllOrderExcel = new BLL.OrderExcel();
+        private BLL.OrderFiles _bllOrderFiles = new BLL.OrderFiles();
 
-        public OrderExcelHandler()
+        public OrderFilesHandler()
         {
-            string path = AppSettingHandler.ReadConfig("OrderExcelPath");
+            string path = AppSettingHandler.ReadConfig("OrderFilesPath");
             if (string.IsNullOrEmpty(path)) //如果没读到就返回默认值
             {
-                AppSettingHandler.AddConfig("OrderExcelPath", "E:/东瀛假日订单管理系统/订单Excel保存路径");
+                AppSettingHandler.AddConfig("OrderFilesPath", "E:/东瀛假日订单管理系统/订单文件保存路径");
                 
-                path = "E:/东瀛假日订单管理系统/订单Excel保存路径";
+                path = "E:/东瀛假日订单管理系统/订单文件保存路径";
             }
             //if (!Directory.Exists(path))
             //    Directory.CreateDirectory(path);
@@ -34,21 +34,21 @@ namespace TravelAgency.Common.PictureHandler
             private set { _remotePath = value; }
         }
 
-        public Model.OrderExcel UploadOrderExcel(string filename)
+        public Model.OrderFiles UploadOrderFile(string filename,int orderId)
         {
             FtpHandler.ChangeFtpUri(RemoteRootPath);
-            Model.OrderExcel model = new Model.OrderExcel();
+            Model.OrderFiles model = new Model.OrderFiles();
             model.EntryTime = DateTime.Now;
             model.FileName = DateTime.Now.ToString("yyyyMMddHHmmss") + Path.GetExtension(filename);
-
+            model.OrdersId = orderId;
+            model.OrigFileName = Path.GetFileName(filename);
             FtpHandler.Upload(filename, model.FileName);
 
-            model.Id = _bllOrderExcel.Add(model);
-
+            model.Id = _bllOrderFiles.Add(model);
             return model;
         }
 
-        public void DownloadOrderExcel(string excelName,string dstPath)
+        public void DownloadOrderFiles(string excelName,string dstPath)
         {
             FtpHandler.ChangeFtpUri(RemoteRootPath);
             FtpHandler.Download(dstPath, excelName);
