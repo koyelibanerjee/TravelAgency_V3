@@ -19,7 +19,7 @@ namespace TravelAgency.Common.Enums
         private static List<string> valueList = new List<string>()
         {
             "客服:录入订单",
-            "客服:订单确认",
+            "客服:确认订单",
             "操作:开始处理",
             "操作:处理完成"
         };
@@ -35,7 +35,6 @@ namespace TravelAgency.Common.Enums
         {
             return valueList[keyList.IndexOf(key)];
         }
-
 
     }
 }

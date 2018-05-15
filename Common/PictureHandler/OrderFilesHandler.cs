@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Threading;
+using DevComponents.DotNetBar;
 using NPOI.SS.Formula.Functions;
 using TravelAgency.Common.FTP;
 
@@ -48,10 +49,28 @@ namespace TravelAgency.Common.PictureHandler
             return model;
         }
 
-        public void DownloadOrderFiles(string excelName,string dstPath)
+        public void DownloadOrderFiles(Model.Orders orderModel)
         {
+            var fileList = _bllOrderFiles.GetModelList(string.Format(" OrdersId = {0}", orderModel.Id));
+            if (fileList.Count < 1)
+            {
+                MessageBoxEx.Show("未找到对应文件!");
+                return;
+            }
+            string dstPath = GlobalUtils.ShowBrowseFolderDlg();
+            if (string.IsNullOrEmpty(dstPath))
+                return;
+
             FtpHandler.ChangeFtpUri(RemoteRootPath);
-            FtpHandler.Download(dstPath, excelName);
+            for (int i = 0; i < fileList.Count; ++i)
+            {
+                FtpHandler.Download(dstPath,fileList[i].FileName);
+                File.Move(dstPath + "/" + fileList[i].FileName, dstPath + "/" + fileList[i].OrigFileName);
+            }
+
+            MessageBoxEx.Show("下载文件成功!");
+            Process.Start(dstPath);
+
         }
     }
 }

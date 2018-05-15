@@ -6,6 +6,7 @@ using System.Threading;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using TravelAgency.Common;
+using TravelAgency.Common.PictureHandler;
 using TravelAgency.CSUI.FrmSub;
 using TravelAgency.Model;
 
@@ -14,6 +15,7 @@ namespace TravelAgency.OrdersManagement
     public partial class FrmOrdersManage_Waitor : Form
     {
         private readonly TravelAgency.BLL.Orders _bllOrders = new TravelAgency.BLL.Orders();
+        private readonly TravelAgency.BLL.OrderFiles _bllOrderFiles = new TravelAgency.BLL.OrderFiles();
         private readonly BLL.OrdersLogs _bllLoger = new BLL.OrdersLogs();
         private int _curPage = 1;
         private int _pageCount = 0;
@@ -566,17 +568,32 @@ namespace TravelAgency.OrdersManagement
         {
             var list = GetSelectedModelList();
 
-            foreach (var item in list)
+            if (dataGridView1.SelectedRows.Count > 1)
             {
-                if (item.WaitorConfirmTime != null)
-                {
-                    MessageBoxEx.Show("选中项中存在已经确认过的订单，请不要重复操作!!!");
-                    return;
-                }
+                MessageBoxEx.Show("请选中一条数据进行操作!");
+                return;
             }
+
+            //foreach (var item in list)
+            //{
+            //    if (item.WaitorConfirmTime != null)
+            //    {
+            //        MessageBoxEx.Show("选中项中存在已经确认过的订单，请不要重复操作!!!");
+            //        return;
+            //    }
+            //}
 
             if (MessageBoxEx.Show("是否确认提交所选订单?", "确认", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
                 return;
+
+            if (MessageBoxEx.Show("是否上传附件?", "确认", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                string filename = GlobalUtils.ShowOpenFileDlg("所有文件|*.*");
+                if (!string.IsNullOrEmpty(filename))
+                {
+                    new OrderFilesHandler().UploadOrderFile(filename, list[0].Id);
+                }
+            }
 
             int res = 0;
             foreach (var item in list)
@@ -638,9 +655,19 @@ namespace TravelAgency.OrdersManagement
             }
 
             var list = GetSelectedModelList();
-
             FrmAddMessage frm = new FrmAddMessage(null, 0, list[0], refund: false);
             frm.ShowDialog();
+        }
+
+        private void 下载订单附件ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 1)
+            {
+                MessageBoxEx.Show("请选中一条数据进行操作!");
+                return;
+            }
+            var list = GetSelectedModelList();
+            new OrderFilesHandler().DownloadOrderFiles(list[0]);
         }
     }
 }
