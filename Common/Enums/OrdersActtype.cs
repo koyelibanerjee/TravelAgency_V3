@@ -8,7 +8,7 @@ namespace TravelAgency.Common.Enums
 {
     public class OrdersActtype
     {
-        private static List<int> keyList = new List<int>()
+        public static List<int> keyList = new List<int>()
         {
             1,
             2,
@@ -16,7 +16,7 @@ namespace TravelAgency.Common.Enums
             12
         };
 
-        private static List<string> valueList = new List<string>()
+        public static List<string> valueList = new List<string>()
         {
             "客服:录入订单",
             "客服:确认订单",

@@ -31,6 +31,10 @@
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.panelMain = new DevComponents.DotNetBar.PanelEx();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtGuestRefundApplyTime = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
+            this.labelX6 = new DevComponents.DotNetBar.LabelX();
+            this.txtRefundAmout = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX5 = new DevComponents.DotNetBar.LabelX();
             this.txtReserveTime = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.txtWaitorRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX14 = new DevComponents.DotNetBar.LabelX();
@@ -73,16 +77,12 @@
             this.btnAddFromExcel = new DevComponents.DotNetBar.ButtonX();
             this.btnOK = new DevComponents.DotNetBar.ButtonX();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
-            this.txtGuestRefundApplyTime = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
-            this.labelX6 = new DevComponents.DotNetBar.LabelX();
-            this.txtRefundAmout = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX5 = new DevComponents.DotNetBar.LabelX();
             this.panelEx1.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGuestRefundApplyTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtReserveTime)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtGuestRefundApplyTime)).BeginInit();
             this.SuspendLayout();
             // 
             // panelEx1
@@ -159,6 +159,90 @@
             this.groupBox2.TabIndex = 141;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "补充信息:";
+            // 
+            // txtGuestRefundApplyTime
+            // 
+            // 
+            // 
+            // 
+            this.txtGuestRefundApplyTime.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.txtGuestRefundApplyTime.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtGuestRefundApplyTime.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
+            this.txtGuestRefundApplyTime.ButtonDropDown.Visible = true;
+            this.txtGuestRefundApplyTime.CustomFormat = "yyyy/MM/dd HH:mm";
+            this.txtGuestRefundApplyTime.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
+            this.txtGuestRefundApplyTime.IsPopupCalendarOpen = false;
+            this.txtGuestRefundApplyTime.Location = new System.Drawing.Point(175, 329);
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            this.txtGuestRefundApplyTime.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtGuestRefundApplyTime.MonthCalendar.CalendarDimensions = new System.Drawing.Size(1, 1);
+            this.txtGuestRefundApplyTime.MonthCalendar.ClearButtonVisible = true;
+            // 
+            // 
+            // 
+            this.txtGuestRefundApplyTime.MonthCalendar.CommandsBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
+            this.txtGuestRefundApplyTime.MonthCalendar.CommandsBackgroundStyle.BackColorGradientAngle = 90;
+            this.txtGuestRefundApplyTime.MonthCalendar.CommandsBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+            this.txtGuestRefundApplyTime.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.txtGuestRefundApplyTime.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
+            this.txtGuestRefundApplyTime.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1;
+            this.txtGuestRefundApplyTime.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtGuestRefundApplyTime.MonthCalendar.DisplayMonth = new System.DateTime(2018, 3, 1, 0, 0, 0, 0);
+            this.txtGuestRefundApplyTime.MonthCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
+            // 
+            // 
+            // 
+            this.txtGuestRefundApplyTime.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.txtGuestRefundApplyTime.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90;
+            this.txtGuestRefundApplyTime.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.txtGuestRefundApplyTime.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtGuestRefundApplyTime.MonthCalendar.TodayButtonVisible = true;
+            this.txtGuestRefundApplyTime.Name = "txtGuestRefundApplyTime";
+            this.txtGuestRefundApplyTime.Size = new System.Drawing.Size(187, 23);
+            this.txtGuestRefundApplyTime.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.txtGuestRefundApplyTime.TabIndex = 167;
+            // 
+            // labelX6
+            // 
+            // 
+            // 
+            // 
+            this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX6.Location = new System.Drawing.Point(7, 329);
+            this.labelX6.Name = "labelX6";
+            this.labelX6.Size = new System.Drawing.Size(140, 27);
+            this.labelX6.TabIndex = 166;
+            this.labelX6.Text = "客人申请退款时间:";
+            // 
+            // txtRefundAmout
+            // 
+            // 
+            // 
+            // 
+            this.txtRefundAmout.Border.Class = "TextBoxBorder";
+            this.txtRefundAmout.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtRefundAmout.Location = new System.Drawing.Point(175, 295);
+            this.txtRefundAmout.Multiline = true;
+            this.txtRefundAmout.Name = "txtRefundAmout";
+            this.txtRefundAmout.Size = new System.Drawing.Size(187, 27);
+            this.txtRefundAmout.TabIndex = 165;
+            // 
+            // labelX5
+            // 
+            // 
+            // 
+            // 
+            this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX5.Location = new System.Drawing.Point(7, 295);
+            this.labelX5.Name = "labelX5";
+            this.labelX5.Size = new System.Drawing.Size(110, 27);
+            this.labelX5.TabIndex = 164;
+            this.labelX5.Text = "退款金额:";
             // 
             // txtReserveTime
             // 
@@ -463,7 +547,7 @@
             // 
             // txtGuestUseTime
             // 
-            this.txtGuestUseTime.CustomFormat = "yyyy/MM/dd HH:mm:ss";
+            this.txtGuestUseTime.CustomFormat = "yyyy/MM/dd HH:mm";
             this.txtGuestUseTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.txtGuestUseTime.Location = new System.Drawing.Point(108, 194);
             this.txtGuestUseTime.Name = "txtGuestUseTime";
@@ -718,90 +802,6 @@
             this.btnCancel.Text = "取消";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // txtGuestRefundApplyTime
-            // 
-            // 
-            // 
-            // 
-            this.txtGuestRefundApplyTime.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.txtGuestRefundApplyTime.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtGuestRefundApplyTime.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
-            this.txtGuestRefundApplyTime.ButtonDropDown.Visible = true;
-            this.txtGuestRefundApplyTime.CustomFormat = "yyyy/MM/dd HH:mm";
-            this.txtGuestRefundApplyTime.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
-            this.txtGuestRefundApplyTime.IsPopupCalendarOpen = false;
-            this.txtGuestRefundApplyTime.Location = new System.Drawing.Point(175, 329);
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            this.txtGuestRefundApplyTime.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtGuestRefundApplyTime.MonthCalendar.CalendarDimensions = new System.Drawing.Size(1, 1);
-            this.txtGuestRefundApplyTime.MonthCalendar.ClearButtonVisible = true;
-            // 
-            // 
-            // 
-            this.txtGuestRefundApplyTime.MonthCalendar.CommandsBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
-            this.txtGuestRefundApplyTime.MonthCalendar.CommandsBackgroundStyle.BackColorGradientAngle = 90;
-            this.txtGuestRefundApplyTime.MonthCalendar.CommandsBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-            this.txtGuestRefundApplyTime.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.txtGuestRefundApplyTime.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
-            this.txtGuestRefundApplyTime.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1;
-            this.txtGuestRefundApplyTime.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtGuestRefundApplyTime.MonthCalendar.DisplayMonth = new System.DateTime(2018, 3, 1, 0, 0, 0, 0);
-            this.txtGuestRefundApplyTime.MonthCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
-            // 
-            // 
-            // 
-            this.txtGuestRefundApplyTime.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.txtGuestRefundApplyTime.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90;
-            this.txtGuestRefundApplyTime.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.txtGuestRefundApplyTime.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtGuestRefundApplyTime.MonthCalendar.TodayButtonVisible = true;
-            this.txtGuestRefundApplyTime.Name = "txtGuestRefundApplyTime";
-            this.txtGuestRefundApplyTime.Size = new System.Drawing.Size(187, 23);
-            this.txtGuestRefundApplyTime.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.txtGuestRefundApplyTime.TabIndex = 167;
-            // 
-            // labelX6
-            // 
-            // 
-            // 
-            // 
-            this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX6.Location = new System.Drawing.Point(7, 329);
-            this.labelX6.Name = "labelX6";
-            this.labelX6.Size = new System.Drawing.Size(140, 27);
-            this.labelX6.TabIndex = 166;
-            this.labelX6.Text = "客人申请退款时间:";
-            // 
-            // txtRefundAmout
-            // 
-            // 
-            // 
-            // 
-            this.txtRefundAmout.Border.Class = "TextBoxBorder";
-            this.txtRefundAmout.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtRefundAmout.Location = new System.Drawing.Point(175, 295);
-            this.txtRefundAmout.Multiline = true;
-            this.txtRefundAmout.Name = "txtRefundAmout";
-            this.txtRefundAmout.Size = new System.Drawing.Size(187, 27);
-            this.txtRefundAmout.TabIndex = 165;
-            // 
-            // labelX5
-            // 
-            // 
-            // 
-            // 
-            this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX5.Location = new System.Drawing.Point(7, 295);
-            this.labelX5.Name = "labelX5";
-            this.labelX5.Size = new System.Drawing.Size(110, 27);
-            this.labelX5.TabIndex = 164;
-            this.labelX5.Text = "退款金额:";
-            // 
             // FrmSetGuestInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -815,9 +815,9 @@
             this.panelEx1.ResumeLayout(false);
             this.panelMain.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtGuestRefundApplyTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtReserveTime)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtGuestRefundApplyTime)).EndInit();
             this.ResumeLayout(false);
 
         }

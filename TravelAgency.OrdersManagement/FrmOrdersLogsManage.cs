@@ -25,13 +25,6 @@ namespace TravelAgency.OrdersManagement
         {
             InitializeComponent();
         }
-
-        public FrmOrdersLogsManage(bool showUnRead) : this()
-        {
-
-        }
-
-
         private void Form1_Load(object sender, EventArgs e)
         {
             _recordCount = _bllOrdersLogs.GetRecordCount(_where);
@@ -57,6 +50,7 @@ namespace TravelAgency.OrdersManagement
 
             StyleControler.SetDgvStyle(dataGridView1);
             this.dataGridView1.RowsAdded += dataGridView1_RowsAdded;
+            btnTimeSpanChoose.Click += btnTimeSpanChoose_Click;
 
             bgWorkerLoadData.WorkerReportsProgress = true;
 
@@ -77,9 +71,10 @@ namespace TravelAgency.OrdersManagement
             //cbMsgType.Items.Add("普通");
             //cbMsgType.Items.Add("退款申请");
 
-            //cbMsgState.Items.Add("全部");
-            //cbMsgState.Items.Add("已读");
-            //cbMsgState.Items.Add("未读");
+            cbActType.Items.Add("全部");
+            foreach (var item in Common.Enums.OrdersActtype.valueList)
+                cbActType.Items.Add(item);
+            cbActType.SelectedIndex = 0;
 
 
             //cbMsgState.SelectedIndex = 0;
@@ -194,26 +189,23 @@ namespace TravelAgency.OrdersManagement
                                "') ");
             }
 
-            //if (!string.IsNullOrEmpty(txtOrderNo.Text.Trim()))
-            //{
-            //    conditions.Add(" (OrderNo like '%" + txtOrderNo.Text + "%') ");
-            //}
+            if (!string.IsNullOrEmpty(txtOrderNo.Text.Trim()))
+            {
+                conditions.Add(" (OrderNo like '%" + txtOrderNo.Text.Trim() + "%') ");
+            }
 
-            //if (cbMsgType.Text != "全部")
-            //    conditions.Add(" MsgType = '" + cbMsgType.Text + "' ");
+            if (!string.IsNullOrEmpty(txtSchName.Text.Trim()))
+            {
+                conditions.Add(" (UserName like '%" + txtSchName.Text.Trim() + "%') ");
+            }
 
-            //if (cbMsgState.Text != "全部")
-            //    conditions.Add(" MsgState = '" + cbMsgState.Text + "' ");
+            if (!string.IsNullOrEmpty(txtWorkId.Text.Trim()))
+            {
+                conditions.Add(" (workid like '%" + txtWorkId.Text.Trim() + "%') ");
+            }
 
-            //if (!string.IsNullOrEmpty(txtMsgContent.Text.Trim()))
-            //    conditions.Add(" (MsgContent like '%" + txtMsgContent.Text + "%') ");
-
-            //if (!string.IsNullOrEmpty(txtToUser.Text.Trim()))
-            //    conditions.Add(" (ToUser like '%" + txtToUser.Text + "%') ");
-
-            //if (btnOnlyShowMe.Value)
-            //    conditions.Add(string.Format(" (ToUser = '{0}' or FromUser = '{1}') ",
-            //        GlobalUtils.LoginUser.UserName, GlobalUtils.LoginUser.UserName));
+            if (cbActType.Text != "全部")
+                conditions.Add(" Acttype = " + Common.Enums.OrdersActtype.value2Key(cbActType.Text) + " ");
 
             string[] arr = conditions.ToArray();
             string where = string.Join(" and ", arr);
@@ -223,15 +215,12 @@ namespace TravelAgency.OrdersManagement
 
         private void btnClearSchConditions_Click(object sender, EventArgs e)
         {
-            //txtClient.Text = "";
-            //cbMsgType.Text = "全部";
-            //cbMsgState.Text = "全部";
-            //txtToUser.Text = "";
-            ////cbOrdersLogsState.Text = "全部";
-            ////cbDepatureType.Text = "";
-            //txtSchEntryTimeFrom.Text = "";
-            //txtSchEntryTimeTo.Text = "";
-            //txtOrderNo.Text = "";
+            txtOrderNo.Text = "";
+            txtSchEntryTimeFrom.Text = "";
+            txtSchEntryTimeTo.Text = "";
+            txtSchName.Text = "";
+            txtWorkId.Text = "";
+            cbActType.Text = "全部";
         }
 
 
@@ -417,11 +406,6 @@ namespace TravelAgency.OrdersManagement
             //OrdersLogsBoxEx.Show("导入" + res + "条数据成功！");
             //LoadDataToDgvAsyn();
         }
-
-
-
-
-
 
         private void btnTimeSpanChoose_Click(object sender, EventArgs e)
         {
