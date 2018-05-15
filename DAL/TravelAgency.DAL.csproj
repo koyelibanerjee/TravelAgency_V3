@@ -149,6 +149,7 @@
     <Compile Include="JobAssignmentDal.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="OrderExcel.cs" />
+    <Compile Include="OrderFiles.cs" />
     <Compile Include="OrderInfo.cs" />
     <Compile Include="Orders.cs" />
     <Compile Include="OrdersLogs.cs" />
