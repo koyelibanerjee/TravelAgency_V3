@@ -76,13 +76,24 @@ namespace TravelAgency.OrdersManagement
                 return;
             }
             Common.GlobalUtils.LoginUser = list[0];
-            if (list[0].WorkId == "10000" || list[0].WorkId == "10301" || list[0].WorkId == "10302")
+            //再取取rolename
+
+            if (list[0].RoleName == "网络部客服")
             {
                 GlobalUtils.LoginUserLevel = RigthLevel.Waitor;
             }
-            else
+            else if (list[0].RoleName == "网络部操作")
             {
                 GlobalUtils.LoginUserLevel = RigthLevel.Operator;
+            }
+            else if (list[0].RoleName == "网络部经理" || list[0].WorkId == "10000")
+            {
+                GlobalUtils.LoginUserLevel = RigthLevel.Manager;
+            }
+            else
+            {
+                MessageBoxEx.Show("权限不足，请使用网络部账号登陆!!!");
+                return;
             }
 
             if (FrmsManager.MainForm != null)
@@ -108,9 +119,9 @@ namespace TravelAgency.OrdersManagement
             {
                 BinaryFormatter bf = new BinaryFormatter();
                 _users = bf.Deserialize(fs) as List<User>;
-                if(_users==null)
+                if (_users == null)
                     return;
-                
+
                 foreach (User user in _users)
                 {
                     this.txtUserName.Items.Add(user.Username);

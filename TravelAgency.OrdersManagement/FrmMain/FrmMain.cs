@@ -22,9 +22,6 @@ namespace TravelAgency.OrdersManagement
             InitializeComponent();
         }
 
-
-
-
         public void OpenTab(Form frm, string Name)
         {
             if (IsOpenTab(Name))

@@ -44,8 +44,6 @@ namespace TravelAgency.OrdersManagement
                 btnOK.Enabled = false;
             }
 
-
-
             if (_is4Modify)
             {
                 //基本信息

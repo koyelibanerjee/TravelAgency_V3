@@ -63,76 +63,76 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmAddMessage.cs">
+    <Compile Include="FrmSub\FrmAddMessage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAddMessage.designer.cs">
+    <Compile Include="FrmSub\FrmAddMessage.designer.cs">
       <DependentUpon>FrmAddMessage.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmIsPraise.cs">
+    <Compile Include="FrmSub\FrmIsPraise.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmIsPraise.Designer.cs">
+    <Compile Include="FrmSub\FrmIsPraise.Designer.cs">
       <DependentUpon>FrmIsPraise.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmOrdersLogsManage.cs">
+    <Compile Include="FrmMain\FrmOrdersLogsManage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmOrdersLogsManage.designer.cs">
+    <Compile Include="FrmMain\FrmOrdersLogsManage.designer.cs">
       <DependentUpon>FrmOrdersLogsManage.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmReplyMessages.cs">
+    <Compile Include="FrmMain\FrmReplyMessages.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmReplyMessages.designer.cs">
+    <Compile Include="FrmMain\FrmReplyMessages.designer.cs">
       <DependentUpon>FrmReplyMessages.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmOrdersManage_Summary.cs">
+    <Compile Include="FrmMain\FrmOrdersManage_Summary.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmOrdersManage_Summary.designer.cs">
+    <Compile Include="FrmMain\FrmOrdersManage_Summary.designer.cs">
       <DependentUpon>FrmOrdersManage_Summary.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMessageManage.cs">
+    <Compile Include="FrmMain\FrmMessageManage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMessageManage.designer.cs">
+    <Compile Include="FrmMain\FrmMessageManage.designer.cs">
       <DependentUpon>FrmMessageManage.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPlatformSet.cs">
+    <Compile Include="FrmSub\FrmPlatformSet.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmPlatformSet.Designer.cs">
+    <Compile Include="FrmSub\FrmPlatformSet.Designer.cs">
       <DependentUpon>FrmPlatformSet.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCheckState.cs">
+    <Compile Include="FrmSub\FrmCheckState.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmCheckState.Designer.cs">
+    <Compile Include="FrmSub\FrmCheckState.Designer.cs">
       <DependentUpon>FrmCheckState.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSetOperInfo.cs">
+    <Compile Include="FrmSub\FrmSetOperInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSetOperInfo.designer.cs">
+    <Compile Include="FrmSub\FrmSetOperInfo.designer.cs">
       <DependentUpon>FrmSetOperInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSetGuestInfo.cs">
+    <Compile Include="FrmSub\FrmSetGuestInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSetGuestInfo.designer.cs">
+    <Compile Include="FrmSub\FrmSetGuestInfo.designer.cs">
       <DependentUpon>FrmSetGuestInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmAddOrders.cs">
+    <Compile Include="FrmSub\FrmAddOrders.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAddOrders.designer.cs">
+    <Compile Include="FrmSub\FrmAddOrders.designer.cs">
       <DependentUpon>FrmAddOrders.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmAddOrderInfo.cs">
+    <Compile Include="FrmSub\FrmAddOrderInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAddOrderInfo.designer.cs">
+    <Compile Include="FrmSub\FrmAddOrderInfo.designer.cs">
       <DependentUpon>FrmAddOrderInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmLogin.cs">
@@ -141,90 +141,90 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMain.cs">
+    <Compile Include="FrmMain\FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMain.Designer.cs">
+    <Compile Include="FrmMain\FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmOrdersManage_Oper.cs">
+    <Compile Include="FrmMain\FrmOrdersManage_Oper.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmOrdersManage_Oper.designer.cs">
+    <Compile Include="FrmMain\FrmOrdersManage_Oper.designer.cs">
       <DependentUpon>FrmOrdersManage_Oper.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmOrdersManage_Waitor.cs">
+    <Compile Include="FrmMain\FrmOrdersManage_Waitor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmOrdersManage_Waitor.designer.cs">
+    <Compile Include="FrmMain\FrmOrdersManage_Waitor.designer.cs">
       <DependentUpon>FrmOrdersManage_Waitor.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmOrderInfoManage.cs">
+    <Compile Include="FrmMain\FrmOrderInfoManage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmOrderInfoManage.designer.cs">
+    <Compile Include="FrmMain\FrmOrderInfoManage.designer.cs">
       <DependentUpon>FrmOrderInfoManage.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmTimeChoose.cs">
+    <Compile Include="FrmSub\FrmTimeChoose.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmTimeChoose.designer.cs">
+    <Compile Include="FrmSub\FrmTimeChoose.designer.cs">
       <DependentUpon>FrmTimeChoose.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmAddMessage.resx">
+    <EmbeddedResource Include="FrmSub\FrmAddMessage.resx">
       <DependentUpon>FrmAddMessage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmIsPraise.resx">
+    <EmbeddedResource Include="FrmSub\FrmIsPraise.resx">
       <DependentUpon>FrmIsPraise.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmOrdersLogsManage.resx">
+    <EmbeddedResource Include="FrmMain\FrmOrdersLogsManage.resx">
       <DependentUpon>FrmOrdersLogsManage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmReplyMessages.resx">
+    <EmbeddedResource Include="FrmMain\FrmReplyMessages.resx">
       <DependentUpon>FrmReplyMessages.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmOrdersManage_Summary.resx">
+    <EmbeddedResource Include="FrmMain\FrmOrdersManage_Summary.resx">
       <DependentUpon>FrmOrdersManage_Summary.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMessageManage.resx">
+    <EmbeddedResource Include="FrmMain\FrmMessageManage.resx">
       <DependentUpon>FrmMessageManage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmPlatformSet.resx">
+    <EmbeddedResource Include="FrmSub\FrmPlatformSet.resx">
       <DependentUpon>FrmPlatformSet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmCheckState.resx">
+    <EmbeddedResource Include="FrmSub\FrmCheckState.resx">
       <DependentUpon>FrmCheckState.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSetOperInfo.resx">
+    <EmbeddedResource Include="FrmSub\FrmSetOperInfo.resx">
       <DependentUpon>FrmSetOperInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSetGuestInfo.resx">
+    <EmbeddedResource Include="FrmSub\FrmSetGuestInfo.resx">
       <DependentUpon>FrmSetGuestInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmAddOrders.resx">
+    <EmbeddedResource Include="FrmSub\FrmAddOrders.resx">
       <DependentUpon>FrmAddOrders.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmAddOrderInfo.resx">
+    <EmbeddedResource Include="FrmSub\FrmAddOrderInfo.resx">
       <DependentUpon>FrmAddOrderInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMain.resx">
+    <EmbeddedResource Include="FrmMain\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmOrdersManage_Oper.resx">
+    <EmbeddedResource Include="FrmMain\FrmOrdersManage_Oper.resx">
       <DependentUpon>FrmOrdersManage_Oper.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmOrdersManage_Waitor.resx">
+    <EmbeddedResource Include="FrmMain\FrmOrdersManage_Waitor.resx">
       <DependentUpon>FrmOrdersManage_Waitor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmOrderInfoManage.resx">
+    <EmbeddedResource Include="FrmMain\FrmOrderInfoManage.resx">
       <DependentUpon>FrmOrderInfoManage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmTimeChoose.resx">
+    <EmbeddedResource Include="FrmSub\FrmTimeChoose.resx">
       <DependentUpon>FrmTimeChoose.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -276,5 +276,6 @@
   <ItemGroup>
     <Content Include="微信图片_20180423141959~1.ico" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
