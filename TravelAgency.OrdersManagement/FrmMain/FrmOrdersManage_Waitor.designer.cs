@@ -71,9 +71,6 @@
             this.txtSchEntryTimeFrom = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.labelX14 = new DevComponents.DotNetBar.LabelX();
             this.labelX12 = new DevComponents.DotNetBar.LabelX();
-            this.btnAddFromExcel = new DevComponents.DotNetBar.ButtonX();
-            this.cbOrderType = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.btnAdd = new DevComponents.DotNetBar.ButtonX();
             this.progressLoading = new DevComponents.DotNetBar.Controls.CircularProgress();
             this.btnClearSchConditions = new DevComponents.DotNetBar.ButtonX();
@@ -95,11 +92,13 @@
             this.cmsItemRefreshState = new System.Windows.Forms.ToolStripMenuItem();
             this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.查看录入订单客人信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.确认订单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.评价录入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.申请退款ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.订单发送消息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.评价录入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.确认订单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.下载订单附件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.人申请表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.机票报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -108,8 +107,6 @@
             this.韩国加急申请书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bgWorkerLoadData = new System.ComponentModel.BackgroundWorker();
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panelDgv.SuspendLayout();
@@ -405,9 +402,6 @@
             this.panelSerachBar.Controls.Add(this.txtSchEntryTimeFrom);
             this.panelSerachBar.Controls.Add(this.labelX14);
             this.panelSerachBar.Controls.Add(this.labelX12);
-            this.panelSerachBar.Controls.Add(this.btnAddFromExcel);
-            this.panelSerachBar.Controls.Add(this.cbOrderType);
-            this.panelSerachBar.Controls.Add(this.labelX3);
             this.panelSerachBar.Controls.Add(this.btnAdd);
             this.panelSerachBar.Controls.Add(this.progressLoading);
             this.panelSerachBar.Controls.Add(this.btnClearSchConditions);
@@ -654,42 +648,6 @@
             this.labelX12.TabIndex = 57;
             this.labelX12.Text = "客人下单时间:";
             // 
-            // btnAddFromExcel
-            // 
-            this.btnAddFromExcel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnAddFromExcel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnAddFromExcel.Location = new System.Drawing.Point(1073, 5);
-            this.btnAddFromExcel.Name = "btnAddFromExcel";
-            this.btnAddFromExcel.Size = new System.Drawing.Size(92, 23);
-            this.btnAddFromExcel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnAddFromExcel.TabIndex = 56;
-            this.btnAddFromExcel.Text = "从excel导入";
-            this.btnAddFromExcel.Click += new System.EventHandler(this.btnAddFromExcel_Click);
-            // 
-            // cbOrderType
-            // 
-            this.cbOrderType.DisplayMember = "Text";
-            this.cbOrderType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbOrderType.FormattingEnabled = true;
-            this.cbOrderType.ItemHeight = 15;
-            this.cbOrderType.Location = new System.Drawing.Point(662, 34);
-            this.cbOrderType.Name = "cbOrderType";
-            this.cbOrderType.Size = new System.Drawing.Size(79, 21);
-            this.cbOrderType.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbOrderType.TabIndex = 51;
-            // 
-            // labelX3
-            // 
-            // 
-            // 
-            // 
-            this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX3.Location = new System.Drawing.Point(597, 33);
-            this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(70, 21);
-            this.labelX3.TabIndex = 50;
-            this.labelX3.Text = "订单类型:";
-            // 
             // btnAdd
             // 
             this.btnAdd.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -853,7 +811,7 @@
             this.确认订单ToolStripMenuItem,
             this.下载订单附件ToolStripMenuItem});
             this.cmsDgvRb.Name = "cmsDgvRb";
-            this.cmsDgvRb.Size = new System.Drawing.Size(205, 236);
+            this.cmsDgvRb.Size = new System.Drawing.Size(205, 214);
             // 
             // cmsItemRefreshState
             // 
@@ -876,26 +834,17 @@
             this.修改ToolStripMenuItem.Text = "修改";
             this.修改ToolStripMenuItem.Click += new System.EventHandler(this.修改ToolStripMenuItem_Click);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(201, 6);
+            // 
             // 查看录入订单客人信息ToolStripMenuItem
             // 
             this.查看录入订单客人信息ToolStripMenuItem.Name = "查看录入订单客人信息ToolStripMenuItem";
             this.查看录入订单客人信息ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.查看录入订单客人信息ToolStripMenuItem.Text = "查看(录入)订单客人信息";
             this.查看录入订单客人信息ToolStripMenuItem.Click += new System.EventHandler(this.查看录入订单客人信息ToolStripMenuItem_Click);
-            // 
-            // 确认订单ToolStripMenuItem
-            // 
-            this.确认订单ToolStripMenuItem.Name = "确认订单ToolStripMenuItem";
-            this.确认订单ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.确认订单ToolStripMenuItem.Text = "确认订单";
-            this.确认订单ToolStripMenuItem.Click += new System.EventHandler(this.确认订单ToolStripMenuItem_Click);
-            // 
-            // 评价录入ToolStripMenuItem
-            // 
-            this.评价录入ToolStripMenuItem.Name = "评价录入ToolStripMenuItem";
-            this.评价录入ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.评价录入ToolStripMenuItem.Text = "评价录入";
-            this.评价录入ToolStripMenuItem.Click += new System.EventHandler(this.评价录入ToolStripMenuItem_Click);
             // 
             // 申请退款ToolStripMenuItem
             // 
@@ -910,6 +859,25 @@
             this.订单发送消息ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.订单发送消息ToolStripMenuItem.Text = "订单发送消息";
             this.订单发送消息ToolStripMenuItem.Click += new System.EventHandler(this.订单发送消息ToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(201, 6);
+            // 
+            // 评价录入ToolStripMenuItem
+            // 
+            this.评价录入ToolStripMenuItem.Name = "评价录入ToolStripMenuItem";
+            this.评价录入ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.评价录入ToolStripMenuItem.Text = "评价录入";
+            this.评价录入ToolStripMenuItem.Click += new System.EventHandler(this.评价录入ToolStripMenuItem_Click);
+            // 
+            // 确认订单ToolStripMenuItem
+            // 
+            this.确认订单ToolStripMenuItem.Name = "确认订单ToolStripMenuItem";
+            this.确认订单ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.确认订单ToolStripMenuItem.Text = "确认订单";
+            this.确认订单ToolStripMenuItem.Click += new System.EventHandler(this.确认订单ToolStripMenuItem_Click);
             // 
             // 下载订单附件ToolStripMenuItem
             // 
@@ -953,16 +921,6 @@
             // 
             this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2010Blue;
             this.styleManager1.MetroColorParameters = new DevComponents.DotNetBar.Metro.ColorTables.MetroColorGeneratorParameters(System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255))))), System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199))))));
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(201, 6);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(201, 6);
             // 
             // FrmOrdersManage_Waitor
             // 
@@ -1021,9 +979,6 @@
         private DevComponents.DotNetBar.ButtonX btnAdd;
         private System.Windows.Forms.ToolStripMenuItem 删除ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 修改ToolStripMenuItem;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx cbOrderType;
-        private DevComponents.DotNetBar.LabelX labelX3;
-        private DevComponents.DotNetBar.ButtonX btnAddFromExcel;
         private DevComponents.DotNetBar.ButtonX btnTimeSpanChoose;
         private DevComponents.Editors.DateTimeAdv.DateTimeInput txtSchEntryTimeTo;
         private DevComponents.Editors.DateTimeAdv.DateTimeInput txtSchEntryTimeFrom;

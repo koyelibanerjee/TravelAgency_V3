@@ -70,17 +70,14 @@ namespace TravelAgency.OrdersManagement
         {
             string tablename = "Orders";
 
-            cbOrderType.Items.Add("全部");
 
             cbPaymentPlatform.Items.Add("全部");
             cbReplyResult.Items.Add("全部");
 
             cbReplyResult.SelectedIndex = 0;
-            cbOrderType.SelectedIndex = 0;
             cbPaymentPlatform.SelectedIndex = 0;
 
             cbReplyResult.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbOrderType.DropDownStyle = ComboBoxStyle.DropDownList;
             cbPaymentPlatform.DropDownStyle = ComboBoxStyle.DropDownList;
 
 
@@ -197,9 +194,6 @@ namespace TravelAgency.OrdersManagement
                 conditions.Add(" (OrderNo like '%" + txtOrderNo.Text + "%') ");
             }
 
-            if (cbOrderType.Text != "全部")
-                conditions.Add(" OrderType = '" + cbOrderType.Text + "' ");
-
             if (cbPaymentPlatform.Text != "全部")
                 conditions.Add(" PaymentPlatform = " + Common.Enums.OrderInfo_PaymentPlatform.ValueToKey(cbPaymentPlatform.Text) + " ");
 
@@ -219,12 +213,15 @@ namespace TravelAgency.OrdersManagement
         private void btnClearSchConditions_Click(object sender, EventArgs e)
         {
             //txtClient.Text = "";
-            cbOrderType.Text = "全部";
+            //cbOrderType.Text = "全部";
             //cbOrdersState.Text = "全部";
             //cbDepatureType.Text = "";
             txtSchEntryTimeFrom.Text = "";
             txtSchEntryTimeTo.Text = "";
             txtOrderNo.Text = "";
+            cbPaymentPlatform.Text = "全部";
+            cbReplyResult.Text = "全部";
+            txtWaitorName.Text = "";
         }
 
 

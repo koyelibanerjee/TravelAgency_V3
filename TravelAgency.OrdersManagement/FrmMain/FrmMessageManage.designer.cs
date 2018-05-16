@@ -61,7 +61,6 @@
             this.txtSchEntryTimeFrom = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.labelX14 = new DevComponents.DotNetBar.LabelX();
             this.labelX12 = new DevComponents.DotNetBar.LabelX();
-            this.btnAddFromExcel = new DevComponents.DotNetBar.ButtonX();
             this.cbMsgType = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.btnAdd = new DevComponents.DotNetBar.ButtonX();
@@ -86,6 +85,7 @@
             this.cmsItemRefreshState = new System.Windows.Forms.ToolStripMenuItem();
             this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.回复消息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查看消息链ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.人申请表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -95,7 +95,6 @@
             this.韩国加急申请书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bgWorkerLoadData = new System.ComponentModel.BackgroundWorker();
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panelDgv.SuspendLayout();
@@ -323,7 +322,6 @@
             this.panelSerachBar.Controls.Add(this.txtSchEntryTimeFrom);
             this.panelSerachBar.Controls.Add(this.labelX14);
             this.panelSerachBar.Controls.Add(this.labelX12);
-            this.panelSerachBar.Controls.Add(this.btnAddFromExcel);
             this.panelSerachBar.Controls.Add(this.cbMsgType);
             this.panelSerachBar.Controls.Add(this.labelX3);
             this.panelSerachBar.Controls.Add(this.btnAdd);
@@ -573,18 +571,6 @@
             this.labelX12.TabIndex = 57;
             this.labelX12.Text = "消息时间:";
             // 
-            // btnAddFromExcel
-            // 
-            this.btnAddFromExcel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnAddFromExcel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnAddFromExcel.Location = new System.Drawing.Point(1073, 6);
-            this.btnAddFromExcel.Name = "btnAddFromExcel";
-            this.btnAddFromExcel.Size = new System.Drawing.Size(92, 23);
-            this.btnAddFromExcel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnAddFromExcel.TabIndex = 56;
-            this.btnAddFromExcel.Text = "从excel导入";
-            this.btnAddFromExcel.Click += new System.EventHandler(this.btnAddFromExcel_Click);
-            // 
             // cbMsgType
             // 
             this.cbMsgType.DisplayMember = "Text";
@@ -774,7 +760,7 @@
             this.回复消息ToolStripMenuItem,
             this.查看消息链ToolStripMenuItem});
             this.cmsDgvRb.Name = "cmsDgvRb";
-            this.cmsDgvRb.Size = new System.Drawing.Size(161, 142);
+            this.cmsDgvRb.Size = new System.Drawing.Size(161, 120);
             // 
             // cmsItemRefreshState
             // 
@@ -796,6 +782,11 @@
             this.修改ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.修改ToolStripMenuItem.Text = "修改";
             this.修改ToolStripMenuItem.Click += new System.EventHandler(this.修改ToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
             // 
             // 回复消息ToolStripMenuItem
             // 
@@ -846,11 +837,6 @@
             // 
             this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2010Blue;
             this.styleManager1.MetroColorParameters = new DevComponents.DotNetBar.Metro.ColorTables.MetroColorGeneratorParameters(System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255))))), System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199))))));
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
             // 
             // FrmMessageManage
             // 
@@ -911,7 +897,6 @@
         private System.Windows.Forms.ToolStripMenuItem 修改ToolStripMenuItem;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cbMsgType;
         private DevComponents.DotNetBar.LabelX labelX3;
-        private DevComponents.DotNetBar.ButtonX btnAddFromExcel;
         private DevComponents.DotNetBar.ButtonX btnTimeSpanChoose;
         private DevComponents.Editors.DateTimeAdv.DateTimeInput txtSchEntryTimeTo;
         private DevComponents.Editors.DateTimeAdv.DateTimeInput txtSchEntryTimeFrom;

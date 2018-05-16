@@ -66,34 +66,28 @@ namespace TravelAgency.OrdersManagement
 
         private void InitComboboxs()
         {
-            //string tablename = "Orders";
+            string tablename = "Orders";
 
-            //cbOrderType.Items.Add("全部");
-            //cbOrdersState.Items.Add("全部");
-            //cbPaymentPlatform.Items.Add("全部");
 
-            //cbOrdersState.SelectedIndex = 0;
-            //cbOrderType.SelectedIndex = 0;
-            //cbPaymentPlatform.SelectedIndex = 0;
+            cbPaymentPlatform.Items.Add("全部");
+            cbReplyResult.Items.Add("全部");
 
-            //cbOrdersState.DropDownStyle = ComboBoxStyle.DropDownList;
-            //cbOrderType.DropDownStyle = ComboBoxStyle.DropDownList;
-            //cbPaymentPlatform.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbReplyResult.SelectedIndex = 0;
+            cbPaymentPlatform.SelectedIndex = 0;
 
-            //var list = Common.Enums.Orders_OrderType.valueKeyMap.Keys;
-            //if (list != null)
-            //    foreach (var item in list)
-            //        cbOrderType.Items.Add(item);
+            cbReplyResult.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbPaymentPlatform.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            //list = Common.Enums.Orders_OrdersState.valueKeyMap.Keys;
-            //if (list != null)
-            //    foreach (var item in list)
-            //        cbOrdersState.Items.Add(item);
 
-            //list = Common.Enums.Orders_PaymentPlatform.valueKeyMap.Keys;
-            //if (list != null)
-            //    foreach (var item in list)
-            //        cbPaymentPlatform.Items.Add(item);
+            var list = Common.Enums.OrderInfo_PaymentPlatform.valueKeyMap.Keys;
+            if (list != null)
+                foreach (var item in list)
+                    cbPaymentPlatform.Items.Add(item);
+
+            var list1 = Common.Enums.ReplyResult.valList;
+            if (list1 != null)
+                foreach (var item in list1)
+                    cbReplyResult.Items.Add(item);
 
         }
 
@@ -187,62 +181,46 @@ namespace TravelAgency.OrdersManagement
         {
             List<string> conditions = new List<string>();
 
+            if (!string.IsNullOrEmpty(txtSchEntryTimeFrom.Text.Trim()) && !string.IsNullOrEmpty(txtSchEntryTimeTo.Text.Trim()))
+            {
+                conditions.Add(" (GuestOrderTime between '" + txtSchEntryTimeFrom.Text + "' and " + " '" + txtSchEntryTimeTo.Text +
+                               "') ");
+            }
 
-            //if (cbOrderType.Text == "全部")
-            //{
-            //}
-            //else
-            //{
-            //    conditions.Add(" (OrderType = " + Common.Enums.Orders_OrderType.ValueToKey(cbOrderType.Text) + ") ");
-            //}
+            if (!string.IsNullOrEmpty(txtOrderNo.Text.Trim()))
+            {
+                conditions.Add(" (OrderNo like '%" + txtOrderNo.Text + "%') ");
+            }
 
-            //if (cbOrdersState.Text == "全部")
-            //{
-            //}
-            //else
-            //{
-            //    conditions.Add(" (OrdersState = '" + Common.Enums.Orders_OrdersState.ValueToKey(cbOrdersState.Text) + "') ");
-            //}
+            if (cbPaymentPlatform.Text != "全部")
+                conditions.Add(" PaymentPlatform = " + Common.Enums.OrderInfo_PaymentPlatform.ValueToKey(cbPaymentPlatform.Text) + " ");
 
-            //if (cbPaymentPlatform.Text == "全部")
-            //{
-            //}
-            //else
-            //{
-            //    conditions.Add(" (PaymentPlatform = '" + Common.Enums.Orders_PaymentPlatform.ValueToKey(cbPaymentPlatform.Text) + "') ");
-            //}
+            if (cbReplyResult.Text != "全部")
+                conditions.Add(" ReplyResult = '" + cbReplyResult.Text + "' ");
+
+            if (!string.IsNullOrEmpty(txtWaitorName.Text.Trim()))
+                conditions.Add(" (WaitorName like '%" + txtWaitorName.Text + "%') ");
 
 
-
-            //if (!string.IsNullOrEmpty(txtSchEntryTimeFrom.Text.Trim()) && !string.IsNullOrEmpty(txtSchEntryTimeTo.Text.Trim()))
-            //{
-            //    conditions.Add(" (OrderTime between '" + txtSchEntryTimeFrom.Text + "' and " + " '" + txtSchEntryTimeTo.Text +
-            //                   "') ");
-            //}
-
-            //if (!string.IsNullOrEmpty(txtOrderNo.Text.Trim()))
-            //{
-            //    conditions.Add(" (OrderNo like '%" + txtOrderNo.Text.Trim() + "%' ) ");
-            //}
-
-
-            //string[] arr = conditions.ToArray();
-            //string where = string.Join(" and ", arr);
-            //return where;
-            //return null;
-            return "";
+            string[] arr = conditions.ToArray();
+            string where = string.Join(" and ", arr);
+            return where;
         }
 
 
         private void btnClearSchConditions_Click(object sender, EventArgs e)
         {
             //txtClient.Text = "";
-            cbOrderType.Text = "全部";
+            //cbOrderType.Text = "全部";
             //cbOrdersState.Text = "全部";
             //cbDepatureType.Text = "";
             txtSchEntryTimeFrom.Text = "";
             txtSchEntryTimeTo.Text = "";
             txtOrderNo.Text = "";
+            cbPaymentPlatform.Text = "全部";
+            cbReplyResult.Text = "全部";
+            txtWaitorName.Text = "";
+            
         }
 
 

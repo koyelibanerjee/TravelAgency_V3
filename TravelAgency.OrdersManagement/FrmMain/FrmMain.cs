@@ -137,9 +137,6 @@ namespace TravelAgency.OrdersManagement
             _lableBlinkTimer.Tick += _lableBlinkTimer_Tick;
             _lableBlinkTimer.Interval = 1000;
             _lableBlinkTimer.Start();
-
-            
-
         }
 
         private void _lableBlinkTimer_Tick(object sender, EventArgs e)
