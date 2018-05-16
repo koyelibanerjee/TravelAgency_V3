@@ -99,6 +99,7 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.评价录入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.确认订单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.上传订单附件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.下载订单附件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.人申请表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.机票报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -809,9 +810,10 @@
             this.toolStripSeparator2,
             this.评价录入ToolStripMenuItem,
             this.确认订单ToolStripMenuItem,
+            this.上传订单附件ToolStripMenuItem,
             this.下载订单附件ToolStripMenuItem});
             this.cmsDgvRb.Name = "cmsDgvRb";
-            this.cmsDgvRb.Size = new System.Drawing.Size(205, 214);
+            this.cmsDgvRb.Size = new System.Drawing.Size(205, 236);
             // 
             // cmsItemRefreshState
             // 
@@ -878,6 +880,13 @@
             this.确认订单ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.确认订单ToolStripMenuItem.Text = "确认订单";
             this.确认订单ToolStripMenuItem.Click += new System.EventHandler(this.确认订单ToolStripMenuItem_Click);
+            // 
+            // 上传订单附件ToolStripMenuItem
+            // 
+            this.上传订单附件ToolStripMenuItem.Name = "上传订单附件ToolStripMenuItem";
+            this.上传订单附件ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.上传订单附件ToolStripMenuItem.Text = "上传订单附件";
+            this.上传订单附件ToolStripMenuItem.Click += new System.EventHandler(this.上传订单附件ToolStripMenuItem_Click);
             // 
             // 下载订单附件ToolStripMenuItem
             // 
@@ -1022,6 +1031,7 @@
         private System.Windows.Forms.ToolStripMenuItem 下载订单附件ToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem 上传订单附件ToolStripMenuItem;
     }
 }
 

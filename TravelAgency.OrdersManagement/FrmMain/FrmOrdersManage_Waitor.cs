@@ -583,14 +583,7 @@ namespace TravelAgency.OrdersManagement
             if (MessageBoxEx.Show("是否确认提交所选订单?", "确认", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
                 return;
 
-            if (MessageBoxEx.Show("是否上传附件?", "确认", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                string filename = GlobalUtils.ShowOpenFileDlg("所有文件|*.*");
-                if (!string.IsNullOrEmpty(filename))
-                {
-                    new OrderFilesHandler().UploadOrderFile(filename, list[0].Id);
-                }
-            }
+
 
             int res = 0;
             foreach (var item in list)
@@ -665,6 +658,22 @@ namespace TravelAgency.OrdersManagement
             }
             var list = GetSelectedModelList();
             new OrderFilesHandler().DownloadOrderFiles(list[0]);
+        }
+
+        private void 上传订单附件ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 1)
+            {
+                MessageBoxEx.Show("请选中一条数据进行操作!");
+                return;
+            }
+
+            var list = GetSelectedModelList();
+            string filename = GlobalUtils.ShowOpenFileDlg("所有文件|*.*");
+            if (!string.IsNullOrEmpty(filename))
+            {
+                new OrderFilesHandler().UploadOrderFile(filename, list[0].Id);
+            }
         }
     }
 }

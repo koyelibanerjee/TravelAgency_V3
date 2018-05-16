@@ -210,11 +210,11 @@ namespace TravelAgency.OrdersManagement
         }
         private void ThUpdateUnreadNum()
         {
-            string username = GlobalUtils.LoginUser.UserName;
+            //string username = GlobalUtils.LoginUser.UserName;
             BLL.Message bllMessage = new BLL.Message();
             while (true)
             {
-                _unreadNum = bllMessage.GetUnReadMsgNum(username);
+                _unreadNum = bllMessage.GetUnReadMsgNum();
 
                 lbUnReadNum.Invoke(new Action(() =>
                 {
@@ -223,12 +223,11 @@ namespace TravelAgency.OrdersManagement
                     else
                     {
                         lbUnReadNum.Visible = true;
-                        lbUnReadNum.Text = string.Format("你有{0}条未读消息.", _unreadNum);
+                        lbUnReadNum.Text = string.Format("{0}条未读消息.", _unreadNum);
                     }
                 }));
                 Thread.Sleep(10000);
             }
-
         }
 
         private void lbUnReadNum_Click(object sender, EventArgs e)

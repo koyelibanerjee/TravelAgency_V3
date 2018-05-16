@@ -22,6 +22,13 @@ using TravelAgency.Model;
 
 namespace TravelAgency.CSUI.Visa.FrmMain
 {
+
+    public class WorkerAssignCount
+    {
+       public int AssignmentNum { get; set; }
+        public int UnDoNum { get; set; }
+    }
+
     public partial class FrmJobAssignment : Form
     {
         private readonly TravelAgency.BLL.VisaInfo _bllVisaInfo = new TravelAgency.BLL.VisaInfo();
@@ -29,6 +36,8 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         private readonly TravelAgency.BLL.JobAssignment _bllJobAssignment = new TravelAgency.BLL.JobAssignment();
         private readonly BLL.AuthUser _bllAuthUser = new BLL.AuthUser();
         private readonly BLL.WorkerQueue _bllWorkerQueue = new BLL.WorkerQueue();
+        private Dictionary<string, WorkerAssignCount> _workerDict;
+        private List<Model.WorkerQueue> _workerList;
 
         private List<Color> _colorList = new List<Color>();
 
@@ -139,24 +148,8 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             }
             cbCountry.SelectedIndex = 0;
 
-
-
-
-            //设置可跨线程访问窗体
-            //TODO:这里可能需要修改
-            //Control.CheckForIllegalCrossThreadCalls = false;
-
-            //加载数据
-
-            //
             bgWorkerLoadData.WorkerReportsProgress = true;
-
-            //使用异步加载
-            //_thLoadDataToDgvAndUpdateState.Start();
-            //LoadDataToDataGridView(_curPage);
-            //UpdateState();
             progressLoading.Visible = false;
-
             LoadDataToDgvAsyn();
             _init = true;
         }
@@ -310,6 +303,17 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
         public void LoadDataToDataGridView(int page) //刷新后保持选中
         {
+            if (_workerDict == null) //延迟加载，只加载一次
+            {
+                _workerDict = new Dictionary<string, WorkerAssignCount>();
+                _workerList  = _bllWorkerQueue.GetModelList("");
+                foreach (var item in _workerList)
+                {
+                    WorkerAssignCount wac = new WorkerAssignCount();
+                    _workerDict.Add(item.UserName, wac);
+                }
+            }
+
             _where = GetWhereCondition();
             int curSelectedRow = -1;
             if (dataGridView1.SelectedRows.Count > 0)
@@ -540,25 +544,6 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         /// <param name="e"></param>
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            //if (dataGridView1.Columns[e.ColumnIndex].Name == "outState")
-            //{
-            //    Color c = Color.Empty;
-            //    //string state = e.Value.ToString();
-            //    string state = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-            //    if (state == OutState.Type01NoRecord)
-            //        c = Color.AliceBlue;
-            //    else if (state == OutState.Type01Delay)
-            //        c = Color.DarkOrange;
-            //    else if (state == OutState.Type02In)
-            //        c = Color.Yellow;
-            //    else if (state == OutState.Type03NormalOut)
-            //        c = Color.Green;
-            //    else if (state == OutState.TYPE04AbnormalOut)
-            //        c = Color.Red;
-            //    else
-            //        c = Color.Black;
-            //    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = c;
-            //}
         }
 
         /// <summary>
@@ -571,17 +556,17 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             var total = dataGridView1.Rows.Count;
             int groupCnt = -1;
             int pre = -1;
+
+            foreach(var item in _workerDict.Keys)
+            {
+                _workerDict[item].AssignmentNum = 0;
+                _workerDict[item].UnDoNum = 0;
+            }
+
             for (int i = 0; i < total; i++)
             {
                 DataGridViewRow row = dataGridView1.Rows[i];
                 row.HeaderCell.Value = (i + 1).ToString();
-
-                //if (!string.IsNullOrEmpty((string)row.Cells["EnglishName"].Value) && !string.IsNullOrEmpty((string)row.Cells["PassportNo"].Value))
-                //{
-                //    dataGridView1.Rows[i].Cells["QRCodeImage"].Value = _qrCode.EncodeToImage(row.Cells["EnglishName"].Value + "|" + row.Cells["PassportNo"].Value,
-                //        QRCodeSaveSize.Size165X165);
-                //}
-
                 var list = dataGridView1.DataSource as List<Model.VisaInfo>;
 
                 if (list[i].JobId == null)
@@ -592,7 +577,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 else if (!string.IsNullOrEmpty(list[i].AssignmentToWorkId))
                 {
                     var jobmodel = _bllJobAssignment.GetModelList(" Id = " + list[i].JobId + " ");
-                    if (jobmodel != null && jobmodel.Count > 0 && !string.IsNullOrEmpty(jobmodel[0].OperatorId))
+                    if (jobmodel != null && jobmodel.Count > 0 && !string.IsNullOrEmpty(jobmodel[0].OperatorId)) //通过判断jobmodel是否有operatorId判断是指定分配的还是自动分配的
                         dataGridView1.Rows[i].Cells["AssignmentState"].Value = "指定分配到\"" + list[i].AssignmentToUserName + "\"";
                     else
                         dataGridView1.Rows[i].Cells["AssignmentState"].Value = "自动分配到\"" + list[i].AssignmentToUserName + "\"";
@@ -602,9 +587,11 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                         pre = list[i].JobId.Value;
                     }
                     else
-                    {
                         dataGridView1.Rows[i].Cells["AssignmentState"].Style.BackColor = _colorList[(groupCnt) % _colorList.Count];
-                    }
+
+                    ++_workerDict[list[i].AssignmentToUserName].AssignmentNum;
+                    if(list[i].HasTypeIn == "否")
+                        ++_workerDict[list[i].AssignmentToUserName].UnDoNum;
                 }
                 else
                 {
@@ -621,8 +608,6 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
                 if (!string.IsNullOrEmpty(list[i].HasTypeIn))
                 {
-                    //dataGridView1.Rows[i].Cells["HasTypeIn"].Value = list[i].HasTypeIn == "是" ? "已做" : "未做";
-                    //Color c = dataGridView1.Rows[i].Cells["HasTypeIn"].Style.BackColor;
                     if (list[i].HasTypeIn == "是")
                     {
                         dataGridView1.Rows[i].Cells["HasTypeIn"].Value = "已做";
@@ -644,40 +629,19 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                         dataGridView1.Rows[i].Cells["HasTypeIn"].Style.BackColor = Color.Orange;
                     }
                 }
-
-                //// 根据送签状态设置单元格颜色
-                //if (dataGridView1.Rows[i].Cells["outState"].Value != null)
-                //{
-                //    Color c = Color.Empty;
-                //    //string state = e.Value.ToString();
-                //    string state = dataGridView1.Rows[i].Cells["outState"].Value.ToString();
-                //    if (state == OutState.Type01NoRecord)
-                //        c = Color.AliceBlue;
-                //    else if (state == OutState.Type01Delay)
-                //        c = Color.DarkOrange;
-                //    else if (state == OutState.Type02In)
-                //        c = Color.Yellow;
-                //    else if (state == OutState.Type03NormalOut)
-                //        c = Color.Green;
-                //    else if (state == OutState.TYPE04AbnormalOut)
-                //        c = Color.Red;
-                //    else if (state == OutState.TYPE10Exported)
-                //        c = Color.DarkGreen;
-                //    else
-                //        c = Color.Black;
-                //    dataGridView1.Rows[i].Cells["outState"].Style.BackColor = c;
-                //}
-                //if (dataGridView1.Rows[i].Cells["Visa_id"].Value != null &&
-                //    !string.IsNullOrEmpty(dataGridView1.Rows[i].Cells["Visa_id"].Value.ToString()))
-                //    peopleCount += 1;
-
-                //if (dataGridView1.Rows[i].Cells["outState"].Value != null &&
-                //    dataGridView1.Rows[i].Cells["outState"].Value.ToString() == Common.Enums.OutState.Type01Delay)
-                //    ++delayCount;
             }
 
-
-
+            //生成最下面的统计状态栏
+            StringBuilder sb = new StringBuilder();
+            sb.Append("分配统计: 未做/分配 ");
+            for(int i = 0; i < _workerList.Count; ++i)
+            {
+                sb.AppendFormat("{0}:{1}/{2} ", 
+                    _workerList[i].UserName,
+                    _workerDict[_workerList[i].UserName].UnDoNum,
+                    _workerDict[_workerList[i].UserName].AssignmentNum);
+            }
+            lbAssignCount.Text = sb.ToString();
         }
 
         /// <summary>

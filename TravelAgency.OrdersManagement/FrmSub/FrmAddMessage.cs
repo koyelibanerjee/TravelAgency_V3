@@ -79,10 +79,10 @@ namespace TravelAgency.OrdersManagement
                 txtToUser.Text = _model.ToUser;
                 txtToUser.Enabled = false;
 
-                if (_model.ToUser != GlobalUtils.LoginUser.UserName) //只能自己接收的信息才能修改状态
-                {
-                    txtMsgState.Enabled = false;
-                }
+                //if (_model.ToUser != GlobalUtils.LoginUser.UserName) //只能自己接收的信息才能修改状态
+                //{
+                //    txtMsgState.Enabled = false;
+                //}
 
 
                 //_model.FromUser = GlobalUtils.LoginUser.UserName;
@@ -250,6 +250,13 @@ namespace TravelAgency.OrdersManagement
                         return;
                     }
                     MessageBoxEx.Show("添加成功");
+
+                    if (_isReply || _isRefund)
+                    {
+                        _model.MsgState = "已读";
+                        _bllMessage.Update(_model);
+                    }
+
                     if (_updateDel != null)
                         _updateDel(_curPage);
                     this.DialogResult = DialogResult.OK;

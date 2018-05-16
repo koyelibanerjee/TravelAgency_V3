@@ -263,6 +263,9 @@ namespace TravelAgency.OrdersManagement
                 SetRowColorByReserveTime(row);
                 //在这里控制单元格的显示
 
+
+
+
                 for (int j = 0; j != dataGridView1.ColumnCount; ++j)
                 {
                     var value = dataGridView1.Rows[i].Cells[j].Value;

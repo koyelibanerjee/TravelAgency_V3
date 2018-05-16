@@ -20,6 +20,7 @@ namespace TravelAgency.OrdersManagement
         private int _pageSize;
         private int _recordCount = 0;
         private string _where = string.Empty;
+        private bool _showUnread = false;
 
         public FrmMessageManage()
         {
@@ -28,8 +29,9 @@ namespace TravelAgency.OrdersManagement
 
         public FrmMessageManage(bool showUnRead) : this()
         {
-            this.cbMsgState.Text = "未读";
-            this.txtToUser.Text = GlobalUtils.LoginUser.UserName;
+            //this.cbMsgState.Text = "未读";
+            _showUnread = showUnRead;
+            //this.txtToUser.Text = GlobalUtils.LoginUser.UserName;
         }
 
 
@@ -82,8 +84,12 @@ namespace TravelAgency.OrdersManagement
             cbMsgState.Items.Add("已读");
             cbMsgState.Items.Add("未读");
 
+            if (_showUnread)
+                cbMsgState.SelectedIndex = 2;
+            else
+                cbMsgState.SelectedIndex = 0;
 
-            cbMsgState.SelectedIndex = 0;
+
             cbMsgType.SelectedIndex = 0;
 
             cbMsgState.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -532,16 +538,14 @@ namespace TravelAgency.OrdersManagement
                 return;
             }
 
-            if (list[0].ToUser != GlobalUtils.LoginUser.UserName)
-            {
-                MessageBoxEx.Show("你不是收件人，无法回复!!");
-                return;
-            }
+            //if (list[0].ToUser != GlobalUtils.LoginUser.UserName)
+            //{
+            //    MessageBoxEx.Show("你不是收件人，无法回复!!");
+            //    return;
+            //}
 
             FrmAddMessage frm = new FrmAddMessage(LoadDataToDataGridView, _curPage, list[0], true);
             frm.ShowDialog();
-
-
         }
 
         private void 查看消息链ToolStripMenuItem_Click(object sender, EventArgs e)

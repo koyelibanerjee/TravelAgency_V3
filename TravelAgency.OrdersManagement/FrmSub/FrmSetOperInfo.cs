@@ -114,6 +114,16 @@ namespace TravelAgency.OrdersManagement
                         _bllLoger.AddLog(GlobalUtils.LoginUser, Common.Enums.OrdersActtype.value2Key("操作:处理完成"), _model);
                     }
 
+
+                    if(_model.ReplyResult == "成功")
+                        if (MessageBoxEx.Show("是否上传附件?", "确认", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        {
+                            string filename = GlobalUtils.ShowOpenFileDlg("所有文件|*.*");
+                            if (!string.IsNullOrEmpty(filename))
+                                new OrderFilesHandler().UploadOrderFile(filename, _model.Id);
+                        }   
+
+
                     //下面的字段暂时不进行修改
                     //_model.EntryTime = DateTime.Now;
                     //_model.SerialNo = SerialNoGenerator.GetSerialNo(SerialNoGenerator.Type.Type03Receipt);
