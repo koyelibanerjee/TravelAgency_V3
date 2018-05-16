@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using TravelAgency.CSUI.FrmSub.FrmSetValue;
 
 namespace TravelAgency.CSUI.Visa.FrmSub
 {
@@ -145,12 +146,31 @@ namespace TravelAgency.CSUI.Visa.FrmSub
             if (dataGridView1.SelectedRows.Count < 1)
                 return;
 
-            for(int i = 0; i < dataGridView1.SelectedRows.Count; ++i)
+            for (int i = 0; i < dataGridView1.SelectedRows.Count; ++i)
             {
                 UpdateUserState(dataGridView1.Rows[dataGridView1.SelectedRows[i].Index].Cells["WorkId"].Value.ToString());
             }
 
             LoadDataToDgv();
+
+        }
+
+        private void 修改用户优先级ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 1)
+                return;
+
+            var list = dataGridView1.DataSource as List<Model.WorkerQueue>;
+            var model = list[dataGridView1.SelectedRows[0].Index];
+            FrmIntValueSet frm = new FrmIntValueSet("设置优先级(越小越高):",
+                model.Priority.Value);
+            if (frm.ShowDialog() == DialogResult.Cancel)
+                return;
+            model.Priority = frm.RetValue;
+            if (_bllWorkerQueue.Update(model))
+                MessageBoxEx.Show("更新优先级成功!");
+            else
+                MessageBoxEx.Show("更新优先级失败!");
 
         }
     }

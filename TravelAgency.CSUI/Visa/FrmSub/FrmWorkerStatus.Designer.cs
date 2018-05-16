@@ -42,6 +42,7 @@
             this.cmsDgv = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.分配给选中用户ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.手动更新选中用户Busy状态ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.修改用户优先级ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelDgv.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cmsDgv.SuspendLayout();
@@ -152,9 +153,10 @@
             // 
             this.cmsDgv.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.分配给选中用户ToolStripMenuItem,
-            this.手动更新选中用户Busy状态ToolStripMenuItem});
+            this.手动更新选中用户Busy状态ToolStripMenuItem,
+            this.修改用户优先级ToolStripMenuItem});
             this.cmsDgv.Name = "cmsDgv";
-            this.cmsDgv.Size = new System.Drawing.Size(224, 70);
+            this.cmsDgv.Size = new System.Drawing.Size(224, 92);
             // 
             // 分配给选中用户ToolStripMenuItem
             // 
@@ -169,6 +171,13 @@
             this.手动更新选中用户Busy状态ToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.手动更新选中用户Busy状态ToolStripMenuItem.Text = "手动更新选中用户Busy状态";
             this.手动更新选中用户Busy状态ToolStripMenuItem.Click += new System.EventHandler(this.手动更新选中用户Busy状态ToolStripMenuItem_Click);
+            // 
+            // 修改用户优先级ToolStripMenuItem
+            // 
+            this.修改用户优先级ToolStripMenuItem.Name = "修改用户优先级ToolStripMenuItem";
+            this.修改用户优先级ToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
+            this.修改用户优先级ToolStripMenuItem.Text = "修改用户优先级";
+            this.修改用户优先级ToolStripMenuItem.Click += new System.EventHandler(this.修改用户优先级ToolStripMenuItem_Click);
             // 
             // FrmWorkerStatus
             // 
@@ -199,5 +208,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CanAccept;
         private System.Windows.Forms.DataGridViewTextBoxColumn Priority;
         private System.Windows.Forms.ToolStripMenuItem 手动更新选中用户Busy状态ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 修改用户优先级ToolStripMenuItem;
     }
 }

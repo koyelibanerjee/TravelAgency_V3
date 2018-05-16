@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevComponents.DotNetBar.Controls;
 
-namespace TravelAgency.CSUI.FrmSetValue
+namespace TravelAgency.CSUI.FrmSub.FrmSetValue
 {
     public partial class FrmSetValue : Form
     {

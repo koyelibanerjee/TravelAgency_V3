@@ -1,4 +1,4 @@
-﻿namespace TravelAgency.CSUI.FrmSetValue
+﻿namespace TravelAgency.CSUI.FrmSub.FrmSetValue
 {
     partial class FrmSetValue
     {

@@ -22,15 +22,14 @@ using TravelAgency.Model;
 
 namespace TravelAgency.CSUI.Visa.FrmMain
 {
-
-    public class WorkerAssignCount
-    {
-       public int AssignmentNum { get; set; }
-        public int UnDoNum { get; set; }
-    }
-
     public partial class FrmJobAssignment : Form
     {
+        public class WorkerAssignCount
+        {
+            public int AssignmentNum { get; set; }
+            public int UnDoNum { get; set; }
+        }
+
         private readonly TravelAgency.BLL.VisaInfo _bllVisaInfo = new TravelAgency.BLL.VisaInfo();
         private readonly TravelAgency.BLL.Visa _bllVisa = new TravelAgency.BLL.Visa();
         private readonly TravelAgency.BLL.JobAssignment _bllJobAssignment = new TravelAgency.BLL.JobAssignment();

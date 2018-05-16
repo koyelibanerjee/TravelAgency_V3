@@ -30,7 +30,6 @@ namespace TravelAgency.Common
                 {
 
                 }
-                
             }
             return res;
         }
