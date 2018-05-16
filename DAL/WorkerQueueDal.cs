@@ -21,7 +21,7 @@ namespace TravelAgency.DAL
             {
                 for (int i = 0; i < ds.Tables[0].Rows.Count; ++i)
                 {
-                    var modeltmp = DataRowToModel(ds.Tables[0].Rows[0]);
+                    var modeltmp = DataRowToModel(ds.Tables[0].Rows[i]);
                     if (!modeltmp.IsBusy && modeltmp.CanAccept) //先去除不可能的
                     {
                         list.Add(modeltmp);

@@ -14,10 +14,20 @@ namespace TravelAgency.DAL.Tests
         [TestMethod()]
         public void GetNextWorkerTest()
         {
-            for(int i = 0; i < 10; ++i)
+            Dictionary<string, int> set = new Dictionary<string, int>();
+            for (int i = 0; i < 100; ++i)
             {
-                int j = new Random().Next(1, 3);
+                var user = new DAL.WorkerQueue().GetNextWorker();
+
+                string username = user.UserName;
+                Console.WriteLine(username);
+                if (set.ContainsKey(username))
+                    set[username]++;
+                else
+                    set.Add(username, 1);
             }
+            int j = 0;
+
         }
     }
 }
