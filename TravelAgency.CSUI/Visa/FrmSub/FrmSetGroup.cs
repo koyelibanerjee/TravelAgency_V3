@@ -80,201 +80,49 @@ namespace TravelAgency.CSUI.FrmSub
             _type = model.Types;
         }
 
-        /// <summary>
-        /// 从已有list初始化窗口(还未设置团号)
-        /// </summary>
-        /// 校验是否都是还没分配写在了调用者那边
-        private void InitFrmFromList()
-        {
-            if (_list.Count == 0)
-                return;
-
-            //根据list加载列表
-            for (int i = 0; i < _list.Count; i++)
-            {
-                ListViewItem liv = new ListViewItem(_list[i].Name);
-                //ListViewItem.ListViewSubItem livSubItem1 = new ListViewItem.ListViewSubItem(liv, DateTimeFormator.DateTimeToString(_list[i].EntryTime));
-                //ListViewItem.ListViewSubItem livSubItem2 = new ListViewItem.ListViewSubItem(liv, _list[i].IssuePlace);
-                ListViewItem.ListViewSubItem livSubItem3 = new ListViewItem.ListViewSubItem(liv, _list[i].PassportNo);
-                //liv.SubItems.Add(livSubItem1);
-                //liv.SubItems.Add(livSubItem2);
-                liv.SubItems.Add(livSubItem3);
-                liv.Tag = _list[i];
-                lvOut.Items.Add(liv);
-            }
-
-            //初始化时间选择控件
-            //还是不初始化的比较好   
-
-            //从list初始化就不能reset和删除团号
-            btnReset.Enabled = false;
-            btnDelete.Enabled = false;
-
-            //没设置过的默认设置日本
-            cbCountry.Text = "日本"; //这个默认值应该只是在还没设置的时候默认日本
-            this.Text += "(" + _type + ")";
-            this.Text += "  当前状态:未做资料";
-
-            //团做个默认保持上一条记录的团队信息
-            //if (_type != Types.Team2Individual)
-            //    return;
-
-            _recentVisa = _bllVisa.GetLastRecord(_type); //如果是个签的话就是null这个值
-            if (_recentVisa == null)
-                return;
-            txtGroupNo.Text = _recentVisa.GroupNo;
-            cbCountry.Text = _recentVisa.Country;
-            txtDepartureType.Text = _recentVisa.DepartureType;
-            txtDepartureTime.Text = DateTimeFormator.DateTimeToString(_recentVisa.PredictTime);
-            txtSubmitTime.Text = DateTimeFormator.DateTimeToString(_recentVisa.SubmitTime);
-            txtSalesPerson.Text = _recentVisa.SalesPerson;
-            txtInTime.Text = DateTimeFormator.DateTimeToString(_recentVisa.InTime);
-            txtOutTime.Text = DateTimeFormator.DateTimeToString(_recentVisa.OutTime);
-            txtClient.Text = _recentVisa.client;
-            txtPerson.Text = _recentVisa.Person;
-            txtSubmitCondition.Text = _recentVisa.SubmitCondition;
-            txtFetchType.Text = _recentVisa.FetchCondition;
-            //txtTypeInPerson.Text = recentVisa.TypeInPerson;
-            //txtTypeInPerson.Text = GlobalUtils.LoginUser.UserName; //在Frm load里面设置，因为都要设置操作员
-            txtCheckPerson.Text = _recentVisa.CheckPerson;
-            chbIsUrgent.Checked = _recentVisa.IsUrgent;
-
-            txtRealTime.Text = "";
-
-            //txtRealTime.Value =DateTime. ;
-
-        }
-
-
-
-        /// <summary>
-        /// 从已有visaModel设置窗口(已经设置了团号)
-        /// </summary>
-        private void InitFrmFromVisaModel()
-        {
-            if (_visaModel == null)
-                return;
-
-            //查询得到所有的属于这个团的用户
-            _list = _bllVisaInfo.GetModelListByVisaIdOrderByPosition(_visaModel.Visa_id);
-            _visainfoListBackUp = new List<VisaInfo>();
-            foreach (var visaInfo in _list) //查看已有团号的时候，备份一份，用来校验到底修改了没有
-            {
-                _visainfoListBackUp.Add(visaInfo.ToObjectCopy());
-            }
-            //_visaModel.ToObjectCopy();
-
-            //校验这个团里面是否有延迟的
-            bool delay = false;
-            foreach (var visaInfo in _list)
-            {
-                if (visaInfo.outState == Common.Enums.OutState.Type01Delay)
-                {
-                    delay = true; //有一个的话就把选择框勾上
-                    break;
-                }
-            }
-
-            chkDelay.Checked = delay;
-
-            //按照position顺序进行排序 //放到上面的方法里面直接调整了顺序了
-            //_list.Sort((model1, model2) => { return model1.Position < model2.Position ? -1 : 1; });
-
-            //根据list加载列表
-            lvOut.Items.Clear();
-            lvIn.Items.Clear();
-            for (int i = 0; i < _list.Count; i++)
-            {
-                ListViewItem liv = new ListViewItem(_list[i].Name);
-
-                //ListViewItem.ListViewSubItem livSubItem1 = new ListViewItem.ListViewSubItem(liv, DateTimeFormator.DateTimeToString(_list[i].EntryTime));
-                //ListViewItem.ListViewSubItem livSubItem2 = new ListViewItem.ListViewSubItem(liv, _list[i].IssuePlace);
-                ListViewItem.ListViewSubItem livSubItem3 = new ListViewItem.ListViewSubItem(liv, _list[i].PassportNo);
-                //liv.SubItems.Add(livSubItem1);
-                //liv.SubItems.Add(livSubItem2);
-                liv.SubItems.Add(livSubItem3);
-                liv.Tag = _list[i];
-                lvIn.Items.Add(liv); //这里是默认进入的在里面
-            }
-
-            //初始化团号
-            //UpdateGroupNo(); //从已有加载的时候不去自动更新团号了
-
-            //初始化dgv
-            UpdateDgvAndListViaListView();
-
-            //初始化备注项
-            for (int i = 0; i < dgvGroupInfo.Rows.Count; i++)
-            {
-                dgvGroupInfo.Rows[i].Cells["Remark"].Value = _visaModel.Remark;
-            }
-
-            //初始数据项
-            txtDepartureTime.Text = DateTimeFormator.DateTimeToString(_visaModel.PredictTime);
-            cbCountry.Text = _visaModel.Country;
-            txtSalesPerson.Text = _visaModel.SalesPerson;
-            txtSubmitTime.Text = DateTimeFormator.DateTimeToString(_visaModel.SubmitTime);
-            txtInTime.Text = DateTimeFormator.DateTimeToString(_visaModel.InTime);
-            txtOutTime.Text = DateTimeFormator.DateTimeToString(_visaModel.OutTime);
-            txtClient.Text = _visaModel.client;
-            txtDepartureType.Text = _visaModel.DepartureType;
-            txtSubmitCondition.Text = _visaModel.SubmitCondition;
-            txtFetchType.Text = _visaModel.FetchCondition;
-            //txtTypeInPerson.Text = _visaModel.TypeInPerson;
-            //txtTypeInPerson.Text = GlobalUtils.LoginUser.UserName; //在Frm load里面设置，因为都要设置操作员
-            txtCheckPerson.Text = _visaModel.CheckPerson;
-            chbIsUrgent.Checked = _visaModel.IsUrgent;
-            txtPerson.Text = _visaModel.Person;
-
-            txtQuQianYuan.Text = _visaModel.QuQianYuan;
-            txtPeiQianYuan.Text = _visaModel.PeiQianYuan;
-            txtRealTime.Text = DateTimeFormator.DateTimeToString(_visaModel.RealTime);
-
-
-
-            txtGroupNo.Text = _visaModel.GroupNo;
-            this.Text += "(" + _visaModel.Types + ")";
-            if (_bllLoger.HasVisaBeenTypedIn(_visaModel))
-                this.Text += "  当前状态:已做资料";
-            else
-                this.Text += "  当前状态:未做资料";
-
-        }
-
         private void FrmSetGroup_Load(object sender, EventArgs e)
+        {
+            InitCtrls();
+
+            ////设置操作员
+            //txtTypeInPerson.Text = Common.GlobalUtils.LoginUser.UserName;
+            //txtTypeInPerson.Enabled = false;
+            //设置国家默认值
+            //cbCountry.Text = "日本"; //这个默认值应该只是在还没设置的时候默认日本
+
+            if (_list != null && _visaModel == null && !_initFromVisaModel)
+                InitFrmFromList();
+            if (_list == null && _visaModel != null && _initFromVisaModel)
+                InitFrmFromVisaModel();
+
+            UpdateLabels();
+            SetCountryPicBox();
+        }
+
+        private void InitCtrls()
         {
             //设置最小尺寸
             this.MinimumSize = this.Size;
-            //不允许调整大小
-            //this.FormBorderStyle = FormBorderStyle.FixedDialog;
-            //dgvGroupInfo.AutoGenerateColumns = false;
-            //dgvGroupInfo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells; //列宽自适应
-            //dgvGroupInfo.Columns["Birthday"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;//某一些列关闭自适应
-            //dgvGroupInfo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
-            this.btnReset.Enabled = false;
-            //this.dgvGroupInfo.ScrollBars = ScrollBars.Both; //默认就有了
-            dgvGroupInfo.RowsDefaultCellStyle.WrapMode = DataGridViewTriState.True;
-            dgvGroupInfo.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dgvGroupInfo.RowsDefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
-            //dgvGroupInfo.EditMode = DataGridViewEditMode.EditOnEnter;
-            dgvGroupInfo.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
-            //dgvGroupInfo.RowsDefaultCellStyle.Font = new Font(dgvGroupInfo.RowsDefaultCellStyle.Font,FontStyle.Bold);
-            dgvGroupInfo.AutoGenerateColumns = false;
-            //dgvGroupInfo.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgvGroupInfo.Columns["Identification"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvGroupInfo.Columns["FinancialCapacity"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvGroupInfo.Columns["Residence"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dgvGroupInfo.Columns["Sex"].Width = 40;
-            dgvGroupInfo.Columns["Marriaged"].Width = 40;
-            dgvGroupInfo.Columns["DepartureRecord"].Width = 40;
-            dgvGroupInfo.Columns["Occupation"].Width = 60;
-            dgvGroupInfo.Columns["Remark"].Width = 50;
-            dgvGroupInfo.Columns["dgvGroup_IssuePlace"].Width = 70;
-            dgvGroupInfo.Columns["AgencyOpinion"].Width = 50;
+
+            this.btnReset.Enabled = false; //直接禁用这个功能目前
+
+            InitDgv();
 
             //设置列表多选
             lvIn.MultiSelect = true;
             lvOut.MultiSelect = true;
+
+            InitComboBoxs();
+
+            //事件绑定
+            txtInTime.TextChanged += txtInTime_TextChanged;
+            txtDepartureTime.TextChanged += txtDepartureTime_TextChanged;
+            txtOutTime.TextChanged += txtOutTime_TextChanged;
+            txtSubmitTime.TextChanged += txtSubmitTime_TextChanged;
+        }
+
+        private void InitComboBoxs()
+        {
             //初始化comboBox的成员
             //出境类型
             txtDepartureType.Items.Add("单次");
@@ -320,26 +168,171 @@ namespace TravelAgency.CSUI.FrmSub
                 cbCountry.Items.Add(countryName);
             }
             cbCountry.DropDownStyle = ComboBoxStyle.DropDown;
+        }
 
-            //事件绑定
-            txtInTime.TextChanged += txtInTime_TextChanged;
-            txtDepartureTime.TextChanged += txtDepartureTime_TextChanged;
-            txtOutTime.TextChanged += txtOutTime_TextChanged;
-            txtSubmitTime.TextChanged += txtSubmitTime_TextChanged;
+        private void InitDgv()
+        {
+            dgvGroupInfo.RowsDefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            dgvGroupInfo.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvGroupInfo.RowsDefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
+            dgvGroupInfo.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
+            dgvGroupInfo.AutoGenerateColumns = false;
+            dgvGroupInfo.Columns["Identification"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvGroupInfo.Columns["FinancialCapacity"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvGroupInfo.Columns["Residence"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dgvGroupInfo.Columns["Sex"].Width = 40;
+            dgvGroupInfo.Columns["Marriaged"].Width = 40;
+            dgvGroupInfo.Columns["DepartureRecord"].Width = 40;
+            dgvGroupInfo.Columns["Occupation"].Width = 60;
+            dgvGroupInfo.Columns["Remark"].Width = 50;
+            dgvGroupInfo.Columns["dgvGroup_IssuePlace"].Width = 70;
+            dgvGroupInfo.Columns["AgencyOpinion"].Width = 50;
+        }
 
-            //设置操作员
-            txtTypeInPerson.Text = Common.GlobalUtils.LoginUser.UserName;
+        /// <summary>
+        /// 从已有list初始化窗口(还未设置团号)
+        /// </summary>
+        /// 校验是否都是还没分配写在了调用者那边
+        private void InitFrmFromList()
+        {
+            if (_list.Count == 0)
+                return;
+
+            //根据list加载列表
+            for (int i = 0; i < _list.Count; i++)
+            {
+                ListViewItem lvitem = new ListViewItem(_list[i].Name);
+                ListViewItem.ListViewSubItem lvsitem = new ListViewItem.ListViewSubItem(lvitem, _list[i].PassportNo);
+                lvitem.SubItems.Add(lvsitem);
+                lvitem.Tag = _list[i];
+                lvOut.Items.Add(lvitem);
+            }
+
+            //初始化时间选择控件
+            //还是不初始化的比较好
+
+            //从list初始化就不能reset和删除团号
+            btnReset.Enabled = false;
+            btnDelete.Enabled = false;
+
+            //没设置过的默认设置日本
+            cbCountry.Text = "日本"; //这个默认值应该只是在还没设置的时候默认日本
+            this.Text += "(" + _type + ")";
+            this.Text += "  当前状态:未做资料";
+
+            //团做个默认保持上一条记录的团队信息
+            //if (_type != Types.Team2Individual)
+            //    return;
+
+            _recentVisa = _bllVisa.GetLastRecord(_type); //如果是个签的话就是null这个值
+            if (_recentVisa == null)
+                return;
+            txtGroupNo.Text = _recentVisa.GroupNo;
+            cbCountry.Text = _recentVisa.Country;
+            txtDepartureType.Text = _recentVisa.DepartureType;
+            txtDepartureTime.Text = DateTimeFormator.DateTimeToString(_recentVisa.PredictTime);
+            txtSubmitTime.Text = DateTimeFormator.DateTimeToString(_recentVisa.SubmitTime);
+            txtSalesPerson.Text = _recentVisa.SalesPerson;
+            txtInTime.Text = DateTimeFormator.DateTimeToString(_recentVisa.InTime);
+            txtOutTime.Text = DateTimeFormator.DateTimeToString(_recentVisa.OutTime);
+            txtClient.Text = _recentVisa.client;
+            txtPerson.Text = _recentVisa.Person;
+            txtSubmitCondition.Text = _recentVisa.SubmitCondition;
+            txtFetchType.Text = _recentVisa.FetchCondition;
+            txtCheckPerson.Text = _recentVisa.CheckPerson;
+            chbIsUrgent.Checked = _recentVisa.IsUrgent;
+            txtRealTime.Text = "";
+
+            txtTypeInPerson.Text = GlobalUtils.LoginUser.UserName; //初始没做的时候，typeinperson就是当前人
             txtTypeInPerson.Enabled = false;
-            //设置国家默认值
-            //cbCountry.Text = "日本"; //这个默认值应该只是在还没设置的时候默认日本
+        }
 
-            if (_list != null && _visaModel == null && !_initFromVisaModel)
-                InitFrmFromList();
-            if (_list == null && _visaModel != null && _initFromVisaModel)
-                InitFrmFromVisaModel();
 
-            UpdateLabels();
-            SetCountryPicBox();
+        /// <summary>
+        /// 从已有visaModel设置窗口(已经设置了团号)
+        /// </summary>
+        private void InitFrmFromVisaModel()
+        {
+            if (_visaModel == null)
+                return;
+
+            //查询得到所有的属于这个团的用户
+            _list = _bllVisaInfo.GetModelListByVisaIdOrderByPosition(_visaModel.Visa_id);
+            _visainfoListBackUp = new List<VisaInfo>();
+            foreach (var visaInfo in _list) //查看已有团号的时候，备份一份，用来校验到底修改了没有
+            {
+                _visainfoListBackUp.Add(visaInfo.ToObjectCopy());
+            }
+
+            //校验这个团里面是否有延迟的
+            bool delay = false;
+            foreach (var visaInfo in _list)
+            {
+                if (visaInfo.outState == Common.Enums.OutState.Type01Delay)
+                {
+                    delay = true; //有一个的话就把选择框勾上
+                    break;
+                }
+            }
+
+            chkDelay.Checked = delay;
+
+            //按照position顺序进行排序 //放到上面的方法里面直接调整了顺序了
+            //_list.Sort((model1, model2) => { return model1.Position < model2.Position ? -1 : 1; });
+
+            //根据list加载列表
+            lvOut.Items.Clear();
+            lvIn.Items.Clear();
+            for (int i = 0; i < _list.Count; i++)
+            {
+                ListViewItem lvItem = new ListViewItem(_list[i].Name);
+                ListViewItem.ListViewSubItem lvSubItem = new ListViewItem.ListViewSubItem(lvItem, _list[i].PassportNo);
+                lvItem.SubItems.Add(lvSubItem);
+                lvItem.Tag = _list[i];
+                lvIn.Items.Add(lvItem); //这里是默认进入的在里面
+            }
+
+            //初始化团号
+            //UpdateGroupNo(); //从已有加载的时候不去自动更新团号了
+
+            //初始化dgv
+            UpdateDgvAndListViaListView();
+
+            //初始化备注项
+            for (int i = 0; i < dgvGroupInfo.Rows.Count; i++)
+            {
+                dgvGroupInfo.Rows[i].Cells["Remark"].Value = _visaModel.Remark;
+            }
+
+            //初始数据项
+            txtDepartureTime.Text = DateTimeFormator.DateTimeToString(_visaModel.PredictTime);
+            cbCountry.Text = _visaModel.Country;
+            txtSalesPerson.Text = _visaModel.SalesPerson;
+            txtSubmitTime.Text = DateTimeFormator.DateTimeToString(_visaModel.SubmitTime);
+            txtInTime.Text = DateTimeFormator.DateTimeToString(_visaModel.InTime);
+            txtOutTime.Text = DateTimeFormator.DateTimeToString(_visaModel.OutTime);
+            txtClient.Text = _visaModel.client;
+            txtDepartureType.Text = _visaModel.DepartureType;
+            txtSubmitCondition.Text = _visaModel.SubmitCondition;
+            txtFetchType.Text = _visaModel.FetchCondition;
+            txtCheckPerson.Text = _visaModel.CheckPerson;
+            chbIsUrgent.Checked = _visaModel.IsUrgent;
+            txtPerson.Text = _visaModel.Person;
+
+            txtQuQianYuan.Text = _visaModel.QuQianYuan;
+            txtPeiQianYuan.Text = _visaModel.PeiQianYuan;
+            txtRealTime.Text = DateTimeFormator.DateTimeToString(_visaModel.RealTime);
+            txtGroupNo.Text = _visaModel.GroupNo;
+
+            txtTypeInPerson.Text = _visaModel.TypeInPerson;
+            txtTypeInPerson.Enabled = false;
+
+            this.Text += "(" + _visaModel.Types + ")";
+            if (_bllLoger.HasVisaBeenTypedIn(_visaModel))
+                this.Text += "  当前状态:已做资料";
+            else
+                this.Text += "  当前状态:未做资料";
+
         }
 
 
@@ -536,10 +529,6 @@ namespace TravelAgency.CSUI.FrmSub
 
             dgvGroupInfo.DataSource = null; //必须加，不然报错，不知道为什么
             dgvGroupInfo.DataSource = _dgvList;
-            //this.dgvGroupInfo.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-
-            //dgvGroupInfo.Invalidate();
-            //dgvGroupInfo.Update();
         }
 
         /// <summary>
@@ -575,9 +564,7 @@ namespace TravelAgency.CSUI.FrmSub
         private void dgvGroupInfo_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             for (int i = 0; i < dgvGroupInfo.Rows.Count; i++)
-            {
                 dgvGroupInfo.Rows[i].HeaderCell.Value = (i + 1).ToString();
-            }
             if (dgvGroupInfo.Rows.Count == 1 && lvIn.Items.Count == 1)
                 dgvGroupInfo.Rows[0].Cells["Remark"].Value = "无";
         }
@@ -591,8 +578,6 @@ namespace TravelAgency.CSUI.FrmSub
         {
             UpdateLabels();
         }
-
-
 
         /// <summary>
         /// 实现赋值粘贴,Ctrl+C,Ctrl+V响应
@@ -764,7 +749,7 @@ namespace TravelAgency.CSUI.FrmSub
                 ExcelGenerator.GetIndividualVisaExcel(_dgvList, string.Empty, txtGroupNo.Text);
         }
 
-        private void UpdateUserState()
+        private void UpdateUserBusyState()
         {
             bool finished = _bllJobAssignment.UserWorkFinished(GlobalUtils.LoginUser.WorkId);
             if (!_bllWorkerQueue.ChangeUserBusyState(GlobalUtils.LoginUser.WorkId, !finished))
@@ -861,13 +846,11 @@ namespace TravelAgency.CSUI.FrmSub
                 {
                     //触发一次自己的工作状态检查，对IsBusy字段进行更新
                     if (GlobalUtils.LoginUserLevel == RigthLevel.Normal)
-                        UpdateUserState();
+                        UpdateUserBusyState();
 
                     //触发一次分配任务逻辑
                     if (hasOneTypedIn)
                         _bllJobAssignment.AssignmentJob();
-
-
                 }
 
                 //添加完成后，删除这几个人
@@ -950,10 +933,9 @@ namespace TravelAgency.CSUI.FrmSub
                 if (_visaModel.Country == "日本" &&
                     (_visaModel.Types == "个签" || _visaModel.Types == "团做个" || _visaModel.Types == "商务"))
                 {
-
                     //触发一次自己的工作状态检查，对IsBusy字段进行更新
                     if (GlobalUtils.LoginUserLevel == RigthLevel.Normal)
-                        UpdateUserState();
+                        UpdateUserBusyState();
 
                     if (hasOneTypedIn) //触发一次分配工作的逻辑
                         _bllJobAssignment.AssignmentJob();
