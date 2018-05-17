@@ -67,7 +67,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelGroupInfo = new DevComponents.DotNetBar.PanelEx();
             this.txtClient = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.txtOperator = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX18 = new DevComponents.DotNetBar.LabelX();
             this.txtRealTime = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.labelX17 = new DevComponents.DotNetBar.LabelX();
@@ -87,7 +86,6 @@
             this.labelX4 = new DevComponents.DotNetBar.LabelX();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.txtTypeInPerson = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.txtSalesPerson = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.labelX9 = new DevComponents.DotNetBar.LabelX();
             this.labelX12 = new DevComponents.DotNetBar.LabelX();
@@ -125,6 +123,8 @@
             this.移到顶部ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.移到底部ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查看资料ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtSalesPerson = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.txtOperator = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.panelMain.SuspendLayout();
             this.panelMid2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGroupInfo)).BeginInit();
@@ -626,8 +626,9 @@
             // 
             this.panelGroupInfo.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelGroupInfo.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelGroupInfo.Controls.Add(this.txtClient);
             this.panelGroupInfo.Controls.Add(this.txtOperator);
+            this.panelGroupInfo.Controls.Add(this.txtSalesPerson);
+            this.panelGroupInfo.Controls.Add(this.txtClient);
             this.panelGroupInfo.Controls.Add(this.labelX18);
             this.panelGroupInfo.Controls.Add(this.txtRealTime);
             this.panelGroupInfo.Controls.Add(this.labelX17);
@@ -647,7 +648,6 @@
             this.panelGroupInfo.Controls.Add(this.labelX4);
             this.panelGroupInfo.Controls.Add(this.labelX3);
             this.panelGroupInfo.Controls.Add(this.txtTypeInPerson);
-            this.panelGroupInfo.Controls.Add(this.txtSalesPerson);
             this.panelGroupInfo.Controls.Add(this.labelX1);
             this.panelGroupInfo.Controls.Add(this.labelX9);
             this.panelGroupInfo.Controls.Add(this.labelX12);
@@ -685,20 +685,6 @@
             this.txtClient.Size = new System.Drawing.Size(93, 21);
             this.txtClient.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.txtClient.TabIndex = 89;
-            // 
-            // txtOperator
-            // 
-            // 
-            // 
-            // 
-            this.txtOperator.Border.Class = "TextBoxBorder";
-            this.txtOperator.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtOperator.DisabledBackColor = System.Drawing.Color.White;
-            this.txtOperator.Location = new System.Drawing.Point(312, 179);
-            this.txtOperator.Name = "txtOperator";
-            this.txtOperator.PreventEnterBeep = true;
-            this.txtOperator.Size = new System.Drawing.Size(93, 21);
-            this.txtOperator.TabIndex = 87;
             // 
             // labelX18
             // 
@@ -957,20 +943,6 @@
             this.txtTypeInPerson.PreventEnterBeep = true;
             this.txtTypeInPerson.Size = new System.Drawing.Size(93, 21);
             this.txtTypeInPerson.TabIndex = 15;
-            // 
-            // txtSalesPerson
-            // 
-            // 
-            // 
-            // 
-            this.txtSalesPerson.Border.Class = "TextBoxBorder";
-            this.txtSalesPerson.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtSalesPerson.DisabledBackColor = System.Drawing.Color.White;
-            this.txtSalesPerson.Location = new System.Drawing.Point(312, 151);
-            this.txtSalesPerson.Name = "txtSalesPerson";
-            this.txtSalesPerson.PreventEnterBeep = true;
-            this.txtSalesPerson.Size = new System.Drawing.Size(93, 21);
-            this.txtSalesPerson.TabIndex = 17;
             // 
             // labelX1
             // 
@@ -1415,6 +1387,30 @@
             this.查看资料ToolStripMenuItem.Text = "查看资料";
             this.查看资料ToolStripMenuItem.Click += new System.EventHandler(this.查看资料ToolStripMenuItem_Click);
             // 
+            // txtSalesPerson
+            // 
+            this.txtSalesPerson.DisplayMember = "Text";
+            this.txtSalesPerson.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.txtSalesPerson.FormattingEnabled = true;
+            this.txtSalesPerson.ItemHeight = 15;
+            this.txtSalesPerson.Location = new System.Drawing.Point(312, 151);
+            this.txtSalesPerson.Name = "txtSalesPerson";
+            this.txtSalesPerson.Size = new System.Drawing.Size(93, 21);
+            this.txtSalesPerson.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.txtSalesPerson.TabIndex = 90;
+            // 
+            // txtOperator
+            // 
+            this.txtOperator.DisplayMember = "Text";
+            this.txtOperator.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.txtOperator.FormattingEnabled = true;
+            this.txtOperator.ItemHeight = 15;
+            this.txtOperator.Location = new System.Drawing.Point(312, 179);
+            this.txtOperator.Name = "txtOperator";
+            this.txtOperator.Size = new System.Drawing.Size(93, 21);
+            this.txtOperator.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.txtOperator.TabIndex = 91;
+            // 
             // FrmSetGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1473,7 +1469,6 @@
         private DevComponents.DotNetBar.PanelEx panelGroupInfo;
         private DevComponents.DotNetBar.Controls.TextBoxX txtCheckPerson;
         private DevComponents.DotNetBar.Controls.TextBoxX txtTypeInPerson;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtSalesPerson;
         private DevComponents.DotNetBar.LabelX labelX1;
         private DevComponents.DotNetBar.LabelX labelX9;
         private DevComponents.DotNetBar.LabelX labelX13;
@@ -1534,8 +1529,9 @@
         private DevComponents.DotNetBar.LabelX labelX17;
         private DevComponents.DotNetBar.Controls.TextBoxX txtQuQianYuan;
         private DevComponents.Editors.DateTimeAdv.DateTimeInput txtRealTime;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtOperator;
         private DevComponents.DotNetBar.LabelX labelX18;
         private DevComponents.DotNetBar.Controls.ComboBoxEx txtClient;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx txtOperator;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx txtSalesPerson;
     }
 }

@@ -124,7 +124,16 @@ namespace TravelAgency.CSUI.FrmSub
         private void InitComboBoxs()
         {
             //var list = BLL.CommonBll.GetFieldList("CustomerInfo", "CustomerName");
-            
+            txtClient.DropDownStyle = ComboBoxStyle.DropDown;
+            txtSalesPerson.DropDownStyle = ComboBoxStyle.DropDown;
+            txtOperator.DropDownStyle = ComboBoxStyle.DropDown;
+
+            var list = BLL.CustomerInfo.GetCustomerList();
+            if (list != null && list.Count > 0)
+                foreach (var item in list)
+                    txtClient.Items.Add(item);
+            txtClient.SelectedIndex = 0;
+            txtClient.SelectedIndexChanged += TxtClient_SelectedIndexChanged;
 
             //初始化comboBox的成员
             //出境类型
@@ -171,6 +180,28 @@ namespace TravelAgency.CSUI.FrmSub
                 cbCountry.Items.Add(countryName);
             }
             cbCountry.DropDownStyle = ComboBoxStyle.DropDown;
+        }
+
+        private void TxtClient_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtOperator.Items.Clear();
+            var list = BLL.CustomerInfo.GetOpeartorByCustName(txtClient.Text);
+            if (list != null && list.Count > 0)
+                foreach (var item in list)
+                    txtOperator.Items.Add(item);
+
+            txtSalesPerson.Items.Clear();
+            list = BLL.CustomerInfo.GetSalesPersonByCustName(txtClient.Text);
+            if (list != null && list.Count > 0)
+                foreach (var item in list)
+                    txtSalesPerson.Items.Add(item);
+
+            if (txtOperator.Items.Count > 0)
+                txtOperator.SelectedIndex = 0;
+
+            if (txtSalesPerson.Items.Count > 0)
+                txtSalesPerson.SelectedIndex = 0;
+
         }
 
         private void InitDgv()
