@@ -66,6 +66,9 @@
             this.btnAllIn = new DevComponents.DotNetBar.ButtonX();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelGroupInfo = new DevComponents.DotNetBar.PanelEx();
+            this.txtClient = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.txtOperator = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX18 = new DevComponents.DotNetBar.LabelX();
             this.txtRealTime = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.labelX17 = new DevComponents.DotNetBar.LabelX();
             this.txtQuQianYuan = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -122,9 +125,6 @@
             this.移到顶部ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.移到底部ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查看资料ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtOperator = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX18 = new DevComponents.DotNetBar.LabelX();
-            this.txtClient = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.panelMain.SuspendLayout();
             this.panelMid2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGroupInfo)).BeginInit();
@@ -221,7 +221,7 @@
             this.dgvGroupInfo.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvGroupInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvGroupInfo.EnableHeadersVisualStyles = false;
-            this.dgvGroupInfo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.dgvGroupInfo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dgvGroupInfo.Location = new System.Drawing.Point(0, 0);
             this.dgvGroupInfo.Name = "dgvGroupInfo";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -674,6 +674,44 @@
             this.panelGroupInfo.Style.GradientAngle = 90;
             this.panelGroupInfo.TabIndex = 47;
             // 
+            // txtClient
+            // 
+            this.txtClient.DisplayMember = "Text";
+            this.txtClient.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.txtClient.FormattingEnabled = true;
+            this.txtClient.ItemHeight = 15;
+            this.txtClient.Location = new System.Drawing.Point(312, 124);
+            this.txtClient.Name = "txtClient";
+            this.txtClient.Size = new System.Drawing.Size(93, 21);
+            this.txtClient.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.txtClient.TabIndex = 89;
+            // 
+            // txtOperator
+            // 
+            // 
+            // 
+            // 
+            this.txtOperator.Border.Class = "TextBoxBorder";
+            this.txtOperator.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtOperator.DisabledBackColor = System.Drawing.Color.White;
+            this.txtOperator.Location = new System.Drawing.Point(312, 179);
+            this.txtOperator.Name = "txtOperator";
+            this.txtOperator.PreventEnterBeep = true;
+            this.txtOperator.Size = new System.Drawing.Size(93, 21);
+            this.txtOperator.TabIndex = 87;
+            // 
+            // labelX18
+            // 
+            // 
+            // 
+            // 
+            this.labelX18.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX18.Location = new System.Drawing.Point(217, 179);
+            this.labelX18.Name = "labelX18";
+            this.labelX18.Size = new System.Drawing.Size(91, 23);
+            this.labelX18.TabIndex = 88;
+            this.labelX18.Text = "操作:";
+            // 
             // txtRealTime
             // 
             // 
@@ -837,7 +875,7 @@
             this.txtPerson.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.txtPerson.FormattingEnabled = true;
             this.txtPerson.ItemHeight = 15;
-            this.txtPerson.Location = new System.Drawing.Point(312, 232);
+            this.txtPerson.Location = new System.Drawing.Point(312, 206);
             this.txtPerson.Name = "txtPerson";
             this.txtPerson.Size = new System.Drawing.Size(93, 21);
             this.txtPerson.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -849,7 +887,7 @@
             // 
             // 
             this.labelX14.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX14.Location = new System.Drawing.Point(215, 233);
+            this.labelX14.Location = new System.Drawing.Point(215, 207);
             this.labelX14.Name = "labelX14";
             this.labelX14.Size = new System.Drawing.Size(91, 23);
             this.labelX14.TabIndex = 75;
@@ -1376,44 +1414,6 @@
             this.查看资料ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.查看资料ToolStripMenuItem.Text = "查看资料";
             this.查看资料ToolStripMenuItem.Click += new System.EventHandler(this.查看资料ToolStripMenuItem_Click);
-            // 
-            // txtOperator
-            // 
-            // 
-            // 
-            // 
-            this.txtOperator.Border.Class = "TextBoxBorder";
-            this.txtOperator.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtOperator.DisabledBackColor = System.Drawing.Color.White;
-            this.txtOperator.Location = new System.Drawing.Point(312, 179);
-            this.txtOperator.Name = "txtOperator";
-            this.txtOperator.PreventEnterBeep = true;
-            this.txtOperator.Size = new System.Drawing.Size(93, 21);
-            this.txtOperator.TabIndex = 87;
-            // 
-            // labelX18
-            // 
-            // 
-            // 
-            // 
-            this.labelX18.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX18.Location = new System.Drawing.Point(217, 179);
-            this.labelX18.Name = "labelX18";
-            this.labelX18.Size = new System.Drawing.Size(91, 23);
-            this.labelX18.TabIndex = 88;
-            this.labelX18.Text = "操作:";
-            // 
-            // txtClient
-            // 
-            this.txtClient.DisplayMember = "Text";
-            this.txtClient.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.txtClient.FormattingEnabled = true;
-            this.txtClient.ItemHeight = 15;
-            this.txtClient.Location = new System.Drawing.Point(312, 124);
-            this.txtClient.Name = "txtClient";
-            this.txtClient.Size = new System.Drawing.Size(93, 21);
-            this.txtClient.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.txtClient.TabIndex = 89;
             // 
             // FrmSetGroup
             // 

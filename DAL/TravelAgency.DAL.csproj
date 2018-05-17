@@ -144,6 +144,7 @@
     <Compile Include="AppStatus.cs" />
     <Compile Include="AppStatusDal.cs" />
     <Compile Include="CustomerBalance.cs" />
+    <Compile Include="CustomerInfoDal.cs" />
     <Compile Include="CustomerInfo.cs" />
     <Compile Include="Enums_OrderInfo_OrderInfoState.cs" />
     <Compile Include="Enums_OrderInfo_OrderType.cs" />
