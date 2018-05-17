@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -88,7 +87,7 @@
             this.labelItem2 = new DevComponents.DotNetBar.LabelItem();
             this.lbCurPage = new DevComponents.DotNetBar.LabelItem();
             this.btnGeneratePersonalReport = new DevComponents.DotNetBar.ButtonItem();
-            this.cmsDgvRb = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmsDgvRb = new System.Windows.Forms.ContextMenuStrip();
             this.cmsItemRefreshState = new System.Windows.Forms.ToolStripMenuItem();
             this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -107,7 +106,8 @@
             this.韩国担保函ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.韩国加急申请书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bgWorkerLoadData = new System.ComponentModel.BackgroundWorker();
-            this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
+            this.styleManager1 = new DevComponents.DotNetBar.StyleManager();
+            this.附件管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panelDgv.SuspendLayout();
@@ -811,9 +811,10 @@
             this.评价录入ToolStripMenuItem,
             this.确认订单ToolStripMenuItem,
             this.上传订单附件ToolStripMenuItem,
-            this.下载订单附件ToolStripMenuItem});
+            this.下载订单附件ToolStripMenuItem,
+            this.附件管理ToolStripMenuItem});
             this.cmsDgvRb.Name = "cmsDgvRb";
-            this.cmsDgvRb.Size = new System.Drawing.Size(205, 236);
+            this.cmsDgvRb.Size = new System.Drawing.Size(205, 280);
             // 
             // cmsItemRefreshState
             // 
@@ -931,6 +932,13 @@
             this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2010Blue;
             this.styleManager1.MetroColorParameters = new DevComponents.DotNetBar.Metro.ColorTables.MetroColorGeneratorParameters(System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255))))), System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199))))));
             // 
+            // 附件管理ToolStripMenuItem
+            // 
+            this.附件管理ToolStripMenuItem.Name = "附件管理ToolStripMenuItem";
+            this.附件管理ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.附件管理ToolStripMenuItem.Text = "订单附件管理";
+            this.附件管理ToolStripMenuItem.Click += new System.EventHandler(this.附件管理ToolStripMenuItem_Click);
+            // 
             // FrmOrdersManage_Waitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1032,6 +1040,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem 上传订单附件ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 附件管理ToolStripMenuItem;
     }
 }
 

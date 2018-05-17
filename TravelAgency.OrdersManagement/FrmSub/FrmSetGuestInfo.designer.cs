@@ -79,6 +79,8 @@
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.txtOrderNo = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX15 = new DevComponents.DotNetBar.LabelX();
+            this.comboBoxEx1 = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.labelX17 = new DevComponents.DotNetBar.LabelX();
             this.panelEx1.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -524,6 +526,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBoxEx1);
+            this.groupBox1.Controls.Add(this.labelX17);
             this.groupBox1.Controls.Add(this.txtGuestUseTime);
             this.groupBox1.Controls.Add(this.txtGuestBirthday);
             this.groupBox1.Controls.Add(this.txtGuestEMail);
@@ -832,6 +836,30 @@
             this.labelX15.TabIndex = 166;
             this.labelX15.Text = "订单号:";
             // 
+            // comboBoxEx1
+            // 
+            this.comboBoxEx1.DisplayMember = "Text";
+            this.comboBoxEx1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboBoxEx1.FormattingEnabled = true;
+            this.comboBoxEx1.ItemHeight = 17;
+            this.comboBoxEx1.Location = new System.Drawing.Point(101, 325);
+            this.comboBoxEx1.Name = "comboBoxEx1";
+            this.comboBoxEx1.Size = new System.Drawing.Size(154, 23);
+            this.comboBoxEx1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.comboBoxEx1.TabIndex = 148;
+            // 
+            // labelX17
+            // 
+            // 
+            // 
+            // 
+            this.labelX17.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX17.Location = new System.Drawing.Point(8, 325);
+            this.labelX17.Name = "labelX17";
+            this.labelX17.Size = new System.Drawing.Size(93, 27);
+            this.labelX17.TabIndex = 147;
+            this.labelX17.Text = "客人分类:";
+            // 
             // FrmSetGuestInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -904,5 +932,7 @@
         private DevComponents.DotNetBar.LabelX labelX5;
         private DevComponents.DotNetBar.Controls.TextBoxX txtOrderNo;
         private DevComponents.DotNetBar.LabelX labelX15;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx comboBoxEx1;
+        private DevComponents.DotNetBar.LabelX labelX17;
     }
 }

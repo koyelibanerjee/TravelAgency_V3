@@ -9,6 +9,7 @@ using TravelAgency.Common;
 using TravelAgency.Common.PictureHandler;
 using TravelAgency.CSUI.FrmSub;
 using TravelAgency.Model;
+using TravelAgency.OrdersManagement.FrmSub;
 
 namespace TravelAgency.OrdersManagement
 {
@@ -674,6 +675,19 @@ namespace TravelAgency.OrdersManagement
             {
                 new OrderFilesHandler().UploadOrderFile(filename, list[0].Id);
             }
+        }
+
+        private void 附件管理ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 1)
+            {
+                MessageBoxEx.Show("请选中一条数据进行操作!");
+                return;
+            }
+
+            var list = GetSelectedModelList();
+            FrmOrderFilesManage frm = new FrmOrderFilesManage(list[0]);
+            frm.Show();
         }
     }
 }
