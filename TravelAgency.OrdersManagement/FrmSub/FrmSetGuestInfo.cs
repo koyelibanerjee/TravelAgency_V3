@@ -70,6 +70,9 @@ namespace TravelAgency.OrdersManagement
                 txtIsPraise.Text = _model.IsPraise;
                 txtRefundReason.Text = _model.RefundReason;
                 txtWaitorRemark.Text = _model.WaitorRemark;
+
+
+                txtOrderNo.Text = _model.OrderNo;
                 this.Text = "修改订单客户信息";
             }
         }
