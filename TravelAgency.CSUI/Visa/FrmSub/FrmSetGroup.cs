@@ -123,6 +123,9 @@ namespace TravelAgency.CSUI.FrmSub
 
         private void InitComboBoxs()
         {
+            //var list = BLL.CommonBll.GetFieldList("CustomerInfo", "CustomerName");
+            
+
             //初始化comboBox的成员
             //出境类型
             txtDepartureType.Items.Add("单次");

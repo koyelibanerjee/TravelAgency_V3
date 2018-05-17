@@ -93,6 +93,9 @@
     <Reference Include="TelerikCommon, Version=2017.3.1017.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomCtrls\DataGridViewEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CustomCtrls\ProPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>

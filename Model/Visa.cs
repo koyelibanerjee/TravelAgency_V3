@@ -59,6 +59,7 @@ namespace TravelAgency.Model
 		private bool _isurgent;
 		private string _peiqianyuan;
 		private string _quqianyuan;
+		private string _operator;
 		/// <summary>
 		/// 
 		/// </summary>
@@ -284,7 +285,7 @@ namespace TravelAgency.Model
 			get{return _documenter;}
 		}
 		/// <summary>
-		/// 
+		/// 单价
 		/// </summary>
 		public decimal? Price
 		{
@@ -450,6 +451,14 @@ namespace TravelAgency.Model
 		{
 			set{ _quqianyuan=value;}
 			get{return _quqianyuan;}
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		public string Operator
+		{
+			set{ _operator=value;}
+			get{return _operator;}
 		}
 		#endregion Model
 

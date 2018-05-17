@@ -85,7 +85,8 @@ namespace TravelAgency.DAL
 			strSql.Append("CheckPerson=@CheckPerson,");
 			strSql.Append("IsUrgent=@IsUrgent,");
 			strSql.Append("PeiQianYuan=@PeiQianYuan,");
-			strSql.Append("QuQianYuan=@QuQianYuan");
+			strSql.Append("QuQianYuan=@QuQianYuan,");
+			strSql.Append("Operator=@Operator");
 			strSql.Append(" where Visa_id=@Visa_id ");
 			SqlParameter[] parameters = {
 					new SqlParameter("@GroupNo", SqlDbType.VarChar,5000),
@@ -136,6 +137,7 @@ namespace TravelAgency.DAL
 					new SqlParameter("@IsUrgent", SqlDbType.Bit,1),
 					new SqlParameter("@PeiQianYuan", SqlDbType.VarChar,50),
 					new SqlParameter("@QuQianYuan", SqlDbType.VarChar,50),
+					new SqlParameter("@Operator", SqlDbType.VarChar,50),
 					new SqlParameter("@Visa_id", SqlDbType.UniqueIdentifier,16)};
 			parameters[0].Value = model.GroupNo;
 			parameters[1].Value = model.Name;
@@ -185,7 +187,8 @@ namespace TravelAgency.DAL
 			parameters[45].Value = model.IsUrgent;
 			parameters[46].Value = model.PeiQianYuan;
 			parameters[47].Value = model.QuQianYuan;
-			parameters[48].Value = model.Visa_id;
+			parameters[48].Value = model.Operator;
+			parameters[49].Value = model.Visa_id;
 
 			int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
@@ -248,7 +251,7 @@ namespace TravelAgency.DAL
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select  top 1 Visa_id,GroupNo,Name,Types,Tips,PredictTime,RealTime,FinishTime,Satus,Person,Number,Picture,ListCount,List,SalesPerson,Receipt,Quidco,Cost,OtherCost,ExpressNo,Call,Sale_id,DepartmentId,EntryTime,Country,Passengers,WorkId,Documenter,Price,ConsulateCost,VisaPersonCost,MailCost,Tips2,SubmitFlag,GroupPrice,InvitationCost,Remark,SubmitTime,InTime,OutTime,client,DepartureType,SubmitCondition,FetchCondition,TypeInPerson,CheckPerson,IsUrgent,PeiQianYuan,QuQianYuan from Visa ");
+			strSql.Append("select  top 1 Visa_id,GroupNo,Name,Types,Tips,PredictTime,RealTime,FinishTime,Satus,Person,Number,Picture,ListCount,List,SalesPerson,Receipt,Quidco,Cost,OtherCost,ExpressNo,Call,Sale_id,DepartmentId,EntryTime,Country,Passengers,WorkId,Documenter,Price,ConsulateCost,VisaPersonCost,MailCost,Tips2,SubmitFlag,GroupPrice,InvitationCost,Remark,SubmitTime,InTime,OutTime,client,DepartureType,SubmitCondition,FetchCondition,TypeInPerson,CheckPerson,IsUrgent,PeiQianYuan,QuQianYuan,Operator from Visa ");
 			strSql.Append(" where Visa_id=@Visa_id ");
 			SqlParameter[] parameters = {
 					new SqlParameter("@Visa_id", SqlDbType.UniqueIdentifier,16)			};
@@ -478,6 +481,10 @@ namespace TravelAgency.DAL
 				{
 					model.QuQianYuan=row["QuQianYuan"].ToString();
 				}
+				if(row["Operator"]!=null)
+				{
+					model.Operator=row["Operator"].ToString();
+				}
 			}
 			return model;
 		}
@@ -488,7 +495,7 @@ namespace TravelAgency.DAL
 		public DataSet GetList(string strWhere)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select Visa_id,GroupNo,Name,Types,Tips,PredictTime,RealTime,FinishTime,Satus,Person,Number,Picture,ListCount,List,SalesPerson,Receipt,Quidco,Cost,OtherCost,ExpressNo,Call,Sale_id,DepartmentId,EntryTime,Country,Passengers,WorkId,Documenter,Price,ConsulateCost,VisaPersonCost,MailCost,Tips2,SubmitFlag,GroupPrice,InvitationCost,Remark,SubmitTime,InTime,OutTime,client,DepartureType,SubmitCondition,FetchCondition,TypeInPerson,CheckPerson,IsUrgent,PeiQianYuan,QuQianYuan ");
+			strSql.Append("select Visa_id,GroupNo,Name,Types,Tips,PredictTime,RealTime,FinishTime,Satus,Person,Number,Picture,ListCount,List,SalesPerson,Receipt,Quidco,Cost,OtherCost,ExpressNo,Call,Sale_id,DepartmentId,EntryTime,Country,Passengers,WorkId,Documenter,Price,ConsulateCost,VisaPersonCost,MailCost,Tips2,SubmitFlag,GroupPrice,InvitationCost,Remark,SubmitTime,InTime,OutTime,client,DepartureType,SubmitCondition,FetchCondition,TypeInPerson,CheckPerson,IsUrgent,PeiQianYuan,QuQianYuan,Operator ");
 			strSql.Append(" FROM Visa ");
 			if(strWhere.Trim()!="")
 			{
@@ -508,7 +515,7 @@ namespace TravelAgency.DAL
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" Visa_id,GroupNo,Name,Types,Tips,PredictTime,RealTime,FinishTime,Satus,Person,Number,Picture,ListCount,List,SalesPerson,Receipt,Quidco,Cost,OtherCost,ExpressNo,Call,Sale_id,DepartmentId,EntryTime,Country,Passengers,WorkId,Documenter,Price,ConsulateCost,VisaPersonCost,MailCost,Tips2,SubmitFlag,GroupPrice,InvitationCost,Remark,SubmitTime,InTime,OutTime,client,DepartureType,SubmitCondition,FetchCondition,TypeInPerson,CheckPerson,IsUrgent,PeiQianYuan,QuQianYuan ");
+			strSql.Append(" Visa_id,GroupNo,Name,Types,Tips,PredictTime,RealTime,FinishTime,Satus,Person,Number,Picture,ListCount,List,SalesPerson,Receipt,Quidco,Cost,OtherCost,ExpressNo,Call,Sale_id,DepartmentId,EntryTime,Country,Passengers,WorkId,Documenter,Price,ConsulateCost,VisaPersonCost,MailCost,Tips2,SubmitFlag,GroupPrice,InvitationCost,Remark,SubmitTime,InTime,OutTime,client,DepartureType,SubmitCondition,FetchCondition,TypeInPerson,CheckPerson,IsUrgent,PeiQianYuan,QuQianYuan,Operator ");
 			strSql.Append(" FROM Visa ");
 			if(strWhere.Trim()!="")
 			{

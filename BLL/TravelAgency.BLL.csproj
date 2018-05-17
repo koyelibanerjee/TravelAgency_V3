@@ -137,6 +137,7 @@
     <Compile Include="CommisionMoney.cs" />
     <Compile Include="CommonBll.cs" />
     <Compile Include="ConsulateCharge.cs" />
+    <Compile Include="CustomerInfo.cs" />
     <Compile Include="Enums_OrderInfo_OrderInfoState.cs" />
     <Compile Include="Enums_OrderInfo_OrderType.cs" />
     <Compile Include="Enums_OrderInfo_PaymentPlatform.cs" />

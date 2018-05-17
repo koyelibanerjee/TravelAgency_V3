@@ -143,6 +143,7 @@
     <Compile Include="AppAll.cs" />
     <Compile Include="AppStatus.cs" />
     <Compile Include="AppStatusDal.cs" />
+    <Compile Include="CustomerInfo.cs" />
     <Compile Include="Enums_OrderInfo_OrderInfoState.cs" />
     <Compile Include="Enums_OrderInfo_OrderType.cs" />
     <Compile Include="Enums_OrderInfo_PaymentPlatform.cs" />
