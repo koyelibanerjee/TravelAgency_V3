@@ -71,6 +71,8 @@ namespace TravelAgency.OrdersManagement
                 txtRefundReason.Text = _model.RefundReason;
                 txtWaitorRemark.Text = _model.WaitorRemark;
 
+                txtOperRemark.Text = _model.OperRemark;
+                txtOperRemark.ReadOnly = true;
 
                 txtOrderNo.Text = _model.OrderNo;
                 this.Text = "修改订单客户信息";

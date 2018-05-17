@@ -53,6 +53,8 @@
             this.btnOK = new DevComponents.DotNetBar.ButtonX();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
+            this.txtWaitorRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX8 = new DevComponents.DotNetBar.LabelX();
             this.panelEx1.SuspendLayout();
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtReplyWaitorConfirmTime)).BeginInit();
@@ -69,7 +71,7 @@
             this.panelEx1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEx1.Location = new System.Drawing.Point(0, 0);
             this.panelEx1.Name = "panelEx1";
-            this.panelEx1.Size = new System.Drawing.Size(435, 462);
+            this.panelEx1.Size = new System.Drawing.Size(435, 505);
             this.panelEx1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelEx1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -83,6 +85,8 @@
             // 
             this.panelMain.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelMain.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelMain.Controls.Add(this.txtWaitorRemark);
+            this.panelMain.Controls.Add(this.labelX8);
             this.panelMain.Controls.Add(this.txtReplyWaitorConfirmTime);
             this.panelMain.Controls.Add(this.txtJpConfirmTime);
             this.panelMain.Controls.Add(this.txtOperOrderTime);
@@ -110,7 +114,7 @@
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(435, 462);
+            this.panelMain.Size = new System.Drawing.Size(435, 505);
             this.panelMain.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelMain.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelMain.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -472,7 +476,7 @@
             // 
             this.btnOK.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnOK.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnOK.Location = new System.Drawing.Point(118, 423);
+            this.btnOK.Location = new System.Drawing.Point(118, 466);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(87, 27);
             this.btnOK.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -484,7 +488,7 @@
             // 
             this.btnCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnCancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnCancel.Location = new System.Drawing.Point(212, 423);
+            this.btnCancel.Location = new System.Drawing.Point(212, 466);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(87, 27);
             this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -504,11 +508,36 @@
             this.labelX6.TabIndex = 148;
             this.labelX6.Text = "回复客服确认时间:";
             // 
+            // txtWaitorRemark
+            // 
+            // 
+            // 
+            // 
+            this.txtWaitorRemark.Border.Class = "TextBoxBorder";
+            this.txtWaitorRemark.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtWaitorRemark.Location = new System.Drawing.Point(154, 408);
+            this.txtWaitorRemark.Multiline = true;
+            this.txtWaitorRemark.Name = "txtWaitorRemark";
+            this.txtWaitorRemark.Size = new System.Drawing.Size(267, 42);
+            this.txtWaitorRemark.TabIndex = 179;
+            // 
+            // labelX8
+            // 
+            // 
+            // 
+            // 
+            this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX8.Location = new System.Drawing.Point(26, 408);
+            this.labelX8.Name = "labelX8";
+            this.labelX8.Size = new System.Drawing.Size(93, 27);
+            this.labelX8.TabIndex = 178;
+            this.labelX8.Text = "客服备注:";
+            // 
             // FrmSetOperInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(435, 462);
+            this.ClientSize = new System.Drawing.Size(435, 505);
             this.Controls.Add(this.panelEx1);
             this.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Name = "FrmSetOperInfo";
@@ -549,5 +578,7 @@
         private DevComponents.Editors.DateTimeAdv.DateTimeInput txtOperOrderTime;
         private DevComponents.Editors.DateTimeAdv.DateTimeInput txtJpConfirmTime;
         private DevComponents.Editors.DateTimeAdv.DateTimeInput txtReplyWaitorConfirmTime;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtWaitorRemark;
+        private DevComponents.DotNetBar.LabelX labelX8;
     }
 }

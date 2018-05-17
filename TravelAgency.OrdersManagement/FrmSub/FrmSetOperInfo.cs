@@ -62,6 +62,10 @@ namespace TravelAgency.OrdersManagement
                     txtMoneyType.Text = "日本";
 
                 txtOperRemark.Text = _model.OperRemark;
+
+                txtWaitorRemark.Text = _model.WaitorRemark;
+                txtWaitorRemark.ReadOnly = true;
+
                 this.Text = "修改订单操作信息";
             }
         }
