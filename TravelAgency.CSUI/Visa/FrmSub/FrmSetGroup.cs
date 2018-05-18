@@ -184,6 +184,8 @@ namespace TravelAgency.CSUI.FrmSub
 
         private void TxtClient_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (txtClient.Text == "")
+                return;
             txtOperator.Items.Clear();
             var list = BLL.CustomerInfo.GetOpeartorByCustName(txtClient.Text);
             if (list != null && list.Count > 0)
@@ -357,6 +359,8 @@ namespace TravelAgency.CSUI.FrmSub
             txtPeiQianYuan.Text = _visaModel.PeiQianYuan;
             txtRealTime.Text = DateTimeFormator.DateTimeToString(_visaModel.RealTime);
             txtGroupNo.Text = _visaModel.GroupNo;
+
+            txtOperator.Text = _visaModel.Operator;
 
             txtTypeInPerson.Text = _visaModel.TypeInPerson;
             txtTypeInPerson.Enabled = false;
@@ -1037,30 +1041,31 @@ namespace TravelAgency.CSUI.FrmSub
                     _visaModel.Remark = (string)dgvGroupInfo.Rows[0].Cells["Remark"].Value;
 
                 if (!string.IsNullOrEmpty(txtDepartureTime.Text))
-                    _visaModel.PredictTime = DateTime.Parse(txtDepartureTime.Text);
+                    _visaModel.PredictTime = CtrlParser.Parse2Datetime(txtDepartureTime);
                 if (!string.IsNullOrEmpty(txtSubmitTime.Text))
-                    _visaModel.SubmitTime = DateTime.Parse(txtSubmitTime.Text);
+                    _visaModel.SubmitTime = CtrlParser.Parse2Datetime(txtSubmitTime);
                 if (!string.IsNullOrEmpty(txtInTime.Text))
-                    _visaModel.InTime = DateTime.Parse(txtInTime.Text);
+                    _visaModel.InTime = CtrlParser.Parse2Datetime(txtInTime);
                 if (!string.IsNullOrEmpty(txtOutTime.Text))
-                    _visaModel.OutTime = DateTime.Parse(txtOutTime.Text);
+                    _visaModel.OutTime = CtrlParser.Parse2Datetime(txtOutTime);
 
                 _visaModel.EntryTime = DateTime.Now;
-                _visaModel.GroupNo = txtGroupNo.Text;
-                _visaModel.SalesPerson = txtSalesPerson.Text;
-                _visaModel.Country = cbCountry.Text;
+                _visaModel.GroupNo = CtrlParser.Parse2String(txtGroupNo);
+                _visaModel.SalesPerson = CtrlParser.Parse2String(txtSalesPerson);
+                _visaModel.Country = CtrlParser.Parse2String(cbCountry);
                 _visaModel.Number = lvIn.Items.Count; //团号的人数
-                _visaModel.client = txtClient.Text;
-                _visaModel.Name = txtClient.Text;
-                _visaModel.DepartureType = txtDepartureType.Text;
-                _visaModel.SubmitCondition = txtSubmitCondition.Text;
-                _visaModel.FetchCondition = txtFetchType.Text;
-                _visaModel.TypeInPerson = txtTypeInPerson.Text;
-                _visaModel.CheckPerson = txtCheckPerson.Text;
+                _visaModel.client = CtrlParser.Parse2String(txtClient);
+                _visaModel.Name = CtrlParser.Parse2String(txtClient);
+                _visaModel.DepartureType = CtrlParser.Parse2String(txtDepartureType);
+                _visaModel.SubmitCondition = CtrlParser.Parse2String(txtSubmitCondition);
+                _visaModel.FetchCondition = CtrlParser.Parse2String(txtFetchType);
+                _visaModel.TypeInPerson = CtrlParser.Parse2String(txtTypeInPerson);
+                _visaModel.CheckPerson = CtrlParser.Parse2String(txtCheckPerson);
                 //_visaModel.Types = Common.Enums.Types.Individual; //设置为个签
                 _visaModel.Types = _type;//设置为指定类型
                 _visaModel.IsUrgent = chbIsUrgent.Checked;
-                _visaModel.Person = txtPerson.Text;
+                _visaModel.Person = CtrlParser.Parse2String(txtPerson);
+                _visaModel.Operator = CtrlParser.Parse2String(txtOperator);
 
                 if (!string.IsNullOrEmpty(txtRealTime.Text))
                     _visaModel.RealTime = DateTime.Parse(txtRealTime.Text);
@@ -1099,7 +1104,7 @@ namespace TravelAgency.CSUI.FrmSub
                     model.Remark = (string)dgvGroupInfo.Rows[0].Cells["Remark"].Value;
 
                 //1.保存团号信息修改到数据库,Visa表（sales_person,country,GroupNo,PredictTime）
-                model.GroupNo = txtGroupNo.Text;
+                model.GroupNo = CtrlParser.Parse2String(txtGroupNo);
                 model.SalesPerson = txtSalesPerson.Text;
                 model.Country = cbCountry.Text;
                 model.Number = lvIn.Items.Count;
@@ -1127,6 +1132,9 @@ namespace TravelAgency.CSUI.FrmSub
                 //model.Types = _type; //设置为指定类型 type不去修改
                 model.IsUrgent = chbIsUrgent.Checked;
                 model.Person = txtPerson.Text;
+
+                model.Operator = CtrlParser.Parse2String(txtOperator);
+
 
                 if (!string.IsNullOrEmpty(txtRealTime.Text))
                     model.RealTime = DateTime.Parse(txtRealTime.Text);

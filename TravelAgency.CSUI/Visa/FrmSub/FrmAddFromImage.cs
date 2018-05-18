@@ -72,9 +72,7 @@ namespace TravelAgency.CSUI.Visa.FrmSub
             PicHandler.ConvertTo1Bpp1("roi.jpg", "roi_threshed.jpg"); //先二值化再做识别
 
             string ret = new CmdHandler().RunCmd("tesseract.exe roi_threshed.jpg result -l eng");
-
             string res = File.ReadAllText("result.txt");
-
             txtPassNo.Text = res;
         }
     }

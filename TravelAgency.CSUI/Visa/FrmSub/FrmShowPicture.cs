@@ -42,6 +42,13 @@ namespace TravelAgency.CSUI.FrmSub
         {
             this.MaximizeBox = false;
             UpdateState();
+            FormClosing += FrmShowPicture_FormClosing;
+        }
+
+        private void FrmShowPicture_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //this.picBox1.Image?.Dispose();
+            //this.Dispose();
         }
 
         private void UpdateState()

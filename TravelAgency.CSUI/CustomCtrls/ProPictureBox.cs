@@ -79,6 +79,8 @@ namespace TravelAgency.CSUI.CustomCtrls
             get { return base.Image; }
             set
             {
+                //if (base.Image != null)
+                //    base.Image.Dispose();
                 base.Image = value;
                 //_imageChanged?.Invoke(this, new EventArgs()); //TODO:暂时屏蔽，有bug
             }
@@ -149,7 +151,7 @@ namespace TravelAgency.CSUI.CustomCtrls
             MouseWheel += OnMouseWheel;
             Resize += OnResize;
             ImageChanged += OnImageChanged;
-
+            
 
             #region 右键菜单初始化
             this.cmsPicBox = new System.Windows.Forms.ContextMenuStrip();

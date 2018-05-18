@@ -183,6 +183,11 @@ namespace TravelAgency.CSUI.FrmSub
                 proPictureBox1.Image = Resources.PassportPictureNotFound;
                 return;
             }
+            //if (proPictureBox1.Image != null)
+            //{
+            //    proPictureBox1.Image.Dispose();
+            //    proPictureBox1.Image = null;
+            //}
 
             if (!PassportPicHandler.CheckAndDownloadIfNotExist(model.PassportNo, PassportPicHandler.PicType.Type01Normal))
             {

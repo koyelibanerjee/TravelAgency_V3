@@ -9,7 +9,5 @@ namespace TravelAgency.CSUI.CustomCtrls
     public class DataGridViewEx: System.Windows.Forms.DataGridView
     {
 
-
-
     }
 }
