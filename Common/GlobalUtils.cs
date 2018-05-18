@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -11,6 +12,8 @@ using log4net;
 using TravelAgency.Common.FTP;
 using TravelAgency.Common.Word;
 using Application = System.Windows.Forms.Application;
+using System.Collections.Generic;
+using TravelAgency.Common.DataStructure;
 
 namespace TravelAgency.Common
 {
@@ -169,15 +172,21 @@ namespace TravelAgency.Common
             return fbd.SelectedPath;
         }
 
+        //private static readonly LRUCache<string,byte[]> _imagesCache = new LRUCache<string, byte[]>(3);
         //加载后防止文件继续占用
         public static byte[] LoadFileToMemory(string filename)
         {
+            //if (_imagesCache.GetItem(filename) != null)
+            //    return _imagesCache.GetItem(filename).Data;
+
             FileStream fileStream = new FileStream(filename, FileMode.Open, FileAccess.Read);
             int byteLength = (int)fileStream.Length;
             byte[] fileBytes = new byte[byteLength];
             fileStream.Read(fileBytes, 0, byteLength);
             //文件流关闭,文件解除锁定
             fileStream.Close();
+
+            //_imagesCache.Insert(filename,fileBytes);
             return fileBytes;
         }
 

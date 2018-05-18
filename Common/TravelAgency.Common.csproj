@@ -173,6 +173,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataOrderByHelper.cs" />
+    <Compile Include="DataStructure\LRUCache.cs" />
+    <Compile Include="DataStructure\Node.cs" />
     <Compile Include="DecimalHandler.cs" />
     <Compile Include="Enums\AirInfos.cs" />
     <Compile Include="AppSettingHandler.cs" />
