@@ -187,6 +187,7 @@
     <Compile Include="VisaInfoStatisticsBll.cs" />
     <Compile Include="VisaStatisticsBll.cs" />
     <Compile Include="ConsulateChargeBll.cs" />
+    <Compile Include="visa_copy.cs" />
     <Compile Include="WorkerQueueBll.cs" />
     <Compile Include="WorkerQueue.cs" />
   </ItemGroup>

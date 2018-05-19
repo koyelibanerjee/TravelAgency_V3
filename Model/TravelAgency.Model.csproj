@@ -162,6 +162,7 @@
     <Compile Include="VisaInfo_Tmp.cs" />
     <Compile Include="VisaInfo_TmpModel.cs" />
     <Compile Include="ActionRecordsModel.cs" />
+    <Compile Include="visa_copy.cs" />
     <Compile Include="WorkerQueue.cs" />
   </ItemGroup>
   <ItemGroup>
