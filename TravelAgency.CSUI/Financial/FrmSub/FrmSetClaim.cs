@@ -18,7 +18,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
         private readonly Action<int> _updateDel; //副界面传来更新数据库的委托
         private readonly int _curPage; //主界面更新数据库需要一个当前页
         private readonly BLL.CustomerBalance _bllBalance = new CustomerBalance();
-        private readonly BLL.ClaimMoney _bllCiClaimMoney = new ClaimMoney();
+        private readonly BLL.ClaimMoney _bllClaimMoney = new ClaimMoney();
         private List<Model.CustomerBalance> _balanceList;
 
         private decimal _clientBalance = 0;
@@ -281,6 +281,8 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 }
                 else //visaList[0].Receipt > balanceList[0].Amount
                 {
+                    balance.Amount = 0;
+                    newBalances.Add(balance);
                     balanceList.RemoveAt(0);
                     visa.Receipt -= balance.Amount;
                     //前者不移出
@@ -288,14 +290,12 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                     claimMoney.Amount = balance.Amount;
                 }
 
-
                 claimMoney.Money_id = balance.Money_id; //TODO:修改add方法，这几个表都需要修改
                 claimMoney.DepartmentId = GlobalUtils.LoginUser.DepartmentId;
                 claimMoney.Name_Claim = GlobalUtils.LoginUser.UserName;
                 claimMoney.GroupNo = visa.GroupNo;
                 claimMoney.Salesperson = visa.SalesPerson;
                 claimMoney.Methods = "签证系统认领";
-
                 claimMoney.WorkId = GlobalUtils.LoginUser.WorkId;
                 claimMoney.ClaimTime = DateTime.Now;
                 claimMoney.username = GlobalUtils.LoginUser.UserName;
@@ -307,10 +307,24 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             }
 
             //完了过后，balance如果没用完的话，需要把第一条加进来更新余额
-            newBalances.Add(balanceList[0]);
+            if (balanceList.Count > 0)
+                newBalances.Add(balanceList[0]); //这里倒不用判断，反正始终更新一下应该是不会出错的
 
             //执行所有的更新
-            //for(int i=0;)
+            int sucClaim = 0, sucVisa = 0, sucBalance = 0;
+            for (int i = 0; i < newClaims.Count; ++i)
+                sucClaim += _bllClaimMoney.Add(newClaims[i]) ? 1 : 0;
+
+            for (int i = 0; i < newBalances.Count; i++)
+                sucBalance += _bllBalance.Update(newBalances[i]) ? 1 : 0;
+
+            for (int i = 0; i < visaBackup.Count; i++)
+                sucVisa += _bllVisa.Update(visaBackup[i]) ? 1 : 0;
+
+            MessageBoxEx.Show(string.Format("{0}/{1},{2}/{3},{4}/{5}", sucVisa, visaList.Count, sucBalance, balanceList
+                .Count, sucClaim, newClaims.Count));
+
+
 
         }
 

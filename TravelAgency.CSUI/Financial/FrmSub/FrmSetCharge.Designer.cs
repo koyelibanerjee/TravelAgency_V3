@@ -28,12 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.btnConfirm = new DevComponents.DotNetBar.ButtonX();
             this.panelDgv = new DevComponents.DotNetBar.PanelEx();
             this.panelBtns = new DevComponents.DotNetBar.PanelEx();
             this.lbMoneyCount = new DevComponents.DotNetBar.LabelX();
+            this.Visa_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OtherCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MailCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Picture = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InvitationCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VisaPersonCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ConsulateCost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quidco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Receipt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeInPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SalesPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Client = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DepartureType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsUrgent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Types = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EntryTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tips2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tips = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Person = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FinishTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RealTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CountryImage = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GroupNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.panelDgv.SuspendLayout();
             this.panelBtns.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -64,6 +98,7 @@
             // 
             this.panelDgv.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelDgv.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelDgv.Controls.Add(this.dataGridView1);
             this.panelDgv.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelDgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDgv.Location = new System.Drawing.Point(0, 0);
@@ -112,6 +147,297 @@
             this.lbMoneyCount.TabIndex = 23;
             this.lbMoneyCount.Text = "labelX1";
             // 
+            // Visa_id
+            // 
+            this.Visa_id.DataPropertyName = "Visa_id";
+            this.Visa_id.HeaderText = "Visa_id";
+            this.Visa_id.Name = "Visa_id";
+            this.Visa_id.ReadOnly = true;
+            this.Visa_id.Visible = false;
+            // 
+            // Cost
+            // 
+            this.Cost.DataPropertyName = "Cost";
+            this.Cost.HeaderText = "总价";
+            this.Cost.Name = "Cost";
+            this.Cost.ReadOnly = true;
+            this.Cost.Visible = false;
+            // 
+            // Price
+            // 
+            this.Price.DataPropertyName = "Price";
+            this.Price.HeaderText = "单价";
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            this.Price.Visible = false;
+            // 
+            // OtherCost
+            // 
+            this.OtherCost.DataPropertyName = "OtherCost";
+            this.OtherCost.HeaderText = "杂费";
+            this.OtherCost.Name = "OtherCost";
+            this.OtherCost.ReadOnly = true;
+            this.OtherCost.Visible = false;
+            // 
+            // MailCost
+            // 
+            this.MailCost.DataPropertyName = "MailCost";
+            this.MailCost.HeaderText = "寄资料费";
+            this.MailCost.Name = "MailCost";
+            this.MailCost.ReadOnly = true;
+            this.MailCost.Visible = false;
+            // 
+            // Picture
+            // 
+            this.Picture.DataPropertyName = "Picture";
+            this.Picture.HeaderText = "洗照片";
+            this.Picture.Name = "Picture";
+            this.Picture.ReadOnly = true;
+            this.Picture.Visible = false;
+            // 
+            // InvitationCost
+            // 
+            this.InvitationCost.DataPropertyName = "InvitationCost";
+            this.InvitationCost.HeaderText = "邀请函费用";
+            this.InvitationCost.Name = "InvitationCost";
+            this.InvitationCost.ReadOnly = true;
+            this.InvitationCost.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // VisaPersonCost
+            // 
+            this.VisaPersonCost.DataPropertyName = "VisaPersonCost";
+            this.VisaPersonCost.HeaderText = "送签员费用";
+            this.VisaPersonCost.Name = "VisaPersonCost";
+            this.VisaPersonCost.ReadOnly = true;
+            this.VisaPersonCost.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // ConsulateCost
+            // 
+            this.ConsulateCost.DataPropertyName = "ConsulateCost";
+            this.ConsulateCost.HeaderText = "领馆收费";
+            this.ConsulateCost.Name = "ConsulateCost";
+            this.ConsulateCost.ReadOnly = true;
+            this.ConsulateCost.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // Quidco
+            // 
+            this.Quidco.DataPropertyName = "Quidco";
+            this.Quidco.HeaderText = "返款";
+            this.Quidco.Name = "Quidco";
+            this.Quidco.ReadOnly = true;
+            this.Quidco.Visible = false;
+            // 
+            // Receipt
+            // 
+            this.Receipt.DataPropertyName = "Receipt";
+            this.Receipt.HeaderText = "收款";
+            this.Receipt.Name = "Receipt";
+            this.Receipt.ReadOnly = true;
+            // 
+            // TypeInPerson
+            // 
+            this.TypeInPerson.DataPropertyName = "TypeInPerson";
+            this.TypeInPerson.HeaderText = "做资料员";
+            this.TypeInPerson.Name = "TypeInPerson";
+            this.TypeInPerson.ReadOnly = true;
+            this.TypeInPerson.Visible = false;
+            // 
+            // SalesPerson
+            // 
+            this.SalesPerson.DataPropertyName = "SalesPerson";
+            this.SalesPerson.HeaderText = "销售";
+            this.SalesPerson.Name = "SalesPerson";
+            this.SalesPerson.ReadOnly = true;
+            this.SalesPerson.Visible = false;
+            // 
+            // Client
+            // 
+            this.Client.DataPropertyName = "Client";
+            this.Client.HeaderText = "客户";
+            this.Client.Name = "Client";
+            this.Client.ReadOnly = true;
+            // 
+            // DepartureType
+            // 
+            this.DepartureType.DataPropertyName = "DepartureType";
+            this.DepartureType.HeaderText = "出境类型";
+            this.DepartureType.Name = "DepartureType";
+            this.DepartureType.ReadOnly = true;
+            // 
+            // Status
+            // 
+            this.Status.HeaderText = "状态";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            this.Status.Visible = false;
+            // 
+            // IsUrgent
+            // 
+            this.IsUrgent.DataPropertyName = "IsUrgent";
+            this.IsUrgent.HeaderText = "是否急件";
+            this.IsUrgent.Name = "IsUrgent";
+            this.IsUrgent.ReadOnly = true;
+            this.IsUrgent.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.IsUrgent.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.IsUrgent.Visible = false;
+            // 
+            // Types
+            // 
+            this.Types.DataPropertyName = "Types";
+            this.Types.HeaderText = "类型";
+            this.Types.Name = "Types";
+            this.Types.ReadOnly = true;
+            // 
+            // EntryTime
+            // 
+            this.EntryTime.DataPropertyName = "EntryTime";
+            this.EntryTime.HeaderText = "办理时间";
+            this.EntryTime.Name = "EntryTime";
+            this.EntryTime.ReadOnly = true;
+            this.EntryTime.Visible = false;
+            // 
+            // Tips2
+            // 
+            this.Tips2.DataPropertyName = "Tips2";
+            this.Tips2.HeaderText = "备注2";
+            this.Tips2.Name = "Tips2";
+            this.Tips2.ReadOnly = true;
+            this.Tips2.Visible = false;
+            // 
+            // Tips
+            // 
+            this.Tips.DataPropertyName = "Tips";
+            this.Tips.HeaderText = "备注1";
+            this.Tips.Name = "Tips";
+            this.Tips.ReadOnly = true;
+            this.Tips.Visible = false;
+            // 
+            // Number
+            // 
+            this.Number.DataPropertyName = "Number";
+            this.Number.HeaderText = "人数";
+            this.Number.Name = "Number";
+            this.Number.ReadOnly = true;
+            this.Number.Visible = false;
+            // 
+            // Person
+            // 
+            this.Person.DataPropertyName = "Person";
+            this.Person.HeaderText = "送签社担当";
+            this.Person.Name = "Person";
+            this.Person.ReadOnly = true;
+            this.Person.Visible = false;
+            // 
+            // FinishTime
+            // 
+            this.FinishTime.DataPropertyName = "FinishTime";
+            this.FinishTime.HeaderText = "出签日期";
+            this.FinishTime.Name = "FinishTime";
+            this.FinishTime.ReadOnly = true;
+            this.FinishTime.Visible = false;
+            // 
+            // RealTime
+            // 
+            this.RealTime.DataPropertyName = "RealTime";
+            this.RealTime.HeaderText = "送签日期";
+            this.RealTime.Name = "RealTime";
+            this.RealTime.ReadOnly = true;
+            this.RealTime.Visible = false;
+            // 
+            // CountryImage
+            // 
+            this.CountryImage.HeaderText = "国家图标";
+            this.CountryImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.CountryImage.Name = "CountryImage";
+            this.CountryImage.ReadOnly = true;
+            this.CountryImage.Width = 200;
+            // 
+            // Country
+            // 
+            this.Country.DataPropertyName = "Country";
+            this.Country.HeaderText = "国家";
+            this.Country.Name = "Country";
+            this.Country.ReadOnly = true;
+            // 
+            // GroupNo
+            // 
+            this.GroupNo.DataPropertyName = "GroupNo";
+            this.GroupNo.HeaderText = "团号";
+            this.GroupNo.Name = "GroupNo";
+            this.GroupNo.ReadOnly = true;
+            this.GroupNo.Width = 300;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.GroupNo,
+            this.Country,
+            this.CountryImage,
+            this.RealTime,
+            this.FinishTime,
+            this.Person,
+            this.Number,
+            this.Tips,
+            this.Tips2,
+            this.EntryTime,
+            this.Types,
+            this.IsUrgent,
+            this.Status,
+            this.DepartureType,
+            this.Client,
+            this.SalesPerson,
+            this.TypeInPerson,
+            this.Receipt,
+            this.Quidco,
+            this.ConsulateCost,
+            this.VisaPersonCost,
+            this.InvitationCost,
+            this.Picture,
+            this.MailCost,
+            this.OtherCost,
+            this.Price,
+            this.Cost,
+            this.Visa_id});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.EnableHeadersVisualStyles = false;
+            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dataGridView1.RowTemplate.Height = 30;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(1132, 526);
+            this.dataGridView1.TabIndex = 14;
+            // 
             // FrmSetCharge
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -122,7 +448,9 @@
             this.Name = "FrmSetCharge";
             this.Text = "设置收费";
             this.Load += new System.EventHandler(this.FrmSetCharge_Load);
+            this.panelDgv.ResumeLayout(false);
             this.panelBtns.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -133,5 +461,34 @@
         private DevComponents.DotNetBar.PanelEx panelDgv;
         private DevComponents.DotNetBar.PanelEx panelBtns;
         private DevComponents.DotNetBar.LabelX lbMoneyCount;
+        private DevComponents.DotNetBar.Controls.DataGridViewX dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GroupNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Country;
+        private System.Windows.Forms.DataGridViewImageColumn CountryImage;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RealTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FinishTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Person;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Number;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tips;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tips2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn EntryTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Types;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IsUrgent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DepartureType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Client;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SalesPerson;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TypeInPerson;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Receipt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quidco;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ConsulateCost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VisaPersonCost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn InvitationCost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Picture;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MailCost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OtherCost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cost;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Visa_id;
     }
 }

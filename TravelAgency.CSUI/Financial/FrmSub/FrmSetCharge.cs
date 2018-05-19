@@ -43,6 +43,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
         private void FrmSetCharge_Load(object sender, EventArgs e)
         {
+           
             dataGridView1.AutoGenerateColumns = false; //不显示指定之外的列
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //列宽自适应,一定不能用AllCells
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders; //这里也一定不能AllCell自适应!
