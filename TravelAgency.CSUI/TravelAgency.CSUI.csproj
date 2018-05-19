@@ -124,11 +124,23 @@
     <Compile Include="Financial\FrmMain\FrmConsulateChargeManage.Designer.cs">
       <DependentUpon>FrmConsulateChargeManage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Financial\FrmMain\FrmVisaClaimManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial\FrmMain\FrmVisaClaimManage.Designer.cs">
+      <DependentUpon>FrmVisaClaimManage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Financial\FrmSub\FrmQZApplication.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Financial\FrmSub\FrmQZApplication.Designer.cs">
       <DependentUpon>FrmQZApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial\FrmSub\FrmSetClaim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial\FrmSub\FrmSetClaim.Designer.cs">
+      <DependentUpon>FrmSetClaim.cs</DependentUpon>
     </Compile>
     <Compile Include="Statistics\FrmMain\FrmDataBackUp.cs">
       <SubType>Form</SubType>
@@ -471,8 +483,14 @@
     <EmbeddedResource Include="Financial\FrmMain\FrmConsulateChargeManage.resx">
       <DependentUpon>FrmConsulateChargeManage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Financial\FrmMain\FrmVisaClaimManage.resx">
+      <DependentUpon>FrmVisaClaimManage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Financial\FrmSub\FrmQZApplication.resx">
       <DependentUpon>FrmQZApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial\FrmSub\FrmSetClaim.resx">
+      <DependentUpon>FrmSetClaim.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Statistics\FrmMain\FrmDataBackUp.resx">
       <DependentUpon>FrmDataBackUp.cs</DependentUpon>

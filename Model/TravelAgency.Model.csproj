@@ -126,6 +126,7 @@
   <ItemGroup>
     <Compile Include="AppAll.cs" />
     <Compile Include="AppStatus.cs" />
+    <Compile Include="ClaimMoney.cs" />
     <Compile Include="CustomerBalance.cs" />
     <Compile Include="CustomerInfo.cs" />
     <Compile Include="Enums_OrderInfo_OrderInfoState.cs" />

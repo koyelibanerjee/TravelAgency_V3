@@ -130,6 +130,7 @@
     <Compile Include="AppAllBll.cs" />
     <Compile Include="AppStatus.cs" />
     <Compile Include="AuthUser.cs" />
+    <Compile Include="ClaimMoney.cs" />
     <Compile Include="ClientChargeBll.cs" />
     <Compile Include="ClientCharge.cs" />
     <Compile Include="CommisionBll.cs" />

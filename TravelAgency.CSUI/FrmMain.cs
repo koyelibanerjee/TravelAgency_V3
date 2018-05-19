@@ -256,5 +256,11 @@ namespace TravelAgency.CSUI.FrmMain
             FrmDataBackUp frm = new FrmDataBackUp();
             OpenTab(frm, frm.Name);
         }
+
+        private void btnClaimManage_Click(object sender, EventArgs e)
+        {
+            FrmVisaClaimManage frm = new FrmVisaClaimManage();
+            OpenTab(frm,frm.Name);
+        }
     }
 }
