@@ -330,11 +330,8 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             for (int i = 0; i < visaBackup.Count; i++)
                 sucVisa += _bllVisa.Update(visaBackup[i]) ? 1 : 0;
 
-            MessageBoxEx.Show(string.Format("{0}/{1},{2}/{3},{4}/{5}", sucVisa, visaList.Count, sucBalance, balanceList
-                .Count, sucClaim, newClaims.Count));
-
-
-
+            //MessageBoxEx.Show(string.Format("{0}/{1},{2}/{3},{4}/{5}", sucVisa, visaList.Count, sucBalance, balanceList
+            //    .Count, sucClaim, newClaims.Count));
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

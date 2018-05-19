@@ -96,8 +96,8 @@ namespace TravelAgency.DAL
             parameters[18].Value = model.OtherCost;
             parameters[19].Value = model.ExpressNo;
             parameters[20].Value = model.Call;
-            parameters[21].Value = Guid.NewGuid();
-            parameters[22].Value = Guid.NewGuid();
+            parameters[21].Value = model.Sale_id;
+            parameters[22].Value = model.DepartmentId;
             parameters[23].Value = model.EntryTime;
             parameters[24].Value = model.Country;
             parameters[25].Value = model.Passengers;
