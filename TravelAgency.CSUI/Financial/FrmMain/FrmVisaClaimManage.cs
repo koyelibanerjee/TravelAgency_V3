@@ -720,6 +720,13 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                 MessageBoxEx.Show("不同客户的团号不能一起认账!!!");
                 return;
             }
+
+
+            FrmSetClaim frm = new FrmSetClaim(list, LoadDataToDataGridView, _curPage);
+            frm.Show();
+
+
+
         }
 
 

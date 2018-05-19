@@ -62,6 +62,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
             //查询客户余额
             _balanceList = _bllBalance.GetModelList(" CustomerName = '" + _list[0].client + "' and BalanceAmount > 0");
+            _balanceList.Sort((Model.CustomerBalance b1, Model.CustomerBalance b2) => b1.BalanceAmount - b2.BalanceAmount < 0 ? -1 : 1);
             if (_balanceList.Count < 1)
             {
                 MessageBoxEx.Show("未找到客户可用余额信息!!!");
@@ -71,7 +72,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
             for (int i = 0; i < _balanceList.Count; ++i)
             {
-                _clientBalance += _balanceList[i].Amount;
+                _clientBalance += _balanceList[i].BalanceAmount;
             }
 
             lbClientBalance.Text = "客户可用余额:" + _clientBalance + "元.";
@@ -261,33 +262,41 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 var visa = visaList[0];
                 var balance = balanceList[0];
                 Model.ClaimMoney claimMoney = new Model.ClaimMoney(); //每次都会生成一条新的claimMoney
-                if (visa.Receipt == balance.Amount)
+                if (visa.Receipt == balance.BalanceAmount)
                 {
+                    claimMoney.Amount = visa.Receipt;
+
                     visaList.RemoveAt(0);
                     balanceList.RemoveAt(0);
 
-                    balance.Amount -= visa.Receipt.Value;
+                    balance.BalanceAmount -= visa.Receipt.Value;
                     newBalances.Add(balance);
 
-                    claimMoney.Amount = visa.Receipt;
+                  
                 }
-                else if (visaList[0].Receipt < balanceList[0].Amount)
+                else if (visa.Receipt < balance.BalanceAmount)
                 {
+                    claimMoney.Amount = visa.Receipt;
+
                     visaList.RemoveAt(0);
-                    balance.Amount -= visa.Receipt.Value;
+                    balance.BalanceAmount -= visa.Receipt.Value;
                     //后者不移出
 
-                    claimMoney.Amount = visa.Receipt;
+                    
                 }
                 else //visaList[0].Receipt > balanceList[0].Amount
                 {
-                    balance.Amount = 0;
+                    claimMoney.Amount = balance.BalanceAmount;
+
+                    visa.Receipt -= balance.BalanceAmount;
+                    balance.BalanceAmount = 0;
                     newBalances.Add(balance);
                     balanceList.RemoveAt(0);
-                    visa.Receipt -= balance.Amount;
+                    
+                    
                     //前者不移出
 
-                    claimMoney.Amount = balance.Amount;
+
                 }
 
                 claimMoney.Money_id = balance.Money_id; //TODO:修改add方法，这几个表都需要修改
