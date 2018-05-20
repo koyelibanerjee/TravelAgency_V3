@@ -46,6 +46,7 @@ namespace TravelAgency.OrdersManagement
 
             StyleControler.SetDgvStyle(dataGridView1);
             dataGridView1.CellDoubleClick += DataGridView1_CellDoubleClick;
+            dataGridView1.CellMouseUp += DataGridView1_CellMouseUp;
             txtWaitorConfirmTime.Enabled = false; //客服确认时间默认禁用
 
             if (GlobalUtils.LoginUserLevel == RigthLevel.Operator) //操作不能修改基本订单信息和客人信息
@@ -82,18 +83,46 @@ namespace TravelAgency.OrdersManagement
             }
         }
 
+        private void DataGridView1_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+                {
+                    //若行已是选中状态就不再进行设置
+                    //如果没选中当前活动行则选中这一行
+                    if (dataGridView1.Rows[e.RowIndex].Selected == false)
+                    {
+                        dataGridView1.ClearSelection();
+                        dataGridView1.Rows[e.RowIndex].Selected = true;
+                    }
+                    //只选中一行时设置活动单元格
+                    if (dataGridView1.SelectedRows.Count == 1)
+                    {
+                        if (e.ColumnIndex != -1) //选中表头了
+                            dataGridView1.CurrentCell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                        else
+                        {
+                            dataGridView1.CurrentCell = dataGridView1.Rows[e.RowIndex].Cells[0];
+                        }
+                    }
+                    //弹出操作菜单
+                    cmsDgvRb.Show(MousePosition.X, MousePosition.Y);
+                }
+            }
+        }
 
         List<Model.OrderGuest> DgvDataSourceToList()
         {
             return dataGridView1.DataSource as List<Model.OrderGuest>;
-        } 
+        }
 
         private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex < 0 || e.RowIndex < 0) //表头部分
                 return;
             var list = DgvDataSourceToList();
-            FrmAddOrderGuest frm = new FrmAddOrderGuest(_model,true,list[e.RowIndex]);
+            FrmAddOrderGuest frm = new FrmAddOrderGuest(_model, true, list[e.RowIndex]);
             if (frm.ShowDialog() == DialogResult.Cancel)
                 return;
 
@@ -290,6 +319,19 @@ namespace TravelAgency.OrdersManagement
                 list = dataGridView1.DataSource as List<Model.OrderGuest>;
 
             list.Add(frm.RetModel);
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = list;
+        }
+
+        private void 删除ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count < 1)
+                return;
+            var list = DgvDataSourceToList();
+            for (int i = 0; i < dataGridView1.SelectedRows.Count; ++i)
+            {
+                list.RemoveAt(dataGridView1.SelectedRows[i].Index);
+            }
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = list;
         }
