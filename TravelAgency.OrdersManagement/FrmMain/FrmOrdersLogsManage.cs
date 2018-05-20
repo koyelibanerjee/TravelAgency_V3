@@ -123,7 +123,7 @@ namespace TravelAgency.OrdersManagement
             int curSelectedRow = -1;
             if (dataGridView1.SelectedRows.Count > 0)
                 curSelectedRow = dataGridView1.SelectedRows[0].Index;
-            dataGridView1.DataSource = _bllOrdersLogs.GetListByPageOrderById(_where, _curPage, _pageSize);
+            dataGridView1.DataSource = _bllOrdersLogs.GetListByPageOrderByPK(_curPage, _pageSize, _where);
             if (curSelectedRow != -1 && dataGridView1.Rows.Count > curSelectedRow)
                 dataGridView1.CurrentCell = dataGridView1.Rows[curSelectedRow].Cells[0];
             dataGridView1.Update();
@@ -451,15 +451,16 @@ namespace TravelAgency.OrdersManagement
                 == DialogResult.Cancel)
                 return;
             var modelList = GetSelectedModelList();
-            int res = _bllOrdersLogs.DeleteList(modelList);
+            bool b = _bllOrdersLogs.DeleteList(modelList);
 
-            GlobalUtils.MessageBoxWithRecordNum("删除", res, count);
+
+            GlobalUtils.MessageBoxWithRecordNum("删除", b ? count : 0, count);
             LoadDataToDataGridView(_curPage);
             UpdateState();
         }
 
-        
-      
+
+
 
 
 
@@ -470,8 +471,8 @@ namespace TravelAgency.OrdersManagement
             LoadDataToDgvAsyn();
         }
 
-        
 
-      
+
+
     }
 }

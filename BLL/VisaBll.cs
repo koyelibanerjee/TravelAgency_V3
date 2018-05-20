@@ -53,9 +53,31 @@ namespace TravelAgency.BLL
             int end = pageIndex * pageSize;
 
             DataSet ds = dal.GetDataByPage(start, end, where);
+            //DataSet ds = dal.GetListByPage(where,)
             DataTable dt = ds.Tables[0];
             return DataTableToList(dt);
         }
+
+        /// <summary>
+        /// 分页获取数据
+        /// </summary>
+        public List<Model.Visa> GetListByPage(int pageIndex, int pageSize, string where, string orderby)
+        {
+            int startIndex = (pageIndex - 1) * pageSize + 1;
+            int endIndex = pageIndex * pageSize;
+            return GetListByPage(where, orderby, startIndex, endIndex);
+        }
+
+        /// <summary>
+        /// 分页获取数据
+        /// </summary>
+        public List<Model.Visa> GetListByPage(string where, string orderby, int startIndex, int endIndex)
+        {
+            DataSet ds = dal.GetListByPage(where, orderby, startIndex, endIndex);
+            DataTable dt = ds.Tables[0];
+            return DataTableToList(dt);
+        }
+
 
         public bool DeleteVisaAndModifyVisaInfos(Model.Visa model)
         {

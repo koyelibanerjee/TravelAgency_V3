@@ -1,132 +1,202 @@
-﻿using System; 
+﻿using System;
 using System.Text;
-using System.Collections.Generic; 
+using System.Collections.Generic;
 using System.Data;
-using .Model;
-namespace .BLL  
+using TravelAgency.Model;
+namespace TravelAgency.BLL
 {
-	 	//OrdersLogs
-		public partial class OrdersLogs
-	{
-   		     
-		private readonly .DAL.OrdersLogs dal=new .DAL.OrdersLogs();
-		public OrdersLogs()
-		{}
-		
-		#region  Method
-		/// <summary>
-		/// 是否存在该记录
-		/// </summary>
-		public bool Exists(int id)
-		{
-			return dal.Exists(id);
-		}
+    //OrdersLogs
+    public partial class OrdersLogs
+    {
 
-		/// <summary>
-		/// 增加一条数据
-		/// </summary>
-		public int  Add(.Model.OrdersLogs model)
-		{
-						return dal.Add(model);
-						
-		}
+        private readonly TravelAgency.DAL.OrdersLogs dal = new TravelAgency.DAL.OrdersLogs();
+        public OrdersLogs()
+        { }
 
-		/// <summary>
-		/// 更新一条数据
-		/// </summary>
-		public bool Update(.Model.OrdersLogs model)
-		{
-			return dal.Update(model);
-		}
+        #region  Method
+        /// <summary>
+        /// 是否存在该记录
+        /// </summary>
+        public bool Exists(int id)
+        {
+            return dal.Exists(id);
+        }
 
-		/// <summary>
-		/// 删除一条数据
-		/// </summary>
-		public bool Delete(int id)
-		{
-			
-			return dal.Delete(id);
-		}
+        /// <summary>
+        /// 增加一条数据
+        /// </summary>
+        public int Add(TravelAgency.Model.OrdersLogs model)
+        {
+            return dal.Add(model);
 
-		/// <summary>
-		/// 得到一个对象实体
-		/// </summary>
-		public .Model.OrdersLogs GetModel(int id)
-		{
-			
-			return dal.GetModel(id);
-		}
+        }
 
-		/// <summary>
-		/// 获得数据列表
-		/// </summary>
-		public DataSet GetList(string strWhere)
-		{
-			return dal.GetList(strWhere);
-		}
-		/// <summary>
-		/// 获得前几行数据
-		/// </summary>
-		public DataSet GetList(int Top,string strWhere,string filedOrder)
-		{
-			return dal.GetList(Top,strWhere,filedOrder);
-		}
-		/// <summary>
-		/// 获得数据列表
-		/// </summary>
-		public List<.Model.OrdersLogs> GetModelList(string strWhere)
-		{
-			DataSet ds = dal.GetList(strWhere);
-			return DataTableToList(ds.Tables[0]);
-		}
-		/// <summary>
-		/// 获得数据列表
-		/// </summary>
-		public List<.Model.OrdersLogs> DataTableToList(DataTable dt)
-		{
-			List<.Model.OrdersLogs> modelList = new List<.Model.OrdersLogs>();
-			int rowsCount = dt.Rows.Count;
-			if (rowsCount > 0)
-			{
-				.Model.OrdersLogs model;
-				for (int n = 0; n < rowsCount; n++)
-				{
-					model = new .Model.OrdersLogs();					
-													if(dt.Rows[n]["id"].ToString()!="")
-				{
-					model.id=int.Parse(dt.Rows[n]["id"].ToString());
-				}
-																																if(dt.Rows[n]["ActType"].ToString()!="")
-				{
-					model.ActType=int.Parse(dt.Rows[n]["ActType"].ToString());
-				}
-																																				model.UserName= dt.Rows[n]["UserName"].ToString();
-																												if(dt.Rows[n]["OrdersId"].ToString()!="")
-				{
-					model.OrdersId=int.Parse(dt.Rows[n]["OrdersId"].ToString());
-				}
-																																if(dt.Rows[n]["EntryTime"].ToString()!="")
-				{
-					model.EntryTime=DateTime.Parse(dt.Rows[n]["EntryTime"].ToString());
-				}
-																																				model.WorkId= dt.Rows[n]["WorkId"].ToString();
-																																model.OrderNo= dt.Rows[n]["OrderNo"].ToString();
-																						
-				
-					modelList.Add(model);
-				}
-			}
-			return modelList;
-		}
+        /// <summary>
+        /// 更新一条数据
+        /// </summary>
+        public bool Update(TravelAgency.Model.OrdersLogs model)
+        {
+            return dal.Update(model);
+        }
 
-		/// <summary>
-		/// 获得数据列表
-		/// </summary>
-		public DataSet GetAllList()
-		{
-			return GetList("");
-		}
-#endregion
-   
-	}
+        /// <summary>
+        /// 删除一条数据
+        /// </summary>
+        public bool Delete(int id)
+        {
+
+            return dal.Delete(id);
+        }
+
+        /// <summary>
+        /// 得到一个对象实体
+        /// </summary>
+        public TravelAgency.Model.OrdersLogs GetModel(int id)
+        {
+
+            return dal.GetModel(id);
+        }
+
+        /// <summary>
+        /// 获得数据列表
+        /// </summary>
+        public DataSet GetList(string strWhere)
+        {
+            return dal.GetList(strWhere);
+        }
+        /// <summary>
+        /// 获得前几行数据
+        /// </summary>
+        public DataSet GetList(int Top, string strWhere, string filedOrder)
+        {
+            return dal.GetList(Top, strWhere, filedOrder);
+        }
+        /// <summary>
+        /// 获得数据列表
+        /// </summary>
+        public List<TravelAgency.Model.OrdersLogs> GetModelList(string strWhere)
+        {
+            DataSet ds = dal.GetList(strWhere);
+            return DataTableToList(ds.Tables[0]);
+        }
+        /// <summary>
+        /// 获得数据列表
+        /// </summary>
+        public List<TravelAgency.Model.OrdersLogs> DataTableToList(DataTable dt)
+        {
+            List<TravelAgency.Model.OrdersLogs> modelList = new List<TravelAgency.Model.OrdersLogs>();
+            int rowsCount = dt.Rows.Count;
+            if (rowsCount > 0)
+            {
+                TravelAgency.Model.OrdersLogs model;
+                for (int n = 0; n < rowsCount; n++)
+                {
+                    model = dal.DataRowToModel(dt.Rows[n]);
+                    if (model != null)
+                        modelList.Add(model);
+                }
+            }
+            return modelList;
+        }
+
+        /// <summary>
+        /// 获得数据列表
+        /// </summary>
+        public DataSet GetAllList()
+        {
+            return GetList("");
+        }
+
+        /// <summary>
+        /// 获取记录总数
+        /// </summary>
+        public int GetRecordCount(string strWhere)
+        {
+            return dal.GetRecordCount(strWhere);
+        }
+
+        /// <summary>
+        /// 分页获取数据
+        /// </summary>
+        public List<TravelAgency.Model.OrdersLogs> GetListByPage(string where, string orderby, int startIndex, int endIndex)
+        {
+            DataSet ds = dal.GetListByPage(where, orderby, startIndex, endIndex);
+            DataTable dt = ds.Tables[0];
+            return DataTableToList(dt);
+        }
+
+        /// <summary>
+        /// 分页获取数据
+        /// </summary>
+        public List<TravelAgency.Model.OrdersLogs> GetListByPage(int pageIndex, int pageSize, string where, string orderby)
+        {
+            int startIndex = (pageIndex - 1) * pageSize + 1;
+            int endIndex = pageIndex * pageSize;
+            return GetListByPage(where, orderby, startIndex, endIndex);
+        }
+
+
+
+
+
+        /// <summary>
+        /// 分页获取数据
+        /// </summary>
+        public List<TravelAgency.Model.OrdersLogs> GetListByPageOrderByPK(int pageIndex, int pageSize, string where)
+        {
+            int startIndex = (pageIndex - 1) * pageSize + 1;
+            int endIndex = pageIndex * pageSize;
+            string orderby = "";
+            orderby = "id desc";
+            return GetListByPage(where, orderby, startIndex, endIndex);
+        }
+
+        /// <summary>
+        /// 新增list
+        /// </summary>		
+        public int AddList(List<TravelAgency.Model.OrdersLogs> list)
+        {
+            int res = 0;
+            foreach (var item in list)
+            {
+                res += dal.Add(item) == 0 ? 0 : 1; //返回值是id
+            }
+            return res;
+        }
+
+        /// <summary>
+        /// 更新list
+        /// </summary>
+        public int UpdateList(List<TravelAgency.Model.OrdersLogs> list)
+        {
+            int res = 0;
+            foreach (var item in list)
+            {
+                res += dal.Update(item) ? 1 : 0; //返回值是id
+            }
+            return res;
+        }
+
+        /// <summary>
+        /// 删除list
+        /// </summary>    
+        public bool DeleteList(List<TravelAgency.Model.OrdersLogs> list)
+        {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < list.Count; ++i)
+            {
+                sb.AppendFormat("{0},", list[i].id);
+            }
+
+            string str_id_list = sb.ToString().TrimEnd(',');
+            return dal.DeleteList(str_id_list);
+        }
+
+
+
+
+
+        #endregion
+
+    }
 }

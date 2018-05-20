@@ -26,10 +26,10 @@ namespace TravelAgency.DAL
 				
 		
 		/// <summary>
-		/// 增加一条数据,如果需要获取除了自增长类型外的主键返回值，请自己改写方法，返回parameters[0].Value
+		/// 增加一条数据,整形自增长返回id,guid返回parameters[0].Value,string返回true or false
 		/// </summary>
 		      public Guid Add(TravelAgency.Model.visa_copy model)
-				{
+    		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into visa_copy(");			
             strSql.Append("Visa_id,GroupNo,Name,Types,Tips,PredictTime,RealTime,FinishTime,Satus,Person,Number,Picture,ListCount,List,SalesPerson,Receipt,Quidco,Cost,OtherCost,ExpressNo,Call,Sale_id,DepartmentId,EntryTime,Country,Passengers,WorkId,Documenter,Price,ConsulateCost,VisaPersonCost,MailCost,Tips2,SubmitFlag,GroupPrice,InvitationCost,Remark,SubmitTime,InTime,OutTime,client,DepartureType,SubmitCondition,FetchCondition,TypeInPerson,CheckPerson,IsUrgent,PeiQianYuan,QuQianYuan,Operator");
@@ -684,7 +684,7 @@ SqlParameter[] parameters = {
 		
 		
 		/// <summary>
-		/// 分页获取数据列表,orderby 必须传
+		/// 分页获取数据列表,orderby 必须传(要自己带desc)
 		/// </summary>
 		public DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
 		{

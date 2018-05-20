@@ -178,6 +178,7 @@
     <Compile Include="StatisticsDal.cs" />
     <Compile Include="SysManage.cs" />
     <Compile Include="OrdersDal.cs" />
+    <Compile Include="user_copy.cs" />
     <Compile Include="VisaActTypeCountDal.cs" />
     <Compile Include="VisaInfo_JobDal.cs" />
     <Compile Include="VisaWithActRecords.cs" />

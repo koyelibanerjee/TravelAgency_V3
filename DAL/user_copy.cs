@@ -1,26 +1,24 @@
 ﻿using System;
 using System.Text;
-
 using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.Data;
 using Maticsoft.DBUtility;
 namespace TravelAgency.DAL
 {
-    //OrdersLogs
-    public partial class OrdersLogs
+    //user_copy
+    public partial class user_copy
     {
 
-        public bool Exists(int id)
+        public bool Exists(string WorkId)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select count(1) from OrdersLogs");
+            strSql.Append("select count(1) from user_copy");
             strSql.Append(" where ");
-            strSql.Append(" id = @id  ");
+            strSql.Append(" WorkId = @WorkId  ");
             SqlParameter[] parameters = {
-                    new SqlParameter("@id", SqlDbType.Int,4)
-            };
-            parameters[0].Value = id;
+                    new SqlParameter("@WorkId", SqlDbType.VarChar,50)           };
+            parameters[0].Value = WorkId;
 
             return DbHelperSQL.Exists(strSql.ToString(), parameters);
         }
@@ -30,41 +28,43 @@ namespace TravelAgency.DAL
         /// <summary>
         /// 增加一条数据,整形自增长返回id,guid返回parameters[0].Value,string返回true or false
         /// </summary>
-        public int Add(TravelAgency.Model.OrdersLogs model)
+        public bool Add(TravelAgency.Model.user_copy model)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("insert into OrdersLogs(");
-            strSql.Append("ActType,UserName,OrdersId,EntryTime,WorkId,OrderNo");
+            strSql.Append("insert into user_copy(");
+            strSql.Append("WorkId,Account,UserName,Password,UserMobile,DepartmentId,RID,RoleName");
             strSql.Append(") values (");
-            strSql.Append("@ActType,@UserName,@OrdersId,@EntryTime,@WorkId,@OrderNo");
+            strSql.Append("@WorkId,@Account,@UserName,@Password,@UserMobile,@DepartmentId,@RID,@RoleName");
             strSql.Append(") ");
             strSql.Append(";select @@IDENTITY");
             SqlParameter[] parameters = {
-                        new SqlParameter("@ActType", SqlDbType.TinyInt,1) ,
+                        new SqlParameter("@WorkId", SqlDbType.VarChar,50) ,
+                        new SqlParameter("@Account", SqlDbType.VarChar,20) ,
                         new SqlParameter("@UserName", SqlDbType.VarChar,100) ,
-                        new SqlParameter("@OrdersId", SqlDbType.Int,4) ,
-                        new SqlParameter("@EntryTime", SqlDbType.DateTime) ,
-                        new SqlParameter("@WorkId", SqlDbType.VarChar,10) ,
-                        new SqlParameter("@OrderNo", SqlDbType.VarChar,50)
+                        new SqlParameter("@Password", SqlDbType.VarChar,100) ,
+                        new SqlParameter("@UserMobile", SqlDbType.VarChar,50) ,
+                        new SqlParameter("@DepartmentId", SqlDbType.UniqueIdentifier,16) ,
+                        new SqlParameter("@RID", SqlDbType.UniqueIdentifier,16) ,
+                        new SqlParameter("@RoleName", SqlDbType.VarChar,50)
 
             };
 
-            parameters[0].Value = model.ActType;
-            parameters[1].Value = model.UserName;
-            parameters[2].Value = model.OrdersId;
-            parameters[3].Value = model.EntryTime;
-            parameters[4].Value = model.WorkId;
-            parameters[5].Value = model.OrderNo;
-
-            object obj = DbHelperSQL.GetSingle(strSql.ToString(), parameters);
-            if (obj == null)
+            parameters[0].Value = model.WorkId;
+            parameters[1].Value = model.Account;
+            parameters[2].Value = model.UserName;
+            parameters[3].Value = model.Password;
+            parameters[4].Value = model.UserMobile;
+            parameters[5].Value = model.DepartmentId;
+            parameters[6].Value = model.RID;
+            parameters[7].Value = model.RoleName;
+            int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
+            if (rows > 0)
             {
-                return 0;
+                return true;
             }
             else
             {
-
-                return Convert.ToInt32(obj);
+                return false;
             }
 
 
@@ -74,37 +74,41 @@ namespace TravelAgency.DAL
         /// <summary>
         /// 更新一条数据
         /// </summary>
-        public bool Update(TravelAgency.Model.OrdersLogs model)
+        public bool Update(TravelAgency.Model.user_copy model)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("update OrdersLogs set ");
+            strSql.Append("update user_copy set ");
 
-            strSql.Append(" ActType = @ActType , ");
-            strSql.Append(" UserName = @UserName , ");
-            strSql.Append(" OrdersId = @OrdersId , ");
-            strSql.Append(" EntryTime = @EntryTime , ");
             strSql.Append(" WorkId = @WorkId , ");
-            strSql.Append(" OrderNo = @OrderNo  ");
-            strSql.Append(" where id=@id ");
+            strSql.Append(" Account = @Account , ");
+            strSql.Append(" UserName = @UserName , ");
+            strSql.Append(" Password = @Password , ");
+            strSql.Append(" UserMobile = @UserMobile , ");
+            strSql.Append(" DepartmentId = @DepartmentId , ");
+            strSql.Append(" RID = @RID , ");
+            strSql.Append(" RoleName = @RoleName  ");
+            strSql.Append(" where WorkId=@WorkId  ");
 
             SqlParameter[] parameters = {
-                        new SqlParameter("@id", SqlDbType.Int,4) ,
-                        new SqlParameter("@ActType", SqlDbType.TinyInt,1) ,
+                        new SqlParameter("@WorkId", SqlDbType.VarChar,50) ,
+                        new SqlParameter("@Account", SqlDbType.VarChar,20) ,
                         new SqlParameter("@UserName", SqlDbType.VarChar,100) ,
-                        new SqlParameter("@OrdersId", SqlDbType.Int,4) ,
-                        new SqlParameter("@EntryTime", SqlDbType.DateTime) ,
-                        new SqlParameter("@WorkId", SqlDbType.VarChar,10) ,
-                        new SqlParameter("@OrderNo", SqlDbType.VarChar,50)
+                        new SqlParameter("@Password", SqlDbType.VarChar,100) ,
+                        new SqlParameter("@UserMobile", SqlDbType.VarChar,50) ,
+                        new SqlParameter("@DepartmentId", SqlDbType.UniqueIdentifier,16) ,
+                        new SqlParameter("@RID", SqlDbType.UniqueIdentifier,16) ,
+                        new SqlParameter("@RoleName", SqlDbType.VarChar,50)
 
             };
 
-            parameters[0].Value = model.id;
-            parameters[1].Value = model.ActType;
+            parameters[0].Value = model.WorkId;
+            parameters[1].Value = model.Account;
             parameters[2].Value = model.UserName;
-            parameters[3].Value = model.OrdersId;
-            parameters[4].Value = model.EntryTime;
-            parameters[5].Value = model.WorkId;
-            parameters[6].Value = model.OrderNo;
+            parameters[3].Value = model.Password;
+            parameters[4].Value = model.UserMobile;
+            parameters[5].Value = model.DepartmentId;
+            parameters[6].Value = model.RID;
+            parameters[7].Value = model.RoleName;
             int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
             if (rows > 0)
             {
@@ -120,16 +124,15 @@ namespace TravelAgency.DAL
         /// <summary>
         /// 删除一条数据
         /// </summary>
-        public bool Delete(int id)
+        public bool Delete(string WorkId)
         {
 
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("delete from OrdersLogs ");
-            strSql.Append(" where id=@id");
+            strSql.Append("delete from user_copy ");
+            strSql.Append(" where WorkId=@WorkId ");
             SqlParameter[] parameters = {
-                    new SqlParameter("@id", SqlDbType.Int,4)
-            };
-            parameters[0].Value = id;
+                    new SqlParameter("@WorkId", SqlDbType.VarChar,50)           };
+            parameters[0].Value = WorkId;
 
 
             int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
@@ -146,11 +149,11 @@ namespace TravelAgency.DAL
         /// <summary>
         /// 批量删除一批数据
         /// </summary>
-        public bool DeleteList(string idlist)
+        public bool DeleteList(string WorkIdlist)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("delete from OrdersLogs ");
-            strSql.Append(" where id in (" + idlist + ")  ");
+            strSql.Append("delete from user_copy ");
+            strSql.Append(" where WorkId in (" + WorkIdlist + ")  ");
             int rows = DbHelperSQL.ExecuteSql(strSql.ToString());
             if (rows > 0)
             {
@@ -166,20 +169,19 @@ namespace TravelAgency.DAL
         /// <summary>
         /// 得到一个对象实体
         /// </summary>
-        public TravelAgency.Model.OrdersLogs GetModel(int id)
+        public TravelAgency.Model.user_copy GetModel(string WorkId)
         {
 
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select id, ActType, UserName, OrdersId, EntryTime, WorkId, OrderNo  ");
-            strSql.Append("  from OrdersLogs ");
-            strSql.Append(" where id=@id");
+            strSql.Append("select WorkId, Account, UserName, Password, UserMobile, DepartmentId, RID, RoleName  ");
+            strSql.Append("  from user_copy ");
+            strSql.Append(" where WorkId=@WorkId ");
             SqlParameter[] parameters = {
-                    new SqlParameter("@id", SqlDbType.Int,4)
-            };
-            parameters[0].Value = id;
+                    new SqlParameter("@WorkId", SqlDbType.VarChar,50)           };
+            parameters[0].Value = WorkId;
 
 
-            TravelAgency.Model.OrdersLogs model = new TravelAgency.Model.OrdersLogs();
+            TravelAgency.Model.user_copy model = new TravelAgency.Model.user_copy();
             DataSet ds = DbHelperSQL.Query(strSql.ToString(), parameters);
 
             if (ds.Tables[0].Rows.Count > 0)
@@ -196,38 +198,42 @@ namespace TravelAgency.DAL
         /// <summary>
         /// DataRow to Object Model
         /// </summary>
-        public TravelAgency.Model.OrdersLogs DataRowToModel(DataRow row)
+        public TravelAgency.Model.user_copy DataRowToModel(DataRow row)
         {
-            TravelAgency.Model.OrdersLogs model = new TravelAgency.Model.OrdersLogs();
+            TravelAgency.Model.user_copy model = new TravelAgency.Model.user_copy();
             if (row != null)
             {
-                if (row["id"] != null && row["id"].ToString() != "")
+                if (row["WorkId"] != null && row["WorkId"].ToString() != "")
                 {
-                    model.id = int.Parse(row["id"].ToString());
+                    model.WorkId = row["WorkId"].ToString();
                 }
-                if (row["ActType"] != null && row["ActType"].ToString() != "")
+                if (row["Account"] != null && row["Account"].ToString() != "")
                 {
-                    model.ActType = int.Parse(row["ActType"].ToString());
+                    model.Account = row["Account"].ToString();
                 }
                 if (row["UserName"] != null && row["UserName"].ToString() != "")
                 {
                     model.UserName = row["UserName"].ToString();
                 }
-                if (row["OrdersId"] != null && row["OrdersId"].ToString() != "")
+                if (row["Password"] != null && row["Password"].ToString() != "")
                 {
-                    model.OrdersId = int.Parse(row["OrdersId"].ToString());
+                    model.Password = row["Password"].ToString();
                 }
-                if (row["EntryTime"] != null && row["EntryTime"].ToString() != "")
+                if (row["UserMobile"] != null && row["UserMobile"].ToString() != "")
                 {
-                    model.EntryTime = DateTime.Parse(row["EntryTime"].ToString());
+                    model.UserMobile = row["UserMobile"].ToString();
                 }
-                if (row["WorkId"] != null && row["WorkId"].ToString() != "")
+                if (row["DepartmentId"] != null && row["DepartmentId"].ToString() != "")
                 {
-                    model.WorkId = row["WorkId"].ToString();
+                    model.DepartmentId = new Guid(row["DepartmentId"].ToString());
                 }
-                if (row["OrderNo"] != null && row["OrderNo"].ToString() != "")
+                if (row["RID"] != null && row["RID"].ToString() != "")
                 {
-                    model.OrderNo = row["OrderNo"].ToString();
+                    model.RID = new Guid(row["RID"].ToString());
+                }
+                if (row["RoleName"] != null && row["RoleName"].ToString() != "")
+                {
+                    model.RoleName = row["RoleName"].ToString();
                 }
 
                 return model;
@@ -257,8 +263,8 @@ namespace TravelAgency.DAL
             {
                 strSql.Append(" top " + Top.ToString());
             }
-            strSql.Append(" id, ActType, UserName, OrdersId, EntryTime, WorkId, OrderNo  ");
-            strSql.Append(" FROM OrdersLogs ");
+            strSql.Append(" WorkId, Account, UserName, Password, UserMobile, DepartmentId, RID, RoleName  ");
+            strSql.Append(" FROM user_copy ");
             if (strWhere.Trim() != "")
             {
                 strSql.Append(" where " + strWhere);
@@ -276,7 +282,7 @@ namespace TravelAgency.DAL
         public int GetRecordCount(string strWhere)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select count(1) FROM OrdersLogs ");
+            strSql.Append("select count(1) FROM user_copy ");
             if (strWhere.Trim() != "")
             {
                 strSql.Append(" where " + strWhere);
@@ -299,7 +305,7 @@ namespace TravelAgency.DAL
         public DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select id, ActType, UserName, OrdersId, EntryTime, WorkId, OrderNo  ");
+            strSql.Append("select WorkId, Account, UserName, Password, UserMobile, DepartmentId, RID, RoleName  ");
 
             strSql.Append(" FROM ( ");
             strSql.Append(" SELECT ROW_NUMBER() OVER (");
@@ -307,7 +313,7 @@ namespace TravelAgency.DAL
             {
                 strSql.Append("order by T." + orderby);
             }
-            strSql.Append(")AS Row, T.*  from OrdersLogs T ");
+            strSql.Append(")AS Row, T.*  from user_copy T ");
             if (!string.IsNullOrEmpty(strWhere.Trim()))
             {
                 strSql.Append(" WHERE " + strWhere);

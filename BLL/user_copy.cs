@@ -5,27 +5,27 @@ using System.Data;
 using TravelAgency.Model;
 namespace TravelAgency.BLL  
 {
-	 	//visa_copy
-		public partial class visa_copy
+	 	//user_copy
+		public partial class user_copy
 	{
    		     
-		private readonly TravelAgency.DAL.visa_copy dal=new TravelAgency.DAL.visa_copy();
-		public visa_copy()
+		private readonly TravelAgency.DAL.user_copy dal=new TravelAgency.DAL.user_copy();
+		public user_copy()
 		{}
 		
 		#region  Method
 		/// <summary>
 		/// 是否存在该记录
 		/// </summary>
-		public bool Exists(Guid Visa_id)
+		public bool Exists(string WorkId)
 		{
-			return dal.Exists(Visa_id);
+			return dal.Exists(WorkId);
 		}
 
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public void  Add(TravelAgency.Model.visa_copy model)
+		public void  Add(TravelAgency.Model.user_copy model)
 		{
 						dal.Add(model);
 						
@@ -34,7 +34,7 @@ namespace TravelAgency.BLL
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
-		public bool Update(TravelAgency.Model.visa_copy model)
+		public bool Update(TravelAgency.Model.user_copy model)
 		{
 			return dal.Update(model);
 		}
@@ -42,19 +42,19 @@ namespace TravelAgency.BLL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete(Guid Visa_id)
+		public bool Delete(string WorkId)
 		{
 			
-			return dal.Delete(Visa_id);
+			return dal.Delete(WorkId);
 		}
 
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public TravelAgency.Model.visa_copy GetModel(Guid Visa_id)
+		public TravelAgency.Model.user_copy GetModel(string WorkId)
 		{
 			
-			return dal.GetModel(Visa_id);
+			return dal.GetModel(WorkId);
 		}
 
 		/// <summary>
@@ -74,7 +74,7 @@ namespace TravelAgency.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public List<TravelAgency.Model.visa_copy> GetModelList(string strWhere)
+		public List<TravelAgency.Model.user_copy> GetModelList(string strWhere)
 		{
 			DataSet ds = dal.GetList(strWhere);
 			return DataTableToList(ds.Tables[0]);
@@ -82,13 +82,13 @@ namespace TravelAgency.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public List<TravelAgency.Model.visa_copy> DataTableToList(DataTable dt)
+		public List<TravelAgency.Model.user_copy> DataTableToList(DataTable dt)
 		{
-			List<TravelAgency.Model.visa_copy> modelList = new List<TravelAgency.Model.visa_copy>();
+			List<TravelAgency.Model.user_copy> modelList = new List<TravelAgency.Model.user_copy>();
 			int rowsCount = dt.Rows.Count;
 			if (rowsCount > 0)
 			{
-				TravelAgency.Model.visa_copy model;
+				TravelAgency.Model.user_copy model;
 				for (int n = 0; n < rowsCount; n++)
 				{
 					model = dal.DataRowToModel(dt.Rows[n]);			
@@ -118,7 +118,7 @@ namespace TravelAgency.BLL
     /// <summary>
     /// 分页获取数据
     /// </summary>
-    public List<TravelAgency.Model.visa_copy> GetListByPage(string where, string orderby,int startIndex, int endIndex)
+    public List<TravelAgency.Model.user_copy> GetListByPage(string where, string orderby,int startIndex, int endIndex)
     {
         DataSet ds = dal.GetListByPage(where, orderby, startIndex, endIndex);
         DataTable dt = ds.Tables[0];
@@ -128,7 +128,7 @@ namespace TravelAgency.BLL
     /// <summary>
     /// 分页获取数据
     /// </summary>
-    public List<TravelAgency.Model.visa_copy> GetListByPage(int pageIndex, int pageSize, string where, string orderby)
+    public List<TravelAgency.Model.user_copy> GetListByPage(int pageIndex, int pageSize, string where, string orderby)
     {
         int startIndex = (pageIndex - 1) * pageSize + 1;
         int endIndex = pageIndex * pageSize;

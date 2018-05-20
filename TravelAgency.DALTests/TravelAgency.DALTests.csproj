@@ -64,8 +64,8 @@
     <Compile Include="ConsulateChargeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VisaDalTests.cs" />
-    <Compile Include="OrdersLogsTests.cs" />
     <Compile Include="visa_copyTests.cs" />
+    <Compile Include="OrdersLogsTests.cs" />
     <Compile Include="WorkerQueueTests.cs" />
   </ItemGroup>
   <ItemGroup>
