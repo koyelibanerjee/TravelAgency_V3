@@ -12,7 +12,7 @@ namespace TravelAgency.Model
         		                  
     private int? _ordersid;
         		                  
-    private int? _guestid;
+    private string _guestid;
         		                  
     private string _guesttype;
         		                  
@@ -61,9 +61,9 @@ namespace TravelAgency.Model
 		/// <summary>
 		/// GuestId
         /// </summary>		
-		        		  
+		      		  
   
-        public int? GuestId
+        public string GuestId
         {
             get{ return _guestid; }
             set{ _guestid = value; }

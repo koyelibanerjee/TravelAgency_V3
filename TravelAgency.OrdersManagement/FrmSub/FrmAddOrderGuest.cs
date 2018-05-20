@@ -14,19 +14,25 @@ namespace TravelAgency.OrdersManagement
         private readonly Action<int> _updateDel; //副界面传来更新数据库的委托
         private readonly int _curPage; //主界面更新数据库需要一个当前页
         private readonly bool _is4Modify = false;
-        private readonly TravelAgency.Model.Orders _model = null;
+        private readonly TravelAgency.Model.Orders _ordersModel = null;
+        private readonly TravelAgency.Model.OrderGuest _guestModel = null;
+        public TravelAgency.Model.OrderGuest RetModel = null;
 
-        public FrmAddOrderGuest(Action<int> updateDel, int curPage, bool is4Modify = false, TravelAgency.Model.Orders model = null)
+
+        private FrmAddOrderGuest()
         {
             if (this.Modal)
                 this.StartPosition = FormStartPosition.CenterParent;
             else
                 this.StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
-            _updateDel = updateDel;
-            _curPage = curPage;
+        }
+
+        public FrmAddOrderGuest(TravelAgency.Model.Orders ordersModel, bool is4Modify = false, Model.OrderGuest guesstModel = null) : this()
+        {
             _is4Modify = is4Modify;
-            _model = model;
+            _ordersModel = ordersModel;
+            _guestModel = guesstModel;
         }
 
         private void FrmAddOrders_Load(object sender, EventArgs e)
@@ -43,14 +49,9 @@ namespace TravelAgency.OrdersManagement
             {
                 btnOK.Enabled = false;
             }
-
+            txtOrderNo.Text = _ordersModel.OrderNo;
             if (_is4Modify)
             {
-                
-
-                
-
-                txtOrderNo.Text = _model.OrderNo;
                 this.Text = "修改订单客户信息";
             }
         }
@@ -96,31 +97,40 @@ namespace TravelAgency.OrdersManagement
         {
             if (_is4Modify)
             {
-                try
-                {
-                                    
-
-                    //if (!string.IsNullOrEmpty(_model.GuestId) &&
-                    //    !string.IsNullOrEmpty(_model.GuestPhone) &&
-                    //    !string.IsNullOrEmpty(_model.GuestName))
-                    //{
-                    //    _model.GuestInfoTypedIn = true;
-                    //}
-                    //else
-                        _model.GuestInfoTypedIn = false;
-
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
-                }
-                catch (Exception)
-                {
-                    MessageBoxEx.Show("请检查输入是否有误，价格为0请填入0!");
-                    //throw;
-                }
+                //_guestModel.OrdersId = _ordersModel.Id;
+                _guestModel.GuestId = CtrlParser.Parse2String(txtGuestId);
+                _guestModel.GuestName = CtrlParser.Parse2String(txtGuestName);
+                _guestModel.GuestNamePinYin = CtrlParser.Parse2String(txtGuestNamePinYin);
+                _guestModel.GuestSex = CtrlParser.Parse2String(txtGuestSex);
+                _guestModel.GuestBirthday = CtrlParser.Parse2Datetime(txtGuestBirthday);
+                _guestModel.GuestPhone = CtrlParser.Parse2String(txtGuestPhone);
+                _guestModel.GuestWeChat = CtrlParser.Parse2String(txtGuestWeiChat);
+                _guestModel.GuestEMail = CtrlParser.Parse2String(txtGuestEMail);
+                _guestModel.GuestType = CtrlParser.Parse2String(txtGuestType);
+                _guestModel.GuestPassportNo = CtrlParser.Parse2String(txtGuestPassportNo);
+                _guestModel.GuestLastNightHotel = CtrlParser.Parse2String(txtGuestLastNightHotel);
+                _guestModel.GuestCountry = CtrlParser.Parse2String(txtGuestCountry);
+                RetModel = _guestModel;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             else
             {
-                return;
+                RetModel.OrdersId = _ordersModel.Id;
+                RetModel.GuestId = CtrlParser.Parse2String(txtGuestId);
+                RetModel.GuestName = CtrlParser.Parse2String(txtGuestName);
+                RetModel.GuestNamePinYin = CtrlParser.Parse2String(txtGuestNamePinYin);
+                RetModel.GuestSex = CtrlParser.Parse2String(txtGuestSex);
+                RetModel.GuestBirthday = CtrlParser.Parse2Datetime(txtGuestBirthday);
+                RetModel.GuestPhone = CtrlParser.Parse2String(txtGuestPhone);
+                RetModel.GuestWeChat = CtrlParser.Parse2String(txtGuestWeiChat);
+                RetModel.GuestEMail = CtrlParser.Parse2String(txtGuestEMail);
+                RetModel.GuestType = CtrlParser.Parse2String(txtGuestType);
+                RetModel.GuestPassportNo = CtrlParser.Parse2String(txtGuestPassportNo);
+                RetModel.GuestLastNightHotel = CtrlParser.Parse2String(txtGuestLastNightHotel);
+                RetModel.GuestCountry = CtrlParser.Parse2String(txtGuestCountry);
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
 
         }
