@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelX20 = new DevComponents.DotNetBar.LabelX();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.btnOK = new DevComponents.DotNetBar.ButtonX();
@@ -87,6 +87,14 @@
             this.labelX10 = new DevComponents.DotNetBar.LabelX();
             this.cmsDgvRb = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtGuestUseTime = new System.Windows.Forms.DateTimePicker();
+            this.labelX19 = new DevComponents.DotNetBar.LabelX();
+            this.labelX3 = new DevComponents.DotNetBar.LabelX();
+            this.txtDepartureDate = new System.Windows.Forms.DateTimePicker();
+            this.txtOperRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX18 = new DevComponents.DotNetBar.LabelX();
+            this.txtWaitorRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX12 = new DevComponents.DotNetBar.LabelX();
             this.panelEx1.SuspendLayout();
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -111,7 +119,7 @@
             // 
             this.btnCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnCancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnCancel.Location = new System.Drawing.Point(544, 276);
+            this.btnCancel.Location = new System.Drawing.Point(636, 386);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(87, 27);
             this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -123,7 +131,7 @@
             // 
             this.btnOK.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnOK.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnOK.Location = new System.Drawing.Point(449, 276);
+            this.btnOK.Location = new System.Drawing.Point(636, 353);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(87, 27);
             this.btnOK.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -154,6 +162,14 @@
             // 
             this.panelMain.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelMain.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelMain.Controls.Add(this.txtOperRemark);
+            this.panelMain.Controls.Add(this.labelX18);
+            this.panelMain.Controls.Add(this.txtWaitorRemark);
+            this.panelMain.Controls.Add(this.labelX12);
+            this.panelMain.Controls.Add(this.txtDepartureDate);
+            this.panelMain.Controls.Add(this.labelX3);
+            this.panelMain.Controls.Add(this.txtGuestUseTime);
+            this.panelMain.Controls.Add(this.labelX19);
             this.panelMain.Controls.Add(this.btnAddGuest);
             this.panelMain.Controls.Add(this.dataGridView1);
             this.panelMain.Controls.Add(this.txtComboName);
@@ -209,7 +225,7 @@
             // 
             this.btnAddGuest.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnAddGuest.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnAddGuest.Location = new System.Drawing.Point(341, 386);
+            this.btnAddGuest.Location = new System.Drawing.Point(12, 386);
             this.btnAddGuest.Name = "btnAddGuest";
             this.btnAddGuest.Size = new System.Drawing.Size(87, 27);
             this.btnAddGuest.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -222,14 +238,14 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle49.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle49.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle49.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle49.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle49.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle49.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle49;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
@@ -246,27 +262,27 @@
             this.GuestPassportNo,
             this.GuestLastNightHotel,
             this.GuestCountry});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle50.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle50.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle50.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle50.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle50.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle50.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle50;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 419);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle51.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle51.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle51.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle51.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle51.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle51.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle51;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
@@ -366,10 +382,10 @@
             // 
             this.txtComboName.Border.Class = "TextBoxBorder";
             this.txtComboName.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtComboName.Location = new System.Drawing.Point(126, 113);
+            this.txtComboName.Location = new System.Drawing.Point(124, 144);
             this.txtComboName.Multiline = true;
             this.txtComboName.Name = "txtComboName";
-            this.txtComboName.Size = new System.Drawing.Size(189, 91);
+            this.txtComboName.Size = new System.Drawing.Size(189, 27);
             this.txtComboName.TabIndex = 165;
             // 
             // labelX1
@@ -378,7 +394,7 @@
             // 
             // 
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(26, 113);
+            this.labelX1.Location = new System.Drawing.Point(24, 144);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(73, 27);
             this.labelX1.TabIndex = 164;
@@ -396,7 +412,7 @@
             this.txtWaitorConfirmTime.CustomFormat = "yyyy/MM/dd HH:mm";
             this.txtWaitorConfirmTime.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
             this.txtWaitorConfirmTime.IsPopupCalendarOpen = false;
-            this.txtWaitorConfirmTime.Location = new System.Drawing.Point(126, 277);
+            this.txtWaitorConfirmTime.Location = new System.Drawing.Point(124, 216);
             // 
             // 
             // 
@@ -435,24 +451,24 @@
             // 
             this.btnOperInfo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnOperInfo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnOperInfo.Location = new System.Drawing.Point(544, 147);
+            this.btnOperInfo.Location = new System.Drawing.Point(523, 354);
             this.btnOperInfo.Name = "btnOperInfo";
-            this.btnOperInfo.Size = new System.Drawing.Size(128, 57);
+            this.btnOperInfo.Size = new System.Drawing.Size(92, 57);
             this.btnOperInfo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnOperInfo.TabIndex = 141;
-            this.btnOperInfo.Text = "设置(查看)操作信息";
+            this.btnOperInfo.Text = "设置(查看)\r\n操作信息";
             this.btnOperInfo.Click += new System.EventHandler(this.btnOperInfo_Click);
             // 
             // btnGuestInfo
             // 
             this.btnGuestInfo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnGuestInfo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnGuestInfo.Location = new System.Drawing.Point(544, 213);
+            this.btnGuestInfo.Location = new System.Drawing.Point(417, 354);
             this.btnGuestInfo.Name = "btnGuestInfo";
-            this.btnGuestInfo.Size = new System.Drawing.Size(128, 57);
+            this.btnGuestInfo.Size = new System.Drawing.Size(92, 57);
             this.btnGuestInfo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnGuestInfo.TabIndex = 140;
-            this.btnGuestInfo.Text = "设置(查看)客户信息";
+            this.btnGuestInfo.Text = "设置(查看)\r\n补充信息";
             this.btnGuestInfo.Click += new System.EventHandler(this.btnGuestInfo_Click);
             // 
             // txtPlatformActivity
@@ -462,10 +478,10 @@
             // 
             this.txtPlatformActivity.Border.Class = "TextBoxBorder";
             this.txtPlatformActivity.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtPlatformActivity.Location = new System.Drawing.Point(126, 374);
+            this.txtPlatformActivity.Location = new System.Drawing.Point(402, 181);
             this.txtPlatformActivity.Multiline = true;
             this.txtPlatformActivity.Name = "txtPlatformActivity";
-            this.txtPlatformActivity.Size = new System.Drawing.Size(186, 27);
+            this.txtPlatformActivity.Size = new System.Drawing.Size(324, 58);
             this.txtPlatformActivity.TabIndex = 139;
             // 
             // labelX15
@@ -474,7 +490,7 @@
             // 
             // 
             this.labelX15.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX15.Location = new System.Drawing.Point(26, 374);
+            this.labelX15.Location = new System.Drawing.Point(323, 181);
             this.labelX15.Name = "labelX15";
             this.labelX15.Size = new System.Drawing.Size(115, 27);
             this.labelX15.TabIndex = 138;
@@ -487,10 +503,10 @@
             // 
             this.txtReallyPay.Border.Class = "TextBoxBorder";
             this.txtReallyPay.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtReallyPay.Location = new System.Drawing.Point(126, 309);
+            this.txtReallyPay.Location = new System.Drawing.Point(607, 110);
             this.txtReallyPay.Multiline = true;
             this.txtReallyPay.Name = "txtReallyPay";
-            this.txtReallyPay.Size = new System.Drawing.Size(189, 27);
+            this.txtReallyPay.Size = new System.Drawing.Size(122, 27);
             this.txtReallyPay.TabIndex = 137;
             // 
             // labelX14
@@ -499,7 +515,7 @@
             // 
             // 
             this.labelX14.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX14.Location = new System.Drawing.Point(26, 309);
+            this.labelX14.Location = new System.Drawing.Point(507, 110);
             this.labelX14.Name = "labelX14";
             this.labelX14.Size = new System.Drawing.Size(115, 27);
             this.labelX14.TabIndex = 136;
@@ -511,7 +527,7 @@
             // 
             // 
             this.labelX13.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX13.Location = new System.Drawing.Point(26, 277);
+            this.labelX13.Location = new System.Drawing.Point(24, 216);
             this.labelX13.Name = "labelX13";
             this.labelX13.Size = new System.Drawing.Size(121, 27);
             this.labelX13.TabIndex = 134;
@@ -549,7 +565,7 @@
             // 
             this.txtPurchaseNum.Border.Class = "TextBoxBorder";
             this.txtPurchaseNum.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtPurchaseNum.Location = new System.Drawing.Point(126, 213);
+            this.txtPurchaseNum.Location = new System.Drawing.Point(124, 181);
             this.txtPurchaseNum.Multiline = true;
             this.txtPurchaseNum.Name = "txtPurchaseNum";
             this.txtPurchaseNum.Size = new System.Drawing.Size(189, 27);
@@ -561,7 +577,7 @@
             // 
             // 
             this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX8.Location = new System.Drawing.Point(26, 213);
+            this.labelX8.Location = new System.Drawing.Point(24, 181);
             this.labelX8.Name = "labelX8";
             this.labelX8.Size = new System.Drawing.Size(73, 27);
             this.labelX8.TabIndex = 128;
@@ -574,10 +590,10 @@
             // 
             this.txtProductType.Border.Class = "TextBoxBorder";
             this.txtProductType.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtProductType.Location = new System.Drawing.Point(588, 77);
+            this.txtProductType.Location = new System.Drawing.Point(607, 77);
             this.txtProductType.Multiline = true;
             this.txtProductType.Name = "txtProductType";
-            this.txtProductType.Size = new System.Drawing.Size(141, 27);
+            this.txtProductType.Size = new System.Drawing.Size(122, 27);
             this.txtProductType.TabIndex = 127;
             // 
             // labelX7
@@ -635,7 +651,7 @@
             this.txtPaymentPlatform.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.txtPaymentPlatform.FormattingEnabled = true;
             this.txtPaymentPlatform.ItemHeight = 17;
-            this.txtPaymentPlatform.Location = new System.Drawing.Point(126, 45);
+            this.txtPaymentPlatform.Location = new System.Drawing.Point(124, 45);
             this.txtPaymentPlatform.Name = "txtPaymentPlatform";
             this.txtPaymentPlatform.Size = new System.Drawing.Size(124, 23);
             this.txtPaymentPlatform.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -647,7 +663,7 @@
             // 
             // 
             this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX5.Location = new System.Drawing.Point(26, 45);
+            this.labelX5.Location = new System.Drawing.Point(24, 45);
             this.labelX5.Name = "labelX5";
             this.labelX5.Size = new System.Drawing.Size(73, 27);
             this.labelX5.TabIndex = 121;
@@ -660,10 +676,10 @@
             // 
             this.txtProductName.Border.Class = "TextBoxBorder";
             this.txtProductName.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtProductName.Location = new System.Drawing.Point(126, 77);
+            this.txtProductName.Location = new System.Drawing.Point(124, 77);
             this.txtProductName.Multiline = true;
             this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(189, 27);
+            this.txtProductName.Size = new System.Drawing.Size(189, 61);
             this.txtProductName.TabIndex = 117;
             // 
             // labelX2
@@ -672,7 +688,7 @@
             // 
             // 
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Location = new System.Drawing.Point(26, 77);
+            this.labelX2.Location = new System.Drawing.Point(24, 77);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(73, 27);
             this.labelX2.TabIndex = 116;
@@ -684,7 +700,7 @@
             this.txtReplyResult.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.txtReplyResult.FormattingEnabled = true;
             this.txtReplyResult.ItemHeight = 17;
-            this.txtReplyResult.Location = new System.Drawing.Point(126, 342);
+            this.txtReplyResult.Location = new System.Drawing.Point(124, 250);
             this.txtReplyResult.Name = "txtReplyResult";
             this.txtReplyResult.Size = new System.Drawing.Size(186, 23);
             this.txtReplyResult.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -696,7 +712,7 @@
             // 
             // 
             this.labelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX11.Location = new System.Drawing.Point(26, 342);
+            this.labelX11.Location = new System.Drawing.Point(24, 250);
             this.labelX11.Name = "labelX11";
             this.labelX11.Size = new System.Drawing.Size(73, 27);
             this.labelX11.TabIndex = 112;
@@ -709,9 +725,9 @@
             // 
             this.txtOrderNo.Border.Class = "TextBoxBorder";
             this.txtOrderNo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtOrderNo.Location = new System.Drawing.Point(126, 14);
+            this.txtOrderNo.Location = new System.Drawing.Point(124, 14);
             this.txtOrderNo.Name = "txtOrderNo";
-            this.txtOrderNo.Size = new System.Drawing.Size(603, 23);
+            this.txtOrderNo.Size = new System.Drawing.Size(301, 23);
             this.txtOrderNo.TabIndex = 111;
             // 
             // labelX4
@@ -720,7 +736,7 @@
             // 
             // 
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(26, 14);
+            this.labelX4.Location = new System.Drawing.Point(24, 14);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(94, 27);
             this.labelX4.TabIndex = 110;
@@ -769,7 +785,7 @@
             // 
             this.txtGuestOrderTime.CustomFormat = "yyyy/MM/dd HH:mm:ss";
             this.txtGuestOrderTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtGuestOrderTime.Location = new System.Drawing.Point(126, 246);
+            this.txtGuestOrderTime.Location = new System.Drawing.Point(540, 15);
             this.txtGuestOrderTime.Name = "txtGuestOrderTime";
             this.txtGuestOrderTime.Size = new System.Drawing.Size(186, 23);
             this.txtGuestOrderTime.TabIndex = 81;
@@ -780,7 +796,7 @@
             // 
             // 
             this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX10.Location = new System.Drawing.Point(26, 246);
+            this.labelX10.Location = new System.Drawing.Point(440, 15);
             this.labelX10.Name = "labelX10";
             this.labelX10.Size = new System.Drawing.Size(121, 27);
             this.labelX10.TabIndex = 80;
@@ -791,14 +807,106 @@
             this.cmsDgvRb.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.删除ToolStripMenuItem});
             this.cmsDgvRb.Name = "cmsDgvRb";
-            this.cmsDgvRb.Size = new System.Drawing.Size(153, 48);
+            this.cmsDgvRb.Size = new System.Drawing.Size(101, 26);
             // 
             // 删除ToolStripMenuItem
             // 
             this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
-            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.删除ToolStripMenuItem.Text = "删除";
             this.删除ToolStripMenuItem.Click += new System.EventHandler(this.删除ToolStripMenuItem_Click);
+            // 
+            // txtGuestUseTime
+            // 
+            this.txtGuestUseTime.CustomFormat = "yyyy/MM/dd HH:mm";
+            this.txtGuestUseTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.txtGuestUseTime.Location = new System.Drawing.Point(402, 145);
+            this.txtGuestUseTime.Name = "txtGuestUseTime";
+            this.txtGuestUseTime.Size = new System.Drawing.Size(134, 23);
+            this.txtGuestUseTime.TabIndex = 171;
+            // 
+            // labelX19
+            // 
+            // 
+            // 
+            // 
+            this.labelX19.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX19.Location = new System.Drawing.Point(321, 144);
+            this.labelX19.Name = "labelX19";
+            this.labelX19.Size = new System.Drawing.Size(93, 27);
+            this.labelX19.TabIndex = 170;
+            this.labelX19.Text = "场次(时间):";
+            // 
+            // labelX3
+            // 
+            // 
+            // 
+            // 
+            this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX3.Location = new System.Drawing.Point(542, 144);
+            this.labelX3.Name = "labelX3";
+            this.labelX3.Size = new System.Drawing.Size(73, 27);
+            this.labelX3.TabIndex = 172;
+            this.labelX3.Text = "出行日期:";
+            // 
+            // txtDepartureDate
+            // 
+            this.txtDepartureDate.CustomFormat = "yyyy/MM/dd";
+            this.txtDepartureDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.txtDepartureDate.Location = new System.Drawing.Point(623, 145);
+            this.txtDepartureDate.Name = "txtDepartureDate";
+            this.txtDepartureDate.Size = new System.Drawing.Size(103, 23);
+            this.txtDepartureDate.TabIndex = 173;
+            // 
+            // txtOperRemark
+            // 
+            // 
+            // 
+            // 
+            this.txtOperRemark.Border.Class = "TextBoxBorder";
+            this.txtOperRemark.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtOperRemark.Location = new System.Drawing.Point(402, 286);
+            this.txtOperRemark.Multiline = true;
+            this.txtOperRemark.Name = "txtOperRemark";
+            this.txtOperRemark.Size = new System.Drawing.Size(321, 62);
+            this.txtOperRemark.TabIndex = 177;
+            // 
+            // labelX18
+            // 
+            // 
+            // 
+            // 
+            this.labelX18.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX18.Location = new System.Drawing.Point(318, 286);
+            this.labelX18.Name = "labelX18";
+            this.labelX18.Size = new System.Drawing.Size(125, 27);
+            this.labelX18.TabIndex = 176;
+            this.labelX18.Text = "操作备注:";
+            // 
+            // txtWaitorRemark
+            // 
+            // 
+            // 
+            // 
+            this.txtWaitorRemark.Border.Class = "TextBoxBorder";
+            this.txtWaitorRemark.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtWaitorRemark.Location = new System.Drawing.Point(124, 286);
+            this.txtWaitorRemark.Multiline = true;
+            this.txtWaitorRemark.Name = "txtWaitorRemark";
+            this.txtWaitorRemark.Size = new System.Drawing.Size(186, 62);
+            this.txtWaitorRemark.TabIndex = 175;
+            // 
+            // labelX12
+            // 
+            // 
+            // 
+            // 
+            this.labelX12.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX12.Location = new System.Drawing.Point(24, 281);
+            this.labelX12.Name = "labelX12";
+            this.labelX12.Size = new System.Drawing.Size(93, 27);
+            this.labelX12.TabIndex = 174;
+            this.labelX12.Text = "备注:";
             // 
             // FrmAddOrders
             // 
@@ -875,5 +983,13 @@
         private DevComponents.DotNetBar.ButtonX btnAddGuest;
         private System.Windows.Forms.ContextMenuStrip cmsDgvRb;
         private System.Windows.Forms.ToolStripMenuItem 删除ToolStripMenuItem;
+        private System.Windows.Forms.DateTimePicker txtGuestUseTime;
+        private DevComponents.DotNetBar.LabelX labelX19;
+        private DevComponents.DotNetBar.LabelX labelX3;
+        private System.Windows.Forms.DateTimePicker txtDepartureDate;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtOperRemark;
+        private DevComponents.DotNetBar.LabelX labelX18;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtWaitorRemark;
+        private DevComponents.DotNetBar.LabelX labelX12;
     }
 }

@@ -19,6 +19,7 @@ namespace TravelAgency.OrdersManagement
         private readonly bool _is4Modify = false;
         private readonly TravelAgency.Model.Orders _model = null;
         private readonly BLL.OrdersLogs _bllLoger = new BLL.OrdersLogs();
+        private readonly BLL.OrderGuest _bllGuest = new BLL.OrderGuest();
 
         public FrmAddOrders(Action<int> updateDel, int curPage, bool is4Modify = false, TravelAgency.Model.Orders model = null)
         {
@@ -81,6 +82,15 @@ namespace TravelAgency.OrdersManagement
                 txtComboName.Text = _model.ComboName;
                 this.Text = "修改订单信息";
             }
+
+            InitDgvData();
+
+        }
+
+        private void InitDgvData()
+        {
+            var list = _bllGuest.GetModelList(" OrdersId = " + _model.Id + " "); //TODO:客人之间的排序
+            dataGridView1.DataSource = list;
         }
 
         private void DataGridView1_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
@@ -297,10 +307,6 @@ namespace TravelAgency.OrdersManagement
                 MessageBoxEx.Show("请先添加订单信息后再录入操作信息!!!");
                 return;
             }
-
-
-
-
             FrmSetOperInfo frm = new FrmSetOperInfo(_updateDel, _curPage, true, _model);
             frm.Show();
         }

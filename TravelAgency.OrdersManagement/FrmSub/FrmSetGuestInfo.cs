@@ -82,24 +82,10 @@ namespace TravelAgency.OrdersManagement
         {
             //string tablename = "Orders";
 
-            txtGuestSex.DropDownStyle = ComboBoxStyle.DropDown;
-            txtGuestCountry.DropDownStyle = ComboBoxStyle.DropDown;
             txtIsPraise.DropDownStyle = ComboBoxStyle.DropDown;
-
-            txtGuestSex.Items.Add("男");
-            txtGuestSex.Items.Add("女");
-            txtGuestSex.Items.Add("保密");
-
-            foreach (string countryName in CountryCode.CountryNameArr)
-            {
-                txtGuestCountry.Items.Add(countryName);
-            }
 
             txtIsPraise.Items.Add("是");
             txtIsPraise.Items.Add("否");
-
-
-
         }
         #endregion
 
@@ -111,11 +97,8 @@ namespace TravelAgency.OrdersManagement
             {
                 try
                 {
-                    
+
                     _model.GuestUseTime = CtrlParser.Parse2Datetime(txtGuestUseTime);
-
-
-
                     _model.ReserveTime = CtrlParser.Parse2Datetime(txtReserveTime);
                     _model.DiningTime = CtrlParser.Parse2Datetime(txtDiningTime);
                     _model.DiningShop = CtrlParser.Parse2String(txtDiningShop);
@@ -134,7 +117,9 @@ namespace TravelAgency.OrdersManagement
                     //    _model.GuestInfoTypedIn = true;
                     //}
                     //else
-                        _model.GuestInfoTypedIn = false;
+
+                    //TODO:这里怎么判定?
+                    _model.GuestInfoTypedIn = false;
 
 
                     //下面的字段暂时不进行修改
