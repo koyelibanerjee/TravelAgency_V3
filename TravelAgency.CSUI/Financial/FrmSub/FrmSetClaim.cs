@@ -220,7 +220,8 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
             var list = dataGridView1.DataSource as List<Model.Visa>;
             //执行计算
-            ClaimMoney(list, _balanceList);
+            if(!ClaimMoney(list, _balanceList))
+                return;
 
             int res = _bllVisa.UpdateList(dataGridView1.DataSource as List<Model.Visa>);
             GlobalUtils.MessageBoxWithRecordNum("更新", res, _list.Count);
@@ -230,7 +231,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
         }
 
 
-        private void ClaimMoney(List<Model.Visa> visaList, List<Model.CustomerBalance> balanceList)
+        private bool ClaimMoney(List<Model.Visa> visaList, List<Model.CustomerBalance> balanceList)
         {
             //同一个客户在进来就限制了
             decimal totalMoney = 0;
@@ -240,7 +241,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 if (!visaList[i].Receipt.HasValue || visaList[i].Receipt.Value == 0)
                 {
                     MessageBoxEx.Show("还有团号未设置收款金额!!!");
-                    return;
+                    return false;
                 }
                 totalMoney += visaList[i].Receipt.Value;
             }
@@ -248,7 +249,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             if (totalMoney > _clientBalance)
             {
                 MessageBoxEx.Show("余额不足!!!");
-                return;
+                return false;
             }
 
             List<Model.CustomerBalance> newBalances = new List<Model.CustomerBalance>();
@@ -299,7 +300,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
                 }
 
-                claimMoney.Money_id = balance.Money_id; //TODO:修改add方法，这几个表都需要修改
+                claimMoney.Money_id = balance.Money_id; 
                 claimMoney.DepartmentId = GlobalUtils.LoginUser.DepartmentId;
                 claimMoney.Name_Claim = GlobalUtils.LoginUser.UserName;
                 claimMoney.GroupNo = visa.GroupNo;
@@ -332,6 +333,9 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
             //MessageBoxEx.Show(string.Format("{0}/{1},{2}/{3},{4}/{5}", sucVisa, visaList.Count, sucBalance, balanceList
             //    .Count, sucClaim, newClaims.Count));
+
+            return true;
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

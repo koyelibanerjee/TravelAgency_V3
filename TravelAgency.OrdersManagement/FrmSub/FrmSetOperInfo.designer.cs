@@ -30,6 +30,8 @@
         {
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.panelMain = new DevComponents.DotNetBar.PanelEx();
+            this.txtWaitorRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX8 = new DevComponents.DotNetBar.LabelX();
             this.txtReplyWaitorConfirmTime = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.txtJpConfirmTime = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.txtOperOrderTime = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
@@ -53,8 +55,6 @@
             this.btnOK = new DevComponents.DotNetBar.ButtonX();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
-            this.txtWaitorRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX8 = new DevComponents.DotNetBar.LabelX();
             this.panelEx1.SuspendLayout();
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtReplyWaitorConfirmTime)).BeginInit();
@@ -71,7 +71,7 @@
             this.panelEx1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEx1.Location = new System.Drawing.Point(0, 0);
             this.panelEx1.Name = "panelEx1";
-            this.panelEx1.Size = new System.Drawing.Size(435, 505);
+            this.panelEx1.Size = new System.Drawing.Size(435, 495);
             this.panelEx1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelEx1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -114,7 +114,7 @@
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(435, 505);
+            this.panelMain.Size = new System.Drawing.Size(435, 495);
             this.panelMain.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelMain.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelMain.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -123,6 +123,31 @@
             this.panelMain.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.panelMain.Style.GradientAngle = 90;
             this.panelMain.TabIndex = 106;
+            // 
+            // txtWaitorRemark
+            // 
+            // 
+            // 
+            // 
+            this.txtWaitorRemark.Border.Class = "TextBoxBorder";
+            this.txtWaitorRemark.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtWaitorRemark.Location = new System.Drawing.Point(154, 400);
+            this.txtWaitorRemark.Multiline = true;
+            this.txtWaitorRemark.Name = "txtWaitorRemark";
+            this.txtWaitorRemark.Size = new System.Drawing.Size(267, 42);
+            this.txtWaitorRemark.TabIndex = 179;
+            // 
+            // labelX8
+            // 
+            // 
+            // 
+            // 
+            this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX8.Location = new System.Drawing.Point(26, 400);
+            this.labelX8.Name = "labelX8";
+            this.labelX8.Size = new System.Drawing.Size(93, 27);
+            this.labelX8.TabIndex = 178;
+            this.labelX8.Text = "客服备注:";
             // 
             // txtReplyWaitorConfirmTime
             // 
@@ -296,7 +321,7 @@
             // 
             this.txtExchangeRate.Border.Class = "TextBoxBorder";
             this.txtExchangeRate.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtExchangeRate.Location = new System.Drawing.Point(154, 257);
+            this.txtExchangeRate.Location = new System.Drawing.Point(154, 249);
             this.txtExchangeRate.Multiline = true;
             this.txtExchangeRate.Name = "txtExchangeRate";
             this.txtExchangeRate.Size = new System.Drawing.Size(268, 27);
@@ -321,7 +346,7 @@
             // 
             // 
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(26, 257);
+            this.labelX4.Location = new System.Drawing.Point(26, 249);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(110, 27);
             this.labelX4.TabIndex = 172;
@@ -346,7 +371,7 @@
             // 
             this.txtOperRemark.Border.Class = "TextBoxBorder";
             this.txtOperRemark.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtOperRemark.Location = new System.Drawing.Point(154, 322);
+            this.txtOperRemark.Location = new System.Drawing.Point(154, 314);
             this.txtOperRemark.Multiline = true;
             this.txtOperRemark.Name = "txtOperRemark";
             this.txtOperRemark.Size = new System.Drawing.Size(268, 80);
@@ -358,7 +383,7 @@
             // 
             // 
             this.labelX14.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX14.Location = new System.Drawing.Point(26, 324);
+            this.labelX14.Location = new System.Drawing.Point(26, 316);
             this.labelX14.Name = "labelX14";
             this.labelX14.Size = new System.Drawing.Size(93, 27);
             this.labelX14.TabIndex = 160;
@@ -418,7 +443,7 @@
             this.txtReplyResult.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.txtReplyResult.FormattingEnabled = true;
             this.txtReplyResult.ItemHeight = 17;
-            this.txtReplyResult.Location = new System.Drawing.Point(154, 290);
+            this.txtReplyResult.Location = new System.Drawing.Point(154, 282);
             this.txtReplyResult.Name = "txtReplyResult";
             this.txtReplyResult.Size = new System.Drawing.Size(268, 23);
             this.txtReplyResult.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -430,7 +455,7 @@
             // 
             // 
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(26, 290);
+            this.labelX1.Location = new System.Drawing.Point(26, 282);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(110, 27);
             this.labelX1.TabIndex = 162;
@@ -476,7 +501,7 @@
             // 
             this.btnOK.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnOK.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnOK.Location = new System.Drawing.Point(118, 466);
+            this.btnOK.Location = new System.Drawing.Point(118, 457);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(87, 27);
             this.btnOK.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -488,7 +513,7 @@
             // 
             this.btnCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnCancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnCancel.Location = new System.Drawing.Point(212, 466);
+            this.btnCancel.Location = new System.Drawing.Point(212, 457);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(87, 27);
             this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -508,36 +533,11 @@
             this.labelX6.TabIndex = 148;
             this.labelX6.Text = "回复客服确认时间:";
             // 
-            // txtWaitorRemark
-            // 
-            // 
-            // 
-            // 
-            this.txtWaitorRemark.Border.Class = "TextBoxBorder";
-            this.txtWaitorRemark.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtWaitorRemark.Location = new System.Drawing.Point(154, 408);
-            this.txtWaitorRemark.Multiline = true;
-            this.txtWaitorRemark.Name = "txtWaitorRemark";
-            this.txtWaitorRemark.Size = new System.Drawing.Size(267, 42);
-            this.txtWaitorRemark.TabIndex = 179;
-            // 
-            // labelX8
-            // 
-            // 
-            // 
-            // 
-            this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX8.Location = new System.Drawing.Point(26, 408);
-            this.labelX8.Name = "labelX8";
-            this.labelX8.Size = new System.Drawing.Size(93, 27);
-            this.labelX8.TabIndex = 178;
-            this.labelX8.Text = "客服备注:";
-            // 
             // FrmSetOperInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(435, 505);
+            this.ClientSize = new System.Drawing.Size(435, 495);
             this.Controls.Add(this.panelEx1);
             this.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Name = "FrmSetOperInfo";
