@@ -40,7 +40,7 @@ namespace TravelAgency.DAL
             strSql.Append(";select @@IDENTITY");		
 			SqlParameter[] parameters = {
 			            new SqlParameter("@OrdersId", SqlDbType.Int,4) ,            
-                        new SqlParameter("@GuestId", SqlDbType.Int,4) ,            
+                        new SqlParameter("@GuestId", SqlDbType.VarChar,50) ,            
                         new SqlParameter("@GuestType", SqlDbType.VarChar,20) ,            
                         new SqlParameter("@GuestName", SqlDbType.VarChar,20) ,            
                         new SqlParameter("@GuestNamePinYin", SqlDbType.VarChar,50) ,            
@@ -110,7 +110,7 @@ namespace TravelAgency.DAL
 SqlParameter[] parameters = {
 			            new SqlParameter("@Id", SqlDbType.Int,4) ,            
                         new SqlParameter("@OrdersId", SqlDbType.Int,4) ,            
-                        new SqlParameter("@GuestId", SqlDbType.Int,4) ,            
+                        new SqlParameter("@GuestId", SqlDbType.VarChar,50) ,            
                         new SqlParameter("@GuestType", SqlDbType.VarChar,20) ,            
                         new SqlParameter("@GuestName", SqlDbType.VarChar,20) ,            
                         new SqlParameter("@GuestNamePinYin", SqlDbType.VarChar,50) ,            
@@ -243,11 +243,11 @@ SqlParameter[] parameters = {
 				{
 					model.OrdersId=int.Parse(row["OrdersId"].ToString());
 				}
-																																if(row["GuestId"]!=null && row["GuestId"].ToString()!="")
+																																				if(row["GuestId"]!=null && row["GuestId"].ToString()!="")
 				{
-					model.GuestId=int.Parse(row["GuestId"].ToString());
+					model.GuestId= row["GuestId"].ToString();
 				}
-																																				if(row["GuestType"]!=null && row["GuestType"].ToString()!="")
+																																if(row["GuestType"]!=null && row["GuestType"].ToString()!="")
 				{
 					model.GuestType= row["GuestType"].ToString();
 				}

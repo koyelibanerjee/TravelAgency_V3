@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using TravelAgency.Common;
 using TravelAgency.Common.PictureHandler;
+using TravelAgency.Model;
 
 namespace TravelAgency.OrdersManagement
 {
@@ -45,6 +46,7 @@ namespace TravelAgency.OrdersManagement
             InitComboBoxs();
 
 
+
             if (GlobalUtils.LoginUserLevel == RigthLevel.Operator) //操作不能修改基本订单信息和客人信息
             {
                 btnOK.Enabled = false;
@@ -53,6 +55,20 @@ namespace TravelAgency.OrdersManagement
             if (_is4Modify)
             {
                 this.Text = "修改订单客户信息";
+
+
+                txtGuestId.Text = _guestModel.GuestId;
+                txtGuestName.Text = _guestModel.GuestName;
+                txtGuestNamePinYin.Text = _guestModel.GuestNamePinYin;
+                txtGuestSex.Text = _guestModel.GuestSex;
+                txtGuestBirthday.Text = _guestModel.GuestBirthday.ToString();
+                txtGuestPhone.Text = _guestModel.GuestPhone;
+                txtGuestWeiChat.Text = _guestModel.GuestWeChat;
+                txtGuestEMail.Text = _guestModel.GuestEMail;
+                txtGuestType.Text = _guestModel.GuestType;
+                txtGuestLastNightHotel.Text = _guestModel.GuestLastNightHotel;
+                txtGuestPassportNo.Text = _guestModel.GuestPassportNo;
+                txtGuestCountry.Text = _guestModel.GuestCountry;
             }
         }
 
@@ -116,6 +132,7 @@ namespace TravelAgency.OrdersManagement
             }
             else
             {
+                RetModel = new OrderGuest();
                 RetModel.OrdersId = _ordersModel.Id;
                 RetModel.GuestId = CtrlParser.Parse2String(txtGuestId);
                 RetModel.GuestName = CtrlParser.Parse2String(txtGuestName);

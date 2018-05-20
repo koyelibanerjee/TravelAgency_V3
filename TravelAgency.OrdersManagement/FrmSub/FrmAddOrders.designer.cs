@@ -68,7 +68,7 @@
             this.progressLoading = new DevComponents.DotNetBar.Controls.CircularProgress();
             this.txtGuestOrderTime = new System.Windows.Forms.DateTimePicker();
             this.labelX10 = new DevComponents.DotNetBar.LabelX();
-            this.dataGridView1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OrdersId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GuestId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -680,7 +680,7 @@
             this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.RowTemplate.Height = 30;
-            this.dataGridView1.ScrollBarAppearance = DevComponents.DotNetBar.eScrollBarAppearance.Default;
+            //this.dataGridView1.ScrollBarAppearance = DevComponents.DotNetBar.eScrollBarAppearance.Default;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridView1.Size = new System.Drawing.Size(738, 142);
             this.dataGridView1.TabIndex = 166;
@@ -839,7 +839,7 @@
         private DevComponents.Editors.DateTimeAdv.DateTimeInput txtWaitorConfirmTime;
         private DevComponents.DotNetBar.Controls.TextBoxX txtComboName;
         private DevComponents.DotNetBar.LabelX labelX1;
-        private DevComponents.DotNetBar.Controls.DataGridViewX dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrdersId;
         private System.Windows.Forms.DataGridViewTextBoxColumn GuestId;

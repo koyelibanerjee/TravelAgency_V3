@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using NPOI.HSSF.Record.AutoFilter;
 using TravelAgency.Common;
 using TravelAgency.Common.PictureHandler;
+using TravelAgency.Model;
 
 namespace TravelAgency.OrdersManagement
 {
@@ -43,7 +45,7 @@ namespace TravelAgency.OrdersManagement
             InitComboBoxs();
 
             StyleControler.SetDgvStyle(dataGridView1);
-
+            dataGridView1.CellDoubleClick += DataGridView1_CellDoubleClick;
             txtWaitorConfirmTime.Enabled = false; //客服确认时间默认禁用
 
             if (GlobalUtils.LoginUserLevel == RigthLevel.Operator) //操作不能修改基本订单信息和客人信息
@@ -78,6 +80,27 @@ namespace TravelAgency.OrdersManagement
                 txtComboName.Text = _model.ComboName;
                 this.Text = "修改订单信息";
             }
+        }
+
+
+        List<Model.OrderGuest> DgvDataSourceToList()
+        {
+            return dataGridView1.DataSource as List<Model.OrderGuest>;
+        } 
+
+        private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex < 0 || e.RowIndex < 0) //表头部分
+                return;
+            var list = DgvDataSourceToList();
+            FrmAddOrderGuest frm = new FrmAddOrderGuest(_model,true,list[e.RowIndex]);
+            if (frm.ShowDialog() == DialogResult.Cancel)
+                return;
+
+
+            list[e.RowIndex] = frm.RetModel;
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = list;
         }
 
         #region 窗体初始化
@@ -255,7 +278,20 @@ namespace TravelAgency.OrdersManagement
 
         private void btnAddGuest_Click(object sender, EventArgs e)
         {
+            FrmAddOrderGuest frm = new FrmAddOrderGuest(_model);
+            if (frm.ShowDialog() == DialogResult.Cancel)
+                return;
 
+
+            List<Model.OrderGuest> list = null;
+            if (dataGridView1.DataSource == null)
+                list = new List<OrderGuest>();
+            else
+                list = dataGridView1.DataSource as List<Model.OrderGuest>;
+
+            list.Add(frm.RetModel);
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = list;
         }
     }
 }
