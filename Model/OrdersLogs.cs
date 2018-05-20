@@ -1,80 +1,104 @@
-﻿using System;
+﻿using System; 
+using System.Text;
+using System.Collections.Generic; 
+using System.Data;
 namespace TravelAgency.Model
 {
-	/// <summary>
-	/// OrdersLogs:实体类(属性说明自动提取数据库字段的描述信息)
-	/// </summary>
-	[Serializable]
-	public partial class OrdersLogs
+	 	//OrdersLogs
+		public class OrdersLogs
 	{
-		public OrdersLogs()
-		{}
-		#region Model
-		private int _id;
-		private int? _acttype;
-		private string _username;
-		private int? _ordersid;
-		private DateTime? _entrytime;
-		private string _workid;
-		private string _orderno;
+        		                  
+    private int? _id;
+        		                  
+    private int? _acttype;
+        		                  
+    private string _username;
+        		                  
+    private int? _ordersid;
+        		                  
+    private DateTime? _entrytime;
+        		                  
+    private string _workid;
+        		                  
+    private string _orderno;
+        
+    /// <summary>
+		/// id
+        /// </summary>		
+		        		  
+  
+        public int? id
+        {
+            get{ return _id; }
+            set{ _id = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public int id
-		{
-			set{ _id=value;}
-			get{return _id;}
-		}
+		/// ActType
+        /// </summary>		
+		        		  
+  
+        public int? ActType
+        {
+            get{ return _acttype; }
+            set{ _acttype = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public int? ActType
-		{
-			set{ _acttype=value;}
-			get{return _acttype;}
-		}
+		/// UserName
+        /// </summary>		
+		      		  
+  
+        public string UserName
+        {
+            get{ return _username; }
+            set{ _username = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string UserName
-		{
-			set{ _username=value;}
-			get{return _username;}
-		}
+		/// OrdersId
+        /// </summary>		
+		        		  
+  
+        public int? OrdersId
+        {
+            get{ return _ordersid; }
+            set{ _ordersid = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public int? OrdersId
-		{
-			set{ _ordersid=value;}
-			get{return _ordersid;}
-		}
+		/// EntryTime
+        /// </summary>		
+		        		  
+  
+        public DateTime? EntryTime
+        {
+            get{ return _entrytime; }
+            set{ _entrytime = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime? EntryTime
-		{
-			set{ _entrytime=value;}
-			get{return _entrytime;}
-		}
+		/// WorkId
+        /// </summary>		
+		      		  
+  
+        public string WorkId
+        {
+            get{ return _workid; }
+            set{ _workid = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string WorkId
-		{
-			set{ _workid=value;}
-			get{return _workid;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public string OrderNo
-		{
-			set{ _orderno=value;}
-			get{return _orderno;}
-		}
-		#endregion Model
-
+		/// OrderNo
+        /// </summary>		
+		      		  
+  
+        public string OrderNo
+        {
+            get{ return _orderno; }
+            set{ _orderno = value; }
+        }    
+      
+		   
 	}
 }
-

@@ -2,14 +2,14 @@
 using System.Text;
 using System.Collections.Generic; 
 using System.Data;
-using TravelAgency.Model;
-namespace TravelAgency.BLL  
+using .Model;
+namespace .BLL  
 {
 	 	//visa_copy
 		public partial class visa_copy
 	{
    		     
-		private readonly TravelAgency.DAL.visa_copy dal=new TravelAgency.DAL.visa_copy();
+		private readonly .DAL.visa_copy dal=new .DAL.visa_copy();
 		public visa_copy()
 		{}
 		
@@ -25,7 +25,7 @@ namespace TravelAgency.BLL
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public void  Add(TravelAgency.Model.visa_copy model)
+		public void  Add(.Model.visa_copy model)
 		{
 						dal.Add(model);
 						
@@ -34,7 +34,7 @@ namespace TravelAgency.BLL
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
-		public bool Update(TravelAgency.Model.visa_copy model)
+		public bool Update(.Model.visa_copy model)
 		{
 			return dal.Update(model);
 		}
@@ -51,7 +51,7 @@ namespace TravelAgency.BLL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public TravelAgency.Model.visa_copy GetModel(Guid Visa_id)
+		public .Model.visa_copy GetModel(Guid Visa_id)
 		{
 			
 			return dal.GetModel(Visa_id);
@@ -74,7 +74,7 @@ namespace TravelAgency.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public List<TravelAgency.Model.visa_copy> GetModelList(string strWhere)
+		public List<.Model.visa_copy> GetModelList(string strWhere)
 		{
 			DataSet ds = dal.GetList(strWhere);
 			return DataTableToList(ds.Tables[0]);
@@ -82,16 +82,16 @@ namespace TravelAgency.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public List<TravelAgency.Model.visa_copy> DataTableToList(DataTable dt)
+		public List<.Model.visa_copy> DataTableToList(DataTable dt)
 		{
-			List<TravelAgency.Model.visa_copy> modelList = new List<TravelAgency.Model.visa_copy>();
+			List<.Model.visa_copy> modelList = new List<.Model.visa_copy>();
 			int rowsCount = dt.Rows.Count;
 			if (rowsCount > 0)
 			{
-				TravelAgency.Model.visa_copy model;
+				.Model.visa_copy model;
 				for (int n = 0; n < rowsCount; n++)
 				{
-					model = new TravelAgency.Model.visa_copy();					
+					model = new .Model.visa_copy();					
 																									if(dt.Rows[n]["Visa_id"].ToString()!="")
 				{
 					model.Visa_id= dt.Rows[n]["Visa_id"].ToString();
