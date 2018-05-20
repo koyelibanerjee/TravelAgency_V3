@@ -34,5 +34,14 @@ namespace TravelAgency.Common.Enums
                 return keyValueMap[key];
             else return null;
         }
+
+
+        public static string KeyToValue(int? key)
+        {
+            if (keyValueMap.ContainsKey(key.Value))
+                return keyValueMap[key.Value];
+            else return null;
+        }
+
     }
 }

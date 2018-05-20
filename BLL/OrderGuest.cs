@@ -5,12 +5,12 @@ using System.Data;
 using TravelAgency.Model;
 namespace TravelAgency.BLL  
 {
-	 	//Orders
-		public partial class Orders
+	 	//OrderGuest
+		public partial class OrderGuest
 	{
    		     
-		private readonly TravelAgency.DAL.Orders dal=new TravelAgency.DAL.Orders();
-		public Orders()
+		private readonly TravelAgency.DAL.OrderGuest dal=new TravelAgency.DAL.OrderGuest();
+		public OrderGuest()
 		{}
 		
 		#region  Method
@@ -25,7 +25,7 @@ namespace TravelAgency.BLL
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public int  Add(TravelAgency.Model.Orders model)
+		public int  Add(TravelAgency.Model.OrderGuest model)
 		{
 						return dal.Add(model);
 						
@@ -34,7 +34,7 @@ namespace TravelAgency.BLL
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
-		public bool Update(TravelAgency.Model.Orders model)
+		public bool Update(TravelAgency.Model.OrderGuest model)
 		{
 			return dal.Update(model);
 		}
@@ -51,7 +51,7 @@ namespace TravelAgency.BLL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public TravelAgency.Model.Orders GetModel(int Id)
+		public TravelAgency.Model.OrderGuest GetModel(int Id)
 		{
 			
 			return dal.GetModel(Id);
@@ -74,7 +74,7 @@ namespace TravelAgency.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public List<TravelAgency.Model.Orders> GetModelList(string strWhere)
+		public List<TravelAgency.Model.OrderGuest> GetModelList(string strWhere)
 		{
 			DataSet ds = dal.GetList(strWhere);
 			return DataTableToList(ds.Tables[0]);
@@ -82,13 +82,13 @@ namespace TravelAgency.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public List<TravelAgency.Model.Orders> DataTableToList(DataTable dt)
+		public List<TravelAgency.Model.OrderGuest> DataTableToList(DataTable dt)
 		{
-			List<TravelAgency.Model.Orders> modelList = new List<TravelAgency.Model.Orders>();
+			List<TravelAgency.Model.OrderGuest> modelList = new List<TravelAgency.Model.OrderGuest>();
 			int rowsCount = dt.Rows.Count;
 			if (rowsCount > 0)
 			{
-				TravelAgency.Model.Orders model;
+				TravelAgency.Model.OrderGuest model;
 				for (int n = 0; n < rowsCount; n++)
 				{
 					model = dal.DataRowToModel(dt.Rows[n]);			
@@ -118,7 +118,7 @@ namespace TravelAgency.BLL
     /// <summary>
     /// 分页获取数据
     /// </summary>
-    public List<TravelAgency.Model.Orders> GetListByPage(string where, string orderby,int startIndex, int endIndex)
+    public List<TravelAgency.Model.OrderGuest> GetListByPage(string where, string orderby,int startIndex, int endIndex)
     {
         DataSet ds = dal.GetListByPage(where, orderby, startIndex, endIndex);
         DataTable dt = ds.Tables[0];
@@ -128,7 +128,7 @@ namespace TravelAgency.BLL
     /// <summary>
     /// 分页获取数据
     /// </summary>
-    public List<TravelAgency.Model.Orders> GetListByPage(int pageIndex, int pageSize, string where, string orderby)
+    public List<TravelAgency.Model.OrderGuest> GetListByPage(int pageIndex, int pageSize, string where, string orderby)
     {
         int startIndex = (pageIndex - 1) * pageSize + 1;
         int endIndex = pageIndex * pageSize;
@@ -142,7 +142,7 @@ namespace TravelAgency.BLL
     /// <summary>
     /// 分页获取数据
     /// </summary>
-    public List<TravelAgency.Model.Orders> GetListByPageOrderByPK(int pageIndex, int pageSize, string where)
+    public List<TravelAgency.Model.OrderGuest> GetListByPageOrderByPK(int pageIndex, int pageSize, string where)
     {
         int startIndex = (pageIndex - 1) * pageSize + 1;
         int endIndex = pageIndex * pageSize;
@@ -154,7 +154,7 @@ namespace TravelAgency.BLL
     /// <summary>
     /// 新增list
     /// </summary>		
-    public int AddList(List<TravelAgency.Model.Orders> list)
+    public int AddList(List<TravelAgency.Model.OrderGuest> list)
     {
         int res = 0;
         foreach (var item in list)
@@ -167,7 +167,7 @@ namespace TravelAgency.BLL
     /// <summary>
     /// 更新list
     /// </summary>
-    public int UpdateList(List<TravelAgency.Model.Orders> list)
+    public int UpdateList(List<TravelAgency.Model.OrderGuest> list)
     {
         int res = 0;
         foreach (var item in list)
@@ -180,7 +180,7 @@ namespace TravelAgency.BLL
     /// <summary>
     /// 删除list
     /// </summary>    
-    public bool DeleteList(List<TravelAgency.Model.Orders> list)
+    public bool DeleteList(List<TravelAgency.Model.OrderGuest> list)
     {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < list.Count; ++i)

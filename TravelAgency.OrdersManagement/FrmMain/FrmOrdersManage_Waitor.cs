@@ -124,7 +124,7 @@ namespace TravelAgency.OrdersManagement
             int curSelectedRow = -1;
             if (dataGridView1.SelectedRows.Count > 0)
                 curSelectedRow = dataGridView1.SelectedRows[0].Index;
-            dataGridView1.DataSource = _bllOrders.GetListByPageOrderById(_where, _curPage, _pageSize);
+            dataGridView1.DataSource = _bllOrders.GetListByPageOrderByPK(_curPage, _pageSize, _where);
             if (curSelectedRow != -1 && dataGridView1.Rows.Count > curSelectedRow)
                 dataGridView1.CurrentCell = dataGridView1.Rows[curSelectedRow].Cells[0];
             dataGridView1.Update();
@@ -254,7 +254,7 @@ namespace TravelAgency.OrdersManagement
                 row.HeaderCell.Value = (i + 1).ToString();
 
                 //在这里控制单元格的显示
-                if (list[i].GuestInfoTypedIn) ++hasTypedInGuestInfoCount;
+                if (list[i].GuestInfoTypedIn ?? false) ++hasTypedInGuestInfoCount;
                 if (list[i].ReplyResult == "成功")
                     ++sucNum;
                 if (list[i].ReplyResult == "处理中")
@@ -296,7 +296,7 @@ namespace TravelAgency.OrdersManagement
 
         private void SetRowColorByGuestInfoTypedIn(DataGridViewRow row)
         {
-            if (DgvDataSourceToList()[row.Index].GuestInfoTypedIn)
+            if (DgvDataSourceToList()[row.Index].GuestInfoTypedIn ?? false)
             {
                 row.Cells["GuestInfoTypedIn"].Value = "已录入";
                 row.Cells["GuestInfoTypedIn"].Style.BackColor = row.Index % 2 == 0 ? StyleControler.CellDefaultBackColor
@@ -500,9 +500,9 @@ namespace TravelAgency.OrdersManagement
                 == DialogResult.Cancel)
                 return;
             var modelList = GetSelectedModelList();
-            int res = _bllOrders.DeleteList(modelList);
+            bool res = _bllOrders.DeleteList(modelList);
 
-            GlobalUtils.MessageBoxWithRecordNum("删除", res, count);
+            GlobalUtils.MessageBoxWithRecordNum("删除", res ? count : 0, count);
             LoadDataToDataGridView(_curPage);
             UpdateState();
         }
@@ -673,7 +673,7 @@ namespace TravelAgency.OrdersManagement
             string filename = GlobalUtils.ShowOpenFileDlg("所有文件|*.*");
             if (!string.IsNullOrEmpty(filename))
             {
-                new OrderFilesHandler().UploadOrderFile(filename, list[0].Id);
+                new OrderFilesHandler().UploadOrderFile(filename, list[0].Id.Value);
             }
         }
 

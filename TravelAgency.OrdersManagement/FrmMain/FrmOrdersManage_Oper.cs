@@ -121,7 +121,7 @@ namespace TravelAgency.OrdersManagement
             int curSelectedRow = -1;
             if (dataGridView1.SelectedRows.Count > 0)
                 curSelectedRow = dataGridView1.SelectedRows[0].Index;
-            dataGridView1.DataSource = _bllOrders.GetListByPageOrderById(_where, _curPage, _pageSize);
+            dataGridView1.DataSource = _bllOrders.GetListByPageOrderByPK(_curPage, _pageSize, _where);
             if (curSelectedRow != -1 && dataGridView1.Rows.Count > curSelectedRow)
                 dataGridView1.CurrentCell = dataGridView1.Rows[curSelectedRow].Cells[0];
             dataGridView1.Update();
@@ -220,7 +220,7 @@ namespace TravelAgency.OrdersManagement
             cbPaymentPlatform.Text = "全部";
             cbReplyResult.Text = "全部";
             txtWaitorName.Text = "";
-            
+
         }
 
 
@@ -251,7 +251,7 @@ namespace TravelAgency.OrdersManagement
                 DataGridViewRow row = dataGridView1.Rows[i];
                 row.HeaderCell.Value = (i + 1).ToString();
 
-                if (list[i].GuestInfoTypedIn) ++hasTypedInGuestInfoCount;
+                if (list[i].GuestInfoTypedIn ?? false) ++hasTypedInGuestInfoCount;
                 if (list[i].ReplyResult == "成功")
                     ++sucNum;
                 if (list[i].ReplyResult == "处理中")
@@ -481,9 +481,9 @@ namespace TravelAgency.OrdersManagement
                 == DialogResult.Cancel)
                 return;
             var modelList = GetSelectedModelList();
-            int res = _bllOrders.DeleteList(modelList);
+            bool res = _bllOrders.DeleteList(modelList);
 
-            GlobalUtils.MessageBoxWithRecordNum("删除", res, count);
+            GlobalUtils.MessageBoxWithRecordNum("删除", res ? count : 0, count);
             LoadDataToDataGridView(_curPage);
             UpdateState();
         }

@@ -157,6 +157,7 @@
     <Compile Include="Message.cs" />
     <Compile Include="OrderExcel.cs" />
     <Compile Include="OrderFiles.cs" />
+    <Compile Include="OrderGuest.cs" />
     <Compile Include="OrderInfo.cs" />
     <Compile Include="MessageBll.cs" />
     <Compile Include="OrdersBll.cs" />

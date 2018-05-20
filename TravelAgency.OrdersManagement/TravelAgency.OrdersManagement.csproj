@@ -111,6 +111,12 @@
     <Compile Include="FrmSub\FrmCheckState.Designer.cs">
       <DependentUpon>FrmCheckState.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmSub\FrmAddOrderGuest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSub\FrmAddOrderGuest.designer.cs">
+      <DependentUpon>FrmAddOrderGuest.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmSub\FrmSetOperInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSub\FrmCheckState.resx">
       <DependentUpon>FrmCheckState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSub\FrmAddOrderGuest.resx">
+      <DependentUpon>FrmAddOrderGuest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSub\FrmSetOperInfo.resx">
       <DependentUpon>FrmSetOperInfo.cs</DependentUpon>

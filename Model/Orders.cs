@@ -1,512 +1,598 @@
-﻿using System;
+﻿using System; 
+using System.Text;
+using System.Collections.Generic; 
+using System.Data;
 namespace TravelAgency.Model
 {
-	/// <summary>
-	/// Orders:实体类(属性说明自动提取数据库字段的描述信息)
-	/// </summary>
-	[Serializable]
-	public partial class Orders
+	 	//Orders
+		public class Orders
 	{
-		public Orders()
-		{}
-		#region Model
-		private int _id;
-		private string _orderno;
-		private int _paymentplatform;
-		private string _groupno;
-		private string _productname;
-		private int? _productid;
-		private string _producttype;
-		private string _guestid;
-		private string _guestname;
-		private string _guestnamepinyin;
-		private string _guestsex;
-		private DateTime? _guestbirthday;
-		private DateTime? _guestusetime;
-		private string _guestphone;
-		private string _guestweichat;
-		private string _guestemail;
-		private string _guestpassportno;
-		private string _guestlastnighthotel;
-		private string _guestcountry;
-		private int? _purchasenum;
-		private decimal? _orderamount;
-		private decimal? _reallypay;
-		private string _platformactivity;
-		private DateTime? _guestordertime;
-		private DateTime? _waitorordertime;
-		private DateTime? _waitorconfirmtime;
-		private DateTime? _reservetime;
-		private DateTime? _diningtime;
-		private string _diningshop;
-		private DateTime? _checkmoneytime;
-		private decimal? _refundamout;
-		private DateTime? _guestrefundapplytime;
-		private DateTime? _waitorrefundapplytime;
-		private string _waitorname;
-		private string _ispraise;
-		private string _refundreason;
-		private string _waitorremark;
-		private string _jporderno;
-		private string _orderway;
-		private DateTime? _operordertime;
-		private DateTime? _jpconfirmtime;
-		private DateTime? _replywaitorconfirmtime;
-		private string _replyresult;
-		private decimal? _settleprice;
-		private decimal? _exchangerate;
-		private string _operremark;
-		private DateTime? _realintoaccounttime;
-		private string _typername;
-		private decimal? _commission;
-		private decimal? _waitorcommision;
-		private string _adminremark;
-		private string _opername;
-		private bool _guestinfotypedin;
-		private string _moneytype;
-		private string _comboname;
+        		                  
+    private int? _id;
+        		                  
+    private string _orderno;
+        		                  
+    private int? _paymentplatform;
+        		                  
+    private string _groupno;
+        		                  
+    private string _productname;
+        		                  
+    private int? _productid;
+        		                  
+    private string _producttype;
+        		                  
+    private int? _purchasenum;
+        		                  
+    private decimal? _orderamount;
+        		                  
+    private decimal? _reallypay;
+        		                  
+    private string _platformactivity;
+        		                  
+    private DateTime? _guestordertime;
+        		                  
+    private DateTime? _waitorordertime;
+        		                  
+    private DateTime? _waitorconfirmtime;
+        		                  
+    private DateTime? _reservetime;
+        		                  
+    private DateTime? _diningtime;
+        		                  
+    private string _diningshop;
+        		                  
+    private DateTime? _checkmoneytime;
+        		                  
+    private decimal? _refundamout;
+        		                  
+    private DateTime? _guestrefundapplytime;
+        		                  
+    private DateTime? _waitorrefundapplytime;
+        		                  
+    private string _waitorname;
+        		                  
+    private string _ispraise;
+        		                  
+    private string _refundreason;
+        		                  
+    private string _waitorremark;
+        		                  
+    private string _jporderno;
+        		                  
+    private string _orderway;
+        		                  
+    private DateTime? _operordertime;
+        		                  
+    private DateTime? _jpconfirmtime;
+        		                  
+    private DateTime? _replywaitorconfirmtime;
+        		                  
+    private string _replyresult;
+        		                  
+    private decimal? _settleprice;
+        		                  
+    private decimal? _exchangerate;
+        		                  
+    private string _operremark;
+        		                  
+    private DateTime? _realintoaccounttime;
+        		                  
+    private string _typername;
+        		                  
+    private decimal? _commission;
+        		                  
+    private decimal? _waitorcommision;
+        		                  
+    private string _adminremark;
+        		                  
+    private string _opername;
+        		                  
+    private bool? _guestinfotypedin;
+        		                  
+    private string _moneytype;
+        		                  
+    private string _comboname;
+        		                  
+    private DateTime? _departuredate;
+        		                  
+    private DateTime? _guestusetime;
+        
+    /// <summary>
+		/// Id
+        /// </summary>		
+		        		  
+  
+        public int? Id
+        {
+            get{ return _id; }
+            set{ _id = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public int Id
-		{
-			set{ _id=value;}
-			get{return _id;}
-		}
+		/// OrderNo
+        /// </summary>		
+		      		  
+  
+        public string OrderNo
+        {
+            get{ return _orderno; }
+            set{ _orderno = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string OrderNo
-		{
-			set{ _orderno=value;}
-			get{return _orderno;}
-		}
+		/// PaymentPlatform
+        /// </summary>		
+		        		  
+  
+        public int? PaymentPlatform
+        {
+            get{ return _paymentplatform; }
+            set{ _paymentplatform = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public int PaymentPlatform
-		{
-			set{ _paymentplatform=value;}
-			get{return _paymentplatform;}
-		}
+		/// GroupNo
+        /// </summary>		
+		      		  
+  
+        public string GroupNo
+        {
+            get{ return _groupno; }
+            set{ _groupno = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string GroupNo
-		{
-			set{ _groupno=value;}
-			get{return _groupno;}
-		}
+		/// ProductName
+        /// </summary>		
+		      		  
+  
+        public string ProductName
+        {
+            get{ return _productname; }
+            set{ _productname = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string ProductName
-		{
-			set{ _productname=value;}
-			get{return _productname;}
-		}
+		/// ProductId
+        /// </summary>		
+		        		  
+  
+        public int? ProductId
+        {
+            get{ return _productid; }
+            set{ _productid = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public int? ProductId
-		{
-			set{ _productid=value;}
-			get{return _productid;}
-		}
+		/// ProductType
+        /// </summary>		
+		      		  
+  
+        public string ProductType
+        {
+            get{ return _producttype; }
+            set{ _producttype = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string ProductType
-		{
-			set{ _producttype=value;}
-			get{return _producttype;}
-		}
+		/// PurchaseNum
+        /// </summary>		
+		        		  
+  
+        public int? PurchaseNum
+        {
+            get{ return _purchasenum; }
+            set{ _purchasenum = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string GuestId
-		{
-			set{ _guestid=value;}
-			get{return _guestid;}
-		}
+		/// OrderAmount
+        /// </summary>		
+		        		  
+  
+        public decimal? OrderAmount
+        {
+            get{ return _orderamount; }
+            set{ _orderamount = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string GuestName
-		{
-			set{ _guestname=value;}
-			get{return _guestname;}
-		}
+		/// ReallyPay
+        /// </summary>		
+		        		  
+  
+        public decimal? ReallyPay
+        {
+            get{ return _reallypay; }
+            set{ _reallypay = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string GuestNamePinYin
-		{
-			set{ _guestnamepinyin=value;}
-			get{return _guestnamepinyin;}
-		}
+		/// PlatformActivity
+        /// </summary>		
+		      		  
+  
+        public string PlatformActivity
+        {
+            get{ return _platformactivity; }
+            set{ _platformactivity = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string GuestSex
-		{
-			set{ _guestsex=value;}
-			get{return _guestsex;}
-		}
+		/// GuestOrderTime
+        /// </summary>		
+		        		  
+  
+        public DateTime? GuestOrderTime
+        {
+            get{ return _guestordertime; }
+            set{ _guestordertime = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime? GuestBirthday
-		{
-			set{ _guestbirthday=value;}
-			get{return _guestbirthday;}
-		}
+		/// WaitorOrderTime
+        /// </summary>		
+		        		  
+  
+        public DateTime? WaitorOrderTime
+        {
+            get{ return _waitorordertime; }
+            set{ _waitorordertime = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime? GuestUseTime
-		{
-			set{ _guestusetime=value;}
-			get{return _guestusetime;}
-		}
+		/// WaitorConfirmTime
+        /// </summary>		
+		        		  
+  
+        public DateTime? WaitorConfirmTime
+        {
+            get{ return _waitorconfirmtime; }
+            set{ _waitorconfirmtime = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string GuestPhone
-		{
-			set{ _guestphone=value;}
-			get{return _guestphone;}
-		}
+		/// ReserveTime
+        /// </summary>		
+		        		  
+  
+        public DateTime? ReserveTime
+        {
+            get{ return _reservetime; }
+            set{ _reservetime = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string GuestWeiChat
-		{
-			set{ _guestweichat=value;}
-			get{return _guestweichat;}
-		}
+		/// DiningTime
+        /// </summary>		
+		        		  
+  
+        public DateTime? DiningTime
+        {
+            get{ return _diningtime; }
+            set{ _diningtime = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string GuestEMail
-		{
-			set{ _guestemail=value;}
-			get{return _guestemail;}
-		}
+		/// DiningShop
+        /// </summary>		
+		      		  
+  
+        public string DiningShop
+        {
+            get{ return _diningshop; }
+            set{ _diningshop = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string GuestPassportNo
-		{
-			set{ _guestpassportno=value;}
-			get{return _guestpassportno;}
-		}
+		/// CheckMoneyTime
+        /// </summary>		
+		        		  
+  
+        public DateTime? CheckMoneyTime
+        {
+            get{ return _checkmoneytime; }
+            set{ _checkmoneytime = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string GuestLastNightHotel
-		{
-			set{ _guestlastnighthotel=value;}
-			get{return _guestlastnighthotel;}
-		}
+		/// RefundAmout
+        /// </summary>		
+		        		  
+  
+        public decimal? RefundAmout
+        {
+            get{ return _refundamout; }
+            set{ _refundamout = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string GuestCountry
-		{
-			set{ _guestcountry=value;}
-			get{return _guestcountry;}
-		}
+		/// GuestRefundApplyTime
+        /// </summary>		
+		        		  
+  
+        public DateTime? GuestRefundApplyTime
+        {
+            get{ return _guestrefundapplytime; }
+            set{ _guestrefundapplytime = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public int? PurchaseNum
-		{
-			set{ _purchasenum=value;}
-			get{return _purchasenum;}
-		}
+		/// WaitorRefundApplyTime
+        /// </summary>		
+		        		  
+  
+        public DateTime? WaitorRefundApplyTime
+        {
+            get{ return _waitorrefundapplytime; }
+            set{ _waitorrefundapplytime = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public decimal? OrderAmount
-		{
-			set{ _orderamount=value;}
-			get{return _orderamount;}
-		}
+		/// WaitorName
+        /// </summary>		
+		      		  
+  
+        public string WaitorName
+        {
+            get{ return _waitorname; }
+            set{ _waitorname = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public decimal? ReallyPay
-		{
-			set{ _reallypay=value;}
-			get{return _reallypay;}
-		}
+		/// IsPraise
+        /// </summary>		
+		      		  
+  
+        public string IsPraise
+        {
+            get{ return _ispraise; }
+            set{ _ispraise = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string PlatformActivity
-		{
-			set{ _platformactivity=value;}
-			get{return _platformactivity;}
-		}
+		/// RefundReason
+        /// </summary>		
+		      		  
+  
+        public string RefundReason
+        {
+            get{ return _refundreason; }
+            set{ _refundreason = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime? GuestOrderTime
-		{
-			set{ _guestordertime=value;}
-			get{return _guestordertime;}
-		}
+		/// WaitorRemark
+        /// </summary>		
+		      		  
+  
+        public string WaitorRemark
+        {
+            get{ return _waitorremark; }
+            set{ _waitorremark = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime? WaitorOrderTime
-		{
-			set{ _waitorordertime=value;}
-			get{return _waitorordertime;}
-		}
+		/// JpOrderNo
+        /// </summary>		
+		      		  
+  
+        public string JpOrderNo
+        {
+            get{ return _jporderno; }
+            set{ _jporderno = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime? WaitorConfirmTime
-		{
-			set{ _waitorconfirmtime=value;}
-			get{return _waitorconfirmtime;}
-		}
+		/// OrderWay
+        /// </summary>		
+		      		  
+  
+        public string OrderWay
+        {
+            get{ return _orderway; }
+            set{ _orderway = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime? ReserveTime
-		{
-			set{ _reservetime=value;}
-			get{return _reservetime;}
-		}
+		/// OperOrderTime
+        /// </summary>		
+		        		  
+  
+        public DateTime? OperOrderTime
+        {
+            get{ return _operordertime; }
+            set{ _operordertime = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime? DiningTime
-		{
-			set{ _diningtime=value;}
-			get{return _diningtime;}
-		}
+		/// JpConfirmTime
+        /// </summary>		
+		        		  
+  
+        public DateTime? JpConfirmTime
+        {
+            get{ return _jpconfirmtime; }
+            set{ _jpconfirmtime = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string DiningShop
-		{
-			set{ _diningshop=value;}
-			get{return _diningshop;}
-		}
+		/// ReplyWaitorConfirmTime
+        /// </summary>		
+		        		  
+  
+        public DateTime? ReplyWaitorConfirmTime
+        {
+            get{ return _replywaitorconfirmtime; }
+            set{ _replywaitorconfirmtime = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime? CheckMoneyTime
-		{
-			set{ _checkmoneytime=value;}
-			get{return _checkmoneytime;}
-		}
+		/// ReplyResult
+        /// </summary>		
+		      		  
+  
+        public string ReplyResult
+        {
+            get{ return _replyresult; }
+            set{ _replyresult = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public decimal? RefundAmout
-		{
-			set{ _refundamout=value;}
-			get{return _refundamout;}
-		}
+		/// SettlePrice
+        /// </summary>		
+		        		  
+  
+        public decimal? SettlePrice
+        {
+            get{ return _settleprice; }
+            set{ _settleprice = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime? GuestRefundApplyTime
-		{
-			set{ _guestrefundapplytime=value;}
-			get{return _guestrefundapplytime;}
-		}
+		/// ExchangeRate
+        /// </summary>		
+		        		  
+  
+        public decimal? ExchangeRate
+        {
+            get{ return _exchangerate; }
+            set{ _exchangerate = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime? WaitorRefundApplyTime
-		{
-			set{ _waitorrefundapplytime=value;}
-			get{return _waitorrefundapplytime;}
-		}
+		/// OperRemark
+        /// </summary>		
+		      		  
+  
+        public string OperRemark
+        {
+            get{ return _operremark; }
+            set{ _operremark = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string WaitorName
-		{
-			set{ _waitorname=value;}
-			get{return _waitorname;}
-		}
+		/// RealIntoAccountTime
+        /// </summary>		
+		        		  
+  
+        public DateTime? RealIntoAccountTime
+        {
+            get{ return _realintoaccounttime; }
+            set{ _realintoaccounttime = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string IsPraise
-		{
-			set{ _ispraise=value;}
-			get{return _ispraise;}
-		}
+		/// TyperName
+        /// </summary>		
+		      		  
+  
+        public string TyperName
+        {
+            get{ return _typername; }
+            set{ _typername = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string RefundReason
-		{
-			set{ _refundreason=value;}
-			get{return _refundreason;}
-		}
+		/// Commission
+        /// </summary>		
+		        		  
+  
+        public decimal? Commission
+        {
+            get{ return _commission; }
+            set{ _commission = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string WaitorRemark
-		{
-			set{ _waitorremark=value;}
-			get{return _waitorremark;}
-		}
+		/// WaitorCommision
+        /// </summary>		
+		        		  
+  
+        public decimal? WaitorCommision
+        {
+            get{ return _waitorcommision; }
+            set{ _waitorcommision = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string JpOrderNo
-		{
-			set{ _jporderno=value;}
-			get{return _jporderno;}
-		}
+		/// AdminRemark
+        /// </summary>		
+		      		  
+  
+        public string AdminRemark
+        {
+            get{ return _adminremark; }
+            set{ _adminremark = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string OrderWay
-		{
-			set{ _orderway=value;}
-			get{return _orderway;}
-		}
+		/// OperName
+        /// </summary>		
+		      		  
+  
+        public string OperName
+        {
+            get{ return _opername; }
+            set{ _opername = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime? OperOrderTime
-		{
-			set{ _operordertime=value;}
-			get{return _operordertime;}
-		}
+		/// GuestInfoTypedIn
+        /// </summary>		
+		        		  
+  
+        public bool? GuestInfoTypedIn
+        {
+            get{ return _guestinfotypedin; }
+            set{ _guestinfotypedin = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime? JpConfirmTime
-		{
-			set{ _jpconfirmtime=value;}
-			get{return _jpconfirmtime;}
-		}
+		/// MoneyType
+        /// </summary>		
+		      		  
+  
+        public string MoneyType
+        {
+            get{ return _moneytype; }
+            set{ _moneytype = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime? ReplyWaitorConfirmTime
-		{
-			set{ _replywaitorconfirmtime=value;}
-			get{return _replywaitorconfirmtime;}
-		}
+		/// ComboName
+        /// </summary>		
+		      		  
+  
+        public string ComboName
+        {
+            get{ return _comboname; }
+            set{ _comboname = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string ReplyResult
-		{
-			set{ _replyresult=value;}
-			get{return _replyresult;}
-		}
+		/// DepartureDate
+        /// </summary>		
+		        		  
+  
+        public DateTime? DepartureDate
+        {
+            get{ return _departuredate; }
+            set{ _departuredate = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public decimal? SettlePrice
-		{
-			set{ _settleprice=value;}
-			get{return _settleprice;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public decimal? ExchangeRate
-		{
-			set{ _exchangerate=value;}
-			get{return _exchangerate;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public string OperRemark
-		{
-			set{ _operremark=value;}
-			get{return _operremark;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime? RealIntoAccountTime
-		{
-			set{ _realintoaccounttime=value;}
-			get{return _realintoaccounttime;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public string TyperName
-		{
-			set{ _typername=value;}
-			get{return _typername;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public decimal? Commission
-		{
-			set{ _commission=value;}
-			get{return _commission;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public decimal? WaitorCommision
-		{
-			set{ _waitorcommision=value;}
-			get{return _waitorcommision;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public string AdminRemark
-		{
-			set{ _adminremark=value;}
-			get{return _adminremark;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public string OperName
-		{
-			set{ _opername=value;}
-			get{return _opername;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public bool GuestInfoTypedIn
-		{
-			set{ _guestinfotypedin=value;}
-			get{return _guestinfotypedin;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public string MoneyType
-		{
-			set{ _moneytype=value;}
-			get{return _moneytype;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public string ComboName
-		{
-			set{ _comboname=value;}
-			get{return _comboname;}
-		}
-		#endregion Model
-
+		/// GuestUseTime
+        /// </summary>		
+		        		  
+  
+        public DateTime? GuestUseTime
+        {
+            get{ return _guestusetime; }
+            set{ _guestusetime = value; }
+        }    
+      
+		   
 	}
 }
-

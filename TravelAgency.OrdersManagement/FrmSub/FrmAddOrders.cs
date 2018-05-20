@@ -42,6 +42,8 @@ namespace TravelAgency.OrdersManagement
 
             InitComboBoxs();
 
+            StyleControler.SetDgvStyle(dataGridView1);
+
             txtWaitorConfirmTime.Enabled = false; //客服确认时间默认禁用
 
             if (GlobalUtils.LoginUserLevel == RigthLevel.Operator) //操作不能修改基本订单信息和客人信息
@@ -249,6 +251,11 @@ namespace TravelAgency.OrdersManagement
 
             FrmSetOperInfo frm = new FrmSetOperInfo(_updateDel, _curPage, true, _model);
             frm.Show();
+        }
+
+        private void btnAddGuest_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

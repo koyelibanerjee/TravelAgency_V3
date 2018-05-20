@@ -263,8 +263,8 @@ namespace TravelAgency.OrdersManagement
                 //    ++notHandleNum;
                 //SetRowColorByReserveTime(row);
                 //SetRowColorByGuestInfoTypedIn(row);
-
-                row.Cells["Acttype"].Value = Common.Enums.OrdersActtype.key2Value(list[i].ActType.Value);
+                if (list[i].ActType.HasValue)
+                    row.Cells["Acttype"].Value = Common.Enums.OrdersActtype.key2Value(list[i].ActType.Value);
 
 
                 for (int j = 0; j != dataGridView1.ColumnCount; ++j)

@@ -7,7 +7,7 @@ using TravelAgency.Common.PictureHandler;
 
 namespace TravelAgency.OrdersManagement
 {
-    public partial class FrmSetGuestInfo : Form
+    public partial class FrmAddOrderGuest : Form
     {
         private readonly BLL.Orders _bllOrders = new BLL.Orders();
         private readonly BLL.OrderExcel _bllOrderExcel = new BLL.OrderExcel();
@@ -16,7 +16,7 @@ namespace TravelAgency.OrdersManagement
         private readonly bool _is4Modify = false;
         private readonly TravelAgency.Model.Orders _model = null;
 
-        public FrmSetGuestInfo(Action<int> updateDel, int curPage, bool is4Modify = false, TravelAgency.Model.Orders model = null)
+        public FrmAddOrderGuest(Action<int> updateDel, int curPage, bool is4Modify = false, TravelAgency.Model.Orders model = null)
         {
             if (this.Modal)
                 this.StartPosition = FormStartPosition.CenterParent;
@@ -46,23 +46,9 @@ namespace TravelAgency.OrdersManagement
 
             if (_is4Modify)
             {
-                //基本信息
+                
 
-
-                //补充信息
-                txtReserveTime.Text = _model.ReserveTime.ToString();
-                txtDiningTime.Text = _model.DiningTime.ToString();
-                txtDiningShop.Text = _model.DiningShop;
-                txtCheckMoneyTime.Text = _model.CheckMoneyTime.ToString();
-                txtRefundAmout.Text = DecimalHandler.DecimalToString(_model.RefundAmout);
-                txtGuestRefundApplyTime.Text = _model.GuestRefundApplyTime.ToString();
-
-                txtIsPraise.Text = _model.IsPraise;
-                txtRefundReason.Text = _model.RefundReason;
-                txtWaitorRemark.Text = _model.WaitorRemark;
-
-                txtOperRemark.Text = _model.OperRemark;
-                txtOperRemark.ReadOnly = true;
+                
 
                 txtOrderNo.Text = _model.OrderNo;
                 this.Text = "修改订单客户信息";
@@ -84,7 +70,7 @@ namespace TravelAgency.OrdersManagement
 
             txtGuestSex.DropDownStyle = ComboBoxStyle.DropDown;
             txtGuestCountry.DropDownStyle = ComboBoxStyle.DropDown;
-            txtIsPraise.DropDownStyle = ComboBoxStyle.DropDown;
+            txtGuestType.DropDownStyle = ComboBoxStyle.DropDown;
 
             txtGuestSex.Items.Add("男");
             txtGuestSex.Items.Add("女");
@@ -95,8 +81,9 @@ namespace TravelAgency.OrdersManagement
                 txtGuestCountry.Items.Add(countryName);
             }
 
-            txtIsPraise.Items.Add("是");
-            txtIsPraise.Items.Add("否");
+            txtGuestType.Items.Add("成人");
+            txtGuestType.Items.Add("儿童");
+
 
 
 
@@ -111,21 +98,7 @@ namespace TravelAgency.OrdersManagement
             {
                 try
                 {
-                    
-                    _model.GuestUseTime = CtrlParser.Parse2Datetime(txtGuestUseTime);
-
-
-
-                    _model.ReserveTime = CtrlParser.Parse2Datetime(txtReserveTime);
-                    _model.DiningTime = CtrlParser.Parse2Datetime(txtDiningTime);
-                    _model.DiningShop = CtrlParser.Parse2String(txtDiningShop);
-                    _model.CheckMoneyTime = CtrlParser.Parse2Datetime(txtCheckMoneyTime);
-                    _model.RefundAmout = CtrlParser.Parse2Decimal(txtRefundAmout);
-                    _model.GuestRefundApplyTime = CtrlParser.Parse2Datetime(txtGuestRefundApplyTime);
-
-                    _model.IsPraise = CtrlParser.Parse2String(txtIsPraise);
-                    _model.RefundReason = CtrlParser.Parse2String(txtRefundReason);
-                    _model.WaitorRemark = CtrlParser.Parse2String(txtWaitorRemark);
+                                    
 
                     //if (!string.IsNullOrEmpty(_model.GuestId) &&
                     //    !string.IsNullOrEmpty(_model.GuestPhone) &&
@@ -136,18 +109,6 @@ namespace TravelAgency.OrdersManagement
                     //else
                         _model.GuestInfoTypedIn = false;
 
-
-                    //下面的字段暂时不进行修改
-                    //_model.EntryTime = DateTime.Now;
-                    //_model.SerialNo = SerialNoGenerator.GetSerialNo(SerialNoGenerator.Type.Type03Receipt);
-                    //_model.OperatorId = GlobalUtils.LoginUser.Id;
-                    if (!_bllOrders.Update(_model))
-                    {
-                        MessageBoxEx.Show("更新失败，请稍后重试!");
-                        return;
-                    }
-                    MessageBoxEx.Show("更新成功!");
-                    _updateDel(_curPage);
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }

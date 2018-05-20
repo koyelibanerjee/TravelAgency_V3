@@ -125,7 +125,7 @@ namespace TravelAgency.OrdersManagement.FrmSub
             string filename = GlobalUtils.ShowOpenFileDlg("*|*.*");
             if (string.IsNullOrEmpty(filename))
                 return;
-            new Common.PictureHandler.OrderFilesHandler().UploadOrderFile(filename, _model.Id);
+            new Common.PictureHandler.OrderFilesHandler().UploadOrderFile(filename, _model.Id.Value);
             LoadDataToDgv();
         }
 

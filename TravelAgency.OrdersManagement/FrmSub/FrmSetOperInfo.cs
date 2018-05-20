@@ -119,13 +119,13 @@ namespace TravelAgency.OrdersManagement
                     }
 
 
-                    if(_model.ReplyResult == "成功")
+                    if (_model.ReplyResult == "成功")
                         if (MessageBoxEx.Show("是否上传附件?", "确认", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
                             string filename = GlobalUtils.ShowOpenFileDlg("所有文件|*.*");
                             if (!string.IsNullOrEmpty(filename))
-                                new OrderFilesHandler().UploadOrderFile(filename, _model.Id);
-                        }   
+                                new OrderFilesHandler().UploadOrderFile(filename, _model.Id.Value);
+                        }
 
 
                     //下面的字段暂时不进行修改
