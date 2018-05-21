@@ -25,7 +25,10 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
         private FrmSetClaim()
         {
-            this.StartPosition = FormStartPosition.CenterParent;
+            if (this.Modal)
+                this.StartPosition = FormStartPosition.CenterScreen;
+            else
+                this.StartPosition = FormStartPosition.CenterParent;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             InitializeComponent();
@@ -79,7 +82,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
             lbClientBalance.Text = "客户可用余额:" + _clientBalance + "元.";
 
-            DataGridView1_SelectionChanged(null,null);
+            DataGridView1_SelectionChanged(null, null);
 
         }
 
@@ -114,8 +117,8 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             }
 
 
-            lbClientBalance.Text = string.Format("客户余额:{0},选中项合计:{1},扣除后剩余:{2}", _clientBalance, total,
-                _clientBalance - total);
+            lbClientBalance.Text = string.Format("客户\"{3}\"余额:{0},选中项合计:{1},扣除后剩余:{2}", _clientBalance, total,
+                _clientBalance - total, _list[0].client);
         }
 
         private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -422,7 +425,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
         private void 签证认账ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            btnCancel_Click(null,null);
+            btnCancel_Click(null, null);
         }
     }
 }
