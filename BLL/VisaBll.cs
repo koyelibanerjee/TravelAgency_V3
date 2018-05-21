@@ -58,27 +58,6 @@ namespace TravelAgency.BLL
             return DataTableToList(dt);
         }
 
-        /// <summary>
-        /// 分页获取数据
-        /// </summary>
-        public List<Model.Visa> GetListByPage(int pageIndex, int pageSize, string where, string orderby)
-        {
-            int startIndex = (pageIndex - 1) * pageSize + 1;
-            int endIndex = pageIndex * pageSize;
-            return GetListByPage(where, orderby, startIndex, endIndex);
-        }
-
-        /// <summary>
-        /// 分页获取数据
-        /// </summary>
-        public List<Model.Visa> GetListByPage(string where, string orderby, int startIndex, int endIndex)
-        {
-            DataSet ds = dal.GetListByPage(where, orderby, startIndex, endIndex);
-            DataTable dt = ds.Tables[0];
-            return DataTableToList(dt);
-        }
-
-
         public bool DeleteVisaAndModifyVisaInfos(Model.Visa model)
         {
             //1.更新对应visainfo
@@ -106,13 +85,7 @@ namespace TravelAgency.BLL
             return Delete(model.Visa_id);
         }
 
-        /// <summary>
-        /// 增加一条数据
-        /// </summary>
-        public Guid Add(TravelAgency.Model.Visa model)
-        {
-            return dal.Add(model);
-        }
+
 
 
         /// <summary>

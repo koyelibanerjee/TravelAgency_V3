@@ -36,6 +36,8 @@ namespace TravelAgency.Model
     private string _guestlastnighthotel;
         		                  
     private string _guestcountry;
+        		                  
+    private decimal? _price;
         
     /// <summary>
 		/// Id
@@ -189,6 +191,17 @@ namespace TravelAgency.Model
         {
             get{ return _guestcountry; }
             set{ _guestcountry = value; }
+        }    
+      
+		/// <summary>
+		/// Price
+        /// </summary>		
+		        		  
+  
+        public decimal? Price
+        {
+            get{ return _price; }
+            set{ _price = value; }
         }    
       
 		   
