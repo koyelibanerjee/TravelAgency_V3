@@ -172,7 +172,7 @@ namespace TravelAgency.OrdersManagement
         private void InitDgvData()
         {
             var list = _bllGuest.GetModelList(" OrdersId = " + _model.Id + " ");
-            list.Sort((Model.OrderGuest g1, Model.OrderGuest g2) => g1.Position ?? 0 - g2.Position ?? 0);
+            list.Sort((Model.OrderGuest g1, Model.OrderGuest g2) => g1.Position < g2.Position ? -1 : 1);
             if (list.Count != 0)
                 dataGridView1.DataSource = list;
         }
@@ -454,6 +454,102 @@ namespace TravelAgency.OrdersManagement
             }
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = list;
+        }
+
+        private void 上移ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 1)
+            {
+                MessageBoxEx.Show("请选择一条记录操作");
+                return;
+            }
+            int selIdx = dataGridView1.SelectedRows[0].Index;
+            if (selIdx == 0)
+                return;
+
+            var list = DgvDataSourceToList();
+            var lvItemTmp = list[selIdx];
+            list.Remove(lvItemTmp);
+            list.Insert(selIdx - 1, lvItemTmp);
+
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = list;
+
+            dataGridView1.CurrentCell = dataGridView1.Rows[selIdx - 1].Cells[0];
+
+        }
+
+        private void 下移ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (dataGridView1.SelectedRows.Count > 1)
+            {
+                MessageBoxEx.Show("请选择一条记录操作");
+                return;
+            }
+            int selIdx = dataGridView1.SelectedRows[0].Index; 
+            var list = DgvDataSourceToList();
+            if (selIdx == list.Count - 1)
+                return;
+
+          
+            var lvItemTmp = list[selIdx];
+            list.Remove(lvItemTmp);
+            list.Insert(selIdx + 1, lvItemTmp);
+
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = list;
+
+            dataGridView1.CurrentCell = dataGridView1.Rows[selIdx + 1].Cells[0];
+
+        }
+
+        private void 移到顶部ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 1)
+            {
+                MessageBoxEx.Show("请选择一条记录操作");
+                return;
+            }
+            int selIdx = dataGridView1.SelectedRows[0].Index;
+            if (selIdx == 0)
+                return;
+
+            var list = DgvDataSourceToList();
+            var lvItemTmp = list[selIdx];
+            list.Remove(lvItemTmp);
+            list.Insert(0, lvItemTmp);
+
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = list;
+
+            dataGridView1.CurrentCell = dataGridView1.Rows[0].Cells[0];
+
+
+        }
+
+        private void 移到底部ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (dataGridView1.SelectedRows.Count > 1)
+            {
+                MessageBoxEx.Show("请选择一条记录操作");
+                return;
+            }
+            int selIdx = dataGridView1.SelectedRows[0].Index;
+            var list = DgvDataSourceToList();
+
+            if (selIdx == list.Count-1)
+                return;
+
+            var lvItemTmp = list[selIdx];
+            list.Remove(lvItemTmp);
+            list.Add(lvItemTmp);
+
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = list;
+
+            dataGridView1.CurrentCell = dataGridView1.Rows[list.Count-1].Cells[0];
         }
     }
 }
