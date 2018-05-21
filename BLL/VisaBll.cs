@@ -32,20 +32,20 @@ namespace TravelAgency.BLL
             return CommonBll.GetFieldList(TableName, "DepartureType");
         }
 
-        /// <summary>
-        /// 返回成功数量
-        /// </summary>
-        /// <param name="list"></param>
-        /// <returns></returns>
-        public int UpdateList(List<Model.Visa> list)
-        {
-            int res = 0;
-            for (int i = 0; i < list.Count; i++)
-            {
-                res += Update(list[i]) ? 1 : 0;
-            }
-            return res;
-        }
+        ///// <summary>
+        ///// 返回成功数量
+        ///// </summary>
+        ///// <param name="list"></param>
+        ///// <returns></returns>
+        //public int UpdateList(List<Model.Visa> list)
+        //{
+        //    int res = 0;
+        //    for (int i = 0; i < list.Count; i++)
+        //    {
+        //        res += Update(list[i]) ? 1 : 0;
+        //    }
+        //    return res;
+        //}
 
         public List<Model.Visa> GetListByPage(int pageIndex, int pageSize, string where)
         {

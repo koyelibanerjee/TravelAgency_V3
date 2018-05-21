@@ -25,11 +25,10 @@ namespace TravelAgency.BLL
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public int  Add(TravelAgency.Model.OrderGuest model)
-		{
-						return dal.Add(model);
-						
-		}
+		    public int  Add(TravelAgency.Model.OrderGuest model)
+    		{
+            return dal.Add(model);
+      		}
 
 		/// <summary>
 		/// 更新一条数据
@@ -159,8 +158,8 @@ namespace TravelAgency.BLL
         int res = 0;
         foreach (var item in list)
         {
-            res += dal.Add(item) == 0 ? 0 : 1; //返回值是id
-        }
+                    res += dal.Add(item) == 0 ? 0 : 1; //返回值是id
+                }
         return res;
     }
 
@@ -185,14 +184,11 @@ namespace TravelAgency.BLL
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < list.Count; ++i)
         {
-            sb.AppendFormat("{0},", list[i].Id);
-        }
-
+                        sb.AppendFormat("{0},", list[i].Id);
+                    }
         string str_id_list = sb.ToString().TrimEnd(',');
         return dal.DeleteList(str_id_list);
     }
-
-    
 				
 		
 		

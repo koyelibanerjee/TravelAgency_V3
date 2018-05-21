@@ -213,8 +213,6 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-
-
             if (MessageBoxEx.Show("是否提交?", "提醒", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
                 return;
 
@@ -223,9 +221,9 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             if(!ClaimMoney(list, _balanceList))
                 return;
 
-            int res = _bllVisa.UpdateList(dataGridView1.DataSource as List<Model.Visa>);
-            GlobalUtils.MessageBoxWithRecordNum("更新", res, _list.Count);
-            this.DialogResult = DialogResult.OK;
+            //int res = _bllVisa.UpdateList(dataGridView1.DataSource as List<Model.Visa>);
+            //GlobalUtils.MessageBoxWithRecordNum("更新", res, _list.Count);
+            //this.DialogResult = DialogResult.OK;
             this.Close();
             _updateDel(_curPage);
         }
@@ -329,7 +327,10 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 sucBalance += _bllBalance.Update(newBalances[i]) ? 1 : 0;
 
             for (int i = 0; i < visaBackup.Count; i++)
+            {
+                visaBackup[i].ClaimedFlag = "是";
                 sucVisa += _bllVisa.Update(visaBackup[i]) ? 1 : 0;
+            }
 
             //MessageBoxEx.Show(string.Format("{0}/{1},{2}/{3},{4}/{5}", sucVisa, visaList.Count, sucBalance, balanceList
             //    .Count, sucClaim, newClaims.Count));

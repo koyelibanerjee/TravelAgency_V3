@@ -1,89 +1,118 @@
-﻿using System;
+﻿using System; 
+using System.Text;
+using System.Collections.Generic; 
+using System.Data;
 namespace TravelAgency.Model
 {
-	/// <summary>
-	/// AuthUser:实体类(属性说明自动提取数据库字段的描述信息)
-	/// </summary>
-	[Serializable]
+	 	//AuthUser
+		[Serializable]
 	public partial class AuthUser
 	{
-		public AuthUser()
-		{}
-		#region Model
-		private string _workid;
-		private string _account;
-		private string _username;
-		private string _password;
-		private string _usermobile;
-		private Guid _departmentid;
-		private Guid _rid;
-		private string _rolename;
-		/// <summary>
+        		                  
+    private string _workid;
+        		                  
+    private string _account;
+        		                  
+    private string _username;
+        		                  
+    private string _password;
+        		                  
+    private string _usermobile;
+        		                  
+    private Guid _departmentid;
+        		                  
+    private Guid _rid;
+        		                  
+    private string _rolename;
+        
+    /// <summary>
 		/// 用户ID
-		/// </summary>
-		public string WorkId
-		{
-			set{ _workid=value;}
-			get{return _workid;}
-		}
+        /// </summary>		
+		      		  
+  
+        public string WorkId
+        {
+            get{ return _workid; }
+            set{ _workid = value; }
+        }    
+      
 		/// <summary>
 		/// 用户登录账号
-		/// </summary>
-		public string Account
-		{
-			set{ _account=value;}
-			get{return _account;}
-		}
+        /// </summary>		
+		      		  
+  
+        public string Account
+        {
+            get{ return _account; }
+            set{ _account = value; }
+        }    
+      
 		/// <summary>
 		/// 用户姓名
-		/// </summary>
-		public string UserName
-		{
-			set{ _username=value;}
-			get{return _username;}
-		}
+        /// </summary>		
+		      		  
+  
+        public string UserName
+        {
+            get{ return _username; }
+            set{ _username = value; }
+        }    
+      
 		/// <summary>
 		/// 登录密码
-		/// </summary>
-		public string Password
-		{
-			set{ _password=value;}
-			get{return _password;}
-		}
+        /// </summary>		
+		      		  
+  
+        public string Password
+        {
+            get{ return _password; }
+            set{ _password = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string UserMobile
-		{
-			set{ _usermobile=value;}
-			get{return _usermobile;}
-		}
+		/// UserMobile
+        /// </summary>		
+		      		  
+  
+        public string UserMobile
+        {
+            get{ return _usermobile; }
+            set{ _usermobile = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public Guid DepartmentId
-		{
-			set{ _departmentid=value;}
-			get{return _departmentid;}
-		}
+		/// DepartmentId
+        /// </summary>		
+		      		  
+  
+        public Guid DepartmentId
+        {
+            get{ return _departmentid; }
+            set{ _departmentid = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public Guid RID
-		{
-			set{ _rid=value;}
-			get{return _rid;}
-		}
+		/// RID
+        /// </summary>		
+		      		  
+  
+        public Guid RID
+        {
+            get{ return _rid; }
+            set{ _rid = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string RoleName
-		{
-			set{ _rolename=value;}
-			get{return _rolename;}
-		}
-		#endregion Model
-
+		/// RoleName
+        /// </summary>		
+		      		  
+  
+        public string RoleName
+        {
+            get{ return _rolename; }
+            set{ _rolename = value; }
+        }    
+      
+		   
 	}
 }
-

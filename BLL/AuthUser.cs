@@ -1,19 +1,19 @@
-﻿using System;
+﻿using System; 
+using System.Text;
+using System.Collections.Generic; 
 using System.Data;
-using System.Collections.Generic;
-//using Maticsoft.Common;
 using TravelAgency.Model;
-namespace TravelAgency.BLL
+namespace TravelAgency.BLL  
 {
-	/// <summary>
-	/// AuthUser
-	/// </summary>
-	public partial class AuthUser
+	 	//AuthUser
+		public partial class AuthUser
 	{
+   		     
 		private readonly TravelAgency.DAL.AuthUser dal=new TravelAgency.DAL.AuthUser();
 		public AuthUser()
 		{}
-		#region  BasicMethod
+		
+		#region  Method
 		/// <summary>
 		/// 是否存在该记录
 		/// </summary>
@@ -25,10 +25,10 @@ namespace TravelAgency.BLL
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public bool Add(TravelAgency.Model.AuthUser model)
-		{
-			return dal.Add(model);
-		}
+		    public void Add(TravelAgency.Model.AuthUser model)
+    		{
+            dal.Add(model);
+      		}
 
 		/// <summary>
 		/// 更新一条数据
@@ -46,7 +46,6 @@ namespace TravelAgency.BLL
 			
 			return dal.Delete(WorkId);
 		}
-		
 
 		/// <summary>
 		/// 得到一个对象实体
@@ -56,8 +55,6 @@ namespace TravelAgency.BLL
 			
 			return dal.GetModel(WorkId);
 		}
-
-		
 
 		/// <summary>
 		/// 获得数据列表
@@ -93,11 +90,9 @@ namespace TravelAgency.BLL
 				TravelAgency.Model.AuthUser model;
 				for (int n = 0; n < rowsCount; n++)
 				{
-					model = dal.DataRowToModel(dt.Rows[n]);
-					if (model != null)
-					{
-						modelList.Add(model);
-					}
+					model = dal.DataRowToModel(dt.Rows[n]);			
+          if(model!=null)
+            modelList.Add(model);
 				}
 			}
 			return modelList;
@@ -110,33 +105,94 @@ namespace TravelAgency.BLL
 		{
 			return GetList("");
 		}
-
-		/// <summary>
-		/// 分页获取数据列表
+		
+    /// <summary>
+		/// 获取记录总数
 		/// </summary>
 		public int GetRecordCount(string strWhere)
 		{
 			return dal.GetRecordCount(strWhere);
 		}
-		/// <summary>
-		/// 分页获取数据列表
-		/// </summary>
-		public DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
-		{
-			return dal.GetListByPage( strWhere,  orderby,  startIndex,  endIndex);
-		}
-		/// <summary>
-		/// 分页获取数据列表
-		/// </summary>
-		//public DataSet GetList(int PageSize,int PageIndex,string strWhere)
-		//{
-			//return dal.GetList(PageSize,PageIndex,strWhere);
-		//}
+		
+    /// <summary>
+    /// 分页获取数据
+    /// </summary>
+    public List<TravelAgency.Model.AuthUser> GetListByPage(string where, string orderby,int startIndex, int endIndex)
+    {
+        DataSet ds = dal.GetListByPage(where, orderby, startIndex, endIndex);
+        DataTable dt = ds.Tables[0];
+        return DataTableToList(dt);
+    }
+    
+    /// <summary>
+    /// 分页获取数据
+    /// </summary>
+    public List<TravelAgency.Model.AuthUser> GetListByPage(int pageIndex, int pageSize, string where, string orderby)
+    {
+        int startIndex = (pageIndex - 1) * pageSize + 1;
+        int endIndex = pageIndex * pageSize;
+        return GetListByPage(where, orderby, startIndex, endIndex);
+    }
+    
 
-		#endregion  BasicMethod
-		#region  ExtensionMethod
+		
+		
+				
+    /// <summary>
+    /// 分页获取数据
+    /// </summary>
+    public List<TravelAgency.Model.AuthUser> GetListByPageOrderByPK(int pageIndex, int pageSize, string where)
+    {
+        int startIndex = (pageIndex - 1) * pageSize + 1;
+        int endIndex = pageIndex * pageSize;
+        string orderby = "";
+        orderby = "WorkId desc";          
+        return GetListByPage(where, orderby, startIndex, endIndex);
+    }
+		
+    /// <summary>
+    /// 新增list
+    /// </summary>		
+    public int AddList(List<TravelAgency.Model.AuthUser> list)
+    {
+        int res = 0;
+        foreach (var item in list)
+        {
+                    res += dal.Add(item) ? 0 : 1; //返回值是bool
+                }
+        return res;
+    }
 
-		#endregion  ExtensionMethod
+    /// <summary>
+    /// 更新list
+    /// </summary>
+    public int UpdateList(List<TravelAgency.Model.AuthUser> list)
+    {
+        int res = 0;
+        foreach (var item in list)
+        {
+            res += dal.Update(item) ? 1 : 0; //返回值是id
+        }
+        return res;
+    }
+    
+    /// <summary>
+    /// 删除list
+    /// </summary>    
+    public bool DeleteList(List<TravelAgency.Model.AuthUser> list)
+    {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < list.Count; ++i)
+        {
+                        sb.AppendFormat("'{0}',", list[i].WorkId);
+                    }
+        string str_id_list = sb.ToString().TrimEnd(',');
+        return dal.DeleteList(str_id_list);
+    }
+				
+		
+		
+#endregion
+   
 	}
 }
-

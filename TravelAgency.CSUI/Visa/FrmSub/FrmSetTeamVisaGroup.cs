@@ -163,7 +163,7 @@ namespace TravelAgency.CSUI.FrmSub
             cbCountry.Text = _visaModel.Country;
             txtSalesPerson.Text = _visaModel.SalesPerson;
             txtClient.Text = _visaModel.client;
-            chbIsUrgent.Checked = _visaModel.IsUrgent;
+            chbIsUrgent.Checked = _visaModel.IsUrgent??false;
             txtPerson.Text = _visaModel.Person;
             this.Text += "(" + _visaModel.Types + ")";
 

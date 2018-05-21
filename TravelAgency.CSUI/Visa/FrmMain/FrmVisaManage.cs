@@ -490,7 +490,7 @@ namespace TravelAgency.CSUI.FrmMain
                     continue;
                 }
 
-                if (visas[i].IsUrgent)
+                if (visas[i].IsUrgent??false)
                 {
                     dataGridView1.Rows[i].Cells["IsUrgent"].Value = "急件";
                     dataGridView1.Rows[i].Cells["IsUrgent"].Style.BackColor = Color.Red;
