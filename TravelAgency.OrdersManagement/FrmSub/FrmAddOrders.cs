@@ -63,6 +63,7 @@ namespace TravelAgency.OrdersManagement
                 txtReplyResult.Enabled = false;
             }
 
+            txtOperRemark.Enabled = false;
             if (_is4Modify)
             {
                 //把选中的加载到这里面
@@ -82,10 +83,15 @@ namespace TravelAgency.OrdersManagement
                 txtPlatformActivity.Text = _model.PlatformActivity;
                 txtReplyResult.Text = _model.ReplyResult;
                 txtComboName.Text = _model.ComboName;
+
+                txtOperRemark.Text = _model.OperName;
+                txtWaitorRemark.Text = _model.WaitorRemark;
+                txtDepartureDate.Text = _model.DepartureDate.ToString();
                 this.Text = "修改订单信息";
+                InitDgvData();
             }
 
-            InitDgvData();
+
 
         }
 
@@ -165,7 +171,8 @@ namespace TravelAgency.OrdersManagement
 
         private void InitDgvData()
         {
-            var list = _bllGuest.GetModelList(" OrdersId = " + _model.Id + " "); //TODO:客人之间的排序
+            var list = _bllGuest.GetModelList(" OrdersId = " + _model.Id + " ");
+            list.Sort((Model.OrderGuest g1, Model.OrderGuest g2) => g1.Position ?? 0 - g2.Position ?? 0);
             if (list.Count != 0)
                 dataGridView1.DataSource = list;
         }
@@ -283,11 +290,28 @@ namespace TravelAgency.OrdersManagement
                     _model.ReplyResult = CtrlParser.Parse2String(txtReplyResult);
                     _model.ComboName = CtrlParser.Parse2String(txtComboName);
 
+                    _model.WaitorRemark = CtrlParser.Parse2String(txtWaitorRemark);
+                    _model.DepartureDate = CtrlParser.Parse2Datetime(txtDepartureDate);
 
                     //下面的字段暂时不进行修改
                     //_model.EntryTime = DateTime.Now;
                     //_model.SerialNo = SerialNoGenerator.GetSerialNo(SerialNoGenerator.Type.Type03Receipt);
                     //_model.OperatorId = GlobalUtils.LoginUser.Id;
+
+                    //先删除原来的客人信息
+                    var origList = _bllGuest.GetModelList(" OrdersId = " + _model.Id);
+                    if (origList != null && origList.Count > 0)
+                        _bllGuest.DeleteList(origList);
+
+                    //添加客人信息
+                    var list = DgvDataSourceToList();
+                    int i = 0;
+                    foreach (var orderGuest in list)
+                    {
+                        orderGuest.Position = i++;
+                    }
+                    _bllGuest.AddList(list);
+
                     if (!_bllOrders.Update(_model))
                     {
                         MessageBoxEx.Show("更新失败，请稍后重试!");
@@ -335,6 +359,9 @@ namespace TravelAgency.OrdersManagement
                     model.ReplyResult = CtrlParser.Parse2String(txtReplyResult);
                     model.ComboName = CtrlParser.Parse2String(txtComboName);
 
+                    model.WaitorRemark = CtrlParser.Parse2String(txtWaitorRemark);
+                    model.DepartureDate = CtrlParser.Parse2Datetime(txtDepartureDate);
+
                     int id = _bllOrders.Add(model);
                     if (id <= 0)
                     {
@@ -343,6 +370,16 @@ namespace TravelAgency.OrdersManagement
                     }
                     model.Id = id;
                     _bllLoger.AddLog(GlobalUtils.LoginUser, Common.Enums.OrdersActtype.value2Key("客服:录入订单"), model);
+
+                    //添加客人信息
+                    var list = DgvDataSourceToList();
+                    int i = 0;
+                    foreach (var orderGuest in list)
+                    {
+                        orderGuest.Position = i++;
+                    }
+                    _bllGuest.AddList(list);
+
 
                     MessageBoxEx.Show("添加成功");
                     _updateDel(_curPage);
