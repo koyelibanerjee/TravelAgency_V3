@@ -69,6 +69,7 @@ namespace TravelAgency.OrdersManagement
                 txtGuestLastNightHotel.Text = _guestModel.GuestLastNightHotel;
                 txtGuestPassportNo.Text = _guestModel.GuestPassportNo;
                 txtGuestCountry.Text = _guestModel.GuestCountry;
+                txtPrice.Text = DecimalHandler.DecimalToString(_guestModel.Price);
             }
         }
 
@@ -126,6 +127,7 @@ namespace TravelAgency.OrdersManagement
                 _guestModel.GuestPassportNo = CtrlParser.Parse2String(txtGuestPassportNo);
                 _guestModel.GuestLastNightHotel = CtrlParser.Parse2String(txtGuestLastNightHotel);
                 _guestModel.GuestCountry = CtrlParser.Parse2String(txtGuestCountry);
+                _guestModel.Price = CtrlParser.Parse2Decimal(txtPrice);
                 RetModel = _guestModel;
                 this.DialogResult = DialogResult.OK;
                 this.Close();
@@ -146,6 +148,8 @@ namespace TravelAgency.OrdersManagement
                 RetModel.GuestPassportNo = CtrlParser.Parse2String(txtGuestPassportNo);
                 RetModel.GuestLastNightHotel = CtrlParser.Parse2String(txtGuestLastNightHotel);
                 RetModel.GuestCountry = CtrlParser.Parse2String(txtGuestCountry);
+                RetModel.Price = CtrlParser.Parse2Decimal(txtPrice);
+
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

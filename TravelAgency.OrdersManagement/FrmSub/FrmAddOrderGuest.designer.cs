@@ -30,16 +30,24 @@
         {
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.panelMain = new DevComponents.DotNetBar.PanelEx();
+            this.labelX9 = new DevComponents.DotNetBar.LabelX();
+            this.labelX8 = new DevComponents.DotNetBar.LabelX();
+            this.labelX7 = new DevComponents.DotNetBar.LabelX();
             this.txtOrderNo = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX15 = new DevComponents.DotNetBar.LabelX();
+            this.btnAddFromExcel = new DevComponents.DotNetBar.ButtonX();
+            this.btnOK = new DevComponents.DotNetBar.ButtonX();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtGuestCountry = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.txtGuestType = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX17 = new DevComponents.DotNetBar.LabelX();
             this.txtGuestBirthday = new System.Windows.Forms.DateTimePicker();
             this.txtGuestEMail = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtGuestLastNightHotel = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX23 = new DevComponents.DotNetBar.LabelX();
             this.txtGuestWeiChat = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX22 = new DevComponents.DotNetBar.LabelX();
+            this.txtGuestPassportNo = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtGuestPhone = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX21 = new DevComponents.DotNetBar.LabelX();
             this.txtGuestBirthday2 = new DevComponents.DotNetBar.LabelX();
@@ -51,15 +59,9 @@
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.txtGuestId = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
-            this.btnAddFromExcel = new DevComponents.DotNetBar.ButtonX();
-            this.btnOK = new DevComponents.DotNetBar.ButtonX();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
-            this.txtGuestCountry = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.labelX9 = new DevComponents.DotNetBar.LabelX();
-            this.txtGuestLastNightHotel = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.txtGuestPassportNo = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX7 = new DevComponents.DotNetBar.LabelX();
-            this.labelX8 = new DevComponents.DotNetBar.LabelX();
+            this.txtPrice = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.panelEx1.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -111,6 +113,42 @@
             this.panelMain.Style.GradientAngle = 90;
             this.panelMain.TabIndex = 106;
             // 
+            // labelX9
+            // 
+            // 
+            // 
+            // 
+            this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX9.Location = new System.Drawing.Point(41, 447);
+            this.labelX9.Name = "labelX9";
+            this.labelX9.Size = new System.Drawing.Size(67, 27);
+            this.labelX9.TabIndex = 160;
+            this.labelX9.Text = "国籍:";
+            // 
+            // labelX8
+            // 
+            // 
+            // 
+            // 
+            this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX8.Location = new System.Drawing.Point(40, 417);
+            this.labelX8.Name = "labelX8";
+            this.labelX8.Size = new System.Drawing.Size(93, 27);
+            this.labelX8.TabIndex = 158;
+            this.labelX8.Text = "昨日酒店名:";
+            // 
+            // labelX7
+            // 
+            // 
+            // 
+            // 
+            this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX7.Location = new System.Drawing.Point(40, 383);
+            this.labelX7.Name = "labelX7";
+            this.labelX7.Size = new System.Drawing.Size(68, 27);
+            this.labelX7.TabIndex = 156;
+            this.labelX7.Text = "护照号:";
+            // 
             // txtOrderNo
             // 
             // 
@@ -137,8 +175,33 @@
             this.labelX15.TabIndex = 166;
             this.labelX15.Text = "订单号:";
             // 
+            // btnAddFromExcel
+            // 
+            this.btnAddFromExcel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnAddFromExcel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnAddFromExcel.Location = new System.Drawing.Point(1162, 7);
+            this.btnAddFromExcel.Name = "btnAddFromExcel";
+            this.btnAddFromExcel.Size = new System.Drawing.Size(107, 27);
+            this.btnAddFromExcel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnAddFromExcel.TabIndex = 56;
+            this.btnAddFromExcel.Text = "从excel导入";
+            // 
+            // btnOK
+            // 
+            this.btnOK.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnOK.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnOK.Location = new System.Drawing.Point(73, 518);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(87, 27);
+            this.btnOK.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnOK.TabIndex = 29;
+            this.btnOK.Text = "确认";
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
+            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtPrice);
+            this.groupBox1.Controls.Add(this.labelX2);
             this.groupBox1.Controls.Add(this.txtGuestCountry);
             this.groupBox1.Controls.Add(this.txtGuestType);
             this.groupBox1.Controls.Add(this.labelX17);
@@ -162,10 +225,22 @@
             this.groupBox1.Controls.Add(this.labelX1);
             this.groupBox1.Location = new System.Drawing.Point(33, 80);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(279, 419);
+            this.groupBox1.Size = new System.Drawing.Size(279, 432);
             this.groupBox1.TabIndex = 140;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "基本信息";
+            // 
+            // txtGuestCountry
+            // 
+            this.txtGuestCountry.DisplayMember = "Text";
+            this.txtGuestCountry.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.txtGuestCountry.FormattingEnabled = true;
+            this.txtGuestCountry.ItemHeight = 17;
+            this.txtGuestCountry.Location = new System.Drawing.Point(101, 378);
+            this.txtGuestCountry.Name = "txtGuestCountry";
+            this.txtGuestCountry.Size = new System.Drawing.Size(155, 23);
+            this.txtGuestCountry.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.txtGuestCountry.TabIndex = 161;
             // 
             // txtGuestType
             // 
@@ -195,7 +270,7 @@
             // 
             this.txtGuestBirthday.CustomFormat = "yyyy/MM/dd";
             this.txtGuestBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtGuestBirthday.Location = new System.Drawing.Point(101, 253);
+            this.txtGuestBirthday.Location = new System.Drawing.Point(101, 281);
             this.txtGuestBirthday.Name = "txtGuestBirthday";
             this.txtGuestBirthday.Size = new System.Drawing.Size(155, 23);
             this.txtGuestBirthday.TabIndex = 137;
@@ -207,11 +282,24 @@
             // 
             this.txtGuestEMail.Border.Class = "TextBoxBorder";
             this.txtGuestEMail.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtGuestEMail.Location = new System.Drawing.Point(101, 223);
+            this.txtGuestEMail.Location = new System.Drawing.Point(101, 251);
             this.txtGuestEMail.Multiline = true;
             this.txtGuestEMail.Name = "txtGuestEMail";
             this.txtGuestEMail.Size = new System.Drawing.Size(155, 24);
             this.txtGuestEMail.TabIndex = 145;
+            // 
+            // txtGuestLastNightHotel
+            // 
+            // 
+            // 
+            // 
+            this.txtGuestLastNightHotel.Border.Class = "TextBoxBorder";
+            this.txtGuestLastNightHotel.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtGuestLastNightHotel.Location = new System.Drawing.Point(101, 348);
+            this.txtGuestLastNightHotel.Multiline = true;
+            this.txtGuestLastNightHotel.Name = "txtGuestLastNightHotel";
+            this.txtGuestLastNightHotel.Size = new System.Drawing.Size(155, 24);
+            this.txtGuestLastNightHotel.TabIndex = 159;
             // 
             // labelX23
             // 
@@ -219,7 +307,7 @@
             // 
             // 
             this.labelX23.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX23.Location = new System.Drawing.Point(7, 223);
+            this.labelX23.Location = new System.Drawing.Point(7, 251);
             this.labelX23.Name = "labelX23";
             this.labelX23.Size = new System.Drawing.Size(93, 27);
             this.labelX23.TabIndex = 144;
@@ -232,7 +320,7 @@
             // 
             this.txtGuestWeiChat.Border.Class = "TextBoxBorder";
             this.txtGuestWeiChat.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtGuestWeiChat.Location = new System.Drawing.Point(101, 189);
+            this.txtGuestWeiChat.Location = new System.Drawing.Point(101, 217);
             this.txtGuestWeiChat.Multiline = true;
             this.txtGuestWeiChat.Name = "txtGuestWeiChat";
             this.txtGuestWeiChat.Size = new System.Drawing.Size(155, 24);
@@ -244,11 +332,24 @@
             // 
             // 
             this.labelX22.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX22.Location = new System.Drawing.Point(7, 189);
+            this.labelX22.Location = new System.Drawing.Point(7, 217);
             this.labelX22.Name = "labelX22";
             this.labelX22.Size = new System.Drawing.Size(93, 27);
             this.labelX22.TabIndex = 142;
             this.labelX22.Text = "微信号:";
+            // 
+            // txtGuestPassportNo
+            // 
+            // 
+            // 
+            // 
+            this.txtGuestPassportNo.Border.Class = "TextBoxBorder";
+            this.txtGuestPassportNo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtGuestPassportNo.Location = new System.Drawing.Point(101, 315);
+            this.txtGuestPassportNo.Multiline = true;
+            this.txtGuestPassportNo.Name = "txtGuestPassportNo";
+            this.txtGuestPassportNo.Size = new System.Drawing.Size(155, 24);
+            this.txtGuestPassportNo.TabIndex = 157;
             // 
             // txtGuestPhone
             // 
@@ -257,7 +358,7 @@
             // 
             this.txtGuestPhone.Border.Class = "TextBoxBorder";
             this.txtGuestPhone.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtGuestPhone.Location = new System.Drawing.Point(101, 155);
+            this.txtGuestPhone.Location = new System.Drawing.Point(101, 183);
             this.txtGuestPhone.Multiline = true;
             this.txtGuestPhone.Name = "txtGuestPhone";
             this.txtGuestPhone.Size = new System.Drawing.Size(155, 24);
@@ -271,7 +372,7 @@
             this.labelX21.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX21.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold);
             this.labelX21.ForeColor = System.Drawing.Color.DarkOrange;
-            this.labelX21.Location = new System.Drawing.Point(7, 155);
+            this.labelX21.Location = new System.Drawing.Point(7, 183);
             this.labelX21.Name = "labelX21";
             this.labelX21.Size = new System.Drawing.Size(93, 27);
             this.labelX21.TabIndex = 140;
@@ -283,7 +384,7 @@
             // 
             // 
             this.txtGuestBirthday2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtGuestBirthday2.Location = new System.Drawing.Point(7, 253);
+            this.txtGuestBirthday2.Location = new System.Drawing.Point(7, 281);
             this.txtGuestBirthday2.Name = "txtGuestBirthday2";
             this.txtGuestBirthday2.Size = new System.Drawing.Size(93, 27);
             this.txtGuestBirthday2.TabIndex = 136;
@@ -295,7 +396,7 @@
             this.txtGuestSex.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.txtGuestSex.FormattingEnabled = true;
             this.txtGuestSex.ItemHeight = 17;
-            this.txtGuestSex.Location = new System.Drawing.Point(101, 380);
+            this.txtGuestSex.Location = new System.Drawing.Point(101, 408);
             this.txtGuestSex.Name = "txtGuestSex";
             this.txtGuestSex.Size = new System.Drawing.Size(155, 23);
             this.txtGuestSex.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -307,7 +408,7 @@
             // 
             // 
             this.asda.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.asda.Location = new System.Drawing.Point(7, 380);
+            this.asda.Location = new System.Drawing.Point(7, 408);
             this.asda.Name = "asda";
             this.asda.Size = new System.Drawing.Size(93, 27);
             this.asda.TabIndex = 132;
@@ -392,29 +493,6 @@
             this.labelX1.TabIndex = 126;
             this.labelX1.Text = "*客人平台ID:";
             // 
-            // btnAddFromExcel
-            // 
-            this.btnAddFromExcel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnAddFromExcel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnAddFromExcel.Location = new System.Drawing.Point(1162, 7);
-            this.btnAddFromExcel.Name = "btnAddFromExcel";
-            this.btnAddFromExcel.Size = new System.Drawing.Size(107, 27);
-            this.btnAddFromExcel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnAddFromExcel.TabIndex = 56;
-            this.btnAddFromExcel.Text = "从excel导入";
-            // 
-            // btnOK
-            // 
-            this.btnOK.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnOK.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnOK.Location = new System.Drawing.Point(73, 518);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(87, 27);
-            this.btnOK.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnOK.TabIndex = 29;
-            this.btnOK.Text = "确认";
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
-            // 
             // btnCancel
             // 
             this.btnCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -427,79 +505,30 @@
             this.btnCancel.Text = "取消";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // txtGuestCountry
-            // 
-            this.txtGuestCountry.DisplayMember = "Text";
-            this.txtGuestCountry.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.txtGuestCountry.FormattingEnabled = true;
-            this.txtGuestCountry.ItemHeight = 17;
-            this.txtGuestCountry.Location = new System.Drawing.Point(101, 350);
-            this.txtGuestCountry.Name = "txtGuestCountry";
-            this.txtGuestCountry.Size = new System.Drawing.Size(155, 23);
-            this.txtGuestCountry.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.txtGuestCountry.TabIndex = 161;
-            // 
-            // labelX9
+            // txtPrice
             // 
             // 
             // 
             // 
-            this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX9.Location = new System.Drawing.Point(41, 428);
-            this.labelX9.Name = "labelX9";
-            this.labelX9.Size = new System.Drawing.Size(67, 27);
-            this.labelX9.TabIndex = 160;
-            this.labelX9.Text = "国籍:";
+            this.txtPrice.Border.Class = "TextBoxBorder";
+            this.txtPrice.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtPrice.Location = new System.Drawing.Point(101, 153);
+            this.txtPrice.Multiline = true;
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(155, 24);
+            this.txtPrice.TabIndex = 163;
             // 
-            // txtGuestLastNightHotel
-            // 
-            // 
-            // 
-            // 
-            this.txtGuestLastNightHotel.Border.Class = "TextBoxBorder";
-            this.txtGuestLastNightHotel.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtGuestLastNightHotel.Location = new System.Drawing.Point(101, 320);
-            this.txtGuestLastNightHotel.Multiline = true;
-            this.txtGuestLastNightHotel.Name = "txtGuestLastNightHotel";
-            this.txtGuestLastNightHotel.Size = new System.Drawing.Size(155, 24);
-            this.txtGuestLastNightHotel.TabIndex = 159;
-            // 
-            // txtGuestPassportNo
+            // labelX2
             // 
             // 
             // 
             // 
-            this.txtGuestPassportNo.Border.Class = "TextBoxBorder";
-            this.txtGuestPassportNo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtGuestPassportNo.Location = new System.Drawing.Point(101, 287);
-            this.txtGuestPassportNo.Multiline = true;
-            this.txtGuestPassportNo.Name = "txtGuestPassportNo";
-            this.txtGuestPassportNo.Size = new System.Drawing.Size(155, 24);
-            this.txtGuestPassportNo.TabIndex = 157;
-            // 
-            // labelX7
-            // 
-            // 
-            // 
-            // 
-            this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX7.Location = new System.Drawing.Point(40, 364);
-            this.labelX7.Name = "labelX7";
-            this.labelX7.Size = new System.Drawing.Size(68, 27);
-            this.labelX7.TabIndex = 156;
-            this.labelX7.Text = "护照号:";
-            // 
-            // labelX8
-            // 
-            // 
-            // 
-            // 
-            this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX8.Location = new System.Drawing.Point(40, 398);
-            this.labelX8.Name = "labelX8";
-            this.labelX8.Size = new System.Drawing.Size(93, 27);
-            this.labelX8.TabIndex = 158;
-            this.labelX8.Text = "昨日酒店名:";
+            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX2.Location = new System.Drawing.Point(8, 153);
+            this.labelX2.Name = "labelX2";
+            this.labelX2.Size = new System.Drawing.Size(93, 27);
+            this.labelX2.TabIndex = 162;
+            this.labelX2.Text = "单价:";
             // 
             // FrmAddOrderGuest
             // 
@@ -551,5 +580,7 @@
         private DevComponents.DotNetBar.Controls.TextBoxX txtGuestPassportNo;
         private DevComponents.DotNetBar.LabelX labelX7;
         private DevComponents.DotNetBar.LabelX labelX8;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtPrice;
+        private DevComponents.DotNetBar.LabelX labelX2;
     }
 }

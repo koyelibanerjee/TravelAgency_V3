@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelX20 = new DevComponents.DotNetBar.LabelX();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.btnOK = new DevComponents.DotNetBar.ButtonX();
@@ -47,20 +47,6 @@
             this.labelX19 = new DevComponents.DotNetBar.LabelX();
             this.btnAddGuest = new DevComponents.DotNetBar.ButtonX();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrdersId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GuestId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GuestType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GuestName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GuestNamePinYin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GuestPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GuestWeChat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GuestEMail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GuestSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GuestBirthday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GuestPassportNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GuestLastNightHotel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GuestCountry = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtComboName = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.txtWaitorConfirmTime = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
@@ -95,6 +81,22 @@
             this.labelX10 = new DevComponents.DotNetBar.LabelX();
             this.cmsDgvRb = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lbGuestCount = new DevComponents.DotNetBar.LabelX();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrdersId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuestId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuestType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuestName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuestNamePinYin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuestPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuestWeChat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuestEMail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuestSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuestBirthday = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuestPassportNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuestLastNightHotel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuestCountry = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelEx1.SuspendLayout();
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -131,7 +133,7 @@
             // 
             this.btnOK.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnOK.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnOK.Location = new System.Drawing.Point(636, 315);
+            this.btnOK.Location = new System.Drawing.Point(530, 348);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(87, 27);
             this.btnOK.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -162,6 +164,7 @@
             // 
             this.panelMain.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelMain.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelMain.Controls.Add(this.lbGuestCount);
             this.panelMain.Controls.Add(this.txtOperRemark);
             this.panelMain.Controls.Add(this.labelX18);
             this.panelMain.Controls.Add(this.txtWaitorRemark);
@@ -228,7 +231,7 @@
             // 
             this.txtOperRemark.Border.Class = "TextBoxBorder";
             this.txtOperRemark.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtOperRemark.Location = new System.Drawing.Point(402, 245);
+            this.txtOperRemark.Location = new System.Drawing.Point(402, 216);
             this.txtOperRemark.Multiline = true;
             this.txtOperRemark.Name = "txtOperRemark";
             this.txtOperRemark.Size = new System.Drawing.Size(321, 62);
@@ -240,7 +243,7 @@
             // 
             // 
             this.labelX18.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX18.Location = new System.Drawing.Point(318, 245);
+            this.labelX18.Location = new System.Drawing.Point(323, 216);
             this.labelX18.Name = "labelX18";
             this.labelX18.Size = new System.Drawing.Size(125, 27);
             this.labelX18.TabIndex = 176;
@@ -253,10 +256,10 @@
             // 
             this.txtWaitorRemark.Border.Class = "TextBoxBorder";
             this.txtWaitorRemark.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtWaitorRemark.Location = new System.Drawing.Point(124, 286);
+            this.txtWaitorRemark.Location = new System.Drawing.Point(124, 279);
             this.txtWaitorRemark.Multiline = true;
             this.txtWaitorRemark.Name = "txtWaitorRemark";
-            this.txtWaitorRemark.Size = new System.Drawing.Size(186, 62);
+            this.txtWaitorRemark.Size = new System.Drawing.Size(186, 63);
             this.txtWaitorRemark.TabIndex = 175;
             // 
             // labelX12
@@ -330,20 +333,21 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.OrdersId,
             this.GuestId,
             this.GuestType,
+            this.Price,
             this.GuestName,
             this.GuestNamePinYin,
             this.GuestPhone,
@@ -354,118 +358,32 @@
             this.GuestPassportNo,
             this.GuestLastNightHotel,
             this.GuestCountry});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 377);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridView1.Size = new System.Drawing.Size(738, 155);
             this.dataGridView1.TabIndex = 166;
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.Visible = false;
-            // 
-            // OrdersId
-            // 
-            this.OrdersId.DataPropertyName = "OrdersId";
-            this.OrdersId.HeaderText = "订单号";
-            this.OrdersId.Name = "OrdersId";
-            this.OrdersId.Visible = false;
-            // 
-            // GuestId
-            // 
-            this.GuestId.DataPropertyName = "GuestId";
-            this.GuestId.HeaderText = "客人Id";
-            this.GuestId.Name = "GuestId";
-            // 
-            // GuestType
-            // 
-            this.GuestType.DataPropertyName = "GuestType";
-            this.GuestType.HeaderText = "客人类型";
-            this.GuestType.Name = "GuestType";
-            // 
-            // GuestName
-            // 
-            this.GuestName.DataPropertyName = "GuestName";
-            this.GuestName.HeaderText = "客人姓名";
-            this.GuestName.Name = "GuestName";
-            // 
-            // GuestNamePinYin
-            // 
-            this.GuestNamePinYin.DataPropertyName = "GuestNamePinYin";
-            this.GuestNamePinYin.HeaderText = "姓名拼音";
-            this.GuestNamePinYin.Name = "GuestNamePinYin";
-            // 
-            // GuestPhone
-            // 
-            this.GuestPhone.DataPropertyName = "GuestPhone";
-            this.GuestPhone.HeaderText = "电话";
-            this.GuestPhone.Name = "GuestPhone";
-            // 
-            // GuestWeChat
-            // 
-            this.GuestWeChat.DataPropertyName = "GuestWeChat";
-            this.GuestWeChat.HeaderText = "微信";
-            this.GuestWeChat.Name = "GuestWeChat";
-            // 
-            // GuestEMail
-            // 
-            this.GuestEMail.DataPropertyName = "GuestEMail";
-            this.GuestEMail.HeaderText = "邮箱";
-            this.GuestEMail.Name = "GuestEMail";
-            // 
-            // GuestSex
-            // 
-            this.GuestSex.DataPropertyName = "GuestSex";
-            this.GuestSex.HeaderText = "性别";
-            this.GuestSex.Name = "GuestSex";
-            // 
-            // GuestBirthday
-            // 
-            this.GuestBirthday.DataPropertyName = "GuestBirthday";
-            this.GuestBirthday.HeaderText = "出生日期";
-            this.GuestBirthday.Name = "GuestBirthday";
-            // 
-            // GuestPassportNo
-            // 
-            this.GuestPassportNo.DataPropertyName = "GuestPassportNo";
-            this.GuestPassportNo.HeaderText = "护照号";
-            this.GuestPassportNo.Name = "GuestPassportNo";
-            // 
-            // GuestLastNightHotel
-            // 
-            this.GuestLastNightHotel.DataPropertyName = "GuestLastNightHotel";
-            this.GuestLastNightHotel.HeaderText = "昨晚酒店名";
-            this.GuestLastNightHotel.Name = "GuestLastNightHotel";
-            // 
-            // GuestCountry
-            // 
-            this.GuestCountry.DataPropertyName = "GuestCountry";
-            this.GuestCountry.HeaderText = "国家";
-            this.GuestCountry.Name = "GuestCountry";
             // 
             // txtComboName
             // 
@@ -543,9 +461,9 @@
             // 
             this.btnOperInfo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnOperInfo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnOperInfo.Location = new System.Drawing.Point(523, 316);
+            this.btnOperInfo.Location = new System.Drawing.Point(636, 284);
             this.btnOperInfo.Name = "btnOperInfo";
-            this.btnOperInfo.Size = new System.Drawing.Size(92, 57);
+            this.btnOperInfo.Size = new System.Drawing.Size(87, 57);
             this.btnOperInfo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnOperInfo.TabIndex = 141;
             this.btnOperInfo.Text = "设置(查看)\r\n操作信息";
@@ -555,9 +473,9 @@
             // 
             this.btnGuestInfo.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnGuestInfo.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnGuestInfo.Location = new System.Drawing.Point(417, 316);
+            this.btnGuestInfo.Location = new System.Drawing.Point(530, 284);
             this.btnGuestInfo.Name = "btnGuestInfo";
-            this.btnGuestInfo.Size = new System.Drawing.Size(92, 57);
+            this.btnGuestInfo.Size = new System.Drawing.Size(87, 57);
             this.btnGuestInfo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnGuestInfo.TabIndex = 140;
             this.btnGuestInfo.Text = "设置(查看)\r\n补充信息";
@@ -573,7 +491,7 @@
             this.txtPlatformActivity.Location = new System.Drawing.Point(402, 181);
             this.txtPlatformActivity.Multiline = true;
             this.txtPlatformActivity.Name = "txtPlatformActivity";
-            this.txtPlatformActivity.Size = new System.Drawing.Size(324, 58);
+            this.txtPlatformActivity.Size = new System.Drawing.Size(324, 27);
             this.txtPlatformActivity.TabIndex = 139;
             // 
             // labelX15
@@ -908,6 +826,112 @@
             this.删除ToolStripMenuItem.Text = "删除";
             this.删除ToolStripMenuItem.Click += new System.EventHandler(this.删除ToolStripMenuItem_Click);
             // 
+            // lbGuestCount
+            // 
+            // 
+            // 
+            // 
+            this.lbGuestCount.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lbGuestCount.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbGuestCount.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lbGuestCount.Location = new System.Drawing.Point(105, 348);
+            this.lbGuestCount.Name = "lbGuestCount";
+            this.lbGuestCount.Size = new System.Drawing.Size(404, 27);
+            this.lbGuestCount.TabIndex = 178;
+            this.lbGuestCount.Text = "客人总数:0";
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
+            // 
+            // OrdersId
+            // 
+            this.OrdersId.DataPropertyName = "OrdersId";
+            this.OrdersId.HeaderText = "订单号";
+            this.OrdersId.Name = "OrdersId";
+            this.OrdersId.Visible = false;
+            // 
+            // GuestId
+            // 
+            this.GuestId.DataPropertyName = "GuestId";
+            this.GuestId.HeaderText = "客人Id";
+            this.GuestId.Name = "GuestId";
+            // 
+            // GuestType
+            // 
+            this.GuestType.DataPropertyName = "GuestType";
+            this.GuestType.HeaderText = "客人类型";
+            this.GuestType.Name = "GuestType";
+            // 
+            // Price
+            // 
+            this.Price.DataPropertyName = "Price";
+            this.Price.HeaderText = "单价";
+            this.Price.Name = "Price";
+            // 
+            // GuestName
+            // 
+            this.GuestName.DataPropertyName = "GuestName";
+            this.GuestName.HeaderText = "客人姓名";
+            this.GuestName.Name = "GuestName";
+            // 
+            // GuestNamePinYin
+            // 
+            this.GuestNamePinYin.DataPropertyName = "GuestNamePinYin";
+            this.GuestNamePinYin.HeaderText = "姓名拼音";
+            this.GuestNamePinYin.Name = "GuestNamePinYin";
+            // 
+            // GuestPhone
+            // 
+            this.GuestPhone.DataPropertyName = "GuestPhone";
+            this.GuestPhone.HeaderText = "电话";
+            this.GuestPhone.Name = "GuestPhone";
+            // 
+            // GuestWeChat
+            // 
+            this.GuestWeChat.DataPropertyName = "GuestWeChat";
+            this.GuestWeChat.HeaderText = "微信";
+            this.GuestWeChat.Name = "GuestWeChat";
+            // 
+            // GuestEMail
+            // 
+            this.GuestEMail.DataPropertyName = "GuestEMail";
+            this.GuestEMail.HeaderText = "邮箱";
+            this.GuestEMail.Name = "GuestEMail";
+            // 
+            // GuestSex
+            // 
+            this.GuestSex.DataPropertyName = "GuestSex";
+            this.GuestSex.HeaderText = "性别";
+            this.GuestSex.Name = "GuestSex";
+            // 
+            // GuestBirthday
+            // 
+            this.GuestBirthday.DataPropertyName = "GuestBirthday";
+            this.GuestBirthday.HeaderText = "出生日期";
+            this.GuestBirthday.Name = "GuestBirthday";
+            // 
+            // GuestPassportNo
+            // 
+            this.GuestPassportNo.DataPropertyName = "GuestPassportNo";
+            this.GuestPassportNo.HeaderText = "护照号";
+            this.GuestPassportNo.Name = "GuestPassportNo";
+            // 
+            // GuestLastNightHotel
+            // 
+            this.GuestLastNightHotel.DataPropertyName = "GuestLastNightHotel";
+            this.GuestLastNightHotel.HeaderText = "昨晚酒店名";
+            this.GuestLastNightHotel.Name = "GuestLastNightHotel";
+            // 
+            // GuestCountry
+            // 
+            this.GuestCountry.DataPropertyName = "GuestCountry";
+            this.GuestCountry.HeaderText = "国家";
+            this.GuestCountry.Name = "GuestCountry";
+            // 
             // FrmAddOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -966,20 +990,6 @@
         private DevComponents.DotNetBar.Controls.TextBoxX txtComboName;
         private DevComponents.DotNetBar.LabelX labelX1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OrdersId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GuestId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GuestType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GuestName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GuestNamePinYin;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GuestPhone;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GuestWeChat;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GuestEMail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GuestSex;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GuestBirthday;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GuestPassportNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GuestLastNightHotel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GuestCountry;
         private DevComponents.DotNetBar.ButtonX btnAddGuest;
         private System.Windows.Forms.ContextMenuStrip cmsDgvRb;
         private System.Windows.Forms.ToolStripMenuItem 删除ToolStripMenuItem;
@@ -991,5 +1001,21 @@
         private DevComponents.DotNetBar.LabelX labelX18;
         private DevComponents.DotNetBar.Controls.TextBoxX txtWaitorRemark;
         private DevComponents.DotNetBar.LabelX labelX12;
+        private DevComponents.DotNetBar.LabelX lbGuestCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrdersId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GuestId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GuestType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GuestName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GuestNamePinYin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GuestPhone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GuestWeChat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GuestEMail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GuestSex;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GuestBirthday;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GuestPassportNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GuestLastNightHotel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GuestCountry;
     }
 }

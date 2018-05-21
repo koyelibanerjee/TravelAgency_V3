@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Text;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using NPOI.HSSF.Record.AutoFilter;
@@ -48,6 +49,7 @@ namespace TravelAgency.OrdersManagement
             StyleControler.SetDgvStyle(dataGridView1);
             dataGridView1.CellDoubleClick += DataGridView1_CellDoubleClick;
             dataGridView1.CellMouseUp += DataGridView1_CellMouseUp;
+            dataGridView1.RowsAdded += DataGridView1_RowsAdded;
             txtWaitorConfirmTime.Enabled = false; //客服确认时间默认禁用
 
             if (GlobalUtils.LoginUserLevel == RigthLevel.Operator) //操作不能修改基本订单信息和客人信息
@@ -84,6 +86,70 @@ namespace TravelAgency.OrdersManagement
             }
 
             InitDgvData();
+
+        }
+
+
+        protected internal class GuestCnt
+        {
+            public string name;
+            public int cnt;
+        }
+
+        private void DataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            //int digit = GlobalUtils.DecimalDigits;
+            List<GuestCnt> guestTypeCnt = new List<GuestCnt>();
+            Dictionary<string, int> typeDict = new Dictionary<string, int>();
+
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                DataGridViewRow row = dataGridView1.Rows[i];
+                row.HeaderCell.Value = (i + 1).ToString();
+
+                if (dataGridView1.Rows[i].Cells["GuestType"].Value != null)
+                {
+                    string type = dataGridView1.Rows[i].Cells["GuestType"].Value.ToString();
+                    if (!typeDict.ContainsKey(type))
+                    {
+                        typeDict.Add(type, guestTypeCnt.Count);
+                        guestTypeCnt.Add(new GuestCnt { name = type, cnt = 1 });
+                    }
+                    else
+                    {
+                        ++guestTypeCnt[typeDict[type]].cnt;
+                    }
+                }
+
+                for (int j = 0; j != dataGridView1.ColumnCount; ++j)
+                {
+                    var value = dataGridView1.Rows[i].Cells[j].Value;
+                    if (dataGridView1.Rows[i].Cells[j].ValueType == typeof(decimal) && value != null)
+                    {
+                        dataGridView1.Rows[i].Cells[j].Value = DecimalHandler.DecimalToString((decimal)value);
+                    }
+                }
+            }
+
+            if (guestTypeCnt.Count > 0)
+            {
+                StringBuilder sb = new StringBuilder();
+                //sb.Append("")
+                int cnt = 0;
+                foreach (var guestCnt in guestTypeCnt)
+                {
+                    cnt += guestCnt.cnt;
+                    sb.AppendFormat("{0}:{1}人,", guestCnt.name, guestCnt.cnt);
+                }
+                string str = sb.ToString();
+                str = str.TrimEnd(',');
+                str = "共有客人:" + cnt + "人, " + str;
+                lbGuestCount.Text = str;
+            }
+            else
+            {
+                lbGuestCount.Text = "客人总数:0";
+            }
 
         }
 
