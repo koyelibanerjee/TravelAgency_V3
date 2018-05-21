@@ -276,7 +276,7 @@ namespace TravelAgency.CSUI.FrmSub
             txtSubmitCondition.Text = _recentVisa.SubmitCondition;
             txtFetchType.Text = _recentVisa.FetchCondition;
             txtCheckPerson.Text = _recentVisa.CheckPerson;
-            chbIsUrgent.Checked = _recentVisa.IsUrgent;
+            chbIsUrgent.Checked = _recentVisa.IsUrgent??false;
             txtRealTime.Text = "";
 
             txtTypeInPerson.Text = GlobalUtils.LoginUser.UserName; //初始没做的时候，typeinperson就是当前人
@@ -352,7 +352,7 @@ namespace TravelAgency.CSUI.FrmSub
             txtSubmitCondition.Text = _visaModel.SubmitCondition;
             txtFetchType.Text = _visaModel.FetchCondition;
             txtCheckPerson.Text = _visaModel.CheckPerson;
-            chbIsUrgent.Checked = _visaModel.IsUrgent;
+            chbIsUrgent.Checked = _visaModel.IsUrgent??false;
             txtPerson.Text = _visaModel.Person;
 
             txtQuQianYuan.Text = _visaModel.QuQianYuan;

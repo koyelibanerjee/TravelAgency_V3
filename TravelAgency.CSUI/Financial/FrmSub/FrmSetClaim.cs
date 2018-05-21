@@ -55,6 +55,8 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             dataGridView1.RowsAdded += DataGridView1_RowsAdded;
             dataGridView1.CellDoubleClick += DataGridView1_CellDoubleClick;
             dataGridView1.CellValueChanged += DataGridView1_CellValueChanged;
+            dataGridView1.SelectionChanged += DataGridView1_SelectionChanged;
+            dataGridView1.CellMouseUp += dataGridView1_CellMouseUp;
             dataGridView1.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
             dataGridView1.DataSource = _list;
 
@@ -77,7 +79,43 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
             lbClientBalance.Text = "客户可用余额:" + _clientBalance + "元.";
 
+            DataGridView1_SelectionChanged(null,null);
 
+        }
+
+        private List<Model.Visa> DgvDataSourceToList()
+        {
+            return dataGridView1.DataSource as List<Model.Visa>;
+        }
+
+        /// <summary>
+        /// 返回当前选择的行的visaModel的List
+        /// </summary>
+        /// <returns></returns>
+        private List<Model.Visa> GetSelectedModelList()
+        {
+            var visaList = dataGridView1.DataSource as List<Model.Visa>;
+            List<Model.Visa> res = new List<Model.Visa>();
+            for (int i = dataGridView1.SelectedRows.Count - 1; i >= 0; i--)
+                res.Add(DgvDataSourceToList()[dataGridView1.SelectedRows[i].Index]);
+            return res.Count > 0 ? res : null;
+        }
+
+        private void DataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count < 1)
+                return;
+            decimal total = 0;
+
+            for (int i = 0; i < dataGridView1.SelectedRows.Count; ++i)
+            {
+                var model = DgvDataSourceToList()[dataGridView1.SelectedRows[i].Index];
+                total += DecimalHandler.Parse(model.Receipt.ToString());
+            }
+
+
+            lbClientBalance.Text = string.Format("客户余额:{0},选中项合计:{1},扣除后剩余:{2}", _clientBalance, total,
+                _clientBalance - total);
         }
 
         private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -213,12 +251,12 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            if (MessageBoxEx.Show("是否提交?", "提醒", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+            if (MessageBoxEx.Show("是否对选中团号进行认账?", "提醒", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
                 return;
 
-            var list = dataGridView1.DataSource as List<Model.Visa>;
+            var list = GetSelectedModelList();
             //执行计算
-            if(!ClaimMoney(list, _balanceList))
+            if (!ClaimMoney(list, _balanceList))
                 return;
 
             //int res = _bllVisa.UpdateList(dataGridView1.DataSource as List<Model.Visa>);
@@ -271,7 +309,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                     balance.BalanceAmount -= visa.Receipt.Value;
                     newBalances.Add(balance);
 
-                  
+
                 }
                 else if (visa.Receipt < balance.BalanceAmount)
                 {
@@ -281,7 +319,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                     balance.BalanceAmount -= visa.Receipt.Value;
                     //后者不移出
 
-                    
+
                 }
                 else //visaList[0].Receipt > balanceList[0].Amount
                 {
@@ -291,14 +329,14 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                     balance.BalanceAmount = 0;
                     newBalances.Add(balance);
                     balanceList.RemoveAt(0);
-                    
-                    
+
+
                     //前者不移出
 
 
                 }
 
-                claimMoney.Money_id = balance.Money_id; 
+                claimMoney.Money_id = balance.Money_id;
                 claimMoney.DepartmentId = GlobalUtils.LoginUser.DepartmentId;
                 claimMoney.Name_Claim = GlobalUtils.LoginUser.UserName;
                 claimMoney.GroupNo = visa.GroupNo;
@@ -339,10 +377,52 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
         }
 
+        /// <summary>
+        /// dgv右键响应
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dataGridView1_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+                {
+                    //若行已是选中状态就不再进行设置
+                    //如果没选中当前活动行则选中这一行
+                    if (dataGridView1.Rows[e.RowIndex].Selected == false)
+                    {
+                        dataGridView1.ClearSelection();
+                        dataGridView1.Rows[e.RowIndex].Selected = true;
+                    }
+                    //只选中一行时设置活动单元格
+                    if (dataGridView1.SelectedRows.Count == 1)
+                    {
+                        if (e.ColumnIndex != -1) //选中表头了
+                            dataGridView1.CurrentCell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                        else
+                        {
+                            dataGridView1.CurrentCell = dataGridView1.Rows[e.RowIndex].Cells[0];
+                        }
+
+                    }
+                    //弹出操作菜单
+                    cmsDgv.Show(MousePosition.X, MousePosition.Y);
+
+                }
+            }
+        }
+
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        private void 签证认账ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            btnCancel_Click(null,null);
         }
     }
 }

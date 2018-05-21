@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.btnConfirm = new DevComponents.DotNetBar.ButtonX();
             this.panelDgv = new DevComponents.DotNetBar.PanelEx();
+            this.dataGridView1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.panelBtns = new DevComponents.DotNetBar.PanelEx();
             this.lbClientBalance = new DevComponents.DotNetBar.LabelX();
-            this.dataGridView1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.GroupNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CountryImage = new System.Windows.Forms.DataGridViewImageColumn();
             this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Client = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Receipt = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,9 +66,12 @@
             this.Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubmitFlag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Visa_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmsDgv = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.签证认账ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelDgv.SuspendLayout();
-            this.panelBtns.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panelBtns.SuspendLayout();
+            this.cmsDgv.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -114,6 +117,77 @@
             this.panelDgv.Style.GradientAngle = 90;
             this.panelDgv.TabIndex = 23;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.GroupNo,
+            this.Country,
+            this.Number,
+            this.Client,
+            this.Receipt,
+            this.Types,
+            this.DepartureType,
+            this.RealTime,
+            this.FinishTime,
+            this.Person,
+            this.Tips,
+            this.Tips2,
+            this.EntryTime,
+            this.IsUrgent,
+            this.Status,
+            this.SalesPerson,
+            this.TypeInPerson,
+            this.Quidco,
+            this.ConsulateCost,
+            this.VisaPersonCost,
+            this.InvitationCost,
+            this.Picture,
+            this.MailCost,
+            this.OtherCost,
+            this.Price,
+            this.Cost,
+            this.SubmitFlag,
+            this.Visa_id});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.EnableHeadersVisualStyles = false;
+            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dataGridView1.RowTemplate.Height = 30;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(1132, 526);
+            this.dataGridView1.TabIndex = 14;
+            // 
             // panelBtns
             // 
             this.panelBtns.CanvasColor = System.Drawing.SystemColors.Control;
@@ -148,78 +222,6 @@
             this.lbClientBalance.TabIndex = 23;
             this.lbClientBalance.Text = "labelX1";
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.GroupNo,
-            this.Country,
-            this.CountryImage,
-            this.Number,
-            this.Client,
-            this.Receipt,
-            this.Types,
-            this.DepartureType,
-            this.RealTime,
-            this.FinishTime,
-            this.Person,
-            this.Tips,
-            this.Tips2,
-            this.EntryTime,
-            this.IsUrgent,
-            this.Status,
-            this.SalesPerson,
-            this.TypeInPerson,
-            this.Quidco,
-            this.ConsulateCost,
-            this.VisaPersonCost,
-            this.InvitationCost,
-            this.Picture,
-            this.MailCost,
-            this.OtherCost,
-            this.Price,
-            this.Cost,
-            this.SubmitFlag,
-            this.Visa_id});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dataGridView1.RowTemplate.Height = 30;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1132, 526);
-            this.dataGridView1.TabIndex = 14;
-            // 
             // GroupNo
             // 
             this.GroupNo.DataPropertyName = "GroupNo";
@@ -234,14 +236,6 @@
             this.Country.HeaderText = "国家";
             this.Country.Name = "Country";
             this.Country.ReadOnly = true;
-            // 
-            // CountryImage
-            // 
-            this.CountryImage.HeaderText = "国家图标";
-            this.CountryImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.CountryImage.Name = "CountryImage";
-            this.CountryImage.ReadOnly = true;
-            this.CountryImage.Width = 200;
             // 
             // Number
             // 
@@ -439,6 +433,20 @@
             this.Visa_id.ReadOnly = true;
             this.Visa_id.Visible = false;
             // 
+            // cmsDgv
+            // 
+            this.cmsDgv.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.签证认账ToolStripMenuItem});
+            this.cmsDgv.Name = "cmsDgv";
+            this.cmsDgv.Size = new System.Drawing.Size(153, 48);
+            // 
+            // 签证认账ToolStripMenuItem
+            // 
+            this.签证认账ToolStripMenuItem.Name = "签证认账ToolStripMenuItem";
+            this.签证认账ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.签证认账ToolStripMenuItem.Text = "认账";
+            this.签证认账ToolStripMenuItem.Click += new System.EventHandler(this.签证认账ToolStripMenuItem_Click);
+            // 
             // FrmSetClaim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -450,8 +458,9 @@
             this.Text = "签证收款";
             this.Load += new System.EventHandler(this.FrmSetClaim_Load);
             this.panelDgv.ResumeLayout(false);
-            this.panelBtns.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panelBtns.ResumeLayout(false);
+            this.cmsDgv.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -465,7 +474,6 @@
         private DevComponents.DotNetBar.Controls.DataGridViewX dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn GroupNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Country;
-        private System.Windows.Forms.DataGridViewImageColumn CountryImage;
         private System.Windows.Forms.DataGridViewTextBoxColumn Number;
         private System.Windows.Forms.DataGridViewTextBoxColumn Client;
         private System.Windows.Forms.DataGridViewTextBoxColumn Receipt;
@@ -492,5 +500,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Cost;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubmitFlag;
         private System.Windows.Forms.DataGridViewTextBoxColumn Visa_id;
+        private System.Windows.Forms.ContextMenuStrip cmsDgv;
+        private System.Windows.Forms.ToolStripMenuItem 签证认账ToolStripMenuItem;
     }
 }

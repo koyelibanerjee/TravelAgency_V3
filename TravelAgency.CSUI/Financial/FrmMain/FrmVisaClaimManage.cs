@@ -711,8 +711,13 @@ namespace TravelAgency.CSUI.Financial.FrmMain
         {
             var list = GetSelectedVisaList();
             HashSet<string> set = new HashSet<string>();
+            bool claimed = false;
             for (int i = 0; i < list.Count; ++i)
             {
+                if (list[i].ClaimedFlag == "是")
+                {
+                    claimed = true;
+                }
                 set.Add(list[i].client);
             }
             if (set.Count > 1)
@@ -722,11 +727,12 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             }
 
 
+            if (claimed && 
+                MessageBoxEx.Show("选中项中已经有认过账的团号，是否继续?", "提示", MessageBoxButtons.YesNo) == DialogResult.No)
+                return;
+
             FrmSetClaim frm = new FrmSetClaim(list, LoadDataToDataGridView, _curPage);
             frm.Show();
-
-
-
         }
 
 
