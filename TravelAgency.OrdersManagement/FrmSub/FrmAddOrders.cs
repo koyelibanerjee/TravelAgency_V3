@@ -100,12 +100,18 @@ namespace TravelAgency.OrdersManagement
         {
             //int digit = GlobalUtils.DecimalDigits;
             List<GuestCnt> guestTypeCnt = new List<GuestCnt>();
+            decimal totalPrice = 0;
             Dictionary<string, int> typeDict = new Dictionary<string, int>();
 
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 DataGridViewRow row = dataGridView1.Rows[i];
                 row.HeaderCell.Value = (i + 1).ToString();
+
+                if (dataGridView1.Rows[i].Cells["Price"].Value != null)
+                {
+                    totalPrice += DecimalHandler.Parse(dataGridView1.Rows[i].Cells["Price"].Value.ToString());
+                }
 
                 if (dataGridView1.Rows[i].Cells["GuestType"].Value != null)
                 {
@@ -151,12 +157,17 @@ namespace TravelAgency.OrdersManagement
                 lbGuestCount.Text = "客人总数:0";
             }
 
+            txtOrderAmount.Text = DecimalHandler.DecimalToString(totalPrice);
+            txtReallyPay.Text = DecimalHandler.DecimalToString(totalPrice);
+
+
         }
 
         private void InitDgvData()
         {
             var list = _bllGuest.GetModelList(" OrdersId = " + _model.Id + " "); //TODO:客人之间的排序
-            dataGridView1.DataSource = list;
+            if (list.Count != 0)
+                dataGridView1.DataSource = list;
         }
 
         private void DataGridView1_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
