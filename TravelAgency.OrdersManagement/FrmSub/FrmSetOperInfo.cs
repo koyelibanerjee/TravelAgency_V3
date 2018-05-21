@@ -124,7 +124,7 @@ namespace TravelAgency.OrdersManagement
                         {
                             string filename = GlobalUtils.ShowOpenFileDlg("所有文件|*.*");
                             if (!string.IsNullOrEmpty(filename))
-                                new OrderFilesHandler().UploadOrderFile(filename, _model.Id.Value);
+                                new OrderFilesHandler().UploadOrderFile(filename, _model.Id);
                         }
 
 

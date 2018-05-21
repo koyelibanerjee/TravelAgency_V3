@@ -59,10 +59,10 @@ namespace TravelAgency.OrdersManagement
 
                 txtIsPraise.Text = _model.IsPraise;
                 txtRefundReason.Text = _model.RefundReason;
-                txtWaitorRemark.Text = _model.WaitorRemark;
+                //txtWaitorRemark.Text = _model.WaitorRemark;
 
-                txtOperRemark.Text = _model.OperRemark;
-                txtOperRemark.ReadOnly = true;
+                //txtOperRemark.Text = _model.OperRemark;
+                //txtOperRemark.ReadOnly = true;
 
                 txtOrderNo.Text = _model.OrderNo;
                 this.Text = "修改订单客户信息";
@@ -98,7 +98,7 @@ namespace TravelAgency.OrdersManagement
                 try
                 {
 
-                    _model.GuestUseTime = CtrlParser.Parse2Datetime(txtGuestUseTime);
+                    //_model.GuestUseTime = CtrlParser.Parse2Datetime(txtGuestUseTime);
                     _model.ReserveTime = CtrlParser.Parse2Datetime(txtReserveTime);
                     _model.DiningTime = CtrlParser.Parse2Datetime(txtDiningTime);
                     _model.DiningShop = CtrlParser.Parse2String(txtDiningShop);
@@ -108,7 +108,7 @@ namespace TravelAgency.OrdersManagement
 
                     _model.IsPraise = CtrlParser.Parse2String(txtIsPraise);
                     _model.RefundReason = CtrlParser.Parse2String(txtRefundReason);
-                    _model.WaitorRemark = CtrlParser.Parse2String(txtWaitorRemark);
+                    //_model.WaitorRemark = CtrlParser.Parse2String(txtWaitorRemark);
 
                     //if (!string.IsNullOrEmpty(_model.GuestId) &&
                     //    !string.IsNullOrEmpty(_model.GuestPhone) &&

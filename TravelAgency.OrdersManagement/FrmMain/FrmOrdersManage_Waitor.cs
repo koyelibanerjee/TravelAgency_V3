@@ -673,7 +673,7 @@ namespace TravelAgency.OrdersManagement
             string filename = GlobalUtils.ShowOpenFileDlg("所有文件|*.*");
             if (!string.IsNullOrEmpty(filename))
             {
-                new OrderFilesHandler().UploadOrderFile(filename, list[0].Id.Value);
+                new OrderFilesHandler().UploadOrderFile(filename, list[0].Id);
             }
         }
 

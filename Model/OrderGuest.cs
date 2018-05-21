@@ -5,10 +5,11 @@ using System.Data;
 namespace TravelAgency.Model
 {
 	 	//OrderGuest
-		public class OrderGuest
+		[Serializable]
+	public partial class OrderGuest
 	{
         		                  
-    private int? _id;
+    private int _id;
         		                  
     private int? _ordersid;
         		                  
@@ -39,9 +40,9 @@ namespace TravelAgency.Model
     /// <summary>
 		/// Id
         /// </summary>		
-		        		  
+		      		  
   
-        public int? Id
+        public int Id
         {
             get{ return _id; }
             set{ _id = value; }

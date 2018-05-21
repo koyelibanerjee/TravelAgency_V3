@@ -31,15 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.ribbonControl1 = new DevComponents.DotNetBar.RibbonControl();
-            this.ribbonPanel2 = new DevComponents.DotNetBar.RibbonPanel();
-            this.ribbonBar6 = new DevComponents.DotNetBar.RibbonBar();
-            this.btnClaimManage = new DevComponents.DotNetBar.ButtonItem();
-            this.ribbonBar4 = new DevComponents.DotNetBar.RibbonBar();
-            this.btnClientManage = new DevComponents.DotNetBar.ButtonItem();
-            this.btnConsulateManage = new DevComponents.DotNetBar.ButtonItem();
-            this.ribbonBar3 = new DevComponents.DotNetBar.RibbonBar();
-            this.btnVisaRequestPayoutManage = new DevComponents.DotNetBar.ButtonItem();
-            this.btnAppAllManage = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonPanel3 = new DevComponents.DotNetBar.RibbonPanel();
             this.lbVisaInfoCount = new System.Windows.Forms.Label();
             this.ribbonBar2 = new DevComponents.DotNetBar.RibbonBar();
@@ -51,6 +42,15 @@
             this.btnGPManage = new DevComponents.DotNetBar.ButtonItem();
             this.btnJiaoJiePicManage = new DevComponents.DotNetBar.ButtonItem();
             this.btnJobAssignment = new DevComponents.DotNetBar.ButtonItem();
+            this.ribbonPanel2 = new DevComponents.DotNetBar.RibbonPanel();
+            this.ribbonBar6 = new DevComponents.DotNetBar.RibbonBar();
+            this.btnClaimManage = new DevComponents.DotNetBar.ButtonItem();
+            this.ribbonBar4 = new DevComponents.DotNetBar.RibbonBar();
+            this.btnClientManage = new DevComponents.DotNetBar.ButtonItem();
+            this.btnConsulateManage = new DevComponents.DotNetBar.ButtonItem();
+            this.ribbonBar3 = new DevComponents.DotNetBar.RibbonBar();
+            this.btnVisaRequestPayoutManage = new DevComponents.DotNetBar.ButtonItem();
+            this.btnAppAllManage = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonPanel1 = new DevComponents.DotNetBar.RibbonPanel();
             this.ribbonBar1 = new DevComponents.DotNetBar.RibbonBar();
             this.btntActionRecordsCount = new DevComponents.DotNetBar.ButtonItem();
@@ -73,8 +73,8 @@
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
             this.btnFrmGaoPaiManage = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonControl1.SuspendLayout();
-            this.ribbonPanel2.SuspendLayout();
             this.ribbonPanel3.SuspendLayout();
+            this.ribbonPanel2.SuspendLayout();
             this.ribbonPanel1.SuspendLayout();
             this.ribbonPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabMain)).BeginInit();
@@ -121,6 +121,162 @@
             this.ribbonControl1.TabGroupHeight = 14;
             this.ribbonControl1.TabIndex = 1;
             this.ribbonControl1.Text = "ribbonControl1";
+            // 
+            // ribbonPanel3
+            // 
+            this.ribbonPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribbonPanel3.Controls.Add(this.lbVisaInfoCount);
+            this.ribbonPanel3.Controls.Add(this.ribbonBar2);
+            this.ribbonPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ribbonPanel3.Location = new System.Drawing.Point(0, 25);
+            this.ribbonPanel3.Name = "ribbonPanel3";
+            this.ribbonPanel3.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.ribbonPanel3.Size = new System.Drawing.Size(1284, 61);
+            // 
+            // 
+            // 
+            this.ribbonPanel3.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonPanel3.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonPanel3.TabIndex = 3;
+            // 
+            // lbVisaInfoCount
+            // 
+            this.lbVisaInfoCount.BackColor = System.Drawing.Color.Transparent;
+            this.lbVisaInfoCount.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lbVisaInfoCount.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbVisaInfoCount.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lbVisaInfoCount.Location = new System.Drawing.Point(791, 0);
+            this.lbVisaInfoCount.Name = "lbVisaInfoCount";
+            this.lbVisaInfoCount.Size = new System.Drawing.Size(490, 58);
+            this.lbVisaInfoCount.TabIndex = 2;
+            this.lbVisaInfoCount.Text = "dasdasdsadasdas";
+            this.lbVisaInfoCount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // ribbonBar2
+            // 
+            this.ribbonBar2.AutoOverflowEnabled = true;
+            // 
+            // 
+            // 
+            this.ribbonBar2.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonBar2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonBar2.ContainerControlProcessDialogKey = true;
+            this.ribbonBar2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ribbonBar2.DragDropSupport = true;
+            this.ribbonBar2.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.btnVisaTypeIn,
+            this.btnVisaInfoManage,
+            this.btnVisaQuery,
+            this.btnVisaSubmit,
+            this.btnScanFrm,
+            this.btnGPManage,
+            this.btnJiaoJiePicManage,
+            this.btnJobAssignment});
+            this.ribbonBar2.Location = new System.Drawing.Point(3, 0);
+            this.ribbonBar2.Name = "ribbonBar2";
+            this.ribbonBar2.Size = new System.Drawing.Size(585, 58);
+            this.ribbonBar2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribbonBar2.TabIndex = 0;
+            this.ribbonBar2.Text = "ribbonBar2";
+            // 
+            // 
+            // 
+            this.ribbonBar2.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonBar2.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonBar2.TitleVisible = false;
+            // 
+            // btnVisaTypeIn
+            // 
+            this.btnVisaTypeIn.Icon = ((System.Drawing.Icon)(resources.GetObject("btnVisaTypeIn.Icon")));
+            this.btnVisaTypeIn.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
+            this.btnVisaTypeIn.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnVisaTypeIn.Name = "btnVisaTypeIn";
+            this.btnVisaTypeIn.SubItemsExpandWidth = 14;
+            this.btnVisaTypeIn.Text = "签证录入";
+            this.btnVisaTypeIn.Click += new System.EventHandler(this.btnVisaTypeIn_Click);
+            // 
+            // btnVisaInfoManage
+            // 
+            this.btnVisaInfoManage.Icon = ((System.Drawing.Icon)(resources.GetObject("btnVisaInfoManage.Icon")));
+            this.btnVisaInfoManage.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
+            this.btnVisaInfoManage.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnVisaInfoManage.Name = "btnVisaInfoManage";
+            this.btnVisaInfoManage.SubItemsExpandWidth = 14;
+            this.btnVisaInfoManage.Text = "签证管理";
+            this.btnVisaInfoManage.Click += new System.EventHandler(this.btnVisaInfoManage_Click);
+            // 
+            // btnVisaQuery
+            // 
+            this.btnVisaQuery.Icon = ((System.Drawing.Icon)(resources.GetObject("btnVisaQuery.Icon")));
+            this.btnVisaQuery.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
+            this.btnVisaQuery.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnVisaQuery.Name = "btnVisaQuery";
+            this.btnVisaQuery.SubItemsExpandWidth = 14;
+            this.btnVisaQuery.Text = "团号管理";
+            this.btnVisaQuery.Click += new System.EventHandler(this.btnVisaQuery_Click);
+            // 
+            // btnVisaSubmit
+            // 
+            this.btnVisaSubmit.Icon = ((System.Drawing.Icon)(resources.GetObject("btnVisaSubmit.Icon")));
+            this.btnVisaSubmit.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
+            this.btnVisaSubmit.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnVisaSubmit.Name = "btnVisaSubmit";
+            this.btnVisaSubmit.SubItemsExpandWidth = 14;
+            this.btnVisaSubmit.Text = "送签管理";
+            this.btnVisaSubmit.Click += new System.EventHandler(this.buttonItem1_Click);
+            // 
+            // btnScanFrm
+            // 
+            this.btnScanFrm.Icon = ((System.Drawing.Icon)(resources.GetObject("btnScanFrm.Icon")));
+            this.btnScanFrm.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
+            this.btnScanFrm.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnScanFrm.Name = "btnScanFrm";
+            this.btnScanFrm.SubItemsExpandWidth = 14;
+            this.btnScanFrm.Text = "高拍仪做资料";
+            this.btnScanFrm.Click += new System.EventHandler(this.btnScanFrm_Click);
+            // 
+            // btnGPManage
+            // 
+            this.btnGPManage.Icon = ((System.Drawing.Icon)(resources.GetObject("btnGPManage.Icon")));
+            this.btnGPManage.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
+            this.btnGPManage.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnGPManage.Name = "btnGPManage";
+            this.btnGPManage.SubItemsExpandWidth = 14;
+            this.btnGPManage.Text = "高拍图像管理";
+            this.btnGPManage.Click += new System.EventHandler(this.btnGPManage_Click);
+            // 
+            // btnJiaoJiePicManage
+            // 
+            this.btnJiaoJiePicManage.Icon = ((System.Drawing.Icon)(resources.GetObject("btnJiaoJiePicManage.Icon")));
+            this.btnJiaoJiePicManage.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
+            this.btnJiaoJiePicManage.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnJiaoJiePicManage.Name = "btnJiaoJiePicManage";
+            this.btnJiaoJiePicManage.SubItemsExpandWidth = 14;
+            this.btnJiaoJiePicManage.Text = "交接表管理";
+            this.btnJiaoJiePicManage.Click += new System.EventHandler(this.btnJiaoJiePicManage_Click);
+            // 
+            // btnJobAssignment
+            // 
+            this.btnJobAssignment.Icon = ((System.Drawing.Icon)(resources.GetObject("btnJobAssignment.Icon")));
+            this.btnJobAssignment.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
+            this.btnJobAssignment.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnJobAssignment.Name = "btnJobAssignment";
+            this.btnJobAssignment.SubItemsExpandWidth = 14;
+            this.btnJobAssignment.Text = "任务分配";
+            this.btnJobAssignment.Click += new System.EventHandler(this.btnJobAssignment_Click);
             // 
             // ribbonPanel2
             // 
@@ -289,162 +445,6 @@
             this.btnAppAllManage.SubItemsExpandWidth = 14;
             this.btnAppAllManage.Text = "待审批请款";
             this.btnAppAllManage.Click += new System.EventHandler(this.btnAppAllManage_Click);
-            // 
-            // ribbonPanel3
-            // 
-            this.ribbonPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribbonPanel3.Controls.Add(this.lbVisaInfoCount);
-            this.ribbonPanel3.Controls.Add(this.ribbonBar2);
-            this.ribbonPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ribbonPanel3.Location = new System.Drawing.Point(0, 25);
-            this.ribbonPanel3.Name = "ribbonPanel3";
-            this.ribbonPanel3.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.ribbonPanel3.Size = new System.Drawing.Size(1284, 61);
-            // 
-            // 
-            // 
-            this.ribbonPanel3.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonPanel3.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonPanel3.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribbonPanel3.TabIndex = 3;
-            // 
-            // lbVisaInfoCount
-            // 
-            this.lbVisaInfoCount.BackColor = System.Drawing.Color.Transparent;
-            this.lbVisaInfoCount.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lbVisaInfoCount.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbVisaInfoCount.ForeColor = System.Drawing.Color.ForestGreen;
-            this.lbVisaInfoCount.Location = new System.Drawing.Point(791, 0);
-            this.lbVisaInfoCount.Name = "lbVisaInfoCount";
-            this.lbVisaInfoCount.Size = new System.Drawing.Size(490, 58);
-            this.lbVisaInfoCount.TabIndex = 2;
-            this.lbVisaInfoCount.Text = "dasdasdsadasdas";
-            this.lbVisaInfoCount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // ribbonBar2
-            // 
-            this.ribbonBar2.AutoOverflowEnabled = true;
-            // 
-            // 
-            // 
-            this.ribbonBar2.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonBar2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribbonBar2.ContainerControlProcessDialogKey = true;
-            this.ribbonBar2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ribbonBar2.DragDropSupport = true;
-            this.ribbonBar2.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.btnVisaTypeIn,
-            this.btnVisaInfoManage,
-            this.btnVisaQuery,
-            this.btnVisaSubmit,
-            this.btnScanFrm,
-            this.btnGPManage,
-            this.btnJiaoJiePicManage,
-            this.btnJobAssignment});
-            this.ribbonBar2.Location = new System.Drawing.Point(3, 0);
-            this.ribbonBar2.Name = "ribbonBar2";
-            this.ribbonBar2.Size = new System.Drawing.Size(585, 58);
-            this.ribbonBar2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribbonBar2.TabIndex = 0;
-            this.ribbonBar2.Text = "ribbonBar2";
-            // 
-            // 
-            // 
-            this.ribbonBar2.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonBar2.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribbonBar2.TitleVisible = false;
-            // 
-            // btnVisaTypeIn
-            // 
-            this.btnVisaTypeIn.Icon = ((System.Drawing.Icon)(resources.GetObject("btnVisaTypeIn.Icon")));
-            this.btnVisaTypeIn.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
-            this.btnVisaTypeIn.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnVisaTypeIn.Name = "btnVisaTypeIn";
-            this.btnVisaTypeIn.SubItemsExpandWidth = 14;
-            this.btnVisaTypeIn.Text = "签证录入";
-            this.btnVisaTypeIn.Click += new System.EventHandler(this.btnVisaTypeIn_Click);
-            // 
-            // btnVisaInfoManage
-            // 
-            this.btnVisaInfoManage.Icon = ((System.Drawing.Icon)(resources.GetObject("btnVisaInfoManage.Icon")));
-            this.btnVisaInfoManage.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
-            this.btnVisaInfoManage.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnVisaInfoManage.Name = "btnVisaInfoManage";
-            this.btnVisaInfoManage.SubItemsExpandWidth = 14;
-            this.btnVisaInfoManage.Text = "签证管理";
-            this.btnVisaInfoManage.Click += new System.EventHandler(this.btnVisaInfoManage_Click);
-            // 
-            // btnVisaQuery
-            // 
-            this.btnVisaQuery.Icon = ((System.Drawing.Icon)(resources.GetObject("btnVisaQuery.Icon")));
-            this.btnVisaQuery.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
-            this.btnVisaQuery.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnVisaQuery.Name = "btnVisaQuery";
-            this.btnVisaQuery.SubItemsExpandWidth = 14;
-            this.btnVisaQuery.Text = "团号管理";
-            this.btnVisaQuery.Click += new System.EventHandler(this.btnVisaQuery_Click);
-            // 
-            // btnVisaSubmit
-            // 
-            this.btnVisaSubmit.Icon = ((System.Drawing.Icon)(resources.GetObject("btnVisaSubmit.Icon")));
-            this.btnVisaSubmit.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
-            this.btnVisaSubmit.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnVisaSubmit.Name = "btnVisaSubmit";
-            this.btnVisaSubmit.SubItemsExpandWidth = 14;
-            this.btnVisaSubmit.Text = "送签管理";
-            this.btnVisaSubmit.Click += new System.EventHandler(this.buttonItem1_Click);
-            // 
-            // btnScanFrm
-            // 
-            this.btnScanFrm.Icon = ((System.Drawing.Icon)(resources.GetObject("btnScanFrm.Icon")));
-            this.btnScanFrm.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
-            this.btnScanFrm.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnScanFrm.Name = "btnScanFrm";
-            this.btnScanFrm.SubItemsExpandWidth = 14;
-            this.btnScanFrm.Text = "高拍仪做资料";
-            this.btnScanFrm.Click += new System.EventHandler(this.btnScanFrm_Click);
-            // 
-            // btnGPManage
-            // 
-            this.btnGPManage.Icon = ((System.Drawing.Icon)(resources.GetObject("btnGPManage.Icon")));
-            this.btnGPManage.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
-            this.btnGPManage.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnGPManage.Name = "btnGPManage";
-            this.btnGPManage.SubItemsExpandWidth = 14;
-            this.btnGPManage.Text = "高拍图像管理";
-            this.btnGPManage.Click += new System.EventHandler(this.btnGPManage_Click);
-            // 
-            // btnJiaoJiePicManage
-            // 
-            this.btnJiaoJiePicManage.Icon = ((System.Drawing.Icon)(resources.GetObject("btnJiaoJiePicManage.Icon")));
-            this.btnJiaoJiePicManage.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
-            this.btnJiaoJiePicManage.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnJiaoJiePicManage.Name = "btnJiaoJiePicManage";
-            this.btnJiaoJiePicManage.SubItemsExpandWidth = 14;
-            this.btnJiaoJiePicManage.Text = "交接表管理";
-            this.btnJiaoJiePicManage.Click += new System.EventHandler(this.btnJiaoJiePicManage_Click);
-            // 
-            // btnJobAssignment
-            // 
-            this.btnJobAssignment.Icon = ((System.Drawing.Icon)(resources.GetObject("btnJobAssignment.Icon")));
-            this.btnJobAssignment.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
-            this.btnJobAssignment.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnJobAssignment.Name = "btnJobAssignment";
-            this.btnJobAssignment.SubItemsExpandWidth = 14;
-            this.btnJobAssignment.Text = "任务分配";
-            this.btnJobAssignment.Click += new System.EventHandler(this.btnJobAssignment_Click);
             // 
             // ribbonPanel1
             // 
@@ -715,8 +715,8 @@
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.ribbonControl1.ResumeLayout(false);
             this.ribbonControl1.PerformLayout();
-            this.ribbonPanel2.ResumeLayout(false);
             this.ribbonPanel3.ResumeLayout(false);
+            this.ribbonPanel2.ResumeLayout(false);
             this.ribbonPanel1.ResumeLayout(false);
             this.ribbonPanel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tabMain)).EndInit();
