@@ -203,10 +203,10 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            if (MessageBoxEx.Show("是否对选中团号进行认账?", "提醒", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+            if (MessageBoxEx.Show("是否对列表中团号进行认账?", "提醒", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
                 return;
 
-            var list = GetSelectedModelList();
+            var list = DgvDataSourceToList();
             //执行计算
             if (!ClaimMoney(list, _balanceList))
                 return;
@@ -354,7 +354,15 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
         private void 签证认账ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            btnConfirm_Click(null, null);
+            if (MessageBoxEx.Show("是否对选中团号进行认账?", "提醒", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+                return;
+
+            var list = GetSelectedModelList();
+            //执行计算
+            if (!ClaimMoney(list, _balanceList))
+                return;
+            this.Close();
+            _updateDel(_curPage);
         }
 
         private void 自动更新实收ToolStripMenuItem_Click(object sender, EventArgs e)
