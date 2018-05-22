@@ -51,7 +51,9 @@ namespace TravelAgency.OrdersManagement
             {
                 btnOK.Enabled = false;
             }
-            txtOrderNo.Text = _ordersModel.OrderNo;
+
+            if (_ordersModel != null)
+                txtOrderNo.Text = _ordersModel.OrderNo;
             if (_is4Modify)
             {
                 this.Text = "修改订单客户信息";

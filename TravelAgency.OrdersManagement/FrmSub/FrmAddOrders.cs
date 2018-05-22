@@ -165,8 +165,6 @@ namespace TravelAgency.OrdersManagement
 
             txtOrderAmount.Text = DecimalHandler.DecimalToString(totalPrice);
             txtReallyPay.Text = DecimalHandler.DecimalToString(totalPrice);
-
-
         }
 
         private void InitDgvData()
@@ -427,6 +425,11 @@ namespace TravelAgency.OrdersManagement
 
         private void btnAddGuest_Click(object sender, EventArgs e)
         {
+            if (_model == null)
+            {
+                MessageBoxEx.Show("请先添加订单信息后再添加客人信息!!!");
+                return;
+            }
             FrmAddOrderGuest frm = new FrmAddOrderGuest(_model);
             if (frm.ShowDialog() == DialogResult.Cancel)
                 return;
