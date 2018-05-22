@@ -110,6 +110,8 @@ namespace TravelAgency.Model
     private string _operator;
         		                  
     private string _claimedflag;
+        		                  
+    private decimal? _actuallyamount;
         
     /// <summary>
 		/// Visa_id
@@ -670,6 +672,17 @@ namespace TravelAgency.Model
         {
             get{ return _claimedflag; }
             set{ _claimedflag = value; }
+        }    
+      
+		/// <summary>
+		/// ActuallyAmount
+        /// </summary>		
+		        		  
+  
+        public decimal? ActuallyAmount
+        {
+            get{ return _actuallyamount; }
+            set{ _actuallyamount = value; }
         }    
       
 		   
