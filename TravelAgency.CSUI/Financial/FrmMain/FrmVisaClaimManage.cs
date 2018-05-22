@@ -37,6 +37,8 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
         public FrmVisaClaimManage()
         {
+            this.StartPosition = !this.Modal ? FormStartPosition.CenterScreen : FormStartPosition.CenterParent;
+
             InitializeComponent();
         }
 
@@ -518,7 +520,20 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             decimal moneycount = 0;
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
+
                 dataGridView1.Rows[i].HeaderCell.Value = (i + 1).ToString();
+
+
+                for (int j = 0; j != dataGridView1.ColumnCount; ++j)
+                {
+                    var value = dataGridView1.Rows[i].Cells[j].Value;
+                    if (dataGridView1.Rows[i].Cells[j].ValueType == typeof(decimal?) && value != null)
+                    {
+                        dataGridView1.Rows[i].Cells[j].Value = DecimalHandler.DecimalToString((decimal?)value);
+                    }
+                }
+
+
                 if (dataGridView1.Rows[i].Cells["Country"].Value != null)
                 {
                     string countryName = dataGridView1.Rows[i].Cells["Country"].Value.ToString();
@@ -780,7 +795,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             }
 
 
-            if (claimed && 
+            if (claimed &&
                 MessageBoxEx.Show("选中项中已经有认过账的团号，是否继续?", "提示", MessageBoxButtons.YesNo) == DialogResult.No)
                 return;
 

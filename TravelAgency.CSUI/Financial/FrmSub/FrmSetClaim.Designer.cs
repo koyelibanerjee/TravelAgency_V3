@@ -36,10 +36,6 @@
             this.btnConfirm = new DevComponents.DotNetBar.ButtonX();
             this.panelDgv = new DevComponents.DotNetBar.PanelEx();
             this.dataGridView1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.panelBtns = new DevComponents.DotNetBar.PanelEx();
-            this.lbClientBalance = new DevComponents.DotNetBar.LabelX();
-            this.cmsDgv = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.签证认账ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GroupNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,6 +65,11 @@
             this.Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubmitFlag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Visa_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panelBtns = new DevComponents.DotNetBar.PanelEx();
+            this.lbClientBalance = new DevComponents.DotNetBar.LabelX();
+            this.cmsDgv = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.签证认账ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.自动更新实收ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelDgv.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelBtns.SuspendLayout();
@@ -189,54 +190,6 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1132, 526);
             this.dataGridView1.TabIndex = 14;
-            // 
-            // panelBtns
-            // 
-            this.panelBtns.CanvasColor = System.Drawing.SystemColors.Control;
-            this.panelBtns.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelBtns.Controls.Add(this.lbClientBalance);
-            this.panelBtns.Controls.Add(this.btnCancel);
-            this.panelBtns.Controls.Add(this.btnConfirm);
-            this.panelBtns.DisabledBackColor = System.Drawing.Color.Empty;
-            this.panelBtns.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBtns.Location = new System.Drawing.Point(0, 526);
-            this.panelBtns.Name = "panelBtns";
-            this.panelBtns.Size = new System.Drawing.Size(1132, 32);
-            this.panelBtns.Style.Alignment = System.Drawing.StringAlignment.Center;
-            this.panelBtns.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.panelBtns.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.panelBtns.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.panelBtns.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.panelBtns.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.panelBtns.Style.GradientAngle = 90;
-            this.panelBtns.TabIndex = 27;
-            // 
-            // lbClientBalance
-            // 
-            // 
-            // 
-            // 
-            this.lbClientBalance.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lbClientBalance.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbClientBalance.Location = new System.Drawing.Point(626, 6);
-            this.lbClientBalance.Name = "lbClientBalance";
-            this.lbClientBalance.Size = new System.Drawing.Size(477, 23);
-            this.lbClientBalance.TabIndex = 23;
-            this.lbClientBalance.Text = "labelX1";
-            // 
-            // cmsDgv
-            // 
-            this.cmsDgv.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.签证认账ToolStripMenuItem});
-            this.cmsDgv.Name = "cmsDgv";
-            this.cmsDgv.Size = new System.Drawing.Size(101, 26);
-            // 
-            // 签证认账ToolStripMenuItem
-            // 
-            this.签证认账ToolStripMenuItem.Name = "签证认账ToolStripMenuItem";
-            this.签证认账ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.签证认账ToolStripMenuItem.Text = "认账";
-            this.签证认账ToolStripMenuItem.Click += new System.EventHandler(this.签证认账ToolStripMenuItem_Click);
             // 
             // GroupNo
             // 
@@ -456,6 +409,62 @@
             this.Visa_id.ReadOnly = true;
             this.Visa_id.Visible = false;
             // 
+            // panelBtns
+            // 
+            this.panelBtns.CanvasColor = System.Drawing.SystemColors.Control;
+            this.panelBtns.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelBtns.Controls.Add(this.lbClientBalance);
+            this.panelBtns.Controls.Add(this.btnCancel);
+            this.panelBtns.Controls.Add(this.btnConfirm);
+            this.panelBtns.DisabledBackColor = System.Drawing.Color.Empty;
+            this.panelBtns.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelBtns.Location = new System.Drawing.Point(0, 526);
+            this.panelBtns.Name = "panelBtns";
+            this.panelBtns.Size = new System.Drawing.Size(1132, 32);
+            this.panelBtns.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelBtns.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.panelBtns.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.panelBtns.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.panelBtns.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.panelBtns.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.panelBtns.Style.GradientAngle = 90;
+            this.panelBtns.TabIndex = 27;
+            // 
+            // lbClientBalance
+            // 
+            // 
+            // 
+            // 
+            this.lbClientBalance.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lbClientBalance.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbClientBalance.Location = new System.Drawing.Point(626, 6);
+            this.lbClientBalance.Name = "lbClientBalance";
+            this.lbClientBalance.Size = new System.Drawing.Size(477, 23);
+            this.lbClientBalance.TabIndex = 23;
+            this.lbClientBalance.Text = "labelX1";
+            // 
+            // cmsDgv
+            // 
+            this.cmsDgv.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.签证认账ToolStripMenuItem,
+            this.自动更新实收ToolStripMenuItem});
+            this.cmsDgv.Name = "cmsDgv";
+            this.cmsDgv.Size = new System.Drawing.Size(153, 70);
+            // 
+            // 签证认账ToolStripMenuItem
+            // 
+            this.签证认账ToolStripMenuItem.Name = "签证认账ToolStripMenuItem";
+            this.签证认账ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.签证认账ToolStripMenuItem.Text = "认账";
+            this.签证认账ToolStripMenuItem.Click += new System.EventHandler(this.签证认账ToolStripMenuItem_Click);
+            // 
+            // 自动更新实收ToolStripMenuItem
+            // 
+            this.自动更新实收ToolStripMenuItem.Name = "自动更新实收ToolStripMenuItem";
+            this.自动更新实收ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.自动更新实收ToolStripMenuItem.Text = "自动更新实收";
+            this.自动更新实收ToolStripMenuItem.Click += new System.EventHandler(this.自动更新实收ToolStripMenuItem_Click);
+            // 
             // FrmSetClaim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -512,5 +521,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Cost;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubmitFlag;
         private System.Windows.Forms.DataGridViewTextBoxColumn Visa_id;
+        private System.Windows.Forms.ToolStripMenuItem 自动更新实收ToolStripMenuItem;
     }
 }

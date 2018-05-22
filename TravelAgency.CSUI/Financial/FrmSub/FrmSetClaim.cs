@@ -12,7 +12,6 @@ namespace TravelAgency.CSUI.Financial.FrmSub
     {
 
         private List<Model.Visa> _list;
-        private BLL.ConsulateCharge _bllConsulateCharge = new ConsulateCharge();
         private BLL.ClientCharge _bllClientCharge = new ClientCharge();
         private BLL.Visa _bllVisa = new BLL.Visa();
         private readonly Action<int> _updateDel; //副界面传来更新数据库的委托
@@ -50,9 +49,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             dataGridView1.Columns["GroupNo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             dataGridView1.ReadOnly = false;
 
-            dataGridView1.RowsAdded += DataGridView1_RowsAdded;
             dataGridView1.CellDoubleClick += DataGridView1_CellDoubleClick;
-            dataGridView1.CellValueChanged += DataGridView1_CellValueChanged;
             dataGridView1.SelectionChanged += DataGridView1_SelectionChanged;
             dataGridView1.CellMouseUp += dataGridView1_CellMouseUp;
             dataGridView1.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
@@ -76,6 +73,11 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             lbClientBalance.Text = "客户可用余额:" + _clientBalance + "元.";
 
             DataGridView1_SelectionChanged(null, null);
+
+            //dataGridView1.ReadOnly = true;
+            dataGridView1.Columns["Receipt"].ReadOnly = false;
+            dataGridView1.Columns["ActuallyAmount"].ReadOnly = false;
+
 
         }
 
@@ -106,7 +108,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             for (int i = 0; i < dataGridView1.SelectedRows.Count; ++i)
             {
                 var model = DgvDataSourceToList()[dataGridView1.SelectedRows[i].Index];
-                total += DecimalHandler.Parse(model.Receipt.ToString());
+                total += DecimalHandler.Parse(model.ActuallyAmount.ToString());
             }
 
 
@@ -114,19 +116,85 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 _clientBalance - total, _list[0].client);
         }
 
-        private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+
+        /// <summary>
+        /// 查询指定行的配置条目
+        /// </summary>
+        /// <returns></returns>
+        private List<Model.ClientCharge> GetClientCharges(int rowidx)
         {
+            List<string> conditions = new List<string>();
+            string str = GetCellValue(rowidx, "DepartureType");
+            if (!string.IsNullOrEmpty(str))
+            {
+                //sb.Append(" DepartureType='" + cbDepartureType.Text + "'");
+
+                conditions.Add(" (DepartureType like  '%" + str + "%') ");
+            }
+            str = GetCellValue(rowidx, "Country");
+
+            if (!string.IsNullOrEmpty(str))
+            {
+                //sb.Append(" Country='" + cbCountry.Text + "'");
+                conditions.Add(" (Country like  '%" + str + "%') ");
+            }
+            str = GetCellValue(rowidx, "Types");
+
+            if (!string.IsNullOrEmpty(str))
+            {
+                conditions.Add(" (Types like  '%" + str + "%') ");
+                //sb.Append(" Types='" + cbType.Text + "'");
+            }
+
+            str = GetCellValue(rowidx, "Client");
+
+            if (!string.IsNullOrEmpty(str))
+            {
+                conditions.Add(" (Client like  '%" + str + "%') ");
+                //sb.Append(" Types='" + cbType.Text + "'");
+            }
+
+            string[] arr = conditions.ToArray();
+            string where = string.Join(" and ", arr);
+
+            var list = _bllClientCharge.GetModelList(where);
+            return list;
         }
 
-        
 
         private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            var list = GetClientCharges(e.RowIndex);
+            if (list.Count <= 0)
+            {
+                MessageBoxEx.Show("未找到相关记录，请手动录入!");
+                return;
+            }
+            FrmSelClientCharge frm = new FrmSelClientCharge(list);
+            if (frm.ShowDialog() == DialogResult.Cancel)
+                return;
+            string country = GetCellValue(e.RowIndex, "Country");
+            string type = GetCellValue(e.RowIndex, "Types");
+            string depatureType = GetCellValue(e.RowIndex, "DepartureType");
+            string client = GetCellValue(e.RowIndex, "Client");
+            if (frm.ChangeAllAlike)//全部一起修改
+            {
+                for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                {
+                    if (GetCellValue(i, "Country") == country && GetCellValue(i, "Types") == type &&
+                        GetCellValue(i, "DepartureType") == depatureType && GetCellValue(i, "client") == client)
+                    {
+                        dataGridView1.Rows[i].Cells["Receipt"].Value = list[frm.SelIdx].Charge;
+                    }
+                }
+            }
+            else
+            {
+                dataGridView1.Rows[e.RowIndex].Cells["Receipt"].Value = list[frm.SelIdx].Charge;
+            }
         }
 
-        private void DataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        {
-        }
+
 
         private string GetCellValue(int rowidx, string colname)
         {
@@ -154,12 +222,12 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
             for (int i = 0; i < visaList.Count; i++)
             {
-                if (!visaList[i].Receipt.HasValue || visaList[i].Receipt.Value == 0)
+                if (!visaList[i].ActuallyAmount.HasValue || visaList[i].ActuallyAmount.Value == 0)
                 {
                     MessageBoxEx.Show("还有团号未设置收款金额!!!");
                     return false;
                 }
-                totalMoney += visaList[i].Receipt.Value;
+                totalMoney += visaList[i].ActuallyAmount.Value;
             }
 
             if (totalMoney > _clientBalance)
@@ -179,25 +247,25 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 var visa = visaList[0];
                 var balance = balanceList[0];
                 Model.ClaimMoney claimMoney = new Model.ClaimMoney(); //每次都会生成一条新的claimMoney
-                if (visa.Receipt == balance.BalanceAmount)
+                if (visa.ActuallyAmount == balance.BalanceAmount)
                 {
-                    claimMoney.Amount = visa.Receipt;
+                    claimMoney.Amount = visa.ActuallyAmount;
                     visaList.RemoveAt(0);
                     balanceList.RemoveAt(0);
-                    balance.BalanceAmount -= visa.Receipt.Value;
+                    balance.BalanceAmount -= visa.ActuallyAmount.Value;
                     newBalances.Add(balance);
                 }
-                else if (visa.Receipt < balance.BalanceAmount)
+                else if (visa.ActuallyAmount < balance.BalanceAmount)
                 {
-                    claimMoney.Amount = visa.Receipt;
+                    claimMoney.Amount = visa.ActuallyAmount;
                     visaList.RemoveAt(0);
-                    balance.BalanceAmount -= visa.Receipt.Value;
+                    balance.BalanceAmount -= visa.ActuallyAmount.Value;
                     //后者不移出
                 }
-                else //visaList[0].Receipt > balanceList[0].Amount
+                else //visaList[0].ActuallyAmount > balanceList[0].Amount
                 {
                     claimMoney.Amount = balance.BalanceAmount;
-                    visa.Receipt -= balance.BalanceAmount;
+                    visa.ActuallyAmount -= balance.BalanceAmount;
                     balance.BalanceAmount = 0;
                     newBalances.Add(balance);
                     balanceList.RemoveAt(0);
@@ -235,6 +303,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             for (int i = 0; i < visaBackup.Count; i++)
             {
                 visaBackup[i].ClaimedFlag = "是";
+                //实收和收款是在model里面自己就带了的
                 sucVisa += _bllVisa.Update(visaBackup[i]) ? 1 : 0;
             }
             return true;
@@ -285,7 +354,26 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
         private void 签证认账ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            btnCancel_Click(null, null);
+            btnConfirm_Click(null, null);
         }
+
+        private void 自动更新实收ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var list = GetSelectedModelList();
+            foreach (var visa in list)
+            {
+                visa.ActuallyAmount = visa.Receipt ?? 0 * visa.Number ?? 1;
+            }
+            UpdateDgvList();
+        }
+
+        private void UpdateDgvList()
+        {
+            var list = DgvDataSourceToList();
+            dataGridView1.DataSource = null;
+            if (list != null && list.Count > 0)
+                dataGridView1.DataSource = list;
+        }
+
     }
 }
