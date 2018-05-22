@@ -49,12 +49,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders; //这里也一定不能AllCell自适应!
             dataGridView1.Columns["GroupNo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             dataGridView1.ReadOnly = false;
-            for (int i = 0; i <= 27; ++i)
-            {
-                if (i < 17)
-                    dataGridView1.Columns[i].ReadOnly = true;
-                //else dataGridView1.Columns[i].ReadOnly = false; //这些列可编辑
-            }
+
             dataGridView1.RowsAdded += DataGridView1_RowsAdded;
             dataGridView1.CellDoubleClick += DataGridView1_CellDoubleClick;
             dataGridView1.CellValueChanged += DataGridView1_CellValueChanged;
@@ -62,8 +57,6 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             dataGridView1.CellMouseUp += dataGridView1_CellMouseUp;
             dataGridView1.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
             dataGridView1.DataSource = _list;
-
-
 
             //查询客户余额
             _balanceList = _bllBalance.GetModelList(" CustomerName = '" + _list[0].client + "' and BalanceAmount > 0");
@@ -123,134 +116,22 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
         private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            UpdateMoneyCount();
         }
 
-        private void UpdateMoneyCount()
-        {
-            decimal num = 0;
-
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
-            {
-                object value = dataGridView1.Rows[i].Cells["ConsulateCost"].Value;
-                num += value == null ? 0 : decimal.Parse(value.ToString());
-                value = dataGridView1.Rows[i].Cells["VisaPersonCost"].Value;
-                num += value == null ? 0 : decimal.Parse(value.ToString());
-                value = dataGridView1.Rows[i].Cells["InvitationCost"].Value;
-                num += value == null ? 0 : decimal.Parse(value.ToString());
-                value = dataGridView1.Rows[i].Cells["Receipt"].Value;
-                num += value == null ? 0 : decimal.Parse(value.ToString());
-
-            }
-            lbClientBalance.Text = "共" + num + "元.";
-        }
+        
 
         private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
 
         private void DataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-
         }
 
         private string GetCellValue(int rowidx, string colname)
         {
             return dataGridView1.Rows[rowidx].Cells[colname].Value.ToString();
         }
-
-        /// <summary>
-        /// 查询指定行的配置条目
-        /// </summary>
-        /// <returns></returns>
-        private List<Model.ConsulateCharge> GetConsulateCharges(int rowidx)
-        {
-            List<string> conditions = new List<string>();
-            string str = GetCellValue(rowidx, "DepartureType");
-            if (!string.IsNullOrEmpty(str))
-            {
-                //sb.Append(" DepartureType='" + cbDepartureType.Text + "'");
-
-                conditions.Add(" (DepartureType like  '%" + str + "%') ");
-            }
-            str = GetCellValue(rowidx, "Country");
-
-            if (!string.IsNullOrEmpty(str))
-            {
-                //sb.Append(" Country='" + cbCountry.Text + "'");
-                conditions.Add(" (Country like  '%" + str + "%') ");
-
-            }
-            str = GetCellValue(rowidx, "Types");
-
-            if (!string.IsNullOrEmpty(str))
-            {
-                conditions.Add(" (Types like  '%" + str + "%') ");
-                //sb.Append(" Types='" + cbType.Text + "'");
-            }
-
-            string[] arr = conditions.ToArray();
-            string where = string.Join(" and ", arr);
-
-            var list = _bllConsulateCharge.GetModelList(where);
-            return list;
-        }
-
-        /// <summary>
-        /// 查询指定行的配置条目
-        /// </summary>
-        /// <returns></returns>
-        private List<Model.ClientCharge> GetClientCharges(int rowidx, bool full = false)
-        {
-            List<string> conditions = new List<string>();
-            string str = GetCellValue(rowidx, "DepartureType");
-            if (!string.IsNullOrEmpty(str))
-            {
-                //sb.Append(" DepartureType='" + cbDepartureType.Text + "'");
-
-                conditions.Add(" (DepartureType like  '%" + str + "%') ");
-            }
-            str = GetCellValue(rowidx, "Country");
-
-            if (!string.IsNullOrEmpty(str))
-            {
-                //sb.Append(" Country='" + cbCountry.Text + "'");
-                conditions.Add(" (Country like  '%" + str + "%') ");
-            }
-            str = GetCellValue(rowidx, "Types");
-
-            if (!string.IsNullOrEmpty(str))
-            {
-                conditions.Add(" (Types like  '%" + str + "%') ");
-                //sb.Append(" Types='" + cbType.Text + "'");
-            }
-
-            str = GetCellValue(rowidx, "Client");
-
-            if (!string.IsNullOrEmpty(str))
-            {
-                conditions.Add(" (Client like  '%" + str + "%') ");
-                //sb.Append(" Types='" + cbType.Text + "'");
-            }
-
-            if (full)
-            {
-                str = GetCellValue(rowidx, "Receipt");
-
-                if (!string.IsNullOrEmpty(str))
-                {
-                    conditions.Add(" (Receipt like  '%" + str + "%') ");
-                    //sb.Append(" Types='" + cbType.Text + "'");
-                }
-            }
-            string[] arr = conditions.ToArray();
-            string where = string.Join(" and ", arr);
-
-            var list = _bllClientCharge.GetModelList(where);
-            return list;
-        }
-
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
@@ -261,10 +142,6 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             //执行计算
             if (!ClaimMoney(list, _balanceList))
                 return;
-
-            //int res = _bllVisa.UpdateList(dataGridView1.DataSource as List<Model.Visa>);
-            //GlobalUtils.MessageBoxWithRecordNum("更新", res, _list.Count);
-            //this.DialogResult = DialogResult.OK;
             this.Close();
             _updateDel(_curPage);
         }
@@ -305,38 +182,26 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 if (visa.Receipt == balance.BalanceAmount)
                 {
                     claimMoney.Amount = visa.Receipt;
-
                     visaList.RemoveAt(0);
                     balanceList.RemoveAt(0);
-
                     balance.BalanceAmount -= visa.Receipt.Value;
                     newBalances.Add(balance);
-
-
                 }
                 else if (visa.Receipt < balance.BalanceAmount)
                 {
                     claimMoney.Amount = visa.Receipt;
-
                     visaList.RemoveAt(0);
                     balance.BalanceAmount -= visa.Receipt.Value;
                     //后者不移出
-
-
                 }
                 else //visaList[0].Receipt > balanceList[0].Amount
                 {
                     claimMoney.Amount = balance.BalanceAmount;
-
                     visa.Receipt -= balance.BalanceAmount;
                     balance.BalanceAmount = 0;
                     newBalances.Add(balance);
                     balanceList.RemoveAt(0);
-
-
                     //前者不移出
-
-
                 }
 
                 claimMoney.Money_id = balance.Money_id;
@@ -372,12 +237,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 visaBackup[i].ClaimedFlag = "是";
                 sucVisa += _bllVisa.Update(visaBackup[i]) ? 1 : 0;
             }
-
-            //MessageBoxEx.Show(string.Format("{0}/{1},{2}/{3},{4}/{5}", sucVisa, visaList.Count, sucBalance, balanceList
-            //    .Count, sucClaim, newClaims.Count));
-
             return true;
-
         }
 
         /// <summary>

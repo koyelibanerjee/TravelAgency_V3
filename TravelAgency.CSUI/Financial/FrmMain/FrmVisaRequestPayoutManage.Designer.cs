@@ -111,7 +111,6 @@
             this.川航机票ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.泰航机票ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.设置领馆费用ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.请款ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.提交请款ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.自动更新单价ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -570,7 +569,6 @@
             this.toolStripSeparator2,
             this.导出报表ToolStripMenuItem,
             this.设置领馆费用ToolStripMenuItem,
-            this.请款ToolStripMenuItem,
             this.提交请款ToolStripMenuItem,
             this.toolStripSeparator5,
             this.自动更新单价ToolStripMenuItem,
@@ -849,14 +847,6 @@
             this.设置领馆费用ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.设置领馆费用ToolStripMenuItem.Text = "设置请款费用";
             this.设置领馆费用ToolStripMenuItem.Click += new System.EventHandler(this.设置请款费用ToolStripMenuItem_Click);
-            // 
-            // 请款ToolStripMenuItem
-            // 
-            this.请款ToolStripMenuItem.Name = "请款ToolStripMenuItem";
-            this.请款ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.请款ToolStripMenuItem.Text = "设置请款款项";
-            this.请款ToolStripMenuItem.Visible = false;
-            this.请款ToolStripMenuItem.Click += new System.EventHandler(this.请款ToolStripMenuItem_Click);
             // 
             // 提交请款ToolStripMenuItem
             // 
@@ -1627,7 +1617,6 @@
         private System.Windows.Forms.ToolStripMenuItem 东航机票ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 川航机票ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 泰航机票ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 请款ToolStripMenuItem;
         private DevComponents.Editors.DateTimeAdv.DateTimeInput txtSchFinishTimeTo;
         private DevComponents.Editors.DateTimeAdv.DateTimeInput txtSchFinishTimeFrom;
         private DevComponents.DotNetBar.LabelX labelX1;

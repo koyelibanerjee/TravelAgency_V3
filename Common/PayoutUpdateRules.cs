@@ -2,19 +2,6 @@
 {
     public static class PayoutUpdateRules
     {
-
-        /// <summary>
-        /// 根据价格计算总价
-        /// </summary>
-        /// <param name="ConsulateCost"></param>
-        /// <param name="VisaPersonCost"></param>
-        /// <param name="InvitationCost"></param>
-        /// <returns></returns>
-        public static decimal GetSinglePrice(decimal ConsulateCost, decimal VisaPersonCost, decimal InvitationCost)
-        {
-            return ConsulateCost + VisaPersonCost + InvitationCost;
-        }
-
         public static void UpdateSinglePriceOfVisa(Model.Visa model)
         {
             decimal ConsulateCost = model.ConsulateCost ?? 0;

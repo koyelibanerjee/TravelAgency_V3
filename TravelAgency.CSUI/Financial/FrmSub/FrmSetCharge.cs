@@ -105,7 +105,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 string type = GetCellValue(e.RowIndex, "Types");
                 string depatureType = GetCellValue(e.RowIndex, "DepartureType");
                 string client = GetCellValue(e.RowIndex, "Client");
-                if (frm.ChangeAllAlike)
+                if (frm.ChangeAllAlike)//全部一起修改
                 {
                     for (int i = 0; i < dataGridView1.Rows.Count; i++)
                     {
@@ -240,7 +240,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
         /// 查询指定行的配置条目
         /// </summary>
         /// <returns></returns>
-        private List<Model.ClientCharge> GetClientCharges(int rowidx, bool full = false)
+        private List<Model.ClientCharge> GetClientCharges(int rowidx)
         {
             List<string> conditions = new List<string>();
             string str = GetCellValue(rowidx, "DepartureType");
@@ -273,16 +273,6 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 //sb.Append(" Types='" + cbType.Text + "'");
             }
 
-            if (full)
-            {
-                str = GetCellValue(rowidx, "Receipt");
-
-                if (!string.IsNullOrEmpty(str))
-                {
-                    conditions.Add(" (Receipt like  '%" + str + "%') ");
-                    //sb.Append(" Types='" + cbType.Text + "'");
-                }
-            }
             string[] arr = conditions.ToArray();
             string where = string.Join(" and ", arr);
 

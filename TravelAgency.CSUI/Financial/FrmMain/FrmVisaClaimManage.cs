@@ -98,22 +98,75 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
 
             dataGridView1.CellMouseUp += dataGridView1_CellMouseUp;
+            //dataGridView1.CellBeginEdit += DataGridView1_CellBeginEdit;
+            //dataGridView1.CellEndEdit += DataGridView1_CellEndEdit;
+            //dataGridView1.CellValueChanged += DataGridView1_CellValueChanged;
+
             dataGridView1.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
             bgWorkerLoadData.WorkerReportsProgress = true;
             progressLoading.Visible = false;
+
+            dataGridView1.ReadOnly = true;
+
+            //dataGridView1.Columns["Receipt"].ReadOnly = false;
+
             LoadDataToDgvAsyn();
             _init = true;
         }
 
+        //private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    //单元格值发生变化的时候，变成橙色
+        //    if (!_needDoUpdateEvent || e.RowIndex < 0 || e.ColumnIndex < 0)
+        //        return;
 
+        //    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.DarkOrange;
+        //    Font f = new Font("微软雅黑", 12.0f, FontStyle.Bold);
+        //    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.Font = f;
+        //    dataGridView1.UpdateCellValue(e.ColumnIndex, e.RowIndex);
 
+        //    //updateMoney();
+        //}
 
+        //private void DataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    if (e.RowIndex < 0 || e.ColumnIndex < 0)
+        //        return;
+        //    string name = dataGridView1.Columns[e.ColumnIndex].Name;
+        //    if ( name == "Receipt" ||
+        //        name == "Price")
+        //    {
+        //        //判断是否发生了变化
+
+        //        if ((_numBackup == null && dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null) ||//原来是空，现在有值了
+        //            (_numBackup != null && dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value == null) ||//原来有值，现在是空
+        //            (_numBackup != null && _numBackup != (decimal)dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value)//都有值但是变化了
+        //            )
+        //        {
+        //            _needDoUpdateEvent = true;
+        //            DataGridView1_CellValueChanged(null, e); //手动触发一次事件
+        //        }
+        //    }
+        //}
+
+        //private void DataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        //{
+
+        //    string name = dataGridView1.Columns[e.ColumnIndex].Name;
+        //    if ( name == "Receipt" ||
+        //         name == "Price")
+        //    {
+        //        if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+        //        {
+        //            _numBackup = (decimal)dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+        //        }
+        //        else
+        //            _numBackup = null;
+        //    }
+
+        //}
 
         #region dgv用到的相关方法
-
-
-
-
         /// <summary>
         /// 显示进度条
         /// </summary>
@@ -735,7 +788,23 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             frm.Show();
         }
 
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            var list = dataGridView1.DataSource as List<Model.Visa>;
 
-
+            for (int i = 0; i != list.Count; ++i)
+            {
+                if (!InfoChecker.CheckVisaSame(list[i], _visaListBackUp[i]))
+                {
+                    if (!_bllVisa.Update(list[i])) //不同就更新
+                    {
+                        MessageBoxEx.Show("团号:" + list[i].GroupNo + "更新失败!");
+                        return;
+                    }
+                }
+            }
+            MessageBoxEx.Show("更新成功!");
+            LoadDataToDgvAsyn();
+        }
     }
 }

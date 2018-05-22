@@ -497,8 +497,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                 if (dataGridView1.Rows[i].Cells["Cost"].Value != null)
                     moneycount += decimal.Parse(dataGridView1.Rows[i].Cells["Cost"].Value.ToString());
 
-                if (DgvDataSourceToList()[i].SubmitFlag == 1
-                    )
+                if (DgvDataSourceToList()[i].SubmitFlag == 1)
                 {
                     dataGridView1.Rows[i].Cells["SubmitFlag"].Style.BackColor = Color.LimeGreen;
                     dataGridView1.Rows[i].Cells["SubmitFlag"].Value = "已提交";
