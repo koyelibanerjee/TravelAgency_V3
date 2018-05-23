@@ -64,11 +64,11 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             cbDisplayType.Items.Add("个签&&团做个");
             cbDisplayType.SelectedIndex = 0;
 
-            cbSubmitState.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbSubmitState.Items.Add("全部");
-            cbSubmitState.Items.Add("未提交");
-            cbSubmitState.Items.Add("已提交");
-            cbSubmitState.SelectedIndex = 1;
+            cbClaimedFlag.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbClaimedFlag.Items.Add("全部");
+            cbClaimedFlag.Items.Add("是");
+            cbClaimedFlag.Items.Add("否");
+            cbClaimedFlag.SelectedIndex = 0;
 
 
             //国家选择框加入
@@ -347,17 +347,13 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                 conditions.Add(" DepartureType = '" + cbDepatureType.Text + "' ");
             }
 
-            if (cbSubmitState.Text == "全部")
+            if (cbClaimedFlag.Text == "全部")
             {
 
             }
-            else if (cbSubmitState.Text == "未提交")
-            {
-                conditions.Add(" (submitflag =" + 0 + " or submitflag is null)"); //0是未提交，所以这里处理一下
-            }
             else
             {
-                conditions.Add(" (submitflag =" + 1 + ")"); //0是未提交，所以这里处理一下
+                conditions.Add(" (ClaimedFlag ='" + cbClaimedFlag.Text + "')"); //
             }
 
 

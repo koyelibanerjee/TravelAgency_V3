@@ -142,6 +142,12 @@
     <Compile Include="Financial\FrmSub\FrmSetClaim.Designer.cs">
       <DependentUpon>FrmSetClaim.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="Statistics\FrmMain\FrmDataBackUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -400,12 +406,6 @@
     <Compile Include="Visa\FrmSub\FrmInfoTypeIn.Designer.cs">
       <DependentUpon>FrmInfoTypeIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmMain.Designer.cs">
-      <DependentUpon>FrmMain.cs</DependentUpon>
-    </Compile>
     <Compile Include="Visa\FrmSub\FrmPageSizeSet.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -491,6 +491,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Financial\FrmSub\FrmSetClaim.resx">
       <DependentUpon>FrmSetClaim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Statistics\FrmMain\FrmDataBackUp.resx">
       <DependentUpon>FrmDataBackUp.cs</DependentUpon>
@@ -599,9 +602,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visa\FrmSub\FrmInfoTypeIn.resx">
       <DependentUpon>FrmInfoTypeIn.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmMain.resx">
-      <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visa\FrmSub\FrmPageSizeSet.resx">
       <DependentUpon>FrmPageSizeSet.cs</DependentUpon>
