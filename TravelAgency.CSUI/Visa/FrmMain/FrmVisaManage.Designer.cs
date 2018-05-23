@@ -46,20 +46,6 @@
             this.lbCurPage = new DevComponents.DotNetBar.LabelItem();
             this.lbPeopleCount = new DevComponents.DotNetBar.LabelItem();
             this.dataGridView1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.GroupNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CountryImage = new System.Windows.Forms.DataGridViewImageColumn();
-            this.PredictTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EntryTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TypeInPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Types = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsUrgent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DepartureType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Client = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SalesPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Visa_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmsDgv = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.复制ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -134,6 +120,23 @@
             this.panelDgv = new DevComponents.DotNetBar.PanelEx();
             this.cmsAddToGroup = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.添加到团号ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.GroupNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CountryImage = new System.Windows.Forms.DataGridViewImageColumn();
+            this.PredictTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EntryTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeInPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Types = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsUrgent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DepartureType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Client = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SalesPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Operator = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Visa_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtOperator = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX1 = new DevComponents.DotNetBar.LabelX();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cmsDgv.SuspendLayout();
@@ -169,7 +172,7 @@
             this.bar1.ItemSpacing = 5;
             this.bar1.Location = new System.Drawing.Point(0, 0);
             this.bar1.Name = "bar1";
-            this.bar1.Size = new System.Drawing.Size(1288, 28);
+            this.bar1.Size = new System.Drawing.Size(1396, 28);
             this.bar1.Stretch = true;
             this.bar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.bar1.TabIndex = 25;
@@ -272,13 +275,14 @@
             this.DepartureType,
             this.Client,
             this.SalesPerson,
+            this.Operator,
             this.Visa_id});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -298,114 +302,13 @@
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1288, 478);
+            this.dataGridView1.Size = new System.Drawing.Size(1396, 478);
             this.dataGridView1.TabIndex = 13;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridView1.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseUp);
             this.dataGridView1.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
-            // 
-            // GroupNo
-            // 
-            this.GroupNo.DataPropertyName = "GroupNo";
-            this.GroupNo.HeaderText = "团号";
-            this.GroupNo.Name = "GroupNo";
-            this.GroupNo.ReadOnly = true;
-            this.GroupNo.Width = 300;
-            // 
-            // Country
-            // 
-            this.Country.DataPropertyName = "Country";
-            this.Country.HeaderText = "国家";
-            this.Country.Name = "Country";
-            this.Country.ReadOnly = true;
-            // 
-            // Number
-            // 
-            this.Number.DataPropertyName = "Number";
-            this.Number.HeaderText = "人数";
-            this.Number.Name = "Number";
-            this.Number.ReadOnly = true;
-            // 
-            // CountryImage
-            // 
-            this.CountryImage.HeaderText = "国家图标";
-            this.CountryImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.CountryImage.Name = "CountryImage";
-            this.CountryImage.ReadOnly = true;
-            this.CountryImage.Width = 200;
-            // 
-            // PredictTime
-            // 
-            this.PredictTime.DataPropertyName = "PredictTime";
-            this.PredictTime.HeaderText = "出发时间";
-            this.PredictTime.Name = "PredictTime";
-            this.PredictTime.ReadOnly = true;
-            // 
-            // EntryTime
-            // 
-            this.EntryTime.DataPropertyName = "EntryTime";
-            this.EntryTime.HeaderText = "办理时间";
-            this.EntryTime.Name = "EntryTime";
-            this.EntryTime.ReadOnly = true;
-            // 
-            // TypeInPerson
-            // 
-            this.TypeInPerson.DataPropertyName = "TypeInPerson";
-            this.TypeInPerson.HeaderText = "办理人";
-            this.TypeInPerson.Name = "TypeInPerson";
-            this.TypeInPerson.ReadOnly = true;
-            // 
-            // Types
-            // 
-            this.Types.DataPropertyName = "Types";
-            this.Types.HeaderText = "类型";
-            this.Types.Name = "Types";
-            this.Types.ReadOnly = true;
-            // 
-            // IsUrgent
-            // 
-            this.IsUrgent.HeaderText = "是否急件";
-            this.IsUrgent.Name = "IsUrgent";
-            this.IsUrgent.ReadOnly = true;
-            this.IsUrgent.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.IsUrgent.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Status
-            // 
-            this.Status.HeaderText = "状态";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            // 
-            // DepartureType
-            // 
-            this.DepartureType.DataPropertyName = "DepartureType";
-            this.DepartureType.HeaderText = "出境类型";
-            this.DepartureType.Name = "DepartureType";
-            this.DepartureType.ReadOnly = true;
-            // 
-            // Client
-            // 
-            this.Client.DataPropertyName = "Client";
-            this.Client.HeaderText = "客户";
-            this.Client.Name = "Client";
-            this.Client.ReadOnly = true;
-            // 
-            // SalesPerson
-            // 
-            this.SalesPerson.DataPropertyName = "SalesPerson";
-            this.SalesPerson.HeaderText = "销售";
-            this.SalesPerson.Name = "SalesPerson";
-            this.SalesPerson.ReadOnly = true;
-            // 
-            // Visa_id
-            // 
-            this.Visa_id.DataPropertyName = "Visa_id";
-            this.Visa_id.HeaderText = "Visa_id";
-            this.Visa_id.Name = "Visa_id";
-            this.Visa_id.ReadOnly = true;
-            this.Visa_id.Visible = false;
             // 
             // cmsDgv
             // 
@@ -420,7 +323,7 @@
             this.toolStripSeparator2,
             this.导出报表ToolStripMenuItem});
             this.cmsDgv.Name = "cmsDgv";
-            this.cmsDgv.Size = new System.Drawing.Size(185, 192);
+            this.cmsDgv.Size = new System.Drawing.Size(185, 170);
             // 
             // 复制ToolStripMenuItem
             // 
@@ -727,7 +630,7 @@
             this.panelBars.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelBars.Location = new System.Drawing.Point(0, 0);
             this.panelBars.Name = "panelBars";
-            this.panelBars.Size = new System.Drawing.Size(1288, 96);
+            this.panelBars.Size = new System.Drawing.Size(1396, 96);
             this.panelBars.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelBars.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelBars.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -741,6 +644,8 @@
             // 
             this.panelSerachBar.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelSerachBar.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelSerachBar.Controls.Add(this.txtOperator);
+            this.panelSerachBar.Controls.Add(this.labelX1);
             this.panelSerachBar.Controls.Add(this.btnAddVisa);
             this.panelSerachBar.Controls.Add(this.txtSalesPerson);
             this.panelSerachBar.Controls.Add(this.txtClient);
@@ -772,7 +677,7 @@
             this.panelSerachBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelSerachBar.Location = new System.Drawing.Point(0, 28);
             this.panelSerachBar.Name = "panelSerachBar";
-            this.panelSerachBar.Size = new System.Drawing.Size(1288, 68);
+            this.panelSerachBar.Size = new System.Drawing.Size(1396, 68);
             this.panelSerachBar.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelSerachBar.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelSerachBar.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -786,7 +691,7 @@
             // 
             this.btnAddVisa.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnAddVisa.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnAddVisa.Location = new System.Drawing.Point(1121, 3);
+            this.btnAddVisa.Location = new System.Drawing.Point(1239, 3);
             this.btnAddVisa.Name = "btnAddVisa";
             this.btnAddVisa.Size = new System.Drawing.Size(66, 53);
             this.btnAddVisa.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -942,7 +847,7 @@
             // 
             this.btnGetTodayExcel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnGetTodayExcel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnGetTodayExcel.Location = new System.Drawing.Point(1011, 4);
+            this.btnGetTodayExcel.Location = new System.Drawing.Point(1129, 4);
             this.btnGetTodayExcel.Name = "btnGetTodayExcel";
             this.btnGetTodayExcel.Size = new System.Drawing.Size(104, 53);
             this.btnGetTodayExcel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -954,7 +859,7 @@
             // 
             this.btnShowToday.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnShowToday.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnShowToday.Location = new System.Drawing.Point(902, 34);
+            this.btnShowToday.Location = new System.Drawing.Point(1020, 34);
             this.btnShowToday.Name = "btnShowToday";
             this.btnShowToday.Size = new System.Drawing.Size(92, 23);
             this.btnShowToday.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -982,7 +887,7 @@
             this.progressLoading.BackgroundStyle.BackgroundImageAlpha = ((byte)(64));
             this.progressLoading.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.progressLoading.FocusCuesEnabled = false;
-            this.progressLoading.Location = new System.Drawing.Point(1203, 5);
+            this.progressLoading.Location = new System.Drawing.Point(1321, 5);
             this.progressLoading.Name = "progressLoading";
             this.progressLoading.ProgressBarType = DevComponents.DotNetBar.eCircularProgressType.Dot;
             this.progressLoading.ProgressColor = System.Drawing.Color.YellowGreen;
@@ -995,7 +900,7 @@
             // 
             this.btnClearSchConditions.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnClearSchConditions.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnClearSchConditions.Location = new System.Drawing.Point(804, 34);
+            this.btnClearSchConditions.Location = new System.Drawing.Point(922, 34);
             this.btnClearSchConditions.Name = "btnClearSchConditions";
             this.btnClearSchConditions.Size = new System.Drawing.Size(92, 23);
             this.btnClearSchConditions.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -1161,7 +1066,7 @@
             // 
             this.btnShowAll.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnShowAll.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnShowAll.Location = new System.Drawing.Point(902, 5);
+            this.btnShowAll.Location = new System.Drawing.Point(1020, 5);
             this.btnShowAll.Name = "btnShowAll";
             this.btnShowAll.Size = new System.Drawing.Size(91, 23);
             this.btnShowAll.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -1173,7 +1078,7 @@
             // 
             this.btnSearch.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnSearch.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnSearch.Location = new System.Drawing.Point(804, 6);
+            this.btnSearch.Location = new System.Drawing.Point(922, 6);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(92, 23);
             this.btnSearch.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -1201,7 +1106,7 @@
             this.panelDgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDgv.Location = new System.Drawing.Point(0, 96);
             this.panelDgv.Name = "panelDgv";
-            this.panelDgv.Size = new System.Drawing.Size(1288, 478);
+            this.panelDgv.Size = new System.Drawing.Size(1396, 478);
             this.panelDgv.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelDgv.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelDgv.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -1226,11 +1131,143 @@
             this.添加到团号ToolStripMenuItem.Text = "添加到此团号";
             this.添加到团号ToolStripMenuItem.Click += new System.EventHandler(this.添加到团号ToolStripMenuItem_Click);
             // 
+            // GroupNo
+            // 
+            this.GroupNo.DataPropertyName = "GroupNo";
+            this.GroupNo.HeaderText = "团号";
+            this.GroupNo.Name = "GroupNo";
+            this.GroupNo.ReadOnly = true;
+            this.GroupNo.Width = 300;
+            // 
+            // Country
+            // 
+            this.Country.DataPropertyName = "Country";
+            this.Country.HeaderText = "国家";
+            this.Country.Name = "Country";
+            this.Country.ReadOnly = true;
+            // 
+            // Number
+            // 
+            this.Number.DataPropertyName = "Number";
+            this.Number.HeaderText = "人数";
+            this.Number.Name = "Number";
+            this.Number.ReadOnly = true;
+            // 
+            // CountryImage
+            // 
+            this.CountryImage.HeaderText = "国家图标";
+            this.CountryImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.CountryImage.Name = "CountryImage";
+            this.CountryImage.ReadOnly = true;
+            this.CountryImage.Width = 200;
+            // 
+            // PredictTime
+            // 
+            this.PredictTime.DataPropertyName = "PredictTime";
+            this.PredictTime.HeaderText = "出发时间";
+            this.PredictTime.Name = "PredictTime";
+            this.PredictTime.ReadOnly = true;
+            // 
+            // EntryTime
+            // 
+            this.EntryTime.DataPropertyName = "EntryTime";
+            this.EntryTime.HeaderText = "办理时间";
+            this.EntryTime.Name = "EntryTime";
+            this.EntryTime.ReadOnly = true;
+            // 
+            // TypeInPerson
+            // 
+            this.TypeInPerson.DataPropertyName = "TypeInPerson";
+            this.TypeInPerson.HeaderText = "办理人";
+            this.TypeInPerson.Name = "TypeInPerson";
+            this.TypeInPerson.ReadOnly = true;
+            // 
+            // Types
+            // 
+            this.Types.DataPropertyName = "Types";
+            this.Types.HeaderText = "类型";
+            this.Types.Name = "Types";
+            this.Types.ReadOnly = true;
+            // 
+            // IsUrgent
+            // 
+            this.IsUrgent.HeaderText = "是否急件";
+            this.IsUrgent.Name = "IsUrgent";
+            this.IsUrgent.ReadOnly = true;
+            this.IsUrgent.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.IsUrgent.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Status
+            // 
+            this.Status.HeaderText = "状态";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            // 
+            // DepartureType
+            // 
+            this.DepartureType.DataPropertyName = "DepartureType";
+            this.DepartureType.HeaderText = "出境类型";
+            this.DepartureType.Name = "DepartureType";
+            this.DepartureType.ReadOnly = true;
+            // 
+            // Client
+            // 
+            this.Client.DataPropertyName = "Client";
+            this.Client.HeaderText = "客户";
+            this.Client.Name = "Client";
+            this.Client.ReadOnly = true;
+            // 
+            // SalesPerson
+            // 
+            this.SalesPerson.DataPropertyName = "SalesPerson";
+            this.SalesPerson.HeaderText = "销售";
+            this.SalesPerson.Name = "SalesPerson";
+            this.SalesPerson.ReadOnly = true;
+            // 
+            // Operator
+            // 
+            this.Operator.DataPropertyName = "Operator";
+            this.Operator.HeaderText = "操作";
+            this.Operator.Name = "Operator";
+            this.Operator.ReadOnly = true;
+            // 
+            // Visa_id
+            // 
+            this.Visa_id.DataPropertyName = "Visa_id";
+            this.Visa_id.HeaderText = "Visa_id";
+            this.Visa_id.Name = "Visa_id";
+            this.Visa_id.ReadOnly = true;
+            this.Visa_id.Visible = false;
+            // 
+            // txtOperator
+            // 
+            // 
+            // 
+            // 
+            this.txtOperator.Border.Class = "TextBoxBorder";
+            this.txtOperator.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtOperator.Location = new System.Drawing.Point(843, 7);
+            this.txtOperator.Name = "txtOperator";
+            this.txtOperator.Size = new System.Drawing.Size(60, 21);
+            this.txtOperator.TabIndex = 49;
+            // 
+            // labelX1
+            // 
+            // 
+            // 
+            // 
+            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX1.Location = new System.Drawing.Point(809, 7);
+            this.labelX1.Name = "labelX1";
+            this.labelX1.Size = new System.Drawing.Size(37, 21);
+            this.labelX1.TabIndex = 50;
+            this.labelX1.Text = "操作:";
+            // 
             // FrmVisaManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1288, 574);
+            this.ClientSize = new System.Drawing.Size(1396, 574);
             this.Controls.Add(this.panelDgv);
             this.Controls.Add(this.panelBars);
             this.Name = "FrmVisaManage";
@@ -1338,6 +1375,7 @@
         private System.Windows.Forms.ToolStripMenuItem 东东全日空ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 新北东航ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem 两人保险报表ToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn GroupNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Country;
         private System.Windows.Forms.DataGridViewTextBoxColumn Number;
@@ -1351,7 +1389,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DepartureType;
         private System.Windows.Forms.DataGridViewTextBoxColumn Client;
         private System.Windows.Forms.DataGridViewTextBoxColumn SalesPerson;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Operator;
         private System.Windows.Forms.DataGridViewTextBoxColumn Visa_id;
-        private System.Windows.Forms.ToolStripMenuItem 两人保险报表ToolStripMenuItem;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtOperator;
+        private DevComponents.DotNetBar.LabelX labelX1;
     }
 }

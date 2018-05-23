@@ -54,10 +54,11 @@ namespace TravelAgency.OrdersManagement
 
             if (_ordersModel != null)
                 txtOrderNo.Text = _ordersModel.OrderNo;
+
+
             if (_is4Modify)
             {
                 this.Text = "修改订单客户信息";
-
 
                 txtGuestId.Text = _guestModel.GuestId;
                 txtGuestName.Text = _guestModel.GuestName;
@@ -76,14 +77,6 @@ namespace TravelAgency.OrdersManagement
         }
 
         #region 窗体初始化
-        private void InitCtrlsByOrdersModel()
-        {
-            //txtCorporation.Text = _OrdersModel.Corporation;
-            //txtProject.Text = _OrdersModel.Project;
-            //txtSupplier.Text = _OrdersModel.Supplier;
-
-        }
-
         private void InitComboBoxs()
         {
             //string tablename = "Orders";
@@ -103,10 +96,6 @@ namespace TravelAgency.OrdersManagement
 
             txtGuestType.Items.Add("成人");
             txtGuestType.Items.Add("儿童");
-
-
-
-
         }
         #endregion
 
@@ -137,7 +126,8 @@ namespace TravelAgency.OrdersManagement
             else
             {
                 RetModel = new OrderGuest();
-                RetModel.OrdersId = _ordersModel.Id;
+                if (_ordersModel != null)
+                    RetModel.OrdersId = _ordersModel.Id;
                 RetModel.GuestId = CtrlParser.Parse2String(txtGuestId);
                 RetModel.GuestName = CtrlParser.Parse2String(txtGuestName);
                 RetModel.GuestNamePinYin = CtrlParser.Parse2String(txtGuestNamePinYin);

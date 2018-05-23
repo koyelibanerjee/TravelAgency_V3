@@ -372,11 +372,16 @@ namespace TravelAgency.OrdersManagement
                     //添加客人信息
                     var list = DgvDataSourceToList();
                     int i = 0;
-                    foreach (var orderGuest in list)
+                    if (list != null && list.Count > 0)
                     {
-                        orderGuest.Position = i++;
+                        foreach (var orderGuest in list)
+                        {
+                            orderGuest.OrdersId = id; //新增的时候添加，就直接指定Id
+                            orderGuest.Position = i++;
+                        }
+                        _bllGuest.AddList(list);
                     }
-                    _bllGuest.AddList(list);
+                   
 
 
                     MessageBoxEx.Show("添加成功");
@@ -425,11 +430,11 @@ namespace TravelAgency.OrdersManagement
 
         private void btnAddGuest_Click(object sender, EventArgs e)
         {
-            if (_model == null)
-            {
-                MessageBoxEx.Show("请先添加订单信息后再添加客人信息!!!");
-                return;
-            }
+            //if (_model == null)
+            //{
+            //    MessageBoxEx.Show("请先添加订单信息后再添加客人信息!!!");
+            //    return;
+            //}
             FrmAddOrderGuest frm = new FrmAddOrderGuest(_model);
             if (frm.ShowDialog() == DialogResult.Cancel)
                 return;
@@ -490,12 +495,12 @@ namespace TravelAgency.OrdersManagement
                 MessageBoxEx.Show("请选择一条记录操作");
                 return;
             }
-            int selIdx = dataGridView1.SelectedRows[0].Index; 
+            int selIdx = dataGridView1.SelectedRows[0].Index;
             var list = DgvDataSourceToList();
             if (selIdx == list.Count - 1)
                 return;
 
-          
+
             var lvItemTmp = list[selIdx];
             list.Remove(lvItemTmp);
             list.Insert(selIdx + 1, lvItemTmp);
@@ -542,7 +547,7 @@ namespace TravelAgency.OrdersManagement
             int selIdx = dataGridView1.SelectedRows[0].Index;
             var list = DgvDataSourceToList();
 
-            if (selIdx == list.Count-1)
+            if (selIdx == list.Count - 1)
                 return;
 
             var lvItemTmp = list[selIdx];
@@ -552,7 +557,7 @@ namespace TravelAgency.OrdersManagement
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = list;
 
-            dataGridView1.CurrentCell = dataGridView1.Rows[list.Count-1].Cells[0];
+            dataGridView1.CurrentCell = dataGridView1.Rows[list.Count - 1].Cells[0];
         }
     }
 }

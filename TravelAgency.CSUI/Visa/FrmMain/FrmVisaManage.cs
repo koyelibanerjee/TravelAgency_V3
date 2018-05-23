@@ -312,6 +312,11 @@ namespace TravelAgency.CSUI.FrmMain
                 conditions.Add(" (Client like '%" + txtClient.Text + "%') ");
             }
 
+            if (!string.IsNullOrEmpty(txtOperator.Text.Trim()))
+            {
+                conditions.Add(" (Operator like '%" + txtOperator.Text + "%') ");
+            }
+
             if (cbDepatureType.Text == "全部")
             {
 
