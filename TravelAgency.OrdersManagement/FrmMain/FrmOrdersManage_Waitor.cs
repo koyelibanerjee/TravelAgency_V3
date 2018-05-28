@@ -55,11 +55,90 @@ namespace TravelAgency.OrdersManagement
 
             dataGridView1.DoubleClick += DataGridView1_DoubleClick;
             StyleControler.SetDgvStyle(dataGridView1);
+            dataGridView1.CellPainting += DataGridView1_CellPainting;
+            dataGridView1.RowPostPaint += DataGridView1_RowPostPaint;
 
             bgWorkerLoadData.WorkerReportsProgress = true;
 
             progressLoading.Visible = false;
             LoadDataToDgvAsyn();
+        }
+
+        private void DataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            if (this.dataGridView1.Rows[e.RowIndex].Cells["Id"].Value == DBNull.Value)
+                return;
+
+            Image RowIcon;//标头图标
+            string strToolTip;//提示信息
+
+            bool hasAccessory = _bllOrderFiles.GetModelList(
+                    $" ordersid = {this.dataGridView1.Rows[e.RowIndex].Cells["Id"].Value}").Count > 0;
+
+            if (hasAccessory)
+            {
+                RowIcon = Properties.Resources.fujian2; //从资源文件中获取图片
+                strToolTip = "有附件";
+            }
+            else
+            {
+                RowIcon = null;
+                strToolTip = "无附件";
+            }
+
+            if (RowIcon != null)
+                e.Graphics.DrawImage(RowIcon, e.RowBounds.Left + this.dataGridView1.RowHeadersWidth - 20, e.RowBounds.Top + 4, 16, 16);//绘制图标
+            this.dataGridView1.Rows[e.RowIndex].HeaderCell.ToolTipText = strToolTip;//设置提示信息
+        }
+
+        private void DataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex == 0)
+            {
+                if (this.dataGridView1.Rows[e.RowIndex].Cells["OrderNo"].Value == DBNull.Value)
+                    return;
+
+                bool hasAccessory = _bllOrderFiles.GetModelList(
+                    $" ordersid = {this.dataGridView1.Rows[e.RowIndex].Cells["Id"].Value}").Count > 0;
+
+                string orderNoStr = this.dataGridView1.Rows[e.RowIndex].Cells["OrderNo"].Value.ToString();
+                Image img;
+                if (hasAccessory)
+                {
+                    img = Properties.Resources.fujian1;
+                }
+
+                else
+                {
+                    img = null;
+                }
+                Rectangle newRect = new Rectangle(e.CellBounds.X + 5, e.CellBounds.Y + 5, e.CellBounds.Height - 15,
+                    e.CellBounds.Height - 15);
+
+                using (Brush gridBrush = new SolidBrush(this.dataGridView1.GridColor), backColorBrush = new SolidBrush(e.CellStyle.BackColor))
+                {
+                    using (Pen gridLinePen = new Pen(gridBrush, 2))
+                    {
+                        // Erase the cell.
+                        //e.Graphics.FillRectangle(backColorBrush, e.CellBounds);
+
+                        //划线
+                        //Point p1 = new Point(e.CellBounds.Left + e.CellBounds.Width, e.CellBounds.Top);
+                        //Point p2 = new Point(e.CellBounds.Left + e.CellBounds.Width, e.CellBounds.Top + e.CellBounds.Height);
+                        //Point p3 = new Point(e.CellBounds.Left, e.CellBounds.Top + e.CellBounds.Height);
+                        //Point[] ps = new Point[] { p1, p2, p3 };
+                        //e.Graphics.DrawLines(gridLinePen, ps);
+
+                        //画图标
+                        if (img != null)
+                            e.Graphics.DrawImage(img, newRect);
+                        //画字符串
+                        //e.Graphics.DrawString(orderNoStr.ToString(), e.CellStyle.Font, Brushes.Crimson,
+                        //    e.CellBounds.Left + 20, e.CellBounds.Top + 5, StringFormat.GenericDefault);
+                        //e.Handled = true;
+                    }
+                }
+            }
         }
 
         private void FrmOrdersManage_FormClosed(object sender, FormClosedEventArgs e)
