@@ -50,6 +50,7 @@ namespace TravelAgency.OrdersManagement
             dataGridView1.CellDoubleClick += DataGridView1_CellDoubleClick;
             dataGridView1.CellMouseUp += DataGridView1_CellMouseUp;
             dataGridView1.RowsAdded += DataGridView1_RowsAdded;
+            dataGridView1.KeyDown += DataGridView1_KeyDown;
             txtWaitorConfirmTime.Enabled = false; //客服确认时间默认禁用
 
             if (GlobalUtils.LoginUserLevel == RigthLevel.Operator) //操作不能修改基本订单信息和客人信息
@@ -95,6 +96,13 @@ namespace TravelAgency.OrdersManagement
 
         }
 
+        private void DataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (dataGridView1.CurrentCell.Value != null && e.Control && e.KeyCode == Keys.C)
+            {
+                复制选中单元格ToolStripMenuItem_Click(null, null);
+            }
+        }
 
         protected internal class GuestCnt
         {
@@ -558,6 +566,29 @@ namespace TravelAgency.OrdersManagement
             dataGridView1.DataSource = list;
 
             dataGridView1.CurrentCell = dataGridView1.Rows[list.Count - 1].Cells[0];
+        }
+
+        private void 复制选中单元格ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 1)
+            {
+                MessageBoxEx.Show("请选中一条记录复制!");
+                return;
+            }
+            //string name = dataGridView1.Columns[dataGridView1.CurrentCell.ColumnIndex].Name;
+            //if (name == "CountryImage")
+            //{
+            //    return;
+            //}
+            //if ((name == "EntryTime" || name == "PredictTime")
+            //    && dataGridView1.CurrentCell.Value != null) //归国时间的列,是datetime类型,单独判断
+            //{
+            //    Clipboard.SetText(DateTimeFormator.DateTimeToString((DateTime)dataGridView1.CurrentCell.Value));
+            //    return;
+            //}
+
+            if (!string.IsNullOrEmpty((string)dataGridView1.CurrentCell.Value.ToString()))
+                Clipboard.SetText(dataGridView1.CurrentCell.Value.ToString());
         }
     }
 }

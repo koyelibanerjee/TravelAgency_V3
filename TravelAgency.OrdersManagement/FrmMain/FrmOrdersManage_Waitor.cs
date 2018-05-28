@@ -602,7 +602,7 @@ namespace TravelAgency.OrdersManagement
                 return;
             }
             FrmAddOrders frm = new FrmAddOrders(LoadDataToDataGridView, _curPage, true, list[0]);
-            frm.ShowDialog();
+            frm.Show();
         }
 
 
