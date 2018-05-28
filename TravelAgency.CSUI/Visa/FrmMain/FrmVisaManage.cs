@@ -404,6 +404,15 @@ namespace TravelAgency.CSUI.FrmMain
             //按照出境类型(按照Excel报表中来)，人数排序(从小到大)
             visaList.Sort((model1, model2) =>
             {
+                if (model1.DepartureType == null && model2.DepartureType!=null)
+                    return 1;
+
+                if (model2.DepartureType == null && model1.DepartureType != null)
+                    return -1;
+
+                if (model2.DepartureType == null && model1.DepartureType == null)
+                    return -1;
+
                 if (!Common.DepartureType.Dict.ContainsKey(model1.DepartureType))
                     return 1;
 

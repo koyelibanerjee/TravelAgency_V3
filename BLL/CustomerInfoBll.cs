@@ -17,7 +17,6 @@ namespace TravelAgency.BLL
         public static List<string> GetOpeartorByCustName(string cust_name)
         {
             return DAL.CustomerInfo.GetOpeartorByCustName(cust_name);
-
         }
 
         public static List<string> GetSalesPersonByCustName(string cust_name)

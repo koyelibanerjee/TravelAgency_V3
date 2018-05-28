@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.labelX20 = new DevComponents.DotNetBar.LabelX();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.btnOK = new DevComponents.DotNetBar.ButtonX();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.panelMain = new DevComponents.DotNetBar.PanelEx();
+            this.lbGuestCount = new DevComponents.DotNetBar.LabelX();
             this.txtOperRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX18 = new DevComponents.DotNetBar.LabelX();
             this.txtWaitorRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -47,6 +48,21 @@
             this.labelX19 = new DevComponents.DotNetBar.LabelX();
             this.btnAddGuest = new DevComponents.DotNetBar.ButtonX();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.GuestId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuestType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuestName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuestNamePinYin = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuestPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuestWeChat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuestEMail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuestSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuestBirthday = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuestPassportNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuestLastNightHotel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuestCountry = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrdersId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtComboName = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.txtWaitorConfirmTime = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
@@ -80,29 +96,13 @@
             this.txtGuestOrderTime = new System.Windows.Forms.DateTimePicker();
             this.labelX10 = new DevComponents.DotNetBar.LabelX();
             this.cmsDgvRb = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lbGuestCount = new DevComponents.DotNetBar.LabelX();
             this.查看资料ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.移动ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.上移ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.下移ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.移到顶部ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.移到底部ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.GuestId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GuestType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GuestName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GuestNamePinYin = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GuestPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GuestWeChat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GuestEMail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GuestSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GuestBirthday = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GuestPassportNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GuestLastNightHotel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GuestCountry = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrdersId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelEx1.SuspendLayout();
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -230,6 +230,20 @@
             this.panelMain.Style.GradientAngle = 90;
             this.panelMain.TabIndex = 106;
             // 
+            // lbGuestCount
+            // 
+            // 
+            // 
+            // 
+            this.lbGuestCount.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lbGuestCount.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbGuestCount.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lbGuestCount.Location = new System.Drawing.Point(105, 348);
+            this.lbGuestCount.Name = "lbGuestCount";
+            this.lbGuestCount.Size = new System.Drawing.Size(404, 27);
+            this.lbGuestCount.TabIndex = 178;
+            this.lbGuestCount.Text = "客人总数:0";
+            // 
             // txtOperRemark
             // 
             // 
@@ -284,7 +298,7 @@
             // 
             this.txtDepartureDate.CustomFormat = "yyyy/MM/dd";
             this.txtDepartureDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtDepartureDate.Location = new System.Drawing.Point(623, 145);
+            this.txtDepartureDate.Location = new System.Drawing.Point(625, 145);
             this.txtDepartureDate.Name = "txtDepartureDate";
             this.txtDepartureDate.Size = new System.Drawing.Size(103, 23);
             this.txtDepartureDate.TabIndex = 173;
@@ -295,7 +309,7 @@
             // 
             // 
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX3.Location = new System.Drawing.Point(542, 144);
+            this.labelX3.Location = new System.Drawing.Point(557, 144);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(73, 27);
             this.labelX3.TabIndex = 172;
@@ -307,7 +321,7 @@
             this.txtGuestUseTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.txtGuestUseTime.Location = new System.Drawing.Point(402, 145);
             this.txtGuestUseTime.Name = "txtGuestUseTime";
-            this.txtGuestUseTime.Size = new System.Drawing.Size(134, 23);
+            this.txtGuestUseTime.Size = new System.Drawing.Size(155, 23);
             this.txtGuestUseTime.TabIndex = 171;
             // 
             // labelX19
@@ -339,14 +353,14 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.GuestId,
@@ -364,32 +378,124 @@
             this.GuestCountry,
             this.Id,
             this.OrdersId});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 377);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridView1.Size = new System.Drawing.Size(738, 155);
             this.dataGridView1.TabIndex = 166;
+            // 
+            // GuestId
+            // 
+            this.GuestId.DataPropertyName = "GuestId";
+            this.GuestId.HeaderText = "客人Id";
+            this.GuestId.Name = "GuestId";
+            // 
+            // GuestType
+            // 
+            this.GuestType.DataPropertyName = "GuestType";
+            this.GuestType.HeaderText = "客人类型";
+            this.GuestType.Name = "GuestType";
+            // 
+            // Price
+            // 
+            this.Price.DataPropertyName = "Price";
+            this.Price.HeaderText = "单价";
+            this.Price.Name = "Price";
+            // 
+            // GuestName
+            // 
+            this.GuestName.DataPropertyName = "GuestName";
+            this.GuestName.HeaderText = "客人姓名";
+            this.GuestName.Name = "GuestName";
+            // 
+            // GuestNamePinYin
+            // 
+            this.GuestNamePinYin.DataPropertyName = "GuestNamePinYin";
+            this.GuestNamePinYin.HeaderText = "姓名拼音";
+            this.GuestNamePinYin.Name = "GuestNamePinYin";
+            // 
+            // GuestPhone
+            // 
+            this.GuestPhone.DataPropertyName = "GuestPhone";
+            this.GuestPhone.HeaderText = "电话";
+            this.GuestPhone.Name = "GuestPhone";
+            // 
+            // GuestWeChat
+            // 
+            this.GuestWeChat.DataPropertyName = "GuestWeChat";
+            this.GuestWeChat.HeaderText = "微信";
+            this.GuestWeChat.Name = "GuestWeChat";
+            // 
+            // GuestEMail
+            // 
+            this.GuestEMail.DataPropertyName = "GuestEMail";
+            this.GuestEMail.HeaderText = "邮箱";
+            this.GuestEMail.Name = "GuestEMail";
+            // 
+            // GuestSex
+            // 
+            this.GuestSex.DataPropertyName = "GuestSex";
+            this.GuestSex.HeaderText = "性别";
+            this.GuestSex.Name = "GuestSex";
+            // 
+            // GuestBirthday
+            // 
+            this.GuestBirthday.DataPropertyName = "GuestBirthday";
+            this.GuestBirthday.HeaderText = "出生日期";
+            this.GuestBirthday.Name = "GuestBirthday";
+            // 
+            // GuestPassportNo
+            // 
+            this.GuestPassportNo.DataPropertyName = "GuestPassportNo";
+            this.GuestPassportNo.HeaderText = "护照号";
+            this.GuestPassportNo.Name = "GuestPassportNo";
+            // 
+            // GuestLastNightHotel
+            // 
+            this.GuestLastNightHotel.DataPropertyName = "GuestLastNightHotel";
+            this.GuestLastNightHotel.HeaderText = "昨晚酒店名";
+            this.GuestLastNightHotel.Name = "GuestLastNightHotel";
+            // 
+            // GuestCountry
+            // 
+            this.GuestCountry.DataPropertyName = "GuestCountry";
+            this.GuestCountry.HeaderText = "国家";
+            this.GuestCountry.Name = "GuestCountry";
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
+            // 
+            // OrdersId
+            // 
+            this.OrdersId.DataPropertyName = "OrdersId";
+            this.OrdersId.HeaderText = "订单号";
+            this.OrdersId.Name = "OrdersId";
+            this.OrdersId.Visible = false;
             // 
             // txtComboName
             // 
@@ -831,32 +937,18 @@
             this.cmsDgvRb.Name = "cmsDgvRb";
             this.cmsDgvRb.Size = new System.Drawing.Size(125, 70);
             // 
+            // 查看资料ToolStripMenuItem
+            // 
+            this.查看资料ToolStripMenuItem.Name = "查看资料ToolStripMenuItem";
+            this.查看资料ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.查看资料ToolStripMenuItem.Text = "查看资料";
+            // 
             // 删除ToolStripMenuItem
             // 
             this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
             this.删除ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.删除ToolStripMenuItem.Text = "删除";
             this.删除ToolStripMenuItem.Click += new System.EventHandler(this.删除ToolStripMenuItem_Click);
-            // 
-            // lbGuestCount
-            // 
-            // 
-            // 
-            // 
-            this.lbGuestCount.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lbGuestCount.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbGuestCount.ForeColor = System.Drawing.Color.ForestGreen;
-            this.lbGuestCount.Location = new System.Drawing.Point(105, 348);
-            this.lbGuestCount.Name = "lbGuestCount";
-            this.lbGuestCount.Size = new System.Drawing.Size(404, 27);
-            this.lbGuestCount.TabIndex = 178;
-            this.lbGuestCount.Text = "客人总数:0";
-            // 
-            // 查看资料ToolStripMenuItem
-            // 
-            this.查看资料ToolStripMenuItem.Name = "查看资料ToolStripMenuItem";
-            this.查看资料ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
-            this.查看资料ToolStripMenuItem.Text = "查看资料";
             // 
             // 移动ToolStripMenuItem
             // 
@@ -872,122 +964,30 @@
             // 上移ToolStripMenuItem
             // 
             this.上移ToolStripMenuItem.Name = "上移ToolStripMenuItem";
-            this.上移ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.上移ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.上移ToolStripMenuItem.Text = "上移";
             this.上移ToolStripMenuItem.Click += new System.EventHandler(this.上移ToolStripMenuItem_Click);
             // 
             // 下移ToolStripMenuItem
             // 
             this.下移ToolStripMenuItem.Name = "下移ToolStripMenuItem";
-            this.下移ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.下移ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.下移ToolStripMenuItem.Text = "下移";
             this.下移ToolStripMenuItem.Click += new System.EventHandler(this.下移ToolStripMenuItem_Click);
             // 
             // 移到顶部ToolStripMenuItem
             // 
             this.移到顶部ToolStripMenuItem.Name = "移到顶部ToolStripMenuItem";
-            this.移到顶部ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.移到顶部ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.移到顶部ToolStripMenuItem.Text = "移到顶部";
             this.移到顶部ToolStripMenuItem.Click += new System.EventHandler(this.移到顶部ToolStripMenuItem_Click);
             // 
             // 移到底部ToolStripMenuItem
             // 
             this.移到底部ToolStripMenuItem.Name = "移到底部ToolStripMenuItem";
-            this.移到底部ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.移到底部ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.移到底部ToolStripMenuItem.Text = "移到底部";
             this.移到底部ToolStripMenuItem.Click += new System.EventHandler(this.移到底部ToolStripMenuItem_Click);
-            // 
-            // GuestId
-            // 
-            this.GuestId.DataPropertyName = "GuestId";
-            this.GuestId.HeaderText = "客人Id";
-            this.GuestId.Name = "GuestId";
-            // 
-            // GuestType
-            // 
-            this.GuestType.DataPropertyName = "GuestType";
-            this.GuestType.HeaderText = "客人类型";
-            this.GuestType.Name = "GuestType";
-            // 
-            // Price
-            // 
-            this.Price.DataPropertyName = "Price";
-            this.Price.HeaderText = "单价";
-            this.Price.Name = "Price";
-            // 
-            // GuestName
-            // 
-            this.GuestName.DataPropertyName = "GuestName";
-            this.GuestName.HeaderText = "客人姓名";
-            this.GuestName.Name = "GuestName";
-            // 
-            // GuestNamePinYin
-            // 
-            this.GuestNamePinYin.DataPropertyName = "GuestNamePinYin";
-            this.GuestNamePinYin.HeaderText = "姓名拼音";
-            this.GuestNamePinYin.Name = "GuestNamePinYin";
-            // 
-            // GuestPhone
-            // 
-            this.GuestPhone.DataPropertyName = "GuestPhone";
-            this.GuestPhone.HeaderText = "电话";
-            this.GuestPhone.Name = "GuestPhone";
-            // 
-            // GuestWeChat
-            // 
-            this.GuestWeChat.DataPropertyName = "GuestWeChat";
-            this.GuestWeChat.HeaderText = "微信";
-            this.GuestWeChat.Name = "GuestWeChat";
-            // 
-            // GuestEMail
-            // 
-            this.GuestEMail.DataPropertyName = "GuestEMail";
-            this.GuestEMail.HeaderText = "邮箱";
-            this.GuestEMail.Name = "GuestEMail";
-            // 
-            // GuestSex
-            // 
-            this.GuestSex.DataPropertyName = "GuestSex";
-            this.GuestSex.HeaderText = "性别";
-            this.GuestSex.Name = "GuestSex";
-            // 
-            // GuestBirthday
-            // 
-            this.GuestBirthday.DataPropertyName = "GuestBirthday";
-            this.GuestBirthday.HeaderText = "出生日期";
-            this.GuestBirthday.Name = "GuestBirthday";
-            // 
-            // GuestPassportNo
-            // 
-            this.GuestPassportNo.DataPropertyName = "GuestPassportNo";
-            this.GuestPassportNo.HeaderText = "护照号";
-            this.GuestPassportNo.Name = "GuestPassportNo";
-            // 
-            // GuestLastNightHotel
-            // 
-            this.GuestLastNightHotel.DataPropertyName = "GuestLastNightHotel";
-            this.GuestLastNightHotel.HeaderText = "昨晚酒店名";
-            this.GuestLastNightHotel.Name = "GuestLastNightHotel";
-            // 
-            // GuestCountry
-            // 
-            this.GuestCountry.DataPropertyName = "GuestCountry";
-            this.GuestCountry.HeaderText = "国家";
-            this.GuestCountry.Name = "GuestCountry";
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.Visible = false;
-            // 
-            // OrdersId
-            // 
-            this.OrdersId.DataPropertyName = "OrdersId";
-            this.OrdersId.HeaderText = "订单号";
-            this.OrdersId.Name = "OrdersId";
-            this.OrdersId.Visible = false;
             // 
             // FrmAddOrders
             // 

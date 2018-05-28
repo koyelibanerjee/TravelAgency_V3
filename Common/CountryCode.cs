@@ -34,8 +34,10 @@ namespace TravelAgency.Common
             Dict.Add("奥地利", "AT");
             Dict.Add("丹麦", "DK");
             Dict.Add("波兰", "PL");
+            Dict.Add("瑞典", "SE");
+            Dict.Add("芬兰", "FI");
 
-            string CountrysString = "日本|韩国|泰国|澳大利亚|英国|美国|越南|加拿大|中国|马来西亚|新西兰|法国|德国|菲律宾|捷克|瑞士|西班牙|意大利|荷兰|冰岛|南非|奥地利|丹麦|波兰";
+            string CountrysString = "日本|韩国|泰国|澳大利亚|英国|美国|越南|加拿大|中国|马来西亚|新西兰|法国|德国|菲律宾|捷克|瑞士|西班牙|意大利|荷兰|冰岛|南非|奥地利|丹麦|波兰|瑞典|芬兰";
             CountryNameArr = CountrysString.Split('|');
 
         }

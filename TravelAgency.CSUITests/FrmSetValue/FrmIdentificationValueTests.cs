@@ -16,8 +16,14 @@ namespace TravelAgency.CSUI.FrmSub.Tests
         {
             //FrmIdentificationValue frm = new FrmIdentificationValue();
             //frm.ShowDialog();
-            
+
             //Assert.Fail();
+            int i = String.CompareOrdinal(null, null);
+            i = String.CompareOrdinal("", null);
+            i = String.CompareOrdinal("", "a");
+            i = String.CompareOrdinal("a", null);
+
+
         }
     }
 }

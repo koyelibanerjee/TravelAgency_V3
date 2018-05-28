@@ -41,7 +41,6 @@
             this.txtGuestCountry = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.txtGuestType = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX17 = new DevComponents.DotNetBar.LabelX();
-            this.txtGuestBirthday = new System.Windows.Forms.DateTimePicker();
             this.txtGuestEMail = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtGuestLastNightHotel = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX23 = new DevComponents.DotNetBar.LabelX();
@@ -62,9 +61,11 @@
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.txtPrice = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
+            this.txtGuestBirthday = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.panelEx1.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGuestBirthday)).BeginInit();
             this.SuspendLayout();
             // 
             // panelEx1
@@ -200,12 +201,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtGuestBirthday);
             this.groupBox1.Controls.Add(this.txtPrice);
             this.groupBox1.Controls.Add(this.labelX2);
             this.groupBox1.Controls.Add(this.txtGuestCountry);
             this.groupBox1.Controls.Add(this.txtGuestType);
             this.groupBox1.Controls.Add(this.labelX17);
-            this.groupBox1.Controls.Add(this.txtGuestBirthday);
             this.groupBox1.Controls.Add(this.txtGuestEMail);
             this.groupBox1.Controls.Add(this.txtGuestLastNightHotel);
             this.groupBox1.Controls.Add(this.labelX23);
@@ -265,15 +266,6 @@
             this.labelX17.Size = new System.Drawing.Size(93, 27);
             this.labelX17.TabIndex = 147;
             this.labelX17.Text = "客人类型:";
-            // 
-            // txtGuestBirthday
-            // 
-            this.txtGuestBirthday.CustomFormat = "yyyy/MM/dd";
-            this.txtGuestBirthday.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.txtGuestBirthday.Location = new System.Drawing.Point(101, 281);
-            this.txtGuestBirthday.Name = "txtGuestBirthday";
-            this.txtGuestBirthday.Size = new System.Drawing.Size(155, 23);
-            this.txtGuestBirthday.TabIndex = 137;
             // 
             // txtGuestEMail
             // 
@@ -530,6 +522,53 @@
             this.labelX2.TabIndex = 162;
             this.labelX2.Text = "单价:";
             // 
+            // txtGuestBirthday
+            // 
+            // 
+            // 
+            // 
+            this.txtGuestBirthday.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.txtGuestBirthday.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtGuestBirthday.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
+            this.txtGuestBirthday.ButtonDropDown.Visible = true;
+            this.txtGuestBirthday.CustomFormat = "yyyy/MM/dd";
+            this.txtGuestBirthday.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
+            this.txtGuestBirthday.IsPopupCalendarOpen = false;
+            this.txtGuestBirthday.Location = new System.Drawing.Point(101, 284);
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            this.txtGuestBirthday.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtGuestBirthday.MonthCalendar.CalendarDimensions = new System.Drawing.Size(1, 1);
+            this.txtGuestBirthday.MonthCalendar.ClearButtonVisible = true;
+            // 
+            // 
+            // 
+            this.txtGuestBirthday.MonthCalendar.CommandsBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
+            this.txtGuestBirthday.MonthCalendar.CommandsBackgroundStyle.BackColorGradientAngle = 90;
+            this.txtGuestBirthday.MonthCalendar.CommandsBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+            this.txtGuestBirthday.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.txtGuestBirthday.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
+            this.txtGuestBirthday.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1;
+            this.txtGuestBirthday.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtGuestBirthday.MonthCalendar.DisplayMonth = new System.DateTime(2018, 3, 1, 0, 0, 0, 0);
+            this.txtGuestBirthday.MonthCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
+            // 
+            // 
+            // 
+            this.txtGuestBirthday.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.txtGuestBirthday.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90;
+            this.txtGuestBirthday.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.txtGuestBirthday.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtGuestBirthday.MonthCalendar.TodayButtonVisible = true;
+            this.txtGuestBirthday.Name = "txtGuestBirthday";
+            this.txtGuestBirthday.Size = new System.Drawing.Size(155, 23);
+            this.txtGuestBirthday.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.txtGuestBirthday.TabIndex = 168;
+            // 
             // FrmAddOrderGuest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -543,6 +582,7 @@
             this.panelEx1.ResumeLayout(false);
             this.panelMain.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtGuestBirthday)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -557,7 +597,6 @@
         private DevComponents.DotNetBar.LabelX labelX22;
         private DevComponents.DotNetBar.Controls.TextBoxX txtGuestPhone;
         private DevComponents.DotNetBar.LabelX labelX21;
-        private System.Windows.Forms.DateTimePicker txtGuestBirthday;
         private DevComponents.DotNetBar.LabelX txtGuestBirthday2;
         private DevComponents.DotNetBar.Controls.ComboBoxEx txtGuestSex;
         private DevComponents.DotNetBar.LabelX asda;
@@ -582,5 +621,6 @@
         private DevComponents.DotNetBar.LabelX labelX8;
         private DevComponents.DotNetBar.Controls.TextBoxX txtPrice;
         private DevComponents.DotNetBar.LabelX labelX2;
+        private DevComponents.Editors.DateTimeAdv.DateTimeInput txtGuestBirthday;
     }
 }

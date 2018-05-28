@@ -172,6 +172,8 @@ namespace TravelAgency.CSUI.FrmSub
             txtPerson.Items.Add("成都金桥");
             txtPerson.Items.Add("四川国旅");
             txtPerson.Items.Add("省中旅");
+            txtPerson.Items.Add("北京送签");
+            txtPerson.Items.Add("上海送签");
             txtPerson.Text = "";
 
             //国家选择框加入

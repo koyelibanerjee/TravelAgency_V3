@@ -745,9 +745,9 @@ namespace TravelAgency.Common.Excel
 
             list.Sort((model1, model2) =>
             {
-                int res = model1.SalesPerson.CompareTo(model2.SalesPerson);
+                int res = String.Compare(model1.SalesPerson, model2.SalesPerson, StringComparison.Ordinal);
                 if(res==0)
-                    res = model1.client.CompareTo(model2.client);
+                    res = String.Compare(model1.client, model2.client, StringComparison.Ordinal);
                 return res;
             }); //按照客户排序
 
