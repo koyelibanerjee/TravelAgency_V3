@@ -762,7 +762,8 @@ namespace TravelAgency.Common.Excel
             row.CreateCell(5).SetCellValue("资料寄出时间");
             row.CreateCell(6).SetCellValue("销售人员");
             row.CreateCell(7).SetCellValue("客户");
-            row.CreateCell(8).SetCellValue("其他备注");
+            row.CreateCell(8).SetCellValue("操作");
+            row.CreateCell(9).SetCellValue("其他备注");
 
 
             //2.2设置列宽度
@@ -774,7 +775,8 @@ namespace TravelAgency.Common.Excel
             sheet.SetColumnWidth(5, 12 * 256); //资料寄出时间
             sheet.SetColumnWidth(6, 17 * 256); //销售人员");
             sheet.SetColumnWidth(7, 10 * 256); //客户");
-            sheet.SetColumnWidth(8, 10 * 256); //其他备注");
+            sheet.SetColumnWidth(8, 10 * 256); //操作");
+            sheet.SetColumnWidth(9, 10 * 256); //其他备注");
             //3.插入行和单元格
             for (int i = 0; i != list.Count; ++i)
             {
@@ -794,7 +796,8 @@ namespace TravelAgency.Common.Excel
                 row.CreateCell(5).SetCellValue("");//资料寄出时间先不设置
                 row.CreateCell(6).SetCellValue(list[i].SalesPerson);
                 row.CreateCell(7).SetCellValue(list[i].client);
-                row.CreateCell(8).SetCellValue(""); //其他备注先不设置
+                row.CreateCell(8).SetCellValue(list[i].Operator);
+                row.CreateCell(9).SetCellValue(""); //其他备注先不设置
             }
 
 

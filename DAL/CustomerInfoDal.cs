@@ -14,7 +14,7 @@ namespace TravelAgency.DAL
 	{
         public static List<string> GetCustomerList()
         {
-        string sql = "select distinct customername from CustomerInfo where Operator is not null and CustomerName is not null and LEN(CustomerName)>0";
+        string sql = "select distinct customername from CustomerInfo where Operator is not null and CustomerName is not null and LEN(CustomerName)>0 and DataType = '销售录入'";
             DataSet ds = DbHelperSQL.Query(sql);
             List<string> res = new List<string>();
             if (ds.Tables[0].Rows.Count > 0)
@@ -36,7 +36,7 @@ namespace TravelAgency.DAL
 
         public static List<string> GetOpeartorByCustName(string cust_name)
         {
-            string sql = string.Format("select operator from CustomerInfo where CustomerName='{0}'",cust_name);
+            string sql = string.Format("select operator from CustomerInfo where CustomerName='{0}'  and DataType = '销售录入'", cust_name);
             DataSet ds = DbHelperSQL.Query(sql);
             List<string> res = new List<string>();
             if (ds.Tables[0].Rows.Count > 0)
@@ -58,7 +58,7 @@ namespace TravelAgency.DAL
 
         public static List<string> GetSalesPersonByCustName(string cust_name)
         {
-            string sql = string.Format("select UserName from AuthUser where WorkId in (select WorkId from CustomerInfo where CustomerName='{0}')", cust_name);
+            string sql = string.Format("select UserName from AuthUser where WorkId in (select WorkId from CustomerInfo where CustomerName='{0}' and DataType = '销售录入')", cust_name);
             DataSet ds = DbHelperSQL.Query(sql);
             List<string> res = new List<string>();
             if (ds.Tables[0].Rows.Count > 0)
