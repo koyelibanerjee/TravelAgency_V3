@@ -27,8 +27,8 @@ namespace TravelAgency.BLL.Tests
         {
             Model.Orders model = new BLL.Orders().GetModel(6);
 
-            model.GuestEMail = "abcde";
-            new BLL.Orders().Update(model);
+            //model.GuestEMail = "abcde";
+            //new BLL.Orders().Update(model);
 
         }
 

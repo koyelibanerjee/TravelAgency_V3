@@ -57,7 +57,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
             //查询客户余额
             _balanceList = _bllBalance.GetModelList(" CustomerName = '" + _list[0].client + "' and BalanceAmount > 0");
-            _balanceList.Sort((Model.CustomerBalance b1, Model.CustomerBalance b2) => b1.BalanceAmount - b2.BalanceAmount < 0 ? -1 : 1);
+            _balanceList.Sort((b1, b2) => b1.BalanceAmount - b2.BalanceAmount < 0 ? -1 : 1);
             if (_balanceList.Count < 1)
             {
                 MessageBoxEx.Show("未找到客户可用余额信息!!!");
@@ -77,8 +77,6 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             //dataGridView1.ReadOnly = true;
             dataGridView1.Columns["Receipt"].ReadOnly = false;
             dataGridView1.Columns["ActuallyAmount"].ReadOnly = false;
-
-
         }
 
         private List<Model.Visa> DgvDataSourceToList()

@@ -5,6 +5,7 @@ using System.IO;
 using System.Text.RegularExpressions;
 using DevComponents.DotNetBar;
 using NPOI.HSSF.UserModel;
+using NPOI.OpenXmlFormats.Dml;
 using NPOI.SS.UserModel;
 using NPOI.SS.Util;
 using TravelAgency.BLL;
@@ -746,7 +747,7 @@ namespace TravelAgency.Common.Excel
             list.Sort((model1, model2) =>
             {
                 int res = String.Compare(model1.SalesPerson, model2.SalesPerson, StringComparison.Ordinal);
-                if(res==0)
+                if (res == 0)
                     res = String.Compare(model1.client, model2.client, StringComparison.Ordinal);
                 return res;
             }); //按照客户排序
@@ -842,7 +843,7 @@ namespace TravelAgency.Common.Excel
             string prefix = string.Empty;
             BLL.VisaInfo bllVisaInfo = new BLL.VisaInfo();
             var visaInfoList = bllVisaInfo.GetModelListByVisaIdOrderByPosition(model.Visa_id);
-            if (model.Country == "泰国" && visaInfoList.Count==0) //手动加的
+            if (model.Country == "泰国" && visaInfoList.Count == 0) //手动加的
             {
                 return model.GroupNo;
             }
@@ -999,7 +1000,7 @@ namespace TravelAgency.Common.Excel
         }
 
 
-        public static bool GetYuanShenMuban(List<Model.VisaInfo> visaInfoList,List<string> airInfos)
+        public static bool GetYuanShenMuban(List<Model.VisaInfo> visaInfoList, List<string> airInfos)
         {
             //1.创建工作簿对象
             IWorkbook wkbook = new HSSFWorkbook();
@@ -1071,6 +1072,141 @@ namespace TravelAgency.Common.Excel
 
             //5.执行写入磁盘
             string dstName = GlobalUtils.ShowSaveFileDlg("身元模板.xls", "office 2003 excel|*.xls");
+            return SaveFile(dstName, wkbook);
+        }
+
+
+        /// <summary>
+        /// 生成账单
+        /// </summary>
+        /// <param name="visaList"></param>
+        /// <returns></returns>
+        public static bool GetPaymentList(List<Model.Visa> visaList)
+        {
+            //1.创建工作簿对象
+            IWorkbook wkbook = new HSSFWorkbook();
+            //2.创建工作表对象
+            ISheet sheet = wkbook.CreateSheet("账单");
+
+
+            var bllVisa = new BLL.Visa();
+
+            //2.1创建表头
+            IRow row = sheet.CreateRow(0);
+            row.CreateCell(0).SetCellValue("团号");
+            row.CreateCell(1).SetCellValue("人数");
+            row.CreateCell(2).SetCellValue("进签时间");
+            row.CreateCell(3).SetCellValue("出签时间");
+            row.CreateCell(4).SetCellValue("单价");
+            row.CreateCell(5).SetCellValue("总价");
+            row.CreateCell(6).SetCellValue("国家");
+            row.CreateCell(7).SetCellValue("其他费用");
+
+            //2.2设置列宽度
+            sheet.SetColumnWidth(0, 35 * 256); //编号
+            sheet.SetColumnWidth(1, 5 * 256);//操作
+            sheet.SetColumnWidth(2, 12 * 256);//工号
+            sheet.SetColumnWidth(3, 12 * 256);//姓名
+            sheet.SetColumnWidth(4, 10 * 256);//时间
+            sheet.SetColumnWidth(5, 10 * 256);//时间
+            sheet.SetColumnWidth(6, 10 * 256);//时间
+            sheet.SetColumnWidth(7, 12 * 256);//时间
+
+            // 在 在  i poi  中日期是以  e double  类型表示的 ， 所 以要格式化
+            ICellStyle cellStyle = wkbook.CreateCellStyle();
+            IDataFormat format = wkbook.CreateDataFormat();
+            cellStyle.DataFormat = format.GetFormat("yyyy/MM/dd");
+            decimal total = 0;
+
+            //3.插入行和单元格
+            for (int i = 0; i != visaList.Count; ++i)
+            {
+                //创建单元格
+                row = sheet.CreateRow(i + 1);
+
+                row.CreateCell(0).SetCellValue(visaList[i].GroupNo);
+                var number = visaList[i].Number;
+                if (number != null)
+                    row.CreateCell(1).SetCellValue(number.Value.ToString());
+                else
+                    row.CreateCell(1).SetCellValue("");
+                var realtime = visaList[i].RealTime;
+                if (realtime != null)
+                    row.CreateCell(2).SetCellValue(realtime.Value.ToString("yyyy/MM/dd"));
+                else
+                    row.CreateCell(2).SetCellValue("");
+                var finishTime
+                    = visaList[i].FinishTime;
+                if (finishTime != null) row.CreateCell(3).SetCellValue(finishTime.Value.ToString("yyyy/MM/dd"));
+                else
+                    row.CreateCell(3).SetCellValue("");
+
+                var price = visaList[i].Price;
+                if (price != null) row.CreateCell(4).SetCellValue((double)price.Value);
+                else
+                    row.CreateCell(4).SetCellValue("");
+
+                var receipt = visaList[i].ActuallyAmount;
+                if (receipt != null) row.CreateCell(5).SetCellValue((double)receipt.Value);
+                else
+                    row.CreateCell(5).SetCellValue("");
+                total += receipt ?? 0;
+
+                row.CreateCell(6).SetCellValue(visaList[i].Country);
+                row.CreateCell(7).SetCellValue("");
+
+                visaList[i].ClaimedFlag = "已生成账单";
+                bllVisa.Update(visaList[i]);
+
+            }
+
+
+            var row1 = sheet.CreateRow(visaList.Count + 1);
+            row1.CreateCell(0).SetCellValue("发票费用");
+            row1.CreateCell(1).SetCellValue("");
+            row1.CreateCell(2).SetCellValue("");
+            row1.CreateCell(3).SetCellValue("");
+            row1.CreateCell(4).SetCellValue("");
+            row1.CreateCell(5).SetCellValue("");
+            row1.CreateCell(6).SetCellValue("");
+            row1.CreateCell(7).SetCellValue("");
+
+            row1 = sheet.CreateRow(visaList.Count + 2);
+            row1.CreateCell(0).SetCellValue("合计:");
+            row1.CreateCell(1).SetCellValue("");
+            row1.CreateCell(2).SetCellValue("");
+            row1.CreateCell(3).SetCellValue("");
+            row1.CreateCell(4).SetCellValue("");
+            row1.CreateCell(5).SetCellValue((double)total);
+            row1.CreateCell(6).SetCellValue("");
+            row1.CreateCell(7).SetCellValue("");
+
+
+            HSSFFont font = (HSSFFont)wkbook.CreateFont();
+            font.FontName = "宋体";
+            font.FontHeightInPoints = 10;
+
+            //4.1设置对齐风格和边框
+            ICellStyle style = wkbook.CreateCellStyle();
+            style.VerticalAlignment = VerticalAlignment.Center;
+            style.Alignment = HorizontalAlignment.Left;
+            style.BorderTop = BorderStyle.Thin;
+            style.BorderBottom = BorderStyle.Thin;
+            style.BorderLeft = BorderStyle.Thin;
+            style.BorderRight = BorderStyle.Thin;
+            style.WrapText = true;
+            style.SetFont(font);
+            for (int i = 0; i <= sheet.LastRowNum; i++)
+            {
+                row = sheet.GetRow(i);
+                for (int c = 0; c < row.LastCellNum; ++c)
+                {
+                    row.GetCell(c).CellStyle = style;
+                }
+            }
+
+            //5.执行写入磁盘
+            string dstName = GlobalUtils.ShowSaveFileDlg("账单.xls", "office 2003 excel|*.xls");
             return SaveFile(dstName, wkbook);
         }
 

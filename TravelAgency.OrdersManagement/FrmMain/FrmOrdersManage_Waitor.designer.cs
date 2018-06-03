@@ -28,28 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.OrderNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OperName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GuestInfoTypedIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReplyResult = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WaitorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PaymentPlatform = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GroupNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PurchaseNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrderAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GuestOrderTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WaitorOrderTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WaitorConfirmTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReallyPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PlatformActivity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMain = new DevComponents.DotNetBar.PanelEx();
             this.panelDgv = new DevComponents.DotNetBar.PanelEx();
             this.bar2 = new DevComponents.DotNetBar.Bar();
@@ -87,7 +70,7 @@
             this.labelItem2 = new DevComponents.DotNetBar.LabelItem();
             this.lbCurPage = new DevComponents.DotNetBar.LabelItem();
             this.btnGeneratePersonalReport = new DevComponents.DotNetBar.ButtonItem();
-            this.cmsDgvRb = new System.Windows.Forms.ContextMenuStrip();
+            this.cmsDgvRb = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmsItemRefreshState = new System.Windows.Forms.ToolStripMenuItem();
             this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -100,14 +83,33 @@
             this.确认订单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.上传订单附件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.下载订单附件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.附件管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.人申请表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.机票报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.外领担保函ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.韩国担保函ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.韩国加急申请书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bgWorkerLoadData = new System.ComponentModel.BackgroundWorker();
-            this.styleManager1 = new DevComponents.DotNetBar.StyleManager();
-            this.附件管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
+            this.OrderNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OperName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuestInfoTypedIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReplyResult = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OperRemark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WaitorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PaymentPlatform = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GroupNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PurchaseNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuestOrderTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WaitorOrderTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WaitorConfirmTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReallyPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PlatformActivity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panelDgv.SuspendLayout();
@@ -140,6 +142,7 @@
             this.OperName,
             this.GuestInfoTypedIn,
             this.ReplyResult,
+            this.OperRemark,
             this.WaitorName,
             this.PaymentPlatform,
             this.GroupNo,
@@ -183,113 +186,6 @@
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridView1.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseUp);
             this.dataGridView1.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
-            // 
-            // OrderNo
-            // 
-            this.OrderNo.DataPropertyName = "OrderNo";
-            this.OrderNo.HeaderText = "网上平台订单号";
-            this.OrderNo.Name = "OrderNo";
-            // 
-            // OperName
-            // 
-            this.OperName.DataPropertyName = "OperName";
-            this.OperName.HeaderText = "操作姓名";
-            this.OperName.Name = "OperName";
-            // 
-            // GuestInfoTypedIn
-            // 
-            this.GuestInfoTypedIn.HeaderText = "客人基础信息已录入";
-            this.GuestInfoTypedIn.Name = "GuestInfoTypedIn";
-            // 
-            // ReplyResult
-            // 
-            this.ReplyResult.DataPropertyName = "ReplyResult";
-            this.ReplyResult.HeaderText = "回复结果";
-            this.ReplyResult.Name = "ReplyResult";
-            // 
-            // WaitorName
-            // 
-            this.WaitorName.DataPropertyName = "WaitorName";
-            this.WaitorName.HeaderText = "录入客服";
-            this.WaitorName.Name = "WaitorName";
-            // 
-            // PaymentPlatform
-            // 
-            this.PaymentPlatform.HeaderText = "平台";
-            this.PaymentPlatform.Name = "PaymentPlatform";
-            // 
-            // GroupNo
-            // 
-            this.GroupNo.DataPropertyName = "GroupNo";
-            this.GroupNo.HeaderText = "团号";
-            this.GroupNo.Name = "GroupNo";
-            // 
-            // ProductName
-            // 
-            this.ProductName.DataPropertyName = "ProductName";
-            this.ProductName.HeaderText = "产品名称";
-            this.ProductName.Name = "ProductName";
-            // 
-            // ProductId
-            // 
-            this.ProductId.DataPropertyName = "ProductId";
-            this.ProductId.HeaderText = "产品ID";
-            this.ProductId.Name = "ProductId";
-            // 
-            // ProductType
-            // 
-            this.ProductType.DataPropertyName = "ProductType";
-            this.ProductType.HeaderText = "产品类型";
-            this.ProductType.Name = "ProductType";
-            // 
-            // PurchaseNum
-            // 
-            this.PurchaseNum.DataPropertyName = "PurchaseNum";
-            this.PurchaseNum.HeaderText = "购买数量";
-            this.PurchaseNum.Name = "PurchaseNum";
-            // 
-            // OrderAmount
-            // 
-            this.OrderAmount.DataPropertyName = "OrderAmount";
-            this.OrderAmount.HeaderText = "订单金额";
-            this.OrderAmount.Name = "OrderAmount";
-            // 
-            // GuestOrderTime
-            // 
-            this.GuestOrderTime.DataPropertyName = "GuestOrderTime";
-            this.GuestOrderTime.HeaderText = "客人下单时间";
-            this.GuestOrderTime.Name = "GuestOrderTime";
-            // 
-            // WaitorOrderTime
-            // 
-            this.WaitorOrderTime.DataPropertyName = "WaitorOrderTime";
-            this.WaitorOrderTime.HeaderText = "客服下单时间";
-            this.WaitorOrderTime.Name = "WaitorOrderTime";
-            // 
-            // WaitorConfirmTime
-            // 
-            this.WaitorConfirmTime.DataPropertyName = "WaitorConfirmTime";
-            this.WaitorConfirmTime.HeaderText = "客服确认时间";
-            this.WaitorConfirmTime.Name = "WaitorConfirmTime";
-            // 
-            // ReallyPay
-            // 
-            this.ReallyPay.DataPropertyName = "ReallyPay";
-            this.ReallyPay.HeaderText = "实际支付金额";
-            this.ReallyPay.Name = "ReallyPay";
-            // 
-            // PlatformActivity
-            // 
-            this.PlatformActivity.DataPropertyName = "PlatformActivity";
-            this.PlatformActivity.HeaderText = "平台活动";
-            this.PlatformActivity.Name = "PlatformActivity";
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.Visible = false;
             // 
             // panelMain
             // 
@@ -814,7 +710,7 @@
             this.下载订单附件ToolStripMenuItem,
             this.附件管理ToolStripMenuItem});
             this.cmsDgvRb.Name = "cmsDgvRb";
-            this.cmsDgvRb.Size = new System.Drawing.Size(205, 280);
+            this.cmsDgvRb.Size = new System.Drawing.Size(205, 258);
             // 
             // cmsItemRefreshState
             // 
@@ -896,6 +792,13 @@
             this.下载订单附件ToolStripMenuItem.Text = "下载订单附件";
             this.下载订单附件ToolStripMenuItem.Click += new System.EventHandler(this.下载订单附件ToolStripMenuItem_Click);
             // 
+            // 附件管理ToolStripMenuItem
+            // 
+            this.附件管理ToolStripMenuItem.Name = "附件管理ToolStripMenuItem";
+            this.附件管理ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.附件管理ToolStripMenuItem.Text = "订单附件管理";
+            this.附件管理ToolStripMenuItem.Click += new System.EventHandler(this.附件管理ToolStripMenuItem_Click);
+            // 
             // 人申请表ToolStripMenuItem
             // 
             this.人申请表ToolStripMenuItem.Name = "人申请表ToolStripMenuItem";
@@ -929,15 +832,121 @@
             // 
             // styleManager1
             // 
-            this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2010Blue;
+            this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2010Silver;
             this.styleManager1.MetroColorParameters = new DevComponents.DotNetBar.Metro.ColorTables.MetroColorGeneratorParameters(System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255))))), System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199))))));
             // 
-            // 附件管理ToolStripMenuItem
+            // OrderNo
             // 
-            this.附件管理ToolStripMenuItem.Name = "附件管理ToolStripMenuItem";
-            this.附件管理ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.附件管理ToolStripMenuItem.Text = "订单附件管理";
-            this.附件管理ToolStripMenuItem.Click += new System.EventHandler(this.附件管理ToolStripMenuItem_Click);
+            this.OrderNo.DataPropertyName = "OrderNo";
+            this.OrderNo.HeaderText = "网上平台订单号";
+            this.OrderNo.Name = "OrderNo";
+            // 
+            // OperName
+            // 
+            this.OperName.DataPropertyName = "OperName";
+            this.OperName.HeaderText = "操作姓名";
+            this.OperName.Name = "OperName";
+            // 
+            // GuestInfoTypedIn
+            // 
+            this.GuestInfoTypedIn.HeaderText = "客人基础信息已录入";
+            this.GuestInfoTypedIn.Name = "GuestInfoTypedIn";
+            // 
+            // ReplyResult
+            // 
+            this.ReplyResult.DataPropertyName = "ReplyResult";
+            this.ReplyResult.HeaderText = "回复结果";
+            this.ReplyResult.Name = "ReplyResult";
+            // 
+            // OperRemark
+            // 
+            this.OperRemark.DataPropertyName = "OperRemark";
+            this.OperRemark.HeaderText = "操作备注";
+            this.OperRemark.Name = "OperRemark";
+            // 
+            // WaitorName
+            // 
+            this.WaitorName.DataPropertyName = "WaitorName";
+            this.WaitorName.HeaderText = "录入客服";
+            this.WaitorName.Name = "WaitorName";
+            // 
+            // PaymentPlatform
+            // 
+            this.PaymentPlatform.HeaderText = "平台";
+            this.PaymentPlatform.Name = "PaymentPlatform";
+            // 
+            // GroupNo
+            // 
+            this.GroupNo.DataPropertyName = "GroupNo";
+            this.GroupNo.HeaderText = "团号";
+            this.GroupNo.Name = "GroupNo";
+            // 
+            // ProductName
+            // 
+            this.ProductName.DataPropertyName = "ProductName";
+            this.ProductName.HeaderText = "产品名称";
+            this.ProductName.Name = "ProductName";
+            // 
+            // ProductId
+            // 
+            this.ProductId.DataPropertyName = "ProductId";
+            this.ProductId.HeaderText = "产品ID";
+            this.ProductId.Name = "ProductId";
+            // 
+            // ProductType
+            // 
+            this.ProductType.DataPropertyName = "ProductType";
+            this.ProductType.HeaderText = "产品类型";
+            this.ProductType.Name = "ProductType";
+            // 
+            // PurchaseNum
+            // 
+            this.PurchaseNum.DataPropertyName = "PurchaseNum";
+            this.PurchaseNum.HeaderText = "购买数量";
+            this.PurchaseNum.Name = "PurchaseNum";
+            // 
+            // OrderAmount
+            // 
+            this.OrderAmount.DataPropertyName = "OrderAmount";
+            this.OrderAmount.HeaderText = "订单金额";
+            this.OrderAmount.Name = "OrderAmount";
+            // 
+            // GuestOrderTime
+            // 
+            this.GuestOrderTime.DataPropertyName = "GuestOrderTime";
+            this.GuestOrderTime.HeaderText = "客人下单时间";
+            this.GuestOrderTime.Name = "GuestOrderTime";
+            // 
+            // WaitorOrderTime
+            // 
+            this.WaitorOrderTime.DataPropertyName = "WaitorOrderTime";
+            this.WaitorOrderTime.HeaderText = "客服下单时间";
+            this.WaitorOrderTime.Name = "WaitorOrderTime";
+            // 
+            // WaitorConfirmTime
+            // 
+            this.WaitorConfirmTime.DataPropertyName = "WaitorConfirmTime";
+            this.WaitorConfirmTime.HeaderText = "客服确认时间";
+            this.WaitorConfirmTime.Name = "WaitorConfirmTime";
+            // 
+            // ReallyPay
+            // 
+            this.ReallyPay.DataPropertyName = "ReallyPay";
+            this.ReallyPay.HeaderText = "实际支付金额";
+            this.ReallyPay.Name = "ReallyPay";
+            // 
+            // PlatformActivity
+            // 
+            this.PlatformActivity.DataPropertyName = "PlatformActivity";
+            this.PlatformActivity.HeaderText = "平台活动";
+            this.PlatformActivity.Name = "PlatformActivity";
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
             // 
             // FrmOrdersManage_Waitor
             // 
@@ -1014,10 +1023,20 @@
         private DevComponents.DotNetBar.LabelItem lbReplyResultCount;
         private DevComponents.DotNetBar.Controls.TextBoxX txtWaitorName;
         private DevComponents.DotNetBar.LabelX labelX1;
+        private System.Windows.Forms.ToolStripMenuItem 确认订单ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 评价录入ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 申请退款ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 订单发送消息ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 下载订单附件ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem 上传订单附件ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 附件管理ToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrderNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn OperName;
         private System.Windows.Forms.DataGridViewTextBoxColumn GuestInfoTypedIn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ReplyResult;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OperRemark;
         private System.Windows.Forms.DataGridViewTextBoxColumn WaitorName;
         private System.Windows.Forms.DataGridViewTextBoxColumn PaymentPlatform;
         private System.Windows.Forms.DataGridViewTextBoxColumn GroupNo;
@@ -1032,15 +1051,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ReallyPay;
         private System.Windows.Forms.DataGridViewTextBoxColumn PlatformActivity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.ToolStripMenuItem 确认订单ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 评价录入ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 申请退款ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 订单发送消息ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 下载订单附件ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem 上传订单附件ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 附件管理ToolStripMenuItem;
     }
 }
 

@@ -78,21 +78,21 @@ namespace TravelAgency.OrdersManagement
             Common.GlobalUtils.LoginUser = list[0];
             //再取取rolename
 
-            if (list[0].RoleName == "网络部客服")
+            if (list[0].RoleName.StartsWith("自由行客服"))
             {
                 GlobalUtils.LoginUserLevel = RigthLevel.Waitor;
             }
-            else if (list[0].RoleName == "网络部操作")
+            else if (list[0].RoleName.StartsWith("自由行操作"))
             {
                 GlobalUtils.LoginUserLevel = RigthLevel.Operator;
             }
-            else if (list[0].RoleName == "网络部经理" || list[0].WorkId == "10000")
+            else if (list[0].RoleName.StartsWith("自由行") || list[0].WorkId == "10000")
             {
                 GlobalUtils.LoginUserLevel = RigthLevel.Manager;
             }
             else
             {
-                MessageBoxEx.Show("权限不足，请使用网络部账号登陆!!!");
+                MessageBoxEx.Show("权限不足，请使用自由行部门账号登陆!!!");
                 return;
             }
 

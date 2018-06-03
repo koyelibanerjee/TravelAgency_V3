@@ -64,7 +64,7 @@ namespace TravelAgency.OrdersManagement
                 txtReplyResult.Enabled = false;
             }
 
-            txtOperRemark.Enabled = false;
+            txtOperRemark.ReadOnly = true;
             if (_is4Modify)
             {
                 //把选中的加载到这里面
@@ -85,7 +85,7 @@ namespace TravelAgency.OrdersManagement
                 txtReplyResult.Text = _model.ReplyResult;
                 txtComboName.Text = _model.ComboName;
 
-                txtOperRemark.Text = _model.OperName;
+                txtOperRemark.Text = _model.OperRemark;
                 txtWaitorRemark.Text = _model.WaitorRemark;
                 txtDepartureDate.Text = _model.DepartureDate.ToString();
                 this.Text = "修改订单信息";
@@ -299,6 +299,16 @@ namespace TravelAgency.OrdersManagement
                     _model.WaitorRemark = CtrlParser.Parse2String(txtWaitorRemark);
                     _model.DepartureDate = CtrlParser.Parse2Datetime(txtDepartureDate);
 
+                    var list1 = DgvDataSourceToList();
+                    if (list1 != null && list1.Count > 0 
+                        && !string.IsNullOrEmpty(list1[0].GuestName) &&
+                            !string.IsNullOrEmpty(list1[0].GuestPhone) &&
+                            !string.IsNullOrEmpty(list1[0].GuestEMail))
+                            _model.GuestInfoTypedIn = true;
+                        else
+                            _model.GuestInfoTypedIn = false;
+
+
                     //下面的字段暂时不进行修改
                     //_model.EntryTime = DateTime.Now;
                     //_model.SerialNo = SerialNoGenerator.GetSerialNo(SerialNoGenerator.Type.Type03Receipt);
@@ -346,7 +356,6 @@ namespace TravelAgency.OrdersManagement
                         return;
                     }
 
-
                     model.OrderNo = CtrlParser.Parse2String(txtOrderNo);
                     model.WaitorName = GlobalUtils.LoginUser.UserName;
                     model.PaymentPlatform = Common.Enums.OrderInfo_PaymentPlatform.ValueToKey(txtPaymentPlatform.Text);
@@ -368,6 +377,14 @@ namespace TravelAgency.OrdersManagement
                     model.WaitorRemark = CtrlParser.Parse2String(txtWaitorRemark);
                     model.DepartureDate = CtrlParser.Parse2Datetime(txtDepartureDate);
 
+                    var list1 = DgvDataSourceToList();
+                    if (list1 != null && list1.Count > 0
+                        && !string.IsNullOrEmpty(list1[0].GuestName) &&
+                            !string.IsNullOrEmpty(list1[0].GuestPhone) &&
+                            !string.IsNullOrEmpty(list1[0].GuestEMail))
+                        model.GuestInfoTypedIn = true;
+                    else
+                        model.GuestInfoTypedIn = false;
                     int id = _bllOrders.Add(model);
                     if (id <= 0)
                     {
@@ -388,8 +405,12 @@ namespace TravelAgency.OrdersManagement
                             orderGuest.Position = i++;
                         }
                         _bllGuest.AddList(list);
+                        if (!string.IsNullOrEmpty(list[0].GuestName) && !string.IsNullOrEmpty(list[0].GuestPhone))
+                            model.GuestInfoTypedIn = true;
+
                     }
-                   
+
+
 
 
                     MessageBoxEx.Show("添加成功");

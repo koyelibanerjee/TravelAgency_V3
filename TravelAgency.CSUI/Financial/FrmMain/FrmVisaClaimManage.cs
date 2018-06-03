@@ -67,6 +67,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             cbClaimedFlag.DropDownStyle = ComboBoxStyle.DropDownList;
             cbClaimedFlag.Items.Add("全部");
             cbClaimedFlag.Items.Add("是");
+            cbClaimedFlag.Items.Add("已生成账单");
             cbClaimedFlag.Items.Add("否");
             cbClaimedFlag.SelectedIndex = 0;
 
@@ -816,6 +817,20 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             }
             MessageBoxEx.Show("更新成功!");
             LoadDataToDgvAsyn();
+        }
+
+        private void 生成账单ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var list = GetSelectedVisaList();
+
+            ExcelGenerator.GetPaymentList(list);
+
+
+
+
+
+
+
         }
     }
 }

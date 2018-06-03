@@ -57,6 +57,7 @@ namespace TravelAgency.OrdersManagement
             StyleControler.SetDgvStyle(dataGridView1);
             dataGridView1.CellPainting += DataGridView1_CellPainting;
             dataGridView1.RowPostPaint += DataGridView1_RowPostPaint;
+            dataGridView1.Columns["OperRemark"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
 
             bgWorkerLoadData.WorkerReportsProgress = true;
 
