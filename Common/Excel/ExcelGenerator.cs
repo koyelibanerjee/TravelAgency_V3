@@ -50,6 +50,11 @@ namespace TravelAgency.Common.Excel
         /// <returns></returns>
         public static bool GetIndividualVisaExcel(List<TravelAgency.Model.VisaInfo> list, string remark, string groupNo)
         {
+
+            string dstName = GlobalUtils.ShowSaveFileDlg(groupNo + ".xls", "office 2003 excel|*.xls");
+            if (string.IsNullOrEmpty(dstName))
+                return false;
+
             //1.创建工作簿对象
             IWorkbook wkbook = new HSSFWorkbook();
             //2.创建工作表对象
@@ -169,7 +174,6 @@ namespace TravelAgency.Common.Excel
                 sheet.AddMergedRegion(new CellRangeAddress(2, sheet.LastRowNum, 12, 12));//备注列合并
 
             //5.执行写入磁盘
-            string dstName = GlobalUtils.ShowSaveFileDlg(groupNo + ".xls", "office 2003 excel|*.xls");
             return SaveFile(dstName, wkbook);
 
         }
@@ -310,6 +314,11 @@ namespace TravelAgency.Common.Excel
         public static bool GetTeamVisaExcelOfJapan(List<TravelAgency.Model.Visa> visaList,
                                                      List<List<TravelAgency.Model.VisaInfo>> visainfoList)
         {
+
+            string dstName = GlobalUtils.ShowSaveFileDlg(visaList[0].GroupNo + ".xls", "office 2003 excel|*.xls");
+            if (string.IsNullOrEmpty(dstName))
+                return false;
+
             //1.创建工作簿对象
             IWorkbook wkbook = new HSSFWorkbook();
             //2.创建工作表对象
@@ -454,7 +463,6 @@ namespace TravelAgency.Common.Excel
 
 
             //5.执行写入磁盘
-            string dstName = GlobalUtils.ShowSaveFileDlg(visaList[0].GroupNo + ".xls", "office 2003 excel|*.xls");
             return SaveFile(dstName, wkbook);
         }
 
@@ -468,6 +476,10 @@ namespace TravelAgency.Common.Excel
         /// <returns></returns>
         public static bool GetTeamVisaExcelOfThailand(List<TravelAgency.Model.VisaInfo> list, string groupNo)
         {
+            string dstName = GlobalUtils.ShowSaveFileDlg(groupNo + ".xls", "office 2003 excel|*.xls");
+            if (string.IsNullOrEmpty(dstName))
+                return false;
+
             //1.创建工作簿对象
             IWorkbook wkbook = new HSSFWorkbook();
             //2.创建工作表对象
@@ -553,7 +565,6 @@ namespace TravelAgency.Common.Excel
             //sheet.AddMergedRegion(new CellRangeAddress(1, sheet.LastRowNum, 13, 13));
 
             //5.执行写入磁盘
-            string dstName = GlobalUtils.ShowSaveFileDlg(groupNo + ".xls", "office 2003 excel|*.xls");
             return SaveFile(dstName, wkbook);
         }
 
@@ -566,6 +577,9 @@ namespace TravelAgency.Common.Excel
         /// <returns></returns>
         public static bool GetEverydayExcel(List<Model.Visa> visaList, List<List<VisaInfo>> visaInfoList)
         {
+            string dstName = GlobalUtils.ShowSaveFileDlg("每日送签客人情况表.xls", "office 2003 excel|*.xls");
+            if (string.IsNullOrEmpty(dstName))
+                return false;
             //1.创建工作簿对象
             IWorkbook wkbook = new HSSFWorkbook();
             //2.创建工作表对象
@@ -670,12 +684,15 @@ namespace TravelAgency.Common.Excel
 
 
             //5.执行写入磁盘
-            string dstName = GlobalUtils.ShowSaveFileDlg("每日送签客人情况表.xls", "office 2003 excel|*.xls");
             return SaveFile(dstName, wkbook);
         }
 
         public static bool GetPrintTable(List<Model.VisaInfo> visaInfoList)
         {
+            string dstName = GlobalUtils.ShowSaveFileDlg("打印报表.xls", "office 2003 excel|*.xls");
+            if (string.IsNullOrEmpty(dstName))
+                return false;
+
             //1.创建工作簿对象
             IWorkbook wkbook = new HSSFWorkbook();
             //2.创建工作表对象
@@ -726,7 +743,6 @@ namespace TravelAgency.Common.Excel
             //}
 
             //5.执行写入磁盘
-            string dstName = GlobalUtils.ShowSaveFileDlg("打印报表.xls", "office 2003 excel|*.xls");
             return SaveFile(dstName, wkbook);
         }
 
@@ -739,6 +755,10 @@ namespace TravelAgency.Common.Excel
         /// <returns></returns>
         public static bool GetAllCountExcel(List<TravelAgency.Model.Visa> list)
         {
+            string dstName = GlobalUtils.ShowSaveFileDlg("日本签证时间表.xls", "office 2003 excel|*.xls");
+            if (string.IsNullOrEmpty(dstName))
+                return false;
+
             //1.创建工作簿对象
             IWorkbook wkbook = new HSSFWorkbook();
             //2.创建工作表对象
@@ -829,7 +849,6 @@ namespace TravelAgency.Common.Excel
             }
 
             //5.执行写入磁盘
-            string dstName = GlobalUtils.ShowSaveFileDlg("日本签证时间表.xls", "office 2003 excel|*.xls");
             return SaveFile(dstName, wkbook);
         }
 
@@ -894,6 +913,9 @@ namespace TravelAgency.Common.Excel
 
         public static bool GetStatisticTable(List<Model.ActionRecords> actionList)
         {
+            string dstName = GlobalUtils.ShowSaveFileDlg("记录明细统计.xls", "office 2003 excel|*.xls");
+            if (string.IsNullOrEmpty(dstName))
+                return false;
             //1.创建工作簿对象
             IWorkbook wkbook = new HSSFWorkbook();
             //2.创建工作表对象
@@ -934,13 +956,15 @@ namespace TravelAgency.Common.Excel
             }
 
             //5.执行写入磁盘
-            string dstName = GlobalUtils.ShowSaveFileDlg("记录明细统计.xls", "office 2003 excel|*.xls");
             return SaveFile(dstName, wkbook);
         }
 
 
         public static bool GetStatisticPersonalTable(List<Model.PersonalStat> statList)
         {
+            string dstName = GlobalUtils.ShowSaveFileDlg("个人记录统计.xls", "office 2003 excel|*.xls");
+            if (string.IsNullOrEmpty(dstName))
+                return false;
             //1.创建工作簿对象
             IWorkbook wkbook = new HSSFWorkbook();
             //2.创建工作表对象
@@ -995,13 +1019,15 @@ namespace TravelAgency.Common.Excel
             row.CreateCell(6).SetCellValue(count1 + count2 + count3 + count4);
 
             //5.执行写入磁盘
-            string dstName = GlobalUtils.ShowSaveFileDlg("个人记录统计.xls", "office 2003 excel|*.xls");
             return SaveFile(dstName, wkbook);
         }
 
 
         public static bool GetYuanShenMuban(List<Model.VisaInfo> visaInfoList, List<string> airInfos)
         {
+            string dstName = GlobalUtils.ShowSaveFileDlg("身元模板.xls", "office 2003 excel|*.xls");
+            if (string.IsNullOrEmpty(dstName))
+                return false;
             //1.创建工作簿对象
             IWorkbook wkbook = new HSSFWorkbook();
             //2.创建工作表对象
@@ -1071,7 +1097,7 @@ namespace TravelAgency.Common.Excel
             }
 
             //5.执行写入磁盘
-            string dstName = GlobalUtils.ShowSaveFileDlg("身元模板.xls", "office 2003 excel|*.xls");
+            
             return SaveFile(dstName, wkbook);
         }
 
@@ -1083,6 +1109,11 @@ namespace TravelAgency.Common.Excel
         /// <returns></returns>
         public static bool GetPaymentList(List<Model.Visa> visaList)
         {
+            string dstName = GlobalUtils.ShowSaveFileDlg("账单.xls", "office 2003 excel|*.xls");
+
+            if (string.IsNullOrEmpty(dstName))
+                return false;
+
             //1.创建工作簿对象
             IWorkbook wkbook = new HSSFWorkbook();
             //2.创建工作表对象
@@ -1206,7 +1237,7 @@ namespace TravelAgency.Common.Excel
             }
 
             //5.执行写入磁盘
-            string dstName = GlobalUtils.ShowSaveFileDlg("账单.xls", "office 2003 excel|*.xls");
+            
             return SaveFile(dstName, wkbook);
         }
 
