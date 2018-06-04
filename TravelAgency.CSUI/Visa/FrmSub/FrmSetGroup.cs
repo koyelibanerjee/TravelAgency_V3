@@ -124,9 +124,19 @@ namespace TravelAgency.CSUI.FrmSub
         private void InitComboBoxs()
         {
             //var list = BLL.CommonBll.GetFieldList("CustomerInfo", "CustomerName");
-            txtClient.DropDownStyle = ComboBoxStyle.DropDown;
-            txtSalesPerson.DropDownStyle = ComboBoxStyle.DropDown;
-            txtOperator.DropDownStyle = ComboBoxStyle.DropDown;
+
+            if (GlobalUtils.LoginUserLevel == RigthLevel.Manager)
+            {
+                txtClient.DropDownStyle = ComboBoxStyle.DropDown;
+                txtSalesPerson.DropDownStyle = ComboBoxStyle.DropDown;
+                txtOperator.DropDownStyle = ComboBoxStyle.DropDown;
+            }
+            else
+            {
+                txtClient.DropDownStyle = ComboBoxStyle.DropDownList;
+                txtSalesPerson.DropDownStyle = ComboBoxStyle.DropDownList;
+                txtOperator.DropDownStyle = ComboBoxStyle.DropDownList;
+            }
 
             var list = BLL.CustomerInfo.GetCustomerList();
             if (list != null && list.Count > 0)
