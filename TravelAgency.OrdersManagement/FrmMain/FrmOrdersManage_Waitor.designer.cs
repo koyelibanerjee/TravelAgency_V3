@@ -109,6 +109,7 @@
             this.WaitorConfirmTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReallyPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PlatformActivity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RefundState = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelMain.SuspendLayout();
@@ -156,6 +157,7 @@
             this.WaitorConfirmTime,
             this.ReallyPay,
             this.PlatformActivity,
+            this.RefundState,
             this.Id});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -832,7 +834,7 @@
             // 
             // styleManager1
             // 
-            this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2010Silver;
+            this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2010Blue;
             this.styleManager1.MetroColorParameters = new DevComponents.DotNetBar.Metro.ColorTables.MetroColorGeneratorParameters(System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255))))), System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199))))));
             // 
             // OrderNo
@@ -940,6 +942,11 @@
             this.PlatformActivity.DataPropertyName = "PlatformActivity";
             this.PlatformActivity.HeaderText = "平台活动";
             this.PlatformActivity.Name = "PlatformActivity";
+            // 
+            // RefundState
+            // 
+            this.RefundState.HeaderText = "退款状态";
+            this.RefundState.Name = "RefundState";
             // 
             // Id
             // 
@@ -1050,6 +1057,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn WaitorConfirmTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn ReallyPay;
         private System.Windows.Forms.DataGridViewTextBoxColumn PlatformActivity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RefundState;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
     }
 }
