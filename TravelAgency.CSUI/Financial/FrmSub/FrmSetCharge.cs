@@ -43,7 +43,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
         private void FrmSetCharge_Load(object sender, EventArgs e)
         {
-            
+
             dataGridView1.AutoGenerateColumns = false; //不显示指定之外的列
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //列宽自适应,一定不能用AllCells
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders; //这里也一定不能AllCell自适应!
@@ -75,14 +75,14 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 object value = dataGridView1.Rows[i].Cells["ConsulateCost"].Value;
-                num += value == null? 0 : decimal.Parse(value.ToString());
+                num += value == null ? 0 : decimal.Parse(value.ToString());
                 value = dataGridView1.Rows[i].Cells["VisaPersonCost"].Value;
                 num += value == null ? 0 : decimal.Parse(value.ToString());
                 value = dataGridView1.Rows[i].Cells["InvitationCost"].Value;
                 num += value == null ? 0 : decimal.Parse(value.ToString());
                 value = dataGridView1.Rows[i].Cells["Receipt"].Value;
                 num += value == null ? 0 : decimal.Parse(value.ToString());
-                
+
             }
             lbMoneyCount.Text = "共" + num + "元.";
         }
@@ -196,7 +196,10 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
         private string GetCellValue(int rowidx, string colname)
         {
-            return dataGridView1.Rows[rowidx].Cells[colname].Value.ToString();
+            if (dataGridView1.Rows[rowidx].Cells[colname].Value != null)
+                return dataGridView1.Rows[rowidx].Cells[colname].Value.ToString();
+            else
+                return null;
         }
 
         /// <summary>
