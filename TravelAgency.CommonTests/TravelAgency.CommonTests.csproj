@@ -57,6 +57,7 @@
     <Compile Include="AppSettingHandlerTests.cs" />
     <Compile Include="DateTimeFormatorTests.cs" />
     <Compile Include="Excel\Japan\ExcelGeneratorTests.cs" />
+    <Compile Include="Excel\XlsGeneratorTests.cs" />
     <Compile Include="FTP\FtpHandlerTests.cs" />
     <Compile Include="IDCard\IDCardTests.cs" />
     <Compile Include="InfoCheckerTests.cs" />

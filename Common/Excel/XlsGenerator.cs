@@ -479,43 +479,105 @@ namespace TravelAgency.Common.Excel
             }
         }
 
-        public static void Test()
+
+        private static bool SaveFile(string dstName, IWorkbook wk)
         {
-            //if (visaInfoList.Count > 2)
-            //{
-            //    MessageBoxEx.Show("请选择2个人以下导出!");
-            //    return;
-            //}
+            if (string.IsNullOrEmpty(dstName))
+                return false;
+            try
+            {
+                using (FileStream fs = new FileStream(dstName, FileMode.Create))
+                    wk.Write(fs);
+            }
+            catch (Exception)
+            {
+                MessageBoxEx.Show("指定文件名的文件正在使用中，无法写入，请关闭后重试!");
+                return false;
+            }
+
+            Process.Start(dstName);
+            return true;
+        }
+
+        public static void GetPaymentList(List<Model.Visa> visaList)
+        {
+            if (visaList == null || visaList.Count < 1)
+                return;
 
             //READEXCEL
-            using (FileStream fs = File.OpenRead(GlobalUtils.AppPath + @"I:\My Documents\My Desktop\签证\20180604_账单.xlsx"))
+            using (FileStream fs = File.OpenRead(GlobalUtils.AppPath + @"\Excel\Templates\template_账单模板.xlsx"))
             {
                 IWorkbook wkbook = new XSSFWorkbook(fs);
                 ISheet sheet = wkbook.GetSheet("sheet1");
 
-                var row = sheet.CreateRow(0);
-                row.CreateCell(0).SetCellValue("test");
+                var bllVisa = new BLL.Visa();
 
+                sheet.ShiftRows(11, sheet.LastRowNum, visaList.Count);
+                //wkbook.GetAllPictures()
+                // 在 在  i poi  中日期是以  e double  类型表示的 ， 所 以要格式化
+               
+                ICellStyle borderCellStyle = wkbook.CreateCellStyle();
+                borderCellStyle.VerticalAlignment = VerticalAlignment.Center;
+                borderCellStyle.Alignment = HorizontalAlignment.Left;
+                borderCellStyle.BorderTop = BorderStyle.Thin;
+                borderCellStyle.BorderBottom = BorderStyle.Thin;
+                borderCellStyle.BorderLeft = BorderStyle.Thin;
+                borderCellStyle.BorderRight = BorderStyle.Thin;
+
+                IDataFormat format = wkbook.CreateDataFormat();
+                ICellStyle dateCellStyle = wkbook.CreateCellStyle();
+                dateCellStyle.DataFormat = format.GetFormat("yyyy/MM/dd");
+                //3.插入行和单元格
+                for (int i = 0; i != visaList.Count; ++i)
+                {
+                    //创建单元格
+                    var row = sheet.CreateRow(11 + i);
+
+                    row.CreateCell(0).SetCellValue(visaList[i].GroupNo);
+                    var number = visaList[i].Number;
+                    if (number != null)
+                        row.CreateCell(1).SetCellValue(number.Value.ToString());
+                    else
+                        row.CreateCell(1).SetCellValue("");
+                    var realtime = visaList[i].RealTime;
+                    if (realtime != null)
+                        row.CreateCell(2).SetCellValue(realtime.Value.ToString("yyyy/MM/dd"));
+                    else
+                        row.CreateCell(2).SetCellValue("");
+                    var finishTime
+                        = visaList[i].FinishTime;
+                    if (finishTime != null) row.CreateCell(3).SetCellValue(finishTime.Value.ToString("yyyy/MM/dd"));
+                    else
+                        row.CreateCell(3).SetCellValue("");
+
+                    var price = visaList[i].Price;
+                    if (price != null) row.CreateCell(4).SetCellValue((double)price.Value);
+                    else
+                        row.CreateCell(4).SetCellValue("");
+
+                    var actuallyAmount = visaList[i].ActuallyAmount;
+                    if (actuallyAmount != null) row.CreateCell(5).SetCellValue((double)actuallyAmount.Value);
+                    else
+                        row.CreateCell(5).SetCellValue("");
+
+                    row.CreateCell(6).SetCellValue(visaList[i].Country);
+                    row.CreateCell(7).SetCellValue(visaList[i].Tips2); //备注2的数据导在这里
+
+                    visaList[i].ClaimedFlag = "已生成账单";
+                    for (int j = 0; j < row.LastCellNum; j++)
+                    {
+                        row.Cells[j].CellStyle = borderCellStyle;
+                    }
+                    //bllVisa.Update(visaList[i]);
+                }
+
+                var cntCell = sheet.GetRow(11 + visaList.Count + 1).GetCell(5);
+                cntCell.SetCellFormula($"SUM(F12:F{12 + visaList.Count})");
 
                 //sheet.IsPrintGridlines = true;
-                string dstName = GlobalUtils.ShowSaveFileDlg("test.xls", "Excel XLSX|*.xlsx");
+                string dstName = GlobalUtils.ShowSaveFileDlg("账单.xlsx", "Excel XLSX|*.xlsx");
 
-                // If the file name is not an empty string open it for saving.
-                if (!string.IsNullOrEmpty(dstName))
-                {
-                    try
-                    {
-                        using (FileStream fs1 = File.OpenWrite(dstName))
-                        {
-                            wkbook.Write(fs1);
-                        }
-                        Process.Start(dstName);
-                    }
-                    catch (Exception)
-                    {
-                        MessageBoxEx.Show("指定文件名的文件正在使用中，无法写入，请关闭后重试!");
-                    }
-                }
+                SaveFile(dstName, wkbook);
 
             }
         }
