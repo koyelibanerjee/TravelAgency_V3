@@ -5,6 +5,7 @@ using System.IO;
 using DevComponents.DotNetBar;
 using NPOI.HSSF.UserModel;
 using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
 using TravelAgency.Model;
 
 namespace TravelAgency.Common.Excel
@@ -478,6 +479,46 @@ namespace TravelAgency.Common.Excel
             }
         }
 
+        public static void Test()
+        {
+            //if (visaInfoList.Count > 2)
+            //{
+            //    MessageBoxEx.Show("请选择2个人以下导出!");
+            //    return;
+            //}
+
+            //READEXCEL
+            using (FileStream fs = File.OpenRead(GlobalUtils.AppPath + @"I:\My Documents\My Desktop\签证\20180604_账单.xlsx"))
+            {
+                IWorkbook wkbook = new XSSFWorkbook(fs);
+                ISheet sheet = wkbook.GetSheet("sheet1");
+
+                var row = sheet.CreateRow(0);
+                row.CreateCell(0).SetCellValue("test");
+
+
+                //sheet.IsPrintGridlines = true;
+                string dstName = GlobalUtils.ShowSaveFileDlg("test.xls", "Excel XLSX|*.xlsx");
+
+                // If the file name is not an empty string open it for saving.
+                if (!string.IsNullOrEmpty(dstName))
+                {
+                    try
+                    {
+                        using (FileStream fs1 = File.OpenWrite(dstName))
+                        {
+                            wkbook.Write(fs1);
+                        }
+                        Process.Start(dstName);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBoxEx.Show("指定文件名的文件正在使用中，无法写入，请关闭后重试!");
+                    }
+                }
+
+            }
+        }
 
 
 

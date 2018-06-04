@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using TravelAgency.BLL;
 using TravelAgency.Common;
+using TravelAgency.Common.Excel;
 
 namespace TravelAgency.CSUI.Financial.FrmSub
 {
@@ -75,7 +76,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             DataGridView1_SelectionChanged(null, null);
 
             //dataGridView1.ReadOnly = true;
-            dataGridView1.Columns["Receipt"].ReadOnly = false;
+            dataGridView1.Columns["Price"].ReadOnly = false;
             dataGridView1.Columns["ActuallyAmount"].ReadOnly = false;
         }
 
@@ -182,13 +183,13 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                     if (GetCellValue(i, "Country") == country && GetCellValue(i, "Types") == type &&
                         GetCellValue(i, "DepartureType") == depatureType && GetCellValue(i, "client") == client)
                     {
-                        dataGridView1.Rows[i].Cells["Receipt"].Value = list[frm.SelIdx].Charge;
+                        dataGridView1.Rows[i].Cells["Price"].Value = list[frm.SelIdx].Charge;
                     }
                 }
             }
             else
             {
-                dataGridView1.Rows[e.RowIndex].Cells["Receipt"].Value = list[frm.SelIdx].Charge;
+                dataGridView1.Rows[e.RowIndex].Cells["Price"].Value = list[frm.SelIdx].Charge;
             }
         }
 
@@ -368,7 +369,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             var list = GetSelectedModelList();
             foreach (var visa in list)
             {
-                visa.ActuallyAmount = visa.Receipt ?? 0 * visa.Number ?? 1;
+                visa.ActuallyAmount = visa.Price ?? 0 * visa.Number ?? 1;
             }
             UpdateDgvList();
         }
@@ -381,5 +382,18 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 dataGridView1.DataSource = list;
         }
 
+        private void btnGenPayList_Click(object sender, EventArgs e)
+        {
+            if (MessageBoxEx.Show("生成账单后，会提交所做修改到数据库，是否继续?", "提示", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+                return;
+
+            var list = DgvDataSourceToList();
+
+            int res = _bllVisa.UpdateList(list);
+
+            GlobalUtils.MessageBoxWithRecordNum("更新",res, list.Count);
+
+            ExcelGenerator.GetPaymentList(list);
+        }
     }
 }
