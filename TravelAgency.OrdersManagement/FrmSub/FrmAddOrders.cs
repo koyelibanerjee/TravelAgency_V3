@@ -192,25 +192,17 @@ namespace TravelAgency.OrdersManagement
             {
                 if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
                 {
-                    //若行已是选中状态就不再进行设置
                     //如果没选中当前活动行则选中这一行
-                    if (dataGridView1.Rows[e.RowIndex].Selected == false)
+                    if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Selected == false)
                     {
                         dataGridView1.ClearSelection();
-                        dataGridView1.Rows[e.RowIndex].Selected = true;
+                        dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Selected = true;
                     }
-                    //只选中一行时设置活动单元格
-                    if (dataGridView1.SelectedRows.Count == 1)
-                    {
-                        if (e.ColumnIndex != -1) //选中表头了
-                            dataGridView1.CurrentCell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
-                        else
-                        {
-                            dataGridView1.CurrentCell = dataGridView1.Rows[e.RowIndex].Cells[0];
-                        }
-                    }
-                    //弹出操作菜单
-                    cmsDgvRb.Show(MousePosition.X, MousePosition.Y);
+
+                    //只有在选中的单元格上
+                    if (dataGridView1.SelectedCells.Contains(dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex]))
+                        //弹出操作菜单
+                        cmsDgvRb.Show(MousePosition.X, MousePosition.Y);
                 }
             }
         }

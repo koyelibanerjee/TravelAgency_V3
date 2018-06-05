@@ -163,9 +163,8 @@ namespace TravelAgency.OrdersManagement
 
 
             var list = Common.Enums.OrderInfo_PaymentPlatform.valueKeyMap.Keys;
-            if (list != null)
-                foreach (var item in list)
-                    cbPaymentPlatform.Items.Add(item);
+            foreach (var item in list)
+                cbPaymentPlatform.Items.Add(item);
 
             var list1 = Common.Enums.ReplyResult.valList;
             if (list1 != null)
