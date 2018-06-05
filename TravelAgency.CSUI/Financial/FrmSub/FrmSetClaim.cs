@@ -391,7 +391,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
             //int res = _bllVisa.UpdateList(list);
 
-            //GlobalUtils.MessageBoxWithRecordNum("更新",res, list.Count);
+            //GlobalUtils.MessageBoxWithRecordNum("更新", res, list.Count);
 
             XlsGenerator.GetPaymentList(list);
         }

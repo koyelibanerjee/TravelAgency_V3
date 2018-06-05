@@ -821,16 +821,8 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
         private void 生成账单ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var list = GetSelectedVisaList();
-
-            ExcelGenerator.GetPaymentList(list);
-
-
-
-
-
-
-
+            //var list = GetSelectedVisaList();
+            //ExcelGenerator.GetPaymentList(list);
         }
     }
 }

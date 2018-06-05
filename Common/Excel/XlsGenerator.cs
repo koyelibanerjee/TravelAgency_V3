@@ -543,8 +543,6 @@ namespace TravelAgency.Common.Excel
                 IWorkbook wkbook = new XSSFWorkbook(fs);
                 ISheet sheet = wkbook.GetSheet("sheet1");
 
-                
-
                 var bllVisa = new BLL.Visa();
 
                 //移动行
@@ -613,13 +611,19 @@ namespace TravelAgency.Common.Excel
                     {
                         row.Cells[j].CellStyle = borderCellStyle;
                     }
-                    //bllVisa.Update(visaList[i]);
+                    bllVisa.Update(visaList[i]);
                 }
 
+                //设置其他信息
+                sheet.GetRow(4).GetCell(1).SetCellValue(visaList[0].client);
+                sheet.GetRow(5).GetCell(2).SetCellValue(visaList[0].Person);
+                sheet.GetRow(6).GetCell(7).SetCellValue(visaList[0].SalesPerson);
+
+
+                //插入合计的公式
                 var cntCell = sheet.GetRow(11 + visaList.Count + 1).GetCell(5);
                 cntCell.SetCellFormula($"SUM(F12:F{12 + visaList.Count})");
 
-                //sheet.IsPrintGridlines = true;
                 string dstName = GlobalUtils.ShowSaveFileDlg("账单.xlsx", "Excel XLSX|*.xlsx");
 
                 SaveFile(dstName, wkbook);
