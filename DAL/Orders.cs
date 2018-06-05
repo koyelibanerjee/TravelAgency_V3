@@ -33,9 +33,9 @@ namespace TravelAgency.DAL
 				{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into Orders(");			
-            strSql.Append("OrderNo,PaymentPlatform,GroupNo,ProductName,ProductId,ProductType,PurchaseNum,OrderAmount,ReallyPay,PlatformActivity,GuestOrderTime,WaitorOrderTime,WaitorConfirmTime,ReserveTime,DiningTime,DiningShop,CheckMoneyTime,RefundAmout,GuestRefundApplyTime,WaitorRefundApplyTime,WaitorName,IsPraise,RefundReason,WaitorRemark,JpOrderNo,OrderWay,OperOrderTime,JpConfirmTime,ReplyWaitorConfirmTime,ReplyResult,SettlePrice,ExchangeRate,OperRemark,RealIntoAccountTime,TyperName,Commission,WaitorCommision,AdminRemark,OperName,GuestInfoTypedIn,MoneyType,ComboName,DepartureDate,GuestUseTime");
+            strSql.Append("OrderNo,PaymentPlatform,GroupNo,ProductName,ProductId,ProductType,PurchaseNum,OrderAmount,ReallyPay,PlatformActivity,GuestOrderTime,WaitorOrderTime,WaitorConfirmTime,ReserveTime,DiningTime,DiningShop,CheckMoneyTime,RefundAmout,GuestRefundApplyTime,WaitorRefundApplyTime,WaitorName,IsPraise,RefundReason,WaitorRemark,JpOrderNo,OrderWay,OperOrderTime,JpConfirmTime,ReplyWaitorConfirmTime,ReplyResult,SettlePrice,ExchangeRate,OperRemark,RealIntoAccountTime,TyperName,Commission,WaitorCommision,AdminRemark,OperName,GuestInfoTypedIn,MoneyType,ComboName,DepartureDate,GuestUseTime,OrderState");
 			strSql.Append(") values (");
-            strSql.Append("@OrderNo,@PaymentPlatform,@GroupNo,@ProductName,@ProductId,@ProductType,@PurchaseNum,@OrderAmount,@ReallyPay,@PlatformActivity,@GuestOrderTime,@WaitorOrderTime,@WaitorConfirmTime,@ReserveTime,@DiningTime,@DiningShop,@CheckMoneyTime,@RefundAmout,@GuestRefundApplyTime,@WaitorRefundApplyTime,@WaitorName,@IsPraise,@RefundReason,@WaitorRemark,@JpOrderNo,@OrderWay,@OperOrderTime,@JpConfirmTime,@ReplyWaitorConfirmTime,@ReplyResult,@SettlePrice,@ExchangeRate,@OperRemark,@RealIntoAccountTime,@TyperName,@Commission,@WaitorCommision,@AdminRemark,@OperName,@GuestInfoTypedIn,@MoneyType,@ComboName,@DepartureDate,@GuestUseTime");            
+            strSql.Append("@OrderNo,@PaymentPlatform,@GroupNo,@ProductName,@ProductId,@ProductType,@PurchaseNum,@OrderAmount,@ReallyPay,@PlatformActivity,@GuestOrderTime,@WaitorOrderTime,@WaitorConfirmTime,@ReserveTime,@DiningTime,@DiningShop,@CheckMoneyTime,@RefundAmout,@GuestRefundApplyTime,@WaitorRefundApplyTime,@WaitorName,@IsPraise,@RefundReason,@WaitorRemark,@JpOrderNo,@OrderWay,@OperOrderTime,@JpConfirmTime,@ReplyWaitorConfirmTime,@ReplyResult,@SettlePrice,@ExchangeRate,@OperRemark,@RealIntoAccountTime,@TyperName,@Commission,@WaitorCommision,@AdminRemark,@OperName,@GuestInfoTypedIn,@MoneyType,@ComboName,@DepartureDate,@GuestUseTime,@OrderState");            
             strSql.Append(") ");            
             strSql.Append(";select @@IDENTITY");		
 			SqlParameter[] parameters = {
@@ -82,7 +82,8 @@ namespace TravelAgency.DAL
                         new SqlParameter("@MoneyType", SqlDbType.VarChar,20) ,            
                         new SqlParameter("@ComboName", SqlDbType.VarChar,50) ,            
                         new SqlParameter("@DepartureDate", SqlDbType.DateTime,3) ,            
-                        new SqlParameter("@GuestUseTime", SqlDbType.DateTime)             
+                        new SqlParameter("@GuestUseTime", SqlDbType.DateTime) ,            
+                        new SqlParameter("@OrderState", SqlDbType.VarChar,20)             
               
             };
 			            
@@ -130,6 +131,7 @@ namespace TravelAgency.DAL
             parameters[41].Value = model.ComboName;                        
             parameters[42].Value = model.DepartureDate;                        
             parameters[43].Value = model.GuestUseTime;                        
+            parameters[44].Value = model.OrderState;                        
 			   
 			object obj = DbHelperSQL.GetSingle(strSql.ToString(),parameters);			
 			if (obj == null)
@@ -197,7 +199,8 @@ namespace TravelAgency.DAL
             strSql.Append(" MoneyType = @MoneyType , ");                                    
             strSql.Append(" ComboName = @ComboName , ");                                    
             strSql.Append(" DepartureDate = @DepartureDate , ");                                    
-            strSql.Append(" GuestUseTime = @GuestUseTime  ");            			
+            strSql.Append(" GuestUseTime = @GuestUseTime , ");                                    
+            strSql.Append(" OrderState = @OrderState  ");            			
 			strSql.Append(" where Id=@Id ");
 						
 SqlParameter[] parameters = {
@@ -245,7 +248,8 @@ SqlParameter[] parameters = {
                         new SqlParameter("@MoneyType", SqlDbType.VarChar,20) ,            
                         new SqlParameter("@ComboName", SqlDbType.VarChar,50) ,            
                         new SqlParameter("@DepartureDate", SqlDbType.DateTime,3) ,            
-                        new SqlParameter("@GuestUseTime", SqlDbType.DateTime)             
+                        new SqlParameter("@GuestUseTime", SqlDbType.DateTime) ,            
+                        new SqlParameter("@OrderState", SqlDbType.VarChar,20)             
               
             };
 						            
@@ -294,6 +298,7 @@ SqlParameter[] parameters = {
             parameters[42].Value = model.ComboName;                        
             parameters[43].Value = model.DepartureDate;                        
             parameters[44].Value = model.GuestUseTime;                        
+            parameters[45].Value = model.OrderState;                        
             int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
 			{
@@ -359,7 +364,7 @@ SqlParameter[] parameters = {
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select Id, OrderNo, PaymentPlatform, GroupNo, ProductName, ProductId, ProductType, PurchaseNum, OrderAmount, ReallyPay, PlatformActivity, GuestOrderTime, WaitorOrderTime, WaitorConfirmTime, ReserveTime, DiningTime, DiningShop, CheckMoneyTime, RefundAmout, GuestRefundApplyTime, WaitorRefundApplyTime, WaitorName, IsPraise, RefundReason, WaitorRemark, JpOrderNo, OrderWay, OperOrderTime, JpConfirmTime, ReplyWaitorConfirmTime, ReplyResult, SettlePrice, ExchangeRate, OperRemark, RealIntoAccountTime, TyperName, Commission, WaitorCommision, AdminRemark, OperName, GuestInfoTypedIn, MoneyType, ComboName, DepartureDate, GuestUseTime  ");			
+			strSql.Append("select Id, OrderNo, PaymentPlatform, GroupNo, ProductName, ProductId, ProductType, PurchaseNum, OrderAmount, ReallyPay, PlatformActivity, GuestOrderTime, WaitorOrderTime, WaitorConfirmTime, ReserveTime, DiningTime, DiningShop, CheckMoneyTime, RefundAmout, GuestRefundApplyTime, WaitorRefundApplyTime, WaitorName, IsPraise, RefundReason, WaitorRemark, JpOrderNo, OrderWay, OperOrderTime, JpConfirmTime, ReplyWaitorConfirmTime, ReplyResult, SettlePrice, ExchangeRate, OperRemark, RealIntoAccountTime, TyperName, Commission, WaitorCommision, AdminRemark, OperName, GuestInfoTypedIn, MoneyType, ComboName, DepartureDate, GuestUseTime, OrderState  ");			
 			strSql.Append("  from Orders ");
 			strSql.Append(" where Id=@Id");
 						SqlParameter[] parameters = {
@@ -577,7 +582,11 @@ SqlParameter[] parameters = {
 				{
 					model.GuestUseTime=DateTime.Parse(row["GuestUseTime"].ToString());
 				}
-																														
+																																				if(row["OrderState"]!=null && row["OrderState"].ToString()!="")
+				{
+					model.OrderState= row["OrderState"].ToString();
+				}
+																										
 				return model;
 			}
 			else
@@ -605,7 +614,7 @@ SqlParameter[] parameters = {
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" Id, OrderNo, PaymentPlatform, GroupNo, ProductName, ProductId, ProductType, PurchaseNum, OrderAmount, ReallyPay, PlatformActivity, GuestOrderTime, WaitorOrderTime, WaitorConfirmTime, ReserveTime, DiningTime, DiningShop, CheckMoneyTime, RefundAmout, GuestRefundApplyTime, WaitorRefundApplyTime, WaitorName, IsPraise, RefundReason, WaitorRemark, JpOrderNo, OrderWay, OperOrderTime, JpConfirmTime, ReplyWaitorConfirmTime, ReplyResult, SettlePrice, ExchangeRate, OperRemark, RealIntoAccountTime, TyperName, Commission, WaitorCommision, AdminRemark, OperName, GuestInfoTypedIn, MoneyType, ComboName, DepartureDate, GuestUseTime  ");
+			strSql.Append(" Id, OrderNo, PaymentPlatform, GroupNo, ProductName, ProductId, ProductType, PurchaseNum, OrderAmount, ReallyPay, PlatformActivity, GuestOrderTime, WaitorOrderTime, WaitorConfirmTime, ReserveTime, DiningTime, DiningShop, CheckMoneyTime, RefundAmout, GuestRefundApplyTime, WaitorRefundApplyTime, WaitorName, IsPraise, RefundReason, WaitorRemark, JpOrderNo, OrderWay, OperOrderTime, JpConfirmTime, ReplyWaitorConfirmTime, ReplyResult, SettlePrice, ExchangeRate, OperRemark, RealIntoAccountTime, TyperName, Commission, WaitorCommision, AdminRemark, OperName, GuestInfoTypedIn, MoneyType, ComboName, DepartureDate, GuestUseTime, OrderState  ");
 			strSql.Append(" FROM Orders ");
 			if(strWhere.Trim()!="")
 			{
@@ -647,7 +656,7 @@ SqlParameter[] parameters = {
 		public DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select Id, OrderNo, PaymentPlatform, GroupNo, ProductName, ProductId, ProductType, PurchaseNum, OrderAmount, ReallyPay, PlatformActivity, GuestOrderTime, WaitorOrderTime, WaitorConfirmTime, ReserveTime, DiningTime, DiningShop, CheckMoneyTime, RefundAmout, GuestRefundApplyTime, WaitorRefundApplyTime, WaitorName, IsPraise, RefundReason, WaitorRemark, JpOrderNo, OrderWay, OperOrderTime, JpConfirmTime, ReplyWaitorConfirmTime, ReplyResult, SettlePrice, ExchangeRate, OperRemark, RealIntoAccountTime, TyperName, Commission, WaitorCommision, AdminRemark, OperName, GuestInfoTypedIn, MoneyType, ComboName, DepartureDate, GuestUseTime  ");
+			strSql.Append("select Id, OrderNo, PaymentPlatform, GroupNo, ProductName, ProductId, ProductType, PurchaseNum, OrderAmount, ReallyPay, PlatformActivity, GuestOrderTime, WaitorOrderTime, WaitorConfirmTime, ReserveTime, DiningTime, DiningShop, CheckMoneyTime, RefundAmout, GuestRefundApplyTime, WaitorRefundApplyTime, WaitorName, IsPraise, RefundReason, WaitorRemark, JpOrderNo, OrderWay, OperOrderTime, JpConfirmTime, ReplyWaitorConfirmTime, ReplyResult, SettlePrice, ExchangeRate, OperRemark, RealIntoAccountTime, TyperName, Commission, WaitorCommision, AdminRemark, OperName, GuestInfoTypedIn, MoneyType, ComboName, DepartureDate, GuestUseTime, OrderState  ");
 			
 			strSql.Append(" FROM ( ");
 			strSql.Append(" SELECT ROW_NUMBER() OVER (");

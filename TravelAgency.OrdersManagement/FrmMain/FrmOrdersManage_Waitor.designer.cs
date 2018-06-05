@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -70,7 +69,7 @@
             this.labelItem2 = new DevComponents.DotNetBar.LabelItem();
             this.lbCurPage = new DevComponents.DotNetBar.LabelItem();
             this.btnGeneratePersonalReport = new DevComponents.DotNetBar.ButtonItem();
-            this.cmsDgvRb = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cmsDgvRb = new System.Windows.Forms.ContextMenuStrip();
             this.cmsItemRefreshState = new System.Windows.Forms.ToolStripMenuItem();
             this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,9 +89,10 @@
             this.韩国担保函ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.韩国加急申请书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bgWorkerLoadData = new System.ComponentModel.BackgroundWorker();
-            this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
+            this.styleManager1 = new DevComponents.DotNetBar.StyleManager();
             this.OrderNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OperName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderState = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GuestInfoTypedIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ReplyResult = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OperRemark = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -111,6 +111,10 @@
             this.PlatformActivity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RefundState = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cbOrderState = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.labelX3 = new DevComponents.DotNetBar.LabelX();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panelDgv.SuspendLayout();
@@ -141,6 +145,7 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.OrderNo,
             this.OperName,
+            this.OrderState,
             this.GuestInfoTypedIn,
             this.ReplyResult,
             this.OperRemark,
@@ -288,6 +293,8 @@
             // 
             this.panelSerachBar.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelSerachBar.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelSerachBar.Controls.Add(this.cbOrderState);
+            this.panelSerachBar.Controls.Add(this.labelX3);
             this.panelSerachBar.Controls.Add(this.txtWaitorName);
             this.panelSerachBar.Controls.Add(this.labelX1);
             this.panelSerachBar.Controls.Add(this.cbReplyResult);
@@ -706,13 +713,15 @@
             this.申请退款ToolStripMenuItem,
             this.订单发送消息ToolStripMenuItem,
             this.toolStripSeparator2,
+            this.toolStripMenuItem1,
             this.评价录入ToolStripMenuItem,
             this.确认订单ToolStripMenuItem,
+            this.toolStripSeparator3,
             this.上传订单附件ToolStripMenuItem,
             this.下载订单附件ToolStripMenuItem,
             this.附件管理ToolStripMenuItem});
             this.cmsDgvRb.Name = "cmsDgvRb";
-            this.cmsDgvRb.Size = new System.Drawing.Size(205, 258);
+            this.cmsDgvRb.Size = new System.Drawing.Size(205, 286);
             // 
             // cmsItemRefreshState
             // 
@@ -849,6 +858,12 @@
             this.OperName.HeaderText = "操作姓名";
             this.OperName.Name = "OperName";
             // 
+            // OrderState
+            // 
+            this.OrderState.DataPropertyName = "OrderState";
+            this.OrderState.HeaderText = "订单状态";
+            this.OrderState.Name = "OrderState";
+            // 
             // GuestInfoTypedIn
             // 
             this.GuestInfoTypedIn.HeaderText = "客人基础信息已录入";
@@ -955,6 +970,42 @@
             this.Id.Name = "Id";
             this.Id.Visible = false;
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(201, 6);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(204, 22);
+            this.toolStripMenuItem1.Text = "修改订单状态";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // cbOrderState
+            // 
+            this.cbOrderState.DisplayMember = "Text";
+            this.cbOrderState.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbOrderState.FormattingEnabled = true;
+            this.cbOrderState.ItemHeight = 15;
+            this.cbOrderState.Location = new System.Drawing.Point(662, 33);
+            this.cbOrderState.Name = "cbOrderState";
+            this.cbOrderState.Size = new System.Drawing.Size(79, 21);
+            this.cbOrderState.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cbOrderState.TabIndex = 121;
+            // 
+            // labelX3
+            // 
+            // 
+            // 
+            // 
+            this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX3.Location = new System.Drawing.Point(597, 33);
+            this.labelX3.Name = "labelX3";
+            this.labelX3.Size = new System.Drawing.Size(72, 21);
+            this.labelX3.TabIndex = 120;
+            this.labelX3.Text = "订单状态:";
+            // 
             // FrmOrdersManage_Waitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1041,6 +1092,7 @@
         private System.Windows.Forms.ToolStripMenuItem 附件管理ToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrderNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn OperName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrderState;
         private System.Windows.Forms.DataGridViewTextBoxColumn GuestInfoTypedIn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ReplyResult;
         private System.Windows.Forms.DataGridViewTextBoxColumn OperRemark;
@@ -1059,6 +1111,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PlatformActivity;
         private System.Windows.Forms.DataGridViewTextBoxColumn RefundState;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cbOrderState;
+        private DevComponents.DotNetBar.LabelX labelX3;
     }
 }
 

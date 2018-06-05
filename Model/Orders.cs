@@ -98,6 +98,8 @@ namespace TravelAgency.Model
     private DateTime? _departuredate;
         		                  
     private DateTime? _guestusetime;
+        		                  
+    private string _orderstate;
         
     /// <summary>
 		/// Id
@@ -592,6 +594,17 @@ namespace TravelAgency.Model
         {
             get{ return _guestusetime; }
             set{ _guestusetime = value; }
+        }    
+      
+		/// <summary>
+		/// OrderState
+        /// </summary>		
+		      		  
+  
+        public string OrderState
+        {
+            get{ return _orderstate; }
+            set{ _orderstate = value; }
         }    
       
 		   

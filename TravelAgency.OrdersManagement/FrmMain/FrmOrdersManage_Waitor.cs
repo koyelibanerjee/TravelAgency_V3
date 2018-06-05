@@ -172,6 +172,14 @@ namespace TravelAgency.OrdersManagement
                 foreach (var item in list1)
                     cbReplyResult.Items.Add(item);
 
+            cbOrderState.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbOrderState.Items.Add("全部");
+            cbOrderState.Items.Add("普通");
+            cbOrderState.Items.Add("已出单");
+            cbOrderState.Items.Add("未退款");
+            cbOrderState.Items.Add("待退款");
+            cbOrderState.Items.Add("已退款");
+            cbOrderState.SelectedIndex = 0;
         }
 
         private void DataGridView1_DoubleClick(object sender, EventArgs e)
@@ -281,6 +289,9 @@ namespace TravelAgency.OrdersManagement
             if (cbReplyResult.Text != "全部")
                 conditions.Add(" ReplyResult = '" + cbReplyResult.Text + "' ");
 
+            if (cbOrderState.Text != "全部")
+                conditions.Add(" OrderState = '" + cbOrderState.Text + "' ");
+
             if (!string.IsNullOrEmpty(txtWaitorName.Text.Trim()))
                 conditions.Add(" (WaitorName like '%" + txtWaitorName.Text + "%') ");
 
@@ -303,6 +314,7 @@ namespace TravelAgency.OrdersManagement
             cbPaymentPlatform.Text = "全部";
             cbReplyResult.Text = "全部";
             txtWaitorName.Text = "";
+            cbOrderState.Text = "全部";
         }
 
 
@@ -768,6 +780,24 @@ namespace TravelAgency.OrdersManagement
             var list = GetSelectedModelList();
             FrmOrderFilesManage frm = new FrmOrderFilesManage(list[0]);
             frm.Show();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var list = GetSelectedModelList();
+
+            FrmSetOrderState frm = new FrmSetOrderState();
+            if (DialogResult.Cancel == frm.ShowDialog())
+                return;
+
+            int res = 0;
+            foreach (var item in list)
+            {
+                item.OrderState = frm.RetValue;
+                res += _bllOrders.Update(item) ? 1 : 0;
+            }
+
+            Common.GlobalUtils.MessageBoxWithRecordNum("提交", res, list.Count);
         }
     }
 }

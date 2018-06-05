@@ -51,6 +51,9 @@ namespace TravelAgency.OrdersManagement
             dataGridView1.CellMouseUp += DataGridView1_CellMouseUp;
             dataGridView1.RowsAdded += DataGridView1_RowsAdded;
             dataGridView1.KeyDown += DataGridView1_KeyDown;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
+            dataGridView1.ReadOnly = false;
+
             txtWaitorConfirmTime.Enabled = false; //客服确认时间默认禁用
 
             if (GlobalUtils.LoginUserLevel == RigthLevel.Operator) //操作不能修改基本订单信息和客人信息
@@ -407,12 +410,7 @@ namespace TravelAgency.OrdersManagement
                         _bllGuest.AddList(list);
                         if (!string.IsNullOrEmpty(list[0].GuestName) && !string.IsNullOrEmpty(list[0].GuestPhone))
                             model.GuestInfoTypedIn = true;
-
                     }
-
-
-
-
                     MessageBoxEx.Show("添加成功");
                     _updateDel(_curPage);
                     this.DialogResult = DialogResult.OK;

@@ -163,6 +163,8 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
         private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            if(dataGridView1.Columns[e.ColumnIndex].Name != "Price")
+                return;
             var list = GetClientCharges(e.RowIndex);
             if (list.Count <= 0)
             {
