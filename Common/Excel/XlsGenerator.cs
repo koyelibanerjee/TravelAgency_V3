@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using DevComponents.DotNetBar;
 using NPOI.HSSF.UserModel;
@@ -499,6 +500,38 @@ namespace TravelAgency.Common.Excel
             return true;
         }
 
+        public static void Test()
+        {
+            //if (visaList == null || visaList.Count < 1)
+            //    return;
+
+
+
+
+            //READEXCEL
+            using (FileStream fs = File.OpenRead(@"E:\东瀛假日签证识别管理系统\Excel\Templates\template_账单模板.xlsx"))
+            {
+                IWorkbook wkbook = new XSSFWorkbook(fs);
+                ISheet sheet = wkbook.GetSheet("sheet1");
+
+                var picturebuffer = File.ReadAllBytes(@"E:\东瀛假日签证识别管理系统\Excel\Templates\payQRCode.png");
+                int pictureIdx = wkbook.AddPicture(picturebuffer, PictureType.PNG);
+
+                var patriach = sheet.CreateDrawingPatriarch();
+
+                IClientAnchor anchor = new XSSFClientAnchor(0, 0, 0, 0, 1, 22, 3, 29);
+                patriach.CreatePicture(anchor, pictureIdx);
+
+
+                string dstName = GlobalUtils.ShowSaveFileDlg("账单.xlsx", "Excel XLSX|*.xlsx");
+
+                SaveFile(dstName, wkbook);
+
+            }
+
+        }
+
+
         public static void GetPaymentList(List<Model.Visa> visaList)
         {
             if (visaList == null || visaList.Count < 1)
@@ -510,12 +543,24 @@ namespace TravelAgency.Common.Excel
                 IWorkbook wkbook = new XSSFWorkbook(fs);
                 ISheet sheet = wkbook.GetSheet("sheet1");
 
+                
+
                 var bllVisa = new BLL.Visa();
 
+                //移动行
                 sheet.ShiftRows(11, sheet.LastRowNum, visaList.Count);
+
+                //添加二维码图片
+                var picturebuffer = File.ReadAllBytes(GlobalUtils.AppPath + @"\Excel\Templates\payQRCode.png");
+                int pictureIdx = wkbook.AddPicture(picturebuffer, PictureType.PNG);
+                var patriach = sheet.CreateDrawingPatriarch();
+                IClientAnchor anchor = new XSSFClientAnchor(0, 0, 0, 0, 1, 22 + visaList.Count, 3, 29 + visaList.Count);
+                patriach.CreatePicture(anchor, pictureIdx);
+
+
                 //wkbook.GetAllPictures()
                 // 在 在  i poi  中日期是以  e double  类型表示的 ， 所 以要格式化
-               
+
                 ICellStyle borderCellStyle = wkbook.CreateCellStyle();
                 borderCellStyle.VerticalAlignment = VerticalAlignment.Center;
                 borderCellStyle.Alignment = HorizontalAlignment.Left;

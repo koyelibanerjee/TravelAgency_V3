@@ -14,6 +14,8 @@ namespace TravelAgency.Common.Excel.Tests
         [TestMethod()]
         public void TestTest()
         {
+            XlsGenerator.Test();
+
         }
     }
 }
