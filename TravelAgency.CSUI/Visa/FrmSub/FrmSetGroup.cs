@@ -125,18 +125,22 @@ namespace TravelAgency.CSUI.FrmSub
         {
             //var list = BLL.CommonBll.GetFieldList("CustomerInfo", "CustomerName");
 
-            if (GlobalUtils.LoginUserLevel == RigthLevel.Manager)
-            {
-                txtClient.DropDownStyle = ComboBoxStyle.DropDown;
-                txtSalesPerson.DropDownStyle = ComboBoxStyle.DropDown;
-                txtOperator.DropDownStyle = ComboBoxStyle.DropDown;
-            }
-            else
-            {
-                txtClient.DropDownStyle = ComboBoxStyle.DropDownList;
-                txtSalesPerson.DropDownStyle = ComboBoxStyle.DropDownList;
-                txtOperator.DropDownStyle = ComboBoxStyle.DropDownList;
-            }
+            //if (GlobalUtils.LoginUserLevel == RigthLevel.Manager)
+            //{
+            //    txtClient.DropDownStyle = ComboBoxStyle.DropDown;
+            //    txtSalesPerson.DropDownStyle = ComboBoxStyle.DropDown;
+            //    txtOperator.DropDownStyle = ComboBoxStyle.DropDown;
+            //}
+            //else
+            //{
+            //    txtClient.DropDownStyle = ComboBoxStyle.DropDownList;
+            //    txtSalesPerson.DropDownStyle = ComboBoxStyle.DropDownList;
+            //    txtOperator.DropDownStyle = ComboBoxStyle.DropDownList;
+            //}
+
+            txtClient.DropDownStyle = ComboBoxStyle.DropDown;
+            txtSalesPerson.DropDownStyle = ComboBoxStyle.DropDown;
+            txtOperator.DropDownStyle = ComboBoxStyle.DropDown;
 
             var list = BLL.CustomerInfo.GetCustomerList();
             if (list != null && list.Count > 0)
@@ -288,7 +292,7 @@ namespace TravelAgency.CSUI.FrmSub
             txtSubmitCondition.Text = _recentVisa.SubmitCondition;
             txtFetchType.Text = _recentVisa.FetchCondition;
             txtCheckPerson.Text = _recentVisa.CheckPerson;
-            chbIsUrgent.Checked = _recentVisa.IsUrgent??false;
+            chbIsUrgent.Checked = _recentVisa.IsUrgent ?? false;
             txtRealTime.Text = "";
 
             txtTypeInPerson.Text = GlobalUtils.LoginUser.UserName; //初始没做的时候，typeinperson就是当前人
@@ -364,7 +368,7 @@ namespace TravelAgency.CSUI.FrmSub
             txtSubmitCondition.Text = _visaModel.SubmitCondition;
             txtFetchType.Text = _visaModel.FetchCondition;
             txtCheckPerson.Text = _visaModel.CheckPerson;
-            chbIsUrgent.Checked = _visaModel.IsUrgent??false;
+            chbIsUrgent.Checked = _visaModel.IsUrgent ?? false;
             txtPerson.Text = _visaModel.Person;
 
             txtQuQianYuan.Text = _visaModel.QuQianYuan;
@@ -1079,6 +1083,18 @@ namespace TravelAgency.CSUI.FrmSub
                 _visaModel.Person = CtrlParser.Parse2String(txtPerson);
                 _visaModel.Operator = CtrlParser.Parse2String(txtOperator);
 
+
+                if (GlobalUtils.LoginUserLevel != RigthLevel.Manager &&
+                    !CheckInComboBox(_visaModel.client, txtClient) &&
+                    !CheckInComboBox(_visaModel.Operator, txtOperator) &&
+                    !CheckInComboBox(_visaModel.SalesPerson, txtSalesPerson)
+                    )
+                {
+                    MessageBoxEx.Show("销售、客户、操作输入有误(必须是下拉框中选项),请重新输入!!!");
+                    return false;
+                }
+
+
                 if (!string.IsNullOrEmpty(txtRealTime.Text))
                     _visaModel.RealTime = DateTime.Parse(txtRealTime.Text);
 
@@ -1100,6 +1116,20 @@ namespace TravelAgency.CSUI.FrmSub
 
 
         }
+
+        private bool CheckInComboBox(string str, ComboBox cb)
+        {
+            for (int i = 0; i < cb.Items.Count; ++i)
+            {
+                if (cb.Items[i].ToString() == str)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
 
 
         /// <summary>
@@ -1146,6 +1176,17 @@ namespace TravelAgency.CSUI.FrmSub
                 model.Person = txtPerson.Text;
 
                 model.Operator = CtrlParser.Parse2String(txtOperator);
+
+                if (GlobalUtils.LoginUserLevel != RigthLevel.Manager &&
+    !CheckInComboBox(model.client, txtClient) &&
+    !CheckInComboBox(model.Operator, txtOperator) &&
+    !CheckInComboBox(model.SalesPerson, txtSalesPerson)
+    )
+                {
+                    MessageBoxEx.Show("销售、客户、操作输入有误(必须是下拉框中选项),请重新输入!!!");
+                    return false;
+                }
+
 
 
                 if (!string.IsNullOrEmpty(txtRealTime.Text))

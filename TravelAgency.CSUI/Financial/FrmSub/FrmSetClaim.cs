@@ -371,7 +371,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             var list = GetSelectedModelList();
             foreach (var visa in list)
             {
-                visa.ActuallyAmount = visa.Price ?? 0 * visa.Number ?? 1;
+                visa.ActuallyAmount = visa.Price * (visa.Number ?? 1);
             }
             UpdateDgvList();
         }
