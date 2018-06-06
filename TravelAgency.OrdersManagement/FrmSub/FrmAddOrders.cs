@@ -253,9 +253,6 @@ namespace TravelAgency.OrdersManagement
             foreach (var item in strList)
                 txtReplyResult.Items.Add(item);
             txtReplyResult.SelectedIndex = 3;
-
-
-
         }
         #endregion
 

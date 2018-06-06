@@ -163,7 +163,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
         private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(dataGridView1.Columns[e.ColumnIndex].Name != "Price")
+            if (dataGridView1.Columns[e.ColumnIndex].Name != "Price")
                 return;
             var list = GetClientCharges(e.RowIndex);
             if (list.Count <= 0)
@@ -359,6 +359,13 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 return;
 
             var list = GetSelectedModelList();
+
+            if (!checkGreaterThanCost(list))
+            {
+                if (MessageBoxEx.Show("选中项中有收款小于成本的，是否继续?", "提示", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+                    return;
+            }
+
             //执行计算
             if (!ClaimMoney(list, _balanceList))
                 return;
@@ -384,12 +391,38 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 dataGridView1.DataSource = list;
         }
 
+
+        private bool checkGreaterThanCost(List<Model.Visa> list)
+        {
+            BLL.QZApplication qzApplication = new QZApplication();
+            foreach (var visa in list)
+            {
+                var qzappList = qzApplication.GetModelList($" visa_id = '{visa.Visa_id}'");
+                if (qzappList.Count > 0) //TODO:对应关系???,多条or?
+                {
+                    if (qzappList[0].Price*qzappList[0].Number > visa.ActuallyAmount)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+
         private void btnGenPayList_Click(object sender, EventArgs e)
         {
             if (MessageBoxEx.Show("生成账单后，会提交所做修改到数据库，是否继续?", "提示", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
                 return;
 
             var list = DgvDataSourceToList();
+
+            if (!checkGreaterThanCost(list))
+            {
+                if (MessageBoxEx.Show("选中项中有收款小于成本的，是否继续?", "提示", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+                    return;
+            }
+
 
             //int res = _bllVisa.UpdateList(list);
 

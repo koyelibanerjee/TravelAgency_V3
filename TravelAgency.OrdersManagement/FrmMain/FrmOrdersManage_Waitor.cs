@@ -586,11 +586,25 @@ namespace TravelAgency.OrdersManagement
             //    return;
             //}
 
+
+
+
             int count = this.dataGridView1.SelectedRows.Count;
             if (MessageBoxEx.Show("确认删除" + count + "条记录?", "提醒", MessageBoxButtons.OKCancel)
                 == DialogResult.Cancel)
                 return;
             var modelList = GetSelectedModelList();
+
+            foreach (var orderse in modelList)
+            {
+                if (orderse.ReplyResult
+                    != "未处理")
+                {
+                    MessageBoxEx.Show("操作已处理的数据不允许修改!!!");
+                    return;
+                }
+            }
+
             bool res = _bllOrders.DeleteList(modelList);
 
             GlobalUtils.MessageBoxWithRecordNum("删除", res ? count : 0, count);
@@ -613,6 +627,7 @@ namespace TravelAgency.OrdersManagement
                 MessageBoxEx.Show("请选中一条进行修改!");
                 return;
             }
+
             FrmAddOrders frm = new FrmAddOrders(LoadDataToDataGridView, _curPage, true, list[0]);
             frm.Show();
         }
@@ -643,11 +658,8 @@ namespace TravelAgency.OrdersManagement
 
         private void 查看录入订单客人信息ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 1)
-            {
-                MessageBoxEx.Show("请选中一条数据进行操作!");
-                return;
-            }
+
+
             FrmSetGuestInfo frm = new FrmSetGuestInfo(LoadDataToDataGridView, _curPage, true,
                 DgvDataSourceToList()[dataGridView1.SelectedRows[0].Index]);
             frm.Show();

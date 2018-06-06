@@ -5,16 +5,19 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using TravelAgency.BLL;
 using TravelAgency.Common;
+using TravelAgency.Common.PictureHandler;
 using TravelAgency.CSUI.FrmSub;
-using TravelAgency.Model;
+using TravelAgency.OrdersManagement.FrmSub;
+using Orders = TravelAgency.Model.Orders;
 
 namespace TravelAgency.OrdersManagement
 {
     public partial class FrmOrdersManage_Oper : Form
     {
         private readonly TravelAgency.BLL.Orders _bllOrders = new TravelAgency.BLL.Orders();
-
+        private readonly BLL.OrderFiles _bllOrderFiles  = new OrderFiles();
         private int _curPage = 1;
         private int _pageCount = 0;
         private int _pageSize;
@@ -51,12 +54,42 @@ namespace TravelAgency.OrdersManagement
             this.FormClosed += FrmOrdersManage_FormClosed;
 
             dataGridView1.DoubleClick += DataGridView1_DoubleClick;
+            dataGridView1.RowPostPaint += DataGridView1_RowPostPaint;
             StyleControler.SetDgvStyle(dataGridView1);
+            dataGridView1.Columns["OperRemark"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            
 
             bgWorkerLoadData.WorkerReportsProgress = true;
 
             progressLoading.Visible = false;
             LoadDataToDgvAsyn();
+        }
+
+        private void DataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {
+            if (this.dataGridView1.Rows[e.RowIndex].Cells["Id"].Value == DBNull.Value)
+                return;
+
+            Image RowIcon;//标头图标
+            string strToolTip;//提示信息
+
+            bool hasAccessory = _bllOrderFiles.GetModelList(
+                    $" ordersid = {this.dataGridView1.Rows[e.RowIndex].Cells["Id"].Value}").Count > 0;
+
+            if (hasAccessory)
+            {
+                RowIcon = Properties.Resources.fujian2; //从资源文件中获取图片
+                strToolTip = "有附件";
+            }
+            else
+            {
+                RowIcon = null;
+                strToolTip = "无附件";
+            }
+
+            if (RowIcon != null)
+                e.Graphics.DrawImage(RowIcon, e.RowBounds.Left + this.dataGridView1.RowHeadersWidth - 20, e.RowBounds.Top + 4, 16, 16);//绘制图标
+            this.dataGridView1.Rows[e.RowIndex].HeaderCell.ToolTipText = strToolTip;//设置提示信息
         }
 
         private void FrmOrdersManage_FormClosed(object sender, FormClosedEventArgs e)
@@ -564,6 +597,46 @@ namespace TravelAgency.OrdersManagement
 
             FrmAddMessage frm = new FrmAddMessage(null, 0, list[0], refund: false);
             frm.ShowDialog();
+        }
+
+        private void 上传订单附件ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 1)
+            {
+                MessageBoxEx.Show("请选中一条数据进行操作!");
+                return;
+            }
+
+            var list = GetSelectedModelList();
+            string filename = GlobalUtils.ShowOpenFileDlg("所有文件|*.*");
+            if (!string.IsNullOrEmpty(filename))
+            {
+                new OrderFilesHandler().UploadOrderFile(filename, list[0].Id);
+            }
+        }
+
+        private void 下载订单附件ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 1)
+            {
+                MessageBoxEx.Show("请选中一条数据进行操作!");
+                return;
+            }
+            var list = GetSelectedModelList();
+            new OrderFilesHandler().DownloadOrderFiles(list[0]);
+        }
+
+        private void 附件管理ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 1)
+            {
+                MessageBoxEx.Show("请选中一条数据进行操作!");
+                return;
+            }
+
+            var list = GetSelectedModelList();
+            FrmOrderFilesManage frm = new FrmOrderFilesManage(list[0]);
+            frm.Show();
         }
     }
 }

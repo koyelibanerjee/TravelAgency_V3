@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.WaitorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OrderNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,8 +62,13 @@
             this.bar2 = new DevComponents.DotNetBar.Bar();
             this.lbGuestInfoTypedInCount = new DevComponents.DotNetBar.LabelItem();
             this.lbReplyResultCount = new DevComponents.DotNetBar.LabelItem();
+            this.labelX5 = new DevComponents.DotNetBar.LabelX();
             this.panelBars = new DevComponents.DotNetBar.PanelEx();
             this.panelSerachBar = new DevComponents.DotNetBar.PanelEx();
+            this.labelX3 = new DevComponents.DotNetBar.LabelX();
+            this.txtWaitorName = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.cbReplyResult = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.cbPaymentPlatform = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.txtOrderNo = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -105,11 +110,10 @@
             this.韩国加急申请书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bgWorkerLoadData = new System.ComponentModel.BackgroundWorker();
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
-            this.txtWaitorName = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX1 = new DevComponents.DotNetBar.LabelX();
-            this.cbReplyResult = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.labelX5 = new DevComponents.DotNetBar.LabelX();
-            this.labelX3 = new DevComponents.DotNetBar.LabelX();
+            this.上传订单附件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.下载订单附件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.附件管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panelDgv.SuspendLayout();
@@ -128,14 +132,14 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.WaitorName,
@@ -162,27 +166,27 @@
             this.ExchangeRate,
             this.OperRemark,
             this.Id});
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -412,6 +416,18 @@
             this.lbReplyResultCount.Name = "lbReplyResultCount";
             this.lbReplyResultCount.Text = "--";
             // 
+            // labelX5
+            // 
+            // 
+            // 
+            // 
+            this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX5.Location = new System.Drawing.Point(602, -26);
+            this.labelX5.Name = "labelX5";
+            this.labelX5.Size = new System.Drawing.Size(72, 21);
+            this.labelX5.TabIndex = 120;
+            this.labelX5.Text = "回复结果:";
+            // 
             // panelBars
             // 
             this.panelBars.CanvasColor = System.Drawing.SystemColors.Control;
@@ -465,6 +481,55 @@
             this.panelSerachBar.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.panelSerachBar.Style.GradientAngle = 90;
             this.panelSerachBar.TabIndex = 24;
+            // 
+            // labelX3
+            // 
+            // 
+            // 
+            // 
+            this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX3.Location = new System.Drawing.Point(584, 34);
+            this.labelX3.Name = "labelX3";
+            this.labelX3.Size = new System.Drawing.Size(72, 21);
+            this.labelX3.TabIndex = 124;
+            this.labelX3.Text = "回复结果:";
+            // 
+            // txtWaitorName
+            // 
+            // 
+            // 
+            // 
+            this.txtWaitorName.Border.Class = "TextBoxBorder";
+            this.txtWaitorName.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtWaitorName.DisabledBackColor = System.Drawing.Color.White;
+            this.txtWaitorName.Location = new System.Drawing.Point(488, 34);
+            this.txtWaitorName.Name = "txtWaitorName";
+            this.txtWaitorName.Size = new System.Drawing.Size(80, 21);
+            this.txtWaitorName.TabIndex = 123;
+            // 
+            // cbReplyResult
+            // 
+            this.cbReplyResult.DisplayMember = "Text";
+            this.cbReplyResult.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbReplyResult.FormattingEnabled = true;
+            this.cbReplyResult.ItemHeight = 15;
+            this.cbReplyResult.Location = new System.Drawing.Point(662, 34);
+            this.cbReplyResult.Name = "cbReplyResult";
+            this.cbReplyResult.Size = new System.Drawing.Size(79, 21);
+            this.cbReplyResult.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cbReplyResult.TabIndex = 121;
+            // 
+            // labelX1
+            // 
+            // 
+            // 
+            // 
+            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX1.Location = new System.Drawing.Point(428, 34);
+            this.labelX1.Name = "labelX1";
+            this.labelX1.Size = new System.Drawing.Size(79, 23);
+            this.labelX1.TabIndex = 122;
+            this.labelX1.Text = "销售姓名:";
             // 
             // cbPaymentPlatform
             // 
@@ -791,9 +856,13 @@
             this.查看录入订单操作信息ToolStripMenuItem,
             this.查看客人信息ToolStripMenuItem,
             this.toolStripSeparator2,
-            this.订单发送消息ToolStripMenuItem});
+            this.订单发送消息ToolStripMenuItem,
+            this.toolStripSeparator3,
+            this.上传订单附件ToolStripMenuItem,
+            this.下载订单附件ToolStripMenuItem,
+            this.附件管理ToolStripMenuItem});
             this.cmsDgvRb.Name = "cmsDgvRb";
-            this.cmsDgvRb.Size = new System.Drawing.Size(205, 148);
+            this.cmsDgvRb.Size = new System.Drawing.Size(205, 242);
             // 
             // cmsItemRefreshState
             // 
@@ -883,66 +952,31 @@
             this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2010Blue;
             this.styleManager1.MetroColorParameters = new DevComponents.DotNetBar.Metro.ColorTables.MetroColorGeneratorParameters(System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255))))), System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199))))));
             // 
-            // txtWaitorName
+            // 上传订单附件ToolStripMenuItem
             // 
+            this.上传订单附件ToolStripMenuItem.Name = "上传订单附件ToolStripMenuItem";
+            this.上传订单附件ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.上传订单附件ToolStripMenuItem.Text = "上传订单附件";
+            this.上传订单附件ToolStripMenuItem.Click += new System.EventHandler(this.上传订单附件ToolStripMenuItem_Click);
             // 
+            // 下载订单附件ToolStripMenuItem
             // 
+            this.下载订单附件ToolStripMenuItem.Name = "下载订单附件ToolStripMenuItem";
+            this.下载订单附件ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.下载订单附件ToolStripMenuItem.Text = "下载订单附件";
+            this.下载订单附件ToolStripMenuItem.Click += new System.EventHandler(this.下载订单附件ToolStripMenuItem_Click);
             // 
-            this.txtWaitorName.Border.Class = "TextBoxBorder";
-            this.txtWaitorName.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtWaitorName.DisabledBackColor = System.Drawing.Color.White;
-            this.txtWaitorName.Location = new System.Drawing.Point(488, 34);
-            this.txtWaitorName.Name = "txtWaitorName";
-            this.txtWaitorName.Size = new System.Drawing.Size(80, 21);
-            this.txtWaitorName.TabIndex = 123;
+            // 附件管理ToolStripMenuItem
             // 
-            // labelX1
+            this.附件管理ToolStripMenuItem.Name = "附件管理ToolStripMenuItem";
+            this.附件管理ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.附件管理ToolStripMenuItem.Text = "订单附件管理";
+            this.附件管理ToolStripMenuItem.Click += new System.EventHandler(this.附件管理ToolStripMenuItem_Click);
             // 
+            // toolStripSeparator3
             // 
-            // 
-            // 
-            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(428, 34);
-            this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(79, 23);
-            this.labelX1.TabIndex = 122;
-            this.labelX1.Text = "销售姓名:";
-            // 
-            // cbReplyResult
-            // 
-            this.cbReplyResult.DisplayMember = "Text";
-            this.cbReplyResult.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbReplyResult.FormattingEnabled = true;
-            this.cbReplyResult.ItemHeight = 15;
-            this.cbReplyResult.Location = new System.Drawing.Point(662, 34);
-            this.cbReplyResult.Name = "cbReplyResult";
-            this.cbReplyResult.Size = new System.Drawing.Size(79, 21);
-            this.cbReplyResult.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbReplyResult.TabIndex = 121;
-            // 
-            // labelX5
-            // 
-            // 
-            // 
-            // 
-            this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX5.Location = new System.Drawing.Point(602, -26);
-            this.labelX5.Name = "labelX5";
-            this.labelX5.Size = new System.Drawing.Size(72, 21);
-            this.labelX5.TabIndex = 120;
-            this.labelX5.Text = "回复结果:";
-            // 
-            // labelX3
-            // 
-            // 
-            // 
-            // 
-            this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX3.Location = new System.Drawing.Point(584, 34);
-            this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(72, 21);
-            this.labelX3.TabIndex = 124;
-            this.labelX3.Text = "回复结果:";
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(201, 6);
             // 
             // FrmOrdersManage_Oper
             // 
@@ -1047,6 +1081,10 @@
         private DevComponents.DotNetBar.Controls.ComboBoxEx cbReplyResult;
         private DevComponents.DotNetBar.LabelX labelX1;
         private DevComponents.DotNetBar.LabelX labelX3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem 上传订单附件ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 下载订单附件ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 附件管理ToolStripMenuItem;
     }
 }
 
