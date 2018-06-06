@@ -4,24 +4,24 @@ using System.Collections.Generic;
 using TravelAgency.Model;
 namespace TravelAgency.BLL
 {
-	/// <summary>
-	/// CustomerInfo
-	/// </summary>
-	public partial class CustomerInfo
-	{
-        public static List<string> GetCustomerList()
+    /// <summary>
+    /// CustomerInfo
+    /// </summary>
+    public partial class CustomerInfo
+    {
+        public static List<KeyValuePair<Guid, string>> GetCustomerList()
         {
             return DAL.CustomerInfo.GetCustomerList();
         }
 
-        public static List<string> GetOpeartorByCustName(string cust_name)
+        public static List<string> GetOpeartorByCustId(string cust_id)
         {
-            return DAL.CustomerInfo.GetOpeartorByCustName(cust_name);
+            return DAL.CustomerInfo.GetOpeartorByCustId(cust_id);
         }
 
-        public static List<string> GetSalesPersonByCustName(string cust_name)
+        public static List<string> GetSalesPersonByCustId(string cust_id)
         {
-            return DAL.CustomerInfo.GetSalesPersonByCustName(cust_name);
+            return DAL.CustomerInfo.GetSalesPersonByCustId(cust_id);
         }
     }
 }

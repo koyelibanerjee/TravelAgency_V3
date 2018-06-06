@@ -145,7 +145,13 @@ namespace TravelAgency.CSUI.FrmSub
             var list = BLL.CustomerInfo.GetCustomerList();
             if (list != null && list.Count > 0)
                 foreach (var item in list)
-                    txtClient.Items.Add(item);
+                {
+                    var cbitem = new ComboBoxItem();
+                    cbitem.Text = item.Value; //name
+                    cbitem.Tag = item.Key; //id
+                    txtClient.Items.Add(cbitem);
+                }
+
             txtClient.SelectedIndex = 0;
             txtClient.SelectedIndexChanged += TxtClient_SelectedIndexChanged;
 
@@ -203,16 +209,20 @@ namespace TravelAgency.CSUI.FrmSub
             if (txtClient.Text == "")
                 return;
             txtOperator.Items.Clear();
-            var list = BLL.CustomerInfo.GetOpeartorByCustName(txtClient.Text);
-            if (list != null && list.Count > 0)
-                foreach (var item in list)
-                    txtOperator.Items.Add(item);
+            var comboBoxItem = txtClient.SelectedItem as ComboBoxItem;
+            if (comboBoxItem != null)
+            {
+                var list = BLL.CustomerInfo.GetOpeartorByCustId(comboBoxItem.Tag.ToString());
+                if (list != null && list.Count > 0)
+                    foreach (var item in list)
+                        txtOperator.Items.Add(item);
 
-            txtSalesPerson.Items.Clear();
-            list = BLL.CustomerInfo.GetSalesPersonByCustName(txtClient.Text);
-            if (list != null && list.Count > 0)
-                foreach (var item in list)
-                    txtSalesPerson.Items.Add(item);
+                txtSalesPerson.Items.Clear();
+                list = BLL.CustomerInfo.GetSalesPersonByCustId(comboBoxItem.Tag.ToString());
+                if (list != null && list.Count > 0)
+                    foreach (var item in list)
+                        txtSalesPerson.Items.Add(item);
+            }
 
             if (txtOperator.Items.Count > 0)
                 txtOperator.SelectedIndex = 0;
