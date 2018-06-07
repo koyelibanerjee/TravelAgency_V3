@@ -66,13 +66,13 @@
             this.btnAllIn = new DevComponents.DotNetBar.ButtonX();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelGroupInfo = new DevComponents.DotNetBar.PanelEx();
+            this.txtOperator = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.txtSalesPerson = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.txtClient = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX18 = new DevComponents.DotNetBar.LabelX();
             this.txtRealTime = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.labelX17 = new DevComponents.DotNetBar.LabelX();
-            this.txtQuQianYuan = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX16 = new DevComponents.DotNetBar.LabelX();
-            this.txtPeiQianYuan = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX15 = new DevComponents.DotNetBar.LabelX();
             this.txtDepartureTime = new System.Windows.Forms.DateTimePicker();
             this.txtOutTime = new System.Windows.Forms.DateTimePicker();
@@ -123,8 +123,8 @@
             this.移到顶部ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.移到底部ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查看资料ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtSalesPerson = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.txtOperator = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.txtPeiQianYuan = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.txtQuQianYuan = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.panelMain.SuspendLayout();
             this.panelMid2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGroupInfo)).BeginInit();
@@ -221,7 +221,7 @@
             this.dgvGroupInfo.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvGroupInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvGroupInfo.EnableHeadersVisualStyles = false;
-            this.dgvGroupInfo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.dgvGroupInfo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.dgvGroupInfo.Location = new System.Drawing.Point(0, 0);
             this.dgvGroupInfo.Name = "dgvGroupInfo";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -626,15 +626,15 @@
             // 
             this.panelGroupInfo.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelGroupInfo.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelGroupInfo.Controls.Add(this.txtQuQianYuan);
+            this.panelGroupInfo.Controls.Add(this.txtPeiQianYuan);
             this.panelGroupInfo.Controls.Add(this.txtOperator);
             this.panelGroupInfo.Controls.Add(this.txtSalesPerson);
             this.panelGroupInfo.Controls.Add(this.txtClient);
             this.panelGroupInfo.Controls.Add(this.labelX18);
             this.panelGroupInfo.Controls.Add(this.txtRealTime);
             this.panelGroupInfo.Controls.Add(this.labelX17);
-            this.panelGroupInfo.Controls.Add(this.txtQuQianYuan);
             this.panelGroupInfo.Controls.Add(this.labelX16);
-            this.panelGroupInfo.Controls.Add(this.txtPeiQianYuan);
             this.panelGroupInfo.Controls.Add(this.labelX15);
             this.panelGroupInfo.Controls.Add(this.txtDepartureTime);
             this.panelGroupInfo.Controls.Add(this.txtOutTime);
@@ -673,6 +673,30 @@
             this.panelGroupInfo.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.panelGroupInfo.Style.GradientAngle = 90;
             this.panelGroupInfo.TabIndex = 47;
+            // 
+            // txtOperator
+            // 
+            this.txtOperator.DisplayMember = "Text";
+            this.txtOperator.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.txtOperator.FormattingEnabled = true;
+            this.txtOperator.ItemHeight = 15;
+            this.txtOperator.Location = new System.Drawing.Point(312, 179);
+            this.txtOperator.Name = "txtOperator";
+            this.txtOperator.Size = new System.Drawing.Size(93, 21);
+            this.txtOperator.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.txtOperator.TabIndex = 91;
+            // 
+            // txtSalesPerson
+            // 
+            this.txtSalesPerson.DisplayMember = "Text";
+            this.txtSalesPerson.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.txtSalesPerson.FormattingEnabled = true;
+            this.txtSalesPerson.ItemHeight = 15;
+            this.txtSalesPerson.Location = new System.Drawing.Point(312, 151);
+            this.txtSalesPerson.Name = "txtSalesPerson";
+            this.txtSalesPerson.Size = new System.Drawing.Size(93, 21);
+            this.txtSalesPerson.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.txtSalesPerson.TabIndex = 90;
             // 
             // txtClient
             // 
@@ -755,19 +779,6 @@
             this.labelX17.TabIndex = 85;
             this.labelX17.Text = "取签员:";
             // 
-            // txtQuQianYuan
-            // 
-            // 
-            // 
-            // 
-            this.txtQuQianYuan.Border.Class = "TextBoxBorder";
-            this.txtQuQianYuan.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtQuQianYuan.Location = new System.Drawing.Point(104, 232);
-            this.txtQuQianYuan.Name = "txtQuQianYuan";
-            this.txtQuQianYuan.PreventEnterBeep = true;
-            this.txtQuQianYuan.Size = new System.Drawing.Size(93, 21);
-            this.txtQuQianYuan.TabIndex = 84;
-            // 
             // labelX16
             // 
             // 
@@ -779,19 +790,6 @@
             this.labelX16.Size = new System.Drawing.Size(91, 23);
             this.labelX16.TabIndex = 83;
             this.labelX16.Text = "陪签员:";
-            // 
-            // txtPeiQianYuan
-            // 
-            // 
-            // 
-            // 
-            this.txtPeiQianYuan.Border.Class = "TextBoxBorder";
-            this.txtPeiQianYuan.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtPeiQianYuan.Location = new System.Drawing.Point(104, 205);
-            this.txtPeiQianYuan.Name = "txtPeiQianYuan";
-            this.txtPeiQianYuan.PreventEnterBeep = true;
-            this.txtPeiQianYuan.Size = new System.Drawing.Size(93, 21);
-            this.txtPeiQianYuan.TabIndex = 82;
             // 
             // labelX15
             // 
@@ -1387,29 +1385,29 @@
             this.查看资料ToolStripMenuItem.Text = "查看资料";
             this.查看资料ToolStripMenuItem.Click += new System.EventHandler(this.查看资料ToolStripMenuItem_Click);
             // 
-            // txtSalesPerson
+            // txtPeiQianYuan
             // 
-            this.txtSalesPerson.DisplayMember = "Text";
-            this.txtSalesPerson.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.txtSalesPerson.FormattingEnabled = true;
-            this.txtSalesPerson.ItemHeight = 15;
-            this.txtSalesPerson.Location = new System.Drawing.Point(312, 151);
-            this.txtSalesPerson.Name = "txtSalesPerson";
-            this.txtSalesPerson.Size = new System.Drawing.Size(93, 21);
-            this.txtSalesPerson.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.txtSalesPerson.TabIndex = 90;
+            this.txtPeiQianYuan.DisplayMember = "Text";
+            this.txtPeiQianYuan.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.txtPeiQianYuan.FormattingEnabled = true;
+            this.txtPeiQianYuan.ItemHeight = 15;
+            this.txtPeiQianYuan.Location = new System.Drawing.Point(104, 205);
+            this.txtPeiQianYuan.Name = "txtPeiQianYuan";
+            this.txtPeiQianYuan.Size = new System.Drawing.Size(93, 21);
+            this.txtPeiQianYuan.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.txtPeiQianYuan.TabIndex = 92;
             // 
-            // txtOperator
+            // txtQuQianYuan
             // 
-            this.txtOperator.DisplayMember = "Text";
-            this.txtOperator.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.txtOperator.FormattingEnabled = true;
-            this.txtOperator.ItemHeight = 15;
-            this.txtOperator.Location = new System.Drawing.Point(312, 179);
-            this.txtOperator.Name = "txtOperator";
-            this.txtOperator.Size = new System.Drawing.Size(93, 21);
-            this.txtOperator.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.txtOperator.TabIndex = 91;
+            this.txtQuQianYuan.DisplayMember = "Text";
+            this.txtQuQianYuan.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.txtQuQianYuan.FormattingEnabled = true;
+            this.txtQuQianYuan.ItemHeight = 15;
+            this.txtQuQianYuan.Location = new System.Drawing.Point(104, 232);
+            this.txtQuQianYuan.Name = "txtQuQianYuan";
+            this.txtQuQianYuan.Size = new System.Drawing.Size(93, 21);
+            this.txtQuQianYuan.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.txtQuQianYuan.TabIndex = 93;
             // 
             // FrmSetGroup
             // 
@@ -1525,13 +1523,13 @@
         private DevComponents.DotNetBar.ButtonX btnGetShenYuanMuban;
         private DevComponents.DotNetBar.LabelX labelX15;
         private DevComponents.DotNetBar.LabelX labelX16;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtPeiQianYuan;
         private DevComponents.DotNetBar.LabelX labelX17;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtQuQianYuan;
         private DevComponents.Editors.DateTimeAdv.DateTimeInput txtRealTime;
         private DevComponents.DotNetBar.LabelX labelX18;
         private DevComponents.DotNetBar.Controls.ComboBoxEx txtClient;
         private DevComponents.DotNetBar.Controls.ComboBoxEx txtOperator;
         private DevComponents.DotNetBar.Controls.ComboBoxEx txtSalesPerson;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx txtQuQianYuan;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx txtPeiQianYuan;
     }
 }

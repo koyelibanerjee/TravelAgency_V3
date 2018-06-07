@@ -202,6 +202,24 @@ namespace TravelAgency.CSUI.FrmSub
                 cbCountry.Items.Add(countryName);
             }
             cbCountry.DropDownStyle = ComboBoxStyle.DropDown;
+
+
+            txtPeiQianYuan.DropDownStyle = ComboBoxStyle.DropDown;
+            txtQuQianYuan.DropDownStyle = ComboBoxStyle.DropDown;
+
+            var list1 = BLL.CommonBll.GetFieldList("Visa", "PeiQianYuan");
+            if (list1 != null && list1.Count > 0)
+                foreach (var item in list1)
+                {
+                    txtPeiQianYuan.Items.Add(item);
+                }
+            list1 = BLL.CommonBll.GetFieldList("Visa", "QuQianYuan");
+            if (list1 != null && list1.Count > 0)
+                foreach (var item in list1)
+                {
+                    txtQuQianYuan.Items.Add(item);
+                }
+
         }
 
         private void TxtClient_SelectedIndexChanged(object sender, EventArgs e)
