@@ -68,6 +68,7 @@ namespace TravelAgency.OrdersManagement
             }
 
             txtOperRemark.ReadOnly = true;
+
             if (_is4Modify)
             {
                 //把选中的加载到这里面
@@ -91,6 +92,13 @@ namespace TravelAgency.OrdersManagement
                 txtOperRemark.Text = _model.OperRemark;
                 txtWaitorRemark.Text = _model.WaitorRemark;
                 txtDepartureDate.Text = _model.DepartureDate.ToString();
+
+                if (GlobalUtils.LoginUserLevel == RigthLevel.Waitor &&
+                                _model.ReplyResult != "未处理")
+                {
+                    btnOK.Enabled = false;
+                }
+
                 this.Text = "修改订单信息";
                 InitDgvData();
             }
@@ -292,13 +300,13 @@ namespace TravelAgency.OrdersManagement
                     _model.DepartureDate = CtrlParser.Parse2Datetime(txtDepartureDate);
 
                     var list1 = DgvDataSourceToList();
-                    if (list1 != null && list1.Count > 0 
+                    if (list1 != null && list1.Count > 0
                         && !string.IsNullOrEmpty(list1[0].GuestName) &&
                             !string.IsNullOrEmpty(list1[0].GuestPhone) &&
                             !string.IsNullOrEmpty(list1[0].GuestEMail))
-                            _model.GuestInfoTypedIn = true;
-                        else
-                            _model.GuestInfoTypedIn = false;
+                        _model.GuestInfoTypedIn = true;
+                    else
+                        _model.GuestInfoTypedIn = false;
 
 
                     //下面的字段暂时不进行修改

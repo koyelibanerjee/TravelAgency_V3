@@ -64,6 +64,12 @@ namespace TravelAgency.OrdersManagement
                 //txtOperRemark.Text = _model.OperRemark;
                 //txtOperRemark.ReadOnly = true;
 
+                if (GlobalUtils.LoginUserLevel== RigthLevel.Waitor && 
+                    _model.ReplyResult != "未处理")
+                {
+                    btnOK.Enabled = false;
+                }
+
                 txtOrderNo.Text = _model.OrderNo;
                 this.Text = "修改订单客户信息";
             }

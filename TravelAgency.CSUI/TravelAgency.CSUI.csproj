@@ -418,12 +418,6 @@
     <Compile Include="Visa\FrmSub\FrmSetGroup.Designer.cs">
       <DependentUpon>FrmSetGroup.cs</DependentUpon>
     </Compile>
-    <Compile Include="Visa\FrmMain\FrmVisaSubmit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Visa\FrmMain\FrmVisaSubmit.Designer.cs">
-      <DependentUpon>FrmVisaSubmit.cs</DependentUpon>
-    </Compile>
     <Compile Include="Visa\FrmSub\FrmQRCode.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -620,9 +614,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visa\FrmSub\FrmSetGroup.resx">
       <DependentUpon>FrmSetGroup.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Visa\FrmMain\FrmVisaSubmit.resx">
-      <DependentUpon>FrmVisaSubmit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visa\FrmSub\FrmQRCode.resx">
       <DependentUpon>FrmQRCode.cs</DependentUpon>

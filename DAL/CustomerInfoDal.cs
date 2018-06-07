@@ -15,9 +15,10 @@ namespace TravelAgency.DAL
         public static List<KeyValuePair<Guid, string>> GetCustomerList()
         {
             string sql = "select distinct customername,customeid from CustomerInfo where " +
+                         " Operator is not null and LEN(Operator)>0 and " +
                          "CustomerName is not null and LEN(CustomerName)>0 and " +
-                         "DataType = '销售录入' and" +
-                         " DepartmentId='a86ed375-76db-45df-a4e9-d0bb8815d49c'";
+                         "DataType = '销售录入'";
+
             DataSet ds = DbHelperSQL.Query(sql);
             List<KeyValuePair<Guid, string>> res = new List<KeyValuePair<Guid, string>>();
             if (ds.Tables[0].Rows.Count > 0)

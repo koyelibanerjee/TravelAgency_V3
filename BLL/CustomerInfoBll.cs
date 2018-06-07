@@ -9,12 +9,15 @@ namespace TravelAgency.BLL
     /// </summary>
     public partial class CustomerInfo
     {
-
+        private static List<KeyValuePair<Guid, string>> cust_list = null;
 
         //其实这里可以直接用一个查询(连接)返回对应结构体(所有需要的封装起来)就行了
         public static List<KeyValuePair<Guid, string>> GetCustomerList()
         {
-            return DAL.CustomerInfo.GetCustomerList();
+            if (cust_list == null)
+                return DAL.CustomerInfo.GetCustomerList();
+            else
+                return cust_list;
         }
 
         public static List<string> GetOpeartorByCustId(string cust_id)
