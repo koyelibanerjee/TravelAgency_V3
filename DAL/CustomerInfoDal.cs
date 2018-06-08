@@ -15,9 +15,71 @@ namespace TravelAgency.DAL
         public static List<KeyValuePair<Guid, string>> GetCustomerList()
         {
             string sql = "select distinct customername,customeid from CustomerInfo where " +
-                         " Operator is not null and LEN(Operator)>0 and " +
-                         "CustomerName is not null and LEN(CustomerName)>0 and " +
-                         "DataType = '销售录入'";
+                        " DepartmentId = 'a86ed375-76db-45df-a4e9-d0bb8815d49c' and " + 
+                         " CustomerName is not null and LEN(CustomerName)>0 and " +
+                         " DataType = '销售录入'";
+
+            DataSet ds = DbHelperSQL.Query(sql);
+            List<KeyValuePair<Guid, string>> res = new List<KeyValuePair<Guid, string>>();
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    if (row["customeid"] != null && row["customeid"].ToString() != "" &&
+                        row["customername"] != null && row["customername"].ToString() != "")
+                    {
+                        res.Add(new KeyValuePair<Guid, string>
+                            (Guid.Parse(row["customeid"].ToString()),
+                            row["customername"].ToString()));
+                    }
+                }
+                return res;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+
+        public static List<KeyValuePair<string, string>> GetSalesPersonList()
+        {
+            string sql = "select distinct ci.workid,au.username " +
+                         "from customerinfo as ci " +
+                         "inner join authuser as au " +
+                         "on ci.workid=au.workid " +
+                         "where datatype = '销售录入' and " +
+                         "customerName is not null and " +
+                         "len(customerName)>0";
+
+            DataSet ds = DbHelperSQL.Query(sql);
+            List<KeyValuePair<string, string>> res = new List<KeyValuePair<string, string>>();
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    if (row["workid"] != null && row["workid"].ToString() != "" &&
+                        row["username"] != null && row["username"].ToString() != "")
+                    {
+                        res.Add(new KeyValuePair<string, string>
+                            (row["workid"].ToString(),
+                            row["username"].ToString()));
+                    }
+                }
+                return res;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public static List<KeyValuePair<Guid, string>> GetCustomerListBySalesperson(string workid)
+        {
+            string sql = string.Format("select distinct customername,customeid from CustomerInfo where " +
+                         " CustomerName is not null and LEN(CustomerName)>0 and " +
+                         " DataType = '销售录入' and " + 
+                         "workid = '{0}' ",workid);
 
             DataSet ds = DbHelperSQL.Query(sql);
             List<KeyValuePair<Guid, string>> res = new List<KeyValuePair<Guid, string>>();

@@ -152,9 +152,12 @@ namespace TravelAgency.CSUI.FrmSub
                     txtClient.Items.Add(cbitem);
                 }
 
-            txtClient.SelectedIndex = 0;
-            txtClient.SelectedIndexChanged += TxtClient_SelectedIndexChanged;
+            chkSaleFirst.Checked = false;
 
+            //txtClient.SelectedIndex = 0;
+            //txtClient.SelectedIndexChanged += TxtClient_SelChangeGetSalesPerson;
+            txtClient.SelectedIndexChanged += TxtClient_SelChangeGetOperator;
+            txtClient.SelectedIndexChanged += TxtClient_SelChangeGetSalesPerson;
             //初始化comboBox的成员
             //出境类型
             txtDepartureType.Items.Add("单次");
@@ -222,10 +225,28 @@ namespace TravelAgency.CSUI.FrmSub
 
         }
 
-        private void TxtClient_SelectedIndexChanged(object sender, EventArgs e)
+        private void TxtClient_SelChangeGetSalesPerson(object sender, EventArgs e)
         {
             if (txtClient.Text == "")
                 return;
+
+            txtSalesPerson.Text = "";
+            txtSalesPerson.Items.Clear();
+            var comboBoxItem = txtClient.SelectedItem as ComboBoxItem;
+            if (comboBoxItem != null)
+            {
+                var list = BLL.CustomerInfo.GetSalesPersonByCustId(comboBoxItem.Tag.ToString());
+                if (list != null && list.Count > 0)
+                    foreach (var item in list)
+                        txtSalesPerson.Items.Add(item);
+            }
+        }
+
+        private void TxtClient_SelChangeGetOperator(object sender, EventArgs e)
+        {
+            if (txtClient.Text == "")
+                return;
+            txtOperator.Text = "";
             txtOperator.Items.Clear();
             var comboBoxItem = txtClient.SelectedItem as ComboBoxItem;
             if (comboBoxItem != null)
@@ -234,20 +255,7 @@ namespace TravelAgency.CSUI.FrmSub
                 if (list != null && list.Count > 0)
                     foreach (var item in list)
                         txtOperator.Items.Add(item);
-
-                txtSalesPerson.Items.Clear();
-                list = BLL.CustomerInfo.GetSalesPersonByCustId(comboBoxItem.Tag.ToString());
-                if (list != null && list.Count > 0)
-                    foreach (var item in list)
-                        txtSalesPerson.Items.Add(item);
             }
-
-            if (txtOperator.Items.Count > 0)
-                txtOperator.SelectedIndex = 0;
-
-            if (txtSalesPerson.Items.Count > 0)
-                txtSalesPerson.SelectedIndex = 0;
-
         }
 
         private void InitDgv()
@@ -1661,6 +1669,55 @@ namespace TravelAgency.CSUI.FrmSub
             UpdateGroupNo();
         }
 
+        private void chkSaleFirst_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkSaleFirst.Checked)
+            {
+                txtClient.SelectedIndexChanged -= TxtClient_SelChangeGetSalesPerson;
+                txtSalesPerson.Items.Clear();
+                txtSalesPerson.Text = "";
+                var salepersonlist = BLL.CustomerInfo.GetSalesPersonList();
+                if (salepersonlist != null && salepersonlist.Count > 0)
+                {
+                    foreach (var pair in salepersonlist)
+                    {
+                        var item = new ComboBoxItem();
+                        item.Text = pair.Value;
+                        item.Tag = pair.Key;
+                        txtSalesPerson.Items.Add(item);
+                    }
+                }
+                txtSalesPerson.DropDownStyle = ComboBoxStyle.DropDown;
+                txtSalesPerson.SelectedIndexChanged += TxtSalesPerson_SelectedIndexChanged;
+            }
+            else
+            {
+                txtClient.SelectedIndexChanged += TxtClient_SelChangeGetSalesPerson;
+                txtSalesPerson.SelectedIndexChanged -= TxtSalesPerson_SelectedIndexChanged;
+            }
+        }
 
+        private void TxtSalesPerson_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var comboBoxItem = txtSalesPerson.SelectedItem as ComboBoxItem;
+            if (comboBoxItem != null)
+            {
+                var workid = comboBoxItem.Tag.ToString();
+                txtClient.Items.Clear();
+                txtClient.Text = "";
+                var clientList = BLL.CustomerInfo.GetCustomerListBySalesperson(workid);
+                if (clientList != null && clientList.Count > 0)
+                {
+                    foreach (var pair in clientList)
+                    {
+                        var item = new ComboBoxItem();
+                        item.Text = pair.Value;
+                        item.Tag = pair.Key;
+                        txtClient.Items.Add(item);
+                    }
+                }
+                txtClient.DropDownStyle = ComboBoxStyle.DropDown;
+            }
+        }
     }
 }

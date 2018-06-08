@@ -20,6 +20,17 @@ namespace TravelAgency.BLL
                 return cust_list;
         }
 
+        public static List<KeyValuePair<string, string>> GetSalesPersonList()
+        {
+            return DAL.CustomerInfo.GetSalesPersonList();
+        }
+
+        public static List<KeyValuePair<Guid, string>> GetCustomerListBySalesperson(string workid)
+        {
+            return DAL.CustomerInfo.GetCustomerListBySalesperson(workid);
+        }
+
+
         public static List<string> GetOpeartorByCustId(string cust_id)
         {
             return DAL.CustomerInfo.GetOpeartorByCustId(cust_id);
