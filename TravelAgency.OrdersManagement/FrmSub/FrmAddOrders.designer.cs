@@ -37,7 +37,6 @@
             this.btnOK = new DevComponents.DotNetBar.ButtonX();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.panelMain = new DevComponents.DotNetBar.PanelEx();
-            this.txtGuestUseTime = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.lbGuestCount = new DevComponents.DotNetBar.LabelX();
             this.txtOperRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX18 = new DevComponents.DotNetBar.LabelX();
@@ -104,9 +103,9 @@
             this.移到顶部ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.移到底部ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.复制选中单元格ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtGuestUseTime = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.panelEx1.SuspendLayout();
             this.panelMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtGuestUseTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWaitorConfirmTime)).BeginInit();
             this.cmsDgvRb.SuspendLayout();
@@ -231,53 +230,6 @@
             this.panelMain.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.panelMain.Style.GradientAngle = 90;
             this.panelMain.TabIndex = 106;
-            // 
-            // txtGuestUseTime
-            // 
-            // 
-            // 
-            // 
-            this.txtGuestUseTime.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.txtGuestUseTime.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtGuestUseTime.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
-            this.txtGuestUseTime.ButtonDropDown.Visible = true;
-            this.txtGuestUseTime.CustomFormat = "yyyy/MM/dd HH:mm";
-            this.txtGuestUseTime.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
-            this.txtGuestUseTime.IsPopupCalendarOpen = false;
-            this.txtGuestUseTime.Location = new System.Drawing.Point(402, 144);
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            this.txtGuestUseTime.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtGuestUseTime.MonthCalendar.CalendarDimensions = new System.Drawing.Size(1, 1);
-            this.txtGuestUseTime.MonthCalendar.ClearButtonVisible = true;
-            // 
-            // 
-            // 
-            this.txtGuestUseTime.MonthCalendar.CommandsBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
-            this.txtGuestUseTime.MonthCalendar.CommandsBackgroundStyle.BackColorGradientAngle = 90;
-            this.txtGuestUseTime.MonthCalendar.CommandsBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-            this.txtGuestUseTime.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.txtGuestUseTime.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
-            this.txtGuestUseTime.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1;
-            this.txtGuestUseTime.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtGuestUseTime.MonthCalendar.DisplayMonth = new System.DateTime(2018, 3, 1, 0, 0, 0, 0);
-            this.txtGuestUseTime.MonthCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
-            // 
-            // 
-            // 
-            this.txtGuestUseTime.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.txtGuestUseTime.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90;
-            this.txtGuestUseTime.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.txtGuestUseTime.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtGuestUseTime.MonthCalendar.TodayButtonVisible = true;
-            this.txtGuestUseTime.Name = "txtGuestUseTime";
-            this.txtGuestUseTime.Size = new System.Drawing.Size(149, 23);
-            this.txtGuestUseTime.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.txtGuestUseTime.TabIndex = 179;
             // 
             // lbGuestCount
             // 
@@ -1038,6 +990,19 @@
             this.复制选中单元格ToolStripMenuItem.Text = "复制选中单元格";
             this.复制选中单元格ToolStripMenuItem.Click += new System.EventHandler(this.复制选中单元格ToolStripMenuItem_Click);
             // 
+            // txtGuestUseTime
+            // 
+            // 
+            // 
+            // 
+            this.txtGuestUseTime.Border.Class = "TextBoxBorder";
+            this.txtGuestUseTime.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtGuestUseTime.Location = new System.Drawing.Point(402, 144);
+            this.txtGuestUseTime.Multiline = true;
+            this.txtGuestUseTime.Name = "txtGuestUseTime";
+            this.txtGuestUseTime.Size = new System.Drawing.Size(149, 27);
+            this.txtGuestUseTime.TabIndex = 131;
+            // 
             // FrmAddOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1050,7 +1015,6 @@
             this.Load += new System.EventHandler(this.FrmAddOrders_Load);
             this.panelEx1.ResumeLayout(false);
             this.panelMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtGuestUseTime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtWaitorConfirmTime)).EndInit();
             this.cmsDgvRb.ResumeLayout(false);
@@ -1130,6 +1094,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrdersId;
         private System.Windows.Forms.ToolStripMenuItem 复制选中单元格ToolStripMenuItem;
-        private DevComponents.Editors.DateTimeAdv.DateTimeInput txtGuestUseTime;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtGuestUseTime;
     }
 }

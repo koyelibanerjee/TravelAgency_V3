@@ -92,6 +92,7 @@ namespace TravelAgency.OrdersManagement
                 txtOperRemark.Text = _model.OperRemark;
                 txtWaitorRemark.Text = _model.WaitorRemark;
                 txtDepartureDate.Text = _model.DepartureDate.ToString();
+                txtGuestUseTime.Text = _model.GuestUseTime;
 
                 if (GlobalUtils.LoginUserLevel == RigthLevel.Waitor &&
                                 _model.ReplyResult != "未处理")
@@ -298,6 +299,7 @@ namespace TravelAgency.OrdersManagement
 
                     _model.WaitorRemark = CtrlParser.Parse2String(txtWaitorRemark);
                     _model.DepartureDate = CtrlParser.Parse2Datetime(txtDepartureDate);
+                    _model.GuestUseTime = CtrlParser.Parse2String(txtGuestUseTime);
 
                     var list1 = DgvDataSourceToList();
                     if (list1 != null && list1.Count > 0
@@ -321,13 +323,20 @@ namespace TravelAgency.OrdersManagement
 
                     //添加客人信息
                     var list = DgvDataSourceToList();
-                    int i = 0;
-                    foreach (var orderGuest in list)
+                    if (list != null && list.Count > 0)
                     {
-                        orderGuest.Position = i++;
-                    }
-                    _bllGuest.AddList(list);
+                        int i = 0;
+                        foreach (var orderGuest in list)
+                        {
+                            orderGuest.Position = i++;
+                        }
+                        _bllGuest.AddList(list);
 
+                        if (!string.IsNullOrEmpty(list[0].GuestName) && !string.IsNullOrEmpty(list[0].GuestPhone))
+                            _model.GuestInfoTypedIn = true;
+                        else
+                            _model.GuestInfoTypedIn = false;
+                    }
                     if (!_bllOrders.Update(_model))
                     {
                         MessageBoxEx.Show("更新失败，请稍后重试!");
@@ -376,6 +385,7 @@ namespace TravelAgency.OrdersManagement
 
                     model.WaitorRemark = CtrlParser.Parse2String(txtWaitorRemark);
                     model.DepartureDate = CtrlParser.Parse2Datetime(txtDepartureDate);
+                    model.GuestUseTime = CtrlParser.Parse2String(txtGuestUseTime);
 
                     var list1 = DgvDataSourceToList();
                     if (list1 != null && list1.Count > 0

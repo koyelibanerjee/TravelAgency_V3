@@ -82,7 +82,7 @@ namespace TravelAgency.DAL
                         new SqlParameter("@MoneyType", SqlDbType.VarChar,20) ,            
                         new SqlParameter("@ComboName", SqlDbType.VarChar,50) ,            
                         new SqlParameter("@DepartureDate", SqlDbType.DateTime,3) ,            
-                        new SqlParameter("@GuestUseTime", SqlDbType.DateTime) ,            
+                        new SqlParameter("@GuestUseTime", SqlDbType.VarChar,100) ,            
                         new SqlParameter("@OrderState", SqlDbType.VarChar,20)             
               
             };
@@ -248,7 +248,7 @@ SqlParameter[] parameters = {
                         new SqlParameter("@MoneyType", SqlDbType.VarChar,20) ,            
                         new SqlParameter("@ComboName", SqlDbType.VarChar,50) ,            
                         new SqlParameter("@DepartureDate", SqlDbType.DateTime,3) ,            
-                        new SqlParameter("@GuestUseTime", SqlDbType.DateTime) ,            
+                        new SqlParameter("@GuestUseTime", SqlDbType.VarChar,100) ,            
                         new SqlParameter("@OrderState", SqlDbType.VarChar,20)             
               
             };
@@ -578,11 +578,11 @@ SqlParameter[] parameters = {
 				{
 					model.DepartureDate=DateTime.Parse(row["DepartureDate"].ToString());
 				}
-																																if(row["GuestUseTime"]!=null && row["GuestUseTime"].ToString()!="")
+																																				if(row["GuestUseTime"]!=null && row["GuestUseTime"].ToString()!="")
 				{
-					model.GuestUseTime=DateTime.Parse(row["GuestUseTime"].ToString());
+					model.GuestUseTime= row["GuestUseTime"].ToString();
 				}
-																																				if(row["OrderState"]!=null && row["OrderState"].ToString()!="")
+																																if(row["OrderState"]!=null && row["OrderState"].ToString()!="")
 				{
 					model.OrderState= row["OrderState"].ToString();
 				}

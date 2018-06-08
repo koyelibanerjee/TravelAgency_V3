@@ -97,7 +97,7 @@ namespace TravelAgency.Model
         		                  
     private DateTime? _departuredate;
         		                  
-    private DateTime? _guestusetime;
+    private string _guestusetime;
         		                  
     private string _orderstate;
         
@@ -588,9 +588,9 @@ namespace TravelAgency.Model
 		/// <summary>
 		/// GuestUseTime
         /// </summary>		
-		        		  
+		      		  
   
-        public DateTime? GuestUseTime
+        public string GuestUseTime
         {
             get{ return _guestusetime; }
             set{ _guestusetime = value; }
