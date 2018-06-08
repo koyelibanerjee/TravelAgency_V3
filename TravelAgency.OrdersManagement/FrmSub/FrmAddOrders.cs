@@ -487,12 +487,12 @@ namespace TravelAgency.OrdersManagement
 
         private void 删除ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count < 1)
+            if (dataGridView1.SelectedCells.Count < 1)
                 return;
             var list = DgvDataSourceToList();
-            for (int i = 0; i < dataGridView1.SelectedRows.Count; ++i)
+            for (int i = 0; i < dataGridView1.SelectedCells.Count; ++i)
             {
-                list.RemoveAt(dataGridView1.SelectedRows[i].Index);
+                list.RemoveAt(dataGridView1.SelectedCells[i].RowIndex);
             }
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = list;
@@ -500,12 +500,12 @@ namespace TravelAgency.OrdersManagement
 
         private void 上移ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 1)
+            if (dataGridView1.SelectedCells.Count > 1)
             {
                 MessageBoxEx.Show("请选择一条记录操作");
                 return;
             }
-            int selIdx = dataGridView1.SelectedRows[0].Index;
+            int selIdx = dataGridView1.SelectedCells[0].RowIndex;
             if (selIdx == 0)
                 return;
 
@@ -524,12 +524,12 @@ namespace TravelAgency.OrdersManagement
         private void 下移ToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            if (dataGridView1.SelectedRows.Count > 1)
+            if (dataGridView1.SelectedCells.Count > 1)
             {
                 MessageBoxEx.Show("请选择一条记录操作");
                 return;
             }
-            int selIdx = dataGridView1.SelectedRows[0].Index;
+            int selIdx = dataGridView1.SelectedCells[0].RowIndex;
             var list = DgvDataSourceToList();
             if (selIdx == list.Count - 1)
                 return;
@@ -548,12 +548,12 @@ namespace TravelAgency.OrdersManagement
 
         private void 移到顶部ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 1)
+            if (dataGridView1.SelectedCells.Count > 1)
             {
                 MessageBoxEx.Show("请选择一条记录操作");
                 return;
             }
-            int selIdx = dataGridView1.SelectedRows[0].Index;
+            int selIdx = dataGridView1.SelectedCells[0].RowIndex;
             if (selIdx == 0)
                 return;
 
@@ -573,12 +573,12 @@ namespace TravelAgency.OrdersManagement
         private void 移到底部ToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            if (dataGridView1.SelectedRows.Count > 1)
+            if (dataGridView1.SelectedCells.Count > 1)
             {
                 MessageBoxEx.Show("请选择一条记录操作");
                 return;
             }
-            int selIdx = dataGridView1.SelectedRows[0].Index;
+            int selIdx = dataGridView1.SelectedCells[0].RowIndex;
             var list = DgvDataSourceToList();
 
             if (selIdx == list.Count - 1)
@@ -596,11 +596,12 @@ namespace TravelAgency.OrdersManagement
 
         private void 复制选中单元格ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (dataGridView1.SelectedRows.Count > 1)
+            if (dataGridView1.SelectedCells.Count > 1)
             {
-                MessageBoxEx.Show("请选中一条记录复制!");
+                MessageBoxEx.Show("请选择一条记录复制");
                 return;
             }
+            int selIdx = dataGridView1.SelectedCells[0].RowIndex;
             //string name = dataGridView1.Columns[dataGridView1.CurrentCell.ColumnIndex].Name;
             //if (name == "CountryImage")
             //{
