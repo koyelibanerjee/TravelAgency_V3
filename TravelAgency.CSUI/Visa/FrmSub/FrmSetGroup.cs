@@ -41,6 +41,7 @@ namespace TravelAgency.CSUI.FrmSub
         private readonly string _type; //团做个还是个签
 
         private List<Model.VisaInfo> _visainfoListBackUp;
+        private bool _inited = false;
 
 
         public FrmSetGroup()
@@ -97,6 +98,7 @@ namespace TravelAgency.CSUI.FrmSub
 
             UpdateLabels();
             SetCountryPicBox();
+            _inited = true;
         }
 
         private void InitCtrls()
@@ -222,7 +224,6 @@ namespace TravelAgency.CSUI.FrmSub
                 {
                     txtQuQianYuan.Items.Add(item);
                 }
-
         }
 
         private void TxtClient_SelChangeGetSalesPerson(object sender, EventArgs e)
@@ -230,7 +231,8 @@ namespace TravelAgency.CSUI.FrmSub
             if (txtClient.Text == "")
                 return;
 
-            txtSalesPerson.Text = "";
+            if (_inited)
+                txtSalesPerson.Text = "";
             txtSalesPerson.Items.Clear();
             var comboBoxItem = txtClient.SelectedItem as ComboBoxItem;
             if (comboBoxItem != null)
@@ -246,7 +248,8 @@ namespace TravelAgency.CSUI.FrmSub
         {
             if (txtClient.Text == "")
                 return;
-            txtOperator.Text = "";
+            if (_inited)
+                txtOperator.Text = "";
             txtOperator.Items.Clear();
             var comboBoxItem = txtClient.SelectedItem as ComboBoxItem;
             if (comboBoxItem != null)
@@ -1675,7 +1678,8 @@ namespace TravelAgency.CSUI.FrmSub
             {
                 txtClient.SelectedIndexChanged -= TxtClient_SelChangeGetSalesPerson;
                 txtSalesPerson.Items.Clear();
-                txtSalesPerson.Text = "";
+                if (_inited)
+                    txtSalesPerson.Text = "";
                 var salepersonlist = BLL.CustomerInfo.GetSalesPersonList();
                 if (salepersonlist != null && salepersonlist.Count > 0)
                 {
