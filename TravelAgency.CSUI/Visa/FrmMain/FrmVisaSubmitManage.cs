@@ -15,6 +15,7 @@ using TravelAgency.Common.Word;
 using TravelAgency.CSUI.FrmMain;
 using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Properties;
+using TravelAgency.CSUI.Visa.FrmSub;
 using VisaInfo = TravelAgency.Model.VisaInfo;
 
 namespace TravelAgency.CSUI.Visa.FrmMain
@@ -302,13 +303,10 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                         //return count;
                         else
                             ++count;
-                        if (updateSingle)
-                            LoadDataToDataGridView(_curPage);
                     }
                 }
             }
-            if (!updateSingle)
-                LoadDataToDataGridView(_curPage);
+            LoadDataToDataGridView(_curPage);
             return count;
         }
 
@@ -326,15 +324,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 return false;
             }
             Model.Visa visaModel = null;
-            try
-            {
-                visaModel = _bllVisa.GetModel(Guid.Parse(visainfoModel.Visa_id));
-            }
-            catch (Exception)
-            {
-                MessageBoxEx.Show("指定签证没有找到所在团，请检查后再试!");
-                return false;
-            }
+            visaModel = _bllVisa.GetModel(Guid.Parse(visainfoModel.Visa_id));
             if (visaModel == null)
             {
                 MessageBoxEx.Show("指定签证没有找到所在团，请检查后再试!");
@@ -343,7 +333,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
 
             visainfoModel.outState = outState1;
-            string acttype = string.Empty;
+            string acttype;
             if (outState1 == OutState.Type02In)
             {
                 visainfoModel.InTime = DateTime.Now;
@@ -395,6 +385,8 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                         MessageBoxEx.Show("更新团信息失败!");
                         return false;
                     }
+                    FrmSetSubmitTime frm = new FrmSetSubmitTime(visaModel);
+                    frm.ShowDialog();
                 }
             }
             //出签
@@ -805,7 +797,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                     dataGridView1.Rows[i].Cells["CountryImage"].Value =
                        TravelAgency.Common.CountryPicHandler.LoadImageByCountryName(countryName);
                 }
-                if (visas[i].IsUrgent??false)
+                if (visas[i].IsUrgent ?? false)
                 {
                     dataGridView1.Rows[i].Cells["IsUrgent"].Value = "急件";
                     dataGridView1.Rows[i].Cells["IsUrgent"].Style.BackColor = Color.Red;
