@@ -746,6 +746,70 @@ namespace TravelAgency.Common.Excel
             return SaveFile(dstName, wkbook);
         }
 
+        public static bool GetPrintTable(List<Model.VisaInfo_Tmp> visaInfoList)
+        {
+
+            string dstName = PathHelper.GetUserDesktop() + "\\打印报表保存路径";
+            if (!Directory.Exists(dstName))
+                Directory.CreateDirectory(dstName);
+            dstName += "\\" + DateTime.Now.ToString("yyyyMMddHHmmss");
+            Directory.CreateDirectory(dstName);
+            dstName += "\\打印报表.xls";
+
+            //string dstName = GlobalUtils.ShowSaveFileDlg("打印报表.xls", "office 2003 excel|*.xls");
+            if (string.IsNullOrEmpty(dstName))
+                return false;
+
+            //1.创建工作簿对象
+            IWorkbook wkbook = new HSSFWorkbook();
+            //2.创建工作表对象
+            ISheet sheet = wkbook.CreateSheet("签证申请人名单");
+
+            //2.1创建表头
+            IRow row = sheet.CreateRow(0);
+            row.CreateCell(0).SetCellValue("编号");
+            row.CreateCell(1).SetCellValue("二维码信息");
+            row.CreateCell(2).SetCellValue("姓名");
+            row.CreateCell(3).SetCellValue("英文名");
+            row.CreateCell(4).SetCellValue("护照号");
+
+            //2.2设置列宽度
+            sheet.SetColumnWidth(0, 5 * 256);//编号
+            sheet.SetColumnWidth(1, 25 * 256);//姓名(中文)
+            sheet.SetColumnWidth(2, 25 * 256);//姓名(中文)
+            sheet.SetColumnWidth(3, 25 * 256);//姓名(中文)
+            sheet.SetColumnWidth(4, 25 * 256);//姓名(中文)
+            //3.插入行和单元格
+            for (int i = 0; i != visaInfoList.Count; ++i)
+            {
+                //创建单元格
+                row = sheet.CreateRow(i + 1);
+
+                row.CreateCell(0).SetCellValue(i + 1);
+                row.CreateCell(1).SetCellValue(QRCode.MyQRCode.GenQrInfo(visaInfoList[i]));
+                row.CreateCell(2).SetCellValue(visaInfoList[i].Name);
+                row.CreateCell(3).SetCellValue(visaInfoList[i].EnglishName);
+                row.CreateCell(4).SetCellValue(visaInfoList[i].PassportNo);
+            }
+
+            if (string.IsNullOrEmpty(dstName))
+                return false;
+            try
+            {
+                using (FileStream fs = new FileStream(dstName, FileMode.Create))
+                    wkbook.Write(fs);
+            }
+            catch (Exception)
+            {
+                MessageBoxEx.Show("指定文件名的文件正在使用中，无法写入，请关闭后重试!");
+                return false;
+            }
+
+            Process.Start(Path.GetDirectoryName(dstName));
+            return true;
+        }
+
+
         /// <summary>
         /// 导出日本签证时间表
         /// </summary>
@@ -1097,7 +1161,7 @@ namespace TravelAgency.Common.Excel
             }
 
             //5.执行写入磁盘
-            
+
             return SaveFile(dstName, wkbook);
         }
     }

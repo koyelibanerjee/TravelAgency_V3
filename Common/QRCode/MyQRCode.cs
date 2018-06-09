@@ -82,6 +82,25 @@ namespace TravelAgency.Common.QRCode
             return null;
         }
 
+        public static string GenQrInfo(Model.VisaInfo_Tmp model)
+        {
+            if (model == null)
+                return null;
+            if (!string.IsNullOrEmpty(model.PassportNo) && !string.IsNullOrEmpty(model.Name))
+            {
+                return model.PassportNo + "|" + FirstLetterHelper.GetChineseSpell(model.Name);
+            }
+            if (!string.IsNullOrEmpty(model.PassportNo))
+            {
+                return model.PassportNo;
+            }
+            if (!string.IsNullOrEmpty(model.Name))
+            {
+                return model.Name;
+            }
+            return null;
+        }
+
 
     }
 }

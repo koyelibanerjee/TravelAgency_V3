@@ -16,6 +16,7 @@ using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Properties;
 using TravelAgency.Model;
 using System.Configuration;
+using TravelAgency.Common.Excel;
 using TravelAgency.CSUI.Visa.FrmSub;
 
 namespace TravelAgency.CSUI.FrmMain
@@ -308,6 +309,20 @@ namespace TravelAgency.CSUI.FrmMain
             //UpdateState();
 
             //直接在数据库那边执行提交操作，从visainfo_tmp移动到visainfo，然后这边重新加载数据库就OK
+
+            List<VisaInfo_Tmp> list = new List<VisaInfo_Tmp>();
+            var visaInfoTmps
+                = dgvWait4Check.DataSource as List<VisaInfo_Tmp>;
+            if (visaInfoTmps != null)
+                foreach (var visaInfoTmp in visaInfoTmps)
+                {
+                    if (visaInfoTmp.HasChecked == "是")
+                        list.Add(visaInfoTmp);
+                }
+
+            ExcelGenerator.GetPrintTable(list);
+
+
             int res = _bllVisaInfoTmp.MoveCheckedDataToVisaInfo();
 
             if (res <= 0)

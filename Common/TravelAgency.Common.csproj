@@ -206,6 +206,7 @@
     <Compile Include="FTP\FtpHandler.cs" />
     <Compile Include="InfoChecker.cs" />
     <Compile Include="JsonHandler.cs" />
+    <Compile Include="PathHelper.cs" />
     <Compile Include="PayoutUpdateRules.cs" />
     <Compile Include="PictureHandler\OrderFilesHandler.cs" />
     <Compile Include="PictureHandler\OrderExcelHandler.cs" />
