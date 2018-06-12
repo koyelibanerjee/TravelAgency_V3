@@ -597,6 +597,18 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                                "') ");
             }
 
+            if (!string.IsNullOrEmpty(txtRealTimeFrom.Text.Trim()) && !string.IsNullOrEmpty(txtRealTimeTo.Text.Trim()))
+            {
+                conditions.Add(" (RealTime between '" + txtRealTimeFrom.Text + "' and " + " '" + txtRealTimeTo.Text +
+                               "') ");
+            }
+
+            if (!string.IsNullOrEmpty(txtFinishTimeFrom.Text.Trim()) && !string.IsNullOrEmpty(txtFinishTimeTo.Text.Trim()))
+            {
+                conditions.Add(" (FinishTime between '" + txtFinishTimeFrom.Text + "' and " + " '" + txtFinishTimeTo.Text +
+                               "') ");
+            }
+
             if (cbIsUrgent.Text == "全部")
             {
             }
@@ -648,6 +660,11 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
             txtSchEntryTimeFrom.Text = string.Empty;
             txtSchEntryTimeTo.Text = string.Empty;
+            txtFinishTimeTo.Text = string.Empty;
+            txtFinishTimeFrom.Text = string.Empty;
+            txtRealTimeFrom.Text = string.Empty;
+            txtRealTimeTo.Text = string.Empty;
+
             txtSchGroupNo.Text = string.Empty;
             txtSalesPerson.Text = string.Empty;
             txtClient.Text = string.Empty;
