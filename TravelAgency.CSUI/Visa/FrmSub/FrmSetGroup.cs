@@ -1123,29 +1123,29 @@ namespace TravelAgency.CSUI.FrmSub
                 _visaModel.Operator = CtrlParser.Parse2String(txtOperator);
 
 
-                if (chkSaleFirst.Checked)
-                {
-                    if (GlobalUtils.LoginUserLevel != RigthLevel.Manager &&
-                        (!CheckInComboBox(_visaModel.client, txtClient) ||
-                         !CheckInComboBox(_visaModel.SalesPerson, txtSalesPerson)))
-                    {
-                        MessageBoxEx.Show("销售、客户、输入有误(必须是下拉框中选项),请重新输入!!!");
-                        _visaModel = null;
-                        return false;
-                    }
-                }
-                else
-                {
-                    if (GlobalUtils.LoginUserLevel != RigthLevel.Manager &&
-                        (!CheckInComboBox(_visaModel.client, txtClient) ||
-                        !CheckInComboBox(_visaModel.Operator, txtOperator) ||
-                        !CheckInComboBox(_visaModel.SalesPerson, txtSalesPerson)))
-                    {
-                        MessageBoxEx.Show("销售、客户、操作输入有误(必须是下拉框中选项),请重新输入!!!");
-                        _visaModel = null;
-                        return false;
-                    }
-                }
+                //if (chkSaleFirst.Checked)
+                //{
+                //    if (GlobalUtils.LoginUserLevel != RigthLevel.Manager &&
+                //        (!CheckInComboBox(_visaModel.client, txtClient) ||
+                //         !CheckInComboBox(_visaModel.SalesPerson, txtSalesPerson)))
+                //    {
+                //        MessageBoxEx.Show("销售、客户、输入有误(必须是下拉框中选项),请重新输入!!!");
+                //        _visaModel = null;
+                //        return false;
+                //    }
+                //}
+                //else
+                //{
+                //    if (GlobalUtils.LoginUserLevel != RigthLevel.Manager &&
+                //        (!CheckInComboBox(_visaModel.client, txtClient) ||
+                //        !CheckInComboBox(_visaModel.Operator, txtOperator) ||
+                //        !CheckInComboBox(_visaModel.SalesPerson, txtSalesPerson)))
+                //    {
+                //        MessageBoxEx.Show("销售、客户、操作输入有误(必须是下拉框中选项),请重新输入!!!");
+                //        _visaModel = null;
+                //        return false;
+                //    }
+                //}
 
 
                 if (!string.IsNullOrEmpty(txtRealTime.Text))
@@ -1230,27 +1230,27 @@ namespace TravelAgency.CSUI.FrmSub
                 model.Operator = CtrlParser.Parse2String(txtOperator);
 
 
-                if (chkSaleFirst.Checked)
-                {
-                    if (GlobalUtils.LoginUserLevel != RigthLevel.Manager &&
-                        (!CheckInComboBox(model.client, txtClient) ||
-                         !CheckInComboBox(model.SalesPerson, txtSalesPerson)))
-                    {
-                        MessageBoxEx.Show("销售、客户输入有误(必须是下拉框中选项),请重新输入!!!");
-                        return false;
-                    }
-                }
-                else
-                {
-                    if (GlobalUtils.LoginUserLevel != RigthLevel.Manager &&
-                         (!CheckInComboBox(model.client, txtClient) ||
-                          !CheckInComboBox(model.Operator, txtOperator) ||
-                          !CheckInComboBox(model.SalesPerson, txtSalesPerson)))
-                    {
-                        MessageBoxEx.Show("销售、客户、操作输入有误(必须是下拉框中选项),请重新输入!!!");
-                        return false;
-                    }
-                }
+                //if (chkSaleFirst.Checked)
+                //{
+                //    if (GlobalUtils.LoginUserLevel != RigthLevel.Manager &&
+                //        (!CheckInComboBox(model.client, txtClient) ||
+                //         !CheckInComboBox(model.SalesPerson, txtSalesPerson)))
+                //    {
+                //        MessageBoxEx.Show("销售、客户输入有误(必须是下拉框中选项),请重新输入!!!");
+                //        return false;
+                //    }
+                //}
+                //else
+                //{
+                //    if (GlobalUtils.LoginUserLevel != RigthLevel.Manager &&
+                //         (!CheckInComboBox(model.client, txtClient) ||
+                //          !CheckInComboBox(model.Operator, txtOperator) ||
+                //          !CheckInComboBox(model.SalesPerson, txtSalesPerson)))
+                //    {
+                //        MessageBoxEx.Show("销售、客户、操作输入有误(必须是下拉框中选项),请重新输入!!!");
+                //        return false;
+                //    }
+                //}
 
 
                 if (!string.IsNullOrEmpty(txtRealTime.Text))
