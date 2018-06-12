@@ -272,12 +272,12 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                     MessageBoxEx.Show(Resources.FindModelFailedPleaseCheckInfoCorrect);
                     return count;
                 }
-                if (_finishTime != null)
-                    if (!UpdateModelState(model, Common.Enums.OutState.Type03NormalOut))
-                        return 0;
-
                 if (_realTime != null)
                     if (!UpdateModelState(model, Common.Enums.OutState.Type02In))
+                        return 0;
+
+                if (_finishTime != null)
+                    if (!UpdateModelState(model, Common.Enums.OutState.Type03NormalOut))
                         return 0;
 
                 LoadDataToDataGridView(_curPage);
