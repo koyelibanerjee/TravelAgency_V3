@@ -35,7 +35,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
         private string _preTxt = string.Empty;
         private string _outState = OutState.Type02In; //Single模式下的状态设置
-        private Inputmode _inputMode = Inputmode.Batch;
+        private Inputmode _inputMode = Inputmode.Single;
         private readonly MyQRCode _qrCode = new MyQRCode();
 
         private int _curPage = 1;
@@ -47,9 +47,6 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         private bool _forAddToGroup = false; //为没有添加团号的用户添加到团号的时候选择团号而设计
         private List<Model.VisaInfo> _listToAddToGroup;
         //private bool _hasFormated = false; //标志，用于防止重复触发rows_added事件(现在不用了，触发两次其实效率也没啥影响，并且如果只是第二次才进行操作的话会出问题)
-
-        private DateTime? _finishTime = null;
-        private DateTime? _realTime = null;
 
         public FrmVisaSubmitManage()
         {
@@ -68,14 +65,17 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         private void FrmVisaManage_Load(object sender, EventArgs e)
         {
             #region 送签部分初始化
-            rbtnBatch.Select();
+            rbtnIn.Select();
+            rbtnSingle.Select();
             txtInput.TextChanged += txtInput_TextChanged;
-            //btnShowInQR.Click += BtnShowInQR_Click;
-            //btnShowAbnormalOutQR.Click += BtnShowAbnormalOutQR_Click;
-            //btnShowNormalOutQR.Click += BtnShowNormalOutQR_Click;
+            btnShowInQR.Click += BtnShowInQR_Click;
+            btnShowAbnormalOutQR.Click += BtnShowAbnormalOutQR_Click;
+            btnShowNormalOutQR.Click += BtnShowNormalOutQR_Click;
             btnClearInput.Click += BtnClearInput_Click;
             btnParseBatchInput.Click += BtnParseBatchInput_Click;
-
+            rbtnIn.CheckedChanged += RbtnIn_CheckedChanged;
+            rBtnOut.CheckedChanged += RBtnOut_CheckedChanged;
+            rbtnAbOut.CheckedChanged += RbtnAbOut_CheckedChanged;
             rbtnSingle.CheckedChanged += RbtnSingle_CheckedChanged;
             rbtnBatch.CheckedChanged += RbtnBatch_CheckedChanged;
             #endregion
@@ -154,26 +154,26 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             dataGridView1_CellDoubleClick(null, null);
         }
         #region 按钮
-        //private void BtnShowInQR_Click(object sender, EventArgs e)
-        //{
-        //    FrmQRCode frm = new FrmQRCode(OutStateString.Type02In);
-        //    //frm.ShowDialog();
-        //    frm.Show();
-        //}
+        private void BtnShowInQR_Click(object sender, EventArgs e)
+        {
+            FrmQRCode frm = new FrmQRCode(OutStateString.Type02In);
+            //frm.ShowDialog();
+            frm.Show();
+        }
 
-        //private void BtnShowAbnormalOutQR_Click(object sender, EventArgs e)
-        //{
-        //    FrmQRCode frm = new FrmQRCode(OutStateString.Type04AbnormalOut);
-        //    //frm.ShowDialog();
-        //    frm.Show();
-        //}
+        private void BtnShowAbnormalOutQR_Click(object sender, EventArgs e)
+        {
+            FrmQRCode frm = new FrmQRCode(OutStateString.Type04AbnormalOut);
+            //frm.ShowDialog();
+            frm.Show();
+        }
 
-        //private void BtnShowNormalOutQR_Click(object sender, EventArgs e)
-        //{
-        //    FrmQRCode frm = new FrmQRCode(OutStateString.Type03NormalOut);
-        //    //frm.ShowDialog();
-        //    frm.Show();
-        //}
+        private void BtnShowNormalOutQR_Click(object sender, EventArgs e)
+        {
+            FrmQRCode frm = new FrmQRCode(OutStateString.Type03NormalOut);
+            //frm.ShowDialog();
+            frm.Show();
+        }
 
         private void RbtnIn_CheckedChanged(object sender, EventArgs e)
         {
@@ -200,8 +200,10 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         private void BtnParseBatchInput_Click(object sender, EventArgs e)
         {
             string txt = txtInput.Text;
-            if (txt == string.Empty
-                )
+            if (txt == string.Empty ||
+                (!txt.Contains(OutStateString.Type02In)
+                 && !txt.Contains(OutStateString.Type03NormalOut)
+                 && !txt.Contains(OutStateString.Type04AbnormalOut)))
             {
                 MessageBoxEx.Show(Resources.InputNoStateInfo);
                 return;
@@ -209,10 +211,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             int count = UpdateByLines(txt, _inputMode);
             if (count > 0)
             {
-                if (_finishTime != null && _realTime != null)
-                    MessageBoxEx.Show("成功更新" + count / 2 + "条记录.");
-                else
-                    MessageBoxEx.Show("成功更新" + count + "条记录.");
+                MessageBoxEx.Show("成功更新" + count + "条记录.");
             }
         }
 
@@ -252,18 +251,10 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
         private int UpdateByLines(string txt, Inputmode inputMode)
         {
-
-            if (_realTime == null && _finishTime == null)
-            {
-                MessageBoxEx.Show("请先设置进签及出签时间(可二者选一)!");
-                return 0;
-            }
-
             int count = 0; //成功记录数
             string str = txtInput.Text.TrimEnd(); //去掉最后的\r\n
             string[] lines = str.Split(new string[] { "\r\n" }, StringSplitOptions.None);
             bool updateSingle = false; //多行模式下设置显示更新模式 ,默认执行完了才更新
-
             if (inputMode == Inputmode.Single)
             {
                 VisaInfo model = GetModelByLine(lines[lines.Length - 1]);//取最后一行
@@ -272,57 +263,54 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                     MessageBoxEx.Show(Resources.FindModelFailedPleaseCheckInfoCorrect);
                     return count;
                 }
-                if (_finishTime != null)
-                    if (!UpdateModelState(model, Common.Enums.OutState.Type03NormalOut))
-                        return 0;
-
-                if (_realTime != null)
-                    if (!UpdateModelState(model, Common.Enums.OutState.Type02In))
-                        return 0;
-
+                if (!UpdateModelState(model, _outState))
+                    return 0;
                 LoadDataToDataGridView(_curPage);
             }
             else if (inputMode == Inputmode.Batch)
             {
+                string outState = string.Empty;
+
                 for (int i = 0; i != lines.Length; ++i)
                 {
-                    VisaInfo model = GetModelByLine(lines[i]);
-                    if (model == null)
+                    if (lines[i].Equals(OutStateString.Type02In))//切换状态
+                        outState = OutState.Type02In;
+                    else if (lines[i].Equals(OutStateString.Type03NormalOut))
+                        outState = OutState.Type03NormalOut;
+                    else if (lines[i].Equals(OutStateString.Type04AbnormalOut))
+                        outState = OutState.TYPE04AbnormalOut;
+                    else
                     {
-                        MessageBoxEx.Show(Resources.FindModelFailedPleaseCheckInfoCorrect);
-                        return count;
+                        if (outState.Length == 0)
+                        {
+                            MessageBoxEx.Show(Resources.OutStateLengthEqualZero);
+                            return count;
+                        }
+                        VisaInfo model = GetModelByLine(lines[i]);
+                        if (model == null)
+                        {
+                            MessageBoxEx.Show(Resources.FindModelFailedPleaseCheckInfoCorrect);
+                            return count;
+                        }
+
+                        if (!UpdateModelState(model, outState))
+                        {
+                            if (
+                                MessageBoxEx.Show("\"" + model.Name + "\"的状态更新失败，是否继续?", "提示", MessageBoxButtons.YesNo) ==
+                                DialogResult.No)
+                                return count;
+                        }
+                        //return count;
+                        else
+                            ++count;
                     }
-
-                    if (_realTime != null)
-                        if (!UpdateModelState(model, Common.Enums.OutState.Type02In))
-                        {
-                            if (
-                                MessageBoxEx.Show("\"" + model.Name + "\"的状态更新失败，是否继续?", "提示", MessageBoxButtons.YesNo) ==
-                                DialogResult.No)
-                                return count;
-                        }
-                        else
-                            ++count;
-
-                    if (_finishTime != null)
-                        if (!UpdateModelState(model, Common.Enums.OutState.Type03NormalOut))
-                        {
-                            if (
-                                MessageBoxEx.Show("\"" + model.Name + "\"的状态更新失败，是否继续?", "提示", MessageBoxButtons.YesNo) ==
-                                DialogResult.No)
-                                return count;
-                        }
-                        else
-                            ++count;
-
                 }
             }
             LoadDataToDataGridView(_curPage);
             return count;
         }
 
-
-        private bool UpdateModelState(VisaInfo visainfoModel, string outState_)
+        private bool UpdateModelState(VisaInfo visainfoModel, string outState1)
         {
             //判断逻辑:
             //(1)每次更新的时候检查一个团里面是否全部进签或出签完成，是的话更新团的状态。
@@ -344,39 +332,39 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             }
 
 
-            visainfoModel.outState = outState_;
+            visainfoModel.outState = outState1;
             string acttype;
-            if (outState_ == OutState.Type02In)
+            if (outState1 == OutState.Type02In)
             {
-                visainfoModel.InTime = _realTime;
+                visainfoModel.InTime = DateTime.Now;
                 acttype = ActType._05SubmitIn;
             }
-            else if (outState_ == OutState.Type03NormalOut)
+            else if (outState1 == OutState.Type03NormalOut)
             {
-                visainfoModel.OutTime = _finishTime;
+                visainfoModel.OutTime = DateTime.Now;
                 acttype = ActType._05SubmitOut;
             }
-            //else if (outState_ == OutState.TYPE04AbnormalOut)
-            //{
-            //    visainfoModel.AbnormalOutTime = DateTime.Now;
-            //    acttype = ActType._05SubmitAbOut;
-            //}
+            else if (outState1 == OutState.TYPE04AbnormalOut)
+            {
+                visainfoModel.AbnormalOutTime = DateTime.Now;
+                acttype = ActType._05SubmitAbOut;
+            }
             else
             {
                 MessageBoxEx.Show(Resources.OutStateLengthEqualZero);
                 return false;
             }
 
-            //if (outState_ == OutState.TYPE04AbnormalOut ||
-            //    outState_ == OutState.Type03NormalOut)
-            //{
-            //    //出签的情况下，先检查进签人数是否进签完成，否则报错
-            //    if (_bllActionRecords.GetVisaSubmitStateNum(visaModel, ActType._05SubmitIn) < visaModel.Number)
-            //    {
-            //        MessageBoxEx.Show("所在团号中还有签证未进签，无法完成出签动作!");
-            //        return false;
-            //    }
-            //}
+            if (outState1 == OutState.TYPE04AbnormalOut ||
+                outState1 == OutState.Type03NormalOut)
+            {
+                //出签的情况下，先检查进签人数是否进签完成，否则报错
+                if (_bllActionRecords.GetVisaSubmitStateNum(visaModel, ActType._05SubmitIn) < visaModel.Number)
+                {
+                    MessageBoxEx.Show("所在团号中还有签证未进签，无法完成出签动作!");
+                    return false;
+                }
+            }
 
             if (!_bllVisaInfo.Update(visainfoModel))
             {
@@ -390,15 +378,15 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             {
                 if (_bllActionRecords.GetVisaSubmitStateNum(visaModel, acttype) >= visaModel.Number) //全部进签了
                 {
-                    visaModel.RealTime = visainfoModel.InTime;
+                    visaModel.RealTime = DateTime.Now;
 
                     if (!_bllVisa.Update(visaModel))
                     {
                         MessageBoxEx.Show("更新团信息失败!");
                         return false;
                     }
-                    //FrmSetSubmitTime frm = new FrmSetSubmitTime(visaModel);
-                    //frm.ShowDialog();
+                    FrmSetSubmitTime frm = new FrmSetSubmitTime(visaModel);
+                    frm.ShowDialog();
                 }
             }
             //出签
@@ -406,7 +394,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             {
                 if (_bllActionRecords.GetVisaSubmitStateNum(visaModel, acttype) >= visaModel.Number) //全部出签了
                 {
-                    visaModel.FinishTime = visainfoModel.OutTime;
+                    visaModel.FinishTime = DateTime.Now;
 
                     if (!_bllVisa.Update(visaModel))
                     {
@@ -1765,18 +1753,6 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             FrmSetSubmitStatus frm = new FrmSetSubmitStatus(
    list, LoadDataToDataGridView, _curPage);
             frm.ShowDialog();
-        }
-
-        private void btnSetSubmitTime_Click(object sender, EventArgs e)
-        {
-            FrmSetSubmitTime frm = new FrmSetSubmitTime();
-            if (frm.ShowDialog() == DialogResult.Cancel)
-                return;
-            _finishTime = frm.RetFinishTime;
-            _realTime = frm.RetRealTime;
-
-            lbRealTime.Text = "送签时间: " + DateTimeFormator.DateTimeToString(_realTime);
-            lbFinishTime.Text = "出签时间: " + DateTimeFormator.DateTimeToString(_finishTime);
         }
     }
 }
