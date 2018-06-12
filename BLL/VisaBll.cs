@@ -93,9 +93,9 @@ namespace TravelAgency.BLL
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        public Model.Visa GetLastRecord(string type)
+        public Model.Visa GetLastRecord(string type,string typeinperson)
         {
-            var ds = dal.GetLastRecord(type);
+            var ds = dal.GetLastRecord(type, typeinperson);
             if (ds.Tables[0].Rows.Count > 0 && ds.Tables[0].Rows[0] != null)
                 return dal.DataRowToModel(ds.Tables[0].Rows[0]);
             return null;

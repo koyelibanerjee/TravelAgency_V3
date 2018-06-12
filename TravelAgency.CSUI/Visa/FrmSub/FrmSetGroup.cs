@@ -315,7 +315,7 @@ namespace TravelAgency.CSUI.FrmSub
             //if (_type != Types.Team2Individual)
             //    return;
 
-            _recentVisa = _bllVisa.GetLastRecord(_type); //如果是个签的话就是null这个值
+            _recentVisa = _bllVisa.GetLastRecord(_type, GlobalUtils.LoginUser.UserName); //如果是个签的话就是null这个值
             if (_recentVisa == null)
                 return;
             txtGroupNo.Text = _recentVisa.GroupNo;
