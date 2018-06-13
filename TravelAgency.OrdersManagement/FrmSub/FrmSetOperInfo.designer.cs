@@ -55,6 +55,9 @@
             this.btnOK = new DevComponents.DotNetBar.ButtonX();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.labelX6 = new DevComponents.DotNetBar.LabelX();
+            this.buttonX1 = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX2 = new DevComponents.DotNetBar.ButtonX();
+            this.buttonX3 = new DevComponents.DotNetBar.ButtonX();
             this.panelEx1.SuspendLayout();
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtReplyWaitorConfirmTime)).BeginInit();
@@ -71,7 +74,7 @@
             this.panelEx1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEx1.Location = new System.Drawing.Point(0, 0);
             this.panelEx1.Name = "panelEx1";
-            this.panelEx1.Size = new System.Drawing.Size(435, 495);
+            this.panelEx1.Size = new System.Drawing.Size(435, 577);
             this.panelEx1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelEx1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -85,6 +88,9 @@
             // 
             this.panelMain.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelMain.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelMain.Controls.Add(this.buttonX3);
+            this.panelMain.Controls.Add(this.buttonX2);
+            this.panelMain.Controls.Add(this.buttonX1);
             this.panelMain.Controls.Add(this.txtWaitorRemark);
             this.panelMain.Controls.Add(this.labelX8);
             this.panelMain.Controls.Add(this.txtReplyWaitorConfirmTime);
@@ -114,7 +120,7 @@
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(435, 495);
+            this.panelMain.Size = new System.Drawing.Size(435, 577);
             this.panelMain.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelMain.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelMain.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -131,10 +137,11 @@
             // 
             this.txtWaitorRemark.Border.Class = "TextBoxBorder";
             this.txtWaitorRemark.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtWaitorRemark.Location = new System.Drawing.Point(154, 400);
+            this.txtWaitorRemark.Location = new System.Drawing.Point(153, 434);
             this.txtWaitorRemark.Multiline = true;
             this.txtWaitorRemark.Name = "txtWaitorRemark";
-            this.txtWaitorRemark.Size = new System.Drawing.Size(267, 42);
+            this.txtWaitorRemark.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtWaitorRemark.Size = new System.Drawing.Size(267, 82);
             this.txtWaitorRemark.TabIndex = 179;
             // 
             // labelX8
@@ -143,7 +150,7 @@
             // 
             // 
             this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX8.Location = new System.Drawing.Point(26, 400);
+            this.labelX8.Location = new System.Drawing.Point(26, 434);
             this.labelX8.Name = "labelX8";
             this.labelX8.Size = new System.Drawing.Size(93, 27);
             this.labelX8.TabIndex = 178;
@@ -192,7 +199,7 @@
             this.txtReplyWaitorConfirmTime.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtReplyWaitorConfirmTime.MonthCalendar.TodayButtonVisible = true;
             this.txtReplyWaitorConfirmTime.Name = "txtReplyWaitorConfirmTime";
-            this.txtReplyWaitorConfirmTime.Size = new System.Drawing.Size(267, 23);
+            this.txtReplyWaitorConfirmTime.Size = new System.Drawing.Size(209, 23);
             this.txtReplyWaitorConfirmTime.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.txtReplyWaitorConfirmTime.TabIndex = 177;
             // 
@@ -239,7 +246,7 @@
             this.txtJpConfirmTime.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtJpConfirmTime.MonthCalendar.TodayButtonVisible = true;
             this.txtJpConfirmTime.Name = "txtJpConfirmTime";
-            this.txtJpConfirmTime.Size = new System.Drawing.Size(267, 23);
+            this.txtJpConfirmTime.Size = new System.Drawing.Size(209, 23);
             this.txtJpConfirmTime.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.txtJpConfirmTime.TabIndex = 177;
             // 
@@ -286,7 +293,7 @@
             this.txtOperOrderTime.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtOperOrderTime.MonthCalendar.TodayButtonVisible = true;
             this.txtOperOrderTime.Name = "txtOperOrderTime";
-            this.txtOperOrderTime.Size = new System.Drawing.Size(267, 23);
+            this.txtOperOrderTime.Size = new System.Drawing.Size(209, 23);
             this.txtOperOrderTime.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.txtOperOrderTime.TabIndex = 177;
             // 
@@ -374,7 +381,8 @@
             this.txtOperRemark.Location = new System.Drawing.Point(154, 314);
             this.txtOperRemark.Multiline = true;
             this.txtOperRemark.Name = "txtOperRemark";
-            this.txtOperRemark.Size = new System.Drawing.Size(268, 80);
+            this.txtOperRemark.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtOperRemark.Size = new System.Drawing.Size(268, 114);
             this.txtOperRemark.TabIndex = 161;
             // 
             // labelX14
@@ -501,7 +509,7 @@
             // 
             this.btnOK.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnOK.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnOK.Location = new System.Drawing.Point(118, 457);
+            this.btnOK.Location = new System.Drawing.Point(117, 531);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(87, 27);
             this.btnOK.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -513,7 +521,7 @@
             // 
             this.btnCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnCancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnCancel.Location = new System.Drawing.Point(212, 457);
+            this.btnCancel.Location = new System.Drawing.Point(211, 531);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(87, 27);
             this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -533,11 +541,50 @@
             this.labelX6.TabIndex = 148;
             this.labelX6.Text = "回复客服确认时间:";
             // 
+            // buttonX1
+            // 
+            this.buttonX1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonX1.Location = new System.Drawing.Point(369, 80);
+            this.buttonX1.Name = "buttonX1";
+            this.buttonX1.Size = new System.Drawing.Size(54, 23);
+            this.buttonX1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX1.TabIndex = 180;
+            this.buttonX1.Text = "当前时间";
+            this.buttonX1.Click += new System.EventHandler(this.buttonX1_Click);
+            // 
+            // buttonX2
+            // 
+            this.buttonX2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonX2.Location = new System.Drawing.Point(369, 113);
+            this.buttonX2.Name = "buttonX2";
+            this.buttonX2.Size = new System.Drawing.Size(54, 23);
+            this.buttonX2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX2.TabIndex = 181;
+            this.buttonX2.Text = "当前时间";
+            this.buttonX2.Click += new System.EventHandler(this.buttonX2_Click);
+            // 
+            // buttonX3
+            // 
+            this.buttonX3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.buttonX3.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.buttonX3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.buttonX3.Location = new System.Drawing.Point(368, 146);
+            this.buttonX3.Name = "buttonX3";
+            this.buttonX3.Size = new System.Drawing.Size(54, 23);
+            this.buttonX3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.buttonX3.TabIndex = 181;
+            this.buttonX3.Text = "当前时间";
+            this.buttonX3.Click += new System.EventHandler(this.buttonX3_Click);
+            // 
             // FrmSetOperInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(435, 495);
+            this.ClientSize = new System.Drawing.Size(435, 577);
             this.Controls.Add(this.panelEx1);
             this.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.Name = "FrmSetOperInfo";
@@ -580,5 +627,8 @@
         private DevComponents.Editors.DateTimeAdv.DateTimeInput txtReplyWaitorConfirmTime;
         private DevComponents.DotNetBar.Controls.TextBoxX txtWaitorRemark;
         private DevComponents.DotNetBar.LabelX labelX8;
+        private DevComponents.DotNetBar.ButtonX buttonX1;
+        private DevComponents.DotNetBar.ButtonX buttonX3;
+        private DevComponents.DotNetBar.ButtonX buttonX2;
     }
 }

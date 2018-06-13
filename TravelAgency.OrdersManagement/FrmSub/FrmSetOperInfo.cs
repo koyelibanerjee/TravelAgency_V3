@@ -161,6 +161,19 @@ namespace TravelAgency.OrdersManagement
             this.Close();
         }
 
+        private void buttonX1_Click(object sender, EventArgs e)
+        {
+            txtOperOrderTime.Text = DateTime.Now.ToString();
+        }
 
+        private void buttonX2_Click(object sender, EventArgs e)
+        {
+            txtJpConfirmTime.Text = DateTime.Now.ToString();
+        }
+
+        private void buttonX3_Click(object sender, EventArgs e)
+        {
+            txtReplyWaitorConfirmTime.Text = DateTime.Now.ToString();
+        }
     }
 }
