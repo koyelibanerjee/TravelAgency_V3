@@ -220,6 +220,12 @@
     <Compile Include="Visa\FrmSub\FrmSetValue\FrmHasTypeIn.Designer.cs">
       <DependentUpon>FrmHasTypeIn.cs</DependentUpon>
     </Compile>
+    <Compile Include="Visa\FrmSub\FrmSetValue\FrmSetStringValue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visa\FrmSub\FrmSetValue\FrmSetStringValue.Designer.cs">
+      <DependentUpon>FrmSetStringValue.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visa\FrmSub\FrmUploadLocalImages.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -533,6 +539,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visa\FrmSub\FrmSetValue\FrmHasTypeIn.resx">
       <DependentUpon>FrmHasTypeIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visa\FrmSub\FrmSetValue\FrmSetStringValue.resx">
+      <DependentUpon>FrmSetStringValue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visa\FrmSub\FrmUploadLocalImages.resx">
       <DependentUpon>FrmUploadLocalImages.cs</DependentUpon>

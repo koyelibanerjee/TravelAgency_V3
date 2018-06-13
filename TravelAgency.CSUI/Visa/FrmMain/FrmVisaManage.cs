@@ -12,6 +12,7 @@ using TravelAgency.Common.Excel;
 using TravelAgency.Common.Word;
 using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Properties;
+using TravelAgency.CSUI.Visa.FrmSub.FrmSetValue;
 using TravelAgency.Model;
 using ActionRecords = TravelAgency.BLL.ActionRecords;
 using HasExported8Report = TravelAgency.BLL.HasExported8Report;
@@ -1446,8 +1447,26 @@ namespace TravelAgency.CSUI.FrmMain
             XlsGenerator.GetBaoXianReport(list, visaModel[0]);
         }
 
+
         #endregion
 
+        private void 设置备注2ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 1)
+            {
+                MessageBoxEx.Show("请选择一条数据进行操作!");
+                return;
+            }
 
+            FrmSetStringValue frm = new FrmSetStringValue("设置备注2",GetSelectedVisaList()[0].Tips2);
+            if(frm.ShowDialog()== DialogResult.Cancel)
+                return;
+
+            var visa = GetSelectedVisaList()[0];
+            visa.Tips2 = frm.RetValue;
+
+            _bllVisa.Update(visa);
+            LoadDataToDgvAsyn();
+        }
     }
 }
