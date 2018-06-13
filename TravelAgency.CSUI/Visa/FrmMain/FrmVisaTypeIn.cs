@@ -320,7 +320,7 @@ namespace TravelAgency.CSUI.FrmMain
                         list.Add(visaInfoTmp);
                 }
 
-            ExcelGenerator.GetPrintTable(list);
+            //ExcelGenerator.GetPrintTable(list);
 
 
             int res = _bllVisaInfoTmp.MoveCheckedDataToVisaInfo();
