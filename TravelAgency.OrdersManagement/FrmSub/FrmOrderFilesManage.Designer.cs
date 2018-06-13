@@ -38,11 +38,12 @@
             this.EntryTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OrigFileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmsDgv = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.上传附件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.下载选中附件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.下载全部附件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.分配给选中用户ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.删除选中附件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelDgv.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cmsDgv.SuspendLayout();
@@ -141,28 +142,36 @@
             this.toolStripMenuItem1,
             this.上传附件ToolStripMenuItem,
             this.下载选中附件ToolStripMenuItem,
-            this.下载全部附件ToolStripMenuItem});
+            this.下载全部附件ToolStripMenuItem,
+            this.删除选中附件ToolStripMenuItem});
             this.cmsDgv.Name = "cmsDgv";
-            this.cmsDgv.Size = new System.Drawing.Size(153, 114);
+            this.cmsDgv.Size = new System.Drawing.Size(153, 136);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem1.Text = "刷新";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // 上传附件ToolStripMenuItem
             // 
             this.上传附件ToolStripMenuItem.Name = "上传附件ToolStripMenuItem";
-            this.上传附件ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.上传附件ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.上传附件ToolStripMenuItem.Text = "上传附件";
             this.上传附件ToolStripMenuItem.Click += new System.EventHandler(this.上传附件ToolStripMenuItem_Click);
             // 
             // 下载选中附件ToolStripMenuItem
             // 
             this.下载选中附件ToolStripMenuItem.Name = "下载选中附件ToolStripMenuItem";
-            this.下载选中附件ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.下载选中附件ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.下载选中附件ToolStripMenuItem.Text = "下载选中附件";
             this.下载选中附件ToolStripMenuItem.Click += new System.EventHandler(this.下载选中附件ToolStripMenuItem_Click);
             // 
             // 下载全部附件ToolStripMenuItem
             // 
             this.下载全部附件ToolStripMenuItem.Name = "下载全部附件ToolStripMenuItem";
-            this.下载全部附件ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.下载全部附件ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.下载全部附件ToolStripMenuItem.Text = "下载全部附件";
             this.下载全部附件ToolStripMenuItem.Click += new System.EventHandler(this.下载全部附件ToolStripMenuItem_Click);
             // 
@@ -171,12 +180,12 @@
             this.分配给选中用户ToolStripMenuItem.Name = "分配给选中用户ToolStripMenuItem";
             this.分配给选中用户ToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
             // 
-            // toolStripMenuItem1
+            // 删除选中附件ToolStripMenuItem
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem1.Text = "刷新";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            this.删除选中附件ToolStripMenuItem.Name = "删除选中附件ToolStripMenuItem";
+            this.删除选中附件ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.删除选中附件ToolStripMenuItem.Text = "删除选中附件";
+            this.删除选中附件ToolStripMenuItem.Click += new System.EventHandler(this.删除选中附件ToolStripMenuItem_Click);
             // 
             // FrmOrderFilesManage
             // 
@@ -208,5 +217,6 @@
         private System.Windows.Forms.ToolStripMenuItem 上传附件ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 下载选中附件ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem 删除选中附件ToolStripMenuItem;
     }
 }

@@ -156,5 +156,21 @@ namespace TravelAgency.OrdersManagement.FrmSub
         {
             LoadDataToDgv();
         }
+
+        private void 删除选中附件ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var fileList = GetSelectedModelList();
+            if (fileList.Count < 1)
+                return;
+
+            if (MessageBoxEx.Show("是否删除选中附件?", "确认", MessageBoxButtons.YesNo) == DialogResult.No)
+                return;
+
+            for (int i = 0; i < fileList.Count; ++i)
+                _bll.Delete(fileList[i].Id);
+
+            LoadDataToDgv();
+
+        }
     }
 }
