@@ -33,7 +33,7 @@ namespace TravelAgency.DAL
             return DbHelperSQL.Query(sql, pams);
         }
 
-        public DataSet GetLastRecord(string type,string TypeInPerson)
+        public DataSet GetLastRecord(string type,string TypeInPerson,string country)
         {
             string sql = "select top 1 * from visa";
             if (!string.IsNullOrEmpty(type))
@@ -44,8 +44,11 @@ namespace TravelAgency.DAL
             {
                 sql += " and typeinperson = '" + TypeInPerson + "' ";
             }
+            if (!string.IsNullOrEmpty(country))
+            {
+                sql += " and country = '" + country + "' ";
+            }
             sql += "order by entryTime desc";
-
             return DbHelperSQL.Query(sql);
         }
 
