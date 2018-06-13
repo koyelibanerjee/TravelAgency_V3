@@ -135,7 +135,7 @@ namespace TravelAgency.DAL
 
             StringBuilder strSql = new StringBuilder();
             strSql.Append("select  top 1 * from VisaInfo ");
-            strSql.Append(" where PassportNo=@PassportNo ");
+            strSql.Append(" where PassportNo=@PassportNo order by entrytime desc");
             SqlParameter[] parameters = {
                     new SqlParameter("@PassportNo", SqlDbType.VarChar,50)           };
             parameters[0].Value = passportNo;
