@@ -53,6 +53,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             dataGridView1.CellDoubleClick += DataGridView1_CellDoubleClick;
             dataGridView1.SelectionChanged += DataGridView1_SelectionChanged;
             dataGridView1.CellMouseUp += dataGridView1_CellMouseUp;
+            dataGridView1.RowsAdded += DataGridView1_RowsAdded;
             dataGridView1.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
             dataGridView1.DataSource = _list;
 
@@ -78,6 +79,17 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             //dataGridView1.ReadOnly = true;
             dataGridView1.Columns["Price"].ReadOnly = false;
             dataGridView1.Columns["ActuallyAmount"].ReadOnly = false;
+        }
+
+        private void DataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                if (!string.IsNullOrEmpty(dataGridView1.Rows[i].Cells["Tips2"].Value.ToString()))
+                {
+                    dataGridView1.Rows[i].Cells["Tips2"].Style.BackColor = Color.Chocolate;
+                }
+            }
         }
 
         private List<Model.Visa> DgvDataSourceToList()
