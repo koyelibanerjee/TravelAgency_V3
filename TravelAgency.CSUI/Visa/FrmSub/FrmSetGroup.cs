@@ -242,6 +242,9 @@ namespace TravelAgency.CSUI.FrmSub
                     foreach (var item in list)
                         txtSalesPerson.Items.Add(item);
             }
+
+            if (txtSalesPerson.Items.Count == 1)
+                txtSalesPerson.SelectedIndex = 0;
         }
 
         private void TxtClient_SelChangeGetOperator(object sender, EventArgs e)
@@ -259,6 +262,9 @@ namespace TravelAgency.CSUI.FrmSub
                     foreach (var item in list)
                         txtOperator.Items.Add(item);
             }
+
+            if (txtOperator.Items.Count == 1)
+                txtOperator.SelectedIndex = 0;
         }
 
         private void InitDgv()
@@ -1746,6 +1752,8 @@ namespace TravelAgency.CSUI.FrmSub
                     }
                 }
                 txtClient.DropDownStyle = ComboBoxStyle.DropDown;
+                if (txtClient.Items.Count == 1)
+                    txtClient.SelectedIndex = 0;
             }
         }
     }
