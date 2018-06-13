@@ -86,6 +86,10 @@ namespace TravelAgency.OrdersManagement
                 txtReplyResult.Items.Add(item);
             txtReplyResult.SelectedIndex = 3;
 
+            strList = new List<string> { "JP", "邮件", "EASYGO", "JP+EASYGO","电话","成都出票","上海出票","北京出票" };
+            foreach (var item in strList)
+                txtOrderWay.Items.Add(item);
+            txtOrderWay.SelectedIndex = 0;
         }
         #endregion
 
