@@ -126,6 +126,7 @@
             this.人申请表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.机票报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.外领担保函ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.金桥担保函ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.打印报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.韩国ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.韩国担保函ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -141,7 +142,8 @@
             this.bgWorkerLoadData = new System.ComponentModel.BackgroundWorker();
             this.cms4AddToExport = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.添加到送签统计ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.金桥担保函ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bar2 = new DevComponents.DotNetBar.Bar();
+            this.lbCount = new DevComponents.DotNetBar.LabelItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panelDgv.SuspendLayout();
@@ -152,6 +154,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             this.cmsDgvRb.SuspendLayout();
             this.cms4AddToExport.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bar2)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -194,7 +197,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -214,7 +217,7 @@
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1508, 532);
+            this.dataGridView1.Size = new System.Drawing.Size(1508, 513);
             this.dataGridView1.TabIndex = 10;
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridView1.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseUp);
@@ -391,6 +394,7 @@
             this.panelDgv.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelDgv.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.panelDgv.Controls.Add(this.dataGridView1);
+            this.panelDgv.Controls.Add(this.bar2);
             this.panelDgv.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelDgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDgv.Location = new System.Drawing.Point(0, 91);
@@ -1064,7 +1068,7 @@
             this.删除护照图像ToolStripMenuItem,
             this.上传护照图像ToolStripMenuItem});
             this.cmsDgvRb.Name = "cmsDgvRb";
-            this.cmsDgvRb.Size = new System.Drawing.Size(185, 352);
+            this.cmsDgvRb.Size = new System.Drawing.Size(185, 330);
             // 
             // 复制ToolStripMenuItem
             // 
@@ -1169,34 +1173,41 @@
             this.外领担保函ToolStripMenuItem,
             this.金桥担保函ToolStripMenuItem});
             this.日本ToolStripMenuItem.Name = "日本ToolStripMenuItem";
-            this.日本ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.日本ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.日本ToolStripMenuItem.Text = "日本";
             // 
             // 人申请表ToolStripMenuItem
             // 
             this.人申请表ToolStripMenuItem.Name = "人申请表ToolStripMenuItem";
-            this.人申请表ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.人申请表ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.人申请表ToolStripMenuItem.Text = "8人申请表";
             this.人申请表ToolStripMenuItem.Click += new System.EventHandler(this.人申请表ToolStripMenuItem_Click);
             // 
             // 机票报表ToolStripMenuItem
             // 
             this.机票报表ToolStripMenuItem.Name = "机票报表ToolStripMenuItem";
-            this.机票报表ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.机票报表ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.机票报表ToolStripMenuItem.Text = "机票报表";
             this.机票报表ToolStripMenuItem.Click += new System.EventHandler(this.机票报表ToolStripMenuItem_Click);
             // 
             // 外领担保函ToolStripMenuItem
             // 
             this.外领担保函ToolStripMenuItem.Name = "外领担保函ToolStripMenuItem";
-            this.外领担保函ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.外领担保函ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.外领担保函ToolStripMenuItem.Text = "外领担保函";
             this.外领担保函ToolStripMenuItem.Click += new System.EventHandler(this.外领担保函ToolStripMenuItem_Click);
+            // 
+            // 金桥担保函ToolStripMenuItem
+            // 
+            this.金桥担保函ToolStripMenuItem.Name = "金桥担保函ToolStripMenuItem";
+            this.金桥担保函ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.金桥担保函ToolStripMenuItem.Text = "金桥担保函";
+            this.金桥担保函ToolStripMenuItem.Click += new System.EventHandler(this.金桥担保函ToolStripMenuItem_Click);
             // 
             // 打印报表ToolStripMenuItem
             // 
             this.打印报表ToolStripMenuItem.Name = "打印报表ToolStripMenuItem";
-            this.打印报表ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.打印报表ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.打印报表ToolStripMenuItem.Text = "打印报表";
             this.打印报表ToolStripMenuItem.Click += new System.EventHandler(this.打印报表ToolStripMenuItem_Click);
             // 
@@ -1206,7 +1217,7 @@
             this.韩国担保函ToolStripMenuItem,
             this.韩国加急申请书ToolStripMenuItem});
             this.韩国ToolStripMenuItem.Name = "韩国ToolStripMenuItem";
-            this.韩国ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.韩国ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.韩国ToolStripMenuItem.Text = "韩国";
             // 
             // 韩国担保函ToolStripMenuItem
@@ -1226,7 +1237,7 @@
             // 泰国ToolStripMenuItem
             // 
             this.泰国ToolStripMenuItem.Name = "泰国ToolStripMenuItem";
-            this.泰国ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.泰国ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.泰国ToolStripMenuItem.Text = "泰国";
             // 
             // 导出图像ToolStripMenuItem
@@ -1303,12 +1314,32 @@
             this.添加到送签统计ToolStripMenuItem.Text = "添加到送签统计";
             this.添加到送签统计ToolStripMenuItem.Click += new System.EventHandler(this.添加到送签统计ToolStripMenuItem_Click);
             // 
-            // 金桥担保函ToolStripMenuItem
+            // bar2
             // 
-            this.金桥担保函ToolStripMenuItem.Name = "金桥担保函ToolStripMenuItem";
-            this.金桥担保函ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.金桥担保函ToolStripMenuItem.Text = "金桥担保函";
-            this.金桥担保函ToolStripMenuItem.Click += new System.EventHandler(this.金桥担保函ToolStripMenuItem_Click);
+            this.bar2.AntiAlias = true;
+            this.bar2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.bar2.DockSide = DevComponents.DotNetBar.eDockSide.Document;
+            this.bar2.DockTabStripHeight = 30;
+            this.bar2.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
+            this.bar2.IsMaximized = false;
+            this.bar2.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.lbCount});
+            this.bar2.ItemSpacing = 5;
+            this.bar2.Location = new System.Drawing.Point(0, 513);
+            this.bar2.Name = "bar2";
+            this.bar2.Size = new System.Drawing.Size(1508, 19);
+            this.bar2.Stretch = true;
+            this.bar2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.bar2.TabIndex = 28;
+            this.bar2.TabStop = false;
+            this.bar2.Text = "bar2";
+            // 
+            // lbCount
+            // 
+            this.lbCount.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbCount.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lbCount.Name = "lbCount";
+            this.lbCount.Text = "--";
             // 
             // FrmVisaInfoManage
             // 
@@ -1329,6 +1360,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).EndInit();
             this.cmsDgvRb.ResumeLayout(false);
             this.cms4AddToExport.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bar2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1445,6 +1477,8 @@
         private DevComponents.DotNetBar.SwitchButtonItem btnCanAcceptNewWork;
         private DevComponents.DotNetBar.SwitchButtonItem btnOnlyShowNotDone;
         private System.Windows.Forms.ToolStripMenuItem 金桥担保函ToolStripMenuItem;
+        private DevComponents.DotNetBar.Bar bar2;
+        private DevComponents.DotNetBar.LabelItem lbCount;
     }
 }
 

@@ -115,6 +115,7 @@ namespace TravelAgency.CSUI.FrmMain
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders; //这里也一定不能AllCell自适应!
             dataGridView1.Columns["GroupNo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             dataGridView1.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
+            dataGridView1.SelectionChanged += DataGridView1_SelectionChanged;
             bgWorkerLoadData.WorkerReportsProgress = true;
             progressLoading.Visible = false;
             LoadDataToDgvAsyn();
@@ -466,7 +467,20 @@ namespace TravelAgency.CSUI.FrmMain
 
 
         #region dgv消息响应
+        private void DataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count < 1)
+                return;
+            int total = 0;
 
+            for (int i = 0; i < dataGridView1.SelectedRows.Count; ++i)
+            {
+                var model = DgvDataSourceToList()[dataGridView1.SelectedRows[i].Index];
+                total += model.Number ?? 0;
+            }
+
+            lbCount.Text = string.Format("选中{0}项 共:{1}人", dataGridView1.SelectedRows.Count, total);
+        }
         private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
         {
             if (dataGridView1.CurrentCell.Value != null && e.Control && e.KeyCode == Keys.C)

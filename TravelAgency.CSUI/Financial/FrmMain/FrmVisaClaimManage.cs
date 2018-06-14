@@ -101,6 +101,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
 
             dataGridView1.CellMouseUp += dataGridView1_CellMouseUp;
+            dataGridView1.SelectionChanged += DataGridView1_SelectionChanged;
             //dataGridView1.CellBeginEdit += DataGridView1_CellBeginEdit;
             //dataGridView1.CellEndEdit += DataGridView1_CellEndEdit;
             //dataGridView1.CellValueChanged += DataGridView1_CellValueChanged;
@@ -168,6 +169,22 @@ namespace TravelAgency.CSUI.Financial.FrmMain
         //    }
 
         //}
+
+        private void DataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count < 1)
+                return;
+            int total = 0;
+
+            for (int i = 0; i < dataGridView1.SelectedRows.Count; ++i)
+            {
+                var model = DgvDataSourceToList()[dataGridView1.SelectedRows[i].Index];
+                total += model.Number ?? 0;
+            }
+
+            lbCount.Text = string.Format("选中{0}项 共:{1}人", dataGridView1.SelectedRows.Count, total);
+        }
+
 
         #region dgv用到的相关方法
         /// <summary>

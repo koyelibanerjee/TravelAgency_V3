@@ -92,6 +92,7 @@ namespace TravelAgency.CSUI.FrmMain
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
 
             dataGridView1.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
+            dataGridView1.SelectionChanged += DataGridView1_SelectionChanged;
 
             cbDisplayType.Items.Add("全部");
             cbDisplayType.Items.Add("未记录");
@@ -143,6 +144,20 @@ namespace TravelAgency.CSUI.FrmMain
 
             LoadDataToDgvAsyn();
             _init = true;
+        }
+
+        private void DataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count < 1)
+                return;
+
+            //for (int i = 0; i < dataGridView1.SelectedRows.Count; ++i)
+            //{
+            //    var model = DgvDataSourceToList()[dataGridView1.SelectedRows[i].Index];
+            //    total += DecimalHandler.Parse(model.Amount.ToString());
+            //}
+
+            lbCount.Text = string.Format("选中{1}项 共:{0}人", dataGridView1.SelectedRows.Count, dataGridView1.SelectedRows.Count);
         }
 
         #region model与control
@@ -884,13 +899,13 @@ namespace TravelAgency.CSUI.FrmMain
                 return;
 
 
-            bool canDo = false;bool hasJapan = false;
+            bool canDo = false; bool hasJapan = false;
             foreach (var visainfo in list)
             {
                 if (visainfo.Country == "日本"
                     && (visainfo.Types == "个签" || visainfo.Types == "团做个" || visainfo.Types == "商务"))
                 {
-                    if(visainfo.AssignmentToWorkId == GlobalUtils.LoginUser.WorkId)
+                    if (visainfo.AssignmentToWorkId == GlobalUtils.LoginUser.WorkId)
                         canDo = true;
                     hasJapan = true;
                 }

@@ -144,6 +144,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             bgWorkerLoadData.WorkerReportsProgress = true;
             progressLoading.Visible = false;
             LoadDataToDgvAsyn();
+            dataGridView1.SelectionChanged += DataGridView1_SelectionChanged;
             _init = true;
             #endregion
         }
@@ -784,6 +785,23 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
 
         #region dgv消息响应
+
+        private void DataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count < 1)
+                return;
+            int total = 0;
+
+            for (int i = 0; i < dataGridView1.SelectedRows.Count; ++i)
+            {
+                var model = DgvDataSourceToList()[dataGridView1.SelectedRows[i].Index];
+                total += model.Number ?? 0;
+            }
+
+            lbCount.Text = string.Format("选中{0}项 共:{1}人", dataGridView1.SelectedRows.Count, total);
+        }
+
+
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridView1.SelectedRows.Count > 1)
