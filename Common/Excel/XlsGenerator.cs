@@ -7,6 +7,7 @@ using DevComponents.DotNetBar;
 using NPOI.HSSF.UserModel;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
+using TravelAgency.Common.PictureHandler;
 using TravelAgency.Model;
 
 namespace TravelAgency.Common.Excel
@@ -631,6 +632,48 @@ namespace TravelAgency.Common.Excel
             }
         }
 
+
+
+        public static void Get8PassPicTable(List<Model.VisaInfo> visaInfoList)
+        {
+            if (visaInfoList == null || visaInfoList.Count < 1)
+                return;
+
+            if (visaInfoList.Count > 8)
+            {
+                MessageBoxEx.Show("请选择8人以下导出!!!");
+                return;
+            }
+
+            //READEXCEL
+            using (FileStream fs = File.OpenRead(GlobalUtils.AppPath + @"\Excel\Templates\template_泰国8人首页.xlsx"))
+            {
+                IWorkbook wkbook = new XSSFWorkbook(fs);
+                ISheet sheet = wkbook.GetSheet("sheet1");
+
+                for (int i = 0; i < visaInfoList.Count; i++)
+                {
+                    if (!PassportPicHandler.CheckAndDownloadIfNotExist(visaInfoList[i].PassportNo,
+                        PassportPicHandler.PicType.Type01Normal))
+                    {
+                        MessageBoxEx.Show("找不到指定护照图像，将退出!!");
+                        return;
+                    }
+
+                    //添加二维码图片
+                    var picturebuffer = File.ReadAllBytes(GlobalUtils.LocalPassportPicPath + @"\" + visaInfoList[i].PassportNo + ".jpg");
+                    int pictureIdx = wkbook.AddPicture(picturebuffer, PictureType.JPEG);
+                    var patriach = sheet.CreateDrawingPatriarch();
+                    IClientAnchor anchor = new XSSFClientAnchor(0, 0, 0, 0, i % 2, i / 2, i % 2 + 1, i / 2 + 1);
+                    patriach.CreatePicture(anchor, pictureIdx);
+                }
+
+                string dstName = GlobalUtils.ShowSaveFileDlg("8人首页.xlsx", "Excel XLSX|*.xlsx");
+
+                SaveFile(dstName, wkbook);
+
+            }
+        }
 
 
     }

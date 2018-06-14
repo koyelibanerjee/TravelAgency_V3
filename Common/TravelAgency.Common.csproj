@@ -315,6 +315,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Excel\Templates\template_%28前8人）旅行社申请名单表_（表3）_添加占位符.xls" />
+    <None Include="Excel\Templates\template_泰国8人首页.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Excel\Templates\泰国数据源报表.xls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

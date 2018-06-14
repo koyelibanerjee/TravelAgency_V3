@@ -1403,8 +1403,12 @@ namespace TravelAgency.CSUI.FrmMain
 
 
 
+
         #endregion
 
-
+        private void 人首页ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            XlsGenerator.Get8PassPicTable(GetDgvSelList());
+        }
     }
 }
