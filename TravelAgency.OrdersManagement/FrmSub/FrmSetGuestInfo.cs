@@ -67,7 +67,12 @@ namespace TravelAgency.OrdersManagement
                 if (GlobalUtils.LoginUserLevel== RigthLevel.Waitor && 
                     _model.ReplyResult != "未处理")
                 {
-                    btnOK.Enabled = false;
+                    txtOrderNo.Enabled = false;
+                    txtReserveTime.Enabled = false;
+                    txtDiningTime.Enabled = false;
+                    txtDiningShop.Enabled = false;
+                    txtIsPraise.Enabled = false;
+                    txtCheckMoneyTime.Enabled = false;
                 }
 
                 txtOrderNo.Text = _model.OrderNo;

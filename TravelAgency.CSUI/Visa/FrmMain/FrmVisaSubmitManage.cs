@@ -1795,5 +1795,24 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             lbRealTime.Text = "送签时间: " + DateTimeFormator.DateTimeToString(_realTime);
             lbFinishTime.Text = "出签时间: " + DateTimeFormator.DateTimeToString(_finishTime);
         }
+
+        private void 修改进出签时间ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var list = GetSelectedVisaList();
+            if (list.Count == 0)
+                return;
+            FrmSetSubmitTime frm = new FrmSetSubmitTime(list[0].RealTime.ToString(),
+                list[0].FinishTime.ToString());
+            if (frm.ShowDialog() == DialogResult.Cancel)
+                return;
+
+            foreach (var visa in list)
+            {
+                visa.RealTime = frm.RetRealTime;
+                visa.FinishTime = frm.RetFinishTime;
+            }
+            _bllVisa.UpdateList(list);
+            LoadDataToDgvAsyn();
+        }
     }
 }

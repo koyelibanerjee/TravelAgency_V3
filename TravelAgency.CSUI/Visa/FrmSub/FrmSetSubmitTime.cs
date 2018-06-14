@@ -18,6 +18,7 @@ namespace TravelAgency.CSUI.Visa.FrmSub
         //private readonly Model.Visa _visaModel = null;
         public DateTime? RetFinishTime = null;
         public DateTime? RetRealTime = null;
+        private bool _initFromModel = false;
         public FrmSetSubmitTime()
         {
             if (this.Modal)
@@ -25,8 +26,22 @@ namespace TravelAgency.CSUI.Visa.FrmSub
             else
                 this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             InitializeComponent();
         }
+
+        public FrmSetSubmitTime(string realtime, string finishtime)
+            : this()
+        {
+            txtRealTime.Text = realtime;
+            txtFinishTime.Text = finishtime;
+            rbtnJapan.Enabled = false;
+            rbtnKorea.Enabled = false;
+            rbtnThailand.Enabled = false;
+            _initFromModel = true;
+        }
+
 
         //public FrmSetSubmitTime(Model.Visa model):this()
         //{
@@ -35,41 +50,36 @@ namespace TravelAgency.CSUI.Visa.FrmSub
 
         private void FrmSetSubmitTime_Load(object sender, EventArgs e)
         {
-            //lbGroupNo.Text = _visaModel.GroupNo;
-            //lbCountry.Text = _visaModel.Country;
+
+            if (_initFromModel)
+                return;
+            //rbtnJapan.Select();
             DateTime finishdate = DateTime.Now;
             DateTime realdate = DateTime.Now;
             realdate.AddDays(1);
             finishdate.AddDays(1);
 
-            //if (_visaModel.Country == "日本")
-            //    finishdate = finishdate.AddDays(1);
-            //else if (_visaModel.Country == "韩国")
-            //    finishdate = finishdate.AddDays(5);
-            //else if (_visaModel.Country == "泰国")
-            //    finishdate = finishdate.AddDays(3);
-
             txtFinishTime.Text = finishdate.ToString();
             txtRealTime.Text = realdate.ToString();
         }
 
-    //    private void btnNextDay_Click(object sender, EventArgs e)
-    //    {
-    //        txtFinishTime
-    //            .Text = _visaModel.RealTime.Value.Date.AddDays(1).ToString();
-    //    }
+        //    private void btnNextDay_Click(object sender, EventArgs e)
+        //    {
+        //        txtFinishTime
+        //            .Text = _visaModel.RealTime.Value.Date.AddDays(1).ToString();
+        //    }
 
-    //    private void btn5Day_Click(object sender, EventArgs e)
-    //    {
-    //        txtFinishTime
-    //.Text = _visaModel.RealTime.Value.Date.AddDays(5).ToString();
-    //    }
+        //    private void btn5Day_Click(object sender, EventArgs e)
+        //    {
+        //        txtFinishTime
+        //.Text = _visaModel.RealTime.Value.Date.AddDays(5).ToString();
+        //    }
 
-    //    private void btn3Day_Click(object sender, EventArgs e)
-    //    {
-    //        txtFinishTime
-    //.Text = _visaModel.RealTime.Value.Date.AddDays(3).ToString();
-    //    }
+        //    private void btn3Day_Click(object sender, EventArgs e)
+        //    {
+        //        txtFinishTime
+        //.Text = _visaModel.RealTime.Value.Date.AddDays(3).ToString();
+        //    }
 
         //private void btnShowDetails_Click(object sender, EventArgs e)
         //{
@@ -113,7 +123,7 @@ namespace TravelAgency.CSUI.Visa.FrmSub
         {
             txtFinishTime.Text = DateTime.Now.Date.AddDays(5).ToString();
             txtRealTime.Text = DateTime.Now.Date.AddDays(1).ToString();
-           
+
         }
 
         private void rbtnKorea_CheckedChanged(object sender, EventArgs e)
