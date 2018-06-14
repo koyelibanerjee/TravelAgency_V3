@@ -1798,6 +1798,11 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
         private void 修改进出签时间ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (GlobalUtils.LoginUserLevel != RigthLevel.Manager)
+            {
+                MessageBoxEx.Show("权限不足!!!");
+                return;
+            }
             var list = GetSelectedVisaList();
             if (list.Count == 0)
                 return;
