@@ -12,6 +12,11 @@ namespace TravelAgency.BLL
         private readonly BLL.WorkerQueue _bllWorkerQueue = new WorkerQueue();
         private readonly BLL.VisaInfo _bllVisaInfo = new VisaInfo();
 
+        public int GetMaxId()
+        {
+            return dal.GetMaxId();
+        }
+
         public Model.JobAssignment Top()
         {
             return dal.Top();

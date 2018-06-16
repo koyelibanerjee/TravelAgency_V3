@@ -1417,5 +1417,49 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             LoadDataToDgvAsyn();
 
         }
+
+        private void 添加到任务分配队列ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (GlobalUtils.LoginUserLevel != RigthLevel.Manager)
+            {
+                MessageBoxEx.Show("权限不足!!!");
+                return;
+            }
+            var list = GetDgvSelList();
+            if (list.Count < 1)
+                return;
+
+            if (MessageBoxEx.Show("是否将选中项设置为同一工作编号?", "提醒", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+                return;
+
+            foreach (var visaInfo in list)
+            {
+                if (!string.IsNullOrEmpty(visaInfo.AssignmentToWorkId))
+                {
+                    MessageBoxEx.Show("选中项中已有设置过任务编号的签证!!!");
+                    return;
+                }
+                
+            }
+
+            Model.JobAssignment job = new Model.JobAssignment();
+            job.EntryTime = DateTime.Now;
+
+            int retJobId = _bllJobAssignment.Add(job); //失败返回0
+            if (retJobId == 0)
+            {
+                MessageBoxEx.Show("添加工作编号失败,请稍后重试!!!");
+                return;
+            }
+            foreach (var visaInfo in list)
+            {
+                visaInfo.JobId = retJobId;
+            }
+
+
+            var res = _bllVisaInfo.UpdateByList(list);
+            GlobalUtils.MessageBoxWithRecordNum("设置工作编号", res, list.Count);
+            LoadDataToDgvAsyn();
+        }
     }
 }

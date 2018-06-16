@@ -12,6 +12,23 @@ namespace TravelAgency.DAL
     /// </summary>
     public partial class JobAssignment
     {
+
+        public int GetMaxId()
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select  top 1 Id from JobAssignment ");
+            strSql.Append(" order by id desc");
+            object obj = DbHelperSQL.GetSingle(strSql.ToString());
+            if (obj == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return Convert.ToInt32(obj);
+            }
+        }
+
         public Model.JobAssignment Top()
         {
             StringBuilder strSql = new StringBuilder();

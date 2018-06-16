@@ -211,9 +211,9 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             if (count > 0)
             {
                 if (_finishTime != null && _realTime != null)
-                    MessageBoxEx.Show("成功更新" + count / 2 + "条记录.");
+                    MessageBoxEx.Show("成功解析" + count / 2 + "条记录.");
                 else
-                    MessageBoxEx.Show("成功更新" + count + "条记录.");
+                    MessageBoxEx.Show("成功解析" + count + "条记录.");
             }
         }
 
@@ -1905,5 +1905,14 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             //frm.To = to;
             frm.Show();
         }
+
+        private void 导出日本送签时间表ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count < 1)
+                return;
+            List<Model.Visa> list = GetSelectedVisaList();
+            ExcelGenerator.GetAllCountExcel(list);
+        }
+
     }
 }

@@ -55,6 +55,8 @@
             this.Visa_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMain = new DevComponents.DotNetBar.PanelEx();
             this.panelDgv = new DevComponents.DotNetBar.PanelEx();
+            this.bar2 = new DevComponents.DotNetBar.Bar();
+            this.lbCount = new DevComponents.DotNetBar.LabelItem();
             this.panelBars = new DevComponents.DotNetBar.PanelEx();
             this.panelSerachBar = new DevComponents.DotNetBar.PanelEx();
             this.cbOutState = new DevComponents.DotNetBar.Controls.ComboBoxEx();
@@ -132,6 +134,7 @@
             this.韩国担保函ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.韩国加急申请书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.泰国ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.人首页ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.导出图像ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.护照图像ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.头像ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -142,12 +145,11 @@
             this.bgWorkerLoadData = new System.ComponentModel.BackgroundWorker();
             this.cms4AddToExport = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.添加到送签统计ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bar2 = new DevComponents.DotNetBar.Bar();
-            this.lbCount = new DevComponents.DotNetBar.LabelItem();
-            this.人首页ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.添加到任务分配队列ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panelDgv.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bar2)).BeginInit();
             this.panelBars.SuspendLayout();
             this.panelSerachBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtSchEntryTimeTo)).BeginInit();
@@ -155,7 +157,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             this.cmsDgvRb.SuspendLayout();
             this.cms4AddToExport.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bar2)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -409,6 +410,33 @@
             this.panelDgv.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.panelDgv.Style.GradientAngle = 90;
             this.panelDgv.TabIndex = 38;
+            // 
+            // bar2
+            // 
+            this.bar2.AntiAlias = true;
+            this.bar2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.bar2.DockSide = DevComponents.DotNetBar.eDockSide.Document;
+            this.bar2.DockTabStripHeight = 30;
+            this.bar2.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
+            this.bar2.IsMaximized = false;
+            this.bar2.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.lbCount});
+            this.bar2.ItemSpacing = 5;
+            this.bar2.Location = new System.Drawing.Point(0, 513);
+            this.bar2.Name = "bar2";
+            this.bar2.Size = new System.Drawing.Size(1508, 19);
+            this.bar2.Stretch = true;
+            this.bar2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.bar2.TabIndex = 28;
+            this.bar2.TabStop = false;
+            this.bar2.Text = "bar2";
+            // 
+            // lbCount
+            // 
+            this.lbCount.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbCount.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lbCount.Name = "lbCount";
+            this.lbCount.Text = "--";
             // 
             // panelBars
             // 
@@ -1067,9 +1095,10 @@
             this.生成报表ToolStripMenuItem,
             this.导出图像ToolStripMenuItem,
             this.删除护照图像ToolStripMenuItem,
-            this.上传护照图像ToolStripMenuItem});
+            this.上传护照图像ToolStripMenuItem,
+            this.添加到任务分配队列ToolStripMenuItem});
             this.cmsDgvRb.Name = "cmsDgvRb";
-            this.cmsDgvRb.Size = new System.Drawing.Size(185, 352);
+            this.cmsDgvRb.Size = new System.Drawing.Size(185, 374);
             // 
             // 复制ToolStripMenuItem
             // 
@@ -1240,8 +1269,15 @@
             this.泰国ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.人首页ToolStripMenuItem});
             this.泰国ToolStripMenuItem.Name = "泰国ToolStripMenuItem";
-            this.泰国ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.泰国ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.泰国ToolStripMenuItem.Text = "泰国";
+            // 
+            // 人首页ToolStripMenuItem
+            // 
+            this.人首页ToolStripMenuItem.Name = "人首页ToolStripMenuItem";
+            this.人首页ToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.人首页ToolStripMenuItem.Text = "8人首页";
+            this.人首页ToolStripMenuItem.Click += new System.EventHandler(this.人首页ToolStripMenuItem_Click);
             // 
             // 导出图像ToolStripMenuItem
             // 
@@ -1317,39 +1353,12 @@
             this.添加到送签统计ToolStripMenuItem.Text = "添加到送签统计";
             this.添加到送签统计ToolStripMenuItem.Click += new System.EventHandler(this.添加到送签统计ToolStripMenuItem_Click);
             // 
-            // bar2
+            // 添加到任务分配队列ToolStripMenuItem
             // 
-            this.bar2.AntiAlias = true;
-            this.bar2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bar2.DockSide = DevComponents.DotNetBar.eDockSide.Document;
-            this.bar2.DockTabStripHeight = 30;
-            this.bar2.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
-            this.bar2.IsMaximized = false;
-            this.bar2.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.lbCount});
-            this.bar2.ItemSpacing = 5;
-            this.bar2.Location = new System.Drawing.Point(0, 513);
-            this.bar2.Name = "bar2";
-            this.bar2.Size = new System.Drawing.Size(1508, 19);
-            this.bar2.Stretch = true;
-            this.bar2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.bar2.TabIndex = 28;
-            this.bar2.TabStop = false;
-            this.bar2.Text = "bar2";
-            // 
-            // lbCount
-            // 
-            this.lbCount.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbCount.ForeColor = System.Drawing.Color.ForestGreen;
-            this.lbCount.Name = "lbCount";
-            this.lbCount.Text = "--";
-            // 
-            // 人首页ToolStripMenuItem
-            // 
-            this.人首页ToolStripMenuItem.Name = "人首页ToolStripMenuItem";
-            this.人首页ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.人首页ToolStripMenuItem.Text = "8人首页";
-            this.人首页ToolStripMenuItem.Click += new System.EventHandler(this.人首页ToolStripMenuItem_Click);
+            this.添加到任务分配队列ToolStripMenuItem.Name = "添加到任务分配队列ToolStripMenuItem";
+            this.添加到任务分配队列ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.添加到任务分配队列ToolStripMenuItem.Text = "添加到任务分配队列";
+            this.添加到任务分配队列ToolStripMenuItem.Click += new System.EventHandler(this.添加到任务分配队列ToolStripMenuItem_Click);
             // 
             // FrmVisaInfoManage
             // 
@@ -1363,6 +1372,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panelMain.ResumeLayout(false);
             this.panelDgv.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bar2)).EndInit();
             this.panelBars.ResumeLayout(false);
             this.panelSerachBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtSchEntryTimeTo)).EndInit();
@@ -1370,7 +1380,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).EndInit();
             this.cmsDgvRb.ResumeLayout(false);
             this.cms4AddToExport.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bar2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1490,6 +1499,7 @@
         private DevComponents.DotNetBar.Bar bar2;
         private DevComponents.DotNetBar.LabelItem lbCount;
         private System.Windows.Forms.ToolStripMenuItem 人首页ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 添加到任务分配队列ToolStripMenuItem;
     }
 }
 

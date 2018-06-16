@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bar1 = new DevComponents.DotNetBar.Bar();
             this.btnPageFirst = new DevComponents.DotNetBar.ButtonItem();
             this.btnPagePre = new DevComponents.DotNetBar.ButtonItem();
@@ -102,6 +102,9 @@
             this.泰航机票ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.复制二维码信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.更改送签状态ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.修改进出签时间ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.导出日本每日送签报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.导出日本送签时间表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelBars = new DevComponents.DotNetBar.PanelEx();
             this.panelSerachBar = new DevComponents.DotNetBar.PanelEx();
             this.txtFinishTimeTo = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
@@ -143,6 +146,8 @@
             this.bgWorkerLoadData = new System.ComponentModel.BackgroundWorker();
             this.labelItem8 = new DevComponents.DotNetBar.LabelItem();
             this.panelDgv = new DevComponents.DotNetBar.PanelEx();
+            this.bar2 = new DevComponents.DotNetBar.Bar();
+            this.lbCount = new DevComponents.DotNetBar.LabelItem();
             this.cmsAddToGroup = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.添加到团号ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new DevComponents.DotNetBar.PanelEx();
@@ -158,10 +163,6 @@
             this.lbRealTime = new DevComponents.DotNetBar.LabelX();
             this.labelX9 = new DevComponents.DotNetBar.LabelX();
             this.txtInput = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.修改进出签时间ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bar2 = new DevComponents.DotNetBar.Bar();
-            this.lbCount = new DevComponents.DotNetBar.LabelItem();
-            this.导出日本每日送签报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cmsDgv.SuspendLayout();
@@ -174,11 +175,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSchEntryTimeTo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSchEntryTimeFrom)).BeginInit();
             this.panelDgv.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bar2)).BeginInit();
             this.cmsAddToGroup.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panelBtns.SuspendLayout();
             this.panelOutState.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bar2)).BeginInit();
             this.SuspendLayout();
             // 
             // bar1
@@ -277,14 +278,14 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.GroupNo,
@@ -302,28 +303,28 @@
             this.Client,
             this.SalesPerson,
             this.Visa_id});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -460,9 +461,10 @@
             this.复制二维码信息ToolStripMenuItem,
             this.更改送签状态ToolStripMenuItem,
             this.修改进出签时间ToolStripMenuItem,
-            this.导出日本每日送签报表ToolStripMenuItem});
+            this.导出日本每日送签报表ToolStripMenuItem,
+            this.导出日本送签时间表ToolStripMenuItem});
             this.cmsDgv.Name = "cmsDgv";
-            this.cmsDgv.Size = new System.Drawing.Size(197, 302);
+            this.cmsDgv.Size = new System.Drawing.Size(197, 324);
             // 
             // 复制ToolStripMenuItem
             // 
@@ -777,6 +779,27 @@
             this.更改送签状态ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.更改送签状态ToolStripMenuItem.Text = "更改送签状态";
             this.更改送签状态ToolStripMenuItem.Click += new System.EventHandler(this.更改送签状态ToolStripMenuItem_Click);
+            // 
+            // 修改进出签时间ToolStripMenuItem
+            // 
+            this.修改进出签时间ToolStripMenuItem.Name = "修改进出签时间ToolStripMenuItem";
+            this.修改进出签时间ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.修改进出签时间ToolStripMenuItem.Text = "修改进出签时间";
+            this.修改进出签时间ToolStripMenuItem.Click += new System.EventHandler(this.修改进出签时间ToolStripMenuItem_Click);
+            // 
+            // 导出日本每日送签报表ToolStripMenuItem
+            // 
+            this.导出日本每日送签报表ToolStripMenuItem.Name = "导出日本每日送签报表ToolStripMenuItem";
+            this.导出日本每日送签报表ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.导出日本每日送签报表ToolStripMenuItem.Text = "导出日本每日送签报表";
+            this.导出日本每日送签报表ToolStripMenuItem.Click += new System.EventHandler(this.导出日本每日送签报表ToolStripMenuItem_Click);
+            // 
+            // 导出日本送签时间表ToolStripMenuItem
+            // 
+            this.导出日本送签时间表ToolStripMenuItem.Name = "导出日本送签时间表ToolStripMenuItem";
+            this.导出日本送签时间表ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.导出日本送签时间表ToolStripMenuItem.Text = "导出日本送签时间表";
+            this.导出日本送签时间表ToolStripMenuItem.Click += new System.EventHandler(this.导出日本送签时间表ToolStripMenuItem_Click);
             // 
             // panelBars
             // 
@@ -1535,6 +1558,33 @@
             this.panelDgv.TabIndex = 37;
             this.panelDgv.Text = "panelEx1";
             // 
+            // bar2
+            // 
+            this.bar2.AntiAlias = true;
+            this.bar2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.bar2.DockSide = DevComponents.DotNetBar.eDockSide.Document;
+            this.bar2.DockTabStripHeight = 30;
+            this.bar2.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
+            this.bar2.IsMaximized = false;
+            this.bar2.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.lbCount});
+            this.bar2.ItemSpacing = 5;
+            this.bar2.Location = new System.Drawing.Point(0, 523);
+            this.bar2.Name = "bar2";
+            this.bar2.Size = new System.Drawing.Size(1097, 19);
+            this.bar2.Stretch = true;
+            this.bar2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.bar2.TabIndex = 30;
+            this.bar2.TabStop = false;
+            this.bar2.Text = "bar2";
+            // 
+            // lbCount
+            // 
+            this.lbCount.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbCount.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lbCount.Name = "lbCount";
+            this.lbCount.Text = "--";
+            // 
             // cmsAddToGroup
             // 
             this.cmsAddToGroup.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1742,47 +1792,6 @@
             this.txtInput.Size = new System.Drawing.Size(256, 299);
             this.txtInput.TabIndex = 0;
             // 
-            // 修改进出签时间ToolStripMenuItem
-            // 
-            this.修改进出签时间ToolStripMenuItem.Name = "修改进出签时间ToolStripMenuItem";
-            this.修改进出签时间ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.修改进出签时间ToolStripMenuItem.Text = "修改进出签时间";
-            this.修改进出签时间ToolStripMenuItem.Click += new System.EventHandler(this.修改进出签时间ToolStripMenuItem_Click);
-            // 
-            // bar2
-            // 
-            this.bar2.AntiAlias = true;
-            this.bar2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bar2.DockSide = DevComponents.DotNetBar.eDockSide.Document;
-            this.bar2.DockTabStripHeight = 30;
-            this.bar2.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
-            this.bar2.IsMaximized = false;
-            this.bar2.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.lbCount});
-            this.bar2.ItemSpacing = 5;
-            this.bar2.Location = new System.Drawing.Point(0, 523);
-            this.bar2.Name = "bar2";
-            this.bar2.Size = new System.Drawing.Size(1097, 19);
-            this.bar2.Stretch = true;
-            this.bar2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.bar2.TabIndex = 30;
-            this.bar2.TabStop = false;
-            this.bar2.Text = "bar2";
-            // 
-            // lbCount
-            // 
-            this.lbCount.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbCount.ForeColor = System.Drawing.Color.ForestGreen;
-            this.lbCount.Name = "lbCount";
-            this.lbCount.Text = "--";
-            // 
-            // 导出日本每日送签报表ToolStripMenuItem
-            // 
-            this.导出日本每日送签报表ToolStripMenuItem.Name = "导出日本每日送签报表ToolStripMenuItem";
-            this.导出日本每日送签报表ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.导出日本每日送签报表ToolStripMenuItem.Text = "导出日本每日送签报表";
-            this.导出日本每日送签报表ToolStripMenuItem.Click += new System.EventHandler(this.导出日本每日送签报表ToolStripMenuItem_Click);
-            // 
             // FrmVisaSubmitManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1806,12 +1815,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSchEntryTimeTo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSchEntryTimeFrom)).EndInit();
             this.panelDgv.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bar2)).EndInit();
             this.cmsAddToGroup.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panelBtns.ResumeLayout(false);
             this.panelBtns.PerformLayout();
             this.panelOutState.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bar2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1948,5 +1957,6 @@
         private DevComponents.DotNetBar.Bar bar2;
         private DevComponents.DotNetBar.LabelItem lbCount;
         private System.Windows.Forms.ToolStripMenuItem 导出日本每日送签报表ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 导出日本送签时间表ToolStripMenuItem;
     }
 }
