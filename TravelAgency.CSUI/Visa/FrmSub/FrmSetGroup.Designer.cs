@@ -66,6 +66,7 @@
             this.btnAllIn = new DevComponents.DotNetBar.ButtonX();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelGroupInfo = new DevComponents.DotNetBar.PanelEx();
+            this.chkSaleFirst = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.txtQuQianYuan = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.txtPeiQianYuan = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.txtOperator = new DevComponents.DotNetBar.Controls.ComboBoxEx();
@@ -125,7 +126,7 @@
             this.移到顶部ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.移到底部ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查看资料ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.chkSaleFirst = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.cbOutDelivery = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.panelMain.SuspendLayout();
             this.panelMid2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGroupInfo)).BeginInit();
@@ -627,6 +628,7 @@
             // 
             this.panelGroupInfo.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelGroupInfo.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelGroupInfo.Controls.Add(this.cbOutDelivery);
             this.panelGroupInfo.Controls.Add(this.chkSaleFirst);
             this.panelGroupInfo.Controls.Add(this.txtQuQianYuan);
             this.panelGroupInfo.Controls.Add(this.txtPeiQianYuan);
@@ -675,6 +677,20 @@
             this.panelGroupInfo.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.panelGroupInfo.Style.GradientAngle = 90;
             this.panelGroupInfo.TabIndex = 47;
+            // 
+            // chkSaleFirst
+            // 
+            // 
+            // 
+            // 
+            this.chkSaleFirst.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.chkSaleFirst.Location = new System.Drawing.Point(312, 230);
+            this.chkSaleFirst.Name = "chkSaleFirst";
+            this.chkSaleFirst.Size = new System.Drawing.Size(111, 23);
+            this.chkSaleFirst.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.chkSaleFirst.TabIndex = 94;
+            this.chkSaleFirst.Text = "优先选择销售";
+            this.chkSaleFirst.CheckedChanged += new System.EventHandler(this.chkSaleFirst_CheckedChanged);
             // 
             // txtQuQianYuan
             // 
@@ -1411,19 +1427,18 @@
             this.查看资料ToolStripMenuItem.Text = "查看资料";
             this.查看资料ToolStripMenuItem.Click += new System.EventHandler(this.查看资料ToolStripMenuItem_Click);
             // 
-            // chkSaleFirst
+            // cbOutDelivery
             // 
             // 
             // 
             // 
-            this.chkSaleFirst.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.chkSaleFirst.Location = new System.Drawing.Point(312, 230);
-            this.chkSaleFirst.Name = "chkSaleFirst";
-            this.chkSaleFirst.Size = new System.Drawing.Size(111, 23);
-            this.chkSaleFirst.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.chkSaleFirst.TabIndex = 94;
-            this.chkSaleFirst.Text = "优先选择销售";
-            this.chkSaleFirst.CheckedChanged += new System.EventHandler(this.chkSaleFirst_CheckedChanged);
+            this.cbOutDelivery.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.cbOutDelivery.Location = new System.Drawing.Point(379, 6);
+            this.cbOutDelivery.Name = "cbOutDelivery";
+            this.cbOutDelivery.Size = new System.Drawing.Size(61, 23);
+            this.cbOutDelivery.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cbOutDelivery.TabIndex = 95;
+            this.cbOutDelivery.Text = "外送";
             // 
             // FrmSetGroup
             // 
@@ -1548,5 +1563,6 @@
         private DevComponents.DotNetBar.Controls.ComboBoxEx txtQuQianYuan;
         private DevComponents.DotNetBar.Controls.ComboBoxEx txtPeiQianYuan;
         private DevComponents.DotNetBar.Controls.CheckBoxX chkSaleFirst;
+        private DevComponents.DotNetBar.Controls.CheckBoxX cbOutDelivery;
     }
 }

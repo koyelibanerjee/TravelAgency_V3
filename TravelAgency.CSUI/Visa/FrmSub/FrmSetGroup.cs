@@ -426,6 +426,8 @@ namespace TravelAgency.CSUI.FrmSub
             txtTypeInPerson.Text = _visaModel.TypeInPerson;
             txtTypeInPerson.Enabled = false;
 
+            cbOutDelivery.Checked = _visaModel.IsOutDelivery ?? false;
+
             this.Text += "(" + _visaModel.Types + ")";
             if (_bllLoger.HasVisaBeenTypedIn(_visaModel))
                 this.Text += "  当前状态:已做资料";
@@ -1127,7 +1129,7 @@ namespace TravelAgency.CSUI.FrmSub
                 _visaModel.IsUrgent = chbIsUrgent.Checked;
                 _visaModel.Person = CtrlParser.Parse2String(txtPerson);
                 _visaModel.Operator = CtrlParser.Parse2String(txtOperator);
-
+                _visaModel.IsOutDelivery = cbOutDelivery.Checked;
 
                 //if (chkSaleFirst.Checked)
                 //{
@@ -1235,6 +1237,7 @@ namespace TravelAgency.CSUI.FrmSub
 
                 model.Operator = CtrlParser.Parse2String(txtOperator);
 
+                model.IsOutDelivery = cbOutDelivery.Checked;
 
                 //if (chkSaleFirst.Checked)
                 //{
