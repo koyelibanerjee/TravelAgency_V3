@@ -8,8 +8,10 @@ using NPOI.HSSF.UserModel;
 using NPOI.OpenXmlFormats.Dml;
 using NPOI.SS.UserModel;
 using NPOI.SS.Util;
+using NPOI.XSSF.UserModel;
 using TravelAgency.BLL;
 using TravelAgency.Common.Enums;
+using TravelAgency.Common.PictureHandler;
 using TravelAgency.Model;
 using BorderStyle = NPOI.SS.UserModel.BorderStyle;
 using HorizontalAlignment = NPOI.SS.UserModel.HorizontalAlignment;
@@ -90,20 +92,20 @@ namespace TravelAgency.Common.Excel
             //row.CreateCell(15).SetCellValue("手机号");
 
             //2.2设置列宽度
-            sheet.SetColumnWidth(0, 5 * 256);//编号
-            sheet.SetColumnWidth(1, 15 * 256);//姓名(中文)
-            sheet.SetColumnWidth(2, 20 * 256);//姓名(英文)
-            sheet.SetColumnWidth(3, 5 * 256);//性别
-            sheet.SetColumnWidth(4, 10 * 256);//护照发行地
+            sheet.SetColumnWidth(0, 5 * 256); //编号
+            sheet.SetColumnWidth(1, 15 * 256); //姓名(中文)
+            sheet.SetColumnWidth(2, 20 * 256); //姓名(英文)
+            sheet.SetColumnWidth(3, 5 * 256); //性别
+            sheet.SetColumnWidth(4, 10 * 256); //护照发行地
             sheet.SetColumnWidth(5, 25 * 256); //居住地点
-            sheet.SetColumnWidth(6, 15 * 256);//出生年月日
-            sheet.SetColumnWidth(7, 10 * 256);//职业
-            sheet.SetColumnWidth(8, 10 * 256);//出境记录
-            sheet.SetColumnWidth(9, 10 * 256);//婚姻
-            sheet.SetColumnWidth(10, 20 * 256);//身份确认
-            sheet.SetColumnWidth(11, 25 * 256);//经济能力确认
-            sheet.SetColumnWidth(12, 10 * 256);//备注
-            sheet.SetColumnWidth(13, 10 * 256);//旅行社意见
+            sheet.SetColumnWidth(6, 15 * 256); //出生年月日
+            sheet.SetColumnWidth(7, 10 * 256); //职业
+            sheet.SetColumnWidth(8, 10 * 256); //出境记录
+            sheet.SetColumnWidth(9, 10 * 256); //婚姻
+            sheet.SetColumnWidth(10, 20 * 256); //身份确认
+            sheet.SetColumnWidth(11, 25 * 256); //经济能力确认
+            sheet.SetColumnWidth(12, 10 * 256); //备注
+            sheet.SetColumnWidth(13, 10 * 256); //旅行社意见
             //sheet.SetColumnWidth(14, 15 * 256);//护照号
             //sheet.SetColumnWidth(15, 15 * 256);//手机号
             //3.插入行和单元格
@@ -171,7 +173,7 @@ namespace TravelAgency.Common.Excel
             //4.2合并单元格
             sheet.AddMergedRegion(new CellRangeAddress(0, 0, 0, 13)); //表头合并
             if (list.Count != 0)
-                sheet.AddMergedRegion(new CellRangeAddress(2, sheet.LastRowNum, 12, 12));//备注列合并
+                sheet.AddMergedRegion(new CellRangeAddress(2, sheet.LastRowNum, 12, 12)); //备注列合并
 
             //5.执行写入磁盘
             return SaveFile(dstName, wkbook);
@@ -312,7 +314,7 @@ namespace TravelAgency.Common.Excel
         /// <param name="visainfoList"></param>
         /// <returns></returns>
         public static bool GetTeamVisaExcelOfJapan(List<TravelAgency.Model.Visa> visaList,
-                                                     List<List<TravelAgency.Model.VisaInfo>> visainfoList)
+            List<List<TravelAgency.Model.VisaInfo>> visainfoList)
         {
 
             string dstName = GlobalUtils.ShowSaveFileDlg(visaList[0].GroupNo + ".xls", "office 2003 excel|*.xls");
@@ -342,20 +344,20 @@ namespace TravelAgency.Common.Excel
             row.CreateCell(13).SetCellValue("销售");
 
             //2.2设置列宽度
-            sheet.SetColumnWidth(0, 5 * 256);//序号
-            sheet.SetColumnWidth(1, 15 * 256);//姓名
-            sheet.SetColumnWidth(2, 25 * 256);//英文姓名
-            sheet.SetColumnWidth(3, 5 * 256);//性别
-            sheet.SetColumnWidth(4, 10 * 256);//出生地
+            sheet.SetColumnWidth(0, 5 * 256); //序号
+            sheet.SetColumnWidth(1, 15 * 256); //姓名
+            sheet.SetColumnWidth(2, 25 * 256); //英文姓名
+            sheet.SetColumnWidth(3, 5 * 256); //性别
+            sheet.SetColumnWidth(4, 10 * 256); //出生地
             sheet.SetColumnWidth(5, 20 * 256); //出生日期
-            sheet.SetColumnWidth(6, 20 * 256);//护照号
-            sheet.SetColumnWidth(7, 10 * 256);//签发地
-            sheet.SetColumnWidth(8, 20 * 256);//签发日期
-            sheet.SetColumnWidth(9, 20 * 256);//有效期至
-            sheet.SetColumnWidth(10, 20 * 256);//职业
-            sheet.SetColumnWidth(11, 20 * 256);//联系电话
-            sheet.SetColumnWidth(12, 20 * 256);//客户
-            sheet.SetColumnWidth(13, 20 * 256);//销售
+            sheet.SetColumnWidth(6, 20 * 256); //护照号
+            sheet.SetColumnWidth(7, 10 * 256); //签发地
+            sheet.SetColumnWidth(8, 20 * 256); //签发日期
+            sheet.SetColumnWidth(9, 20 * 256); //有效期至
+            sheet.SetColumnWidth(10, 20 * 256); //职业
+            sheet.SetColumnWidth(11, 20 * 256); //联系电话
+            sheet.SetColumnWidth(12, 20 * 256); //客户
+            sheet.SetColumnWidth(13, 20 * 256); //销售
 
             //3.插入行和单元格
             int idx = 0;
@@ -444,7 +446,8 @@ namespace TravelAgency.Common.Excel
                 {
                     sheet.AddMergedRegion(new CellRangeAddress(1 + lenArr1[i - 1], lenArr1[i], 12, 12));
                 }
-                sheet.AddMergedRegion(new CellRangeAddress(1 + lenArr1[lenArr1.Count - 1], sheet.LastRowNum, 12, 12)); //最后一个合并
+                sheet.AddMergedRegion(new CellRangeAddress(1 + lenArr1[lenArr1.Count - 1], sheet.LastRowNum, 12, 12));
+                //最后一个合并
             }
 
             //
@@ -458,7 +461,8 @@ namespace TravelAgency.Common.Excel
                 {
                     sheet.AddMergedRegion(new CellRangeAddress(1 + lenArr2[i - 1], lenArr2[i], 13, 13));
                 }
-                sheet.AddMergedRegion(new CellRangeAddress(1 + lenArr2[lenArr2.Count - 1], sheet.LastRowNum, 13, 13)); //最后一个合并
+                sheet.AddMergedRegion(new CellRangeAddress(1 + lenArr2[lenArr2.Count - 1], sheet.LastRowNum, 13, 13));
+                //最后一个合并
             }
 
 
@@ -500,17 +504,17 @@ namespace TravelAgency.Common.Excel
             row.CreateCell(10).SetCellValue("英文姓名");
 
             //2.2设置列宽度
-            sheet.SetColumnWidth(0, 20 * 256);//序号
-            sheet.SetColumnWidth(1, 20 * 256);//姓名
-            sheet.SetColumnWidth(2, 20 * 256);//英文姓名
-            sheet.SetColumnWidth(3, 20 * 256);//性别
-            sheet.SetColumnWidth(4, 20 * 256);//出生地
+            sheet.SetColumnWidth(0, 20 * 256); //序号
+            sheet.SetColumnWidth(1, 20 * 256); //姓名
+            sheet.SetColumnWidth(2, 20 * 256); //英文姓名
+            sheet.SetColumnWidth(3, 20 * 256); //性别
+            sheet.SetColumnWidth(4, 20 * 256); //出生地
             sheet.SetColumnWidth(5, 20 * 256); //出生日期
-            sheet.SetColumnWidth(6, 20 * 256);//护照号
-            sheet.SetColumnWidth(7, 20 * 256);//签发地
-            sheet.SetColumnWidth(8, 20 * 256);//签发日期
-            sheet.SetColumnWidth(9, 20 * 256);//有效期至
-            sheet.SetColumnWidth(10, 20 * 256);//职业
+            sheet.SetColumnWidth(6, 20 * 256); //护照号
+            sheet.SetColumnWidth(7, 20 * 256); //签发地
+            sheet.SetColumnWidth(8, 20 * 256); //签发日期
+            sheet.SetColumnWidth(9, 20 * 256); //有效期至
+            sheet.SetColumnWidth(10, 20 * 256); //职业
 
             //3.插入行和单元格
             for (int i = 0; i != list.Count; ++i)
@@ -532,13 +536,21 @@ namespace TravelAgency.Common.Excel
                     row.CreateCell(3).SetCellValue("M");
                 }
 
-                row.CreateCell(4).SetCellValue(DateTimeFormator.DateTimeToString(list[i].Birthday, DateTimeFormator.TimeFormat.Type03Tailand));
+                row.CreateCell(4)
+                    .SetCellValue(DateTimeFormator.DateTimeToString(list[i].Birthday,
+                        DateTimeFormator.TimeFormat.Type03Tailand));
                 row.CreateCell(5).SetCellValue(list[i].PassportNo);
-                row.CreateCell(6).SetCellValue(DateTimeFormator.DateTimeToString(list[i].LicenceTime, DateTimeFormator.TimeFormat.Type03Tailand));
-                row.CreateCell(7).SetCellValue(DateTimeFormator.DateTimeToString(list[i].ExpiryDate, DateTimeFormator.TimeFormat.Type03Tailand));
-                List<string> pinyins = Common.PinyinParse.PinYinConverterHelp.GetTotalPingYin(list[i].Birthplace).TotalPingYin;
+                row.CreateCell(6)
+                    .SetCellValue(DateTimeFormator.DateTimeToString(list[i].LicenceTime,
+                        DateTimeFormator.TimeFormat.Type03Tailand));
+                row.CreateCell(7)
+                    .SetCellValue(DateTimeFormator.DateTimeToString(list[i].ExpiryDate,
+                        DateTimeFormator.TimeFormat.Type03Tailand));
+                List<string> pinyins =
+                    Common.PinyinParse.PinYinConverterHelp.GetTotalPingYin(list[i].Birthplace).TotalPingYin;
 
-                row.CreateCell(8).SetCellValue(pinyins[pinyins.Count - 1].ToUpper()); //TODO:这个地方拼音还有点问题，因为可能有多个,先暂时取最后一个
+                row.CreateCell(8).SetCellValue(pinyins[pinyins.Count - 1].ToUpper());
+                //TODO:这个地方拼音还有点问题，因为可能有多个,先暂时取最后一个
                 pinyins = Common.PinyinParse.PinYinConverterHelp.GetTotalPingYin(list[i].IssuePlace).TotalPingYin;
                 row.CreateCell(9).SetCellValue(pinyins[pinyins.Count - 1].ToUpper());
                 row.CreateCell(10).SetCellValue(list[i].EnglishName);
@@ -629,7 +641,9 @@ namespace TravelAgency.Common.Excel
 
                     row.CreateCell(3).SetCellValue(residence);
                     row.CreateCell(4).SetCellValue(visaList[i].DepartureType);
-                    row.CreateCell(5).SetCellValue(DateTimeFormator.DateTimeToString(visaInfoList[i][j].ReturnTime, DateTimeFormator.TimeFormat.Type05ReturnTime));
+                    row.CreateCell(5)
+                        .SetCellValue(DateTimeFormator.DateTimeToString(visaInfoList[i][j].ReturnTime,
+                            DateTimeFormator.TimeFormat.Type05ReturnTime));
                     row.CreateCell(6).SetCellValue(visaList[i].Remark);
                     row.CreateCell(7).SetCellValue(visaList[i].SubmitCondition);
                     //row.CreateCell(7).SetCellValue(string.Empty); //最后一列不赋值
@@ -707,11 +721,11 @@ namespace TravelAgency.Common.Excel
             row.CreateCell(4).SetCellValue("护照号");
 
             //2.2设置列宽度
-            sheet.SetColumnWidth(0, 5 * 256);//编号
-            sheet.SetColumnWidth(1, 25 * 256);//姓名(中文)
-            sheet.SetColumnWidth(2, 25 * 256);//姓名(中文)
-            sheet.SetColumnWidth(3, 25 * 256);//姓名(中文)
-            sheet.SetColumnWidth(4, 25 * 256);//姓名(中文)
+            sheet.SetColumnWidth(0, 5 * 256); //编号
+            sheet.SetColumnWidth(1, 25 * 256); //姓名(中文)
+            sheet.SetColumnWidth(2, 25 * 256); //姓名(中文)
+            sheet.SetColumnWidth(3, 25 * 256); //姓名(中文)
+            sheet.SetColumnWidth(4, 25 * 256); //姓名(中文)
             //3.插入行和单元格
             for (int i = 0; i != visaInfoList.Count; ++i)
             {
@@ -774,11 +788,11 @@ namespace TravelAgency.Common.Excel
             row.CreateCell(4).SetCellValue("护照号");
 
             //2.2设置列宽度
-            sheet.SetColumnWidth(0, 5 * 256);//编号
-            sheet.SetColumnWidth(1, 25 * 256);//姓名(中文)
-            sheet.SetColumnWidth(2, 25 * 256);//姓名(中文)
-            sheet.SetColumnWidth(3, 25 * 256);//姓名(中文)
-            sheet.SetColumnWidth(4, 25 * 256);//姓名(中文)
+            sheet.SetColumnWidth(0, 5 * 256); //编号
+            sheet.SetColumnWidth(1, 25 * 256); //姓名(中文)
+            sheet.SetColumnWidth(2, 25 * 256); //姓名(中文)
+            sheet.SetColumnWidth(3, 25 * 256); //姓名(中文)
+            sheet.SetColumnWidth(4, 25 * 256); //姓名(中文)
             //3.插入行和单元格
             for (int i = 0; i != visaInfoList.Count; ++i)
             {
@@ -852,10 +866,10 @@ namespace TravelAgency.Common.Excel
 
 
             //2.2设置列宽度
-            sheet.SetColumnWidth(0, 60 * 256);  //团号");
+            sheet.SetColumnWidth(0, 60 * 256); //团号");
             sheet.SetColumnWidth(1, 15 * 256); //送签日期");
             sheet.SetColumnWidth(2, 15 * 256); //出签日期");
-            sheet.SetColumnWidth(3, 15 * 256);  //送签社担当")
+            sheet.SetColumnWidth(3, 15 * 256); //送签社担当")
             sheet.SetColumnWidth(4, 8 * 256); //人数");
             sheet.SetColumnWidth(5, 12 * 256); //资料寄出时间
             sheet.SetColumnWidth(6, 17 * 256); //销售人员");
@@ -874,11 +888,15 @@ namespace TravelAgency.Common.Excel
                     row.CreateCell(0).SetCellValue(GetGroupNo(list[i]));
                 else
                     row.CreateCell(0).SetCellValue(list[i].GroupNo);
-                row.CreateCell(1).SetCellValue(DateTimeFormator.DateTimeToString(list[i].InTime, DateTimeFormator.TimeFormat.Type02JapanTotal));
-                row.CreateCell(2).SetCellValue(DateTimeFormator.DateTimeToString(list[i].OutTime, DateTimeFormator.TimeFormat.Type02JapanTotal));
+                row.CreateCell(1)
+                    .SetCellValue(DateTimeFormator.DateTimeToString(list[i].InTime,
+                        DateTimeFormator.TimeFormat.Type02JapanTotal));
+                row.CreateCell(2)
+                    .SetCellValue(DateTimeFormator.DateTimeToString(list[i].OutTime,
+                        DateTimeFormator.TimeFormat.Type02JapanTotal));
                 row.CreateCell(3).SetCellValue(list[i].Person);
                 row.CreateCell(4).SetCellValue(list[i].Number.ToString());
-                row.CreateCell(5).SetCellValue("");//资料寄出时间先不设置
+                row.CreateCell(5).SetCellValue(""); //资料寄出时间先不设置
                 row.CreateCell(6).SetCellValue(list[i].SalesPerson);
                 row.CreateCell(7).SetCellValue(list[i].client);
                 row.CreateCell(8).SetCellValue(list[i].Operator);
@@ -995,10 +1013,10 @@ namespace TravelAgency.Common.Excel
 
             //2.2设置列宽度
             sheet.SetColumnWidth(0, 5 * 256); //编号
-            sheet.SetColumnWidth(1, 25 * 256);//操作
-            sheet.SetColumnWidth(2, 25 * 256);//工号
-            sheet.SetColumnWidth(3, 25 * 256);//姓名
-            sheet.SetColumnWidth(4, 25 * 256);//时间
+            sheet.SetColumnWidth(1, 25 * 256); //操作
+            sheet.SetColumnWidth(2, 25 * 256); //工号
+            sheet.SetColumnWidth(3, 25 * 256); //姓名
+            sheet.SetColumnWidth(4, 25 * 256); //时间
 
             // 在 在  i poi  中日期是以  e double  类型表示的 ， 所 以要格式化
             ICellStyle cellStyle = wkbook.CreateCellStyle();
@@ -1108,13 +1126,13 @@ namespace TravelAgency.Common.Excel
             row.CreateCell(6).SetCellValue("职位");
 
             //2.2设置列宽度
-            sheet.SetColumnWidth(0, 25 * 256);//编号
-            sheet.SetColumnWidth(1, 23 * 256);//姓名(中文)
-            sheet.SetColumnWidth(2, 20 * 256);//姓名(中文)
-            sheet.SetColumnWidth(3, 22 * 256);//姓名(中文)
-            sheet.SetColumnWidth(4, 24 * 256);//姓名(中文)
-            sheet.SetColumnWidth(5, 23 * 256);//姓名(中文)
-            sheet.SetColumnWidth(6, 20 * 256);//姓名(中文)
+            sheet.SetColumnWidth(0, 25 * 256); //编号
+            sheet.SetColumnWidth(1, 23 * 256); //姓名(中文)
+            sheet.SetColumnWidth(2, 20 * 256); //姓名(中文)
+            sheet.SetColumnWidth(3, 22 * 256); //姓名(中文)
+            sheet.SetColumnWidth(4, 24 * 256); //姓名(中文)
+            sheet.SetColumnWidth(5, 23 * 256); //姓名(中文)
+            sheet.SetColumnWidth(6, 20 * 256); //姓名(中文)
             //3.插入行和单元格
             for (int i = 0; i != visaInfoList.Count; ++i)
             {
@@ -1163,6 +1181,73 @@ namespace TravelAgency.Common.Excel
             //5.执行写入磁盘
 
             return SaveFile(dstName, wkbook);
+        }
+
+
+        public static void Get8PassPicTable(List<Model.VisaInfo> visaInfoList)
+        {
+            //if (visaInfoList == null || visaInfoList.Count < 1)
+            //    return;
+
+            //if (visaInfoList.Count > 8)
+            //{
+            //    MessageBoxEx.Show("请选择8人以下导出!!!");
+            //    return;
+            //}
+
+            IWorkbook wkbook = new XSSFWorkbook();
+            ISheet sheet = wkbook.CreateSheet("sheet1");
+            sheet.SetColumnWidth(0, 12960);
+            sheet.SetColumnWidth(1, 12960);
+
+            int num = 15;
+            int rowcnt = (int)Math.Ceiling(num / 8.0) * 6;
+
+
+            for (int i = 0; i < rowcnt; i++)
+            {
+                if (i % 6 < 4)
+                {
+                    var row = sheet.CreateRow(i).HeightInPoints = 198.75f;
+                }
+
+                else
+                {
+                    var row = sheet.CreateRow(i);
+                }
+
+            }
+
+            for (int i = 0; i < num; i++)
+            {
+                //添加二维码图片
+                var picturebuffer = File.ReadAllBytes(@"E:\东瀛假日签证识别管理系统\护照图像保存路径\E00678234.jpg");
+                int pictureIdx = wkbook.AddPicture(picturebuffer, PictureType.JPEG);
+                var patriach = sheet.CreateDrawingPatriarch();
+                IClientAnchor anchor = new XSSFClientAnchor(0, 0, 0, 0, i % 2, i / 2, i % 2 + 1, i / 2 + 1);
+                patriach.CreatePicture(anchor, pictureIdx);
+            }
+
+            //READEXCEL
+            //using (FileStream fs = File.OpenRead(@"E:\东瀛假日签证识别管理系统\Excel\Templates\template_泰国8人首页.xlsx"))
+            //{
+            //    IWorkbook wkbook = new XSSFWorkbook(fs);
+            //    ISheet sheet = wkbook.GetSheet("sheet1");
+            //    var height1 = sheet.GetRow(0).HeightInPoints;
+            //    //var height2 = sheet.GetRow(4).HeightInPoints;
+            //    var width = sheet.GetColumnWidth(0);
+
+            //    for (int i = 0; i < 16; i++)
+            //    {
+
+            //    }
+
+
+            string dstName = GlobalUtils.ShowSaveFileDlg("8人首页.xlsx", "Excel XLSX|*.xlsx");
+
+            SaveFile(dstName, wkbook);
+
+            //}
         }
     }
 }

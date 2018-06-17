@@ -639,19 +639,24 @@ namespace TravelAgency.Common.Excel
             if (visaInfoList == null || visaInfoList.Count < 1)
                 return;
 
-            if (visaInfoList.Count > 8)
-            {
-                MessageBoxEx.Show("请选择8人以下导出!!!");
-                return;
-            }
-
             //READEXCEL
             using (FileStream fs = File.OpenRead(GlobalUtils.AppPath + @"\Excel\Templates\template_泰国8人首页.xlsx"))
             {
                 IWorkbook wkbook = new XSSFWorkbook(fs);
                 ISheet sheet = wkbook.GetSheet("sheet1");
 
-                for (int i = 0; i < visaInfoList.Count; i++)
+                int visainfoCnt = visaInfoList.Count;
+                int rowcnt = (int)Math.Ceiling(visainfoCnt / 8.0) * 6; //总共的行数
+
+                for (int i = 4; i < rowcnt; i++) //从第5行开始才需要创建
+                {
+                    if (i % 6 < 4)
+                        sheet.CreateRow(i).HeightInPoints = 198.75f;
+                    else
+                        sheet.CreateRow(i);
+                }
+
+                for (int i = 0; i < visainfoCnt; i++)
                 {
                     if (!PassportPicHandler.CheckAndDownloadIfNotExist(visaInfoList[i].PassportNo,
                         PassportPicHandler.PicType.Type01Normal))
@@ -662,16 +667,15 @@ namespace TravelAgency.Common.Excel
 
                     //添加二维码图片
                     var picturebuffer = File.ReadAllBytes(GlobalUtils.LocalPassportPicPath + @"\" + visaInfoList[i].PassportNo + ".jpg");
+                    //var picturebuffer = File.ReadAllBytes(@"E:\东瀛假日签证识别管理系统\护照图像保存路径\E00678234.jpg");
                     int pictureIdx = wkbook.AddPicture(picturebuffer, PictureType.JPEG);
                     var patriach = sheet.CreateDrawingPatriarch();
-                    IClientAnchor anchor = new XSSFClientAnchor(0, 0, 0, 0, i % 2, i / 2, i % 2 + 1, i / 2 + 1);
+                    IClientAnchor anchor = new XSSFClientAnchor(0, 0, 0, 0, i % 2, i / 2 + i / 8 * 2, i % 2 + 1, i / 2 + i / 8 * 2 + 1);
                     patriach.CreatePicture(anchor, pictureIdx);
                 }
 
                 string dstName = GlobalUtils.ShowSaveFileDlg("8人首页.xlsx", "Excel XLSX|*.xlsx");
-
                 SaveFile(dstName, wkbook);
-
             }
         }
 

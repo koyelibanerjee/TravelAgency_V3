@@ -9,19 +9,12 @@ using System.Threading.Tasks;
 namespace TravelAgency.Common.Excel.Tests
 {
     [TestClass()]
-    public class XlsGeneratorTests
+    public class ExcelGeneratorTests
     {
-        [TestMethod()]
-        public void TestTest()
-        {
-            XlsGenerator.Test();
-
-        }
-
         [TestMethod()]
         public void Get8PassPicTableTest()
         {
-            XlsGenerator.Get8PassPicTable(null);
+            ExcelGenerator.Get8PassPicTable(null);
         }
     }
 }
