@@ -71,6 +71,11 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             cbClaimedFlag.Items.Add("否");
             cbClaimedFlag.SelectedIndex = 0;
 
+            cbSchTimeType.Items.Add("录入时间");
+            cbSchTimeType.Items.Add("进签时间");
+            cbSchTimeType.Items.Add("出签时间");
+            cbSchTimeType.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbSchTimeType.SelectedIndex = 0;
 
             //国家选择框加入
             //cbCountry.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -325,9 +330,16 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                 conditions.Add(" (GroupNo like '%" + txtSchGroupNo.Text + "%') ");
             }
 
+            string timeType;
+            if (cbSchTimeType.Text == "录入时间")
+                timeType = "EntryTime";
+            else if (cbSchTimeType.Text == "进签时间")
+                timeType = "RealTime";
+            else
+                timeType = "FinishTime";
             if (!string.IsNullOrEmpty(txtSchRealTimeFrom.Text.Trim()) && !string.IsNullOrEmpty(txtSchRealTimeTo.Text.Trim()))
             {
-                conditions.Add(" (RealTime between '" + txtSchRealTimeFrom.Text + "' and " + " '" + txtSchRealTimeTo.Text +
+                conditions.Add(" (" + timeType + " between '" + txtSchRealTimeFrom.Text + "' and " + " '" + txtSchRealTimeTo.Text +
                                "') ");
             }
 
