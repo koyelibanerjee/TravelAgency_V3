@@ -114,6 +114,8 @@ namespace TravelAgency.Model
     private decimal? _actuallyamount;
         		                  
     private bool? _isoutdelivery;
+        		                  
+    private string _outdeliveryplace;
         
     /// <summary>
 		/// Visa_id
@@ -696,6 +698,17 @@ namespace TravelAgency.Model
         {
             get{ return _isoutdelivery; }
             set{ _isoutdelivery = value; }
+        }    
+      
+		/// <summary>
+		/// OutDeliveryPlace
+        /// </summary>		
+		      		  
+  
+        public string OutDeliveryPlace
+        {
+            get{ return _outdeliveryplace; }
+            set{ _outdeliveryplace = value; }
         }    
       
 		   
