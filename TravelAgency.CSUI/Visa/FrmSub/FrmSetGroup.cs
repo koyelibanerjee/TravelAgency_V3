@@ -224,6 +224,12 @@ namespace TravelAgency.CSUI.FrmSub
                 {
                     txtQuQianYuan.Items.Add(item);
                 }
+
+            cbOutDeliveryPlace.Items.Add("北京");
+            cbOutDeliveryPlace.Items.Add("上海");
+            cbOutDeliveryPlace.Items.Add("广州");
+            cbOutDeliveryPlace.Items.Add("重庆");
+            cbOutDeliveryPlace.Text = "";
         }
 
         private void TxtClient_SelChangeGetSalesPerson(object sender, EventArgs e)
@@ -342,6 +348,7 @@ namespace TravelAgency.CSUI.FrmSub
 
             txtTypeInPerson.Text = GlobalUtils.LoginUser.UserName; //初始没做的时候，typeinperson就是当前人
             txtTypeInPerson.Enabled = false;
+            cbOutDeliveryPlace.Enabled = false;
         }
 
 
@@ -427,6 +434,8 @@ namespace TravelAgency.CSUI.FrmSub
             txtTypeInPerson.Enabled = false;
 
             cbOutDelivery.Checked = _visaModel.IsOutDelivery ?? false;
+            if (_visaModel.IsOutDelivery ?? false)
+                cbOutDeliveryPlace.Text = _visaModel.OutDeliveryPlace;
 
             this.Text += "(" + _visaModel.Types + ")";
             if (_bllLoger.HasVisaBeenTypedIn(_visaModel))
@@ -612,7 +621,7 @@ namespace TravelAgency.CSUI.FrmSub
                 _visaName += "(" + txtDepartureType.Text + ")";
 
             if (cbOutDelivery.Checked)
-                _visaName += "(外送)";
+                _visaName += "(外送" + cbOutDeliveryPlace.Text + ")";
 
             txtGroupNo.Text = _visaName;
         }
@@ -1134,7 +1143,10 @@ namespace TravelAgency.CSUI.FrmSub
                 _visaModel.Person = CtrlParser.Parse2String(txtPerson);
                 _visaModel.Operator = CtrlParser.Parse2String(txtOperator);
                 _visaModel.IsOutDelivery = cbOutDelivery.Checked;
-
+                if (_visaModel.IsOutDelivery ?? false)
+                    _visaModel.OutDeliveryPlace = cbOutDeliveryPlace.Text;
+                else
+                    _visaModel.OutDeliveryPlace = null;
                 //if (chkSaleFirst.Checked)
                 //{
                 //    if (GlobalUtils.LoginUserLevel != RigthLevel.Manager &&
@@ -1242,6 +1254,10 @@ namespace TravelAgency.CSUI.FrmSub
                 model.Operator = CtrlParser.Parse2String(txtOperator);
 
                 model.IsOutDelivery = cbOutDelivery.Checked;
+                if (model.IsOutDelivery ?? false)
+                    model.OutDeliveryPlace = cbOutDeliveryPlace.Text;
+                else
+                    model.OutDeliveryPlace = null;
 
                 //if (chkSaleFirst.Checked)
                 //{
@@ -1765,6 +1781,15 @@ namespace TravelAgency.CSUI.FrmSub
         }
 
         private void cbOutDelivery_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbOutDelivery.Checked)
+                cbOutDeliveryPlace.Enabled = true;
+            else
+                cbOutDeliveryPlace.Enabled = false;
+            UpdateGroupNo();
+        }
+
+        private void cbOutDeliveryPlace_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateGroupNo();
         }
