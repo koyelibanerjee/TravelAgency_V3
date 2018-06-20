@@ -324,7 +324,9 @@
     <None Include="Excel\Templates\template_账单模板.xlsx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Excel\Templates\（）国旅旅行社申请名单表_进馆.xls" />
+    <None Include="Excel\Templates\（）国旅旅行社申请名单表_进馆.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Word\Templates\template_01机票单-泰国.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

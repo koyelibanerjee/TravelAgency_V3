@@ -588,9 +588,12 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                     else
                         dataGridView1.Rows[i].Cells["AssignmentState"].Style.BackColor = _colorList[(groupCnt) % _colorList.Count];
 
-                    ++_workerDict[list[i].AssignmentToUserName].AssignmentNum;
-                    if(list[i].HasTypeIn == "否")
-                        ++_workerDict[list[i].AssignmentToUserName].UnDoNum;
+                    if (_workerDict.ContainsKey(list[i].AssignmentToUserName))
+                    {
+                        ++_workerDict[list[i].AssignmentToUserName].AssignmentNum;
+                        if (list[i].HasTypeIn == "否")
+                            ++_workerDict[list[i].AssignmentToUserName].UnDoNum;
+                    }
                 }
                 else
                 {

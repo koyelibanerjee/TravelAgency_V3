@@ -601,8 +601,8 @@ namespace TravelAgency.CSUI.FrmSub
             for (int i = 0; i < lvIn.Items.Count; ++i) //个签和团做个后面都跟上姓名
             {
                 _visaName += ((Model.VisaInfo)lvIn.Items[i].Tag).Name;
-                if (cbCountry.Text == "泰国" && i == 0)
-                    break;
+                //if (cbCountry.Text == "泰国" && i == 0)
+                //    break;
                 if (i == lvIn.Items.Count - 1)
                     break;
                 _visaName += "、";
@@ -610,6 +610,10 @@ namespace TravelAgency.CSUI.FrmSub
 
             if (!string.IsNullOrEmpty(txtDepartureType.Text) && txtDepartureType.Text != "单次")
                 _visaName += "(" + txtDepartureType.Text + ")";
+
+            if (cbOutDelivery.Checked)
+                _visaName += "(外送)";
+
             txtGroupNo.Text = _visaName;
         }
 
@@ -1758,6 +1762,11 @@ namespace TravelAgency.CSUI.FrmSub
                 if (txtClient.Items.Count == 1)
                     txtClient.SelectedIndex = 0;
             }
+        }
+
+        private void cbOutDelivery_CheckedChanged(object sender, EventArgs e)
+        {
+            UpdateGroupNo();
         }
     }
 }

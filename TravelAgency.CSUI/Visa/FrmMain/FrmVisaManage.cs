@@ -502,6 +502,7 @@ namespace TravelAgency.CSUI.FrmMain
             Font font = new Font(new FontFamily("Consolas"), 13.0f, FontStyle.Bold);
             int peopleCount = 0;
             int hasDo = 0;
+            Color defaultColr = dataGridView1.Rows[0].Cells[0].Style.BackColor;
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 dataGridView1.Rows[i].HeaderCell.Value = (i + 1).ToString();
@@ -527,7 +528,7 @@ namespace TravelAgency.CSUI.FrmMain
                 else
                 {
                     dataGridView1.Rows[i].Cells["IsUrgent"].Value = "非急件";
-                    //dataGridView1.Rows[i].Cells["Status"].Style.BackColor = Color.Red;
+                    dataGridView1.Rows[i].Cells["Status"].Style.BackColor = defaultColr;
                 }
 
                 peopleCount += int.Parse(dataGridView1.Rows[i].Cells["Number"].Value.ToString());

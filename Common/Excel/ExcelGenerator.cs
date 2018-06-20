@@ -884,9 +884,9 @@ namespace TravelAgency.Common.Excel
                 ////设置行高
                 //row.HeightInPoints = 50;
                 //设置值
-                if (list[i].Country == "泰国") //泰国在导出的时候恢复显示人名
-                    row.CreateCell(0).SetCellValue(GetGroupNo(list[i]));
-                else
+                //if (list[i].Country == "泰国") //泰国在导出的时候恢复显示人名
+                //    row.CreateCell(0).SetCellValue(GetGroupNo(list[i]));
+                //else
                     row.CreateCell(0).SetCellValue(list[i].GroupNo);
                 row.CreateCell(1)
                     .SetCellValue(DateTimeFormator.DateTimeToString(list[i].InTime,
