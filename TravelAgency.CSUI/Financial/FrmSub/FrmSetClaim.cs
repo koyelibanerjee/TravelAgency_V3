@@ -85,7 +85,8 @@ namespace TravelAgency.CSUI.Financial.FrmSub
         {
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
-                if (!string.IsNullOrEmpty(dataGridView1.Rows[i].Cells["Tips2"].Value.ToString()))
+                if (dataGridView1.Rows[i].Cells["Tips2"].Value!=null && 
+                    !string.IsNullOrEmpty(dataGridView1.Rows[i].Cells["Tips2"].Value.ToString()))
                 {
                     dataGridView1.Rows[i].Cells["Tips2"].Style.BackColor = Color.Chocolate;
                 }

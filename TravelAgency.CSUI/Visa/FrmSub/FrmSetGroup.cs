@@ -434,6 +434,8 @@ namespace TravelAgency.CSUI.FrmSub
             txtTypeInPerson.Enabled = false;
 
             cbOutDelivery.Checked = _visaModel.IsOutDelivery ?? false;
+            if (!cbOutDelivery.Checked)
+                cbOutDeliveryPlace.Enabled = false;
             if (_visaModel.IsOutDelivery ?? false)
                 cbOutDeliveryPlace.Text = _visaModel.OutDeliveryPlace;
 
@@ -899,7 +901,7 @@ namespace TravelAgency.CSUI.FrmSub
                 bool complete = true;
                 for (int i = 0; i < _dgvList.Count; i++)
                 {
-                    if (!CheckTypedInComplete(_dgvList[i],cbOutDelivery.Checked))
+                    if (!CheckTypedInComplete(_dgvList[i], cbOutDelivery.Checked))
                     {
                         complete = false;
                         break;
@@ -941,7 +943,7 @@ namespace TravelAgency.CSUI.FrmSub
                     _bllLoger.AddRecord(Common.Enums.ActType._01TypeIn, Common.GlobalUtils.LoginUser,
                                             _dgvList[i], _visaModel);
 
-                    if (!CheckTypedInComplete(_dgvList[i],cbOutDelivery.Checked)) //如果信息也填写完整了就直接也弄成已经做了
+                    if (!CheckTypedInComplete(_dgvList[i], cbOutDelivery.Checked)) //如果信息也填写完整了就直接也弄成已经做了
                         continue;
                     _dgvList[i].HasTypeIn = "是"; //默认情况下是"否"
                     hasOneTypedIn = true;
@@ -1016,7 +1018,7 @@ namespace TravelAgency.CSUI.FrmSub
                 bool hasOneTypedIn = false; //判断是否有做完任何一本，有的话就可以触发一次分配工作的逻辑
                 for (int i = 0; i < _dgvList.Count; i++)
                 {
-                    if (!CheckTypedInComplete(_dgvList[i],cbOutDelivery.Checked))
+                    if (!CheckTypedInComplete(_dgvList[i], cbOutDelivery.Checked))
                         continue;
                     //后面都是录入完整了 才会进行的操作
                     Model.ActionRecords log = new ActionRecords();
@@ -1084,7 +1086,7 @@ namespace TravelAgency.CSUI.FrmSub
             return res;
         }
 
-        private bool CheckTypedInComplete(VisaInfo model,bool isOutDelivery=false)
+        private bool CheckTypedInComplete(VisaInfo model, bool isOutDelivery = false)
         {
             if (isOutDelivery)
                 return !string.IsNullOrEmpty(model.Phone);
