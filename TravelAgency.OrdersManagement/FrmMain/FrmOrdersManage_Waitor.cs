@@ -8,6 +8,7 @@ using DevComponents.DotNetBar;
 using TravelAgency.Common;
 using TravelAgency.Common.PictureHandler;
 using TravelAgency.CSUI.FrmSub;
+using TravelAgency.CSUI.Visa.FrmSub.FrmSetValue;
 using TravelAgency.Model;
 using TravelAgency.OrdersManagement.FrmSub;
 
@@ -65,7 +66,7 @@ namespace TravelAgency.OrdersManagement
             LoadDataToDgvAsyn();
         }
 
-        
+
 
         //private void DataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         //{
@@ -299,28 +300,34 @@ namespace TravelAgency.OrdersManagement
             if (this.dataGridView1.Rows[e.RowIndex].Cells["Id"].Value == DBNull.Value)
                 return;
 
-            Image RowIcon;//标头图标
+            Image accRowIcon = null;//附件图标
+            Image tipsRowIcon = null;//附件图标
             string strToolTip;//提示信息
 
             bool hasAccessory = _bllOrderFiles.GetModelList(
                     $" ordersid = {this.dataGridView1.Rows[e.RowIndex].Cells["Id"].Value}").Count > 0;
 
+            if (!string.IsNullOrEmpty(DgvDataSourceToList()[e.RowIndex].LabelRemark))
+            {
+                tipsRowIcon = Properties.Resources.tips3;
+            }
+
             if (hasAccessory)
             {
-                RowIcon = Properties.Resources.fujian2; //从资源文件中获取图片
+                accRowIcon = Properties.Resources.fujian2; //从资源文件中获取图片
                 strToolTip = "有附件";
             }
             else
             {
-                RowIcon = null;
+                accRowIcon = null;
                 strToolTip = "无附件";
             }
 
-            if (RowIcon != null)
-                e.Graphics.DrawImage(RowIcon, e.RowBounds.Left + this.dataGridView1.RowHeadersWidth - 20, e.RowBounds.Top + 4, 16, 16);//绘制图标
+            if (accRowIcon != null)
+                e.Graphics.DrawImage(accRowIcon, e.RowBounds.Left + this.dataGridView1.RowHeadersWidth - 20, e.RowBounds.Top + 4, 16, 16);//绘制图标
 
-            if (RowIcon != null)
-                e.Graphics.DrawImage(Properties.Resources.tips3, e.RowBounds.Left, e.RowBounds.Top + 4, 16, 16);//绘制图标
+            if (tipsRowIcon != null)
+                e.Graphics.DrawImage(tipsRowIcon, e.RowBounds.Left + 5, e.RowBounds.Top + 4, 16, 16);//绘制图标
 
             this.dataGridView1.Rows[e.RowIndex].HeaderCell.ToolTipText = strToolTip;//设置提示信息
         }
@@ -412,16 +419,13 @@ namespace TravelAgency.OrdersManagement
 
         private void SetRowColorByColorLabel(DataGridViewRow row)
         {
-            if (DgvDataSourceToList()[row.Index].GuestInfoTypedIn ?? false)
+            if (!DgvDataSourceToList()[row.Index].OrderColor.HasValue)
             {
-                
-                row.HeaderCell.Style.BackColor = row.Index % 2 == 0 ? 
-                    StyleControler.CellDefaultBackColor: 
-                    StyleControler.CellDefaultAlterBackColor; //保持原有样式不变
+                row.HeaderCell.Style.BackColor = StyleControler.RowHeaderDefaulBackColor;
             }
             else
             {
-                row.HeaderCell.Style.BackColor = Color.Orange;
+                row.HeaderCell.Style.BackColor = Color.FromArgb(DgvDataSourceToList()[row.Index].OrderColor.Value);
             }
         }
 
@@ -834,6 +838,63 @@ namespace TravelAgency.OrdersManagement
             }
 
             Common.GlobalUtils.MessageBoxWithRecordNum("提交", res, list.Count);
+        }
+
+        private void 录入订单标签信息ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var list = GetSelectedModelList();
+
+            if (list.Count < 1)
+            {
+                return;
+            }
+
+            FrmSetStringValue frm = new FrmSetStringValue("设置提示信息", list[0].LabelRemark);
+            if (frm.ShowDialog() == DialogResult.Cancel)
+                return;
+
+            foreach (var orderse in list)
+            {
+                orderse.LabelRemark = frm.RetValue;
+            }
+
+
+            if (_bllOrders.UpdateList(list) != list.Count)
+            {
+                MessageBoxEx.Show("设置提示信息失败,请重试!");
+                return;
+            }
+            MessageBoxEx.Show("设置提示信息成功!");
+            LoadDataToDgvAsyn();
+
+        }
+
+        private void 设置订单颜色ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            var list = GetSelectedModelList();
+
+            if (list.Count < 1)
+            {
+                return;
+            }
+
+            ColorDialog colorDialog = new ColorDialog();
+            if (colorDialog.ShowDialog() == DialogResult.Cancel)
+                return;
+            int c = colorDialog.Color.ToArgb();
+            foreach (var orderse in list)
+            {
+                orderse.OrderColor = c;
+            }
+            
+            if (_bllOrders.UpdateList(list) != list.Count)
+            {
+                MessageBoxEx.Show("设置颜色标签失败,请重试!");
+                return;
+            }
+            MessageBoxEx.Show("设置颜色标签成功!");
+            LoadDataToDgvAsyn();
         }
     }
 }

@@ -262,9 +262,7 @@ SqlParameter[] parameters = {
                         new SqlParameter("@RefundState", SqlDbType.VarChar,50) ,            
                         new SqlParameter("@OrderColor", SqlDbType.Int,4) ,            
                         new SqlParameter("@LabelRemark", SqlDbType.VarChar,100)             
-              
             };
-						            
             parameters[0].Value = model.Id;                        
             parameters[1].Value = model.OrderNo;                        
             parameters[2].Value = model.PaymentPlatform;                        
