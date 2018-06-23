@@ -38,6 +38,9 @@
             this.btnAddFromExcel = new DevComponents.DotNetBar.ButtonX();
             this.btnOK = new DevComponents.DotNetBar.ButtonX();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtGuestBirthday = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
+            this.txtPrice = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.txtGuestCountry = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.txtGuestType = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX17 = new DevComponents.DotNetBar.LabelX();
@@ -59,9 +62,6 @@
             this.txtGuestId = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
-            this.txtPrice = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX2 = new DevComponents.DotNetBar.LabelX();
-            this.txtGuestBirthday = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.panelEx1.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -91,9 +91,6 @@
             // 
             this.panelMain.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelMain.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelMain.Controls.Add(this.labelX9);
-            this.panelMain.Controls.Add(this.labelX8);
-            this.panelMain.Controls.Add(this.labelX7);
             this.panelMain.Controls.Add(this.txtOrderNo);
             this.panelMain.Controls.Add(this.labelX15);
             this.panelMain.Controls.Add(this.btnAddFromExcel);
@@ -120,7 +117,7 @@
             // 
             // 
             this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX9.Location = new System.Drawing.Point(41, 447);
+            this.labelX9.Location = new System.Drawing.Point(8, 378);
             this.labelX9.Name = "labelX9";
             this.labelX9.Size = new System.Drawing.Size(67, 27);
             this.labelX9.TabIndex = 160;
@@ -132,7 +129,7 @@
             // 
             // 
             this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX8.Location = new System.Drawing.Point(40, 417);
+            this.labelX8.Location = new System.Drawing.Point(8, 345);
             this.labelX8.Name = "labelX8";
             this.labelX8.Size = new System.Drawing.Size(93, 27);
             this.labelX8.TabIndex = 158;
@@ -144,7 +141,7 @@
             // 
             // 
             this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX7.Location = new System.Drawing.Point(40, 383);
+            this.labelX7.Location = new System.Drawing.Point(8, 315);
             this.labelX7.Name = "labelX7";
             this.labelX7.Size = new System.Drawing.Size(68, 27);
             this.labelX7.TabIndex = 156;
@@ -201,8 +198,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.labelX9);
             this.groupBox1.Controls.Add(this.txtGuestBirthday);
+            this.groupBox1.Controls.Add(this.labelX8);
             this.groupBox1.Controls.Add(this.txtPrice);
+            this.groupBox1.Controls.Add(this.labelX7);
             this.groupBox1.Controls.Add(this.labelX2);
             this.groupBox1.Controls.Add(this.txtGuestCountry);
             this.groupBox1.Controls.Add(this.txtGuestType);
@@ -230,297 +230,6 @@
             this.groupBox1.TabIndex = 140;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "基本信息";
-            // 
-            // txtGuestCountry
-            // 
-            this.txtGuestCountry.DisplayMember = "Text";
-            this.txtGuestCountry.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.txtGuestCountry.FormattingEnabled = true;
-            this.txtGuestCountry.ItemHeight = 17;
-            this.txtGuestCountry.Location = new System.Drawing.Point(101, 378);
-            this.txtGuestCountry.Name = "txtGuestCountry";
-            this.txtGuestCountry.Size = new System.Drawing.Size(155, 23);
-            this.txtGuestCountry.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.txtGuestCountry.TabIndex = 161;
-            // 
-            // txtGuestType
-            // 
-            this.txtGuestType.DisplayMember = "Text";
-            this.txtGuestType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.txtGuestType.FormattingEnabled = true;
-            this.txtGuestType.ItemHeight = 17;
-            this.txtGuestType.Location = new System.Drawing.Point(101, 124);
-            this.txtGuestType.Name = "txtGuestType";
-            this.txtGuestType.Size = new System.Drawing.Size(155, 23);
-            this.txtGuestType.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.txtGuestType.TabIndex = 148;
-            // 
-            // labelX17
-            // 
-            // 
-            // 
-            // 
-            this.labelX17.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX17.Location = new System.Drawing.Point(7, 124);
-            this.labelX17.Name = "labelX17";
-            this.labelX17.Size = new System.Drawing.Size(93, 27);
-            this.labelX17.TabIndex = 147;
-            this.labelX17.Text = "客人类型:";
-            // 
-            // txtGuestEMail
-            // 
-            // 
-            // 
-            // 
-            this.txtGuestEMail.Border.Class = "TextBoxBorder";
-            this.txtGuestEMail.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtGuestEMail.Location = new System.Drawing.Point(101, 251);
-            this.txtGuestEMail.Multiline = true;
-            this.txtGuestEMail.Name = "txtGuestEMail";
-            this.txtGuestEMail.Size = new System.Drawing.Size(155, 24);
-            this.txtGuestEMail.TabIndex = 145;
-            // 
-            // txtGuestLastNightHotel
-            // 
-            // 
-            // 
-            // 
-            this.txtGuestLastNightHotel.Border.Class = "TextBoxBorder";
-            this.txtGuestLastNightHotel.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtGuestLastNightHotel.Location = new System.Drawing.Point(101, 348);
-            this.txtGuestLastNightHotel.Multiline = true;
-            this.txtGuestLastNightHotel.Name = "txtGuestLastNightHotel";
-            this.txtGuestLastNightHotel.Size = new System.Drawing.Size(155, 24);
-            this.txtGuestLastNightHotel.TabIndex = 159;
-            // 
-            // labelX23
-            // 
-            // 
-            // 
-            // 
-            this.labelX23.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX23.Location = new System.Drawing.Point(7, 251);
-            this.labelX23.Name = "labelX23";
-            this.labelX23.Size = new System.Drawing.Size(93, 27);
-            this.labelX23.TabIndex = 144;
-            this.labelX23.Text = "邮箱:";
-            // 
-            // txtGuestWeiChat
-            // 
-            // 
-            // 
-            // 
-            this.txtGuestWeiChat.Border.Class = "TextBoxBorder";
-            this.txtGuestWeiChat.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtGuestWeiChat.Location = new System.Drawing.Point(101, 217);
-            this.txtGuestWeiChat.Multiline = true;
-            this.txtGuestWeiChat.Name = "txtGuestWeiChat";
-            this.txtGuestWeiChat.Size = new System.Drawing.Size(155, 24);
-            this.txtGuestWeiChat.TabIndex = 143;
-            // 
-            // labelX22
-            // 
-            // 
-            // 
-            // 
-            this.labelX22.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX22.Location = new System.Drawing.Point(7, 217);
-            this.labelX22.Name = "labelX22";
-            this.labelX22.Size = new System.Drawing.Size(93, 27);
-            this.labelX22.TabIndex = 142;
-            this.labelX22.Text = "微信号:";
-            // 
-            // txtGuestPassportNo
-            // 
-            // 
-            // 
-            // 
-            this.txtGuestPassportNo.Border.Class = "TextBoxBorder";
-            this.txtGuestPassportNo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtGuestPassportNo.Location = new System.Drawing.Point(101, 315);
-            this.txtGuestPassportNo.Multiline = true;
-            this.txtGuestPassportNo.Name = "txtGuestPassportNo";
-            this.txtGuestPassportNo.Size = new System.Drawing.Size(155, 24);
-            this.txtGuestPassportNo.TabIndex = 157;
-            // 
-            // txtGuestPhone
-            // 
-            // 
-            // 
-            // 
-            this.txtGuestPhone.Border.Class = "TextBoxBorder";
-            this.txtGuestPhone.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtGuestPhone.Location = new System.Drawing.Point(101, 183);
-            this.txtGuestPhone.Multiline = true;
-            this.txtGuestPhone.Name = "txtGuestPhone";
-            this.txtGuestPhone.Size = new System.Drawing.Size(155, 24);
-            this.txtGuestPhone.TabIndex = 141;
-            // 
-            // labelX21
-            // 
-            // 
-            // 
-            // 
-            this.labelX21.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX21.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold);
-            this.labelX21.ForeColor = System.Drawing.Color.DarkOrange;
-            this.labelX21.Location = new System.Drawing.Point(7, 183);
-            this.labelX21.Name = "labelX21";
-            this.labelX21.Size = new System.Drawing.Size(93, 27);
-            this.labelX21.TabIndex = 140;
-            this.labelX21.Text = "*手机号:";
-            // 
-            // txtGuestBirthday2
-            // 
-            // 
-            // 
-            // 
-            this.txtGuestBirthday2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtGuestBirthday2.Location = new System.Drawing.Point(7, 281);
-            this.txtGuestBirthday2.Name = "txtGuestBirthday2";
-            this.txtGuestBirthday2.Size = new System.Drawing.Size(93, 27);
-            this.txtGuestBirthday2.TabIndex = 136;
-            this.txtGuestBirthday2.Text = "出生日期:";
-            // 
-            // txtGuestSex
-            // 
-            this.txtGuestSex.DisplayMember = "Text";
-            this.txtGuestSex.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.txtGuestSex.FormattingEnabled = true;
-            this.txtGuestSex.ItemHeight = 17;
-            this.txtGuestSex.Location = new System.Drawing.Point(101, 408);
-            this.txtGuestSex.Name = "txtGuestSex";
-            this.txtGuestSex.Size = new System.Drawing.Size(155, 23);
-            this.txtGuestSex.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.txtGuestSex.TabIndex = 133;
-            // 
-            // asda
-            // 
-            // 
-            // 
-            // 
-            this.asda.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.asda.Location = new System.Drawing.Point(7, 408);
-            this.asda.Name = "asda";
-            this.asda.Size = new System.Drawing.Size(93, 27);
-            this.asda.TabIndex = 132;
-            this.asda.Text = "性别:";
-            // 
-            // txtGuestNamePinYin
-            // 
-            // 
-            // 
-            // 
-            this.txtGuestNamePinYin.Border.Class = "TextBoxBorder";
-            this.txtGuestNamePinYin.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtGuestNamePinYin.Location = new System.Drawing.Point(101, 94);
-            this.txtGuestNamePinYin.Multiline = true;
-            this.txtGuestNamePinYin.Name = "txtGuestNamePinYin";
-            this.txtGuestNamePinYin.Size = new System.Drawing.Size(155, 24);
-            this.txtGuestNamePinYin.TabIndex = 131;
-            // 
-            // labelX16
-            // 
-            // 
-            // 
-            // 
-            this.labelX16.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX16.Location = new System.Drawing.Point(7, 94);
-            this.labelX16.Name = "labelX16";
-            this.labelX16.Size = new System.Drawing.Size(93, 27);
-            this.labelX16.TabIndex = 130;
-            this.labelX16.Text = "姓名拼音:";
-            // 
-            // txtGuestName
-            // 
-            // 
-            // 
-            // 
-            this.txtGuestName.Border.Class = "TextBoxBorder";
-            this.txtGuestName.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtGuestName.Location = new System.Drawing.Point(101, 61);
-            this.txtGuestName.Multiline = true;
-            this.txtGuestName.Name = "txtGuestName";
-            this.txtGuestName.Size = new System.Drawing.Size(155, 24);
-            this.txtGuestName.TabIndex = 129;
-            // 
-            // labelX3
-            // 
-            // 
-            // 
-            // 
-            this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold);
-            this.labelX3.ForeColor = System.Drawing.Color.DarkOrange;
-            this.labelX3.Location = new System.Drawing.Point(7, 61);
-            this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(93, 27);
-            this.labelX3.TabIndex = 128;
-            this.labelX3.Text = "*客人姓名:";
-            // 
-            // txtGuestId
-            // 
-            // 
-            // 
-            // 
-            this.txtGuestId.Border.Class = "TextBoxBorder";
-            this.txtGuestId.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtGuestId.Location = new System.Drawing.Point(101, 27);
-            this.txtGuestId.Multiline = true;
-            this.txtGuestId.Name = "txtGuestId";
-            this.txtGuestId.Size = new System.Drawing.Size(155, 24);
-            this.txtGuestId.TabIndex = 127;
-            // 
-            // labelX1
-            // 
-            // 
-            // 
-            // 
-            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelX1.ForeColor = System.Drawing.Color.DarkOrange;
-            this.labelX1.Location = new System.Drawing.Point(7, 27);
-            this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(93, 27);
-            this.labelX1.TabIndex = 126;
-            this.labelX1.Text = "*客人平台ID:";
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnCancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnCancel.Location = new System.Drawing.Point(168, 518);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(87, 27);
-            this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnCancel.TabIndex = 30;
-            this.btnCancel.Text = "取消";
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // txtPrice
-            // 
-            // 
-            // 
-            // 
-            this.txtPrice.Border.Class = "TextBoxBorder";
-            this.txtPrice.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtPrice.Location = new System.Drawing.Point(101, 153);
-            this.txtPrice.Multiline = true;
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(155, 24);
-            this.txtPrice.TabIndex = 163;
-            // 
-            // labelX2
-            // 
-            // 
-            // 
-            // 
-            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Location = new System.Drawing.Point(8, 153);
-            this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(93, 27);
-            this.labelX2.TabIndex = 162;
-            this.labelX2.Text = "单价:";
             // 
             // txtGuestBirthday
             // 
@@ -568,6 +277,297 @@
             this.txtGuestBirthday.Size = new System.Drawing.Size(155, 23);
             this.txtGuestBirthday.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.txtGuestBirthday.TabIndex = 168;
+            // 
+            // txtPrice
+            // 
+            // 
+            // 
+            // 
+            this.txtPrice.Border.Class = "TextBoxBorder";
+            this.txtPrice.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtPrice.Location = new System.Drawing.Point(101, 153);
+            this.txtPrice.Multiline = true;
+            this.txtPrice.Name = "txtPrice";
+            this.txtPrice.Size = new System.Drawing.Size(155, 24);
+            this.txtPrice.TabIndex = 163;
+            // 
+            // labelX2
+            // 
+            // 
+            // 
+            // 
+            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX2.Location = new System.Drawing.Point(8, 153);
+            this.labelX2.Name = "labelX2";
+            this.labelX2.Size = new System.Drawing.Size(93, 27);
+            this.labelX2.TabIndex = 162;
+            this.labelX2.Text = "单价:";
+            // 
+            // txtGuestCountry
+            // 
+            this.txtGuestCountry.DisplayMember = "Text";
+            this.txtGuestCountry.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.txtGuestCountry.FormattingEnabled = true;
+            this.txtGuestCountry.ItemHeight = 17;
+            this.txtGuestCountry.Location = new System.Drawing.Point(101, 378);
+            this.txtGuestCountry.Name = "txtGuestCountry";
+            this.txtGuestCountry.Size = new System.Drawing.Size(155, 23);
+            this.txtGuestCountry.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.txtGuestCountry.TabIndex = 161;
+            // 
+            // txtGuestType
+            // 
+            this.txtGuestType.DisplayMember = "Text";
+            this.txtGuestType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.txtGuestType.FormattingEnabled = true;
+            this.txtGuestType.ItemHeight = 17;
+            this.txtGuestType.Location = new System.Drawing.Point(101, 124);
+            this.txtGuestType.Name = "txtGuestType";
+            this.txtGuestType.Size = new System.Drawing.Size(155, 23);
+            this.txtGuestType.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.txtGuestType.TabIndex = 148;
+            // 
+            // labelX17
+            // 
+            // 
+            // 
+            // 
+            this.labelX17.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX17.Location = new System.Drawing.Point(8, 124);
+            this.labelX17.Name = "labelX17";
+            this.labelX17.Size = new System.Drawing.Size(93, 27);
+            this.labelX17.TabIndex = 147;
+            this.labelX17.Text = "客人类型:";
+            // 
+            // txtGuestEMail
+            // 
+            // 
+            // 
+            // 
+            this.txtGuestEMail.Border.Class = "TextBoxBorder";
+            this.txtGuestEMail.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtGuestEMail.Location = new System.Drawing.Point(101, 251);
+            this.txtGuestEMail.Multiline = true;
+            this.txtGuestEMail.Name = "txtGuestEMail";
+            this.txtGuestEMail.Size = new System.Drawing.Size(155, 24);
+            this.txtGuestEMail.TabIndex = 145;
+            // 
+            // txtGuestLastNightHotel
+            // 
+            // 
+            // 
+            // 
+            this.txtGuestLastNightHotel.Border.Class = "TextBoxBorder";
+            this.txtGuestLastNightHotel.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtGuestLastNightHotel.Location = new System.Drawing.Point(101, 348);
+            this.txtGuestLastNightHotel.Multiline = true;
+            this.txtGuestLastNightHotel.Name = "txtGuestLastNightHotel";
+            this.txtGuestLastNightHotel.Size = new System.Drawing.Size(155, 24);
+            this.txtGuestLastNightHotel.TabIndex = 159;
+            // 
+            // labelX23
+            // 
+            // 
+            // 
+            // 
+            this.labelX23.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX23.Location = new System.Drawing.Point(8, 251);
+            this.labelX23.Name = "labelX23";
+            this.labelX23.Size = new System.Drawing.Size(93, 27);
+            this.labelX23.TabIndex = 144;
+            this.labelX23.Text = "邮箱:";
+            // 
+            // txtGuestWeiChat
+            // 
+            // 
+            // 
+            // 
+            this.txtGuestWeiChat.Border.Class = "TextBoxBorder";
+            this.txtGuestWeiChat.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtGuestWeiChat.Location = new System.Drawing.Point(101, 217);
+            this.txtGuestWeiChat.Multiline = true;
+            this.txtGuestWeiChat.Name = "txtGuestWeiChat";
+            this.txtGuestWeiChat.Size = new System.Drawing.Size(155, 24);
+            this.txtGuestWeiChat.TabIndex = 143;
+            // 
+            // labelX22
+            // 
+            // 
+            // 
+            // 
+            this.labelX22.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX22.Location = new System.Drawing.Point(8, 217);
+            this.labelX22.Name = "labelX22";
+            this.labelX22.Size = new System.Drawing.Size(93, 27);
+            this.labelX22.TabIndex = 142;
+            this.labelX22.Text = "微信号:";
+            // 
+            // txtGuestPassportNo
+            // 
+            // 
+            // 
+            // 
+            this.txtGuestPassportNo.Border.Class = "TextBoxBorder";
+            this.txtGuestPassportNo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtGuestPassportNo.Location = new System.Drawing.Point(101, 315);
+            this.txtGuestPassportNo.Multiline = true;
+            this.txtGuestPassportNo.Name = "txtGuestPassportNo";
+            this.txtGuestPassportNo.Size = new System.Drawing.Size(155, 24);
+            this.txtGuestPassportNo.TabIndex = 157;
+            // 
+            // txtGuestPhone
+            // 
+            // 
+            // 
+            // 
+            this.txtGuestPhone.Border.Class = "TextBoxBorder";
+            this.txtGuestPhone.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtGuestPhone.Location = new System.Drawing.Point(101, 183);
+            this.txtGuestPhone.Multiline = true;
+            this.txtGuestPhone.Name = "txtGuestPhone";
+            this.txtGuestPhone.Size = new System.Drawing.Size(155, 24);
+            this.txtGuestPhone.TabIndex = 141;
+            // 
+            // labelX21
+            // 
+            // 
+            // 
+            // 
+            this.labelX21.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX21.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold);
+            this.labelX21.ForeColor = System.Drawing.Color.DarkOrange;
+            this.labelX21.Location = new System.Drawing.Point(8, 183);
+            this.labelX21.Name = "labelX21";
+            this.labelX21.Size = new System.Drawing.Size(93, 27);
+            this.labelX21.TabIndex = 140;
+            this.labelX21.Text = "*手机号:";
+            // 
+            // txtGuestBirthday2
+            // 
+            // 
+            // 
+            // 
+            this.txtGuestBirthday2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtGuestBirthday2.Location = new System.Drawing.Point(8, 284);
+            this.txtGuestBirthday2.Name = "txtGuestBirthday2";
+            this.txtGuestBirthday2.Size = new System.Drawing.Size(93, 27);
+            this.txtGuestBirthday2.TabIndex = 136;
+            this.txtGuestBirthday2.Text = "出生日期:";
+            // 
+            // txtGuestSex
+            // 
+            this.txtGuestSex.DisplayMember = "Text";
+            this.txtGuestSex.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.txtGuestSex.FormattingEnabled = true;
+            this.txtGuestSex.ItemHeight = 17;
+            this.txtGuestSex.Location = new System.Drawing.Point(101, 408);
+            this.txtGuestSex.Name = "txtGuestSex";
+            this.txtGuestSex.Size = new System.Drawing.Size(155, 23);
+            this.txtGuestSex.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.txtGuestSex.TabIndex = 133;
+            // 
+            // asda
+            // 
+            // 
+            // 
+            // 
+            this.asda.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.asda.Location = new System.Drawing.Point(8, 404);
+            this.asda.Name = "asda";
+            this.asda.Size = new System.Drawing.Size(66, 27);
+            this.asda.TabIndex = 132;
+            this.asda.Text = "性别:";
+            // 
+            // txtGuestNamePinYin
+            // 
+            // 
+            // 
+            // 
+            this.txtGuestNamePinYin.Border.Class = "TextBoxBorder";
+            this.txtGuestNamePinYin.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtGuestNamePinYin.Location = new System.Drawing.Point(101, 94);
+            this.txtGuestNamePinYin.Multiline = true;
+            this.txtGuestNamePinYin.Name = "txtGuestNamePinYin";
+            this.txtGuestNamePinYin.Size = new System.Drawing.Size(155, 24);
+            this.txtGuestNamePinYin.TabIndex = 131;
+            // 
+            // labelX16
+            // 
+            // 
+            // 
+            // 
+            this.labelX16.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX16.Location = new System.Drawing.Point(8, 94);
+            this.labelX16.Name = "labelX16";
+            this.labelX16.Size = new System.Drawing.Size(93, 27);
+            this.labelX16.TabIndex = 130;
+            this.labelX16.Text = "姓名拼音:";
+            // 
+            // txtGuestName
+            // 
+            // 
+            // 
+            // 
+            this.txtGuestName.Border.Class = "TextBoxBorder";
+            this.txtGuestName.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtGuestName.Location = new System.Drawing.Point(101, 61);
+            this.txtGuestName.Multiline = true;
+            this.txtGuestName.Name = "txtGuestName";
+            this.txtGuestName.Size = new System.Drawing.Size(155, 24);
+            this.txtGuestName.TabIndex = 129;
+            // 
+            // labelX3
+            // 
+            // 
+            // 
+            // 
+            this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX3.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold);
+            this.labelX3.ForeColor = System.Drawing.Color.DarkOrange;
+            this.labelX3.Location = new System.Drawing.Point(8, 61);
+            this.labelX3.Name = "labelX3";
+            this.labelX3.Size = new System.Drawing.Size(93, 27);
+            this.labelX3.TabIndex = 128;
+            this.labelX3.Text = "*客人姓名:";
+            // 
+            // txtGuestId
+            // 
+            // 
+            // 
+            // 
+            this.txtGuestId.Border.Class = "TextBoxBorder";
+            this.txtGuestId.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtGuestId.Location = new System.Drawing.Point(101, 27);
+            this.txtGuestId.Multiline = true;
+            this.txtGuestId.Name = "txtGuestId";
+            this.txtGuestId.Size = new System.Drawing.Size(155, 24);
+            this.txtGuestId.TabIndex = 127;
+            // 
+            // labelX1
+            // 
+            // 
+            // 
+            // 
+            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelX1.ForeColor = System.Drawing.Color.DarkOrange;
+            this.labelX1.Location = new System.Drawing.Point(8, 27);
+            this.labelX1.Name = "labelX1";
+            this.labelX1.Size = new System.Drawing.Size(93, 27);
+            this.labelX1.TabIndex = 126;
+            this.labelX1.Text = "*客人平台ID:";
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnCancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnCancel.Location = new System.Drawing.Point(168, 518);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(87, 27);
+            this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnCancel.TabIndex = 30;
+            this.btnCancel.Text = "取消";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // FrmAddOrderGuest
             // 

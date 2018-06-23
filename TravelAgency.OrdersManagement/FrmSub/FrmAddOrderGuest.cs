@@ -88,7 +88,7 @@ namespace TravelAgency.OrdersManagement
             txtGuestSex.Items.Add("男");
             txtGuestSex.Items.Add("女");
             txtGuestSex.Items.Add("保密");
-            txtGuestSex.SelectedIndex = 0;
+            //txtGuestSex.SelectedIndex = 0;
 
             foreach (string countryName in CountryCode.CountryNameArr)
             {
