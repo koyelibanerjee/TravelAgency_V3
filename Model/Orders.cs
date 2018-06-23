@@ -23,6 +23,8 @@ namespace TravelAgency.Model
         		                  
     private string _producttype;
         		                  
+    private string _guestusetime;
+        		                  
     private int? _purchasenum;
         		                  
     private decimal? _orderamount;
@@ -97,9 +99,13 @@ namespace TravelAgency.Model
         		                  
     private DateTime? _departuredate;
         		                  
-    private string _guestusetime;
-        		                  
     private string _orderstate;
+        		                  
+    private string _refundstate;
+        		                  
+    private int? _ordercolor;
+        		                  
+    private string _labelremark;
         
     /// <summary>
 		/// Id
@@ -176,6 +182,17 @@ namespace TravelAgency.Model
         {
             get{ return _producttype; }
             set{ _producttype = value; }
+        }    
+      
+		/// <summary>
+		/// GuestUseTime
+        /// </summary>		
+		      		  
+  
+        public string GuestUseTime
+        {
+            get{ return _guestusetime; }
+            set{ _guestusetime = value; }
         }    
       
 		/// <summary>
@@ -586,17 +603,6 @@ namespace TravelAgency.Model
         }    
       
 		/// <summary>
-		/// GuestUseTime
-        /// </summary>		
-		      		  
-  
-        public string GuestUseTime
-        {
-            get{ return _guestusetime; }
-            set{ _guestusetime = value; }
-        }    
-      
-		/// <summary>
 		/// OrderState
         /// </summary>		
 		      		  
@@ -605,6 +611,39 @@ namespace TravelAgency.Model
         {
             get{ return _orderstate; }
             set{ _orderstate = value; }
+        }    
+      
+		/// <summary>
+		/// RefundState
+        /// </summary>		
+		      		  
+  
+        public string RefundState
+        {
+            get{ return _refundstate; }
+            set{ _refundstate = value; }
+        }    
+      
+		/// <summary>
+		/// OrderColor
+        /// </summary>		
+		        		  
+  
+        public int? OrderColor
+        {
+            get{ return _ordercolor; }
+            set{ _ordercolor = value; }
+        }    
+      
+		/// <summary>
+		/// LabelRemark
+        /// </summary>		
+		      		  
+  
+        public string LabelRemark
+        {
+            get{ return _labelremark; }
+            set{ _labelremark = value; }
         }    
       
 		   

@@ -2,6 +2,7 @@
 using TravelAgency.DAL;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,5 +30,12 @@ namespace TravelAgency.DAL.Tests
             int j = 0;
 
         }
+        [TestMethod()]
+        public void TestTset()
+        {
+            int c = Color.FromArgb(234, 242, 251).ToArgb();
+        }
+
+
     }
 }

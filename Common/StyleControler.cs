@@ -10,9 +10,13 @@ namespace TravelAgency.Common
 {
     public class StyleControler
     {
-        public static Color CellDefaultBackColor { get { return Color.FromArgb(255,255,255); } }
+        public static Color CellDefaultBackColor { get { return Color.FromArgb(255, 255, 255); } }
         public static Color CellDefaultAlterBackColor { get { return Color.FromArgb(244, 244, 244); } }
 
+        public static Color RowHeaderDefaulBackColor
+        {
+            get { return Color.FromArgb(234, 242, 251); }
+        }
 
         public static void SetDgvStyle(DataGridView dgv)
         {
@@ -23,7 +27,6 @@ namespace TravelAgency.Common
             dgv.EnableHeadersVisualStyles = false;
             dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //列宽自适应,一定不能用AllCells
             dgv.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders; //这里也一定不能AllCell自适应!
-
 
             //dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(244, 244, 244);
             //dataGridView1.ColumnHeadersDefaultCellStyle.Font = new Font("宋体", 10.0f, FontStyle.Bold);
@@ -45,13 +48,12 @@ namespace TravelAgency.Common
             dgv.ColumnHeadersDefaultCellStyle.Font = new Font("微软雅黑", 10.0f, FontStyle.Bold);
             dgv.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(48, 126, 204);
             //dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.White;
-            dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(234, 242, 251); 
+            dgv.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(234, 242, 251);
             dgv.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(165, 227, 242);
             dgv.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
 
             dgv.RowHeadersDefaultCellStyle.Font = new Font("Consolas", 10.0f, FontStyle.Bold);
-            dgv.RowHeadersDefaultCellStyle.BackColor = Color.White;
-            dgv.RowHeadersDefaultCellStyle.BackColor = Color.FromArgb(234,242,251);
+            dgv.RowHeadersDefaultCellStyle.BackColor = Color.FromArgb(234, 242, 251);
             dgv.RowHeadersDefaultCellStyle.ForeColor = Color.FromArgb(48, 126, 204);
             dgv.RowHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(165, 227, 242);
             dgv.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
@@ -67,6 +69,6 @@ namespace TravelAgency.Common
 
         }
 
- 
+
     }
 }

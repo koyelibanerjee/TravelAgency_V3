@@ -304,6 +304,12 @@
   <ItemGroup>
     <None Include="Properties\fujian1.png" />
     <None Include="Properties\fujian2.png" />
+    <None Include="Resources\tips.ico" />
+    <None Include="Resources\tips.png" />
+    <None Include="Resources\tips %281%29.png" />
+    <None Include="Resources\tips %282%29.png" />
+    <None Include="Resources\tips %283%29.png" />
+    <None Include="Resources\tips %284%29.png" />
     <Content Include="微信图片_20180423141959~1.ico" />
   </ItemGroup>
   <ItemGroup />
