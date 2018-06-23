@@ -18,13 +18,13 @@ namespace TravelAgency.OrdersManagement
     public partial class FrmOrdersManage_Oper : Form
     {
         private readonly TravelAgency.BLL.Orders _bllOrders = new TravelAgency.BLL.Orders();
-        private readonly BLL.OrderFiles _bllOrderFiles  = new OrderFiles();
+        private readonly BLL.OrderFiles _bllOrderFiles = new OrderFiles();
         private int _curPage = 1;
         private int _pageCount = 0;
         private int _pageSize;
         private int _recordCount = 0;
         private string _where = string.Empty;
-
+        private readonly System.Windows.Forms.Timer _refreshTimer = new System.Windows.Forms.Timer();
         public FrmOrdersManage_Oper()
         {
             InitializeComponent();
@@ -35,7 +35,9 @@ namespace TravelAgency.OrdersManagement
         {
             _recordCount = _bllOrders.GetRecordCount(_where);
             _pageCount = (int)Math.Ceiling(_recordCount / (double)_pageSize);
-
+            _refreshTimer.Interval = 30 * 1000;
+            _refreshTimer.Tick += LoadDataToDgvAsyn;
+            _refreshTimer.Enabled = true;
 
             InitComboboxs();
 
@@ -58,11 +60,23 @@ namespace TravelAgency.OrdersManagement
             dataGridView1.RowPostPaint += DataGridView1_RowPostPaint;
             StyleControler.SetDgvStyle(dataGridView1);
             dataGridView1.Columns["OperRemark"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            
+
 
             bgWorkerLoadData.WorkerReportsProgress = true;
 
             progressLoading.Visible = false;
+            LoadDataToDgvAsyn();
+        }
+
+
+
+        /// <summary>
+        /// 重载给时钟用的版本
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LoadDataToDgvAsyn(object sender, EventArgs e)
+        {
             LoadDataToDgvAsyn();
         }
 
@@ -138,7 +152,7 @@ namespace TravelAgency.OrdersManagement
         private void DataGridView1_DoubleClick(object sender, EventArgs e)
         {
             //查看客人信息ToolStripMenuItem_Click(null, null);
-            查看录入订单操作信息ToolStripMenuItem_Click(null,null);
+            查看录入订单操作信息ToolStripMenuItem_Click(null, null);
         }
 
         private void CbPageSize_TextChanged(object sender, EventArgs e)

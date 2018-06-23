@@ -29,31 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.OrderNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OperName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrderState = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GuestInfoTypedIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReplyResult = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OperRemark = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WaitorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PaymentPlatform = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GroupNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PurchaseNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrderAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GuestOrderTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WaitorOrderTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.WaitorConfirmTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReallyPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PlatformActivity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RefundState = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMain = new DevComponents.DotNetBar.PanelEx();
             this.panelDgv = new DevComponents.DotNetBar.PanelEx();
             this.bar2 = new DevComponents.DotNetBar.Bar();
@@ -119,6 +98,27 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.设置订单颜色ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.录入订单标签信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.OrderNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OperName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderState = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuestInfoTypedIn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReplyResult = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OperRemark = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WaitorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PaymentPlatform = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GroupNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PurchaseNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrderAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuestOrderTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WaitorOrderTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WaitorConfirmTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReallyPay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PlatformActivity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RefundState = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panelDgv.SuspendLayout();
@@ -137,14 +137,14 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.OrderNo,
@@ -168,27 +168,27 @@
             this.PlatformActivity,
             this.RefundState,
             this.Id});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -197,130 +197,6 @@
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dataGridView1.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseUp);
             this.dataGridView1.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
-            // 
-            // OrderNo
-            // 
-            this.OrderNo.DataPropertyName = "OrderNo";
-            this.OrderNo.HeaderText = "网上平台订单号";
-            this.OrderNo.Name = "OrderNo";
-            // 
-            // OperName
-            // 
-            this.OperName.DataPropertyName = "OperName";
-            this.OperName.HeaderText = "操作姓名";
-            this.OperName.Name = "OperName";
-            // 
-            // OrderState
-            // 
-            this.OrderState.DataPropertyName = "OrderState";
-            this.OrderState.HeaderText = "订单状态";
-            this.OrderState.Name = "OrderState";
-            // 
-            // GuestInfoTypedIn
-            // 
-            this.GuestInfoTypedIn.HeaderText = "客人基础信息已录入";
-            this.GuestInfoTypedIn.Name = "GuestInfoTypedIn";
-            // 
-            // ReplyResult
-            // 
-            this.ReplyResult.DataPropertyName = "ReplyResult";
-            this.ReplyResult.HeaderText = "回复结果";
-            this.ReplyResult.Name = "ReplyResult";
-            // 
-            // OperRemark
-            // 
-            this.OperRemark.DataPropertyName = "OperRemark";
-            this.OperRemark.HeaderText = "操作备注";
-            this.OperRemark.Name = "OperRemark";
-            // 
-            // WaitorName
-            // 
-            this.WaitorName.DataPropertyName = "WaitorName";
-            this.WaitorName.HeaderText = "录入客服";
-            this.WaitorName.Name = "WaitorName";
-            // 
-            // PaymentPlatform
-            // 
-            this.PaymentPlatform.HeaderText = "平台";
-            this.PaymentPlatform.Name = "PaymentPlatform";
-            // 
-            // GroupNo
-            // 
-            this.GroupNo.DataPropertyName = "GroupNo";
-            this.GroupNo.HeaderText = "团号";
-            this.GroupNo.Name = "GroupNo";
-            // 
-            // ProductName
-            // 
-            this.ProductName.DataPropertyName = "ProductName";
-            this.ProductName.HeaderText = "产品名称";
-            this.ProductName.Name = "ProductName";
-            // 
-            // ProductId
-            // 
-            this.ProductId.DataPropertyName = "ProductId";
-            this.ProductId.HeaderText = "产品ID";
-            this.ProductId.Name = "ProductId";
-            // 
-            // ProductType
-            // 
-            this.ProductType.DataPropertyName = "ProductType";
-            this.ProductType.HeaderText = "产品类型";
-            this.ProductType.Name = "ProductType";
-            // 
-            // PurchaseNum
-            // 
-            this.PurchaseNum.DataPropertyName = "PurchaseNum";
-            this.PurchaseNum.HeaderText = "购买数量";
-            this.PurchaseNum.Name = "PurchaseNum";
-            // 
-            // OrderAmount
-            // 
-            this.OrderAmount.DataPropertyName = "OrderAmount";
-            this.OrderAmount.HeaderText = "订单金额";
-            this.OrderAmount.Name = "OrderAmount";
-            // 
-            // GuestOrderTime
-            // 
-            this.GuestOrderTime.DataPropertyName = "GuestOrderTime";
-            this.GuestOrderTime.HeaderText = "客人下单时间";
-            this.GuestOrderTime.Name = "GuestOrderTime";
-            // 
-            // WaitorOrderTime
-            // 
-            this.WaitorOrderTime.DataPropertyName = "WaitorOrderTime";
-            this.WaitorOrderTime.HeaderText = "客服下单时间";
-            this.WaitorOrderTime.Name = "WaitorOrderTime";
-            // 
-            // WaitorConfirmTime
-            // 
-            this.WaitorConfirmTime.DataPropertyName = "WaitorConfirmTime";
-            this.WaitorConfirmTime.HeaderText = "客服确认时间";
-            this.WaitorConfirmTime.Name = "WaitorConfirmTime";
-            // 
-            // ReallyPay
-            // 
-            this.ReallyPay.DataPropertyName = "ReallyPay";
-            this.ReallyPay.HeaderText = "实际支付金额";
-            this.ReallyPay.Name = "ReallyPay";
-            // 
-            // PlatformActivity
-            // 
-            this.PlatformActivity.DataPropertyName = "PlatformActivity";
-            this.PlatformActivity.HeaderText = "平台活动";
-            this.PlatformActivity.Name = "PlatformActivity";
-            // 
-            // RefundState
-            // 
-            this.RefundState.HeaderText = "退款状态";
-            this.RefundState.Name = "RefundState";
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "Id";
-            this.Id.HeaderText = "Id";
-            this.Id.Name = "Id";
-            this.Id.Visible = false;
             // 
             // panelMain
             // 
@@ -876,7 +752,7 @@
             this.设置订单颜色ToolStripMenuItem,
             this.录入订单标签信息ToolStripMenuItem});
             this.cmsDgvRb.Name = "cmsDgvRb";
-            this.cmsDgvRb.Size = new System.Drawing.Size(205, 358);
+            this.cmsDgvRb.Size = new System.Drawing.Size(205, 336);
             // 
             // cmsItemRefreshState
             // 
@@ -1032,6 +908,131 @@
             this.录入订单标签信息ToolStripMenuItem.Text = "录入(查看)订单标签信息";
             this.录入订单标签信息ToolStripMenuItem.Click += new System.EventHandler(this.录入订单标签信息ToolStripMenuItem_Click);
             // 
+            // OrderNo
+            // 
+            this.OrderNo.DataPropertyName = "OrderNo";
+            this.OrderNo.HeaderText = "网上平台订单号";
+            this.OrderNo.Name = "OrderNo";
+            // 
+            // OperName
+            // 
+            this.OperName.DataPropertyName = "OperName";
+            this.OperName.HeaderText = "操作姓名";
+            this.OperName.Name = "OperName";
+            // 
+            // OrderState
+            // 
+            this.OrderState.DataPropertyName = "OrderState";
+            this.OrderState.HeaderText = "订单状态";
+            this.OrderState.Name = "OrderState";
+            // 
+            // GuestInfoTypedIn
+            // 
+            this.GuestInfoTypedIn.HeaderText = "客人基础信息已录入";
+            this.GuestInfoTypedIn.Name = "GuestInfoTypedIn";
+            // 
+            // ReplyResult
+            // 
+            this.ReplyResult.DataPropertyName = "ReplyResult";
+            this.ReplyResult.HeaderText = "回复结果";
+            this.ReplyResult.Name = "ReplyResult";
+            // 
+            // OperRemark
+            // 
+            this.OperRemark.DataPropertyName = "OperRemark";
+            this.OperRemark.HeaderText = "操作备注";
+            this.OperRemark.Name = "OperRemark";
+            // 
+            // WaitorName
+            // 
+            this.WaitorName.DataPropertyName = "WaitorName";
+            this.WaitorName.HeaderText = "录入客服";
+            this.WaitorName.Name = "WaitorName";
+            // 
+            // PaymentPlatform
+            // 
+            this.PaymentPlatform.HeaderText = "平台";
+            this.PaymentPlatform.Name = "PaymentPlatform";
+            // 
+            // GroupNo
+            // 
+            this.GroupNo.DataPropertyName = "GroupNo";
+            this.GroupNo.HeaderText = "团号";
+            this.GroupNo.Name = "GroupNo";
+            // 
+            // ProductName
+            // 
+            this.ProductName.DataPropertyName = "ProductName";
+            this.ProductName.HeaderText = "产品名称";
+            this.ProductName.Name = "ProductName";
+            // 
+            // ProductId
+            // 
+            this.ProductId.DataPropertyName = "ProductId";
+            this.ProductId.HeaderText = "产品ID";
+            this.ProductId.Name = "ProductId";
+            // 
+            // ProductType
+            // 
+            this.ProductType.DataPropertyName = "ProductType";
+            this.ProductType.HeaderText = "产品类型";
+            this.ProductType.Name = "ProductType";
+            // 
+            // PurchaseNum
+            // 
+            this.PurchaseNum.DataPropertyName = "PurchaseNum";
+            this.PurchaseNum.HeaderText = "购买数量";
+            this.PurchaseNum.Name = "PurchaseNum";
+            // 
+            // OrderAmount
+            // 
+            this.OrderAmount.DataPropertyName = "OrderAmount";
+            this.OrderAmount.HeaderText = "订单金额";
+            this.OrderAmount.Name = "OrderAmount";
+            // 
+            // GuestOrderTime
+            // 
+            this.GuestOrderTime.DataPropertyName = "GuestOrderTime";
+            this.GuestOrderTime.HeaderText = "客人下单时间";
+            this.GuestOrderTime.Name = "GuestOrderTime";
+            // 
+            // WaitorOrderTime
+            // 
+            this.WaitorOrderTime.DataPropertyName = "WaitorOrderTime";
+            this.WaitorOrderTime.HeaderText = "客服下单时间";
+            this.WaitorOrderTime.Name = "WaitorOrderTime";
+            // 
+            // WaitorConfirmTime
+            // 
+            this.WaitorConfirmTime.DataPropertyName = "WaitorConfirmTime";
+            this.WaitorConfirmTime.HeaderText = "客服确认时间";
+            this.WaitorConfirmTime.Name = "WaitorConfirmTime";
+            // 
+            // ReallyPay
+            // 
+            this.ReallyPay.DataPropertyName = "ReallyPay";
+            this.ReallyPay.HeaderText = "实际支付金额";
+            this.ReallyPay.Name = "ReallyPay";
+            // 
+            // PlatformActivity
+            // 
+            this.PlatformActivity.DataPropertyName = "PlatformActivity";
+            this.PlatformActivity.HeaderText = "平台活动";
+            this.PlatformActivity.Name = "PlatformActivity";
+            // 
+            // RefundState
+            // 
+            this.RefundState.DataPropertyName = "RefundState";
+            this.RefundState.HeaderText = "退款状态";
+            this.RefundState.Name = "RefundState";
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "Id";
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
+            // 
             // FrmOrdersManage_Waitor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1116,6 +1117,13 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem 上传订单附件ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 附件管理ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cbOrderState;
+        private DevComponents.DotNetBar.LabelX labelX3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem 设置订单颜色ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 录入订单标签信息ToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrderNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn OperName;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrderState;
@@ -1137,13 +1145,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PlatformActivity;
         private System.Windows.Forms.DataGridViewTextBoxColumn RefundState;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx cbOrderState;
-        private DevComponents.DotNetBar.LabelX labelX3;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripMenuItem 设置订单颜色ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 录入订单标签信息ToolStripMenuItem;
     }
 }
 

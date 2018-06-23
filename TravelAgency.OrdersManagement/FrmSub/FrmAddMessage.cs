@@ -12,6 +12,7 @@ namespace TravelAgency.OrdersManagement
     {
         private readonly BLL.Message _bllMessage = new BLL.Message();
         private readonly BLL.OrderExcel _bllOrderExcel = new BLL.OrderExcel();
+        private readonly BLL.Orders _bllOrders = new BLL.Orders();
         private readonly Action<int> _updateDel; //副界面传来更新数据库的委托
         private readonly int _curPage; //主界面更新数据库需要一个当前页
         private readonly bool _is4Modify = false;
@@ -65,7 +66,7 @@ namespace TravelAgency.OrdersManagement
             this.MinimizeBox = false;
 
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
-
+            groupBox1.Enabled = false;
             InitComboBoxs();
 
 
@@ -100,12 +101,10 @@ namespace TravelAgency.OrdersManagement
                 {
                     if (_isRefund) //退款才有的
                     {
+                        groupBox1.Enabled = true;
                         txtMsgType.Text = "退款申请";
-                        txtMsgContent.Text = string.Format("订单:{0}\r\n{1}\r\n申请退款:{2}\r\n客服:{3}",
-                            _ordersModel.OrderNo,
-                            DateTime.Now,
-                            _ordersModel.RefundAmout,
-                            _ordersModel.WaitorName);
+                        updateMsgContentByRefundInfo(_ordersModel.OrderNo, _ordersModel.GuestRefundApplyTime ?? DateTime.Now,
+                            _ordersModel.RefundAmout ?? 0, _ordersModel.RefundReason, _ordersModel.WaitorName);
                     }
 
                     txtOrderNo.Text = _ordersModel.OrderNo;
@@ -176,6 +175,12 @@ namespace TravelAgency.OrdersManagement
         #endregion
 
 
+        private void updateMsgContentByRefundInfo(string orderno, DateTime refundTime, decimal refundAmount, string refundReason, string waitorName)
+        {
+            txtMsgContent.Text =
+                $"订单:{orderno}\r\n{refundTime}\r\n申请退款:{refundAmount}\r\n理由:{refundReason}\r\n客服:{waitorName}";
+        }
+
 
         private void btnOK_Click(object sender, EventArgs e)
         {
@@ -195,15 +200,7 @@ namespace TravelAgency.OrdersManagement
                     _model.MsgType = CtrlParser.Parse2String(txtMsgType);
                     _model.MsgState = CtrlParser.Parse2String(txtMsgState);
                     _model.ToUser = CtrlParser.Parse2String(txtToUser);
-                    //_model.FromUser = GlobalUtils.LoginUser.UserName;
-                    //_model.EntryTime = DateTime.Now;
-                    //_model.IsUrgent
-                    //_model.ReplyId
-
-                    //下面的字段暂时不进行修改
-                    //_model.EntryTime = DateTime.Now;
-                    //_model.SerialNo = SerialNoGenerator.GetSerialNo(SerialNoGenerator.Type.Type03Receipt);
-                    //_model.OperatorId = GlobalUtils.LoginUser.Id;
+                    
                     if (!_bllMessage.Update(_model))
                     {
                         MessageBoxEx.Show("更新失败，请稍后重试!");
@@ -242,6 +239,8 @@ namespace TravelAgency.OrdersManagement
                     if (_isReply)
                     {
                         model.ReplyId = _model.Id;
+                        _model.MsgState = "已读";
+                        _bllMessage.Update(_model);
                     }
 
                     if (_bllMessage.Add(model) <= 0)
@@ -249,13 +248,17 @@ namespace TravelAgency.OrdersManagement
                         MessageBoxEx.Show("添加失败，请稍后重试!");
                         return;
                     }
-                    MessageBoxEx.Show("添加成功");
 
-                    if (_isReply)
+                    if (_isRefund)
                     {
-                        _model.MsgState = "已读";
-                        _bllMessage.Update(_model);
+                        _ordersModel.RefundAmout = CtrlParser.Parse2Decimal(txtRefundAmout);
+                        _ordersModel.RefundReason = CtrlParser.Parse2String(txtRefundReason);
+                        _ordersModel.GuestRefundApplyTime = CtrlParser.Parse2Datetime(txtRefundAmout);
+                        _ordersModel.RefundState = "申请退款中";
+                        _bllOrders.Update(_ordersModel);
                     }
+
+                    MessageBoxEx.Show("添加成功");
 
                     _updateDel?.Invoke(_curPage);
                     this.DialogResult = DialogResult.OK;

@@ -24,11 +24,11 @@ namespace TravelAgency.OrdersManagement
         private int _pageSize;
         private int _recordCount = 0;
         private string _where = string.Empty;
+        private readonly System.Windows.Forms.Timer _refreshTimer = new System.Windows.Forms.Timer();
 
         public FrmOrdersManage_Waitor()
         {
             InitializeComponent();
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -36,6 +36,9 @@ namespace TravelAgency.OrdersManagement
             _recordCount = _bllOrders.GetRecordCount(_where);
             _pageCount = (int)Math.Ceiling(_recordCount / (double)_pageSize);
 
+            _refreshTimer.Interval = 30 * 1000;
+            _refreshTimer.Tick += LoadDataToDgvAsyn;
+            _refreshTimer.Enabled = true;
 
             InitComboboxs();
 
@@ -66,6 +69,10 @@ namespace TravelAgency.OrdersManagement
             LoadDataToDgvAsyn();
         }
 
+        private void LoadDataToDgvAsyn(object sender, EventArgs e)
+        {
+            LoadDataToDgvAsyn();
+        }
 
 
         //private void DataGridView1_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
@@ -756,11 +763,11 @@ namespace TravelAgency.OrdersManagement
 
             var list = GetSelectedModelList();
 
-            if (!list[0].RefundAmout.HasValue || !list[0].GuestRefundApplyTime.HasValue)
-            {
-                MessageBoxEx.Show("请先填写退款信息(\"金额\"及\"时间\")后再发起退款!");
-                return;
-            }
+            //if (!list[0].RefundAmout.HasValue || !list[0].GuestRefundApplyTime.HasValue)
+            //{
+            //    MessageBoxEx.Show("请先填写退款信息(\"金额\"及\"时间\")后再发起退款!");
+            //    return;
+            //}
 
             FrmAddMessage frm = new FrmAddMessage(null, 0, list[0], refund: true);
             frm.ShowDialog();
