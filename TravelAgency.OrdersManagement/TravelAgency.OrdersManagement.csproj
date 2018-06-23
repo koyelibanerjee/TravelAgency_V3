@@ -129,11 +129,11 @@
     <Compile Include="FrmSub\FrmSetOperInfo.designer.cs">
       <DependentUpon>FrmSetOperInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmSub\FrmSetGuestInfo.cs">
+    <Compile Include="FrmSub\FrmSetAdditionalInfo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSub\FrmSetGuestInfo.designer.cs">
-      <DependentUpon>FrmSetGuestInfo.cs</DependentUpon>
+    <Compile Include="FrmSub\FrmSetAdditionalInfo.designer.cs">
+      <DependentUpon>FrmSetAdditionalInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmSub\FrmAddOrders.cs">
       <SubType>Form</SubType>
@@ -224,8 +224,8 @@
     <EmbeddedResource Include="FrmSub\FrmSetOperInfo.resx">
       <DependentUpon>FrmSetOperInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSub\FrmSetGuestInfo.resx">
-      <DependentUpon>FrmSetGuestInfo.cs</DependentUpon>
+    <EmbeddedResource Include="FrmSub\FrmSetAdditionalInfo.resx">
+      <DependentUpon>FrmSetAdditionalInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmSub\FrmAddOrders.resx">
       <DependentUpon>FrmAddOrders.cs</DependentUpon>

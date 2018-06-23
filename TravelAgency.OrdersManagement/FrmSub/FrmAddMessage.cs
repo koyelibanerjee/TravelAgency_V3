@@ -251,14 +251,13 @@ namespace TravelAgency.OrdersManagement
                     }
                     MessageBoxEx.Show("添加成功");
 
-                    if (_isReply || _isRefund)
+                    if (_isReply)
                     {
                         _model.MsgState = "已读";
                         _bllMessage.Update(_model);
                     }
 
-                    if (_updateDel != null)
-                        _updateDel(_curPage);
+                    _updateDel?.Invoke(_curPage);
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }

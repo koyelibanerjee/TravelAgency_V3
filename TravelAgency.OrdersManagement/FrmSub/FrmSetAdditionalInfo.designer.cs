@@ -1,6 +1,6 @@
 ﻿namespace TravelAgency.OrdersManagement
 {
-    partial class FrmSetGuestInfo
+    partial class FrmSetAdditionalInfo
     {
         /// <summary>
         /// Required designer variable.
@@ -447,16 +447,16 @@
             this.btnCancel.Text = "取消";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // FrmSetGuestInfo
+            // FrmSetAdditionalInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(380, 399);
             this.Controls.Add(this.panelEx1);
             this.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.Name = "FrmSetGuestInfo";
+            this.Name = "FrmSetAdditionalInfo";
             this.Text = "订单补充信息:";
-            this.Load += new System.EventHandler(this.FrmAddOrders_Load);
+            this.Load += new System.EventHandler(this.FrmSetAdditionalInfo_Load);
             this.panelEx1.ResumeLayout(false);
             this.panelMain.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

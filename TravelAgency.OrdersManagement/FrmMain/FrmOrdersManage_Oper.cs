@@ -605,7 +605,7 @@ namespace TravelAgency.OrdersManagement
                 MessageBoxEx.Show("请选中一条数据进行操作!");
                 return;
             }
-            FrmSetGuestInfo frm = new FrmSetGuestInfo(LoadDataToDataGridView, _curPage, true,
+            FrmSetAdditionalInfo frm = new FrmSetAdditionalInfo(LoadDataToDataGridView, _curPage, true,
                 DgvDataSourceToList()[dataGridView1.SelectedRows[0].Index]);
             frm.Show();
         }

@@ -689,7 +689,7 @@ namespace TravelAgency.OrdersManagement
         {
 
 
-            FrmSetGuestInfo frm = new FrmSetGuestInfo(LoadDataToDataGridView, _curPage, true,
+            FrmSetAdditionalInfo frm = new FrmSetAdditionalInfo(LoadDataToDataGridView, _curPage, true,
                 DgvDataSourceToList()[dataGridView1.SelectedRows[0].Index]);
             frm.Show();
         }

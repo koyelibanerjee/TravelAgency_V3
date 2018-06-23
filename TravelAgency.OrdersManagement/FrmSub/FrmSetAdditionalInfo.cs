@@ -7,7 +7,7 @@ using TravelAgency.Common.PictureHandler;
 
 namespace TravelAgency.OrdersManagement
 {
-    public partial class FrmSetGuestInfo : Form
+    public partial class FrmSetAdditionalInfo : Form
     {
         private readonly BLL.Orders _bllOrders = new BLL.Orders();
         private readonly BLL.OrderExcel _bllOrderExcel = new BLL.OrderExcel();
@@ -16,7 +16,7 @@ namespace TravelAgency.OrdersManagement
         private readonly bool _is4Modify = false;
         private readonly TravelAgency.Model.Orders _model = null;
 
-        public FrmSetGuestInfo(Action<int> updateDel, int curPage, bool is4Modify = false, TravelAgency.Model.Orders model = null)
+        public FrmSetAdditionalInfo(Action<int> updateDel, int curPage, bool is4Modify = false, TravelAgency.Model.Orders model = null)
         {
             if (this.Modal)
                 this.StartPosition = FormStartPosition.CenterParent;
@@ -29,7 +29,7 @@ namespace TravelAgency.OrdersManagement
             _model = model;
         }
 
-        private void FrmAddOrders_Load(object sender, EventArgs e)
+        private void FrmSetAdditionalInfo_Load(object sender, EventArgs e)
         {
             this.MaximizeBox = false;
             this.MinimizeBox = false;

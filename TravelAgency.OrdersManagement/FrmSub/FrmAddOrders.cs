@@ -447,7 +447,7 @@ namespace TravelAgency.OrdersManagement
                 return;
             }
 
-            FrmSetGuestInfo frm = new FrmSetGuestInfo(_updateDel, _curPage, true, _model);
+            FrmSetAdditionalInfo frm = new FrmSetAdditionalInfo(_updateDel, _curPage, true, _model);
             frm.Show();
         }
 
