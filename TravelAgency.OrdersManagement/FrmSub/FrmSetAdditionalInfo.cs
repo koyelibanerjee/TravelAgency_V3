@@ -108,7 +108,6 @@ namespace TravelAgency.OrdersManagement
             {
                 try
                 {
-
                     //_model.GuestUseTime = CtrlParser.Parse2Datetime(txtGuestUseTime);
                     _model.ReserveTime = CtrlParser.Parse2Datetime(txtReserveTime);
                     _model.DiningTime = CtrlParser.Parse2Datetime(txtDiningTime);
@@ -120,18 +119,6 @@ namespace TravelAgency.OrdersManagement
                     _model.IsPraise = CtrlParser.Parse2String(txtIsPraise);
                     _model.RefundReason = CtrlParser.Parse2String(txtRefundReason);
                     //_model.WaitorRemark = CtrlParser.Parse2String(txtWaitorRemark);
-
-                    //if (!string.IsNullOrEmpty(_model.GuestId) &&
-                    //    !string.IsNullOrEmpty(_model.GuestPhone) &&
-                    //    !string.IsNullOrEmpty(_model.GuestName))
-                    //{
-                    //    _model.GuestInfoTypedIn = true;
-                    //}
-                    //else
-
-                    //TODO:这里怎么判定?
-                    _model.GuestInfoTypedIn = false;
-
 
                     //下面的字段暂时不进行修改
                     //_model.EntryTime = DateTime.Now;

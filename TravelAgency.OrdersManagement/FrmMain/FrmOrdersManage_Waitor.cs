@@ -688,7 +688,6 @@ namespace TravelAgency.OrdersManagement
         private void 查看录入订单客人信息ToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-
             FrmSetAdditionalInfo frm = new FrmSetAdditionalInfo(LoadDataToDataGridView, _curPage, true,
                 DgvDataSourceToList()[dataGridView1.SelectedRows[0].Index]);
             frm.Show();
