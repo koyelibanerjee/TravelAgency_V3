@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.WaitorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OrderNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -97,12 +97,16 @@
             this.cmsDgvRb = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmsItemRefreshState = new System.Windows.Forms.ToolStripMenuItem();
             this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.查看录入订单操作信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.查看客人信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.修改ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.订单发送消息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.上传订单附件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.下载订单附件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.附件管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.查看录入订单操作信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.查看客人信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.人申请表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.机票报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.外领担保函ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -110,10 +114,6 @@
             this.韩国加急申请书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bgWorkerLoadData = new System.ComponentModel.BackgroundWorker();
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
-            this.上传订单附件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.下载订单附件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.附件管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panelDgv.SuspendLayout();
@@ -132,14 +132,14 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.WaitorName,
@@ -166,27 +166,27 @@
             this.ExchangeRate,
             this.OperRemark,
             this.Id});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -851,8 +851,8 @@
             this.cmsDgvRb.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cmsItemRefreshState,
             this.删除ToolStripMenuItem,
-            this.修改ToolStripMenuItem,
             this.toolStripSeparator1,
+            this.修改ToolStripMenuItem,
             this.查看录入订单操作信息ToolStripMenuItem,
             this.查看客人信息ToolStripMenuItem,
             this.toolStripSeparator2,
@@ -862,59 +862,85 @@
             this.下载订单附件ToolStripMenuItem,
             this.附件管理ToolStripMenuItem});
             this.cmsDgvRb.Name = "cmsDgvRb";
-            this.cmsDgvRb.Size = new System.Drawing.Size(205, 242);
+            this.cmsDgvRb.Size = new System.Drawing.Size(181, 242);
             // 
             // cmsItemRefreshState
             // 
             this.cmsItemRefreshState.Name = "cmsItemRefreshState";
-            this.cmsItemRefreshState.Size = new System.Drawing.Size(204, 22);
+            this.cmsItemRefreshState.Size = new System.Drawing.Size(180, 22);
             this.cmsItemRefreshState.Text = "刷新数据库状态";
             this.cmsItemRefreshState.Click += new System.EventHandler(this.cmsItemRefreshState_Click);
             // 
             // 删除ToolStripMenuItem
             // 
             this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
-            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.删除ToolStripMenuItem.Text = "删除";
             this.删除ToolStripMenuItem.Click += new System.EventHandler(this.删除ToolStripMenuItem_Click);
-            // 
-            // 修改ToolStripMenuItem
-            // 
-            this.修改ToolStripMenuItem.Name = "修改ToolStripMenuItem";
-            this.修改ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.修改ToolStripMenuItem.Text = "修改";
-            this.修改ToolStripMenuItem.Click += new System.EventHandler(this.修改ToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(201, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            // 
+            // 修改ToolStripMenuItem
+            // 
+            this.修改ToolStripMenuItem.Name = "修改ToolStripMenuItem";
+            this.修改ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.修改ToolStripMenuItem.Text = "查看订单信息";
+            this.修改ToolStripMenuItem.Click += new System.EventHandler(this.修改ToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            // 
+            // 订单发送消息ToolStripMenuItem
+            // 
+            this.订单发送消息ToolStripMenuItem.Name = "订单发送消息ToolStripMenuItem";
+            this.订单发送消息ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.订单发送消息ToolStripMenuItem.Text = "订单发送消息";
+            this.订单发送消息ToolStripMenuItem.Click += new System.EventHandler(this.订单发送消息ToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(177, 6);
+            // 
+            // 上传订单附件ToolStripMenuItem
+            // 
+            this.上传订单附件ToolStripMenuItem.Name = "上传订单附件ToolStripMenuItem";
+            this.上传订单附件ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.上传订单附件ToolStripMenuItem.Text = "上传订单附件";
+            this.上传订单附件ToolStripMenuItem.Click += new System.EventHandler(this.上传订单附件ToolStripMenuItem_Click);
+            // 
+            // 下载订单附件ToolStripMenuItem
+            // 
+            this.下载订单附件ToolStripMenuItem.Name = "下载订单附件ToolStripMenuItem";
+            this.下载订单附件ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.下载订单附件ToolStripMenuItem.Text = "下载订单附件";
+            this.下载订单附件ToolStripMenuItem.Click += new System.EventHandler(this.下载订单附件ToolStripMenuItem_Click);
+            // 
+            // 附件管理ToolStripMenuItem
+            // 
+            this.附件管理ToolStripMenuItem.Name = "附件管理ToolStripMenuItem";
+            this.附件管理ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.附件管理ToolStripMenuItem.Text = "订单附件管理";
+            this.附件管理ToolStripMenuItem.Click += new System.EventHandler(this.附件管理ToolStripMenuItem_Click);
             // 
             // 查看录入订单操作信息ToolStripMenuItem
             // 
             this.查看录入订单操作信息ToolStripMenuItem.Name = "查看录入订单操作信息ToolStripMenuItem";
-            this.查看录入订单操作信息ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.查看录入订单操作信息ToolStripMenuItem.Text = "查看(录入)订单操作信息";
+            this.查看录入订单操作信息ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.查看录入订单操作信息ToolStripMenuItem.Text = "查看(录入)操作信息";
             this.查看录入订单操作信息ToolStripMenuItem.Click += new System.EventHandler(this.查看录入订单操作信息ToolStripMenuItem_Click);
             // 
             // 查看客人信息ToolStripMenuItem
             // 
             this.查看客人信息ToolStripMenuItem.Name = "查看客人信息ToolStripMenuItem";
-            this.查看客人信息ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.查看客人信息ToolStripMenuItem.Text = "查看客人信息";
+            this.查看客人信息ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.查看客人信息ToolStripMenuItem.Text = "查看补充信息";
             this.查看客人信息ToolStripMenuItem.Click += new System.EventHandler(this.查看客人信息ToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(201, 6);
-            // 
-            // 订单发送消息ToolStripMenuItem
-            // 
-            this.订单发送消息ToolStripMenuItem.Name = "订单发送消息ToolStripMenuItem";
-            this.订单发送消息ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.订单发送消息ToolStripMenuItem.Text = "订单发送消息";
-            this.订单发送消息ToolStripMenuItem.Click += new System.EventHandler(this.订单发送消息ToolStripMenuItem_Click);
             // 
             // 人申请表ToolStripMenuItem
             // 
@@ -951,32 +977,6 @@
             // 
             this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2010Blue;
             this.styleManager1.MetroColorParameters = new DevComponents.DotNetBar.Metro.ColorTables.MetroColorGeneratorParameters(System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255))))), System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199))))));
-            // 
-            // 上传订单附件ToolStripMenuItem
-            // 
-            this.上传订单附件ToolStripMenuItem.Name = "上传订单附件ToolStripMenuItem";
-            this.上传订单附件ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.上传订单附件ToolStripMenuItem.Text = "上传订单附件";
-            this.上传订单附件ToolStripMenuItem.Click += new System.EventHandler(this.上传订单附件ToolStripMenuItem_Click);
-            // 
-            // 下载订单附件ToolStripMenuItem
-            // 
-            this.下载订单附件ToolStripMenuItem.Name = "下载订单附件ToolStripMenuItem";
-            this.下载订单附件ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.下载订单附件ToolStripMenuItem.Text = "下载订单附件";
-            this.下载订单附件ToolStripMenuItem.Click += new System.EventHandler(this.下载订单附件ToolStripMenuItem_Click);
-            // 
-            // 附件管理ToolStripMenuItem
-            // 
-            this.附件管理ToolStripMenuItem.Name = "附件管理ToolStripMenuItem";
-            this.附件管理ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
-            this.附件管理ToolStripMenuItem.Text = "订单附件管理";
-            this.附件管理ToolStripMenuItem.Click += new System.EventHandler(this.附件管理ToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(201, 6);
             // 
             // FrmOrdersManage_Oper
             // 
