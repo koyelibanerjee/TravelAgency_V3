@@ -16,5 +16,11 @@ namespace TravelAgency.Common.Excel.Tests
         {
             ExcelGenerator.Get8PassPicTable(null);
         }
+
+        [TestMethod()]
+        public void TestGenTest()
+        {
+            ExcelGenerator.TestGen();
+        }
     }
 }

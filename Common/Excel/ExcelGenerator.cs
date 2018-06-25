@@ -1249,5 +1249,45 @@ namespace TravelAgency.Common.Excel
 
             //}
         }
+
+
+        public static bool TestGen()
+        {
+            string dstName = GlobalUtils.ShowSaveFileDlg("身元模板.xls", "office 2003 excel|*.xls");
+            if (string.IsNullOrEmpty(dstName))
+                return false;
+            //1.创建工作簿对象
+            IWorkbook wkbook = new HSSFWorkbook();
+            //2.创建工作表对象
+            ISheet sheet = wkbook.CreateSheet("身元模板");
+
+            string root = @"I:\My Documents\My Desktop\JobSeek\slns\Java\ZYC_Term4\src";
+            var folderList = Directory.GetDirectories(root);
+           
+            //3.插入行和单元格
+            int idx = 0;
+            for (int i = 0; i != folderList.Length; ++i)
+            {
+                var fileList = Directory.GetFiles(folderList[i]);
+
+                for (int j = 0; j < fileList.Length; j++)
+                {
+                    //创建单元格
+                    var row = sheet.CreateRow(idx++);
+                    var prefix = folderList[i].Substring(folderList[i].LastIndexOf('\\') + 1,
+                        folderList[i].Length - folderList[i].LastIndexOf('\\') - 1);
+                    row.CreateCell(0).SetCellValue(prefix+ "/" + Path.GetFileNameWithoutExtension(fileList[j]));
+                }
+
+               
+            }
+
+            
+
+            //5.执行写入磁盘
+
+            return SaveFile(dstName, wkbook);
+        }
+
     }
 }

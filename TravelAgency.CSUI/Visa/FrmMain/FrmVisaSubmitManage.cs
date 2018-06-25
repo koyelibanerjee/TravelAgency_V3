@@ -1829,12 +1829,32 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             if (frm.ShowDialog() == DialogResult.Cancel)
                 return;
 
+            List<VisaInfo> visainfoList = new List<VisaInfo>();
             foreach (var visa in list)
             {
                 visa.RealTime = frm.RetRealTime;
                 visa.FinishTime = frm.RetFinishTime;
+
+                var tmpList = _bllVisaInfo.GetModelListByVisaIdOrderByPosition(visa.Visa_id);
+                foreach (var visainfo in tmpList)
+                {
+                    visainfo.InTime = visa.RealTime;
+                    visainfo.OutTime = visa.FinishTime;
+                    if (visainfo.OutTime != null)
+                        visainfo.outState = OutState.Type03NormalOut;
+                    else if (visainfo.InTime != null)
+                        visainfo.outState = OutState.Type02In;
+                    if (visa.InTime != null)
+                        _bllActionRecords.AddRecord(ActType._05SubmitIn, GlobalUtils.LoginUser, visainfo, visa);
+                    if (visa.OutTime != null)
+                        _bllActionRecords.AddRecord(ActType._05SubmitOut, GlobalUtils.LoginUser, visainfo, visa);
+                }
+                visainfoList.AddRange(tmpList);
             }
+
             _bllVisa.UpdateList(list);
+            _bllVisaInfo.UpdateByList(visainfoList);
+
             LoadDataToDgvAsyn();
         }
 

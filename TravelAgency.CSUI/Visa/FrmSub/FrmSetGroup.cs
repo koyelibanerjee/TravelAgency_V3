@@ -886,6 +886,11 @@ namespace TravelAgency.CSUI.FrmSub
                 MessageBoxEx.Show("团号不能为空!");
                 return;
             }
+            if (string.IsNullOrEmpty(txtClient.Text) || string.IsNullOrEmpty(txtSalesPerson.Text))
+            {
+                MessageBoxEx.Show("销售和客户不能为空!!!");
+                return;
+            }
 
             if (!CheckGroupNoMatched())
             {

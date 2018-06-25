@@ -10,22 +10,22 @@ namespace TravelAgency.Common
     /// </summary>
     public static class CountryPicHandler
     {
-        public static Dictionary<string, Image> HasLoadedCountryImage = new Dictionary<string, Image>();
+        public static Dictionary<string, Image> LoadedCountryImage = new Dictionary<string, Image>();
 
         public static Image LoadImageByCountryName(string countryName)
         {
             if (string.IsNullOrEmpty(countryName))
                 return null;
 
-            if (HasLoadedCountryImage.ContainsKey(countryName))
-                return HasLoadedCountryImage[countryName];
+            if (LoadedCountryImage.ContainsKey(countryName))
+                return LoadedCountryImage[countryName];
 
             if (!File.Exists(GlobalUtils.AppPath + "\\CountryImages\\" + countryName + ".png"))
                 return null;
             try
             {
                 Image img = Image.FromFile(GlobalUtils.AppPath + "\\CountryImages\\" + countryName + ".png");
-                HasLoadedCountryImage.Add(countryName, img);
+                LoadedCountryImage.Add(countryName, img);
                 return img;
             }
             catch (Exception)
