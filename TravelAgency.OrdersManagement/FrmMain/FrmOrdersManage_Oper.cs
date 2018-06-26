@@ -740,6 +740,7 @@ namespace TravelAgency.OrdersManagement
                 MessageBoxEx.Show("设置颜色标签失败,请重试!");
                 return;
             }
+            cmsDgvRb.Close();
             LoadDataToDgvAsyn();
         }
 

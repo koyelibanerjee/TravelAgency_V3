@@ -72,7 +72,7 @@ namespace TravelAgency.OrdersManagement
 
         private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.ColumnIndex < 0)
+            if (e.ColumnIndex < 0)
                 return;
             修改ToolStripMenuItem_Click(null, null);
         }
@@ -80,8 +80,8 @@ namespace TravelAgency.OrdersManagement
         private void DataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             var list = GetSelectedModelList();
-            FrmSetStringValue frm = new FrmSetStringValue("查看提示信息",list[0].LabelRemark);
-            if(frm.ShowDialog()== DialogResult.Cancel)
+            FrmSetStringValue frm = new FrmSetStringValue("查看提示信息", list[0].LabelRemark);
+            if (frm.ShowDialog() == DialogResult.Cancel)
                 return;
             list[0].LabelRemark = frm.RetValue;
             _bllOrders.Update(list[0]);
@@ -887,7 +887,7 @@ namespace TravelAgency.OrdersManagement
 
         private void 设置订单颜色ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void SetOrdersColor(int c)
@@ -905,6 +905,7 @@ namespace TravelAgency.OrdersManagement
                 MessageBoxEx.Show("设置颜色标签失败,请重试!");
                 return;
             }
+            cmsDgvRb.Close();
             LoadDataToDgvAsyn();
         }
 
