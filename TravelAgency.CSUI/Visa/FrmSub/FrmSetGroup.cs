@@ -121,6 +121,9 @@ namespace TravelAgency.CSUI.FrmSub
             txtDepartureTime.TextChanged += txtDepartureTime_TextChanged;
             txtOutTime.TextChanged += txtOutTime_TextChanged;
             txtSubmitTime.TextChanged += txtSubmitTime_TextChanged;
+
+            //chkSaleFirst.Checked = true;
+
         }
 
         private void InitComboBoxs()

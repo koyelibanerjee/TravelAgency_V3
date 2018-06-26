@@ -533,7 +533,10 @@ namespace TravelAgency.Common.Excel
 
         }
 
-
+        /// <summary>
+        /// 账单模板
+        /// </summary>
+        /// <param name="visaList"></param>
         public static void GetPaymentList(List<Model.Visa> visaList)
         {
             if (visaList == null || visaList.Count < 1)
@@ -554,7 +557,7 @@ namespace TravelAgency.Common.Excel
                 var picturebuffer = File.ReadAllBytes(GlobalUtils.AppPath + @"\Excel\Templates\payQRCode.png");
                 int pictureIdx = wkbook.AddPicture(picturebuffer, PictureType.PNG);
                 var patriach = sheet.CreateDrawingPatriarch();
-                IClientAnchor anchor = new XSSFClientAnchor(0, 0, 0, 0, 1, 22 + visaList.Count, 3, 29 + visaList.Count);
+                IClientAnchor anchor = new XSSFClientAnchor(0, 0, 0, 0, 1, 21 + visaList.Count, 3, 28 + visaList.Count);
                 patriach.CreatePicture(anchor, pictureIdx);
 
 
@@ -623,8 +626,8 @@ namespace TravelAgency.Common.Excel
 
 
                 //插入合计的公式
-                var cntCell = sheet.GetRow(11 + visaList.Count + 1).GetCell(5);
-                cntCell.SetCellFormula($"SUM(F12:F{12 + visaList.Count})");
+                var cntCell = sheet.GetRow(11 + visaList.Count).GetCell(5);
+                cntCell.SetCellFormula($"SUM(F12:F{12 + visaList.Count-1})");
 
                 string dstName = GlobalUtils.ShowSaveFileDlg("账单.xlsx", "Excel XLSX|*.xlsx");
 

@@ -27,15 +27,11 @@ namespace TravelAgency.DAL.Tests
                 else
                     set.Add(username, 1);
             }
-            int j = 0;
-
         }
         [TestMethod()]
         public void TestTset()
         {
             int c = Color.FromArgb(234, 242, 251).ToArgb();
         }
-
-
     }
 }

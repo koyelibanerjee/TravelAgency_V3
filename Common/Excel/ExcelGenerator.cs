@@ -889,10 +889,10 @@ namespace TravelAgency.Common.Excel
                 //else
                     row.CreateCell(0).SetCellValue(list[i].GroupNo);
                 row.CreateCell(1)
-                    .SetCellValue(DateTimeFormator.DateTimeToString(list[i].InTime,
+                    .SetCellValue(DateTimeFormator.DateTimeToString(list[i].RealTime, 
                         DateTimeFormator.TimeFormat.Type02JapanTotal));
                 row.CreateCell(2)
-                    .SetCellValue(DateTimeFormator.DateTimeToString(list[i].OutTime,
+                    .SetCellValue(DateTimeFormator.DateTimeToString(list[i].FinishTime,
                         DateTimeFormator.TimeFormat.Type02JapanTotal));
                 row.CreateCell(3).SetCellValue(list[i].Person);
                 row.CreateCell(4).SetCellValue(list[i].Number.ToString());

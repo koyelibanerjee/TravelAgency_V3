@@ -247,7 +247,7 @@ namespace TravelAgency.OrdersManagement
 
         private void InitComboBoxs()
         {
-            string tablename = "Orders";
+            //string tablename = "Orders";
 
             txtReplyResult.DropDownStyle = ComboBoxStyle.DropDown;
             txtPaymentPlatform.DropDownStyle = ComboBoxStyle.DropDownList;

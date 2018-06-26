@@ -56,7 +56,8 @@ namespace TravelAgency.OrdersManagement
             cbPageSize.TextChanged += CbPageSize_TextChanged;
             this.FormClosed += FrmOrdersManage_FormClosed;
 
-            dataGridView1.DoubleClick += DataGridView1_DoubleClick;
+            dataGridView1.CellDoubleClick += DataGridView1_CellDoubleClick;
+            dataGridView1.RowHeaderMouseDoubleClick += DataGridView1_RowHeaderMouseDoubleClick;
             dataGridView1.RowPostPaint += DataGridView1_RowPostPaint;
             StyleControler.SetDgvStyle(dataGridView1);
             dataGridView1.Columns["OperRemark"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
@@ -78,6 +79,23 @@ namespace TravelAgency.OrdersManagement
         private void LoadDataToDgvAsyn(object sender, EventArgs e)
         {
             LoadDataToDgvAsyn();
+        }
+
+        private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex < 0)
+                return;
+            修改ToolStripMenuItem_Click(null, null);
+        }
+
+        private void DataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            var list = GetSelectedModelList();
+            FrmSetStringValue frm = new FrmSetStringValue("查看提示信息", list[0].LabelRemark);
+            if (frm.ShowDialog() == DialogResult.Cancel)
+                return;
+            list[0].LabelRemark = frm.RetValue;
+            _bllOrders.Update(list[0]);
         }
 
         private void DataGridView1_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
@@ -701,7 +719,6 @@ namespace TravelAgency.OrdersManagement
                 MessageBoxEx.Show("设置颜色标签失败,请重试!");
                 return;
             }
-            MessageBoxEx.Show("设置颜色标签成功!");
             LoadDataToDgvAsyn();
         }
 
@@ -729,7 +746,6 @@ namespace TravelAgency.OrdersManagement
                 MessageBoxEx.Show("设置提示信息失败,请重试!");
                 return;
             }
-            MessageBoxEx.Show("设置提示信息成功!");
             LoadDataToDgvAsyn();
         }
     }

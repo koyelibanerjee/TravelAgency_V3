@@ -57,7 +57,8 @@ namespace TravelAgency.OrdersManagement
             cbPageSize.TextChanged += CbPageSize_TextChanged;
             this.FormClosed += FrmOrdersManage_FormClosed;
 
-            dataGridView1.DoubleClick += DataGridView1_DoubleClick;
+            dataGridView1.CellDoubleClick += DataGridView1_CellDoubleClick;
+            dataGridView1.RowHeaderMouseDoubleClick += DataGridView1_RowHeaderMouseDoubleClick;
             StyleControler.SetDgvStyle(dataGridView1);
             //dataGridView1.CellPainting += DataGridView1_CellPainting;
             dataGridView1.RowPostPaint += DataGridView1_RowPostPaint;
@@ -67,6 +68,23 @@ namespace TravelAgency.OrdersManagement
 
             progressLoading.Visible = false;
             LoadDataToDgvAsyn();
+        }
+
+        private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(e.ColumnIndex < 0)
+                return;
+            修改ToolStripMenuItem_Click(null, null);
+        }
+
+        private void DataGridView1_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            var list = GetSelectedModelList();
+            FrmSetStringValue frm = new FrmSetStringValue("查看提示信息",list[0].LabelRemark);
+            if(frm.ShowDialog()== DialogResult.Cancel)
+                return;
+            list[0].LabelRemark = frm.RetValue;
+            _bllOrders.Update(list[0]);
         }
 
         private void LoadDataToDgvAsyn(object sender, EventArgs e)
@@ -163,10 +181,7 @@ namespace TravelAgency.OrdersManagement
             cbOrderState.SelectedIndex = 0;
         }
 
-        private void DataGridView1_DoubleClick(object sender, EventArgs e)
-        {
-            修改ToolStripMenuItem_Click(null, null);
-        }
+
 
         private void CbPageSize_TextChanged(object sender, EventArgs e)
         {
