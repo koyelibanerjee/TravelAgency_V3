@@ -701,18 +701,14 @@ namespace TravelAgency.OrdersManagement
             var list = GetSelectedModelList();
 
             if (list.Count < 1)
-            {
                 return;
-            }
 
             ColorDialog colorDialog = new ColorDialog();
             if (colorDialog.ShowDialog() == DialogResult.Cancel)
                 return;
             int c = colorDialog.Color.ToArgb();
             foreach (var orderse in list)
-            {
                 orderse.OrderColor = c;
-            }
 
             if (_bllOrders.UpdateList(list) != list.Count)
             {
@@ -724,29 +720,65 @@ namespace TravelAgency.OrdersManagement
 
         private void 录入订单标签信息ToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        #region 设置颜色
+
+        private void SetOrdersColor(int c)
+        {
             var list = GetSelectedModelList();
 
             if (list.Count < 1)
-            {
-                return;
-            }
-
-            FrmSetStringValue frm = new FrmSetStringValue("设置提示信息", list[0].LabelRemark);
-            if (frm.ShowDialog() == DialogResult.Cancel)
                 return;
 
             foreach (var orderse in list)
-            {
-                orderse.LabelRemark = frm.RetValue;
-            }
-
+                orderse.OrderColor = c;
 
             if (_bllOrders.UpdateList(list) != list.Count)
             {
-                MessageBoxEx.Show("设置提示信息失败,请重试!");
+                MessageBoxEx.Show("设置颜色标签失败,请重试!");
                 return;
             }
             LoadDataToDgvAsyn();
         }
+
+        private void toolStripTextBox1_Click(object sender, EventArgs e)
+        {
+            SetOrdersColor(-256);
+        }
+
+        private void toolStripTextBox2_Click(object sender, EventArgs e)
+        {
+            SetOrdersColor(-8355648);
+
+        }
+
+        private void toolStripTextBox3_Click(object sender, EventArgs e)
+        {
+            SetOrdersColor(-32576);
+
+        }
+
+        private void toolStripTextBox4_Click(object sender, EventArgs e)
+        {
+            SetOrdersColor(-8388353);
+        }
+
+        private void toolStripTextBox5_Click(object sender, EventArgs e)
+        {
+            SetOrdersColor(-16711936);
+        }
+
+        private void toolStripTextBox6_Click(object sender, EventArgs e)
+        {
+            SetOrdersColor(-8323073);
+        }
+
+        private void toolStripTextBox7_Click(object sender, EventArgs e)
+        {
+            SetOrdersColor(-32768);
+        }
+        #endregion
     }
 }
