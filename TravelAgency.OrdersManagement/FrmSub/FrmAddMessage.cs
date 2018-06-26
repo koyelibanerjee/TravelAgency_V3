@@ -200,7 +200,7 @@ namespace TravelAgency.OrdersManagement
                     _model.MsgType = CtrlParser.Parse2String(txtMsgType);
                     _model.MsgState = CtrlParser.Parse2String(txtMsgState);
                     _model.ToUser = CtrlParser.Parse2String(txtToUser);
-                    
+
                     if (!_bllMessage.Update(_model))
                     {
                         MessageBoxEx.Show("更新失败，请稍后重试!");
@@ -249,13 +249,20 @@ namespace TravelAgency.OrdersManagement
                         return;
                     }
 
-                    if (_isRefund)
+                    if (!_isReply && _isRefund)
                     {
                         _ordersModel.RefundAmout = CtrlParser.Parse2Decimal(txtRefundAmout);
                         _ordersModel.RefundReason = CtrlParser.Parse2String(txtRefundReason);
                         _ordersModel.GuestRefundApplyTime = CtrlParser.Parse2Datetime(txtRefundAmout);
                         _ordersModel.RefundState = "申请退款中";
                         _bllOrders.Update(_ordersModel);
+                    }
+
+                    if (_isReply && _model.MsgType == "退款申请")
+                    {
+                        var orderModel = _bllOrders.GetModelList(" orderno = '" + txtOrderNo.Text + "'")[0];
+                        orderModel.RefundState = "退款申请已回复";
+                        _bllOrders.Update(orderModel);
                     }
 
                     MessageBoxEx.Show("添加成功");
