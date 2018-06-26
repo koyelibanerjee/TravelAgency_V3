@@ -107,14 +107,6 @@
             this.导出日本送签时间表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelBars = new DevComponents.DotNetBar.PanelEx();
             this.panelSerachBar = new DevComponents.DotNetBar.PanelEx();
-            this.txtFinishTimeTo = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
-            this.txtFinishTimeFrom = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
-            this.labelX11 = new DevComponents.DotNetBar.LabelX();
-            this.labelX13 = new DevComponents.DotNetBar.LabelX();
-            this.txtRealTimeTo = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
-            this.txtRealTimeFrom = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
-            this.labelX8 = new DevComponents.DotNetBar.LabelX();
-            this.labelX10 = new DevComponents.DotNetBar.LabelX();
             this.lbPeopleCount = new DevComponents.DotNetBar.LabelX();
             this.btnAddVisa = new DevComponents.DotNetBar.ButtonX();
             this.txtSalesPerson = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -137,10 +129,9 @@
             this.labelX15 = new DevComponents.DotNetBar.LabelX();
             this.txtSchGroupNo = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.lb1 = new DevComponents.DotNetBar.LabelX();
-            this.txtSchEntryTimeTo = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
-            this.txtSchEntryTimeFrom = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
+            this.txtSchTimeTo = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
+            this.txtSchTimeFrom = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.labelX14 = new DevComponents.DotNetBar.LabelX();
-            this.labelX12 = new DevComponents.DotNetBar.LabelX();
             this.btnShowAll = new DevComponents.DotNetBar.ButtonX();
             this.btnSearch = new DevComponents.DotNetBar.ButtonX();
             this.bgWorkerLoadData = new System.ComponentModel.BackgroundWorker();
@@ -163,17 +154,14 @@
             this.lbRealTime = new DevComponents.DotNetBar.LabelX();
             this.labelX9 = new DevComponents.DotNetBar.LabelX();
             this.txtInput = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.cbSchTimeType = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cmsDgv.SuspendLayout();
             this.panelBars.SuspendLayout();
             this.panelSerachBar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFinishTimeTo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFinishTimeFrom)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRealTimeTo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRealTimeFrom)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSchEntryTimeTo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSchEntryTimeFrom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSchTimeTo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSchTimeFrom)).BeginInit();
             this.panelDgv.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bar2)).BeginInit();
             this.cmsAddToGroup.SuspendLayout();
@@ -328,7 +316,7 @@
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(1097, 523);
+            this.dataGridView1.Size = new System.Drawing.Size(1097, 542);
             this.dataGridView1.TabIndex = 13;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
@@ -464,7 +452,7 @@
             this.导出日本每日送签报表ToolStripMenuItem,
             this.导出日本送签时间表ToolStripMenuItem});
             this.cmsDgv.Name = "cmsDgv";
-            this.cmsDgv.Size = new System.Drawing.Size(197, 324);
+            this.cmsDgv.Size = new System.Drawing.Size(197, 302);
             // 
             // 复制ToolStripMenuItem
             // 
@@ -811,7 +799,7 @@
             this.panelBars.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelBars.Location = new System.Drawing.Point(0, 0);
             this.panelBars.Name = "panelBars";
-            this.panelBars.Size = new System.Drawing.Size(1362, 111);
+            this.panelBars.Size = new System.Drawing.Size(1362, 92);
             this.panelBars.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelBars.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelBars.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -825,14 +813,7 @@
             // 
             this.panelSerachBar.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelSerachBar.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelSerachBar.Controls.Add(this.txtFinishTimeTo);
-            this.panelSerachBar.Controls.Add(this.txtFinishTimeFrom);
-            this.panelSerachBar.Controls.Add(this.labelX11);
-            this.panelSerachBar.Controls.Add(this.labelX13);
-            this.panelSerachBar.Controls.Add(this.txtRealTimeTo);
-            this.panelSerachBar.Controls.Add(this.txtRealTimeFrom);
-            this.panelSerachBar.Controls.Add(this.labelX8);
-            this.panelSerachBar.Controls.Add(this.labelX10);
+            this.panelSerachBar.Controls.Add(this.cbSchTimeType);
             this.panelSerachBar.Controls.Add(this.lbPeopleCount);
             this.panelSerachBar.Controls.Add(this.btnAddVisa);
             this.panelSerachBar.Controls.Add(this.txtSalesPerson);
@@ -855,17 +836,16 @@
             this.panelSerachBar.Controls.Add(this.labelX15);
             this.panelSerachBar.Controls.Add(this.txtSchGroupNo);
             this.panelSerachBar.Controls.Add(this.lb1);
-            this.panelSerachBar.Controls.Add(this.txtSchEntryTimeTo);
-            this.panelSerachBar.Controls.Add(this.txtSchEntryTimeFrom);
+            this.panelSerachBar.Controls.Add(this.txtSchTimeTo);
+            this.panelSerachBar.Controls.Add(this.txtSchTimeFrom);
             this.panelSerachBar.Controls.Add(this.labelX14);
-            this.panelSerachBar.Controls.Add(this.labelX12);
             this.panelSerachBar.Controls.Add(this.btnShowAll);
             this.panelSerachBar.Controls.Add(this.btnSearch);
             this.panelSerachBar.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelSerachBar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelSerachBar.Location = new System.Drawing.Point(0, 28);
             this.panelSerachBar.Name = "panelSerachBar";
-            this.panelSerachBar.Size = new System.Drawing.Size(1362, 83);
+            this.panelSerachBar.Size = new System.Drawing.Size(1362, 64);
             this.panelSerachBar.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelSerachBar.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelSerachBar.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -875,242 +855,6 @@
             this.panelSerachBar.Style.GradientAngle = 90;
             this.panelSerachBar.TabIndex = 29;
             // 
-            // txtFinishTimeTo
-            // 
-            // 
-            // 
-            // 
-            this.txtFinishTimeTo.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.txtFinishTimeTo.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtFinishTimeTo.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
-            this.txtFinishTimeTo.ButtonDropDown.Visible = true;
-            this.txtFinishTimeTo.CustomFormat = "yyyy/MM/dd HH:mm";
-            this.txtFinishTimeTo.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
-            this.txtFinishTimeTo.IsPopupCalendarOpen = false;
-            this.txtFinishTimeTo.Location = new System.Drawing.Point(658, 61);
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            this.txtFinishTimeTo.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtFinishTimeTo.MonthCalendar.CalendarDimensions = new System.Drawing.Size(1, 1);
-            this.txtFinishTimeTo.MonthCalendar.ClearButtonVisible = true;
-            // 
-            // 
-            // 
-            this.txtFinishTimeTo.MonthCalendar.CommandsBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
-            this.txtFinishTimeTo.MonthCalendar.CommandsBackgroundStyle.BackColorGradientAngle = 90;
-            this.txtFinishTimeTo.MonthCalendar.CommandsBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-            this.txtFinishTimeTo.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.txtFinishTimeTo.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
-            this.txtFinishTimeTo.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1;
-            this.txtFinishTimeTo.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtFinishTimeTo.MonthCalendar.DisplayMonth = new System.DateTime(2017, 11, 1, 0, 0, 0, 0);
-            this.txtFinishTimeTo.MonthCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
-            // 
-            // 
-            // 
-            this.txtFinishTimeTo.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.txtFinishTimeTo.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90;
-            this.txtFinishTimeTo.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.txtFinishTimeTo.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtFinishTimeTo.MonthCalendar.TodayButtonVisible = true;
-            this.txtFinishTimeTo.Name = "txtFinishTimeTo";
-            this.txtFinishTimeTo.Size = new System.Drawing.Size(163, 21);
-            this.txtFinishTimeTo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.txtFinishTimeTo.TabIndex = 57;
-            // 
-            // txtFinishTimeFrom
-            // 
-            // 
-            // 
-            // 
-            this.txtFinishTimeFrom.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.txtFinishTimeFrom.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtFinishTimeFrom.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
-            this.txtFinishTimeFrom.ButtonDropDown.Visible = true;
-            this.txtFinishTimeFrom.CustomFormat = "yyyy/MM/dd HH:mm";
-            this.txtFinishTimeFrom.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
-            this.txtFinishTimeFrom.IsPopupCalendarOpen = false;
-            this.txtFinishTimeFrom.Location = new System.Drawing.Point(471, 60);
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            this.txtFinishTimeFrom.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtFinishTimeFrom.MonthCalendar.CalendarDimensions = new System.Drawing.Size(1, 1);
-            this.txtFinishTimeFrom.MonthCalendar.ClearButtonVisible = true;
-            // 
-            // 
-            // 
-            this.txtFinishTimeFrom.MonthCalendar.CommandsBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
-            this.txtFinishTimeFrom.MonthCalendar.CommandsBackgroundStyle.BackColorGradientAngle = 90;
-            this.txtFinishTimeFrom.MonthCalendar.CommandsBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-            this.txtFinishTimeFrom.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.txtFinishTimeFrom.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
-            this.txtFinishTimeFrom.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1;
-            this.txtFinishTimeFrom.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtFinishTimeFrom.MonthCalendar.DisplayMonth = new System.DateTime(2017, 11, 1, 0, 0, 0, 0);
-            this.txtFinishTimeFrom.MonthCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
-            // 
-            // 
-            // 
-            this.txtFinishTimeFrom.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.txtFinishTimeFrom.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90;
-            this.txtFinishTimeFrom.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.txtFinishTimeFrom.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtFinishTimeFrom.MonthCalendar.TodayButtonVisible = true;
-            this.txtFinishTimeFrom.Name = "txtFinishTimeFrom";
-            this.txtFinishTimeFrom.Size = new System.Drawing.Size(163, 21);
-            this.txtFinishTimeFrom.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.txtFinishTimeFrom.TabIndex = 56;
-            // 
-            // labelX11
-            // 
-            // 
-            // 
-            // 
-            this.labelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX11.Location = new System.Drawing.Point(639, 60);
-            this.labelX11.Name = "labelX11";
-            this.labelX11.Size = new System.Drawing.Size(13, 21);
-            this.labelX11.TabIndex = 55;
-            this.labelX11.Text = "-";
-            // 
-            // labelX13
-            // 
-            // 
-            // 
-            // 
-            this.labelX13.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX13.Location = new System.Drawing.Point(416, 60);
-            this.labelX13.Name = "labelX13";
-            this.labelX13.Size = new System.Drawing.Size(63, 21);
-            this.labelX13.TabIndex = 54;
-            this.labelX13.Text = "出签时间:";
-            // 
-            // txtRealTimeTo
-            // 
-            // 
-            // 
-            // 
-            this.txtRealTimeTo.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.txtRealTimeTo.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtRealTimeTo.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
-            this.txtRealTimeTo.ButtonDropDown.Visible = true;
-            this.txtRealTimeTo.CustomFormat = "yyyy/MM/dd HH:mm";
-            this.txtRealTimeTo.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
-            this.txtRealTimeTo.IsPopupCalendarOpen = false;
-            this.txtRealTimeTo.Location = new System.Drawing.Point(249, 60);
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            this.txtRealTimeTo.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtRealTimeTo.MonthCalendar.CalendarDimensions = new System.Drawing.Size(1, 1);
-            this.txtRealTimeTo.MonthCalendar.ClearButtonVisible = true;
-            // 
-            // 
-            // 
-            this.txtRealTimeTo.MonthCalendar.CommandsBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
-            this.txtRealTimeTo.MonthCalendar.CommandsBackgroundStyle.BackColorGradientAngle = 90;
-            this.txtRealTimeTo.MonthCalendar.CommandsBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-            this.txtRealTimeTo.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.txtRealTimeTo.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
-            this.txtRealTimeTo.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1;
-            this.txtRealTimeTo.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtRealTimeTo.MonthCalendar.DisplayMonth = new System.DateTime(2017, 11, 1, 0, 0, 0, 0);
-            this.txtRealTimeTo.MonthCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
-            // 
-            // 
-            // 
-            this.txtRealTimeTo.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.txtRealTimeTo.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90;
-            this.txtRealTimeTo.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.txtRealTimeTo.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtRealTimeTo.MonthCalendar.TodayButtonVisible = true;
-            this.txtRealTimeTo.Name = "txtRealTimeTo";
-            this.txtRealTimeTo.Size = new System.Drawing.Size(163, 21);
-            this.txtRealTimeTo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.txtRealTimeTo.TabIndex = 53;
-            // 
-            // txtRealTimeFrom
-            // 
-            // 
-            // 
-            // 
-            this.txtRealTimeFrom.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.txtRealTimeFrom.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtRealTimeFrom.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
-            this.txtRealTimeFrom.ButtonDropDown.Visible = true;
-            this.txtRealTimeFrom.CustomFormat = "yyyy/MM/dd HH:mm";
-            this.txtRealTimeFrom.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
-            this.txtRealTimeFrom.IsPopupCalendarOpen = false;
-            this.txtRealTimeFrom.Location = new System.Drawing.Point(62, 59);
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            this.txtRealTimeFrom.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtRealTimeFrom.MonthCalendar.CalendarDimensions = new System.Drawing.Size(1, 1);
-            this.txtRealTimeFrom.MonthCalendar.ClearButtonVisible = true;
-            // 
-            // 
-            // 
-            this.txtRealTimeFrom.MonthCalendar.CommandsBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
-            this.txtRealTimeFrom.MonthCalendar.CommandsBackgroundStyle.BackColorGradientAngle = 90;
-            this.txtRealTimeFrom.MonthCalendar.CommandsBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-            this.txtRealTimeFrom.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.txtRealTimeFrom.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
-            this.txtRealTimeFrom.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1;
-            this.txtRealTimeFrom.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtRealTimeFrom.MonthCalendar.DisplayMonth = new System.DateTime(2017, 11, 1, 0, 0, 0, 0);
-            this.txtRealTimeFrom.MonthCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
-            // 
-            // 
-            // 
-            this.txtRealTimeFrom.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.txtRealTimeFrom.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90;
-            this.txtRealTimeFrom.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.txtRealTimeFrom.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtRealTimeFrom.MonthCalendar.TodayButtonVisible = true;
-            this.txtRealTimeFrom.Name = "txtRealTimeFrom";
-            this.txtRealTimeFrom.Size = new System.Drawing.Size(163, 21);
-            this.txtRealTimeFrom.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.txtRealTimeFrom.TabIndex = 52;
-            // 
-            // labelX8
-            // 
-            // 
-            // 
-            // 
-            this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX8.Location = new System.Drawing.Point(230, 59);
-            this.labelX8.Name = "labelX8";
-            this.labelX8.Size = new System.Drawing.Size(13, 21);
-            this.labelX8.TabIndex = 51;
-            this.labelX8.Text = "-";
-            // 
-            // labelX10
-            // 
-            // 
-            // 
-            // 
-            this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX10.Location = new System.Drawing.Point(7, 59);
-            this.labelX10.Name = "labelX10";
-            this.labelX10.Size = new System.Drawing.Size(63, 21);
-            this.labelX10.TabIndex = 50;
-            this.labelX10.Text = "送签时间:";
-            // 
             // lbPeopleCount
             // 
             // 
@@ -1119,9 +863,9 @@
             this.lbPeopleCount.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lbPeopleCount.Font = new System.Drawing.Font("微软雅黑", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbPeopleCount.ForeColor = System.Drawing.Color.LimeGreen;
-            this.lbPeopleCount.Location = new System.Drawing.Point(1000, 5);
+            this.lbPeopleCount.Location = new System.Drawing.Point(1047, 6);
             this.lbPeopleCount.Name = "lbPeopleCount";
-            this.lbPeopleCount.Size = new System.Drawing.Size(197, 51);
+            this.lbPeopleCount.Size = new System.Drawing.Size(150, 51);
             this.lbPeopleCount.TabIndex = 49;
             this.lbPeopleCount.Text = "labelX10";
             // 
@@ -1145,7 +889,7 @@
             // 
             this.txtSalesPerson.Border.Class = "TextBoxBorder";
             this.txtSalesPerson.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtSalesPerson.Location = new System.Drawing.Point(738, 36);
+            this.txtSalesPerson.Location = new System.Drawing.Point(785, 36);
             this.txtSalesPerson.Name = "txtSalesPerson";
             this.txtSalesPerson.Size = new System.Drawing.Size(60, 21);
             this.txtSalesPerson.TabIndex = 42;
@@ -1157,7 +901,7 @@
             // 
             this.txtClient.Border.Class = "TextBoxBorder";
             this.txtClient.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtClient.Location = new System.Drawing.Point(738, 6);
+            this.txtClient.Location = new System.Drawing.Point(785, 6);
             this.txtClient.Name = "txtClient";
             this.txtClient.Size = new System.Drawing.Size(60, 21);
             this.txtClient.TabIndex = 43;
@@ -1168,7 +912,7 @@
             this.cbDepatureType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbDepatureType.FormattingEnabled = true;
             this.cbDepatureType.ItemHeight = 15;
-            this.cbDepatureType.Location = new System.Drawing.Point(614, 5);
+            this.cbDepatureType.Location = new System.Drawing.Point(661, 5);
             this.cbDepatureType.Name = "cbDepatureType";
             this.cbDepatureType.Size = new System.Drawing.Size(82, 21);
             this.cbDepatureType.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -1180,7 +924,7 @@
             // 
             // 
             this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX7.Location = new System.Drawing.Point(555, 7);
+            this.labelX7.Location = new System.Drawing.Point(602, 7);
             this.labelX7.Name = "labelX7";
             this.labelX7.Size = new System.Drawing.Size(66, 21);
             this.labelX7.TabIndex = 46;
@@ -1192,7 +936,7 @@
             // 
             // 
             this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX5.Location = new System.Drawing.Point(704, 38);
+            this.labelX5.Location = new System.Drawing.Point(751, 38);
             this.labelX5.Name = "labelX5";
             this.labelX5.Size = new System.Drawing.Size(37, 21);
             this.labelX5.TabIndex = 44;
@@ -1204,7 +948,7 @@
             // 
             // 
             this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX6.Location = new System.Drawing.Point(704, 6);
+            this.labelX6.Location = new System.Drawing.Point(751, 6);
             this.labelX6.Name = "labelX6";
             this.labelX6.Size = new System.Drawing.Size(37, 21);
             this.labelX6.TabIndex = 45;
@@ -1216,7 +960,7 @@
             this.cbState.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbState.FormattingEnabled = true;
             this.cbState.ItemHeight = 15;
-            this.cbState.Location = new System.Drawing.Point(614, 36);
+            this.cbState.Location = new System.Drawing.Point(661, 36);
             this.cbState.Name = "cbState";
             this.cbState.Size = new System.Drawing.Size(82, 21);
             this.cbState.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -1228,7 +972,7 @@
             // 
             // 
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(555, 35);
+            this.labelX4.Location = new System.Drawing.Point(609, 36);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(46, 21);
             this.labelX4.TabIndex = 40;
@@ -1240,7 +984,7 @@
             this.cbCountry.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbCountry.FormattingEnabled = true;
             this.cbCountry.ItemHeight = 15;
-            this.cbCountry.Location = new System.Drawing.Point(471, 5);
+            this.cbCountry.Location = new System.Drawing.Point(518, 5);
             this.cbCountry.Name = "cbCountry";
             this.cbCountry.Size = new System.Drawing.Size(79, 21);
             this.cbCountry.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -1252,7 +996,7 @@
             // 
             // 
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX3.Location = new System.Drawing.Point(419, 6);
+            this.labelX3.Location = new System.Drawing.Point(466, 6);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(46, 21);
             this.labelX3.TabIndex = 35;
@@ -1264,7 +1008,7 @@
             this.cbIsUrgent.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbIsUrgent.FormattingEnabled = true;
             this.cbIsUrgent.ItemHeight = 15;
-            this.cbIsUrgent.Location = new System.Drawing.Point(471, 35);
+            this.cbIsUrgent.Location = new System.Drawing.Point(518, 35);
             this.cbIsUrgent.Name = "cbIsUrgent";
             this.cbIsUrgent.Size = new System.Drawing.Size(79, 21);
             this.cbIsUrgent.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -1276,7 +1020,7 @@
             // 
             // 
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Location = new System.Drawing.Point(414, 36);
+            this.labelX2.Location = new System.Drawing.Point(461, 36);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(68, 21);
             this.labelX2.TabIndex = 33;
@@ -1299,7 +1043,7 @@
             // 
             this.btnShowToday.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnShowToday.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnShowToday.Location = new System.Drawing.Point(902, 34);
+            this.btnShowToday.Location = new System.Drawing.Point(949, 35);
             this.btnShowToday.Name = "btnShowToday";
             this.btnShowToday.Size = new System.Drawing.Size(92, 23);
             this.btnShowToday.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -1340,7 +1084,7 @@
             // 
             this.btnClearSchConditions.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnClearSchConditions.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnClearSchConditions.Location = new System.Drawing.Point(804, 34);
+            this.btnClearSchConditions.Location = new System.Drawing.Point(851, 35);
             this.btnClearSchConditions.Name = "btnClearSchConditions";
             this.btnClearSchConditions.Size = new System.Drawing.Size(92, 23);
             this.btnClearSchConditions.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -1384,99 +1128,99 @@
             this.lb1.TabIndex = 22;
             this.lb1.Text = "团号:";
             // 
-            // txtSchEntryTimeTo
+            // txtSchTimeTo
             // 
             // 
             // 
             // 
-            this.txtSchEntryTimeTo.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.txtSchEntryTimeTo.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtSchEntryTimeTo.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
-            this.txtSchEntryTimeTo.ButtonDropDown.Visible = true;
-            this.txtSchEntryTimeTo.CustomFormat = "yyyy/MM/dd HH:mm";
-            this.txtSchEntryTimeTo.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
-            this.txtSchEntryTimeTo.IsPopupCalendarOpen = false;
-            this.txtSchEntryTimeTo.Location = new System.Drawing.Point(249, 36);
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            this.txtSchEntryTimeTo.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtSchEntryTimeTo.MonthCalendar.CalendarDimensions = new System.Drawing.Size(1, 1);
-            this.txtSchEntryTimeTo.MonthCalendar.ClearButtonVisible = true;
-            // 
-            // 
-            // 
-            this.txtSchEntryTimeTo.MonthCalendar.CommandsBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
-            this.txtSchEntryTimeTo.MonthCalendar.CommandsBackgroundStyle.BackColorGradientAngle = 90;
-            this.txtSchEntryTimeTo.MonthCalendar.CommandsBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-            this.txtSchEntryTimeTo.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.txtSchEntryTimeTo.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
-            this.txtSchEntryTimeTo.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1;
-            this.txtSchEntryTimeTo.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtSchEntryTimeTo.MonthCalendar.DisplayMonth = new System.DateTime(2017, 11, 1, 0, 0, 0, 0);
-            this.txtSchEntryTimeTo.MonthCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
-            // 
-            // 
-            // 
-            this.txtSchEntryTimeTo.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.txtSchEntryTimeTo.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90;
-            this.txtSchEntryTimeTo.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.txtSchEntryTimeTo.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtSchEntryTimeTo.MonthCalendar.TodayButtonVisible = true;
-            this.txtSchEntryTimeTo.Name = "txtSchEntryTimeTo";
-            this.txtSchEntryTimeTo.Size = new System.Drawing.Size(163, 21);
-            this.txtSchEntryTimeTo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.txtSchEntryTimeTo.TabIndex = 21;
-            // 
-            // txtSchEntryTimeFrom
-            // 
-            // 
-            // 
-            // 
-            this.txtSchEntryTimeFrom.BackgroundStyle.Class = "DateTimeInputBackground";
-            this.txtSchEntryTimeFrom.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtSchEntryTimeFrom.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
-            this.txtSchEntryTimeFrom.ButtonDropDown.Visible = true;
-            this.txtSchEntryTimeFrom.CustomFormat = "yyyy/MM/dd HH:mm";
-            this.txtSchEntryTimeFrom.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
-            this.txtSchEntryTimeFrom.IsPopupCalendarOpen = false;
-            this.txtSchEntryTimeFrom.Location = new System.Drawing.Point(62, 35);
+            this.txtSchTimeTo.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.txtSchTimeTo.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtSchTimeTo.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
+            this.txtSchTimeTo.ButtonDropDown.Visible = true;
+            this.txtSchTimeTo.CustomFormat = "yyyy/MM/dd HH:mm";
+            this.txtSchTimeTo.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
+            this.txtSchTimeTo.IsPopupCalendarOpen = false;
+            this.txtSchTimeTo.Location = new System.Drawing.Point(292, 35);
             // 
             // 
             // 
             // 
             // 
             // 
-            this.txtSchEntryTimeFrom.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtSchEntryTimeFrom.MonthCalendar.CalendarDimensions = new System.Drawing.Size(1, 1);
-            this.txtSchEntryTimeFrom.MonthCalendar.ClearButtonVisible = true;
+            this.txtSchTimeTo.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtSchTimeTo.MonthCalendar.CalendarDimensions = new System.Drawing.Size(1, 1);
+            this.txtSchTimeTo.MonthCalendar.ClearButtonVisible = true;
             // 
             // 
             // 
-            this.txtSchEntryTimeFrom.MonthCalendar.CommandsBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
-            this.txtSchEntryTimeFrom.MonthCalendar.CommandsBackgroundStyle.BackColorGradientAngle = 90;
-            this.txtSchEntryTimeFrom.MonthCalendar.CommandsBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
-            this.txtSchEntryTimeFrom.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
-            this.txtSchEntryTimeFrom.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
-            this.txtSchEntryTimeFrom.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1;
-            this.txtSchEntryTimeFrom.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtSchEntryTimeFrom.MonthCalendar.DisplayMonth = new System.DateTime(2017, 11, 1, 0, 0, 0, 0);
-            this.txtSchEntryTimeFrom.MonthCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
+            this.txtSchTimeTo.MonthCalendar.CommandsBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
+            this.txtSchTimeTo.MonthCalendar.CommandsBackgroundStyle.BackColorGradientAngle = 90;
+            this.txtSchTimeTo.MonthCalendar.CommandsBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+            this.txtSchTimeTo.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.txtSchTimeTo.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
+            this.txtSchTimeTo.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1;
+            this.txtSchTimeTo.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtSchTimeTo.MonthCalendar.DisplayMonth = new System.DateTime(2017, 11, 1, 0, 0, 0, 0);
+            this.txtSchTimeTo.MonthCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
             // 
             // 
             // 
-            this.txtSchEntryTimeFrom.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.txtSchEntryTimeFrom.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90;
-            this.txtSchEntryTimeFrom.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.txtSchEntryTimeFrom.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtSchEntryTimeFrom.MonthCalendar.TodayButtonVisible = true;
-            this.txtSchEntryTimeFrom.Name = "txtSchEntryTimeFrom";
-            this.txtSchEntryTimeFrom.Size = new System.Drawing.Size(163, 21);
-            this.txtSchEntryTimeFrom.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.txtSchEntryTimeFrom.TabIndex = 20;
+            this.txtSchTimeTo.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.txtSchTimeTo.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90;
+            this.txtSchTimeTo.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.txtSchTimeTo.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtSchTimeTo.MonthCalendar.TodayButtonVisible = true;
+            this.txtSchTimeTo.Name = "txtSchTimeTo";
+            this.txtSchTimeTo.Size = new System.Drawing.Size(163, 21);
+            this.txtSchTimeTo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.txtSchTimeTo.TabIndex = 21;
+            // 
+            // txtSchTimeFrom
+            // 
+            // 
+            // 
+            // 
+            this.txtSchTimeFrom.BackgroundStyle.Class = "DateTimeInputBackground";
+            this.txtSchTimeFrom.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtSchTimeFrom.ButtonDropDown.Shortcut = DevComponents.DotNetBar.eShortcut.AltDown;
+            this.txtSchTimeFrom.ButtonDropDown.Visible = true;
+            this.txtSchTimeFrom.CustomFormat = "yyyy/MM/dd HH:mm";
+            this.txtSchTimeFrom.Format = DevComponents.Editors.eDateTimePickerFormat.Custom;
+            this.txtSchTimeFrom.IsPopupCalendarOpen = false;
+            this.txtSchTimeFrom.Location = new System.Drawing.Point(105, 34);
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            this.txtSchTimeFrom.MonthCalendar.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtSchTimeFrom.MonthCalendar.CalendarDimensions = new System.Drawing.Size(1, 1);
+            this.txtSchTimeFrom.MonthCalendar.ClearButtonVisible = true;
+            // 
+            // 
+            // 
+            this.txtSchTimeFrom.MonthCalendar.CommandsBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground2;
+            this.txtSchTimeFrom.MonthCalendar.CommandsBackgroundStyle.BackColorGradientAngle = 90;
+            this.txtSchTimeFrom.MonthCalendar.CommandsBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarBackground;
+            this.txtSchTimeFrom.MonthCalendar.CommandsBackgroundStyle.BorderTop = DevComponents.DotNetBar.eStyleBorderType.Solid;
+            this.txtSchTimeFrom.MonthCalendar.CommandsBackgroundStyle.BorderTopColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.BarDockedBorder;
+            this.txtSchTimeFrom.MonthCalendar.CommandsBackgroundStyle.BorderTopWidth = 1;
+            this.txtSchTimeFrom.MonthCalendar.CommandsBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtSchTimeFrom.MonthCalendar.DisplayMonth = new System.DateTime(2017, 11, 1, 0, 0, 0, 0);
+            this.txtSchTimeFrom.MonthCalendar.FirstDayOfWeek = System.DayOfWeek.Monday;
+            // 
+            // 
+            // 
+            this.txtSchTimeFrom.MonthCalendar.NavigationBackgroundStyle.BackColor2SchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.txtSchTimeFrom.MonthCalendar.NavigationBackgroundStyle.BackColorGradientAngle = 90;
+            this.txtSchTimeFrom.MonthCalendar.NavigationBackgroundStyle.BackColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.txtSchTimeFrom.MonthCalendar.NavigationBackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtSchTimeFrom.MonthCalendar.TodayButtonVisible = true;
+            this.txtSchTimeFrom.Name = "txtSchTimeFrom";
+            this.txtSchTimeFrom.Size = new System.Drawing.Size(163, 21);
+            this.txtSchTimeFrom.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.txtSchTimeFrom.TabIndex = 20;
             // 
             // labelX14
             // 
@@ -1484,29 +1228,17 @@
             // 
             // 
             this.labelX14.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX14.Location = new System.Drawing.Point(230, 35);
+            this.labelX14.Location = new System.Drawing.Point(273, 34);
             this.labelX14.Name = "labelX14";
             this.labelX14.Size = new System.Drawing.Size(13, 21);
             this.labelX14.TabIndex = 19;
             this.labelX14.Text = "-";
             // 
-            // labelX12
-            // 
-            // 
-            // 
-            // 
-            this.labelX12.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX12.Location = new System.Drawing.Point(7, 35);
-            this.labelX12.Name = "labelX12";
-            this.labelX12.Size = new System.Drawing.Size(63, 21);
-            this.labelX12.TabIndex = 17;
-            this.labelX12.Text = "录入时间:";
-            // 
             // btnShowAll
             // 
             this.btnShowAll.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnShowAll.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnShowAll.Location = new System.Drawing.Point(902, 5);
+            this.btnShowAll.Location = new System.Drawing.Point(949, 6);
             this.btnShowAll.Name = "btnShowAll";
             this.btnShowAll.Size = new System.Drawing.Size(91, 23);
             this.btnShowAll.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -1518,7 +1250,7 @@
             // 
             this.btnSearch.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnSearch.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnSearch.Location = new System.Drawing.Point(804, 6);
+            this.btnSearch.Location = new System.Drawing.Point(851, 7);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(92, 23);
             this.btnSearch.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -1545,9 +1277,9 @@
             this.panelDgv.Controls.Add(this.bar2);
             this.panelDgv.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelDgv.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDgv.Location = new System.Drawing.Point(265, 111);
+            this.panelDgv.Location = new System.Drawing.Point(265, 92);
             this.panelDgv.Name = "panelDgv";
-            this.panelDgv.Size = new System.Drawing.Size(1097, 542);
+            this.panelDgv.Size = new System.Drawing.Size(1097, 561);
             this.panelDgv.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelDgv.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelDgv.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -1569,7 +1301,7 @@
             this.bar2.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.lbCount});
             this.bar2.ItemSpacing = 5;
-            this.bar2.Location = new System.Drawing.Point(0, 523);
+            this.bar2.Location = new System.Drawing.Point(0, 542);
             this.bar2.Name = "bar2";
             this.bar2.Size = new System.Drawing.Size(1097, 19);
             this.bar2.Stretch = true;
@@ -1609,9 +1341,9 @@
             this.panel1.Controls.Add(this.txtInput);
             this.panel1.DisabledBackColor = System.Drawing.Color.Empty;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 111);
+            this.panel1.Location = new System.Drawing.Point(0, 92);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(265, 542);
+            this.panel1.Size = new System.Drawing.Size(265, 561);
             this.panel1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panel1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panel1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -1633,7 +1365,7 @@
             this.panelBtns.Controls.Add(this.btnClearInput);
             this.panelBtns.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelBtns.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBtns.Location = new System.Drawing.Point(0, 342);
+            this.panelBtns.Location = new System.Drawing.Point(0, 361);
             this.panelBtns.Name = "panelBtns";
             this.panelBtns.Size = new System.Drawing.Size(265, 118);
             this.panelBtns.Style.Alignment = System.Drawing.StringAlignment.Center;
@@ -1724,7 +1456,7 @@
             this.panelOutState.Controls.Add(this.lbRealTime);
             this.panelOutState.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelOutState.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelOutState.Location = new System.Drawing.Point(0, 460);
+            this.panelOutState.Location = new System.Drawing.Point(0, 479);
             this.panelOutState.Name = "panelOutState";
             this.panelOutState.Size = new System.Drawing.Size(265, 82);
             this.panelOutState.Style.Alignment = System.Drawing.StringAlignment.Center;
@@ -1789,8 +1521,21 @@
             this.txtInput.Name = "txtInput";
             this.txtInput.PreventEnterBeep = true;
             this.txtInput.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtInput.Size = new System.Drawing.Size(256, 299);
+            this.txtInput.Size = new System.Drawing.Size(256, 318);
             this.txtInput.TabIndex = 0;
+            // 
+            // cbSchTimeType
+            // 
+            this.cbSchTimeType.DisplayMember = "Text";
+            this.cbSchTimeType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbSchTimeType.FormattingEnabled = true;
+            this.cbSchTimeType.ItemHeight = 15;
+            this.cbSchTimeType.Location = new System.Drawing.Point(7, 34);
+            this.cbSchTimeType.Name = "cbSchTimeType";
+            this.cbSchTimeType.Size = new System.Drawing.Size(88, 21);
+            this.cbSchTimeType.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cbSchTimeType.TabIndex = 58;
+            this.cbSchTimeType.SelectedIndexChanged += new System.EventHandler(this.cbSchTimeType_SelectedIndexChanged);
             // 
             // FrmVisaSubmitManage
             // 
@@ -1808,12 +1553,8 @@
             this.cmsDgv.ResumeLayout(false);
             this.panelBars.ResumeLayout(false);
             this.panelSerachBar.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtFinishTimeTo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtFinishTimeFrom)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRealTimeTo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtRealTimeFrom)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSchEntryTimeTo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSchEntryTimeFrom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSchTimeTo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSchTimeFrom)).EndInit();
             this.panelDgv.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bar2)).EndInit();
             this.cmsAddToGroup.ResumeLayout(false);
@@ -1851,10 +1592,9 @@
         private DevComponents.DotNetBar.LabelX labelX15;
         private DevComponents.DotNetBar.Controls.TextBoxX txtSchGroupNo;
         private DevComponents.DotNetBar.LabelX lb1;
-        private DevComponents.Editors.DateTimeAdv.DateTimeInput txtSchEntryTimeTo;
-        private DevComponents.Editors.DateTimeAdv.DateTimeInput txtSchEntryTimeFrom;
+        private DevComponents.Editors.DateTimeAdv.DateTimeInput txtSchTimeTo;
+        private DevComponents.Editors.DateTimeAdv.DateTimeInput txtSchTimeFrom;
         private DevComponents.DotNetBar.LabelX labelX14;
-        private DevComponents.DotNetBar.LabelX labelX12;
         private DevComponents.DotNetBar.ButtonX btnShowAll;
         private DevComponents.DotNetBar.ButtonX btnSearch;
         private System.ComponentModel.BackgroundWorker bgWorkerLoadData;
@@ -1945,18 +1685,11 @@
         private DevComponents.DotNetBar.ButtonX btnSetSubmitTime;
         private DevComponents.DotNetBar.LabelX lbRealTime;
         private DevComponents.DotNetBar.LabelX lbFinishTime;
-        private DevComponents.Editors.DateTimeAdv.DateTimeInput txtRealTimeTo;
-        private DevComponents.Editors.DateTimeAdv.DateTimeInput txtRealTimeFrom;
-        private DevComponents.DotNetBar.LabelX labelX8;
-        private DevComponents.DotNetBar.LabelX labelX10;
-        private DevComponents.Editors.DateTimeAdv.DateTimeInput txtFinishTimeTo;
-        private DevComponents.Editors.DateTimeAdv.DateTimeInput txtFinishTimeFrom;
-        private DevComponents.DotNetBar.LabelX labelX11;
-        private DevComponents.DotNetBar.LabelX labelX13;
         private System.Windows.Forms.ToolStripMenuItem 修改进出签时间ToolStripMenuItem;
         private DevComponents.DotNetBar.Bar bar2;
         private DevComponents.DotNetBar.LabelItem lbCount;
         private System.Windows.Forms.ToolStripMenuItem 导出日本每日送签报表ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 导出日本送签时间表ToolStripMenuItem;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cbSchTimeType;
     }
 }

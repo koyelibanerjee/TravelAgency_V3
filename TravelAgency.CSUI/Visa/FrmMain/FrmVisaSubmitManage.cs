@@ -78,6 +78,13 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
             rbtnSingle.CheckedChanged += RbtnSingle_CheckedChanged;
             rbtnBatch.CheckedChanged += RbtnBatch_CheckedChanged;
+
+            cbSchTimeType.Items.Add("录入时间");
+            cbSchTimeType.Items.Add("进签时间");
+            cbSchTimeType.Items.Add("出签时间");
+            cbSchTimeType.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbSchTimeType.SelectedIndex = 0;
+
             #endregion
             #region 窗体部分初始化
             _recordCount = _bllVisa.GetRecordCount(string.Empty);
@@ -592,22 +599,32 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 conditions.Add(" (GroupNo like '%" + txtSchGroupNo.Text + "%') ");
             }
 
-            if (!string.IsNullOrEmpty(txtSchEntryTimeFrom.Text.Trim()) && !string.IsNullOrEmpty(txtSchEntryTimeTo.Text.Trim()))
+            string timeType;
+            if (cbSchTimeType.Text == "录入时间")
             {
-                conditions.Add(" (EntryTime between '" + txtSchEntryTimeFrom.Text + "' and " + " '" + txtSchEntryTimeTo.Text +
-                               "') ");
+                timeType = "EntryTime";
+                if (!string.IsNullOrEmpty(txtSchTimeFrom.Text.Trim()) &&
+                    !string.IsNullOrEmpty(txtSchTimeTo.Text.Trim()))
+                {
+                    conditions.Add(" (" + timeType + " between '" + txtSchTimeFrom.Text + "' and " + " '" +
+                                   txtSchTimeTo.Text +
+                                   "') ");
+                }
             }
 
-            if (!string.IsNullOrEmpty(txtRealTimeFrom.Text.Trim()) && !string.IsNullOrEmpty(txtRealTimeTo.Text.Trim()))
+            else
             {
-                conditions.Add(" (RealTime between '" + txtRealTimeFrom.Text + "' and " + " '" + txtRealTimeTo.Text +
-                               "') ");
-            }
-
-            if (!string.IsNullOrEmpty(txtFinishTimeFrom.Text.Trim()) && !string.IsNullOrEmpty(txtFinishTimeTo.Text.Trim()))
-            {
-                conditions.Add(" (FinishTime between '" + txtFinishTimeFrom.Text + "' and " + " '" + txtFinishTimeTo.Text +
-                               "') ");
+                if (cbSchTimeType.Text == "进签时间")
+                    timeType = "RealTime";
+                else
+                    timeType = "FinishTime";
+                if (!string.IsNullOrEmpty(txtSchTimeFrom.Text.Trim()) &&
+                    !string.IsNullOrEmpty(txtSchTimeTo.Text.Trim()))
+                {
+                    conditions.Add(" (" + timeType + " between '" + txtSchTimeFrom.Text + " 00:00' and " + " '" +
+                                   txtSchTimeTo.Text +
+                                   " 23:59:59') ");
+                }
             }
 
             if (cbIsUrgent.Text == "全部")
@@ -659,12 +676,9 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         private void btnClearSchConditions_Click(object sender, EventArgs e)
         {
 
-            txtSchEntryTimeFrom.Text = string.Empty;
-            txtSchEntryTimeTo.Text = string.Empty;
-            txtFinishTimeTo.Text = string.Empty;
-            txtFinishTimeFrom.Text = string.Empty;
-            txtRealTimeFrom.Text = string.Empty;
-            txtRealTimeTo.Text = string.Empty;
+            txtSchTimeFrom.Text = string.Empty;
+            txtSchTimeTo.Text = string.Empty;
+           
 
             txtSchGroupNo.Text = string.Empty;
             txtSalesPerson.Text = string.Empty;
@@ -684,13 +698,13 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             var _modelYestodayLast = _bllVisa.GetLastRecordOfTheDay(DateTime.Now.AddDays(-1.0));
             var _modelTodayLast = _bllVisa.GetLastRecordOfTheDay(DateTime.Now);
             if (_modelYestodayLast != null)
-                txtSchEntryTimeFrom.Text = DateTimeFormator.DateTimeToString(_modelYestodayLast.EntryTime.Value.AddMinutes(1.0), DateTimeFormator.TimeFormat.Type06LongTime);
+                txtSchTimeFrom.Text = DateTimeFormator.DateTimeToString(_modelYestodayLast.EntryTime.Value.AddMinutes(1.0), DateTimeFormator.TimeFormat.Type06LongTime);
             else
-                txtSchEntryTimeFrom.Text = DateTimeFormator.DateTimeToString(DateTime.Today) + " 00:00";
+                txtSchTimeFrom.Text = DateTimeFormator.DateTimeToString(DateTime.Today) + " 00:00";
             if (_modelTodayLast != null)
-                txtSchEntryTimeTo.Text = DateTimeFormator.DateTimeToString(_modelTodayLast.EntryTime.Value.AddMinutes(1.0), DateTimeFormator.TimeFormat.Type06LongTime);
+                txtSchTimeTo.Text = DateTimeFormator.DateTimeToString(_modelTodayLast.EntryTime.Value.AddMinutes(1.0), DateTimeFormator.TimeFormat.Type06LongTime);
             else
-                txtSchEntryTimeTo.Text = DateTimeFormator.DateTimeToString(DateTime.Today) + " 16:00";
+                txtSchTimeTo.Text = DateTimeFormator.DateTimeToString(DateTime.Today) + " 16:00";
 
             btnSearch_Click(null, null);
         }
@@ -1934,5 +1948,18 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             ExcelGenerator.GetAllCountExcel(list);
         }
 
+        private void cbSchTimeType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbSchTimeType.Text == "录入时间")
+            {
+                txtSchTimeFrom.CustomFormat = "yyyy/MM/dd HH:mm";
+                txtSchTimeTo.CustomFormat = "yyyy/MM/dd HH:mm";
+            }
+            else
+            {
+                txtSchTimeFrom.CustomFormat = "yyyy/MM/dd";
+                txtSchTimeTo.CustomFormat = "yyyy/MM/dd";
+            }
+        }
     }
 }

@@ -332,22 +332,32 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
             string timeType;
             if (cbSchTimeType.Text == "录入时间")
-                timeType = "EntryTime";
-            else if (cbSchTimeType.Text == "进签时间")
-                timeType = "RealTime";
-            else
-                timeType = "FinishTime";
-            if (!string.IsNullOrEmpty(txtSchRealTimeFrom.Text.Trim()) && !string.IsNullOrEmpty(txtSchRealTimeTo.Text.Trim()))
             {
-                conditions.Add(" (" + timeType + " between '" + txtSchRealTimeFrom.Text + "' and " + " '" + txtSchRealTimeTo.Text +
-                               "') ");
+                timeType = "EntryTime";
+                if (!string.IsNullOrEmpty(txtSchTimeFrom.Text.Trim()) &&
+                    !string.IsNullOrEmpty(txtSchTimeTo.Text.Trim()))
+                {
+                    conditions.Add(" (" + timeType + " between '" + txtSchTimeFrom.Text + "' and " + " '" +
+                                   txtSchTimeTo.Text +
+                                   "') ");
+                }
             }
 
-            if (!string.IsNullOrEmpty(txtSchFinishTimeFrom.Text.Trim()) && !string.IsNullOrEmpty(txtSchFinishTimeTo.Text.Trim()))
+            else
             {
-                conditions.Add(" (FinishTime between '" + txtSchFinishTimeFrom.Text + "' and " + " '" + txtSchFinishTimeTo.Text +
-                               "') ");
+                if (cbSchTimeType.Text == "进签时间")
+                    timeType = "RealTime";
+                else
+                    timeType = "FinishTime";
+                if (!string.IsNullOrEmpty(txtSchTimeFrom.Text.Trim()) &&
+                    !string.IsNullOrEmpty(txtSchTimeTo.Text.Trim()))
+                {
+                    conditions.Add(" (" + timeType + " between '" + txtSchTimeFrom.Text + " 00:00' and " + " '" +
+                                   txtSchTimeTo.Text +
+                                   " 23:59:59') ");
+                }
             }
+
 
             if (cbCountry.Text == "全部")
             {
@@ -395,8 +405,8 @@ namespace TravelAgency.CSUI.Financial.FrmMain
         private void btnClearSchConditions_Click(object sender, EventArgs e)
         {
 
-            txtSchRealTimeFrom.Text = string.Empty;
-            txtSchRealTimeTo.Text = string.Empty;
+            txtSchTimeFrom.Text = string.Empty;
+            txtSchTimeTo.Text = string.Empty;
             txtSchGroupNo.Text = string.Empty;
             txtSalesPerson.Text = string.Empty;
             txtClient.Text = string.Empty;
@@ -413,13 +423,13 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             var _modelYestodayLast = _bllVisa.GetLastRecordOfTheDay(DateTime.Now.AddDays(-1.0));
             var _modelTodayLast = _bllVisa.GetLastRecordOfTheDay(DateTime.Now);
             if (_modelYestodayLast != null)
-                txtSchRealTimeFrom.Text = DateTimeFormator.DateTimeToString(_modelYestodayLast.EntryTime.Value.AddMinutes(1.0), DateTimeFormator.TimeFormat.Type06LongTime);
+                txtSchTimeFrom.Text = DateTimeFormator.DateTimeToString(_modelYestodayLast.EntryTime.Value.AddMinutes(1.0), DateTimeFormator.TimeFormat.Type06LongTime);
             else
-                txtSchRealTimeFrom.Text = DateTimeFormator.DateTimeToString(DateTime.Today) + " 00:00";
+                txtSchTimeFrom.Text = DateTimeFormator.DateTimeToString(DateTime.Today) + " 00:00";
             if (_modelTodayLast != null)
-                txtSchRealTimeTo.Text = DateTimeFormator.DateTimeToString(_modelTodayLast.EntryTime.Value.AddMinutes(1.0), DateTimeFormator.TimeFormat.Type06LongTime);
+                txtSchTimeTo.Text = DateTimeFormator.DateTimeToString(_modelTodayLast.EntryTime.Value.AddMinutes(1.0), DateTimeFormator.TimeFormat.Type06LongTime);
             else
-                txtSchRealTimeTo.Text = DateTimeFormator.DateTimeToString(DateTime.Today) + " 16:00";
+                txtSchTimeTo.Text = DateTimeFormator.DateTimeToString(DateTime.Today) + " 16:00";
 
             btnSearch_Click(null, null);
         }
@@ -852,6 +862,20 @@ namespace TravelAgency.CSUI.Financial.FrmMain
         {
             //var list = GetSelectedVisaList();
             //ExcelGenerator.GetPaymentList(list);
+        }
+
+        private void cbSchTimeType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbSchTimeType.Text == "录入时间")
+            {
+                txtSchTimeFrom.CustomFormat = "yyyy/MM/dd HH:mm";
+                txtSchTimeTo.CustomFormat = "yyyy/MM/dd HH:mm";
+            }
+            else
+            {
+                txtSchTimeFrom.CustomFormat = "yyyy/MM/dd";
+                txtSchTimeTo.CustomFormat = "yyyy/MM/dd";
+            }
         }
     }
 }
