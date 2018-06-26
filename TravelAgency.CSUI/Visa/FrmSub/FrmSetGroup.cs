@@ -122,7 +122,7 @@ namespace TravelAgency.CSUI.FrmSub
             txtOutTime.TextChanged += txtOutTime_TextChanged;
             txtSubmitTime.TextChanged += txtSubmitTime_TextChanged;
 
-            //chkSaleFirst.Checked = true;
+            chkSaleFirst.Checked = true;
 
         }
 
