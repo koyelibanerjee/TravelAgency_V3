@@ -16,6 +16,7 @@ using TravelAgency.CSUI.FrmMain;
 using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Properties;
 using TravelAgency.CSUI.Visa.FrmSub;
+using TravelAgency.CSUI.Visa.FrmSub.FrmSetValue;
 using VisaInfo = TravelAgency.Model.VisaInfo;
 
 namespace TravelAgency.CSUI.Visa.FrmMain
@@ -1960,6 +1961,26 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 txtSchTimeFrom.CustomFormat = "yyyy/MM/dd";
                 txtSchTimeTo.CustomFormat = "yyyy/MM/dd";
             }
+        }
+
+        private void 设置销售客户备注ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var list = GetSelectedVisaList();
+            if (list.Count < 1)
+                return;
+
+            FrmSetMultiStringValue frm = new FrmSetMultiStringValue("设置", list[0].client, list[0].SalesPerson, list[0].Tips2);
+            if (frm.ShowDialog() == DialogResult.Cancel)
+                return;
+
+            foreach (var visa in list)
+            {
+                visa.SalesPerson = frm.RetSalesPerson;
+                visa.client = frm.RetClient;
+                visa.Tips2 = frm.RetTips2;
+            }
+            _bllVisa.UpdateList(list);
+            LoadDataToDgvAsyn();
         }
     }
 }
