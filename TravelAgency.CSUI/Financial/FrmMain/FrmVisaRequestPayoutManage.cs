@@ -11,6 +11,7 @@ using TravelAgency.Common.Word;
 using TravelAgency.CSUI.Financial.FrmSub;
 using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Properties;
+using TravelAgency.CSUI.Visa.FrmSub.FrmSetValue;
 using Visa = TravelAgency.Model.Visa;
 using VisaInfo = TravelAgency.Model.VisaInfo;
 
@@ -336,6 +337,12 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             }
 
 
+            if (!string.IsNullOrEmpty(txtRequestFlag.Text.Trim()))
+            {
+                conditions.Add(" (RequestFlag like '%" + txtRequestFlag.Text.Trim() + "%') ");
+            }
+
+
             string[] arr = conditions.ToArray();
             string where = string.Join(" and ", arr);
             return where;
@@ -349,6 +356,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             txtSchGroupNo.Text = string.Empty;
             txtSalesPerson.Text = string.Empty;
             txtClient.Text = string.Empty;
+            txtRequestFlag.Text = string.Empty;
 
             cbDepatureType.Text = "全部";
             cbDisplayType.Text = "全部";
@@ -1589,6 +1597,22 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                 return;
             LoadDataToDgvAsyn();
 
+        }
+
+        private void 设置请款标记ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var list = GetSelectedVisaList();
+            if (list.Count < 1)
+                return;
+
+            FrmSetStringValueComboBox frm = new FrmSetStringValueComboBox("设置请款标记",Common.Enums.RequestFlag.List, list[0].RequestFlag);
+            if (frm.ShowDialog() == DialogResult.Cancel)
+                return;
+
+            foreach (var visa in list)
+                visa.RequestFlag = frm.RetValue;
+            _bllVisa.UpdateList(list);
+            LoadDataToDgvAsyn();
         }
     }
 }

@@ -116,6 +116,8 @@ namespace TravelAgency.Model
     private bool? _isoutdelivery;
         		                  
     private string _outdeliveryplace;
+        		                  
+    private string _requestflag;
         
     /// <summary>
 		/// Visa_id
@@ -709,6 +711,17 @@ namespace TravelAgency.Model
         {
             get{ return _outdeliveryplace; }
             set{ _outdeliveryplace = value; }
+        }    
+      
+		/// <summary>
+		/// RequestFlag
+        /// </summary>		
+		      		  
+  
+        public string RequestFlag
+        {
+            get{ return _requestflag; }
+            set{ _requestflag = value; }
         }    
       
 		   

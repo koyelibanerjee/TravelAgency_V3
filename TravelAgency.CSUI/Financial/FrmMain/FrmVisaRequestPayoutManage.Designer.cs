@@ -125,6 +125,7 @@
             this.panelDgv = new DevComponents.DotNetBar.PanelEx();
             this.cmsAddToGroup = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.添加到团号ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.设置请款标记ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GroupNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CountryImage = new System.Windows.Forms.DataGridViewImageColumn();
@@ -153,7 +154,10 @@
             this.Quidco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Person = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubmitFlag = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RequestFlag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Visa_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtRequestFlag = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX4 = new DevComponents.DotNetBar.LabelX();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cmsDgv.SuspendLayout();
@@ -310,6 +314,7 @@
             this.Quidco,
             this.Person,
             this.SubmitFlag,
+            this.RequestFlag,
             this.Visa_id});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -321,7 +326,7 @@
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -366,9 +371,10 @@
             this.自动更新总价ToolStripMenuItem,
             this.toolStripSeparator6,
             this.清除领馆款项ToolStripMenuItem,
-            this.清除杂费款项ToolStripMenuItem});
+            this.清除杂费款项ToolStripMenuItem,
+            this.设置请款标记ToolStripMenuItem});
             this.cmsDgv.Name = "cmsDgv";
-            this.cmsDgv.Size = new System.Drawing.Size(185, 314);
+            this.cmsDgv.Size = new System.Drawing.Size(185, 336);
             // 
             // 复制ToolStripMenuItem
             // 
@@ -443,7 +449,7 @@
             // 打印报表ToolStripMenuItem
             // 
             this.打印报表ToolStripMenuItem.Name = "打印报表ToolStripMenuItem";
-            this.打印报表ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.打印报表ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.打印报表ToolStripMenuItem.Text = "打印报表";
             this.打印报表ToolStripMenuItem.Click += new System.EventHandler(this.打印报表ToolStripMenuItem_Click);
             // 
@@ -463,7 +469,7 @@
             this.机票东东川航ToolStripMenuItem,
             this.机票阪阪ToolStripMenuItem});
             this.日本ToolStripMenuItem.Name = "日本ToolStripMenuItem";
-            this.日本ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.日本ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.日本ToolStripMenuItem.Text = "日本";
             // 
             // 日本团队综合名单ToolStripMenuItem
@@ -554,7 +560,7 @@
             this.韩国担保函ToolStripMenuItem,
             this.韩国加急申请书ToolStripMenuItem});
             this.韩国ToolStripMenuItem.Name = "韩国ToolStripMenuItem";
-            this.韩国ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.韩国ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.韩国ToolStripMenuItem.Text = "韩国";
             // 
             // 韩国担保函ToolStripMenuItem
@@ -582,7 +588,7 @@
             this.川航机票ToolStripMenuItem,
             this.泰航机票ToolStripMenuItem});
             this.泰国ToolStripMenuItem.Name = "泰国ToolStripMenuItem";
-            this.泰国ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.泰国ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.泰国ToolStripMenuItem.Text = "泰国";
             // 
             // 数据源报表ToolStripMenuItem
@@ -707,6 +713,8 @@
             // 
             this.panelSerachBar.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelSerachBar.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelSerachBar.Controls.Add(this.txtRequestFlag);
+            this.panelSerachBar.Controls.Add(this.labelX4);
             this.panelSerachBar.Controls.Add(this.cbSubmitState);
             this.panelSerachBar.Controls.Add(this.labelX2);
             this.panelSerachBar.Controls.Add(this.txtSchFinishTimeTo);
@@ -1305,6 +1313,13 @@
             this.添加到团号ToolStripMenuItem.Text = "添加到此团号";
             this.添加到团号ToolStripMenuItem.Click += new System.EventHandler(this.添加到团号ToolStripMenuItem_Click);
             // 
+            // 设置请款标记ToolStripMenuItem
+            // 
+            this.设置请款标记ToolStripMenuItem.Name = "设置请款标记ToolStripMenuItem";
+            this.设置请款标记ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.设置请款标记ToolStripMenuItem.Text = "设置请款标记";
+            this.设置请款标记ToolStripMenuItem.Click += new System.EventHandler(this.设置请款标记ToolStripMenuItem_Click);
+            // 
             // GroupNo
             // 
             this.GroupNo.DataPropertyName = "GroupNo";
@@ -1520,6 +1535,13 @@
             this.SubmitFlag.Name = "SubmitFlag";
             this.SubmitFlag.ReadOnly = true;
             // 
+            // RequestFlag
+            // 
+            this.RequestFlag.DataPropertyName = "RequestFlag";
+            this.RequestFlag.HeaderText = "请款标记";
+            this.RequestFlag.Name = "RequestFlag";
+            this.RequestFlag.ReadOnly = true;
+            // 
             // Visa_id
             // 
             this.Visa_id.DataPropertyName = "Visa_id";
@@ -1527,6 +1549,33 @@
             this.Visa_id.Name = "Visa_id";
             this.Visa_id.ReadOnly = true;
             this.Visa_id.Visible = false;
+            // 
+            // txtRequestFlag
+            // 
+            this.txtRequestFlag.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txtRequestFlag.Border.Class = "TextBoxBorder";
+            this.txtRequestFlag.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtRequestFlag.DisabledBackColor = System.Drawing.Color.White;
+            this.txtRequestFlag.ForeColor = System.Drawing.Color.Black;
+            this.txtRequestFlag.Location = new System.Drawing.Point(592, 34);
+            this.txtRequestFlag.Name = "txtRequestFlag";
+            this.txtRequestFlag.Size = new System.Drawing.Size(60, 21);
+            this.txtRequestFlag.TabIndex = 57;
+            // 
+            // labelX4
+            // 
+            // 
+            // 
+            // 
+            this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX4.Location = new System.Drawing.Point(520, 33);
+            this.labelX4.Name = "labelX4";
+            this.labelX4.Size = new System.Drawing.Size(66, 21);
+            this.labelX4.TabIndex = 58;
+            this.labelX4.Text = "请款标记:";
             // 
             // FrmVisaRequestPayoutManage
             // 
@@ -1648,6 +1697,7 @@
         private System.Windows.Forms.ToolStripMenuItem 提交请款ToolStripMenuItem;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cbSubmitState;
         private DevComponents.DotNetBar.LabelX labelX2;
+        private System.Windows.Forms.ToolStripMenuItem 设置请款标记ToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn GroupNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Country;
         private System.Windows.Forms.DataGridViewImageColumn CountryImage;
@@ -1676,6 +1726,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Quidco;
         private System.Windows.Forms.DataGridViewTextBoxColumn Person;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubmitFlag;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RequestFlag;
         private System.Windows.Forms.DataGridViewTextBoxColumn Visa_id;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtRequestFlag;
+        private DevComponents.DotNetBar.LabelX labelX4;
     }
 }
