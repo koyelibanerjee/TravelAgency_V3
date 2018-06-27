@@ -934,7 +934,7 @@ namespace TravelAgency.OrdersManagement
 
         private void toolStripTextBox5_Click(object sender, EventArgs e)
         {
-            SetOrdersColor(-16711936);
+            SetOrdersColor(Color.FromArgb(146,208,80).ToArgb());
         }
 
         private void toolStripTextBox6_Click(object sender, EventArgs e)

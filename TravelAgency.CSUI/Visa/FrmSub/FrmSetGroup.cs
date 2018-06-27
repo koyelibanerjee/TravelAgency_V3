@@ -1125,7 +1125,8 @@ namespace TravelAgency.CSUI.FrmSub
             try
             {
                 //单独处理remark
-                if (!string.IsNullOrEmpty((string)dgvGroupInfo.Rows[0].Cells["Remark"].Value))
+                if (dgvGroupInfo.Rows.Count > 0 && dgvGroupInfo.Rows[0].Cells["Remark"].Value != null &&
+                    !string.IsNullOrEmpty((string)dgvGroupInfo.Rows[0].Cells["Remark"].Value))
                     _visaModel.Remark = (string)dgvGroupInfo.Rows[0].Cells["Remark"].Value;
 
                 if (!string.IsNullOrEmpty(txtDepartureTime.Text))
@@ -1230,7 +1231,8 @@ namespace TravelAgency.CSUI.FrmSub
             try
             {
                 //单独处理remark
-                if (!string.IsNullOrEmpty((string)dgvGroupInfo.Rows[0].Cells["Remark"].Value))
+                if (dgvGroupInfo.Rows.Count>0 &&  dgvGroupInfo.Rows[0].Cells["Remark"].Value!=null &&
+                    !string.IsNullOrEmpty((string)dgvGroupInfo.Rows[0].Cells["Remark"].Value))
                     model.Remark = (string)dgvGroupInfo.Rows[0].Cells["Remark"].Value;
 
                 //1.保存团号信息修改到数据库,Visa表（sales_person,country,GroupNo,PredictTime）
@@ -1306,9 +1308,9 @@ namespace TravelAgency.CSUI.FrmSub
                 //model.EntryTime = DateTime.Now; //20171217，也跟着操作改变，20171231 改成询问用户
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBoxEx.Show(Resources.PleaseCheckDateTimeFormat);
+                MessageBoxEx.Show(ex.Message);
                 return false;
             }
         }

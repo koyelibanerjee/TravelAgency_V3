@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.WaitorName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OrderNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -109,13 +109,6 @@
             this.附件管理ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.录入订单标签信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.人申请表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.机票报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.外领担保函ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.韩国担保函ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.韩国加急申请书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bgWorkerLoadData = new System.ComponentModel.BackgroundWorker();
-            this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
             this.设置订单颜色ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripTextBox2 = new System.Windows.Forms.ToolStripTextBox();
@@ -124,6 +117,13 @@
             this.toolStripTextBox5 = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripTextBox6 = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripTextBox7 = new System.Windows.Forms.ToolStripTextBox();
+            this.人申请表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.机票报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.外领担保函ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.韩国担保函ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.韩国加急申请书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bgWorkerLoadData = new System.ComponentModel.BackgroundWorker();
+            this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panelDgv.SuspendLayout();
@@ -142,14 +142,14 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.WaitorName,
@@ -176,27 +176,27 @@
             this.ExchangeRate,
             this.OperRemark,
             this.Id});
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -967,42 +967,6 @@
             this.录入订单标签信息ToolStripMenuItem.Text = "录入(查看)订单标签信息";
             this.录入订单标签信息ToolStripMenuItem.Click += new System.EventHandler(this.录入订单标签信息ToolStripMenuItem_Click);
             // 
-            // 人申请表ToolStripMenuItem
-            // 
-            this.人申请表ToolStripMenuItem.Name = "人申请表ToolStripMenuItem";
-            this.人申请表ToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
-            // 
-            // 机票报表ToolStripMenuItem
-            // 
-            this.机票报表ToolStripMenuItem.Name = "机票报表ToolStripMenuItem";
-            this.机票报表ToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
-            // 
-            // 外领担保函ToolStripMenuItem
-            // 
-            this.外领担保函ToolStripMenuItem.Name = "外领担保函ToolStripMenuItem";
-            this.外领担保函ToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
-            // 
-            // 韩国担保函ToolStripMenuItem
-            // 
-            this.韩国担保函ToolStripMenuItem.Name = "韩国担保函ToolStripMenuItem";
-            this.韩国担保函ToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
-            // 
-            // 韩国加急申请书ToolStripMenuItem
-            // 
-            this.韩国加急申请书ToolStripMenuItem.Name = "韩国加急申请书ToolStripMenuItem";
-            this.韩国加急申请书ToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
-            // 
-            // bgWorkerLoadData
-            // 
-            this.bgWorkerLoadData.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgWorkerLoadData_DoWork);
-            this.bgWorkerLoadData.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgWorkerLoadData_ProgressChanged);
-            this.bgWorkerLoadData.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgWorkerLoadData_RunWorkerCompleted);
-            // 
-            // styleManager1
-            // 
-            this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2010Blue;
-            this.styleManager1.MetroColorParameters = new DevComponents.DotNetBar.Metro.ColorTables.MetroColorGeneratorParameters(System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255))))), System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199))))));
-            // 
             // 设置订单颜色ToolStripMenuItem
             // 
             this.设置订单颜色ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1047,7 +1011,7 @@
             // 
             // toolStripTextBox5
             // 
-            this.toolStripTextBox5.BackColor = System.Drawing.Color.Lime;
+            this.toolStripTextBox5.BackColor = System.Drawing.Color.YellowGreen;
             this.toolStripTextBox5.Name = "toolStripTextBox5";
             this.toolStripTextBox5.Size = new System.Drawing.Size(100, 23);
             this.toolStripTextBox5.Click += new System.EventHandler(this.toolStripTextBox5_Click);
@@ -1065,6 +1029,42 @@
             this.toolStripTextBox7.Name = "toolStripTextBox7";
             this.toolStripTextBox7.Size = new System.Drawing.Size(100, 23);
             this.toolStripTextBox7.Click += new System.EventHandler(this.toolStripTextBox7_Click);
+            // 
+            // 人申请表ToolStripMenuItem
+            // 
+            this.人申请表ToolStripMenuItem.Name = "人申请表ToolStripMenuItem";
+            this.人申请表ToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            // 
+            // 机票报表ToolStripMenuItem
+            // 
+            this.机票报表ToolStripMenuItem.Name = "机票报表ToolStripMenuItem";
+            this.机票报表ToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            // 
+            // 外领担保函ToolStripMenuItem
+            // 
+            this.外领担保函ToolStripMenuItem.Name = "外领担保函ToolStripMenuItem";
+            this.外领担保函ToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            // 
+            // 韩国担保函ToolStripMenuItem
+            // 
+            this.韩国担保函ToolStripMenuItem.Name = "韩国担保函ToolStripMenuItem";
+            this.韩国担保函ToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            // 
+            // 韩国加急申请书ToolStripMenuItem
+            // 
+            this.韩国加急申请书ToolStripMenuItem.Name = "韩国加急申请书ToolStripMenuItem";
+            this.韩国加急申请书ToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
+            // 
+            // bgWorkerLoadData
+            // 
+            this.bgWorkerLoadData.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bgWorkerLoadData_DoWork);
+            this.bgWorkerLoadData.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bgWorkerLoadData_ProgressChanged);
+            this.bgWorkerLoadData.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bgWorkerLoadData_RunWorkerCompleted);
+            // 
+            // styleManager1
+            // 
+            this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2010Blue;
+            this.styleManager1.MetroColorParameters = new DevComponents.DotNetBar.Metro.ColorTables.MetroColorGeneratorParameters(System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255))))), System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199))))));
             // 
             // FrmOrdersManage_Oper
             // 
