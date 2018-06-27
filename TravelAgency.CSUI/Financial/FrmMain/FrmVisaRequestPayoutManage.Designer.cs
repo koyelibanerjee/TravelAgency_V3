@@ -1311,7 +1311,7 @@
             this.GroupNo.HeaderText = "团号";
             this.GroupNo.Name = "GroupNo";
             this.GroupNo.ReadOnly = true;
-            this.GroupNo.Width = 300;
+            this.GroupNo.Width = 230;
             // 
             // Country
             // 
@@ -1341,6 +1341,7 @@
             this.DepartureType.HeaderText = "出境类型";
             this.DepartureType.Name = "DepartureType";
             this.DepartureType.ReadOnly = true;
+            this.DepartureType.Width = 70;
             // 
             // RealTime
             // 
@@ -1369,6 +1370,7 @@
             this.Number.HeaderText = "人数";
             this.Number.Name = "Number";
             this.Number.ReadOnly = true;
+            this.Number.Width = 50;
             // 
             // ConsulateCost
             // 
@@ -1376,6 +1378,7 @@
             this.ConsulateCost.HeaderText = "领馆费";
             this.ConsulateCost.Name = "ConsulateCost";
             this.ConsulateCost.ReadOnly = true;
+            this.ConsulateCost.Width = 60;
             // 
             // VisaPersonCost
             // 
@@ -1383,6 +1386,7 @@
             this.VisaPersonCost.HeaderText = "送签员费";
             this.VisaPersonCost.Name = "VisaPersonCost";
             this.VisaPersonCost.ReadOnly = true;
+            this.VisaPersonCost.Width = 60;
             // 
             // InvitationCost
             // 
@@ -1390,6 +1394,7 @@
             this.InvitationCost.HeaderText = "邀请函费";
             this.InvitationCost.Name = "InvitationCost";
             this.InvitationCost.ReadOnly = true;
+            this.InvitationCost.Width = 60;
             // 
             // Picture
             // 
@@ -1397,6 +1402,7 @@
             this.Picture.HeaderText = "洗照片";
             this.Picture.Name = "Picture";
             this.Picture.ReadOnly = true;
+            this.Picture.Width = 60;
             // 
             // MailCost
             // 
@@ -1404,6 +1410,7 @@
             this.MailCost.HeaderText = "快递费";
             this.MailCost.Name = "MailCost";
             this.MailCost.ReadOnly = true;
+            this.MailCost.Width = 60;
             // 
             // OtherCost
             // 
@@ -1411,6 +1418,7 @@
             this.OtherCost.HeaderText = "杂费";
             this.OtherCost.Name = "OtherCost";
             this.OtherCost.ReadOnly = true;
+            this.OtherCost.Width = 50;
             // 
             // Price
             // 
@@ -1418,6 +1426,7 @@
             this.Price.HeaderText = "单价";
             this.Price.Name = "Price";
             this.Price.ReadOnly = true;
+            this.Price.Width = 50;
             // 
             // Cost
             // 
@@ -1425,6 +1434,7 @@
             this.Cost.HeaderText = "总价";
             this.Cost.Name = "Cost";
             this.Cost.ReadOnly = true;
+            this.Cost.Width = 50;
             // 
             // Tips
             // 

@@ -104,8 +104,16 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
             dataGridView1.AutoGenerateColumns = false; //不显示指定之外的列
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //列宽自适应,一定不能用AllCells
-            dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders; //这里也一定不能AllCell自适应!
+                                                                                                //dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders; //这里也一定不能AllCell自适应!
+            List<string> list = new List<string>
+            {
+                "ConsulateCost","Number","VisaPersonCost","InvitationCost","Picture","MailCost","OtherCost","Price","Cost"
+            };
             dataGridView1.Columns["GroupNo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            foreach (var columnName in list)
+            {
+                dataGridView1.Columns[columnName].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            }
             dataGridView1.Columns["RealTime"].DefaultCellStyle.Format = "yyyy/MM/dd";
             dataGridView1.Columns["FinishTime"].DefaultCellStyle.Format = "yyyy/MM/dd";
 
@@ -116,7 +124,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                     dataGridView1.Columns[i].ReadOnly = true;
                 //else dataGridView1.Columns[i].ReadOnly = false; //这些列可编辑
             }
-         
+
 
 
             //dataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
@@ -1571,7 +1579,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
         private void lbInfoManifest_Click(object sender, EventArgs e)
         {
-            MessageBoxEx.Show("单价 = 领馆 + 送签员 + 邀请函\r\n总价 = 单价 * 数量 + 洗照片 + 快递费 + 杂费");
+            MessageBoxEx.Show("单价 = 领馆 + 送签员 + 邀请函\r\n总价 = (单价 * 人数) + 洗照片 + 快递费 + 杂费");
         }
 
         private void 提交请款ToolStripMenuItem_Click(object sender, EventArgs e)
