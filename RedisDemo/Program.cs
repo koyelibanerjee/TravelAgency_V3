@@ -15,11 +15,13 @@ namespace RedisDemo
         //static RedisClient client = new RedisClient("127.0.0.1", 6379);
         static readonly ICacheClient _client = new RedisClient("192.168.174.128", 6379);
         private static TravelAgency.BLL.VisaInfo _bllVisaInfo = new TravelAgency.BLL.VisaInfo();
+        private static TravelAgency.BLL.Visa _bllVisa = new TravelAgency.BLL.Visa();
 
         static void Main(string[] args)
         {
             //testModel();
             testList();
+            Console.WriteLine("complete");
             Console.Read();
         }
 
@@ -37,12 +39,15 @@ namespace RedisDemo
 
         static void testList()
         {
-            var list = _bllVisaInfo.GetModelList("visa_id = '" + "ae827177-8490-4735-9aa5-17fb7d8a2921'");
+            //var list = _bllVisaInfo.GetModelList("visa_id = '" + "ae827177-8490-4735-9aa5-17fb7d8a2921'");
+            //var list = _bllVisaInfo.GetModelList("");
+            var list = _bllVisa.GetModelList("");
 
             //_client.Set("ae827177-8490-4735-9aa5-17fb7d8a2921", list);
             //var list1 = _client.Get<List<TravelAgency.Model.VisaInfo>>("ae827177-8490-4735-9aa5-17fb7d8a2921");
 
-            _client.SetAll(list.ToDictionary((v) => { return v.VisaInfo_id.ToString(); }));
+            _client.SetAll(list.ToDictionary((v) => { return "visa:" + v.Visa_id.ToString(); }));
+
 
             //_client.GetAll<string, TravelAgency.Model.VisaInfo>();
 
