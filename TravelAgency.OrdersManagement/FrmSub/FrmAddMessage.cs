@@ -120,6 +120,9 @@ namespace TravelAgency.OrdersManagement
                     txtMsgType.Enabled = false;
                     txtToUser.Enabled = false;
                     txtOrderNo.Enabled = false;
+
+                    //加载退款的信息
+
                 }
             }
         }
@@ -155,6 +158,12 @@ namespace TravelAgency.OrdersManagement
                 foreach (var item in list)
                     txtToUser.Items.Add(item);
             txtToUser.SelectedIndex = 0;
+
+            list = Common.Enums.RefundState.List;
+            if (list != null)
+                foreach (var item in list)
+                    txtRefundState.Items.Add(item);
+            txtRefundState.DropDownStyle = ComboBoxStyle.DropDownList;
 
             //var list = Common.Enums.Message_OrderType.valueKeyMap.Keys;
             //if (list != null)
@@ -254,14 +263,21 @@ namespace TravelAgency.OrdersManagement
                         _ordersModel.RefundAmout = CtrlParser.Parse2Decimal(txtRefundAmout);
                         _ordersModel.RefundReason = CtrlParser.Parse2String(txtRefundReason);
                         _ordersModel.GuestRefundApplyTime = CtrlParser.Parse2Datetime(txtRefundAmout);
-                        _ordersModel.RefundState = "申请退款中";
+                        _ordersModel.RefundState = txtRefundState.Text;
                         _bllOrders.Update(_ordersModel);
                     }
 
                     if (_isReply && _model.MsgType == "退款申请")
                     {
                         var orderModel = _bllOrders.GetModelList(" orderno = '" + txtOrderNo.Text + "'")[0];
-                        orderModel.RefundState = "退款申请已回复";
+                        orderModel.RefundState = txtRefundState.Text;
+                        if (txtRefundState.Text == "完成退款")
+                        {
+                            if (MessageBoxEx.Show("是否同时更新订单实收金额?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                            {
+                                _ordersModel.ReallyPay -= CtrlParser.Parse2Decimal(txtRefundAmout);
+                            }
+                        }
                         _bllOrders.Update(orderModel);
                     }
 

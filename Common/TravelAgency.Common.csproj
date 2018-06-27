@@ -191,6 +191,7 @@
     <Compile Include="Enums\OrderInfo_OrderType.cs" />
     <Compile Include="Enums\OrderInfo_OrderInfoState.cs" />
     <Compile Include="Enums\OrdersActtype.cs" />
+    <Compile Include="Enums\RefundState.cs" />
     <Compile Include="Enums\ReplyResult.cs" />
     <Compile Include="Enums\RequestFlag.cs" />
     <Compile Include="Excel\FrmOrderInfoExcelParser.cs">
