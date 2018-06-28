@@ -1587,7 +1587,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
         private void lbInfoManifest_Click(object sender, EventArgs e)
         {
-            MessageBoxEx.Show("单价 = 领馆 + 送签员 + 邀请函\r\n总价 = (单价 * 人数) + 洗照片 + 快递费 + 杂费");
+            MessageBoxEx.Show("单价 = 领馆 + 送签员\r\n总价 = (单价 * 人数) + 邀请函 + 洗照片 + 快递费 + 杂费");
         }
 
         private void 提交请款ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1605,7 +1605,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             if (list.Count < 1)
                 return;
 
-            FrmSetStringValueComboBox frm = new FrmSetStringValueComboBox("设置请款标记",Common.Enums.RequestFlag.List, list[0].RequestFlag);
+            FrmSetStringValueComboBox frm = new FrmSetStringValueComboBox("设置请款标记", Common.Enums.RequestFlag.List, list[0].RequestFlag);
             if (frm.ShowDialog() == DialogResult.Cancel)
                 return;
 

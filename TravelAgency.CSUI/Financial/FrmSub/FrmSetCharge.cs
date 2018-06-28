@@ -76,12 +76,12 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             {
                 object value = dataGridView1.Rows[i].Cells["ConsulateCost"].Value;
                 num += value == null ? 0 : decimal.Parse(value.ToString());
-                value = dataGridView1.Rows[i].Cells["VisaPersonCost"].Value;
+                 value = dataGridView1.Rows[i].Cells["VisaPersonCost"].Value;
                 num += value == null ? 0 : decimal.Parse(value.ToString());
-                value = dataGridView1.Rows[i].Cells["InvitationCost"].Value;
-                num += value == null ? 0 : decimal.Parse(value.ToString());
-                value = dataGridView1.Rows[i].Cells["Receipt"].Value;
-                num += value == null ? 0 : decimal.Parse(value.ToString());
+                //value = dataGridView1.Rows[i].Cells["InvitationCost"].Value;
+                //num += value == null ? 0 : decimal.Parse(value.ToString());
+                //value = dataGridView1.Rows[i].Cells["Receipt"].Value;
+                //num += value == null ? 0 : decimal.Parse(value.ToString());
 
             }
             lbMoneyCount.Text = "共" + num + "元.";
@@ -150,7 +150,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                         {
                             dataGridView1.Rows[i].Cells["ConsulateCost"].Value = list[frm.SelIdx].ConsulateCost;
                             dataGridView1.Rows[i].Cells["InvitationCost"].Value = list[frm.SelIdx].InvitationCost;
-                            dataGridView1.Rows[i].Cells["VisaPersonCost"].Value = list[frm.SelIdx].VisaPersonCost;
+                            //dataGridView1.Rows[i].Cells["VisaPersonCost"].Value = list[frm.SelIdx].VisaPersonCost;
                         }
                     }
                 }
@@ -158,7 +158,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 {
                     dataGridView1.Rows[e.RowIndex].Cells["ConsulateCost"].Value = list[frm.SelIdx].ConsulateCost;
                     dataGridView1.Rows[e.RowIndex].Cells["InvitationCost"].Value = list[frm.SelIdx].InvitationCost;
-                    dataGridView1.Rows[e.RowIndex].Cells["VisaPersonCost"].Value = list[frm.SelIdx].VisaPersonCost;
+                    //dataGridView1.Rows[e.RowIndex].Cells["VisaPersonCost"].Value = list[frm.SelIdx].VisaPersonCost;
 
                 }
             }
@@ -180,13 +180,13 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                     if (list.Count > 0)
                     {
                         dataGridView1.Rows[i].Cells["ConsulateCost"].Value = list[0].ConsulateCost;
-                        dataGridView1.Rows[i].Cells["InvitationCost"].Value = list[0].InvitationCost;
+                        //dataGridView1.Rows[i].Cells["InvitationCost"].Value = list[0].InvitationCost;
                         dataGridView1.Rows[i].Cells["VisaPersonCost"].Value = list[0].VisaPersonCost;
                     }
 
                     if (list1.Count > 0)
                     {
-                        dataGridView1.Rows[i].Cells["Receipt"].Value = list1[0].Charge;
+                        //dataGridView1.Rows[i].Cells["Receipt"].Value = list1[0].Charge;
                     }
 
                 }
