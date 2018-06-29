@@ -187,6 +187,7 @@
     <Compile Include="CountryPicHandler.cs" />
     <Compile Include="DateTimeFormator.cs" />
     <Compile Include="Enums\ActType.cs" />
+    <Compile Include="Enums\MsgType.cs" />
     <Compile Include="Enums\OrderInfo_PaymentPlatform.cs" />
     <Compile Include="Enums\OrderInfo_OrderType.cs" />
     <Compile Include="Enums\OrderInfo_OrderInfoState.cs" />

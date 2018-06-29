@@ -56,10 +56,6 @@ namespace TravelAgency.OrdersManagement
             _isReply = reply;
         }
 
-
-
-
-
         private void FrmAddMessage_Load(object sender, EventArgs e)
         {
             this.MaximizeBox = false;
@@ -122,6 +118,7 @@ namespace TravelAgency.OrdersManagement
                     txtOrderNo.Enabled = false;
 
                     //加载退款的信息
+                    if(_model.MsgType == "")
 
                 }
             }
