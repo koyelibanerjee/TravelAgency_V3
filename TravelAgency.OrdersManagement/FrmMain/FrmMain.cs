@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using ScanCtrlTest;
 using TravelAgency.Common;
+using TravelAgency.CSUI;
 
 
 namespace TravelAgency.OrdersManagement

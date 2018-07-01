@@ -205,7 +205,6 @@
     <Compile Include="Excel\OrderInfoExcelParser.cs" />
     <Compile Include="Excel\XlsGenerator.cs" />
     <Compile Include="Financial\CommisionMoneyCounter.cs" />
-    <Compile Include="FrmsManager.cs" />
     <Compile Include="FTP\FtpHandler.cs" />
     <Compile Include="InfoChecker.cs" />
     <Compile Include="JsonHandler.cs" />

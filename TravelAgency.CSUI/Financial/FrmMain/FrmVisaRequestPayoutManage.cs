@@ -176,9 +176,13 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             _where = GetWhereCondition();
             _needDoUpdateEvent = false;
             //Console.WriteLine("加载一次");
-            int curSelectedRow = -1;
-            if (dataGridView1.SelectedRows.Count > 0)
-                curSelectedRow = dataGridView1.SelectedRows[0].Index;
+            //int curSelectedRow = -1;
+            //if (dataGridView1.SelectedRows.Count > 0)
+            //    curSelectedRow = dataGridView1.SelectedRows[0].Index;
+
+            List<int> selIdxs = new List<int>();
+            for (int i = dataGridView1.SelectedRows.Count - 1; i >= 0; i--)
+                selIdxs.Add(dataGridView1.SelectedRows[i].Index);
 
             var list = _bllVisa.GetListByPage(page, _pageSize, _where);
             dataGridView1.DataSource = list;
@@ -188,8 +192,14 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                 _visaListBackUp.Add(visa.ToObjectCopy());
             }
 
-            if (curSelectedRow != -1 && dataGridView1.Rows.Count > curSelectedRow)
-                dataGridView1.CurrentCell = dataGridView1.Rows[curSelectedRow].Cells[0];
+            //if (curSelectedRow != -1 && dataGridView1.Rows.Count > curSelectedRow)
+            //    dataGridView1.CurrentCell = dataGridView1.Rows[curSelectedRow].Cells[0];
+
+            if (selIdxs.Count > 0)
+                dataGridView1.ClearSelection();
+            if (dataGridView1.Rows.Count >= selIdxs.Count)
+                foreach (var idx in selIdxs)
+                    dataGridView1.Rows[idx].Selected = true;
 
             GlobalStat.UpdateStatistics();
             _needDoUpdateEvent = true;
@@ -1509,20 +1519,31 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
         private void 设置请款费用ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            List<int> selIdxs = new List<int>();
-            for (int i = dataGridView1.SelectedRows.Count - 1; i >= 0; i--)
-                selIdxs.Add(dataGridView1.SelectedRows[i].Index);
+            //List<int> selIdxs = new List<int>();
+            //for (int i = dataGridView1.SelectedRows.Count - 1; i >= 0; i--)
+            //    selIdxs.Add(dataGridView1.SelectedRows[i].Index);
             var list = GetSelectedVisaList();
-            FrmSetCharge frm = new FrmSetCharge(list, LoadDataToDataGridView, _curPage);
-            if (frm.ShowDialog() == DialogResult.Cancel)
+            if (FrmsManager.FormSetCharge == null)
+            {
+                FrmSetCharge frm = new FrmSetCharge(list, LoadDataToDataGridView, _curPage);
+                //if (frm.ShowDialog() == DialogResult.Cancel)
+                //    return;
+                frm.Show();
+
+            }
+            else
+            {
+                MessageBoxEx.Show("已经打开了设置请款费用界面，请不要重复打开!!!");
                 return;
-            if (selIdxs.Count > 0)
-                dataGridView1.ClearSelection();
-            if (dataGridView1.Rows.Count >= selIdxs.Count)
-                foreach (var idx in selIdxs)
-                    dataGridView1.Rows[idx].Selected = true;
-            自动更新单价ToolStripMenuItem_Click(null, null); //自动触发更新事件
-            自动更新总价ToolStripMenuItem_Click(null, null);
+            }
+
+            //if (selIdxs.Count > 0)
+            //    dataGridView1.ClearSelection();
+            //if (dataGridView1.Rows.Count >= selIdxs.Count)
+            //    foreach (var idx in selIdxs)
+            //        dataGridView1.Rows[idx].Selected = true;
+            //自动更新单价ToolStripMenuItem_Click(null, null); //自动触发更新事件
+            //自动更新总价ToolStripMenuItem_Click(null, null);
         }
 
         private void 清除领馆款项ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1628,6 +1649,23 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                 visa.RequestFlag = frm.RetValue;
             _bllVisa.UpdateList(list);
             LoadDataToDgvAsyn();
+        }
+
+        private void 添加到设置请款费用列表ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var list = GetSelectedVisaList();
+            if (list.Count < 0)
+                return;
+            if (FrmsManager.FormSetCharge != null)
+            {
+                FrmsManager.FormSetCharge.AddVisa(list);
+                FrmsManager.FormSetCharge.Focus();
+            }
+            else
+            {
+                MessageBoxEx.Show("没有打开设置请款费用窗口!!!");
+                return;
+            }
         }
     }
 }

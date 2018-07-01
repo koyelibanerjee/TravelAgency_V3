@@ -24,6 +24,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             this.StartPosition = FormStartPosition.CenterParent;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            FrmsManager.FormSetCharge = this;
             InitializeComponent();
         }
 
@@ -58,9 +59,28 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             dataGridView1.RowsAdded += DataGridView1_RowsAdded;
             dataGridView1.CellDoubleClick += DataGridView1_CellDoubleClick;
             dataGridView1.CellValueChanged += DataGridView1_CellValueChanged;
+            
             dataGridView1.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
             dataGridView1.DataSource = _list;
 
+
+            this.Closing += FrmSetCharge_Closing;
+
+        }
+
+        private void FrmSetCharge_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (FrmsManager.FormSetCharge != null)
+                FrmsManager.FormSetCharge = null;
+        }
+
+        public void AddVisa(List<Model.Visa> visaList)
+        {
+            var list = dataGridView1.DataSource as List<Model.Visa>;
+            list.AddRange(visaList);
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = list;
+            _list = list;
         }
 
         private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)

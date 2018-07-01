@@ -8,6 +8,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using TravelAgency.Common;
+using TravelAgency.CSUI;
 using TravelAgency.Model;
 using AuthUser = TravelAgency.BLL.AuthUser;
 using ProgramVersion = TravelAgency.BLL.ProgramVersion;

@@ -148,6 +148,7 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmsManager.cs" />
     <Compile Include="Statistics\FrmMain\FrmDataBackUp.cs">
       <SubType>Form</SubType>
     </Compile>
