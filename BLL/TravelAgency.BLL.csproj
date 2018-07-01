@@ -138,6 +138,7 @@
     <Compile Include="CommisionMoney.cs" />
     <Compile Include="CommonBll.cs" />
     <Compile Include="ConsulateCharge.cs" />
+    <Compile Include="CustomerBalanceBll.cs" />
     <Compile Include="CustomerBalance.cs" />
     <Compile Include="CustomerInfoBll.cs" />
     <Compile Include="CustomerInfo.cs" />

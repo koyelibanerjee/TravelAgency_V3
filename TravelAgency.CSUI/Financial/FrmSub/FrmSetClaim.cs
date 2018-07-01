@@ -20,6 +20,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
         private readonly BLL.CustomerBalance _bllBalance = new CustomerBalance();
         private readonly BLL.ClaimMoney _bllClaimMoney = new ClaimMoney();
         private List<Model.CustomerBalance> _balanceList;
+        private string _clientName = null;
 
         private decimal _clientBalance = 0;
 
@@ -41,6 +42,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             _list = list;
             _updateDel = updateDel;
             _curPage = curPage;
+            _clientName = list[0].client;
         }
 
         private void FrmSetClaim_Load(object sender, EventArgs e)
@@ -60,30 +62,30 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             dataGridView1.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
             dataGridView1.DataSource = _list;
 
+            DataGridView1_SelectionChanged(null, null);
 
+            //dataGridView1.ReadOnly = true;
+            dataGridView1.Columns["Price"].ReadOnly = false;
+            dataGridView1.Columns["ActuallyAmount"].ReadOnly = false;
+
+            UpdateClientBalanceInfo();
+        }
+
+        private void UpdateClientBalanceInfo()
+        {
             //查询客户余额
-            _balanceList = _bllBalance.GetModelList(" CustomerName = '" + _list[0].client + "' and BalanceAmount > 0");
-            _balanceList.Sort((b1, b2) => b1.BalanceAmount - b2.BalanceAmount < 0 ? -1 : 1);
+            _balanceList = _bllBalance.GetClientBalanceListOrderByBalanceasc(_clientName);
             if (_balanceList.Count < 1)
             {
                 MessageBoxEx.Show("未找到客户可用余额信息!!!");
                 lbClientBalance.Text = "客户可用余额不足!!!";
                 return;
             }
-
+            _clientBalance = 0;
             for (int i = 0; i < _balanceList.Count; ++i)
-            {
                 _clientBalance += _balanceList[i].BalanceAmount;
-            }
 
             lbClientBalance.Text = "客户可用余额:" + _clientBalance + "元.";
-
-            DataGridView1_SelectionChanged(null, null);
-
-            //dataGridView1.ReadOnly = true;
-            dataGridView1.Columns["Price"].ReadOnly = false;
-            dataGridView1.Columns["ActuallyAmount"].ReadOnly = false;
-            
         }
 
         private void FrmSetClaim_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -113,7 +115,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
         {
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
-                if (dataGridView1.Rows[i].Cells["Tips2"].Value!=null && 
+                if (dataGridView1.Rows[i].Cells["Tips2"].Value != null &&
                     !string.IsNullOrEmpty(dataGridView1.Rows[i].Cells["Tips2"].Value.ToString()))
                 {
                     dataGridView1.Rows[i].Cells["Tips2"].Style.BackColor = Color.Chocolate;
@@ -156,7 +158,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             lbCount.Text = string.Format("选中{0}项 共:{1}人", dataGridView1.SelectedRows.Count, totalPerson);
 
             lbClientBalance.Text = string.Format("客户\"{3}\"余额:{0},选中项合计:{1},扣除后剩余:{2}", _clientBalance, totalMoney,
-                _clientBalance - totalMoney, _list[0].client);
+                _clientBalance - totalMoney, _clientName);
         }
 
 
@@ -329,6 +331,10 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 claimMoney.EntryTime = DateTime.Now;
                 claimMoney.MoneyType = balance.MoneyType;
                 claimMoney.Claim_Confirm = "1";
+                if (_clientName != visa.client)
+                {
+                    claimMoney.Guests = string.Format("{0} 帮 {1} 认领 {2} 元.", _clientName, visa.client, claimMoney.Amount);
+                }
 
                 newClaims.Add(claimMoney);
             }
@@ -444,7 +450,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 var qzappList = qzApplication.GetModelList($" visa_id = '{visa.Visa_id}'");
                 if (qzappList.Count > 0) //TODO:对应关系???,多条or?
                 {
-                    if (qzappList[0].Price*qzappList[0].Number > visa.ActuallyAmount)
+                    if (qzappList[0].Price * qzappList[0].Number > visa.ActuallyAmount)
                     {
                         return false;
                     }
@@ -473,6 +479,17 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             //GlobalUtils.MessageBoxWithRecordNum("更新", res, list.Count);
 
             XlsGenerator.GetPaymentList(list);
+        }
+
+        private void lbClientBalance_DoubleClick(object sender, EventArgs e)
+        {
+            FrmSelectClient frm = new FrmSelectClient();
+            if (frm.ShowDialog() == DialogResult.Cancel)
+                return;
+
+            _clientName = frm.RetClient;
+
+            UpdateClientBalanceInfo();
         }
     }
 }

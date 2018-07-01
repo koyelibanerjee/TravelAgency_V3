@@ -21,7 +21,10 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
         private FrmSetCharge()
         {
-            this.StartPosition = FormStartPosition.CenterParent;
+            if (this.Modal)
+                this.StartPosition = FormStartPosition.CenterScreen;
+            else
+                this.StartPosition = FormStartPosition.CenterParent;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             FrmsManager.FormSetCharge = this;
