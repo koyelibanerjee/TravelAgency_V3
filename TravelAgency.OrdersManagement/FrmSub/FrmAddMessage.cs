@@ -17,7 +17,7 @@ namespace TravelAgency.OrdersManagement
         private readonly int _curPage; //主界面更新数据库需要一个当前页
         private readonly bool _is4Modify = false;
         private readonly TravelAgency.Model.Message _model = null;
-        private readonly TravelAgency.Model.Orders _ordersModel = null;
+        private  TravelAgency.Model.Orders _ordersModel = null;
         private readonly bool _isRefund = false;
         private readonly bool _isReply = false;
 
@@ -116,9 +116,17 @@ namespace TravelAgency.OrdersManagement
                     txtMsgType.Enabled = false;
                     txtToUser.Enabled = false;
                     txtOrderNo.Enabled = false;
+                    //回复的退款
+                    if (_model.MsgType == Common.Enums.MsgType.type01Refund)
+                    {
+                        groupBox1.Enabled = true;
+                        _ordersModel = _bllOrders.GetModelList(" orderno = '" + _model.OrderNo + "' ")[0];
 
-                    //加载退款的信息
-                    if(_model.MsgType == "")
+                        txtRefundState.Text = _ordersModel.RefundState;
+                        txtRefundAmout.Text = DecimalHandler.DecimalToString(_ordersModel.RefundAmout);
+                        txtRefundReason.Text = _ordersModel.RefundReason;
+                        txtGuestRefundApplyTime.Text = _ordersModel.GuestRefundApplyTime.ToString();
+                    }
 
                 }
             }
@@ -255,27 +263,22 @@ namespace TravelAgency.OrdersManagement
                         return;
                     }
 
-                    if (!_isReply && _isRefund)
+                    if ( txtMsgType.Text == Common.Enums.MsgType.type01Refund) //新增退款消息或者回复退款消息的时候
                     {
                         _ordersModel.RefundAmout = CtrlParser.Parse2Decimal(txtRefundAmout);
                         _ordersModel.RefundReason = CtrlParser.Parse2String(txtRefundReason);
-                        _ordersModel.GuestRefundApplyTime = CtrlParser.Parse2Datetime(txtRefundAmout);
+                        _ordersModel.GuestRefundApplyTime = CtrlParser.Parse2Datetime(txtGuestRefundApplyTime);
                         _ordersModel.RefundState = txtRefundState.Text;
-                        _bllOrders.Update(_ordersModel);
-                    }
 
-                    if (_isReply && _model.MsgType == "退款申请")
-                    {
-                        var orderModel = _bllOrders.GetModelList(" orderno = '" + txtOrderNo.Text + "'")[0];
-                        orderModel.RefundState = txtRefundState.Text;
-                        if (txtRefundState.Text == "完成退款")
+                        if (_isReply && txtRefundState.Text == Common.Enums.RefundState.Type03Complete)
                         {
                             if (MessageBoxEx.Show("是否同时更新订单实收金额?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                             {
                                 _ordersModel.ReallyPay -= CtrlParser.Parse2Decimal(txtRefundAmout);
                             }
                         }
-                        _bllOrders.Update(orderModel);
+
+                        _bllOrders.Update(_ordersModel);
                     }
 
                     MessageBoxEx.Show("添加成功");

@@ -57,6 +57,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             dataGridView1.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
             dataGridView1.DataSource = _list;
 
+
             //查询客户余额
             _balanceList = _bllBalance.GetModelList(" CustomerName = '" + _list[0].client + "' and BalanceAmount > 0");
             _balanceList.Sort((b1, b2) => b1.BalanceAmount - b2.BalanceAmount < 0 ? -1 : 1);
@@ -115,17 +116,20 @@ namespace TravelAgency.CSUI.Financial.FrmSub
         {
             if (dataGridView1.SelectedRows.Count < 1)
                 return;
-            decimal total = 0;
+            decimal totalMoney = 0;
+            int totalPerson = 0;
+
 
             for (int i = 0; i < dataGridView1.SelectedRows.Count; ++i)
             {
                 var model = DgvDataSourceToList()[dataGridView1.SelectedRows[i].Index];
-                total += DecimalHandler.Parse(model.ActuallyAmount.ToString());
+                totalMoney += DecimalHandler.Parse(model.ActuallyAmount.ToString());
+                totalPerson += model.Number ?? 0;
             }
+            lbCount.Text = string.Format("选中{0}项 共:{1}人", dataGridView1.SelectedRows.Count, totalPerson);
 
-
-            lbClientBalance.Text = string.Format("客户\"{3}\"余额:{0},选中项合计:{1},扣除后剩余:{2}", _clientBalance, total,
-                _clientBalance - total, _list[0].client);
+            lbClientBalance.Text = string.Format("客户\"{3}\"余额:{0},选中项合计:{1},扣除后剩余:{2}", _clientBalance, totalMoney,
+                _clientBalance - totalMoney, _list[0].client);
         }
 
 

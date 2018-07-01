@@ -110,7 +110,8 @@ namespace TravelAgency.OrdersManagement
 
         private void DataGridView1_DoubleClick(object sender, EventArgs e)
         {
-            修改ToolStripMenuItem_Click(null, null);
+            //修改ToolStripMenuItem_Click(null, null);
+            回复消息ToolStripMenuItem_Click(null,null);
         }
 
         private void CbPageSize_TextChanged(object sender, EventArgs e)

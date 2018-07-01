@@ -127,7 +127,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             }
 
 
-
+            dataGridView1.SelectionChanged += DataGridView1_SelectionChanged;
             //dataGridView1.SelectionMode = DataGridViewSelectionMode.CellSelect;
             //dataGridView1.
 
@@ -136,6 +136,21 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             progressLoading.Visible = false;
             LoadDataToDgvAsyn();
             _init = true;
+        }
+
+        private void DataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count < 1)
+                return;
+            int total = 0;
+
+            for (int i = 0; i < dataGridView1.SelectedRows.Count; ++i)
+            {
+                var model = DgvDataSourceToList()[dataGridView1.SelectedRows[i].Index];
+                total += model.Number ?? 0;
+            }
+
+            lbCount.Text = string.Format("选中{0}项 共:{1}人", dataGridView1.SelectedRows.Count, total);
         }
 
 
