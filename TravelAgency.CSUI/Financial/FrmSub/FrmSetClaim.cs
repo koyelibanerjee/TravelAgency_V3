@@ -31,6 +31,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 this.StartPosition = FormStartPosition.CenterParent;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            FrmsManager.FormSetClaim = this;
             InitializeComponent();
         }
 
@@ -44,6 +45,8 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
         private void FrmSetClaim_Load(object sender, EventArgs e)
         {
+            this.Closing += FrmSetClaim_Closing;
+
             dataGridView1.AutoGenerateColumns = false; //不显示指定之外的列
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //列宽自适应,一定不能用AllCells
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders; //这里也一定不能AllCell自适应!
@@ -80,6 +83,30 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             //dataGridView1.ReadOnly = true;
             dataGridView1.Columns["Price"].ReadOnly = false;
             dataGridView1.Columns["ActuallyAmount"].ReadOnly = false;
+            
+        }
+
+        private void FrmSetClaim_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (FrmsManager.FormSetClaim != null)
+                FrmsManager.FormSetClaim = null;
+        }
+
+        public void AddVisa(List<Model.Visa> visaList)
+        {
+            foreach (var visa in visaList)
+            {
+                if (visa.client != _list[0].client)
+                {
+                    MessageBoxEx.Show("不同客户不能同时认账!!!");
+                    return;
+                }
+            }
+            var list = dataGridView1.DataSource as List<Model.Visa>;
+            list.AddRange(visaList);
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = list;
+            _list = list;
         }
 
         private void DataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)

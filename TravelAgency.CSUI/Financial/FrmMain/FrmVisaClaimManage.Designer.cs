@@ -116,6 +116,7 @@
             this.panelDgv = new DevComponents.DotNetBar.PanelEx();
             this.bar2 = new DevComponents.DotNetBar.Bar();
             this.lbCount = new DevComponents.DotNetBar.LabelItem();
+            this.添加到设置请款费用列表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cmsDgv.SuspendLayout();
@@ -276,7 +277,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -535,9 +536,10 @@
             this.cmsItemShowGroupNo,
             this.toolStripSeparator2,
             this.生成账单ToolStripMenuItem,
-            this.签证认账ToolStripMenuItem});
+            this.签证认账ToolStripMenuItem,
+            this.添加到设置请款费用列表ToolStripMenuItem});
             this.cmsDgv.Name = "cmsDgv";
-            this.cmsDgv.Size = new System.Drawing.Size(185, 126);
+            this.cmsDgv.Size = new System.Drawing.Size(185, 170);
             // 
             // 复制ToolStripMenuItem
             // 
@@ -1098,6 +1100,13 @@
             this.lbCount.Name = "lbCount";
             this.lbCount.Text = "--";
             // 
+            // 添加到设置请款费用列表ToolStripMenuItem
+            // 
+            this.添加到设置请款费用列表ToolStripMenuItem.Name = "添加到设置请款费用列表ToolStripMenuItem";
+            this.添加到设置请款费用列表ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.添加到设置请款费用列表ToolStripMenuItem.Text = "添加到认账界面";
+            this.添加到设置请款费用列表ToolStripMenuItem.Click += new System.EventHandler(this.添加到设置请款费用列表ToolStripMenuItem_Click);
+            // 
             // FrmVisaClaimManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1207,5 +1216,6 @@
         private DevComponents.DotNetBar.Bar bar2;
         private DevComponents.DotNetBar.LabelItem lbCount;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cbSchTimeType;
+        private System.Windows.Forms.ToolStripMenuItem 添加到设置请款费用列表ToolStripMenuItem;
     }
 }

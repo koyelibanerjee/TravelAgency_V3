@@ -175,10 +175,6 @@ namespace TravelAgency.CSUI.Financial.FrmMain
         {
             _where = GetWhereCondition();
             _needDoUpdateEvent = false;
-            //Console.WriteLine("加载一次");
-            //int curSelectedRow = -1;
-            //if (dataGridView1.SelectedRows.Count > 0)
-            //    curSelectedRow = dataGridView1.SelectedRows[0].Index;
 
             List<int> selIdxs = new List<int>();
             for (int i = dataGridView1.SelectedRows.Count - 1; i >= 0; i--)
@@ -191,9 +187,6 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             {
                 _visaListBackUp.Add(visa.ToObjectCopy());
             }
-
-            //if (curSelectedRow != -1 && dataGridView1.Rows.Count > curSelectedRow)
-            //    dataGridView1.CurrentCell = dataGridView1.Rows[curSelectedRow].Cells[0];
 
             if (selIdxs.Count > 0)
                 dataGridView1.ClearSelection();

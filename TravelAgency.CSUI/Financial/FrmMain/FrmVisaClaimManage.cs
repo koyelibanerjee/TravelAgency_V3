@@ -834,9 +834,16 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             if (claimed &&
                 MessageBoxEx.Show("选中项中已经有认过账的团号，是否继续?", "提示", MessageBoxButtons.YesNo) == DialogResult.No)
                 return;
-
-            FrmSetClaim frm = new FrmSetClaim(list, LoadDataToDataGridView, _curPage);
-            frm.Show();
+            if (FrmsManager.FormSetClaim == null)
+            {
+                FrmSetClaim frm = new FrmSetClaim(list, LoadDataToDataGridView, _curPage);
+                frm.Show();
+            }
+            else
+            {
+                MessageBoxEx.Show("请不要重复打开设置认账界面!!!");
+                return;
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -875,6 +882,23 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             {
                 txtSchTimeFrom.CustomFormat = "yyyy/MM/dd";
                 txtSchTimeTo.CustomFormat = "yyyy/MM/dd";
+            }
+        }
+
+        private void 添加到设置请款费用列表ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var list = GetSelectedVisaList();
+            if (list.Count < 0)
+                return;
+            if (FrmsManager.FormSetClaim != null)
+            {
+                FrmsManager.FormSetClaim.AddVisa(list);
+                FrmsManager.FormSetClaim.Focus();
+            }
+            else
+            {
+                MessageBoxEx.Show("没有打开设置请款费用窗口!!!");
+                return;
             }
         }
     }
