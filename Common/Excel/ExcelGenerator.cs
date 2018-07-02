@@ -887,9 +887,9 @@ namespace TravelAgency.Common.Excel
                 //if (list[i].Country == "泰国") //泰国在导出的时候恢复显示人名
                 //    row.CreateCell(0).SetCellValue(GetGroupNo(list[i]));
                 //else
-                    row.CreateCell(0).SetCellValue(list[i].GroupNo);
+                row.CreateCell(0).SetCellValue(list[i].GroupNo);
                 row.CreateCell(1)
-                    .SetCellValue(DateTimeFormator.DateTimeToString(list[i].RealTime, 
+                    .SetCellValue(DateTimeFormator.DateTimeToString(list[i].RealTime,
                         DateTimeFormator.TimeFormat.Type02JapanTotal));
                 row.CreateCell(2)
                     .SetCellValue(DateTimeFormator.DateTimeToString(list[i].FinishTime,
@@ -1263,7 +1263,7 @@ namespace TravelAgency.Common.Excel
 
             string root = @"I:\My Documents\My Desktop\JobSeek\slns\Java\ZYC_Term4\src";
             var folderList = Directory.GetDirectories(root);
-           
+
             //3.插入行和单元格
             int idx = 0;
             for (int i = 0; i != folderList.Length; ++i)
@@ -1276,16 +1276,227 @@ namespace TravelAgency.Common.Excel
                     var row = sheet.CreateRow(idx++);
                     var prefix = folderList[i].Substring(folderList[i].LastIndexOf('\\') + 1,
                         folderList[i].Length - folderList[i].LastIndexOf('\\') - 1);
-                    row.CreateCell(0).SetCellValue(prefix+ "/" + Path.GetFileNameWithoutExtension(fileList[j]));
+                    row.CreateCell(0).SetCellValue(prefix + "/" + Path.GetFileNameWithoutExtension(fileList[j]));
                 }
 
-               
+
             }
 
-            
+
 
             //5.执行写入磁盘
 
+            return SaveFile(dstName, wkbook);
+        }
+
+
+        public static bool GetOrdersTableWator(List<Model.Orders> list)
+        {
+
+            string dstName = GlobalUtils.ShowSaveFileDlg("Orders" + ".xls", "office 2003 excel|*.xls");
+            if (string.IsNullOrEmpty(dstName))
+                return false;
+
+            //1.创建工作簿对象
+            IWorkbook wkbook = new HSSFWorkbook();
+            //2.创建工作表对象
+            ISheet sheet = wkbook.CreateSheet("sheet1");
+
+            //2.1创建表头
+            IRow row = sheet.CreateRow(0);
+            row.CreateCell(0).SetCellValue("编号");
+            row.CreateCell(1).SetCellValue("网上平台订单号");
+            row.CreateCell(2).SetCellValue("操作姓名");
+            row.CreateCell(3).SetCellValue("订单状态");
+            row.CreateCell(4).SetCellValue("客人基础信息已录入");
+            row.CreateCell(5).SetCellValue("回复结果");
+            row.CreateCell(6).SetCellValue("操作备注");
+            row.CreateCell(7).SetCellValue("录入客服");
+            row.CreateCell(8).SetCellValue("平台");
+            row.CreateCell(9).SetCellValue("团号");
+            row.CreateCell(10).SetCellValue("产品名称");
+            row.CreateCell(11).SetCellValue("产品ID");
+            row.CreateCell(12).SetCellValue("产品类型");
+            row.CreateCell(13).SetCellValue("购买数量");
+            row.CreateCell(14).SetCellValue("订单金额");
+            row.CreateCell(15).SetCellValue("客人下单时间");
+            row.CreateCell(16).SetCellValue("客服下单时间");
+            row.CreateCell(17).SetCellValue("客服确认时间");
+            row.CreateCell(18).SetCellValue("实际支付金额");
+            row.CreateCell(19).SetCellValue("平台活动");
+            row.CreateCell(20).SetCellValue("退款状态");
+            //row.CreateCell(14).SetCellValue("护照号");
+            //row.CreateCell(15).SetCellValue("手机号");
+
+            //2.2设置列宽度
+            sheet.SetColumnWidth(0, 5 * 256); //编号
+            //3.插入行和单元格
+            for (int i = 0; i != list.Count; ++i)
+            {
+                //创建单元格
+                row = sheet.CreateRow(i + 1);
+                //设置行高
+                row.HeightInPoints = 100;
+                //设置值
+                row.CreateCell(0).SetCellValue(i + 1);
+                row.CreateCell(1).SetCellValue(list[i].OrderNo);
+                row.CreateCell(2).SetCellValue(list[i].OperName);
+                row.CreateCell(3).SetCellValue(list[i].OrderState);
+                row.CreateCell(4).SetCellValue(list[i].GuestInfoTypedIn.HasValue ? (list[i].GuestInfoTypedIn.Value ? "是" : "否") : "否");
+                row.CreateCell(5).SetCellValue(list[i].ReplyResult);
+                row.CreateCell(6).SetCellValue(list[i].OperRemark);
+                row.CreateCell(7).SetCellValue(list[i].WaitorName);
+                row.CreateCell(8).SetCellValue(Enums.OrderInfo_PaymentPlatform.KeyToValue(list[i].PaymentPlatform));
+                row.CreateCell(9).SetCellValue(list[i].GroupNo);
+                row.CreateCell(10).SetCellValue(list[i].ProductName);
+                row.CreateCell(11).SetCellValue(list[i].ProductId ?? 0);
+                row.CreateCell(12).SetCellValue(list[i].ProductType);
+                row.CreateCell(13).SetCellValue(list[i].PurchaseNum ?? 0);
+                row.CreateCell(14).SetCellValue(list[i].OrderAmount.ToString());
+                row.CreateCell(15).SetCellValue(list[i].GuestOrderTime.ToString());
+                row.CreateCell(16).SetCellValue(list[i].WaitorOrderTime.ToString());
+                row.CreateCell(17).SetCellValue(list[i].WaitorConfirmTime.ToString());
+                row.CreateCell(18).SetCellValue(list[i].ReallyPay.ToString());
+                row.CreateCell(19).SetCellValue(list[i].PlatformActivity);
+                row.CreateCell(20).SetCellValue(list[i].RefundState);
+                //row.CreateCell(14).SetCellValue(list[i].PassportNo);
+                //row.CreateCell(15).SetCellValue(list[i].Phone);
+            }
+
+            //4.1设置对齐风格和边框
+            ICellStyle style = wkbook.CreateCellStyle();
+            style.VerticalAlignment = VerticalAlignment.Center;
+            style.Alignment = HorizontalAlignment.Center;
+            style.WrapText = true; //文本自动换行
+            style.BorderTop = BorderStyle.Thin;
+            style.BorderBottom = BorderStyle.Thin;
+            style.BorderLeft = BorderStyle.Thin;
+            style.BorderRight = BorderStyle.Thin;
+            HSSFFont font = (HSSFFont)wkbook.CreateFont();
+            font.FontHeightInPoints = 12;
+            style.SetFont(font);
+
+            for (int i = 0; i <= sheet.LastRowNum; i++)
+            {
+                row = sheet.GetRow(i);
+                for (int c = 0; c < row.LastCellNum; ++c)
+                {
+                    row.GetCell(c).CellStyle = style;
+                }
+            }
+            //5.执行写入磁盘
+            return SaveFile(dstName, wkbook);
+        }
+
+
+
+        public static bool GetOrdersTableOper(List<Model.Orders> list)
+        {
+
+            string dstName = GlobalUtils.ShowSaveFileDlg("Orders" + ".xls", "office 2003 excel|*.xls");
+            if (string.IsNullOrEmpty(dstName))
+                return false;
+
+            //1.创建工作簿对象
+            IWorkbook wkbook = new HSSFWorkbook();
+            //2.创建工作表对象
+            ISheet sheet = wkbook.CreateSheet("sheet1");
+
+            
+
+            //2.1创建表头
+            IRow row = sheet.CreateRow(0);
+
+            var headerList = new List<string>
+            {
+                "编号",
+                "录入客服",
+                "网上平台订单号",
+                 "回复结果",
+                 "平台",
+                "团号",
+                "产品名称",
+                "产品ID",
+                "产品类型",
+                "购买数量",
+                "订单金额",
+                "客人下单时间",
+                "客服下单时间",
+                "客服确认时间",
+                "实际支付金额",
+                "平台活动",
+                "下单平台订单号",
+                "下单方式",
+                "操作下单时间",
+                "日本确认时间",
+                "回复客服确认时间",
+                "结算成本单价",
+                "汇率",
+                "备注",
+            };
+
+           for(int i=0;i<headerList.Count;++i)
+                row.CreateCell(i).SetCellValue(headerList[i]);
+
+            //2.2设置列宽度
+            sheet.SetColumnWidth(0, 5 * 256); //编号
+            //3.插入行和单元格
+            for (int i = 0; i != list.Count; ++i)
+            {
+                //创建单元格
+                row = sheet.CreateRow(i + 1);
+                //设置行高
+                row.HeightInPoints = 100;
+                //设置值
+                row.CreateCell(0).SetCellValue(i + 1);
+                row.CreateCell(1).SetCellValue(list[i].WaitorName);
+                row.CreateCell(2).SetCellValue(list[i].OrderNo);
+                row.CreateCell(3).SetCellValue(list[i].ReplyResult);
+                row.CreateCell(4).SetCellValue(Enums.OrderInfo_PaymentPlatform.KeyToValue(list[i].PaymentPlatform));
+                row.CreateCell(5).SetCellValue(list[i].GroupNo);
+                row.CreateCell(6).SetCellValue(list[i].ProductName);
+                row.CreateCell(7).SetCellValue(list[i].ProductId ?? 0);
+                row.CreateCell(8).SetCellValue(list[i].ProductType);
+                row.CreateCell(9).SetCellValue(list[i].PurchaseNum ?? 0);
+                row.CreateCell(10).SetCellValue(list[i].OrderAmount.ToString());
+                row.CreateCell(11).SetCellValue(list[i].GuestOrderTime.ToString());
+                row.CreateCell(12).SetCellValue(list[i].WaitorOrderTime.ToString());
+                row.CreateCell(13).SetCellValue(list[i].WaitorConfirmTime.ToString());
+                row.CreateCell(14).SetCellValue(list[i].ReallyPay.ToString());
+                row.CreateCell(15).SetCellValue(list[i].PlatformActivity);
+                row.CreateCell(16).SetCellValue(list[i].JpOrderNo);
+                row.CreateCell(17).SetCellValue(list[i].OrderWay);
+                row.CreateCell(18).SetCellValue(list[i].OperOrderTime.ToString());
+                row.CreateCell(19).SetCellValue(list[i].JpConfirmTime.ToString());
+                row.CreateCell(20).SetCellValue(list[i].ReplyWaitorConfirmTime.ToString());
+                row.CreateCell(21).SetCellValue(list[i].SettlePrice.ToString());
+                row.CreateCell(22).SetCellValue(list[i].ExchangeRate.ToString());
+                row.CreateCell(23).SetCellValue(list[i].OperRemark);
+            }
+
+            //4.1设置对齐风格和边框
+            ICellStyle style = wkbook.CreateCellStyle();
+            style.VerticalAlignment = VerticalAlignment.Center;
+            style.Alignment = HorizontalAlignment.Center;
+            style.WrapText = true; //文本自动换行
+            style.BorderTop = BorderStyle.Thin;
+            style.BorderBottom = BorderStyle.Thin;
+            style.BorderLeft = BorderStyle.Thin;
+            style.BorderRight = BorderStyle.Thin;
+            HSSFFont font = (HSSFFont)wkbook.CreateFont();
+            font.FontHeightInPoints = 12;
+            style.SetFont(font);
+
+            for (int i = 0; i <= sheet.LastRowNum; i++)
+            {
+                row = sheet.GetRow(i);
+                for (int c = 0; c < row.LastCellNum; ++c)
+                {
+                    row.GetCell(c).CellStyle = style;
+                }
+            }
+
+            //5.执行写入磁盘
             return SaveFile(dstName, wkbook);
         }
 

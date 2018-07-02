@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using TravelAgency.BLL;
 using TravelAgency.Common;
+using TravelAgency.Common.Excel;
 using TravelAgency.Common.PictureHandler;
 using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Visa.FrmSub.FrmSetValue;
@@ -787,8 +788,20 @@ namespace TravelAgency.OrdersManagement
             SetOrdersColor(null);
 
         }
+
         #endregion
 
+        private void btnGenReport_Click(object sender, EventArgs e)
+        {
+            ExcelGenerator.GetOrdersTableOper(DgvDataSourceToList());
+        }
 
+        private void 导出数据到ExcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var list = GetSelectedModelList();
+            if (list.Count < 1)
+                return;
+            ExcelGenerator.GetOrdersTableOper(list);
+        }
     }
 }
