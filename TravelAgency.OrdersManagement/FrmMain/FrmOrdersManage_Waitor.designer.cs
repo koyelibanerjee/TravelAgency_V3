@@ -126,6 +126,7 @@
             this.韩国加急申请书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bgWorkerLoadData = new System.ComponentModel.BackgroundWorker();
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
+            this.默认ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panelDgv.SuspendLayout();
@@ -999,7 +1000,8 @@
             this.toolStripTextBox4,
             this.toolStripTextBox5,
             this.toolStripTextBox6,
-            this.toolStripTextBox7});
+            this.toolStripTextBox7,
+            this.默认ToolStripMenuItem});
             this.设置订单颜色ToolStripMenuItem.Name = "设置订单颜色ToolStripMenuItem";
             this.设置订单颜色ToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
             this.设置订单颜色ToolStripMenuItem.Text = "设置订单颜色";
@@ -1096,6 +1098,13 @@
             // 
             this.styleManager1.ManagerStyle = DevComponents.DotNetBar.eStyle.Office2010Blue;
             this.styleManager1.MetroColorParameters = new DevComponents.DotNetBar.Metro.ColorTables.MetroColorGeneratorParameters(System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255))))), System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(115)))), ((int)(((byte)(199))))));
+            // 
+            // 默认ToolStripMenuItem
+            // 
+            this.默认ToolStripMenuItem.Name = "默认ToolStripMenuItem";
+            this.默认ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.默认ToolStripMenuItem.Text = "默认";
+            this.默认ToolStripMenuItem.Click += new System.EventHandler(this.默认ToolStripMenuItem_Click);
             // 
             // FrmOrdersManage_Waitor
             // 
@@ -1216,6 +1225,7 @@
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox5;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox6;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox7;
+        private System.Windows.Forms.ToolStripMenuItem 默认ToolStripMenuItem;
     }
 }
 

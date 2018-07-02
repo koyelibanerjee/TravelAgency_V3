@@ -444,10 +444,12 @@ namespace TravelAgency.OrdersManagement
             if (!DgvDataSourceToList()[row.Index].OrderColor.HasValue)
             {
                 row.HeaderCell.Style.BackColor = StyleControler.RowHeaderDefaulBackColor;
+                row.DefaultCellStyle.BackColor = row.Index%2==0?StyleControler.CellDefaultBackColor:StyleControler.CellDefaultAlterBackColor;
             }
             else
             {
                 row.HeaderCell.Style.BackColor = Color.FromArgb(DgvDataSourceToList()[row.Index].OrderColor.Value);
+                row.DefaultCellStyle.BackColor = Color.FromArgb(DgvDataSourceToList()[row.Index].OrderColor.Value);
             }
         }
 
@@ -890,7 +892,7 @@ namespace TravelAgency.OrdersManagement
 
         }
 
-        private void SetOrdersColor(int c)
+        private void SetOrdersColor(int? c)
         {
             var list = GetSelectedModelList();
 
@@ -946,7 +948,13 @@ namespace TravelAgency.OrdersManagement
         {
             SetOrdersColor(-32768);
         }
+
+        private void 默认ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SetOrdersColor(null);
+        }
         #endregion
+
 
     }
 }
