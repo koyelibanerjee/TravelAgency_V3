@@ -333,6 +333,9 @@
     <None Include="Word\Templates\template_01机票单-泰国.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Word\Templates\template_2017年个人赴日本旅游签证申请表.docx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Word\Templates\template_信息处理同意书.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

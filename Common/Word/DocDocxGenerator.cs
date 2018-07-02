@@ -29,7 +29,8 @@ namespace TravelAgency.Common.Word
             Type05TaiQianJiPiao,
             Type06HanguoDanBaoHan,
             Type07HanguoJiaji,
-            Type08XXTYCLS //信息同意处理书
+            Type08XXTYCLS, //信息同意处理书
+            Type09个人申请表 //个人申请表
         }
 
         /// <summary>
@@ -170,6 +171,12 @@ namespace TravelAgency.Common.Word
                 DefaultName = "信息处理同意书.docx";
                 TemplaceDocFileName = "template_信息处理同意书.docx";
             }
+            if (type == DocDocxGenerator.DocType.Type09个人申请表)
+            {
+                PlaceHolderNum = 23;
+                DefaultName = "个人赴日本旅游签证申请表.docx";
+                TemplaceDocFileName = "template_2017年个人赴日本旅游签证申请表.docx";
+            }
         }
 
         public void Generate(List<string> listWait4Replace)
@@ -239,7 +246,7 @@ namespace TravelAgency.Common.Word
 
 
                 if (!DocXHandler.BatchReplaceStringByPlaceHolder(GlobalUtils.AppPath + @"\Word\Templates\" + TemplaceDocFileName,
-                    outFolder + @"\" + Path.GetFileNameWithoutExtension(DefaultName) + "_" + listWait4Replace[0] + ".docx",
+                    outFolder + @"\" + Path.GetFileNameWithoutExtension(DefaultName) + "_" + i + ".docx",
                     listWait4Replace, true, PlaceHolderNum))
                 {
                     MessageBoxEx.Show("生成报表失败，请联系技术人员!");

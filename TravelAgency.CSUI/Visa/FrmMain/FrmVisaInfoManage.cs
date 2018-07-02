@@ -1444,8 +1444,58 @@ namespace TravelAgency.CSUI.FrmMain
         }
 
 
+
         #endregion
 
+        private void 个人签证申请表ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var list = GetDgvSelList();
+            if (list.Count < 1)
+                return;
 
+            var visaList = _bllVisa.GetVisaListViaVisaInfoList(list);
+
+            string dst = GlobalUtils.ShowBrowseFolderDlg();
+            if (string.IsNullOrEmpty(dst))
+                return;
+
+            List<List<string>> stringList = new List<List<string>>();
+            for (int i = 0; i < list.Count; ++i)
+            {
+                var visaInfo = list[i];
+                List<string> tmp = new List<string>();
+                var english = visaInfo.EnglishName.Split(' ');
+                tmp.Add(english[0]);
+                tmp.Add(visaInfo.Name.Substring(0, 1));
+                tmp.Add(english[english.Length - 1]);
+                tmp.Add(visaInfo.Name.Substring(1, visaInfo.Name.Length - 1));
+                tmp.Add(visaInfo.Birthday.Value.Year.ToString());
+                tmp.Add(visaInfo.Birthday.Value.Month.ToString());
+                tmp.Add(visaInfo.Birthday.Value.Day.ToString());
+                tmp.Add(visaInfo.Birthplace);
+                tmp.Add("");
+                tmp.Add(visaInfo.PassportNo);
+                tmp.Add(visaInfo.IssuePlace);
+                tmp.Add(visaInfo.LicenceTime.Value.Year.ToString());
+                tmp.Add(visaInfo.LicenceTime.Value.Month.ToString());
+                tmp.Add(visaInfo.LicenceTime.Value.Day.ToString());
+                tmp.Add(visaInfo.ExpiryDate.Value.Year.ToString());
+                tmp.Add(visaInfo.ExpiryDate.Value.Month.ToString());
+                tmp.Add(visaInfo.ExpiryDate.Value.Day.ToString());
+                tmp.Add(DateTimeFormator.DateTimeToString(visaList[i].InTime));
+                tmp.Add(DateTimeFormator.DateTimeToString(visaList[i].OutTime));
+                tmp.Add(DateTimeFormator.DateTimeToString(visaList[i].InTime));
+                tmp.Add(visaInfo.Residence.ToString());
+                tmp.Add(visaInfo.Phone.ToString());
+                tmp.Add(visaInfo.Occupation.ToString());
+                stringList.Add(tmp);
+            }
+
+
+
+
+            GlobalUtils.DocDocxGenerator.SetDocType(DocDocxGenerator.DocType.Type09个人申请表);
+            GlobalUtils.DocDocxGenerator.GenerateBatch(stringList, dst);
+        }
     }
 }
