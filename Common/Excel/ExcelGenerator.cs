@@ -1388,8 +1388,6 @@ namespace TravelAgency.Common.Excel
             return SaveFile(dstName, wkbook);
         }
 
-
-
         public static bool GetOrdersTableOper(List<Model.Orders> list)
         {
 

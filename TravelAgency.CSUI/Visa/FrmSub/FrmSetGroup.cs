@@ -951,12 +951,22 @@ namespace TravelAgency.CSUI.FrmSub
                     _bllLoger.AddRecord(Common.Enums.ActType._01TypeIn, Common.GlobalUtils.LoginUser,
                                             _dgvList[i], _visaModel);
 
-                    if (!CheckTypedInComplete(_dgvList[i], cbOutDelivery.Checked)) //如果信息也填写完整了就直接也弄成已经做了
-                        continue;
-                    _dgvList[i].HasTypeIn = "是"; //默认情况下是"否"
-                    hasOneTypedIn = true;
-                    _bllLoger.AddRecord(Common.Enums.ActType._02TypeInData, Common.GlobalUtils.LoginUser,
+                    if (_visaModel.IsOutDelivery.HasValue && _visaModel.IsOutDelivery.Value) //外送直接已做
+                    {
+                        _dgvList[i].HasTypeIn = "是"; //默认情况下是"否"
+                        hasOneTypedIn = true;
+                        _bllLoger.AddRecord(Common.Enums.ActType._02TypeInData, Common.GlobalUtils.LoginUser,
                             _dgvList[i], _visaModel);
+                    }
+                    else
+                    {
+                        if (!CheckTypedInComplete(_dgvList[i], cbOutDelivery.Checked)) //如果信息也填写完整了就直接也弄成已经做了
+                            continue;
+                        _dgvList[i].HasTypeIn = "是"; //默认情况下是"否"
+                        hasOneTypedIn = true;
+                        _bllLoger.AddRecord(Common.Enums.ActType._02TypeInData, Common.GlobalUtils.LoginUser,
+                                _dgvList[i], _visaModel);
+                    }
                 }
 
                 //2.1更新VisaInfo数据库

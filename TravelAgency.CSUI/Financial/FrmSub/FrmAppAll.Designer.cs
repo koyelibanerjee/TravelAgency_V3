@@ -179,11 +179,11 @@
             // 
             this.txtDetails.Border.Class = "TextBoxBorder";
             this.txtDetails.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtDetails.Location = new System.Drawing.Point(396, 87);
+            this.txtDetails.Location = new System.Drawing.Point(396, 67);
             this.txtDetails.Multiline = true;
             this.txtDetails.Name = "txtDetails";
             this.txtDetails.PreventEnterBeep = true;
-            this.txtDetails.Size = new System.Drawing.Size(174, 51);
+            this.txtDetails.Size = new System.Drawing.Size(174, 71);
             this.txtDetails.TabIndex = 83;
             // 
             // labelX24
@@ -216,11 +216,11 @@
             // 
             // 
             this.labelX18.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX18.Location = new System.Drawing.Point(315, 90);
+            this.labelX18.Location = new System.Drawing.Point(315, 67);
             this.labelX18.Name = "labelX18";
             this.labelX18.Size = new System.Drawing.Size(75, 23);
             this.labelX18.TabIndex = 96;
-            this.labelX18.Text = "详情:";
+            this.labelX18.Text = "摘要:";
             // 
             // txtAmountSpend
             // 

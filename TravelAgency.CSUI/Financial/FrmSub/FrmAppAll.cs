@@ -40,9 +40,8 @@ namespace TravelAgency.CSUI.Financial.FrmSub
         private void FrmAppAll_Load(object sender, EventArgs e)
         {
             txtGroupNo.Text = _list[0].GroupNo;
-
+            txtDetails.Text = "个签请款";
             InitCbs();
-
         }
 
         private void InitCbs()
