@@ -679,7 +679,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
             txtSchTimeFrom.Text = string.Empty;
             txtSchTimeTo.Text = string.Empty;
-           
+
 
             txtSchGroupNo.Text = string.Empty;
             txtSalesPerson.Text = string.Empty;
@@ -1969,7 +1969,8 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             if (list.Count < 1)
                 return;
 
-            FrmSetMultiStringValue frm = new FrmSetMultiStringValue("设置", list[0].client, list[0].SalesPerson, list[0].Tips2);
+            FrmSetMultiStringValue frm = new FrmSetMultiStringValue("设置", list[0].client, list[0].SalesPerson,
+                list[0].Operator, list[0].Tips2);
             if (frm.ShowDialog() == DialogResult.Cancel)
                 return;
 
@@ -1978,6 +1979,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 visa.SalesPerson = frm.RetSalesPerson;
                 visa.client = frm.RetClient;
                 visa.Tips2 = frm.RetTips2;
+                visa.Operator = frm.RetOperator;
             }
             _bllVisa.UpdateList(list);
             LoadDataToDgvAsyn();

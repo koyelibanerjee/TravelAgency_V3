@@ -14,6 +14,7 @@ namespace TravelAgency.CSUI.Visa.FrmSub.FrmSetValue
     {
         public string RetClient { get; set; }
         public string RetSalesPerson { get; set; }
+        public string RetOperator{ get; set; }
         public string RetTips2 { get; set; }
         private FrmSetMultiStringValue()
         {
@@ -28,12 +29,13 @@ namespace TravelAgency.CSUI.Visa.FrmSub.FrmSetValue
         }
 
 
-        public FrmSetMultiStringValue(string headertext="设置",string client="",string salesperson="",string tips2=""):this()
+        public FrmSetMultiStringValue(string headertext="设置",string client="",string salesperson="",string operato="",string tips2=""):this()
         {
             this.Text = headertext;
             txtSalesPerson.Text = salesperson;
             txtTips2.Text = tips2;
             txtClient.Text = client;
+            txtOperator.Text = operato;
         }
 
         private void FrmSetMultiStringValue_Load(object sender, EventArgs e)
@@ -45,6 +47,7 @@ namespace TravelAgency.CSUI.Visa.FrmSub.FrmSetValue
         {
             RetClient = txtClient.Text;
             RetSalesPerson = txtSalesPerson.Text;
+            RetOperator = txtOperator.Text;
             RetTips2 = txtTips2.Text;
             this.DialogResult = DialogResult.OK;
             this.Close();
