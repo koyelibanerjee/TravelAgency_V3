@@ -17,7 +17,7 @@ namespace TravelAgency.DAL
             string sql = "select distinct customername,customeid from CustomerInfo where " +
                         " DepartmentId = 'a86ed375-76db-45df-a4e9-d0bb8815d49c' and " + 
                          " CustomerName is not null and LEN(CustomerName)>0 and " +
-                         " DataType = '销售录入'";
+                         " DataType = '销售录入' order by customername";
 
             DataSet ds = DbHelperSQL.Query(sql);
             List<KeyValuePair<Guid, string>> res = new List<KeyValuePair<Guid, string>>();
@@ -50,7 +50,7 @@ namespace TravelAgency.DAL
                          "on ci.workid=au.workid " +
                          "where datatype = '销售录入' and " +
                          "customerName is not null and " +
-                         "len(customerName)>0";
+                         "len(customerName)>0 order by au.username";
 
             DataSet ds = DbHelperSQL.Query(sql);
             List<KeyValuePair<string, string>> res = new List<KeyValuePair<string, string>>();
@@ -78,8 +78,8 @@ namespace TravelAgency.DAL
         {
             string sql = string.Format("select distinct customername,customeid from CustomerInfo where " +
                          " CustomerName is not null and LEN(CustomerName)>0 and " +
-                         " DataType = '销售录入' and " + 
-                         "workid = '{0}' ",workid);
+                         " DataType = '销售录入' and " +
+                         "workid = '{0}' order by customername ", workid);
 
             DataSet ds = DbHelperSQL.Query(sql);
             List<KeyValuePair<Guid, string>> res = new List<KeyValuePair<Guid, string>>();
@@ -105,7 +105,7 @@ namespace TravelAgency.DAL
 
         public static List<string> GetOpeartorByCustId(string custid)
         {
-            string sql = string.Format("select operator from CustomerInfo where CustomeID='{0}'  and DataType = '销售录入'", custid);
+            string sql = string.Format("select operator from CustomerInfo where CustomeID='{0}'  and DataType = '销售录入' order by operator ", custid);
             DataSet ds = DbHelperSQL.Query(sql);
             List<string> res = new List<string>();
             if (ds.Tables[0].Rows.Count > 0)
@@ -127,7 +127,7 @@ namespace TravelAgency.DAL
 
         public static List<string> GetSalesPersonByCustId(string custid)
         {
-            string sql = string.Format("select UserName from AuthUser where WorkId in (select WorkId from CustomerInfo where CustomeId='{0}' and DataType = '销售录入')", custid);
+            string sql = string.Format("select UserName from AuthUser where WorkId in (select WorkId from CustomerInfo where CustomeId='{0}' and DataType = '销售录入') order by username", custid);
             DataSet ds = DbHelperSQL.Query(sql);
             List<string> res = new List<string>();
             if (ds.Tables[0].Rows.Count > 0)
