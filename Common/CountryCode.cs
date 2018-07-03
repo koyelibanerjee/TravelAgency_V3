@@ -39,8 +39,9 @@ namespace TravelAgency.Common
             Dict.Add("俄罗斯", "RU");
             Dict.Add("尼泊尔", "NP");
             Dict.Add("保险", "BX");
+            Dict.Add("马耳他", "MT");
 
-            string CountrysString = "日本|韩国|泰国|澳大利亚|英国|美国|越南|加拿大|中国|马来西亚|新西兰|法国|德国|菲律宾|捷克|瑞士|西班牙|意大利|荷兰|冰岛|南非|奥地利|丹麦|波兰|瑞典|芬兰|俄罗斯|尼泊尔|保险";
+            string CountrysString = "日本|韩国|泰国|澳大利亚|英国|美国|越南|加拿大|中国|马来西亚|新西兰|法国|德国|菲律宾|捷克|瑞士|西班牙|意大利|荷兰|冰岛|南非|奥地利|丹麦|波兰|瑞典|芬兰|俄罗斯|尼泊尔|保险|马耳他";
             CountryNameArr = CountrysString.Split('|');
 
         }
