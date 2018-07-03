@@ -1621,7 +1621,20 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
         private void 提交请款ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmAppAll frm = new FrmAppAll(GetSelectedVisaList());
+            var list = GetSelectedVisaList();
+            if (list.Count < 1)
+                return;
+            foreach (var visa in list)
+            {
+                if (visa.RealTime == null || visa.FinishTime == null)
+                {
+                    MessageBoxEx.Show($"团号:{visa.GroupNo}还未设置进出签时间，不能进行请款!");
+                    return;
+                }
+            }
+
+
+            FrmAppAll frm = new FrmAppAll(list);
             if (DialogResult.Cancel == frm.ShowDialog())
                 return;
             LoadDataToDgvAsyn();

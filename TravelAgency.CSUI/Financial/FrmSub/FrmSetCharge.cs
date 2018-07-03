@@ -80,7 +80,22 @@ namespace TravelAgency.CSUI.Financial.FrmSub
         public void AddVisa(List<Model.Visa> visaList)
         {
             var list = dataGridView1.DataSource as List<Model.Visa>;
-            list.AddRange(visaList);
+            HashSet<Guid> set = new HashSet<Guid>();
+            foreach (var visa_old in list)
+            {
+                set.Add(visa_old.Visa_id);
+            }
+
+            foreach (var visa_new in visaList)
+            {
+                if (set.Contains(visa_new.Visa_id))
+                {
+                    continue;
+                }
+                list.Add(visa_new);
+            }
+
+            //list.AddRange(visaList);
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = list;
             _list = list;
