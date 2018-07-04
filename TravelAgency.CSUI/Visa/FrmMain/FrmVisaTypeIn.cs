@@ -10,13 +10,13 @@ using DevComponents.DotNetBar;
 using TravelAgency.Common;
 using TravelAgency.Common.FTP;
 using TravelAgency.Common.IDCard;
-using TravelAgency.Common.PictureHandler;
 using TravelAgency.Common.PinyinParse;
 using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Properties;
 using TravelAgency.Model;
 using System.Configuration;
 using TravelAgency.Common.Excel;
+using TravelAgency.Common.FTPFileHandler;
 using TravelAgency.CSUI.Visa.FrmSub;
 
 namespace TravelAgency.CSUI.FrmMain
@@ -258,7 +258,7 @@ namespace TravelAgency.CSUI.FrmMain
         {
             if (!CtrlsToModel(_model))
                 return;
-            _model.HasChecked = Common.Enums.HasChecked.Yes;
+            _model.HasChecked = Model.Enums.HasChecked.Yes;
             _model.CheckPerson = txtCheckPerson.Text;
             if (!_bllVisaInfoTmp.Update(_model))
             {

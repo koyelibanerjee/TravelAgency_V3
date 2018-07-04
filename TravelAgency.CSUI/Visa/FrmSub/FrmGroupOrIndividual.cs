@@ -12,6 +12,7 @@ using DevComponents.DotNetBar;
 using TravelAgency.Common;
 using TravelAgency.Common.Enums;
 using TravelAgency.Model;
+using TravelAgency.Model.Enums;
 
 namespace TravelAgency.CSUI.FrmSub
 {

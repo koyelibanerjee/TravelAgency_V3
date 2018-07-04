@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using TravelAgency.BLL.FTPFileHandler;
 using TravelAgency.Common;
-using TravelAgency.Common.PictureHandler;
+using TravelAgency.Model.Enums;
 
 namespace TravelAgency.OrdersManagement
 {
@@ -115,11 +116,11 @@ namespace TravelAgency.OrdersManagement
 
                     if (_model.ReplyResult == "处理中")
                     {
-                        _bllLoger.AddLog(GlobalUtils.LoginUser, Common.Enums.OrdersActtype.value2Key("操作:开始处理"), _model);
+                        _bllLoger.AddLog(GlobalUtils.LoginUser, OrdersActtype.value2Key("操作:开始处理"), _model);
                     }
                     else if (_model.ReplyResult == "成功" || _model.ReplyResult == "拒绝")
                     {
-                        _bllLoger.AddLog(GlobalUtils.LoginUser, Common.Enums.OrdersActtype.value2Key("操作:处理完成"), _model);
+                        _bllLoger.AddLog(GlobalUtils.LoginUser, OrdersActtype.value2Key("操作:处理完成"), _model);
                     }
 
 

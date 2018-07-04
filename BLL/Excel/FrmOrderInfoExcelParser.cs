@@ -13,7 +13,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TravelAgency.Common.PictureHandler;
+using TravelAgency.BLL;
+using TravelAgency.BLL.FTPFileHandler;
+using TravelAgency.Model.Enums;
 
 namespace TravelAgency.Common
 {
@@ -137,7 +139,7 @@ namespace TravelAgency.Common
                 item.EntryTime = DateTime.Now;
                 item.OperatorName = GlobalUtils.LoginUser.UserName;
                 item.OperatorWorkId = GlobalUtils.LoginUser.WorkId;
-                item.OrderInfoState = Enums.OrderInfo_OrderInfoState.valueKeyMap["未校验"];
+                item.OrderInfoState = Enums_OrderInfo_OrderInfoState.valueKeyMap["未校验"];
                 res += _bllOrderInfo.Add(item) == 0 ? 0 : 1;
             }
             RetValue = res;
@@ -182,10 +184,10 @@ namespace TravelAgency.Common
                     modelRec.ProductName = row.GetCell(6)?.StringCellValue;
                     modelPay.Amount = -1 * DecimalHandler.Parse(row.GetCell(13)?.StringCellValue); //佣金乘以-1
                     modelRec.Amount = DecimalHandler.Parse(row.GetCell(14)?.StringCellValue); //佣金乘以-1
-                    modelPay.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["佣金"];
-                    modelRec.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["收入"];
-                    modelRec.PaymentPlatform = Enums.OrderInfo_PaymentPlatform.valueKeyMap["大众"];
-                    modelPay.PaymentPlatform = Enums.OrderInfo_PaymentPlatform.valueKeyMap["大众"];
+                    modelPay.OrderType = Enums_OrderInfo_OrderType.valueKeyMap["佣金"];
+                    modelRec.OrderType = Enums_OrderInfo_OrderType.valueKeyMap["收入"];
+                    modelRec.PaymentPlatform = Enums_OrderInfo_PaymentPlatform.valueKeyMap["大众"];
+                    modelPay.PaymentPlatform = Enums_OrderInfo_PaymentPlatform.valueKeyMap["大众"];
 
                     string extraData = JsonHandler.GenJson(keyList, GetRowStringValueList(row));
                     modelPay.ExtraData = extraData;
@@ -238,7 +240,7 @@ namespace TravelAgency.Common
                         if (rcvNum > 0 && payNum == 0)
                         {
                             orderModel.Amount = rcvNum;
-                            orderModel.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["收入"];
+                            orderModel.OrderType = Enums_OrderInfo_OrderType.valueKeyMap["收入"];
                         }
                         else if (rcvNum == 0 && payNum < 0)
                         {
@@ -246,15 +248,15 @@ namespace TravelAgency.Common
                             var remark = row.GetCell(11)?.StringCellValue;
                             if (remark.Contains("售后退款"))
                             {
-                                orderModel.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["退款"];
+                                orderModel.OrderType = Enums_OrderInfo_OrderType.valueKeyMap["退款"];
                             }
                             else if (remark.Contains("信用卡支付服务费"))
                             {
-                                orderModel.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["其他"];
+                                orderModel.OrderType = Enums_OrderInfo_OrderType.valueKeyMap["其他"];
                             }
                             else if (remark.Contains("淘宝客佣金代扣款"))
                             {
-                                orderModel.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["佣金"];
+                                orderModel.OrderType = Enums_OrderInfo_OrderType.valueKeyMap["佣金"];
                             }
                             else
                             {
@@ -275,12 +277,12 @@ namespace TravelAgency.Common
                         if (rcvNum > 0 && payNum == 0)
                         {
                             orderModel.Amount = rcvNum;
-                            orderModel.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["收入"];
+                            orderModel.OrderType = Enums_OrderInfo_OrderType.valueKeyMap["收入"];
                         }
                         else if (rcvNum == 0 && payNum < 0)
                         {
                             orderModel.Amount = payNum;
-                            orderModel.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["其他"];
+                            orderModel.OrderType = Enums_OrderInfo_OrderType.valueKeyMap["其他"];
                         }
                         else
                         {
@@ -300,12 +302,12 @@ namespace TravelAgency.Common
                         if (rcvNum > 0 && payNum == 0)
                         {
                             orderModel.Amount = rcvNum;
-                            orderModel.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["其他"];
+                            orderModel.OrderType = Enums_OrderInfo_OrderType.valueKeyMap["其他"];
                         }
                         else if (rcvNum == 0 && payNum < 0)
                         {
                             orderModel.Amount = payNum;
-                            orderModel.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["佣金"];
+                            orderModel.OrderType = Enums_OrderInfo_OrderType.valueKeyMap["佣金"];
                         }
                         else
                         {
@@ -323,7 +325,7 @@ namespace TravelAgency.Common
                         if (rcvNum == 0 && payNum < 0)
                         {
                             orderModel.Amount = payNum;
-                            orderModel.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["扣垂直积分"];
+                            orderModel.OrderType = Enums_OrderInfo_OrderType.valueKeyMap["扣垂直积分"];
                         }
                         else
                         {
@@ -343,7 +345,7 @@ namespace TravelAgency.Common
                         if (rcvNum == 0 && payNum < 0)
                         {
                             orderModel.Amount = payNum;
-                            orderModel.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["佣金"];
+                            orderModel.OrderType = Enums_OrderInfo_OrderType.valueKeyMap["佣金"];
                         }
                         else
                         {
@@ -358,7 +360,7 @@ namespace TravelAgency.Common
                     }
                     orderModel.OrderTime = row.GetCell(4)?.DateCellValue;
                     orderModel.ProductName = row.GetCell(3)?.StringCellValue;
-                    orderModel.PaymentPlatform = Enums.OrderInfo_PaymentPlatform.valueKeyMap["飞猪"];
+                    orderModel.PaymentPlatform = Enums_OrderInfo_PaymentPlatform.valueKeyMap["飞猪"];
                     string extraData = JsonHandler.GenJson(keyList, GetRowStringValueList(row));
                     orderModel.ExtraData = extraData;
                     res.Add(orderModel);
@@ -401,15 +403,15 @@ namespace TravelAgency.Common
                     modelPay.ProductName = row.GetCell(1)?.StringCellValue;
                     modelPay.Amount = DecimalHandler.Parse(row.GetCell(9)?.NumericCellValue.ToString()); //佣金
                     modelPay.OrderTime = DateTime.Parse(row.GetCell(16)?.StringCellValue); //结算时间
-                    modelPay.PaymentPlatform = Enums.OrderInfo_PaymentPlatform.valueKeyMap["蚂蜂"];
-                    modelPay.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["佣金"];
+                    modelPay.PaymentPlatform = BLL.Enums_OrderInfo_PaymentPlatform.valueKeyMap["蚂蜂"];
+                    modelPay.OrderType = BLL.Enums_OrderInfo_OrderType.valueKeyMap["佣金"];
 
                     modelRec.OrderNo = row.GetCell(0)?.StringCellValue;
                     modelRec.ProductName = row.GetCell(1)?.StringCellValue;
                     modelRec.Amount = DecimalHandler.Parse(row.GetCell(11)?.NumericCellValue.ToString()); //收入
                     modelRec.OrderTime = DateTime.Parse(row.GetCell(16)?.StringCellValue); //结算时间
-                    modelRec.PaymentPlatform = Enums.OrderInfo_PaymentPlatform.valueKeyMap["蚂蜂"];
-                    modelRec.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["收入"];
+                    modelRec.PaymentPlatform = Enums_OrderInfo_PaymentPlatform.valueKeyMap["蚂蜂"];
+                    modelRec.OrderType = Enums_OrderInfo_OrderType.valueKeyMap["收入"];
 
 
 
@@ -465,8 +467,8 @@ namespace TravelAgency.Common
                         modeRefund.Amount = amount; //佣金
 
                         modeRefund.OrderTime = DateTime.Parse(row.GetCell(7)?.StringCellValue); //结算时间
-                        modeRefund.PaymentPlatform = Enums.OrderInfo_PaymentPlatform.valueKeyMap["携程"];
-                        modeRefund.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["退款"];
+                        modeRefund.PaymentPlatform = Enums_OrderInfo_PaymentPlatform.valueKeyMap["携程"];
+                        modeRefund.OrderType = Enums_OrderInfo_OrderType.valueKeyMap["退款"];
                         modeRefund.ExtraData = extraData;
                         res.Add(modeRefund);
                     }
@@ -492,16 +494,16 @@ namespace TravelAgency.Common
                             modelPay.ProductName = row.GetCell(1)?.StringCellValue;
                             modelPay.Amount = -1 * amount1; //佣金
                             modelPay.OrderTime = DateTime.Parse(row.GetCell(7)?.StringCellValue); //结算时间
-                            modelPay.PaymentPlatform = Enums.OrderInfo_PaymentPlatform.valueKeyMap["携程"];
-                            modelPay.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["佣金"];
+                            modelPay.PaymentPlatform = Enums_OrderInfo_PaymentPlatform.valueKeyMap["携程"];
+                            modelPay.OrderType = Enums_OrderInfo_OrderType.valueKeyMap["佣金"];
 
 
                             modelRec.OrderNo = row.GetCell(0)?.StringCellValue;
                             modelRec.ProductName = row.GetCell(1)?.StringCellValue;
                             modelRec.Amount = amount; //收入
                             modelRec.OrderTime = DateTime.Parse(row.GetCell(7)?.StringCellValue); //结算时间
-                            modelRec.PaymentPlatform = Enums.OrderInfo_PaymentPlatform.valueKeyMap["携程"];
-                            modelRec.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["收入"];
+                            modelRec.PaymentPlatform = Enums_OrderInfo_PaymentPlatform.valueKeyMap["携程"];
+                            modelRec.OrderType = Enums_OrderInfo_OrderType.valueKeyMap["收入"];
 
 
                             modelPay.ExtraData = extraData;
@@ -516,8 +518,8 @@ namespace TravelAgency.Common
                             modelRec.ProductName = row.GetCell(1)?.StringCellValue;
                             modelRec.Amount = amount; //收入
                             modelRec.OrderTime = DateTime.Parse(row.GetCell(7)?.StringCellValue); //结算时间
-                            modelRec.PaymentPlatform = Enums.OrderInfo_PaymentPlatform.valueKeyMap["携程"];
-                            modelRec.OrderType = Enums.OrderInfo_OrderType.valueKeyMap["收入"];
+                            modelRec.PaymentPlatform = Enums_OrderInfo_PaymentPlatform.valueKeyMap["携程"];
+                            modelRec.OrderType = Enums_OrderInfo_OrderType.valueKeyMap["收入"];
                             modelRec.ExtraData = extraData;
                             res.Add(modelRec);
                         }

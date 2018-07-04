@@ -1,4 +1,4 @@
-﻿namespace TravelAgency.Common.Enums
+﻿namespace TravelAgency.Model.Enums
 {
     /// <summary>
     /// 用来做判断的分隔符字符串

@@ -4,7 +4,7 @@ using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using TravelAgency.BLL;
 using TravelAgency.Common;
-using TravelAgency.Common.PictureHandler;
+using TravelAgency.Model.Enums;
 
 namespace TravelAgency.OrdersManagement
 {
@@ -117,7 +117,7 @@ namespace TravelAgency.OrdersManagement
                     txtToUser.Enabled = false;
                     txtOrderNo.Enabled = false;
                     //回复的退款
-                    if (_model.MsgType == Common.Enums.MsgType.type01Refund)
+                    if (_model.MsgType == MsgType.type01Refund)
                     {
                         groupBox1.Enabled = true;
                         _ordersModel = _bllOrders.GetModelList(" orderno = '" + _model.OrderNo + "' ")[0];
@@ -164,7 +164,7 @@ namespace TravelAgency.OrdersManagement
                     txtToUser.Items.Add(item);
             txtToUser.SelectedIndex = 0;
 
-            list = Common.Enums.RefundState.List;
+            list = RefundState.List;
             if (list != null)
                 foreach (var item in list)
                     txtRefundState.Items.Add(item);
@@ -263,14 +263,14 @@ namespace TravelAgency.OrdersManagement
                         return;
                     }
 
-                    if ( txtMsgType.Text == Common.Enums.MsgType.type01Refund) //新增退款消息或者回复退款消息的时候
+                    if ( txtMsgType.Text == MsgType.type01Refund) //新增退款消息或者回复退款消息的时候
                     {
                         _ordersModel.RefundAmout = CtrlParser.Parse2Decimal(txtRefundAmout);
                         _ordersModel.RefundReason = CtrlParser.Parse2String(txtRefundReason);
                         _ordersModel.GuestRefundApplyTime = CtrlParser.Parse2Datetime(txtGuestRefundApplyTime);
                         _ordersModel.RefundState = txtRefundState.Text;
 
-                        if (_isReply && txtRefundState.Text == Common.Enums.RefundState.Type03Complete)
+                        if (_isReply && txtRefundState.Text == RefundState.Type03Complete)
                         {
                             if (MessageBoxEx.Show("是否同时更新订单实收金额?", "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                             {

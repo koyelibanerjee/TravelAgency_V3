@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Windows.Input;
 using TravelAgency.Common;
-using TravelAgency.Common.PictureHandler;
+using TravelAgency.Common.FTPFileHandler;
 using MouseEventArgs = System.Windows.Forms.MouseEventArgs;
 
 namespace TravelAgency.CSUI.FrmSub

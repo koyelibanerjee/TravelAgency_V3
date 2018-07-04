@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TravelAgency.BLL;
+﻿using System.Collections.Generic;
 
-namespace TravelAgency.Common.Financial
+namespace TravelAgency.BLL
 {
     public static class CommisionMoneyCounter
     {
@@ -34,11 +29,11 @@ namespace TravelAgency.Common.Financial
                 return 0;
             var moneyModel = CommisionMoniesDict[model.Type];
             decimal res = 0;
-            res += model.Type00ScanedIn*moneyModel.Type00ScanedIn.Value;
-            res += model.Type02TypeInData*moneyModel.Type02TypeInData.Value;
-            res += model.Type05SendSubmission*moneyModel.Type05SendSubmission.Value;
-            res += model.Type06GetSubmission*moneyModel.Type06GetSubmission.Value;
-            res += model.Type07AccompanySubmission*moneyModel.Type07AccompanySubmission.Value;
+            res += model.Type00ScanedIn * moneyModel.Type00ScanedIn.Value;
+            res += model.Type02TypeInData * moneyModel.Type02TypeInData.Value;
+            res += model.Type05SendSubmission * moneyModel.Type05SendSubmission.Value;
+            res += model.Type06GetSubmission * moneyModel.Type06GetSubmission.Value;
+            res += model.Type07AccompanySubmission * moneyModel.Type07AccompanySubmission.Value;
             res += model.Type08Plan * moneyModel.Type08Plan.Value;
             return res;
         }

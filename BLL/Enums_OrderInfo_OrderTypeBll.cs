@@ -1,22 +1,23 @@
 ﻿using System;
+using System.Data;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TravelAgency.Common.Enums
+using TravelAgency.Model;
+namespace TravelAgency.BLL
 {
-    public class OrderInfo_OrderInfoState
-    {
+	/// <summary>
+	/// Enums_OrderInfo_OrderType
+	/// </summary>
+	public partial class Enums_OrderInfo_OrderType
+	{
         public static Dictionary<int, string> keyValueMap = new Dictionary<int, string>();
         public static Dictionary<string, int> valueKeyMap = new Dictionary<string, int>();
-        static OrderInfo_OrderInfoState()
+        static Enums_OrderInfo_OrderType()
         {
-            var list = new BLL.Enums_OrderInfo_OrderInfoState().GetModelList(string.Empty);
+            var list = new BLL.Enums_OrderInfo_OrderType().GetModelList(string.Empty);
             foreach (var item in list)
             {
-                keyValueMap.Add(item.StateNo, item.StateInfo);
-                valueKeyMap.Add(item.StateInfo, item.StateNo);
+                keyValueMap.Add(item.TypeNo, item.TypeName);
+                valueKeyMap.Add(item.TypeName, item.TypeNo);
             }
         }
 
@@ -34,5 +35,7 @@ namespace TravelAgency.Common.Enums
                 return keyValueMap[key];
             else return null;
         }
+
     }
 }
+

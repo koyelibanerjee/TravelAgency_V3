@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using TravelAgency.BLL.FTPFileHandler;
 using TravelAgency.Common;
 using TravelAgency.Common.FTP;
 
@@ -117,7 +118,7 @@ namespace TravelAgency.OrdersManagement.FrmSub
 
         private void 下载全部附件ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new Common.PictureHandler.OrderFilesHandler().DownloadOrderFiles(_model);
+            new OrderFilesHandler().DownloadOrderFiles(_model);
         }
 
         private void 上传附件ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -125,7 +126,7 @@ namespace TravelAgency.OrdersManagement.FrmSub
             string filename = GlobalUtils.ShowOpenFileDlg("*|*.*");
             if (string.IsNullOrEmpty(filename))
                 return;
-            new Common.PictureHandler.OrderFilesHandler().UploadOrderFile(filename, _model.Id);
+            new OrderFilesHandler().UploadOrderFile(filename, _model.Id);
             LoadDataToDgv();
         }
 
@@ -139,7 +140,7 @@ namespace TravelAgency.OrdersManagement.FrmSub
             if (string.IsNullOrEmpty(dstPath))
                 return;
 
-            FtpHandler.ChangeFtpUri(new Common.PictureHandler.OrderFilesHandler().RemoteRootPath);
+            FtpHandler.ChangeFtpUri(new OrderFilesHandler().RemoteRootPath);
             for (int i = 0; i < fileList.Count; ++i)
             {
                 FtpHandler.Download(dstPath, fileList[i].FileName);

@@ -195,31 +195,11 @@
     <Compile Include="DataStructure\LRUCache.cs" />
     <Compile Include="DataStructure\Node.cs" />
     <Compile Include="DecimalHandler.cs" />
-    <Compile Include="Enums\AirInfos.cs" />
     <Compile Include="AppSettingHandler.cs" />
     <Compile Include="CmdHandler.cs" />
     <Compile Include="CountryCode.cs" />
     <Compile Include="CountryPicHandler.cs" />
     <Compile Include="DateTimeFormator.cs" />
-    <Compile Include="Enums\ActType.cs" />
-    <Compile Include="Enums\MsgType.cs" />
-    <Compile Include="Enums\OrderInfo_PaymentPlatform.cs" />
-    <Compile Include="Enums\OrderInfo_OrderType.cs" />
-    <Compile Include="Enums\OrderInfo_OrderInfoState.cs" />
-    <Compile Include="Enums\OrdersActtype.cs" />
-    <Compile Include="Enums\RefundState.cs" />
-    <Compile Include="Enums\ReplyResult.cs" />
-    <Compile Include="Enums\RequestFlag.cs" />
-    <Compile Include="Excel\FrmOrderInfoExcelParser.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Excel\FrmOrderInfoExcelParser.Designer.cs">
-      <DependentUpon>FrmOrderInfoExcelParser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Excel\NOPIHelper.cs" />
-    <Compile Include="Excel\OrderInfoExcelParser.cs" />
-    <Compile Include="Excel\XlsGenerator.cs" />
-    <Compile Include="Financial\CommisionMoneyCounter.cs" />
     <Compile Include="FrmSetValues\FrmIntValueSet.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,7 +221,7 @@
     <Compile Include="FrmSetValues\FrmTimeSpanChoose.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmSetValues\FrmTimeSpanChoose.Designer.cs">
+    <Compile Include="FrmSetValues\FrmTimeSpanChooseWithVisaRecord.Designer.cs">
       <DependentUpon>FrmTimeSpanChoose.cs</DependentUpon>
     </Compile>
     <Compile Include="FTP\FtpHandler.cs" />
@@ -249,10 +229,6 @@
     <Compile Include="JsonHandler.cs" />
     <Compile Include="PathHelper.cs" />
     <Compile Include="PayoutUpdateRules.cs" />
-    <Compile Include="PictureHandler\OrderFilesHandler.cs" />
-    <Compile Include="PictureHandler\OrderExcelHandler.cs" />
-    <Compile Include="PictureHandler\GaopaiPicHandler.cs" />
-    <Compile Include="PictureHandler\PassportPicHandler.cs" />
     <Compile Include="PicHandler.cs" />
     <Compile Include="PinyinParse\FirstLetterHelper.cs" />
     <Compile Include="RngWord.cs" />
@@ -260,16 +236,10 @@
     <Compile Include="TextHandler.cs" />
     <Compile Include="CtrlParser.cs" />
     <Compile Include="Word\DocCOMHandler.cs" />
-    <Compile Include="Enums\HasChecked.cs" />
-    <Compile Include="Enums\Types.cs" />
-    <Compile Include="Excel\ExcelGenerator.cs" />
-    <Compile Include="Enums\HasTypeIn.cs" />
     <Compile Include="GlobalUtils.cs" />
     <Compile Include="IDCard\IDCard.cs" />
     <Compile Include="IDCard\IDCardDll.cs" />
     <Compile Include="MD5Computer\MyMd5.cs" />
-    <Compile Include="Enums\OutState.cs" />
-    <Compile Include="Enums\OutStateString.cs" />
     <Compile Include="ObjDeepClone.cs" />
     <Compile Include="PinyinParse\PinYinConverter.cs" />
     <Compile Include="PinyinParse\PinYinConverterHelp.cs" />
@@ -313,10 +283,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BLL\TravelAgency.BLL.csproj">
-      <Project>{38d7aa58-c95b-449b-86c6-a8073a56e11f}</Project>
-      <Name>TravelAgency.BLL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Model\TravelAgency.Model.csproj">
       <Project>{53995dbb-9836-4647-ad22-865884fdeb9e}</Project>
       <Name>TravelAgency.Model</Name>
@@ -352,22 +318,6 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Excel\Templates\template_2人保险申请表格.xls">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Excel\Templates\template_%28前8人）旅行社申请名单表_（表3）_添加占位符.xls" />
-    <None Include="Excel\Templates\template_泰国8人首页.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Excel\Templates\泰国数据源报表.xls">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Excel\Templates\template_账单模板.xlsx">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="Excel\Templates\（）国旅旅行社申请名单表_进馆.xls">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="packages.config" />
     <None Include="Word\Templates\template_01机票单-泰国.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -437,9 +387,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Excel\FrmOrderInfoExcelParser.resx">
-      <DependentUpon>FrmOrderInfoExcelParser.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmSetValues\FrmIntValueSet.resx">
       <DependentUpon>FrmIntValueSet.cs</DependentUpon>
     </EmbeddedResource>
@@ -449,12 +396,13 @@
     <EmbeddedResource Include="FrmSetValues\FrmSetStringValueComboBox.resx">
       <DependentUpon>FrmSetStringValueComboBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmSetValues\FrmTimeSpanChoose.resx">
+    <EmbeddedResource Include="FrmSetValues\FrmTimeSpanChooseWithVisaRecord.resx">
       <DependentUpon>FrmTimeSpanChoose.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CustomControls\" />
+    <Folder Include="Financial\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

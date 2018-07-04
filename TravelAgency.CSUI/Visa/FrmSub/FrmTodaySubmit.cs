@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using TravelAgency.BLL.Excel;
 using TravelAgency.Common;
 using TravelAgency.Common.Enums;
 using TravelAgency.Common.Excel;
@@ -15,6 +16,7 @@ using TravelAgency.Common.Word;
 using TravelAgency.CSUI.FrmMain;
 using TravelAgency.CSUI.Properties;
 using TravelAgency.Model;
+using TravelAgency.Model.Enums;
 
 namespace TravelAgency.CSUI.FrmSub
 {

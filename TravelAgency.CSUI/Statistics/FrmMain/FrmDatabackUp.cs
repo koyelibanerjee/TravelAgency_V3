@@ -6,15 +6,17 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using TravelAgency.BLL.Excel;
 using TravelAgency.Common;
 using TravelAgency.Common.Enums;
 using TravelAgency.Common.Excel;
-using TravelAgency.Common.PictureHandler;
+using TravelAgency.Common.FTPFileHandler;
 using TravelAgency.Common.QRCode;
 using TravelAgency.Common.Word;
 using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Properties;
 using TravelAgency.Model;
+using TravelAgency.Model.Enums;
 
 namespace TravelAgency.CSUI.FrmMain
 {
@@ -644,7 +646,7 @@ namespace TravelAgency.CSUI.FrmMain
                     peopleCount += 1;
 
                 if (dataGridView1.Rows[i].Cells["outState"].Value != null &&
-                    dataGridView1.Rows[i].Cells["outState"].Value.ToString() == Common.Enums.OutState.Type01Delay)
+                    dataGridView1.Rows[i].Cells["outState"].Value.ToString() == OutState.Type01Delay)
                     ++delayCount;
             }
 

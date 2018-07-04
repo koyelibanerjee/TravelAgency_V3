@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using TravelAgency.BLL;
+using TravelAgency.BLL.Excel;
 using TravelAgency.Common;
 using TravelAgency.Common.Excel;
-using TravelAgency.Common.Financial;
 using TravelAgency.Common.FrmSetValues;
 using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Properties;
 using TravelAgency.CSUI.Statistics.FrmSub;
-using TravelAgency.Model;
+using CommisionMoney = TravelAgency.Model.CommisionMoney;
 
 namespace TravelAgency.CSUI.Statistics.FrmMain
 {

@@ -11,6 +11,7 @@ using DevComponents.DotNetBar;
 using TravelAgency.Common;
 using TravelAgency.CSUI.Properties;
 using TravelAgency.Model;
+using TravelAgency.Model.Enums;
 
 namespace TravelAgency.CSUI.FrmSub
 {
@@ -103,7 +104,7 @@ namespace TravelAgency.CSUI.FrmSub
                 return;
             }
             //操作记录
-            _bllActionRecords.AddRecord(Common.Enums.ActType._01CreateGroupNo, GlobalUtils.LoginUser, null, visaModel);
+            _bllActionRecords.AddRecord(ActType._01CreateGroupNo, GlobalUtils.LoginUser, null, visaModel);
 
             _updateDel(_curPage);
             this.Close();
@@ -146,13 +147,13 @@ namespace TravelAgency.CSUI.FrmSub
                 //_visaModel.CheckPerson = txtCheckPerson.Text;
                 //_visaModel.Types = Common.Enums.Types.Individual; //设置为个签
                 if (rbtnIndividual.Checked)
-                    visaModel.Types = Common.Enums.Types.Individual;//设置为指定类型
+                    visaModel.Types = Types.Individual;//设置为指定类型
 
                 if (rBtnTeam.Checked)
-                    visaModel.Types = Common.Enums.Types.Team;//设置为指定类型
+                    visaModel.Types = Types.Team;//设置为指定类型
 
                 if (rbtnTeamToInd.Checked)
-                    visaModel.Types = Common.Enums.Types.Team2Individual;//设置为指定类型
+                    visaModel.Types = Types.Team2Individual;//设置为指定类型
 
                 visaModel.IsUrgent = chbIsUrgent.Checked;
                 visaModel.Person = txtPerson.Text;

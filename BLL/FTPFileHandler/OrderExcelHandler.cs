@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Diagnostics;
-using System.Drawing;
 using System.IO;
-using System.Threading;
-using NPOI.SS.Formula.Functions;
+using TravelAgency.Common;
 using TravelAgency.Common.FTP;
 
-namespace TravelAgency.Common.PictureHandler
+namespace TravelAgency.BLL.FTPFileHandler
 {
     public class OrderExcelHandler
     {

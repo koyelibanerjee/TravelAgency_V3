@@ -6,8 +6,8 @@ using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using NPOI.HSSF.Record.AutoFilter;
 using TravelAgency.Common;
-using TravelAgency.Common.PictureHandler;
 using TravelAgency.Model;
+using TravelAgency.Model.Enums;
 
 namespace TravelAgency.OrdersManagement
 {
@@ -74,7 +74,7 @@ namespace TravelAgency.OrdersManagement
                 //把选中的加载到这里面
                 txtOrderNo.Text = _model.OrderNo;
 
-                txtPaymentPlatform.Text = Common.Enums.OrderInfo_PaymentPlatform.KeyToValue(_model.PaymentPlatform);
+                txtPaymentPlatform.Text = BLL.Enums_OrderInfo_PaymentPlatform.KeyToValue(_model.PaymentPlatform.Value);
                 txtGroupNo.Text = _model.GroupNo;
                 txtProductName.Text = _model.ProductName;
                 txtProductId.Text = _model.ProductId.ToString();
@@ -253,7 +253,7 @@ namespace TravelAgency.OrdersManagement
             txtPaymentPlatform.DropDownStyle = ComboBoxStyle.DropDownList;
 
 
-            var list = Common.Enums.OrderInfo_PaymentPlatform.valueKeyMap.Keys;
+            var list = BLL.Enums_OrderInfo_PaymentPlatform.valueKeyMap.Keys;
             if (list != null)
                 foreach (var item in list)
                     txtPaymentPlatform.Items.Add(item);
@@ -282,7 +282,7 @@ namespace TravelAgency.OrdersManagement
 
                     _model.OrderNo = CtrlParser.Parse2String(txtOrderNo);
                     _model.WaitorName = GlobalUtils.LoginUser.UserName;
-                    _model.PaymentPlatform = Common.Enums.OrderInfo_PaymentPlatform.ValueToKey(txtPaymentPlatform.Text);
+                    _model.PaymentPlatform = BLL.Enums_OrderInfo_PaymentPlatform.ValueToKey(txtPaymentPlatform.Text);
                     _model.GroupNo = CtrlParser.Parse2String(txtGroupNo);
                     _model.ProductName = CtrlParser.Parse2String(txtProductName);
                     _model.ProductId = CtrlParser.Parse2Int(txtProductId);
@@ -367,7 +367,7 @@ namespace TravelAgency.OrdersManagement
 
                     model.OrderNo = CtrlParser.Parse2String(txtOrderNo);
                     model.WaitorName = GlobalUtils.LoginUser.UserName;
-                    model.PaymentPlatform = Common.Enums.OrderInfo_PaymentPlatform.ValueToKey(txtPaymentPlatform.Text);
+                    model.PaymentPlatform =BLL.Enums_OrderInfo_PaymentPlatform.ValueToKey(txtPaymentPlatform.Text);
                     model.GroupNo = CtrlParser.Parse2String(txtGroupNo);
                     model.ProductName = CtrlParser.Parse2String(txtProductName);
                     model.ProductId = CtrlParser.Parse2Int(txtProductId);
@@ -402,7 +402,7 @@ namespace TravelAgency.OrdersManagement
                         return;
                     }
                     model.Id = id;
-                    _bllLoger.AddLog(GlobalUtils.LoginUser, Common.Enums.OrdersActtype.value2Key("客服:录入订单"), model);
+                    _bllLoger.AddLog(GlobalUtils.LoginUser, OrdersActtype.value2Key("客服:录入订单"), model);
 
                     //添加客人信息
                     var list = DgvDataSourceToList();

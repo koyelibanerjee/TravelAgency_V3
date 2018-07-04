@@ -7,12 +7,14 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using DevComponents.DotNetBar.Controls;
+using TravelAgency.BLL.Excel;
 using TravelAgency.Common;
 using TravelAgency.Common.Enums;
 using TravelAgency.Common.Excel;
 using TravelAgency.CSUI.FrmSetValue;
 using TravelAgency.CSUI.Properties;
 using TravelAgency.Model;
+using TravelAgency.Model.Enums;
 
 namespace TravelAgency.CSUI.FrmSub
 {
@@ -375,7 +377,7 @@ namespace TravelAgency.CSUI.FrmSub
             bool delay = false;
             foreach (var visaInfo in _list)
             {
-                if (visaInfo.outState == Common.Enums.OutState.Type01Delay)
+                if (visaInfo.outState == OutState.Type01Delay)
                 {
                     delay = true; //有一个的话就把选择框勾上
                     break;
@@ -666,7 +668,7 @@ namespace TravelAgency.CSUI.FrmSub
                 list[i].Salesperson = txtSalesPerson.Text;
                 list[i].Types = _type;//设置指定类型
                 list[i].Position = i + 1; //设置位置
-                list[i].outState = chkDelay.Checked ? Common.Enums.OutState.Type01Delay : Common.Enums.OutState.Type01NoRecord;
+                list[i].outState = chkDelay.Checked ? OutState.Type01Delay : OutState.Type01NoRecord;
             }
             int res = _bllVisaInfo.UpdateByList(_dgvList);
             GlobalUtils.MessageBoxWithRecordNum("更新", res, list.Count);
@@ -948,14 +950,14 @@ namespace TravelAgency.CSUI.FrmSub
                 bool hasOneTypedIn = false; //判断是否有做完任何一本，有的话就可以触发一次分配工作的逻辑
                 for (int i = 0; i < _dgvList.Count; i++)
                 {
-                    _bllLoger.AddRecord(Common.Enums.ActType._01TypeIn, Common.GlobalUtils.LoginUser,
+                    _bllLoger.AddRecord(ActType._01TypeIn, Common.GlobalUtils.LoginUser,
                                             _dgvList[i], _visaModel);
 
                     if (_visaModel.IsOutDelivery.HasValue && _visaModel.IsOutDelivery.Value) //外送直接已做
                     {
                         _dgvList[i].HasTypeIn = "是"; //默认情况下是"否"
                         hasOneTypedIn = true;
-                        _bllLoger.AddRecord(Common.Enums.ActType._02TypeInData, Common.GlobalUtils.LoginUser,
+                        _bllLoger.AddRecord(ActType._02TypeInData, Common.GlobalUtils.LoginUser,
                             _dgvList[i], _visaModel);
                     }
                     else
@@ -964,7 +966,7 @@ namespace TravelAgency.CSUI.FrmSub
                             continue;
                         _dgvList[i].HasTypeIn = "是"; //默认情况下是"否"
                         hasOneTypedIn = true;
-                        _bllLoger.AddRecord(Common.Enums.ActType._02TypeInData, Common.GlobalUtils.LoginUser,
+                        _bllLoger.AddRecord(ActType._02TypeInData, Common.GlobalUtils.LoginUser,
                                 _dgvList[i], _visaModel);
                     }
                 }
@@ -1044,13 +1046,13 @@ namespace TravelAgency.CSUI.FrmSub
 
                     if (!hasTypedIn) //如果还没录入的话
                     {
-                        log.ActType = Common.Enums.ActType._02TypeInData; //操作记录为做资料
+                        log.ActType = ActType._02TypeInData; //操作记录为做资料
                     }
                     //TODO:这里假设的是没有移出并且没有发生位置的改变。。。，后面需要改进
                     else if (hasTypedIn && !InfoChecker.CheckVisaInfoSame(_dgvList[i], _visainfoListBackUp[i]))
                     //如果已经录入了，并且做了修改，那么这条记录就是修改资料
                     {
-                        log.ActType = Common.Enums.ActType._03Modify; //操作记录为修改资料
+                        log.ActType = ActType._03Modify; //操作记录为修改资料
                     }
                     else //已经录入完整了并且没做修改，那么啥都不干
                     {

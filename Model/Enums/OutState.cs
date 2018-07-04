@@ -1,4 +1,4 @@
-﻿namespace TravelAgency.Common.Enums
+﻿namespace TravelAgency.Model.Enums
 {
     /// <summary>
     /// 状态文本

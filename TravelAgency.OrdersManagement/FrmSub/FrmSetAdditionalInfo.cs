@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using TravelAgency.Common;
-using TravelAgency.Common.PictureHandler;
 
 namespace TravelAgency.OrdersManagement
 {

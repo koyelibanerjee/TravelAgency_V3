@@ -5,6 +5,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using TravelAgency.BLL;
+using TravelAgency.BLL.Excel;
 using TravelAgency.Common;
 using TravelAgency.Common.Excel;
 using TravelAgency.Common.FrmSetValues;
@@ -13,6 +14,7 @@ using TravelAgency.CSUI.Financial.FrmSub;
 using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Properties;
 using TravelAgency.CSUI.Visa.FrmSub.FrmSetValue;
+using TravelAgency.Model.Enums;
 using Visa = TravelAgency.Model.Visa;
 using VisaInfo = TravelAgency.Model.VisaInfo;
 
@@ -408,11 +410,11 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
         private void btnGetTodayExcel_Click(object sender, EventArgs e)
         {
-            FrmTimeSpanChoose frmSpanChoose = new FrmTimeSpanChoose();
-            if (frmSpanChoose.ShowDialog() == DialogResult.Cancel)
+            FrmTimeSpanChoose frmSpanChooseWithVisaRecord = new FrmTimeSpanChoose();
+            if (frmSpanChooseWithVisaRecord.ShowDialog() == DialogResult.Cancel)
                 return;
-            DateTime from = frmSpanChoose.TimeSpanFrom;
-            DateTime to = frmSpanChoose.TimeSpanTo;
+            DateTime from = frmSpanChooseWithVisaRecord.TimeSpanFrom;
+            DateTime to = frmSpanChooseWithVisaRecord.TimeSpanTo;
 
             //List<Visa> visaList =
             //    _bllVisa.GetModelList(" (EntryTime between '" + DateTimeFormator.DateTimeToString(from) + " 00:00:0.000' and " + " '" +
@@ -426,7 +428,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                          "') and (Types='个签' or Types='团做个') and (country = '日本') order by entrytime asc");
 
             //这里干脆就不判断entrytime了，直接找记录算了
-            visaList = _bllActionRecords.CheckStatesAndRemove(visaList, Common.Enums.ActType._02TypeInData, 4); //只保留已经做完了的
+            visaList = _bllActionRecords.CheckStatesAndRemove(visaList, ActType._02TypeInData, 4); //只保留已经做完了的
 
             //这里确认一下
             if (visaList.Count <= 0)
@@ -465,7 +467,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                 //去除掉添加了延后操作的
                 for (int j = list.Count - 1; j >= 0; j--)
                 {
-                    if (list[j].outState == Common.Enums.OutState.Type01Delay)
+                    if (list[j].outState == OutState.Type01Delay)
                     {
                         list.Remove(list[j]);
                     }
@@ -770,7 +772,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                 return;
             }
 
-            if (visaModel.Types == Common.Enums.Types.Team)
+            if (visaModel.Types == Model.Enums.Types.Team)
             {
                 MessageBoxEx.Show("团签类型不能导出此报表!");
                 return;
@@ -1134,13 +1136,13 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                 return;
             }
 
-            if (model.Types == Common.Enums.Types.Individual || model.Types == Common.Enums.Types.Team2Individual)
+            if (model.Types == Model.Enums.Types.Individual || model.Types == Model.Enums.Types.Team2Individual)
             {
                 FrmSetGroup frm = new FrmSetGroup(model, LoadDataToDataGridView, _curPage);
                 //frm.ShowDialog();
                 frm.Show();
             }
-            else if (model.Types == Common.Enums.Types.Team)
+            else if (model.Types == Model.Enums.Types.Team)
             {
                 FrmSetTeamVisaGroup frm = new FrmSetTeamVisaGroup(model, LoadDataToDataGridView, _curPage);
                 //frm.ShowDialog();
@@ -1210,7 +1212,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                 visaModel.Number = _listToAddToGroup.Count;
             else visaModel.Number += _listToAddToGroup.Count;
             DialogResult res = DialogResult.No;
-            if (visaModel.Types == Common.Enums.Types.Individual)
+            if (visaModel.Types == Model.Enums.Types.Individual)
             {
                 if ((res = MessageBoxEx.Show("是否自动更新团号名称?", "提示", MessageBoxButtons.YesNo))
                     == DialogResult.Yes)
@@ -1235,7 +1237,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             for (int i = 0; i < _listToAddToGroup.Count; i++)
             {
                 Model.ActionRecords log = new Model.ActionRecords();
-                log.ActType = Common.Enums.ActType._01AddToExist; //操作记录为添加到已有团号
+                log.ActType = ActType._01AddToExist; //操作记录为添加到已有团号
                 log.WorkId = Common.GlobalUtils.LoginUser.WorkId;
                 log.UserName = Common.GlobalUtils.LoginUser.UserName;
                 log.VisaInfo_id = _listToAddToGroup[i].VisaInfo_id;
@@ -1260,13 +1262,13 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             if (MessageBoxEx.Show("是否进入资料设置？", "提示", MessageBoxButtons.YesNo)
                 == DialogResult.Yes)
             {
-                if (visaModel.Types == Common.Enums.Types.Individual)
+                if (visaModel.Types == Model.Enums.Types.Individual)
                 {
                     FrmSetGroup frm = new FrmSetGroup(visaModel, this.LoadDataToDataGridView, _curPage);
                     //frm.ShowDialog();
                     frm.Show();
                 }
-                else if (visaModel.Types == Common.Enums.Types.Team)
+                else if (visaModel.Types == Model.Enums.Types.Team)
                 {
                     FrmSetTeamVisaGroup frm = new FrmSetTeamVisaGroup(visaModel, this.LoadDataToDataGridView, _curPage);
                     //frm.ShowDialog();
@@ -1648,7 +1650,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             if (list.Count < 1)
                 return;
 
-            FrmSetStringValueComboBox frm = new FrmSetStringValueComboBox("设置请款标记", Common.Enums.RequestFlag.List, list[0].RequestFlag);
+            FrmSetStringValueComboBox frm = new FrmSetStringValueComboBox("设置请款标记", Model.Enums.RequestFlag.List, list[0].RequestFlag);
             if (frm.ShowDialog() == DialogResult.Cancel)
                 return;
 

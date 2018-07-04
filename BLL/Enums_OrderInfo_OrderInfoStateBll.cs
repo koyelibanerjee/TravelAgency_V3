@@ -5,12 +5,12 @@ using TravelAgency.Model;
 namespace TravelAgency.BLL
 {
 	/// <summary>
-	/// Enums_OrderInfo_PaymentPlatform
+	/// Enums_OrderInfo_OrderInfoState
 	/// </summary>
-	public partial class Enums_OrderInfo_PaymentPlatform
+	public partial class Enums_OrderInfo_OrderInfoState
 	{
-		private readonly DAL.Enums_OrderInfo_PaymentPlatform dal=new DAL.Enums_OrderInfo_PaymentPlatform();
-		public Enums_OrderInfo_PaymentPlatform()
+		private readonly TravelAgency.DAL.Enums_OrderInfo_OrderInfoState dal=new TravelAgency.DAL.Enums_OrderInfo_OrderInfoState();
+		public Enums_OrderInfo_OrderInfoState()
 		{}
 		#region  BasicMethod
 
@@ -25,15 +25,15 @@ namespace TravelAgency.BLL
 		/// <summary>
 		/// 是否存在该记录
 		/// </summary>
-		public bool Exists(int PlatNo,string PlateName)
+		public bool Exists(int StateNo,string StateInfo)
 		{
-			return dal.Exists(PlatNo,PlateName);
+			return dal.Exists(StateNo,StateInfo);
 		}
 
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public bool Add(Model.Enums_OrderInfo_PaymentPlatform model)
+		public bool Add(TravelAgency.Model.Enums_OrderInfo_OrderInfoState model)
 		{
 			return dal.Add(model);
 		}
@@ -41,7 +41,7 @@ namespace TravelAgency.BLL
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
-		public bool Update(Model.Enums_OrderInfo_PaymentPlatform model)
+		public bool Update(TravelAgency.Model.Enums_OrderInfo_OrderInfoState model)
 		{
 			return dal.Update(model);
 		}
@@ -49,19 +49,19 @@ namespace TravelAgency.BLL
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
-		public bool Delete(int PlatNo,string PlateName)
+		public bool Delete(int StateNo,string StateInfo)
 		{
 			
-			return dal.Delete(PlatNo,PlateName);
+			return dal.Delete(StateNo,StateInfo);
 		}
 
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public Model.Enums_OrderInfo_PaymentPlatform GetModel(int PlatNo,string PlateName)
+		public TravelAgency.Model.Enums_OrderInfo_OrderInfoState GetModel(int StateNo,string StateInfo)
 		{
 			
-			return dal.GetModel(PlatNo,PlateName);
+			return dal.GetModel(StateNo,StateInfo);
 		}
 
 		/// <summary>
@@ -81,7 +81,7 @@ namespace TravelAgency.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public List<Model.Enums_OrderInfo_PaymentPlatform> GetModelList(string strWhere)
+		public List<TravelAgency.Model.Enums_OrderInfo_OrderInfoState> GetModelList(string strWhere)
 		{
 			DataSet ds = dal.GetList(strWhere);
 			return DataTableToList(ds.Tables[0]);
@@ -89,13 +89,13 @@ namespace TravelAgency.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public List<Model.Enums_OrderInfo_PaymentPlatform> DataTableToList(DataTable dt)
+		public List<TravelAgency.Model.Enums_OrderInfo_OrderInfoState> DataTableToList(DataTable dt)
 		{
-			List<Model.Enums_OrderInfo_PaymentPlatform> modelList = new List<Model.Enums_OrderInfo_PaymentPlatform>();
+			List<TravelAgency.Model.Enums_OrderInfo_OrderInfoState> modelList = new List<TravelAgency.Model.Enums_OrderInfo_OrderInfoState>();
 			int rowsCount = dt.Rows.Count;
 			if (rowsCount > 0)
 			{
-				Model.Enums_OrderInfo_PaymentPlatform model;
+				TravelAgency.Model.Enums_OrderInfo_OrderInfoState model;
 				for (int n = 0; n < rowsCount; n++)
 				{
 					model = dal.DataRowToModel(dt.Rows[n]);

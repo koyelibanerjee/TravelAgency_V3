@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TravelAgency.Common.Enums
+﻿namespace TravelAgency.Model.Enums
 {
-
     /// <summary>
     /// 不能用静态类，不然不能声明对象，有时候会用到
     /// </summary>

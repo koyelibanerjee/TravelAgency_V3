@@ -298,7 +298,7 @@ namespace TravelAgency.OrdersManagement
 
                 //row.Cells["OrderType"].Value = Common.Enums.Orders_OrderType.KeyToValue(list[i].OrderType);
                 //row.Cells["OrdersState"].Value = Common.Enums.Orders_OrdersState.KeyToValue(list[i].OrdersState);
-                row.Cells["PaymentPlatform"].Value = Common.Enums.OrderInfo_PaymentPlatform.KeyToValue(list[i].PaymentPlatform);
+                row.Cells["PaymentPlatform"].Value = BLL.Enums_OrderInfo_PaymentPlatform.KeyToValue(list[i].PaymentPlatform.Value);
             }
         }
 

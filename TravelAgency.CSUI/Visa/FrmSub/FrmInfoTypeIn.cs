@@ -9,7 +9,7 @@ using Telerik.WinControls.UI;
 using TravelAgency.BLL;
 using TravelAgency.Common;
 using TravelAgency.Common.Enums;
-using TravelAgency.Common.PictureHandler;
+using TravelAgency.Common.FTPFileHandler;
 using TravelAgency.CSUI.Properties;
 using ActionRecords = TravelAgency.Model.ActionRecords;
 
@@ -234,7 +234,7 @@ namespace TravelAgency.CSUI.FrmSub
             //log.EntryTime = DateTime.Now;
             //_bllActionRecords.Add(log);
 
-            _bllActionRecords.AddRecord(Common.Enums.ActType._03Modify, Common.GlobalUtils.LoginUser,
+            _bllActionRecords.AddRecord(Model.Enums.ActType._03Modify, Common.GlobalUtils.LoginUser,
     _list[_idx], null);
 
             if (!_readonly)

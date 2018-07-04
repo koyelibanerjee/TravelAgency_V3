@@ -6,10 +6,11 @@ using System.Threading;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using TravelAgency.BLL;
+using TravelAgency.BLL.Excel;
+using TravelAgency.BLL.FTPFileHandler;
 using TravelAgency.Common;
 using TravelAgency.Common.Excel;
 using TravelAgency.Common.FrmSetValues;
-using TravelAgency.Common.PictureHandler;
 using TravelAgency.OrdersManagement.FrmSub;
 using Orders = TravelAgency.Model.Orders;
 
@@ -155,12 +156,12 @@ namespace TravelAgency.OrdersManagement
             cbPaymentPlatform.DropDownStyle = ComboBoxStyle.DropDownList;
 
 
-            var list = Common.Enums.OrderInfo_PaymentPlatform.valueKeyMap.Keys;
+            var list = BLL.Enums_OrderInfo_PaymentPlatform.valueKeyMap.Keys;
             if (list != null)
                 foreach (var item in list)
                     cbPaymentPlatform.Items.Add(item);
 
-            var list1 = Common.Enums.ReplyResult.valList;
+            var list1 = Model.Enums.ReplyResult.valList;
             if (list1 != null)
                 foreach (var item in list1)
                     cbReplyResult.Items.Add(item);
@@ -270,7 +271,7 @@ namespace TravelAgency.OrdersManagement
             }
 
             if (cbPaymentPlatform.Text != "全部")
-                conditions.Add(" PaymentPlatform = " + Common.Enums.OrderInfo_PaymentPlatform.ValueToKey(cbPaymentPlatform.Text) + " ");
+                conditions.Add(" PaymentPlatform = " + BLL.Enums_OrderInfo_PaymentPlatform.ValueToKey(cbPaymentPlatform.Text) + " ");
 
             if (cbReplyResult.Text != "全部")
                 conditions.Add(" ReplyResult = '" + cbReplyResult.Text + "' ");
@@ -351,7 +352,7 @@ namespace TravelAgency.OrdersManagement
 
                 //row.Cells["OrderType"].Value = Common.Enums.Orders_OrderType.KeyToValue(list[i].OrderType);
                 //row.Cells["OrdersState"].Value = Common.Enums.Orders_OrdersState.KeyToValue(list[i].OrdersState);
-                row.Cells["PaymentPlatform"].Value = Common.Enums.OrderInfo_PaymentPlatform.KeyToValue(list[i].PaymentPlatform);
+                row.Cells["PaymentPlatform"].Value = BLL.Enums_OrderInfo_PaymentPlatform.KeyToValue(list[i].PaymentPlatform.Value);
             }
 
             lbGuestInfoTypedInCount.Text = string.Format("客人信息已录入: {0}/{1}", hasTypedInGuestInfoCount, dataGridView1.Rows.Count);

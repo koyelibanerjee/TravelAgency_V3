@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using TravelAgency.Model;
+using TravelAgency.Model.Enums;
 
 namespace TravelAgency.CSUI.FrmSub
 {
@@ -127,7 +128,7 @@ namespace TravelAgency.CSUI.FrmSub
 
                     foreach (var visainfo in list)
                     {
-                        _bllActionRecords.AddRecord(Common.Enums.ActType._02TypeInData, Common.GlobalUtils.LoginUser,
+                        _bllActionRecords.AddRecord(ActType._02TypeInData, Common.GlobalUtils.LoginUser,
                             visainfo, visa);
                     }
                 }

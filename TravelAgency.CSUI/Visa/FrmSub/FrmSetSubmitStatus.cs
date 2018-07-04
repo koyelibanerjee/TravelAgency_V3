@@ -11,6 +11,7 @@ using DevComponents.DotNetBar;
 using TravelAgency.Common;
 using TravelAgency.Common.Enums;
 using TravelAgency.Model;
+using TravelAgency.Model.Enums;
 
 namespace TravelAgency.CSUI.FrmSub
 {
@@ -72,7 +73,7 @@ namespace TravelAgency.CSUI.FrmSub
                 {
                     return;
                 }
-                UpdateVisaInfoOutStates(Common.Enums.OutState.Type01NoRecord);
+                UpdateVisaInfoOutStates(OutState.Type01NoRecord);
             }
             else if (rbtnIn.Checked) //修改为进签
             {
@@ -81,7 +82,7 @@ namespace TravelAgency.CSUI.FrmSub
                     return;
                 }
 
-                UpdateVisaInfoOutStates(Common.Enums.OutState.Type02In);
+                UpdateVisaInfoOutStates(OutState.Type02In);
             }
             else if (rbtnOut.Checked)
             {
@@ -89,7 +90,7 @@ namespace TravelAgency.CSUI.FrmSub
                 {
                     return;
                 }
-                UpdateVisaInfoOutStates(Common.Enums.OutState.Type03NormalOut);
+                UpdateVisaInfoOutStates(OutState.Type03NormalOut);
 
 
             }
@@ -99,7 +100,7 @@ namespace TravelAgency.CSUI.FrmSub
                 {
                     return;
                 }
-                UpdateVisaInfoOutStates(Common.Enums.OutState.TYPE04AbnormalOut);
+                UpdateVisaInfoOutStates(OutState.TYPE04AbnormalOut);
             }
             _updateDel(_curPage);
             this.DialogResult = DialogResult.OK;

@@ -4,12 +4,14 @@ using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using TravelAgency.BLL.Excel;
 using TravelAgency.Common;
 using TravelAgency.Common.Enums;
 using TravelAgency.Common.Excel;
 using TravelAgency.CSUI.FrmSetValue;
 using TravelAgency.CSUI.Properties;
 using TravelAgency.Model;
+using TravelAgency.Model.Enums;
 
 
 namespace TravelAgency.CSUI.FrmSub
@@ -379,7 +381,7 @@ namespace TravelAgency.CSUI.FrmSub
                 list[i].Visa_id = _visaModel.Visa_id.ToString(); //修改visainfo对应visa_id
                 //list[i].Client = txtClient.Text; //这两项设置为跟着dgv走
                 //list[i].Salesperson = txtSalesPerson.Text;
-                list[i].Types = Common.Enums.Types.Team;//设置为团签
+                list[i].Types = Types.Team;//设置为团签
                 list[i].Position = i + 1;
             }
             int res = _bllVisaInfo.UpdateByList(_dgvList);
@@ -647,7 +649,7 @@ namespace TravelAgency.CSUI.FrmSub
                     //log.Type = Common.Enums.Types.Team;
                     //log.EntryTime = DateTime.Now;
                     //_bllLoger.Add(log);
-                    _bllLoger.AddRecord(Common.Enums.ActType._01TypeIn, Common.GlobalUtils.LoginUser,
+                    _bllLoger.AddRecord(ActType._01TypeIn, Common.GlobalUtils.LoginUser,
 _dgvList[i], _visaModel);
 
                     if (!CheckTypedInComplete(_dgvList[i])) //如果信息也填写完整了就直接也弄成已经做了
@@ -662,7 +664,7 @@ _dgvList[i], _visaModel);
                     //log1.EntryTime = DateTime.Now;
                     //_bllLoger.Add(log1);
 
-                    _bllLoger.AddRecord(Common.Enums.ActType._02TypeInData, Common.GlobalUtils.LoginUser,
+                    _bllLoger.AddRecord(ActType._02TypeInData, Common.GlobalUtils.LoginUser,
 _dgvList[i], _visaModel);
 
                 }
@@ -733,13 +735,13 @@ _dgvList[i], _visaModel);
 
                     if (!hasTypedIn) //如果还没录入的话
                     {
-                        log.ActType = Common.Enums.ActType._02TypeInData; //操作记录为做资料
+                        log.ActType = ActType._02TypeInData; //操作记录为做资料
                     }
                     //TODO:这里假设的是没有移出并且没有发生位置的改变。。。，后面需要改进
                     else if (hasTypedIn && !InfoChecker.CheckVisaInfoSame(_dgvList[i], _visainfoListBackUp[i]))
                     //如果已经录入了，并且做了修改，那么这条记录就是修改资料
                     {
-                        log.ActType = Common.Enums.ActType._03Modify; //操作记录为修改资料
+                        log.ActType = ActType._03Modify; //操作记录为修改资料
                     }
                     else //已经录入完整了并且没做修改，那么啥都不干
                     {
@@ -802,7 +804,7 @@ _dgvList[i], _visaModel);
                 _visaModel.Name = txtClient.Text;
                 _visaModel.Country = cbCountry.Text;
                 _visaModel.Number = lvIn.Items.Count; //团号的人数
-                _visaModel.Types = Common.Enums.Types.Team; //设置为团签
+                _visaModel.Types = Types.Team; //设置为团签
                 _visaModel.IsUrgent = chbIsUrgent.Checked;
                 _visaModel.Person = txtPerson.Text;
                 return true;
@@ -840,7 +842,7 @@ _dgvList[i], _visaModel);
                 model.Number = lvIn.Items.Count;
                 model.client = txtClient.Text;
                 model.Name = txtClient.Text;
-                model.Types = Common.Enums.Types.Team; //设置为团签
+                model.Types = Types.Team; //设置为团签
                 model.IsUrgent = chbIsUrgent.Checked;
                 model.Person = txtPerson.Text;
 

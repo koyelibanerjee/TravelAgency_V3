@@ -8,6 +8,7 @@ using DevComponents.DotNetBar;
 using TravelAgency.Common;
 using TravelAgency.Common.FrmSetValues;
 using TravelAgency.Model;
+using TravelAgency.Model.Enums;
 
 namespace TravelAgency.OrdersManagement
 {
@@ -72,7 +73,7 @@ namespace TravelAgency.OrdersManagement
             //cbMsgType.Items.Add("退款申请");
 
             cbActType.Items.Add("全部");
-            foreach (var item in Common.Enums.OrdersActtype.valueList)
+            foreach (var item in OrdersActtype.valueList)
                 cbActType.Items.Add(item);
             cbActType.SelectedIndex = 0;
 
@@ -205,7 +206,7 @@ namespace TravelAgency.OrdersManagement
             }
 
             if (cbActType.Text != "全部")
-                conditions.Add(" Acttype = " + Common.Enums.OrdersActtype.value2Key(cbActType.Text) + " ");
+                conditions.Add(" Acttype = " + OrdersActtype.value2Key(cbActType.Text) + " ");
 
             string[] arr = conditions.ToArray();
             string where = string.Join(" and ", arr);
@@ -264,7 +265,7 @@ namespace TravelAgency.OrdersManagement
                 //SetRowColorByReserveTime(row);
                 //SetRowColorByGuestInfoTypedIn(row);
                 if (list[i].ActType.HasValue)
-                    row.Cells["Acttype"].Value = Common.Enums.OrdersActtype.key2Value(list[i].ActType.Value);
+                    row.Cells["Acttype"].Value = OrdersActtype.key2Value(list[i].ActType.Value);
 
 
                 for (int j = 0; j != dataGridView1.ColumnCount; ++j)

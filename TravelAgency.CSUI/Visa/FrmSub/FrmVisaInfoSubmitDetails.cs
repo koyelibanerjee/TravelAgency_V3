@@ -11,6 +11,7 @@ using TravelAgency.Common.Enums;
 using TravelAgency.Common.QRCode;
 using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Properties;
+using TravelAgency.Model.Enums;
 using VisaInfo = TravelAgency.Model.VisaInfo;
 
 namespace TravelAgency.CSUI.FrmMain

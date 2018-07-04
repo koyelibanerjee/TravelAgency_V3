@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace TravelAgency.Common.Enums
+namespace TravelAgency.Model.Enums
 {
     public class OrdersActtype
     {
@@ -29,7 +25,6 @@ namespace TravelAgency.Common.Enums
         {
             return keyList[valueList.IndexOf(value)];
         }
-
 
         public static string key2Value(int key)
         {

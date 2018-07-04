@@ -7,6 +7,7 @@ namespace TravelAgency.Common.FrmSetValues
     {
         public DateTime TimeSpanFrom { get; set; }
         public DateTime TimeSpanTo { get; set; }
+        private readonly BLL.Visa _bllVisa = new BLL.Visa();
         private Model.Visa _modelYestodayLast;
         private Model.Visa _modelTodayLast;
         public FrmTimeSpanChoose()
@@ -23,6 +24,12 @@ namespace TravelAgency.Common.FrmSetValues
             //初始化为今天
             txtFrom.Text = DateTimeFormator.DateTimeToString(DateTime.Now, DateTimeFormator.TimeFormat.Type07DayStart);
             txtTo.Text = DateTimeFormator.DateTimeToString(DateTime.Now, DateTimeFormator.TimeFormat.Type08DayEnd);
+            _modelYestodayLast = _bllVisa.GetLastRecordOfTheDay(DateTime.Now.AddDays(-1.0));
+            _modelTodayLast = _bllVisa.GetLastRecordOfTheDay(DateTime.Now);
+            if (_modelTodayLast != null)
+                lbTodayLast.Text = "今日最后一条记录时间: " + DateTimeFormator.DateTimeToString(_modelTodayLast.EntryTime, DateTimeFormator.TimeFormat.Type06LongTime);
+            if (_modelYestodayLast != null)
+                lbYestodayLast.Text = "昨日最后一条记录时间: " + DateTimeFormator.DateTimeToString(_modelYestodayLast.EntryTime, DateTimeFormator.TimeFormat.Type06LongTime);
         }
 
         private void btnOk_Click(object sender, EventArgs e)
@@ -77,7 +84,21 @@ namespace TravelAgency.Common.FrmSetValues
             txtTo.Text = DateTimeFormator.DateTimeToString(DateTime.Now, DateTimeFormator.TimeFormat.Type08DayEnd);
         }
 
-                private void btnCurWeek_Click(object sender, EventArgs e)
+        private void lbYestodayLast_DoubleClick(object sender, EventArgs e)
+        {
+            if (_modelYestodayLast != null)
+                txtFrom.Text = DateTimeFormator.DateTimeToString(_modelYestodayLast.EntryTime,
+                    DateTimeFormator.TimeFormat.Type06LongTime);
+        }
+
+        private void lbTodayLast_Click(object sender, EventArgs e)
+        {
+            if (_modelTodayLast != null)
+                txtTo.Text = DateTimeFormator.DateTimeToString(_modelTodayLast.EntryTime,
+                     DateTimeFormator.TimeFormat.Type06LongTime);
+        }
+
+        private void btnCurWeek_Click(object sender, EventArgs e)
         {
             DateTime date = DateTime.Now;
             int pre = 0;

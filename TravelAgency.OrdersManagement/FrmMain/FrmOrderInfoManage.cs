@@ -7,6 +7,7 @@ using DevComponents.DotNetBar;
 using TravelAgency.Common;
 using TravelAgency.Common.FrmSetValues;
 using TravelAgency.Model;
+using TravelAgency.Model.Enums;
 
 namespace TravelAgency.OrdersManagement
 {
@@ -110,17 +111,17 @@ namespace TravelAgency.OrdersManagement
             cbOrderType.DropDownStyle = ComboBoxStyle.DropDownList;
             cbPaymentPlatform.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            var list = Common.Enums.OrderInfo_OrderType.valueKeyMap.Keys;
+            var list = BLL.Enums_OrderInfo_OrderType.valueKeyMap.Keys;
             if (list != null)
                 foreach (var item in list)
                     cbOrderType.Items.Add(item);
 
-            list = Common.Enums.OrderInfo_OrderInfoState.valueKeyMap.Keys;
+            list = BLL.Enums_OrderInfo_OrderInfoState.valueKeyMap.Keys;
             if (list != null)
                 foreach (var item in list)
                     cbOrderInfoState.Items.Add(item);
 
-            list = Common.Enums.OrderInfo_PaymentPlatform.valueKeyMap.Keys;
+            list = BLL.Enums_OrderInfo_PaymentPlatform.valueKeyMap.Keys;
             if (list != null)
                 foreach (var item in list)
                     cbPaymentPlatform.Items.Add(item);
@@ -287,7 +288,7 @@ namespace TravelAgency.OrdersManagement
             }
             else
             {
-                conditions.Add(" (OrderType = " + Common.Enums.OrderInfo_OrderType.ValueToKey(cbOrderType.Text) + ") ");
+                conditions.Add(" (OrderType = " + BLL.Enums_OrderInfo_OrderType.ValueToKey(cbOrderType.Text) + ") ");
             }
 
             if (cbOrderInfoState.Text == "全部")
@@ -295,7 +296,7 @@ namespace TravelAgency.OrdersManagement
             }
             else
             {
-                conditions.Add(" (OrderInfoState = '" + Common.Enums.OrderInfo_OrderInfoState.ValueToKey(cbOrderInfoState.Text) + "') ");
+                conditions.Add(" (OrderInfoState = '" + BLL.Enums_OrderInfo_OrderInfoState.ValueToKey(cbOrderInfoState.Text) + "') ");
             }
 
             if (cbPaymentPlatform.Text == "全部")
@@ -303,7 +304,7 @@ namespace TravelAgency.OrdersManagement
             }
             else
             {
-                conditions.Add(" (PaymentPlatform = '" + Common.Enums.OrderInfo_PaymentPlatform.ValueToKey(cbPaymentPlatform.Text) + "') ");
+                conditions.Add(" (PaymentPlatform = '" + BLL.Enums_OrderInfo_PaymentPlatform.ValueToKey(cbPaymentPlatform.Text) + "') ");
             }
 
 
@@ -393,8 +394,8 @@ namespace TravelAgency.OrdersManagement
                     }
                 }
 
-                row.Cells["OrderType"].Value = Common.Enums.OrderInfo_OrderType.KeyToValue(list[i].OrderType);
-                row.Cells["OrderInfoState"].Value = Common.Enums.OrderInfo_OrderInfoState.KeyToValue(list[i].OrderInfoState);
+                row.Cells["OrderType"].Value = BLL.Enums_OrderInfo_OrderType.KeyToValue(list[i].OrderType);
+                row.Cells["OrderInfoState"].Value = BLL.Enums_OrderInfo_OrderInfoState.KeyToValue(list[i].OrderInfoState);
 
                 if (row.Cells["OrderInfoState"].Value.ToString() == "未校验")
                 {
@@ -406,7 +407,7 @@ namespace TravelAgency.OrdersManagement
                     row.Cells["OrderInfoState"].Style.BackColor = Color.LimeGreen;
                 }
 
-                row.Cells["PaymentPlatform"].Value = Common.Enums.OrderInfo_PaymentPlatform.KeyToValue(list[i].PaymentPlatform);
+                row.Cells["PaymentPlatform"].Value = BLL.Enums_OrderInfo_PaymentPlatform.KeyToValue(list[i].PaymentPlatform);
             }
         }
 
@@ -652,7 +653,7 @@ namespace TravelAgency.OrdersManagement
 
             int orderInfoState = 0;
 
-            orderInfoState = Common.Enums.OrderInfo_OrderInfoState.ValueToKey(frm.RetValue);
+            orderInfoState = BLL.Enums_OrderInfo_OrderInfoState.ValueToKey(frm.RetValue);
             int suc = 0;
             for (int i = 0; i < list.Count; ++i)
             {

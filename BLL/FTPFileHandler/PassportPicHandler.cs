@@ -2,9 +2,10 @@
 using System.Configuration;
 using System.IO;
 using DevComponents.DotNetBar;
+using TravelAgency.Common;
 using TravelAgency.Common.FTP;
 
-namespace TravelAgency.Common.PictureHandler
+namespace TravelAgency.BLL.FTPFileHandler
 {
     /// <summary>
     /// 这个类用于导出护照图像

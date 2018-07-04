@@ -13,6 +13,7 @@ using TravelAgency.Common.Word;
 using TravelAgency.CSUI.Financial.FrmSub;
 using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Properties;
+using TravelAgency.Model.Enums;
 using Visa = TravelAgency.Model.Visa;
 using VisaInfo = TravelAgency.Model.VisaInfo;
 
@@ -443,11 +444,11 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
         private void btnGetTodayExcel_Click(object sender, EventArgs e)
         {
-            FrmTimeSpanChoose frmSpanChoose = new FrmTimeSpanChoose();
-            if (frmSpanChoose.ShowDialog() == DialogResult.Cancel)
+            FrmTimeSpanChoose frmSpanChooseWithVisaRecord = new FrmTimeSpanChoose();
+            if (frmSpanChooseWithVisaRecord.ShowDialog() == DialogResult.Cancel)
                 return;
-            DateTime from = frmSpanChoose.TimeSpanFrom;
-            DateTime to = frmSpanChoose.TimeSpanTo;
+            DateTime from = frmSpanChooseWithVisaRecord.TimeSpanFrom;
+            DateTime to = frmSpanChooseWithVisaRecord.TimeSpanTo;
 
             //List<Visa> visaList =
             //    _bllVisa.GetModelList(" (EntryTime between '" + DateTimeFormator.DateTimeToString(from) + " 00:00:0.000' and " + " '" +
@@ -461,7 +462,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                          "') and (Types='个签' or Types='团做个') and (country = '日本') order by entrytime asc");
 
             //这里干脆就不判断entrytime了，直接找记录算了
-            visaList = _bllActionRecords.CheckStatesAndRemove(visaList, Common.Enums.ActType._02TypeInData, 4); //只保留已经做完了的
+            visaList = _bllActionRecords.CheckStatesAndRemove(visaList, ActType._02TypeInData, 4); //只保留已经做完了的
 
             //这里确认一下
             if (visaList.Count <= 0)
@@ -500,7 +501,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                 //去除掉添加了延后操作的
                 for (int j = list.Count - 1; j >= 0; j--)
                 {
-                    if (list[j].outState == Common.Enums.OutState.Type01Delay)
+                    if (list[j].outState == OutState.Type01Delay)
                     {
                         list.Remove(list[j]);
                     }
@@ -744,13 +745,13 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                 return;
             }
 
-            if (model.Types == Common.Enums.Types.Individual || model.Types == Common.Enums.Types.Team2Individual)
+            if (model.Types == Model.Enums.Types.Individual || model.Types == Model.Enums.Types.Team2Individual)
             {
                 FrmSetGroup frm = new FrmSetGroup(model, LoadDataToDataGridView, _curPage);
                 //frm.ShowDialog();
                 frm.Show();
             }
-            else if (model.Types == Common.Enums.Types.Team)
+            else if (model.Types == Model.Enums.Types.Team)
             {
                 FrmSetTeamVisaGroup frm = new FrmSetTeamVisaGroup(model, LoadDataToDataGridView, _curPage);
                 //frm.ShowDialog();

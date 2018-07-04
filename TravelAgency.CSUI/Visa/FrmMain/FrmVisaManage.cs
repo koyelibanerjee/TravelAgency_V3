@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using TravelAgency.BLL;
+using TravelAgency.BLL.Excel;
 using TravelAgency.Common;
 using TravelAgency.Common.Excel;
 using TravelAgency.Common.FrmSetValues;
@@ -15,6 +16,7 @@ using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Properties;
 using TravelAgency.CSUI.Visa.FrmSub.FrmSetValue;
 using TravelAgency.Model;
+using TravelAgency.Model.Enums;
 using ActionRecords = TravelAgency.BLL.ActionRecords;
 using HasExported8Report = TravelAgency.BLL.HasExported8Report;
 using Visa = TravelAgency.Model.Visa;
@@ -152,15 +154,15 @@ namespace TravelAgency.CSUI.FrmMain
             //这里单独来区分已做和没做，很蛋疼，先这样解决，因为之前的where里面就是只用了visainfo的条件，现在得联合查询才行。
             if (cbState.Text == "未做") //删掉已做的
             {
-                list = _bllActionRecords.CheckStatesAndRemove(list, Common.Enums.ActType._02TypeInData, 1); //
+                list = _bllActionRecords.CheckStatesAndRemove(list, ActType._02TypeInData, 1); //
             }
             if (cbState.Text == "已做") //删掉未做的
             {
-                list = _bllActionRecords.CheckStatesAndRemove(list, Common.Enums.ActType._02TypeInData, 4); //
+                list = _bllActionRecords.CheckStatesAndRemove(list, ActType._02TypeInData, 4); //
             }
             if (cbState.Text == "未做完")
             {
-                list = _bllActionRecords.CheckStatesAndRemove(list, Common.Enums.ActType._02TypeInData, 2); //
+                list = _bllActionRecords.CheckStatesAndRemove(list, ActType._02TypeInData, 2); //
             }
             dataGridView1.DataSource = list;
             if (selIdxs.Count > 0) //如果之前有选中现在就恢复之前的
@@ -377,11 +379,11 @@ namespace TravelAgency.CSUI.FrmMain
 
         private void btnGetTodayExcel_Click(object sender, EventArgs e)
         {
-            FrmTimeSpanChoose frmSpanChoose = new FrmTimeSpanChoose();
-            if (frmSpanChoose.ShowDialog() == DialogResult.Cancel)
+            FrmTimeSpanChoose frmSpanChooseWithVisaRecord = new FrmTimeSpanChoose();
+            if (frmSpanChooseWithVisaRecord.ShowDialog() == DialogResult.Cancel)
                 return;
-            DateTime from = frmSpanChoose.TimeSpanFrom;
-            DateTime to = frmSpanChoose.TimeSpanTo;
+            DateTime from = frmSpanChooseWithVisaRecord.TimeSpanFrom;
+            DateTime to = frmSpanChooseWithVisaRecord.TimeSpanTo;
 
             //List<Visa> visaList =
             //    _bllVisa.GetModelList(" (EntryTime between '" + DateTimeFormator.DateTimeToString(from) + " 00:00:0.000' and " + " '" +
@@ -395,7 +397,7 @@ namespace TravelAgency.CSUI.FrmMain
                          "') and (Types='个签' or Types='团做个') and (country = '日本') order by entrytime asc");
 
             //这里干脆就不判断entrytime了，直接找记录算了
-            visaList = _bllActionRecords.CheckStatesAndRemove(visaList, Common.Enums.ActType._02TypeInData, 4); //只保留已经做完了的
+            visaList = _bllActionRecords.CheckStatesAndRemove(visaList, ActType._02TypeInData, 4); //只保留已经做完了的
 
             //这里确认一下
             if (visaList.Count <= 0)
@@ -443,7 +445,7 @@ namespace TravelAgency.CSUI.FrmMain
                 //去除掉添加了延后操作的
                 for (int j = list.Count - 1; j >= 0; j--)
                 {
-                    if (list[j].outState == Common.Enums.OutState.Type01Delay)
+                    if (list[j].outState == OutState.Type01Delay)
                     {
                         list.Remove(list[j]);
                     }
@@ -499,7 +501,7 @@ namespace TravelAgency.CSUI.FrmMain
         {
             var visas = dataGridView1.DataSource as List<Model.Visa>;
             Dictionary<Guid, int> dict = _visaActTypeCountBll.GetVisaActTypeCountDict(DgvDataSourceToList(),
-                Common.Enums.ActType._02TypeInData);
+                ActType._02TypeInData);
             Font font = new Font(new FontFamily("Consolas"), 13.0f, FontStyle.Bold);
             int peopleCount = 0;
             int hasDo = 0;
@@ -628,13 +630,13 @@ namespace TravelAgency.CSUI.FrmMain
                     return;
                 }
 
-                if (model.Types == Common.Enums.Types.Individual || model.Types == Common.Enums.Types.Team2Individual)
+                if (model.Types == Model.Enums.Types.Individual || model.Types == Model.Enums.Types.Team2Individual)
                 {
                     FrmSetGroup frm = new FrmSetGroup(model, LoadDataToDataGridView, _curPage);
                     //frm.ShowDialog();
                     frm.Show();
                 }
-                else if (model.Types == Common.Enums.Types.Team)
+                else if (model.Types == Model.Enums.Types.Team)
                 {
                     FrmSetTeamVisaGroup frm = new FrmSetTeamVisaGroup(model, LoadDataToDataGridView, _curPage);
                     //frm.ShowDialog();
@@ -825,7 +827,7 @@ namespace TravelAgency.CSUI.FrmMain
                 return;
             }
 
-            if (visaModel.Types == Common.Enums.Types.Team)
+            if (visaModel.Types == Model.Enums.Types.Team)
             {
                 MessageBoxEx.Show("团签类型不能导出此报表!");
                 return;
@@ -1212,13 +1214,13 @@ namespace TravelAgency.CSUI.FrmMain
                 return;
             }
 
-            if (model.Types == Common.Enums.Types.Individual || model.Types == Common.Enums.Types.Team2Individual)
+            if (model.Types == Model.Enums.Types.Individual || model.Types == Model.Enums.Types.Team2Individual)
             {
                 FrmSetGroup frm = new FrmSetGroup(model, LoadDataToDataGridView, _curPage);
                 //frm.ShowDialog();
                 frm.Show();
             }
-            else if (model.Types == Common.Enums.Types.Team)
+            else if (model.Types == Model.Enums.Types.Team)
             {
                 FrmSetTeamVisaGroup frm = new FrmSetTeamVisaGroup(model, LoadDataToDataGridView, _curPage);
                 //frm.ShowDialog();
@@ -1293,7 +1295,7 @@ namespace TravelAgency.CSUI.FrmMain
                 visaModel.Number = _listToAddToGroup.Count;
             else visaModel.Number += _listToAddToGroup.Count;
             DialogResult res = DialogResult.No;
-            if (visaModel.Types == Common.Enums.Types.Individual)
+            if (visaModel.Types == Model.Enums.Types.Individual)
             {
                 if ((res = MessageBoxEx.Show("是否自动更新团号名称?", "提示", MessageBoxButtons.YesNo))
                     == DialogResult.Yes)
@@ -1326,7 +1328,7 @@ namespace TravelAgency.CSUI.FrmMain
                 //log.Type = visaModel.Types;
                 //log.EntryTime = DateTime.Now;
                 //_bllActionRecords.Add(log);
-                _bllActionRecords.AddRecord(Common.Enums.ActType._01AddToExist, Common.GlobalUtils.LoginUser,
+                _bllActionRecords.AddRecord(ActType._01AddToExist, Common.GlobalUtils.LoginUser,
                     _listToAddToGroup[i], visaModel);
 
             }
@@ -1346,13 +1348,13 @@ namespace TravelAgency.CSUI.FrmMain
             if (MessageBoxEx.Show("是否进入资料设置？", "提示", MessageBoxButtons.YesNo)
                 == DialogResult.Yes)
             {
-                if (visaModel.Types == Common.Enums.Types.Individual)
+                if (visaModel.Types == Model.Enums.Types.Individual)
                 {
                     FrmSetGroup frm = new FrmSetGroup(visaModel, this.LoadDataToDataGridView, _curPage);
                     //frm.ShowDialog();
                     frm.Show();
                 }
-                else if (visaModel.Types == Common.Enums.Types.Team)
+                else if (visaModel.Types == Model.Enums.Types.Team)
                 {
                     FrmSetTeamVisaGroup frm = new FrmSetTeamVisaGroup(visaModel, this.LoadDataToDataGridView, _curPage);
                     //frm.ShowDialog();

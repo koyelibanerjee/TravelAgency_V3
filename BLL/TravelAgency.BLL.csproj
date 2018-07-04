@@ -108,9 +108,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevComponents.DotNetBar2, Version=12.5.0.2, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
+    <Reference Include="NPOI">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats">
+      <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -136,21 +149,39 @@
     <Compile Include="CommisionBll.cs" />
     <Compile Include="CommisionMoneyBll.cs" />
     <Compile Include="CommisionMoney.cs" />
+    <Compile Include="CommisionMoneyCounter.cs" />
     <Compile Include="CommonBll.cs" />
     <Compile Include="ConsulateCharge.cs" />
     <Compile Include="CustomerBalanceBll.cs" />
     <Compile Include="CustomerBalance.cs" />
     <Compile Include="CustomerInfoBll.cs" />
     <Compile Include="CustomerInfo.cs" />
+    <Compile Include="Enums_OrderInfo_OrderInfoStateBll.cs" />
     <Compile Include="Enums_OrderInfo_OrderInfoState.cs" />
+    <Compile Include="Enums_OrderInfo_OrderTypeBll.cs" />
     <Compile Include="Enums_OrderInfo_OrderType.cs" />
+    <Compile Include="Enums_OrderInfo_PaymentPlatformBll.cs" />
     <Compile Include="Enums_OrderInfo_PaymentPlatform.cs" />
+    <Compile Include="Excel\ExcelGenerator.cs" />
+    <Compile Include="Excel\FrmOrderInfoExcelParser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Excel\FrmOrderInfoExcelParser.Designer.cs">
+      <DependentUpon>FrmOrderInfoExcelParser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Excel\NOPIHelper.cs" />
+    <Compile Include="Excel\OrderInfoExcelParser.cs" />
+    <Compile Include="Excel\XlsGenerator.cs" />
     <Compile Include="FrmGroupOrIndividualValue.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmGroupOrIndividualValue.Designer.cs">
       <DependentUpon>FrmGroupOrIndividualValue.cs</DependentUpon>
     </Compile>
+    <Compile Include="FTPFileHandler\GaopaiPicHandler.cs" />
+    <Compile Include="FTPFileHandler\OrderExcelHandler.cs" />
+    <Compile Include="FTPFileHandler\OrderFilesHandler.cs" />
+    <Compile Include="FTPFileHandler\PassportPicHandler.cs" />
     <Compile Include="HasExported8ReportBLL.cs" />
     <Compile Include="HasExported8Report.cs" />
     <Compile Include="JobAssignmentBll.cs" />
@@ -195,6 +226,10 @@
     <Compile Include="WorkerQueue.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\TravelAgency.Common.csproj">
+      <Project>{e3d8759a-c5eb-402d-9f10-f5c6029a8d1a}</Project>
+      <Name>TravelAgency.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DAL\TravelAgency.DAL.csproj">
       <Project>{9FE00521-3A8B-42B1-814E-585E99407B2E}</Project>
       <Name>TravelAgency.DAL</Name>
@@ -236,9 +271,30 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Excel\FrmOrderInfoExcelParser.resx">
+      <DependentUpon>FrmOrderInfoExcelParser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmGroupOrIndividualValue.resx">
       <DependentUpon>FrmGroupOrIndividualValue.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Excel\Templates\template_%28前8人）旅行社申请名单表_（表3）_添加占位符.xls" />
+    <None Include="Excel\Templates\template_2人保险申请表格.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Excel\Templates\template_泰国8人首页.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Excel\Templates\template_账单模板.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Excel\Templates\泰国数据源报表.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Excel\Templates\（）国旅旅行社申请名单表_进馆.xls">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

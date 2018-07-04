@@ -13,7 +13,7 @@ using System.Windows.Media;
 using DevComponents.AdvTree;
 using DevComponents.DotNetBar;
 using TravelAgency.Common;
-using TravelAgency.Common.PictureHandler;
+using TravelAgency.Common.FTPFileHandler;
 using TravelAgency.CSUI.FrmSub;
 using Color = System.Drawing.Color;
 

@@ -1,4 +1,4 @@
-﻿namespace TravelAgency.Common.Enums
+﻿namespace TravelAgency.Model.Enums
 {
     public class ActType
     {

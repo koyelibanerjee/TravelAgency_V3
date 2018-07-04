@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using TravelAgency.BLL;
+using TravelAgency.BLL.Excel;
 using TravelAgency.Common;
 using TravelAgency.Common.Excel;
 using TravelAgency.Common.FrmSetValues;
@@ -89,7 +91,7 @@ namespace TravelAgency.CSUI.Statistics.FrmMain
             for (int i = 0; i < dgvCommison.Rows.Count; i++)
             {
                 dgvCommison.Rows[i].Cells["CommisionMoneyCount"].Value =
-                    Common.Financial.CommisionMoneyCounter.CalcCommisionMoney(
+                    CommisionMoneyCounter.CalcCommisionMoney(
                         (dgvCommison.DataSource as List<Model.CommissionModel>)[i]);
                 all += dgvCommison.Rows[i].Cells["CommisionMoneyCount"].Value == null
                     ? 0

@@ -2,8 +2,10 @@
 using System.Diagnostics;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using TravelAgency.BLL;
+using TravelAgency.BLL.FTPFileHandler;
 using TravelAgency.Common;
-using TravelAgency.Common.PictureHandler;
+using TravelAgency.Model.Enums;
 
 namespace TravelAgency.OrdersManagement
 {
@@ -49,9 +51,9 @@ namespace TravelAgency.OrdersManagement
                 txtOrderTime.Text = _model.OrderTime.ToString();
                 txtExtraData.Text = _model.ExtraData;
                 txtProductName.Text = _model.ProductName;
-                txtOrderType.Text = Common.Enums.OrderInfo_OrderType.KeyToValue(_model.OrderType);
-                txtOrderInfoState.Text = Common.Enums.OrderInfo_OrderInfoState.KeyToValue(_model.OrderInfoState);
-                txtPaymentPlatform.Text = Common.Enums.OrderInfo_PaymentPlatform.KeyToValue(_model.PaymentPlatform);
+                txtOrderType.Text = Enums_OrderInfo_OrderType.KeyToValue(_model.OrderType);
+                txtOrderInfoState.Text = Enums_OrderInfo_OrderInfoState.KeyToValue(_model.OrderInfoState);
+                txtPaymentPlatform.Text = Enums_OrderInfo_PaymentPlatform.KeyToValue(_model.PaymentPlatform);
                 this.Text = "修改订单信息";
             }
         }
@@ -73,17 +75,17 @@ namespace TravelAgency.OrdersManagement
             txtOrderType.DropDownStyle = ComboBoxStyle.DropDownList;
             txtPaymentPlatform.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            var list = Common.Enums.OrderInfo_OrderType.valueKeyMap.Keys;
+            var list = Enums_OrderInfo_OrderType.valueKeyMap.Keys;
             if (list != null)
                 foreach (var item in list)
                     txtOrderType.Items.Add(item);
 
-            list = Common.Enums.OrderInfo_OrderInfoState.valueKeyMap.Keys;
+            list = Enums_OrderInfo_OrderInfoState.valueKeyMap.Keys;
             if (list != null)
                 foreach (var item in list)
                     txtOrderInfoState.Items.Add(item);
 
-            list = Common.Enums.OrderInfo_PaymentPlatform.valueKeyMap.Keys;
+            list = Enums_OrderInfo_PaymentPlatform.valueKeyMap.Keys;
             if (list != null)
                 foreach (var item in list)
                     txtPaymentPlatform.Items.Add(item);
@@ -111,9 +113,9 @@ namespace TravelAgency.OrdersManagement
                     _model.OrderTime = DateTime.Parse(txtOrderTime.Text);
                     _model.ExtraData = txtExtraData.Text;
                     _model.ProductName = txtProductName.Text;
-                    _model.OrderType = Common.Enums.OrderInfo_OrderType.ValueToKey(txtOrderType.Text);
-                    _model.OrderInfoState = Common.Enums.OrderInfo_OrderInfoState.ValueToKey(txtOrderInfoState.Text);
-                    _model.PaymentPlatform = Common.Enums.OrderInfo_PaymentPlatform.ValueToKey(txtPaymentPlatform.Text);
+                    _model.OrderType = Enums_OrderInfo_OrderType.ValueToKey(txtOrderType.Text);
+                    _model.OrderInfoState = Enums_OrderInfo_OrderInfoState.ValueToKey(txtOrderInfoState.Text);
+                    _model.PaymentPlatform = Enums_OrderInfo_PaymentPlatform.ValueToKey(txtPaymentPlatform.Text);
 
 
                     //下面的字段暂时不进行修改
@@ -154,9 +156,9 @@ namespace TravelAgency.OrdersManagement
                     model.OrderTime = DateTime.Parse(txtOrderTime.Text);
                     model.ExtraData = txtExtraData.Text;
                     model.ProductName = txtProductName.Text;
-                    model.OrderType = Common.Enums.OrderInfo_OrderType.ValueToKey(txtOrderType.Text);
-                    model.OrderInfoState = Common.Enums.OrderInfo_OrderInfoState.ValueToKey(txtOrderInfoState.Text);
-                    model.PaymentPlatform = Common.Enums.OrderInfo_PaymentPlatform.ValueToKey(txtPaymentPlatform.Text);
+                    model.OrderType = Enums_OrderInfo_OrderType.ValueToKey(txtOrderType.Text);
+                    model.OrderInfoState = Enums_OrderInfo_OrderInfoState.ValueToKey(txtOrderInfoState.Text);
+                    model.PaymentPlatform = Enums_OrderInfo_PaymentPlatform.ValueToKey(txtPaymentPlatform.Text);
                     model.EntryTime = DateTime.Now;
                     model.OperatorWorkId = GlobalUtils.LoginUser.WorkId;
                     model.OperatorName = GlobalUtils.LoginUser.UserName;

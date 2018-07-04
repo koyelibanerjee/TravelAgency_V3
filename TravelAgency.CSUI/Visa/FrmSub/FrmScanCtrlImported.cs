@@ -4,7 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using TravelAgency.Common;
-using TravelAgency.Common.PictureHandler;
+using TravelAgency.Common.FTPFileHandler;
 using TravelAgency.CSUI.Properties;
 
 namespace TravelAgency.CSUI.FrmSub

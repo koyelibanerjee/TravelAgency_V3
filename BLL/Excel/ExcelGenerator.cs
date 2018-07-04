@@ -5,19 +5,15 @@ using System.IO;
 using System.Text.RegularExpressions;
 using DevComponents.DotNetBar;
 using NPOI.HSSF.UserModel;
-using NPOI.OpenXmlFormats.Dml;
 using NPOI.SS.UserModel;
 using NPOI.SS.Util;
 using NPOI.XSSF.UserModel;
-using TravelAgency.BLL;
-using TravelAgency.Common.Enums;
-using TravelAgency.Common.PictureHandler;
-using TravelAgency.Model;
+using TravelAgency.Common;
+using TravelAgency.Model.Enums;
 using BorderStyle = NPOI.SS.UserModel.BorderStyle;
 using HorizontalAlignment = NPOI.SS.UserModel.HorizontalAlignment;
-using VisaInfo = TravelAgency.Model.VisaInfo;
 
-namespace TravelAgency.Common.Excel
+namespace TravelAgency.BLL.Excel
 {
     /// <summary>
     /// 这个类是自己生成的Excel
@@ -361,7 +357,7 @@ namespace TravelAgency.Common.Excel
 
             //3.插入行和单元格
             int idx = 0;
-            List<Model.VisaInfo> visainfos = new List<VisaInfo>(); //全部加入一个List顺便
+            List<Model.VisaInfo> visainfos = new List<Model.VisaInfo>(); //全部加入一个List顺便
             for (int i = 0; i < visaList.Count; i++)
             {
                 for (int j = 0; j < visainfoList[i].Count; j++, ++idx)
@@ -587,7 +583,7 @@ namespace TravelAgency.Common.Excel
         /// <param name="visaList"></param>
         /// <param name="visaInfoList"></param>
         /// <returns></returns>
-        public static bool GetEverydayExcel(List<Model.Visa> visaList, List<List<VisaInfo>> visaInfoList)
+        public static bool GetEverydayExcel(List<Model.Visa> visaList, List<List<Model.VisaInfo>> visaInfoList)
         {
             string dstName = GlobalUtils.ShowSaveFileDlg("每日送签客人情况表.xls", "office 2003 excel|*.xls");
             if (string.IsNullOrEmpty(dstName))
@@ -733,7 +729,7 @@ namespace TravelAgency.Common.Excel
                 row = sheet.CreateRow(i + 1);
 
                 row.CreateCell(0).SetCellValue(i + 1);
-                row.CreateCell(1).SetCellValue(QRCode.MyQRCode.GenQrInfo(visaInfoList[i]));
+                row.CreateCell(1).SetCellValue(Common.QRCode.MyQRCode.GenQrInfo(visaInfoList[i]));
                 row.CreateCell(2).SetCellValue(visaInfoList[i].Name);
                 row.CreateCell(3).SetCellValue(visaInfoList[i].EnglishName);
                 row.CreateCell(4).SetCellValue(visaInfoList[i].PassportNo);
@@ -800,7 +796,7 @@ namespace TravelAgency.Common.Excel
                 row = sheet.CreateRow(i + 1);
 
                 row.CreateCell(0).SetCellValue(i + 1);
-                row.CreateCell(1).SetCellValue(QRCode.MyQRCode.GenQrInfo(visaInfoList[i]));
+                row.CreateCell(1).SetCellValue(Common.QRCode.MyQRCode.GenQrInfo(visaInfoList[i]));
                 row.CreateCell(2).SetCellValue(visaInfoList[i].Name);
                 row.CreateCell(3).SetCellValue(visaInfoList[i].EnglishName);
                 row.CreateCell(4).SetCellValue(visaInfoList[i].PassportNo);
@@ -1056,10 +1052,10 @@ namespace TravelAgency.Common.Excel
             IRow row = sheet.CreateRow(0);
             row.CreateCell(0).SetCellValue("编号");
             row.CreateCell(1).SetCellValue("姓名");
-            row.CreateCell(2).SetCellValue(Enums.ActType._01TypeIn);
-            row.CreateCell(3).SetCellValue(Enums.ActType._02TypeInData);
-            row.CreateCell(4).SetCellValue(Enums.ActType._03Modify);
-            row.CreateCell(5).SetCellValue(Enums.ActType._04Checked);
+            row.CreateCell(2).SetCellValue(ActType._01TypeIn);
+            row.CreateCell(3).SetCellValue(ActType._02TypeInData);
+            row.CreateCell(4).SetCellValue(ActType._03Modify);
+            row.CreateCell(5).SetCellValue(ActType._04Checked);
             row.CreateCell(6).SetCellValue("总计");
 
             //2.2设置列宽度
@@ -1346,7 +1342,7 @@ namespace TravelAgency.Common.Excel
                 row.CreateCell(5).SetCellValue(list[i].ReplyResult);
                 row.CreateCell(6).SetCellValue(list[i].OperRemark);
                 row.CreateCell(7).SetCellValue(list[i].WaitorName);
-                row.CreateCell(8).SetCellValue(Enums.OrderInfo_PaymentPlatform.KeyToValue(list[i].PaymentPlatform));
+                row.CreateCell(8).SetCellValue(BLL.Enums_OrderInfo_PaymentPlatform.KeyToValue(list[i].PaymentPlatform.Value));
                 row.CreateCell(9).SetCellValue(list[i].GroupNo);
                 row.CreateCell(10).SetCellValue(list[i].ProductName);
                 row.CreateCell(11).SetCellValue(list[i].ProductId ?? 0);
@@ -1450,7 +1446,7 @@ namespace TravelAgency.Common.Excel
                 row.CreateCell(1).SetCellValue(list[i].WaitorName);
                 row.CreateCell(2).SetCellValue(list[i].OrderNo);
                 row.CreateCell(3).SetCellValue(list[i].ReplyResult);
-                row.CreateCell(4).SetCellValue(Enums.OrderInfo_PaymentPlatform.KeyToValue(list[i].PaymentPlatform));
+                row.CreateCell(4).SetCellValue(BLL.Enums_OrderInfo_PaymentPlatform.KeyToValue(list[i].PaymentPlatform.Value));
                 row.CreateCell(5).SetCellValue(list[i].GroupNo);
                 row.CreateCell(6).SetCellValue(list[i].ProductName);
                 row.CreateCell(7).SetCellValue(list[i].ProductId ?? 0);

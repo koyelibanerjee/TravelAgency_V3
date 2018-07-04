@@ -7,8 +7,9 @@ using DevComponents.DotNetBar;
 using NPOI.HSSF.UserModel;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
-using TravelAgency.Common.PictureHandler;
 using TravelAgency.Model;
+using TravelAgency.Model.Enums;
+using PassportPicHandler = TravelAgency.BLL.FTPFileHandler.PassportPicHandler;
 
 namespace TravelAgency.Common.Excel
 {
@@ -280,9 +281,9 @@ namespace TravelAgency.Common.Excel
 
                         for (int i = 0; i < visaInfoList.Count; i++)
                         {
-                            if (visaInfoList[i].outState == Enums.OutState.Type01Delay) //保存成功了的时候同时删除掉延后状态
+                            if (visaInfoList[i].outState == OutState.Type01Delay) //保存成功了的时候同时删除掉延后状态
                             {
-                                visaInfoList[i].outState = Enums.OutState.Type01NoRecord;
+                                visaInfoList[i].outState = OutState.Type01NoRecord;
                                 bllVisaInfo.Update(visaInfoList[i]);
                             }
                         }
@@ -302,9 +303,9 @@ namespace TravelAgency.Common.Excel
 
                         for (int i = 0; i < visaInfoList.Count; i++)
                         {
-                            _bllLoger.AddRecord(Common.Enums.ActType._10Exported, GlobalUtils.LoginUser, visaInfoList[i],
+                            _bllLoger.AddRecord(ActType._10Exported, GlobalUtils.LoginUser, visaInfoList[i],
                                 null);
-                            visaInfoList[i].outState = Enums.OutState.TYPE10Exported;
+                            visaInfoList[i].outState = OutState.TYPE10Exported;
                             _bllVisaInfo.Update(visaInfoList[i]);
                         }
 
