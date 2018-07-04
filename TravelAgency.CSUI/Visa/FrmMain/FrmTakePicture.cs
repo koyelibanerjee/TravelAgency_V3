@@ -9,8 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using TravelAgency.BLL.FTPFileHandler;
 using TravelAgency.Common;
-using TravelAgency.Common.FTPFileHandler;
 
 namespace ScanCtrlTest
 {

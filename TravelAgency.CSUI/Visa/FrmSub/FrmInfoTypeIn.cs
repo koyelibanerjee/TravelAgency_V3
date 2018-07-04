@@ -7,9 +7,9 @@ using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using Telerik.WinControls.UI;
 using TravelAgency.BLL;
+using TravelAgency.BLL.FTPFileHandler;
 using TravelAgency.Common;
 using TravelAgency.Common.Enums;
-using TravelAgency.Common.FTPFileHandler;
 using TravelAgency.CSUI.Properties;
 using ActionRecords = TravelAgency.Model.ActionRecords;
 

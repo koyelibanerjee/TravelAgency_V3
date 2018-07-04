@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using TravelAgency.BLL.FTPFileHandler;
 using TravelAgency.Common;
-using TravelAgency.Common.FTPFileHandler;
 using TravelAgency.CSUI.Properties;
 
 namespace TravelAgency.CSUI.FrmSub
