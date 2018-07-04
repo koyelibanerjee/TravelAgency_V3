@@ -14,14 +14,12 @@ namespace TravelAgency.Common.Excel.Tests
         [TestMethod()]
         public void TestTest()
         {
-            XlsGenerator.Test();
 
         }
 
         [TestMethod()]
         public void Get8PassPicTableTest()
         {
-            XlsGenerator.Get8PassPicTable(null);
         }
     }
 }

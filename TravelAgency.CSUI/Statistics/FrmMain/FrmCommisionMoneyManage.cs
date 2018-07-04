@@ -12,6 +12,7 @@ using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Properties;
 using TravelAgency.CSUI.Statistics.FrmSub;
 using CommisionMoney = TravelAgency.Model.CommisionMoney;
+using FrmTimeSpanChoose = TravelAgency.CSUI.Visa.FrmSub.FrmSetValue.FrmTimeSpanChoose;
 
 namespace TravelAgency.CSUI.Statistics.FrmMain
 {

@@ -8,6 +8,7 @@ using TravelAgency.Common;
 using TravelAgency.Common.Excel;
 using TravelAgency.Common.FrmSetValues;
 using TravelAgency.CSUI.FrmSub;
+using FrmTimeSpanChoose = TravelAgency.CSUI.Visa.FrmSub.FrmSetValue.FrmTimeSpanChoose;
 
 namespace TravelAgency.CSUI.Statistics.FrmMain
 {

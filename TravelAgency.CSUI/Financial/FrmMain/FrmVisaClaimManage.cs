@@ -14,6 +14,7 @@ using TravelAgency.CSUI.Financial.FrmSub;
 using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Properties;
 using TravelAgency.Model.Enums;
+using FrmTimeSpanChoose = TravelAgency.CSUI.Visa.FrmSub.FrmSetValue.FrmTimeSpanChoose;
 using Visa = TravelAgency.Model.Visa;
 using VisaInfo = TravelAgency.Model.VisaInfo;
 

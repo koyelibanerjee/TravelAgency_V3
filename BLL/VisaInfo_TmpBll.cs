@@ -23,25 +23,18 @@ namespace TravelAgency.BLL
             int res = 0;
             var list = GetModelList(0, string.Empty, " entrytime desc");
 
-
             string types = null;
             DialogResult dlgResult = DialogResult.None; //其他国家就不会弹出这个对话框，为None
             if (list[0].Country == "日本")
             {
                 FrmGroupOrIndividualValue frm = new FrmGroupOrIndividualValue();
                 if (DialogResult.OK == frm.ShowDialog())
-                {
                     types = frm.TypesValue;
-                }
                 else
-                {
                     return 0;
-                }
 
                 if (types != null && types != "团签")
                     dlgResult = MessageBoxEx.Show("即将提交，是否将待提交签证设置为\"一家人\"?", "提示", MessageBoxButtons.YesNoCancel);
-                //if (dlgResult == DialogResult.Cancel)
-                //    return 0;
             }
 
 
@@ -119,39 +112,8 @@ namespace TravelAgency.BLL
             return DataTableToList(dt);
         }
 
-        public List<Model.VisaInfo_Tmp> GetListByPageOrderByOutState(int pageIndex, int pageSize, string where)
-        {
-            int start = (pageIndex - 1) * pageSize + 1;
-            int end = pageIndex * pageSize;
 
-            DataSet ds = dal.GetDataByPageOrderByOutState(start, end, where);
-            DataTable dt = ds.Tables[0];
-            return DataTableToList(dt);
-
-        }
-
-        public List<Model.VisaInfo_Tmp> GetListByPageOrderByGroupNo(int pageIndex, int pageSize, string where)
-        {
-            int start = (pageIndex - 1) * pageSize + 1;
-            int end = pageIndex * pageSize;
-
-            DataSet ds = dal.GetDataByPageOrderByGroupNo(start, end, where);
-            DataTable dt = ds.Tables[0];
-            return DataTableToList(dt);
-        }
-
-        public List<Model.VisaInfo_Tmp> GetListByPageOrderByHasChecked(int pageIndex, int pageSize)
-        {
-            int start = (pageIndex - 1) * pageSize + 1;
-            int end = pageIndex * pageSize;
-
-            DataSet ds = dal.GetDataByPageOrderByHasChecked(start, end);
-            DataTable dt = ds.Tables[0];
-            return DataTableToList(dt);
-        }
-
-
-        public int DeleteList(string VisaInfo_idlist)
+        public bool DeleteList(string VisaInfo_idlist)
         {
             return dal.DeleteList(VisaInfo_idlist);
         }
@@ -170,12 +132,8 @@ namespace TravelAgency.BLL
         {
             int res = 0;
             for (int i = 0; i < list.Count; i++)
-            {
                 res += Update(list[i]) ? 1 : 0;
-            }
             return res;
         }
-
-
     }
 }

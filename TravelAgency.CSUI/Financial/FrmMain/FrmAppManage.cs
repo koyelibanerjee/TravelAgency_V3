@@ -11,6 +11,7 @@ using TravelAgency.CSUI.Financial.FrmSub;
 using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Properties;
 using TravelAgency.Model;
+using FrmTimeSpanChoose = TravelAgency.CSUI.Visa.FrmSub.FrmSetValue.FrmTimeSpanChoose;
 
 namespace TravelAgency.CSUI.Financial.FrmMain
 {

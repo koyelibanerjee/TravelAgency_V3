@@ -20,6 +20,7 @@ using TravelAgency.CSUI.Properties;
 using TravelAgency.CSUI.Visa.FrmSub;
 using TravelAgency.CSUI.Visa.FrmSub.FrmSetValue;
 using TravelAgency.Model.Enums;
+using FrmTimeSpanChoose = TravelAgency.CSUI.Visa.FrmSub.FrmSetValue.FrmTimeSpanChoose;
 using VisaInfo = TravelAgency.Model.VisaInfo;
 
 namespace TravelAgency.CSUI.Visa.FrmMain

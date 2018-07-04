@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
+using TravelAgency.Common;
 
-namespace TravelAgency.Common.FrmSetValues
+namespace TravelAgency.CSUI.Visa.FrmSub.FrmSetValue
 {
     public partial class FrmTimeSpanChoose : Form
     {

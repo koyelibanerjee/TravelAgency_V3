@@ -177,9 +177,9 @@ namespace TravelAgency.Common.IDCard
                 visaInfo.BirthPlaceEnglish = infos[18].Split(':')[1];
                 visaInfo.IssuePlaceEnglish = infos[19].Split(':')[1];
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                MessageBoxEx.Show("解析信息出现错误，请放好签证后重新进行识别!");
+                MessageBoxEx.Show($"{ex.Message}\r\n解析信息出现错误，请放好签证后重新进行识别!");
                 return null;
             }
             //save Image

@@ -122,14 +122,14 @@ namespace TravelAgency.DAL
         /// <summary>
         /// 批量删除数据
         /// </summary>
-        public int DeleteList(string VisaInfo_idlist)
-        {
-            StringBuilder strSql = new StringBuilder();
-            strSql.Append("delete from VisaInfo_Tmp ");
-            strSql.Append(" where VisaInfo_id in (" + VisaInfo_idlist + ")  ");
-            int rows = DbHelperSQL.ExecuteSql(strSql.ToString());
-            return rows;
-        }
+        //public int DeleteList(string VisaInfo_idlist)
+        //{
+        //    StringBuilder strSql = new StringBuilder();
+        //    strSql.Append("delete from VisaInfo_Tmp ");
+        //    strSql.Append(" where VisaInfo_id in (" + VisaInfo_idlist + ")  ");
+        //    int rows = DbHelperSQL.ExecuteSql(strSql.ToString());
+        //    return rows;
+        //}
 
 
         public TravelAgency.Model.VisaInfo_Tmp GetModelByPassportNo(string passportNo)

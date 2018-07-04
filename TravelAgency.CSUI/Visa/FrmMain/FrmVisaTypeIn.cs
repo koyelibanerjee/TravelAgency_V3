@@ -384,7 +384,7 @@ namespace TravelAgency.CSUI.FrmMain
             }
 
             //读取成功了
-            if (!_bllVisaInfoTmp.Add(model))
+            if (_bllVisaInfoTmp.Add(model)!=Guid.Empty)
             {
                 MessageBoxEx.Show(Resources.FailedAddToDatabase);
                 return;
@@ -430,7 +430,7 @@ namespace TravelAgency.CSUI.FrmMain
                     }
 
                     //读取成功了
-                    if (!_bllVisaInfoTmp.Add(model))
+                    if (_bllVisaInfoTmp.Add(model)!=Guid.Empty)
                     {
                         MessageBoxEx.Show(Resources.FailedAddToDatabase);
                         continue;
@@ -489,7 +489,7 @@ namespace TravelAgency.CSUI.FrmMain
             }
 
             //读取成功了
-            if (!_bllVisaInfoTmp.Add(model))
+            if (_bllVisaInfoTmp.Add(model)!=Guid.Empty)
             {
                 MessageBoxEx.Show(Resources.FailedAddToDatabase);
                 return;

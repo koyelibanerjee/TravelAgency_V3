@@ -18,6 +18,7 @@ using TravelAgency.CSUI.Visa.FrmSub.FrmSetValue;
 using TravelAgency.Model;
 using TravelAgency.Model.Enums;
 using ActionRecords = TravelAgency.BLL.ActionRecords;
+using FrmTimeSpanChoose = TravelAgency.CSUI.Visa.FrmSub.FrmSetValue.FrmTimeSpanChoose;
 using HasExported8Report = TravelAgency.BLL.HasExported8Report;
 using Visa = TravelAgency.Model.Visa;
 using VisaInfo = TravelAgency.Model.VisaInfo;
