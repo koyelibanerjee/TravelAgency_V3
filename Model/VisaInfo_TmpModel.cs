@@ -28,7 +28,7 @@ namespace TravelAgency.Model
             model.Country = this.Country;
             model.HasChecked = this.HasChecked;
             model.CheckPerson = this.CheckPerson;
-
+            model.EntryTime = this.EntryTime;
         }
     }
 }

@@ -32,9 +32,9 @@ namespace TravelAgency.DAL
     		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into VisaInfo_Tmp(");			
-            strSql.Append("VisaInfo_id,Name,EnglishName,Sex,Birthday,PassportNo,LicenceTime,ExpiryDate,Birthplace,IssuePlace,Types,Country,IssuePlaceEnglish,BirthPlaceEnglish,HasChecked,CheckPerson");
+            strSql.Append("VisaInfo_id,Name,EnglishName,Sex,Birthday,PassportNo,LicenceTime,ExpiryDate,Birthplace,IssuePlace,Types,Country,IssuePlaceEnglish,BirthPlaceEnglish,HasChecked,CheckPerson,EntryTime");
 			strSql.Append(") values (");
-            strSql.Append("@VisaInfo_id,@Name,@EnglishName,@Sex,@Birthday,@PassportNo,@LicenceTime,@ExpiryDate,@Birthplace,@IssuePlace,@Types,@Country,@IssuePlaceEnglish,@BirthPlaceEnglish,@HasChecked,@CheckPerson");            
+            strSql.Append("@VisaInfo_id,@Name,@EnglishName,@Sex,@Birthday,@PassportNo,@LicenceTime,@ExpiryDate,@Birthplace,@IssuePlace,@Types,@Country,@IssuePlaceEnglish,@BirthPlaceEnglish,@HasChecked,@CheckPerson,@EntryTime");            
             strSql.Append(") ");            
             		
 			SqlParameter[] parameters = {
@@ -53,7 +53,8 @@ namespace TravelAgency.DAL
                         new SqlParameter("@IssuePlaceEnglish", SqlDbType.VarChar,50) ,            
                         new SqlParameter("@BirthPlaceEnglish", SqlDbType.VarChar,50) ,            
                         new SqlParameter("@HasChecked", SqlDbType.VarChar,2) ,            
-                        new SqlParameter("@CheckPerson", SqlDbType.VarChar,50)             
+                        new SqlParameter("@CheckPerson", SqlDbType.VarChar,50) ,            
+                        new SqlParameter("@EntryTime", SqlDbType.DateTime)             
               
             };
 			            
@@ -73,6 +74,7 @@ namespace TravelAgency.DAL
             parameters[13].Value = model.BirthPlaceEnglish;                        
             parameters[14].Value = model.HasChecked;                        
             parameters[15].Value = model.CheckPerson;                        
+            parameters[16].Value = model.EntryTime;                        
 			      int rows = DbHelperSQL.ExecuteSql(strSql.ToString(),parameters); 
       if(rows > 0)
       {
@@ -109,7 +111,8 @@ namespace TravelAgency.DAL
             strSql.Append(" IssuePlaceEnglish = @IssuePlaceEnglish , ");                                    
             strSql.Append(" BirthPlaceEnglish = @BirthPlaceEnglish , ");                                    
             strSql.Append(" HasChecked = @HasChecked , ");                                    
-            strSql.Append(" CheckPerson = @CheckPerson  ");            			
+            strSql.Append(" CheckPerson = @CheckPerson , ");                                    
+            strSql.Append(" EntryTime = @EntryTime  ");            			
 			strSql.Append(" where VisaInfo_id=@VisaInfo_id  ");
 						
 SqlParameter[] parameters = {
@@ -128,7 +131,8 @@ SqlParameter[] parameters = {
                         new SqlParameter("@IssuePlaceEnglish", SqlDbType.VarChar,50) ,            
                         new SqlParameter("@BirthPlaceEnglish", SqlDbType.VarChar,50) ,            
                         new SqlParameter("@HasChecked", SqlDbType.VarChar,2) ,            
-                        new SqlParameter("@CheckPerson", SqlDbType.VarChar,50)             
+                        new SqlParameter("@CheckPerson", SqlDbType.VarChar,50) ,            
+                        new SqlParameter("@EntryTime", SqlDbType.DateTime)             
               
             };
 						            
@@ -148,6 +152,7 @@ SqlParameter[] parameters = {
             parameters[13].Value = model.BirthPlaceEnglish;                        
             parameters[14].Value = model.HasChecked;                        
             parameters[15].Value = model.CheckPerson;                        
+            parameters[16].Value = model.EntryTime;                        
             int rows=DbHelperSQL.ExecuteSql(strSql.ToString(),parameters);
 			if (rows > 0)
 			{
@@ -212,7 +217,7 @@ SqlParameter[] parameters = {
 		{
 			
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select VisaInfo_id, Name, EnglishName, Sex, Birthday, PassportNo, LicenceTime, ExpiryDate, Birthplace, IssuePlace, Types, Country, IssuePlaceEnglish, BirthPlaceEnglish, HasChecked, CheckPerson  ");			
+			strSql.Append("select VisaInfo_id, Name, EnglishName, Sex, Birthday, PassportNo, LicenceTime, ExpiryDate, Birthplace, IssuePlace, Types, Country, IssuePlaceEnglish, BirthPlaceEnglish, HasChecked, CheckPerson, EntryTime  ");			
 			strSql.Append("  from VisaInfo_Tmp ");
 			strSql.Append(" where VisaInfo_id=@VisaInfo_id ");
 						SqlParameter[] parameters = {
@@ -306,7 +311,11 @@ SqlParameter[] parameters = {
 				{
 					model.CheckPerson= row["CheckPerson"].ToString();
 				}
-																										
+																												if(row["EntryTime"]!=null && row["EntryTime"].ToString()!="")
+				{
+					model.EntryTime=DateTime.Parse(row["EntryTime"].ToString());
+				}
+																														
 				return model;
 			}
 			else
@@ -334,7 +343,7 @@ SqlParameter[] parameters = {
 			{
 				strSql.Append(" top "+Top.ToString());
 			}
-			strSql.Append(" VisaInfo_id, Name, EnglishName, Sex, Birthday, PassportNo, LicenceTime, ExpiryDate, Birthplace, IssuePlace, Types, Country, IssuePlaceEnglish, BirthPlaceEnglish, HasChecked, CheckPerson  ");
+			strSql.Append(" VisaInfo_id, Name, EnglishName, Sex, Birthday, PassportNo, LicenceTime, ExpiryDate, Birthplace, IssuePlace, Types, Country, IssuePlaceEnglish, BirthPlaceEnglish, HasChecked, CheckPerson, EntryTime  ");
 			strSql.Append(" FROM VisaInfo_Tmp ");
 			if(strWhere.Trim()!="")
 			{
@@ -376,7 +385,7 @@ SqlParameter[] parameters = {
 		public DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
 		{
 			StringBuilder strSql=new StringBuilder();
-			strSql.Append("select VisaInfo_id, Name, EnglishName, Sex, Birthday, PassportNo, LicenceTime, ExpiryDate, Birthplace, IssuePlace, Types, Country, IssuePlaceEnglish, BirthPlaceEnglish, HasChecked, CheckPerson  ");
+			strSql.Append("select VisaInfo_id, Name, EnglishName, Sex, Birthday, PassportNo, LicenceTime, ExpiryDate, Birthplace, IssuePlace, Types, Country, IssuePlaceEnglish, BirthPlaceEnglish, HasChecked, CheckPerson, EntryTime  ");
 			
 			strSql.Append(" FROM ( ");
 			strSql.Append(" SELECT ROW_NUMBER() OVER (");
