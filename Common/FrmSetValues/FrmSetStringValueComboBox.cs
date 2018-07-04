@@ -26,11 +26,11 @@ namespace TravelAgency.CSUI.Visa.FrmSub.FrmSetValue
         }
 
 
-        public FrmSetStringValueComboBox(string headertext,List<string> list,string value=""):this()
+        public FrmSetStringValueComboBox(string headertext,List<string> cbItems,string value=""):this()
         {
             this.Text = headertext;
             comboBoxEx1.Text = value;
-            foreach (var item in list)
+            foreach (var item in cbItems)
             {
                 comboBoxEx1.Items.Add(item);
             }

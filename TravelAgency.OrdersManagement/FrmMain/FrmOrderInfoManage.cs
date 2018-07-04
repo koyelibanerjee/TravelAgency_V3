@@ -5,7 +5,7 @@ using System.Threading;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using TravelAgency.Common;
-using TravelAgency.CSUI.FrmSub;
+using TravelAgency.Common.FrmSetValues;
 using TravelAgency.Model;
 
 namespace TravelAgency.OrdersManagement

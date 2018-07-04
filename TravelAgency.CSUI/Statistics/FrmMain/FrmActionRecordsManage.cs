@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using TravelAgency.Common;
 using TravelAgency.Common.Excel;
+using TravelAgency.Common.FrmSetValues;
 using TravelAgency.Common.PictureHandler;
 using TravelAgency.Common.QRCode;
 using TravelAgency.Common.Word;

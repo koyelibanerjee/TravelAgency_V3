@@ -93,19 +93,6 @@
     <Reference Include="TelerikCommon, Version=2017.3.1017.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomCtrls\DataGridViewEx.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="CustomCtrls\ProPictureBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="CustomCtrls\ProPictureBoxWithRoi.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="CustomCtrls\RowMergeView.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="CustomCtrls\RowMergeView.designer.cs" />
     <Compile Include="Financial\FrmMain\FrmAppManage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,12 +190,6 @@
     <Compile Include="Visa\FrmSub\FrmSetSubmitTime.Designer.cs">
       <DependentUpon>FrmSetSubmitTime.cs</DependentUpon>
     </Compile>
-    <Compile Include="Visa\FrmSub\FrmSetValue\FrmIntValueSet.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Visa\FrmSub\FrmSetValue\FrmIntValueSet.designer.cs">
-      <DependentUpon>FrmIntValueSet.cs</DependentUpon>
-    </Compile>
     <Compile Include="Visa\FrmSub\FrmAddFromImage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -232,18 +213,6 @@
     </Compile>
     <Compile Include="Visa\FrmSub\FrmSetValue\FrmSetMultiStringValue.Designer.cs">
       <DependentUpon>FrmSetMultiStringValue.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Visa\FrmSub\FrmSetValue\FrmSetStringValueComboBox.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Visa\FrmSub\FrmSetValue\FrmSetStringValueComboBox.Designer.cs">
-      <DependentUpon>FrmSetStringValueComboBox.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Visa\FrmSub\FrmSetValue\FrmSetStringValue.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Visa\FrmSub\FrmSetValue\FrmSetStringValue.Designer.cs">
-      <DependentUpon>FrmSetStringValue.cs</DependentUpon>
     </Compile>
     <Compile Include="Visa\FrmSub\FrmUploadLocalImages.cs">
       <SubType>Form</SubType>
@@ -467,12 +436,6 @@
     <Compile Include="Visa\FrmSub\FrmSetValue\FrmIdentificationValue.Designer.cs">
       <DependentUpon>FrmIdentificationValue.cs</DependentUpon>
     </Compile>
-    <Compile Include="Visa\FrmSub\FrmTimeSpanChoose.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Visa\FrmSub\FrmTimeSpanChoose.Designer.cs">
-      <DependentUpon>FrmTimeSpanChoose.cs</DependentUpon>
-    </Compile>
     <Compile Include="Visa\FrmSub\FrmTodaySubmit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -550,9 +513,6 @@
     <EmbeddedResource Include="Visa\FrmSub\FrmSetSubmitTime.resx">
       <DependentUpon>FrmSetSubmitTime.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Visa\FrmSub\FrmSetValue\FrmIntValueSet.resx">
-      <DependentUpon>FrmIntValueSet.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Visa\FrmSub\FrmAddFromImage.resx">
       <DependentUpon>FrmAddFromImage.cs</DependentUpon>
     </EmbeddedResource>
@@ -564,12 +524,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visa\FrmSub\FrmSetValue\FrmSetMultiStringValue.resx">
       <DependentUpon>FrmSetMultiStringValue.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Visa\FrmSub\FrmSetValue\FrmSetStringValueComboBox.resx">
-      <DependentUpon>FrmSetStringValueComboBox.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Visa\FrmSub\FrmSetValue\FrmSetStringValue.resx">
-      <DependentUpon>FrmSetStringValue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visa\FrmSub\FrmUploadLocalImages.resx">
       <DependentUpon>FrmUploadLocalImages.cs</DependentUpon>
@@ -678,9 +632,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visa\FrmSub\FrmShowPicture.resx">
       <DependentUpon>FrmShowPicture.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Visa\FrmSub\FrmTimeSpanChoose.resx">
-      <DependentUpon>FrmTimeSpanChoose.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visa\FrmSub\FrmTodaySubmit.resx">
       <DependentUpon>FrmTodaySubmit.cs</DependentUpon>

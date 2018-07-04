@@ -1,10 +1,8 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-using TravelAgency.Common;
 
-namespace TravelAgency.CSUI.CustomCtrls
+namespace TravelAgency.Common.CustomCtrls
 {
     public struct ProTransformation
     {

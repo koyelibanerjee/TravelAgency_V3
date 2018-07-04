@@ -1,4 +1,4 @@
-﻿using TravelAgency.CSUI.CustomCtrls;
+﻿using TravelAgency.Common.CustomCtrls;
 
 namespace TravelAgency.CSUI.Visa.FrmSub
 {
@@ -56,8 +56,8 @@ namespace TravelAgency.CSUI.Visa.FrmSub
             this.labelX10 = new DevComponents.DotNetBar.LabelX();
             this.labelX9 = new DevComponents.DotNetBar.LabelX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
-            this.proPictureBoxWithRoi1 = new TravelAgency.CSUI.CustomCtrls.ProPictureBoxWithRoi();
-            this.proPictureBox1 = new TravelAgency.CSUI.CustomCtrls.ProPictureBox();
+            this.proPictureBoxWithRoi1 = new ProPictureBoxWithRoi();
+            this.proPictureBox1 = new ProPictureBox();
             this.panelEx1.SuspendLayout();
             this.panelEx2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtExpireDate)).BeginInit();

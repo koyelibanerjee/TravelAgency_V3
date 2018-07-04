@@ -176,6 +176,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomCtrls\DataGridViewEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomCtrls\ProPictureBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomCtrls\ProPictureBoxWithRoi.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomCtrls\RowMergeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomCtrls\RowMergeView.designer.cs">
+      <DependentUpon>RowMergeView.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataOrderByHelper.cs" />
     <Compile Include="DataStructure\LRUCache.cs" />
     <Compile Include="DataStructure\Node.cs" />
@@ -205,6 +220,30 @@
     <Compile Include="Excel\OrderInfoExcelParser.cs" />
     <Compile Include="Excel\XlsGenerator.cs" />
     <Compile Include="Financial\CommisionMoneyCounter.cs" />
+    <Compile Include="FrmSetValues\FrmIntValueSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSetValues\FrmIntValueSet.designer.cs">
+      <DependentUpon>FrmIntValueSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSetValues\FrmSetStringValue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSetValues\FrmSetStringValue.Designer.cs">
+      <DependentUpon>FrmSetStringValue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSetValues\FrmSetStringValueComboBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSetValues\FrmSetStringValueComboBox.Designer.cs">
+      <DependentUpon>FrmSetStringValueComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSetValues\FrmTimeSpanChoose.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSetValues\FrmTimeSpanChoose.Designer.cs">
+      <DependentUpon>FrmTimeSpanChoose.cs</DependentUpon>
+    </Compile>
     <Compile Include="FTP\FtpHandler.cs" />
     <Compile Include="InfoChecker.cs" />
     <Compile Include="JsonHandler.cs" />
@@ -401,6 +440,21 @@
     <EmbeddedResource Include="Excel\FrmOrderInfoExcelParser.resx">
       <DependentUpon>FrmOrderInfoExcelParser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmSetValues\FrmIntValueSet.resx">
+      <DependentUpon>FrmIntValueSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSetValues\FrmSetStringValue.resx">
+      <DependentUpon>FrmSetStringValue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSetValues\FrmSetStringValueComboBox.resx">
+      <DependentUpon>FrmSetStringValueComboBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSetValues\FrmTimeSpanChoose.resx">
+      <DependentUpon>FrmTimeSpanChoose.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CustomControls\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

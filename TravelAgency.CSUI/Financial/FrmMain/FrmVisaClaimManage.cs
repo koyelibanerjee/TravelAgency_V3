@@ -8,6 +8,7 @@ using DevComponents.DotNetBar;
 using TravelAgency.BLL;
 using TravelAgency.Common;
 using TravelAgency.Common.Excel;
+using TravelAgency.Common.FrmSetValues;
 using TravelAgency.Common.Word;
 using TravelAgency.CSUI.Financial.FrmSub;
 using TravelAgency.CSUI.FrmSub;
@@ -31,7 +32,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
         private string _where = string.Empty;
 
         private decimal? _numBackup = null;
-        private bool _needDoUpdateEvent = false;
+        public bool NeedDoUpdateEvent = false;
 
         private List<Model.Visa> _visaListBackUp;
 
@@ -206,7 +207,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
         public void LoadDataToDataGridView(int page) //刷新后保持选中
         {
             _where = GetWhereCondition();
-            _needDoUpdateEvent = false;
+            NeedDoUpdateEvent = false;
             //Console.WriteLine("加载一次");
             int curSelectedRow = -1;
             if (dataGridView1.SelectedRows.Count > 0)
@@ -224,7 +225,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                 dataGridView1.CurrentCell = dataGridView1.Rows[curSelectedRow].Cells[0];
 
             GlobalStat.UpdateStatistics();
-            _needDoUpdateEvent = true;
+            NeedDoUpdateEvent = true;
         }
 
         public void UpdateState()

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using TravelAgency.Common.FrmSetValues;
 using TravelAgency.CSUI.FrmSub.FrmSetValue;
 
 namespace TravelAgency.CSUI.Visa.FrmSub

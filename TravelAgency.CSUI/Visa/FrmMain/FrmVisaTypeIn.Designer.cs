@@ -1,4 +1,4 @@
-﻿using TravelAgency.CSUI.CustomCtrls;
+﻿using TravelAgency.Common.CustomCtrls;
 
 namespace TravelAgency.CSUI.FrmMain
 {
@@ -99,7 +99,7 @@ namespace TravelAgency.CSUI.FrmMain
             this.btnSaveChanges = new DevComponents.DotNetBar.ButtonX();
             this.cmsDgvRb = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmsItemDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.picPassportNo = new TravelAgency.CSUI.CustomCtrls.ProPictureBox();
+            this.picPassportNo = new ProPictureBox();
             this.panelMain.SuspendLayout();
             this.panelMid.SuspendLayout();
             this.panelbottom.SuspendLayout();

@@ -8,9 +8,8 @@ using DevComponents.DotNetBar;
 using TravelAgency.BLL;
 using TravelAgency.Common;
 using TravelAgency.Common.Excel;
+using TravelAgency.Common.FrmSetValues;
 using TravelAgency.Common.PictureHandler;
-using TravelAgency.CSUI.FrmSub;
-using TravelAgency.CSUI.Visa.FrmSub.FrmSetValue;
 using TravelAgency.OrdersManagement.FrmSub;
 using Orders = TravelAgency.Model.Orders;
 

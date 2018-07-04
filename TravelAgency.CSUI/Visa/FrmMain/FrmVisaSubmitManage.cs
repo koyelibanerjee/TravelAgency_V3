@@ -10,6 +10,7 @@ using TravelAgency.BLL;
 using TravelAgency.Common;
 using TravelAgency.Common.Enums;
 using TravelAgency.Common.Excel;
+using TravelAgency.Common.FrmSetValues;
 using TravelAgency.Common.QRCode;
 using TravelAgency.Common.Word;
 using TravelAgency.CSUI.FrmMain;
@@ -271,7 +272,6 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             int count = 0; //成功记录数
             string str = txtInput.Text.TrimEnd(); //去掉最后的\r\n
             string[] lines = str.Split(new string[] { "\r\n" }, StringSplitOptions.None);
-            bool updateSingle = false; //多行模式下设置显示更新模式 ,默认执行完了才更新
 
             if (inputMode == Inputmode.Single)
             {

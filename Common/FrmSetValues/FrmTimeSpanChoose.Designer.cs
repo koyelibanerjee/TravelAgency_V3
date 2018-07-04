@@ -1,4 +1,4 @@
-﻿namespace TravelAgency.CSUI.FrmSub
+﻿namespace TravelAgency.Common.FrmSetValues
 {
     partial class FrmTimeSpanChoose
     {

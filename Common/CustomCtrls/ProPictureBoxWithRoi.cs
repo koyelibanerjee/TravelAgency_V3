@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace TravelAgency.CSUI.CustomCtrls
+namespace TravelAgency.Common.CustomCtrls
 {
     public class ProPictureBoxWithRoi : ProPictureBox
     {
