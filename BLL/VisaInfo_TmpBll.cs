@@ -53,6 +53,7 @@ namespace TravelAgency.BLL
                 {
                     Model.VisaInfo model = new Model.VisaInfo();
                     list[i].CopyToVisaInfo(model);
+                    model.EntryTime = DateTime.Now;
 
                     if (_bllVisaInfo.GetModelList(" passportNo ='" + model.PassportNo + "'").Count > 0)
                     {

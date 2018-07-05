@@ -176,7 +176,6 @@ namespace TravelAgency.Common.IDCard
                 visaInfo.LicenceTime = DateTime.Parse(infos[15].Split(':')[1]);
                 visaInfo.BirthPlaceEnglish = infos[18].Split(':')[1];
                 visaInfo.IssuePlaceEnglish = infos[19].Split(':')[1];
-                visaInfo.EntryTime = DateTime.Now;
             }
             catch (Exception ex)
             {
@@ -304,7 +303,6 @@ namespace TravelAgency.Common.IDCard
                     visaInfo.LicenceTime = DateTime.Parse(infos[15].Split(':')[1]);
                     visaInfo.BirthPlaceEnglish = infos[18].Split(':')[1];
                     visaInfo.IssuePlaceEnglish = infos[19].Split(':')[1];
-                    visaInfo.EntryTime = DateTime.Now;
                 }
                 catch (Exception)
                 {

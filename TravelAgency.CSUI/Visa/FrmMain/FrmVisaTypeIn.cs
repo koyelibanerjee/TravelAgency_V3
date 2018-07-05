@@ -358,6 +358,7 @@ namespace TravelAgency.CSUI.FrmMain
         private void btnReadData_Click(object sender, EventArgs e)
         {
             VisaInfo_Tmp model = _idCard.RecogoInfo(txtPicPath.Text, checkRegSucShowDlg.Checked);
+            
             //VisaInfo_Tmp model = new VisaInfo_Tmp(){Name = "杨小鹏",EnglishName = "Yang Xiaopeng",Sex = "男",PassportNo = "E12345678"};
 
             if (model == null)
@@ -367,6 +368,7 @@ namespace TravelAgency.CSUI.FrmMain
                 model.Country = _country;
             else
                 model.Country = null;
+            model.EntryTime = DateTime.Now;
 
             //图像上传到服务器
             PassportPicHandler.UploadPassportPic(
@@ -413,6 +415,7 @@ namespace TravelAgency.CSUI.FrmMain
                         model.Country = _country;
                     else
                         model.Country = null;
+                    model.EntryTime = DateTime.Now;
 
                     //把拍照的图像上传到服务器
                     PassportPicHandler.UploadPassportPic(
@@ -478,6 +481,7 @@ namespace TravelAgency.CSUI.FrmMain
             Model.VisaInfo_Tmp model = new VisaInfo_Tmp();
             if (!CtrlsToModel(model))
                 return;
+            model.EntryTime = DateTime.Now;
 
             if (!InfoChecker.CheckByPinYin(model.Name, model.EnglishName)) //检查到错误
             {
@@ -489,6 +493,8 @@ namespace TravelAgency.CSUI.FrmMain
             }
 
             //读取成功了
+            //执行entrytime设置
+            
             if (_bllVisaInfoTmp.Add(model)==Guid.Empty)
             {
                 MessageBoxEx.Show(Resources.FailedAddToDatabase);
