@@ -194,7 +194,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
             if (selIdxs.Count > 0)
                 dataGridView1.ClearSelection();
-            if (dataGridView1.Rows.Count >= selIdxs.Count)
+            if (selIdxs.Count>0 && dataGridView1.Rows.Count >= selIdxs[selIdxs.Count - 1])
                 foreach (var idx in selIdxs)
                     dataGridView1.Rows[idx].Selected = true;
 
@@ -336,6 +336,12 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                 conditions.Add(" (Client like '%" + txtClient.Text + "%') ");
             }
 
+            if (!string.IsNullOrEmpty(txtRequestFlagUserName.Text.Trim()))
+            {
+                conditions.Add(" (RequestFlagUserName like '%" + txtRequestFlagUserName.Text + "%') ");
+            }
+
+
             if (cbDepatureType.Text == "全部")
             {
 
@@ -379,6 +385,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             txtSalesPerson.Text = string.Empty;
             txtClient.Text = string.Empty;
             txtRequestFlag.Text = string.Empty;
+            txtRequestFlagUserName.Text = string.Empty;
 
             cbDepatureType.Text = "全部";
             cbDisplayType.Text = "全部";
@@ -1656,7 +1663,10 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                 return;
 
             foreach (var visa in list)
+            {
                 visa.RequestFlag = frm.RetValue;
+                visa.RequestFlagUserName = GlobalUtils.LoginUser.UserName;
+            }
             _bllVisa.UpdateList(list);
             LoadDataToDgvAsyn();
         }

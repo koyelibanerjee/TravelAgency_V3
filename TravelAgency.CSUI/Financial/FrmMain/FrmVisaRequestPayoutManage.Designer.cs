@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bar1 = new DevComponents.DotNetBar.Bar();
             this.btnPageFirst = new DevComponents.DotNetBar.ButtonItem();
             this.btnPagePre = new DevComponents.DotNetBar.ButtonItem();
@@ -120,6 +120,7 @@
             this.清除领馆款项ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.清除杂费款项ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.设置请款标记ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.添加到设置请款费用列表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelBars = new DevComponents.DotNetBar.PanelEx();
             this.panelSerachBar = new DevComponents.DotNetBar.PanelEx();
             this.txtRequestFlag = new DevComponents.DotNetBar.Controls.TextBoxX();
@@ -156,11 +157,12 @@
             this.bgWorkerLoadData = new System.ComponentModel.BackgroundWorker();
             this.labelItem8 = new DevComponents.DotNetBar.LabelItem();
             this.panelDgv = new DevComponents.DotNetBar.PanelEx();
-            this.cmsAddToGroup = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.添加到团号ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bar2 = new DevComponents.DotNetBar.Bar();
             this.lbCount = new DevComponents.DotNetBar.LabelItem();
-            this.添加到设置请款费用列表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsAddToGroup = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.添加到团号ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtRequestFlagUserName = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX9 = new DevComponents.DotNetBar.LabelX();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cmsDgv.SuspendLayout();
@@ -171,8 +173,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSchRealTimeTo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSchRealTimeFrom)).BeginInit();
             this.panelDgv.SuspendLayout();
-            this.cmsAddToGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bar2)).BeginInit();
+            this.cmsAddToGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // bar1
@@ -280,14 +282,14 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.GroupNo,
@@ -320,28 +322,28 @@
             this.SubmitFlag,
             this.RequestFlag,
             this.Visa_id});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -609,19 +611,19 @@
             this.设置请款标记ToolStripMenuItem,
             this.添加到设置请款费用列表ToolStripMenuItem});
             this.cmsDgv.Name = "cmsDgv";
-            this.cmsDgv.Size = new System.Drawing.Size(209, 380);
+            this.cmsDgv.Size = new System.Drawing.Size(209, 358);
             // 
             // 复制ToolStripMenuItem
             // 
             this.复制ToolStripMenuItem.Name = "复制ToolStripMenuItem";
-            this.复制ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.复制ToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.复制ToolStripMenuItem.Text = "复制单元格所选内容";
             this.复制ToolStripMenuItem.Click += new System.EventHandler(this.复制ToolStripMenuItem_Click);
             // 
             // 删除ToolStripMenuItem
             // 
             this.删除ToolStripMenuItem.Name = "删除ToolStripMenuItem";
-            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.删除ToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.删除ToolStripMenuItem.Text = "删除";
             this.删除ToolStripMenuItem.Visible = false;
             this.删除ToolStripMenuItem.Click += new System.EventHandler(this.删除ToolStripMenuItem_Click);
@@ -629,20 +631,20 @@
             // cmsItemRefreshDatabase
             // 
             this.cmsItemRefreshDatabase.Name = "cmsItemRefreshDatabase";
-            this.cmsItemRefreshDatabase.Size = new System.Drawing.Size(184, 22);
+            this.cmsItemRefreshDatabase.Size = new System.Drawing.Size(208, 22);
             this.cmsItemRefreshDatabase.Text = "刷新数据库状态";
             this.cmsItemRefreshDatabase.Click += new System.EventHandler(this.cmsItemRefreshDatabase_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(181, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(205, 6);
             this.toolStripSeparator3.Visible = false;
             // 
             // cmsItemShowGroupNo
             // 
             this.cmsItemShowGroupNo.Name = "cmsItemShowGroupNo";
-            this.cmsItemShowGroupNo.Size = new System.Drawing.Size(184, 22);
+            this.cmsItemShowGroupNo.Size = new System.Drawing.Size(208, 22);
             this.cmsItemShowGroupNo.Text = "查看选中团号";
             this.cmsItemShowGroupNo.Visible = false;
             this.cmsItemShowGroupNo.Click += new System.EventHandler(this.cmsItemShowGroupNo_Click);
@@ -650,7 +652,7 @@
             // 修改做资料状态ToolStripMenuItem
             // 
             this.修改做资料状态ToolStripMenuItem.Name = "修改做资料状态ToolStripMenuItem";
-            this.修改做资料状态ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.修改做资料状态ToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.修改做资料状态ToolStripMenuItem.Text = "修改做资料状态";
             this.修改做资料状态ToolStripMenuItem.Visible = false;
             this.修改做资料状态ToolStripMenuItem.Click += new System.EventHandler(this.修改做资料状态ToolStripMenuItem_Click);
@@ -658,7 +660,7 @@
             // 修改选中类型ToolStripMenuItem
             // 
             this.修改选中类型ToolStripMenuItem.Name = "修改选中类型ToolStripMenuItem";
-            this.修改选中类型ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.修改选中类型ToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.修改选中类型ToolStripMenuItem.Text = "修改选中类型";
             this.修改选中类型ToolStripMenuItem.Visible = false;
             this.修改选中类型ToolStripMenuItem.Click += new System.EventHandler(this.修改选中类型ToolStripMenuItem_Click);
@@ -666,7 +668,7 @@
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(181, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(205, 6);
             this.toolStripSeparator2.Visible = false;
             // 
             // 导出报表ToolStripMenuItem
@@ -677,7 +679,7 @@
             this.韩国ToolStripMenuItem,
             this.泰国ToolStripMenuItem});
             this.导出报表ToolStripMenuItem.Name = "导出报表ToolStripMenuItem";
-            this.导出报表ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.导出报表ToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.导出报表ToolStripMenuItem.Text = "导出报表";
             this.导出报表ToolStripMenuItem.Visible = false;
             // 
@@ -876,61 +878,68 @@
             // 设置领馆费用ToolStripMenuItem
             // 
             this.设置领馆费用ToolStripMenuItem.Name = "设置领馆费用ToolStripMenuItem";
-            this.设置领馆费用ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.设置领馆费用ToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.设置领馆费用ToolStripMenuItem.Text = "设置请款费用";
             this.设置领馆费用ToolStripMenuItem.Click += new System.EventHandler(this.设置请款费用ToolStripMenuItem_Click);
             // 
             // 提交请款ToolStripMenuItem
             // 
             this.提交请款ToolStripMenuItem.Name = "提交请款ToolStripMenuItem";
-            this.提交请款ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.提交请款ToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.提交请款ToolStripMenuItem.Text = "提交请款申请";
             this.提交请款ToolStripMenuItem.Click += new System.EventHandler(this.提交请款ToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(181, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(205, 6);
             // 
             // 自动更新单价ToolStripMenuItem
             // 
             this.自动更新单价ToolStripMenuItem.Name = "自动更新单价ToolStripMenuItem";
-            this.自动更新单价ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.自动更新单价ToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.自动更新单价ToolStripMenuItem.Text = "自动更新单价";
             this.自动更新单价ToolStripMenuItem.Click += new System.EventHandler(this.自动更新单价ToolStripMenuItem_Click);
             // 
             // 自动更新总价ToolStripMenuItem
             // 
             this.自动更新总价ToolStripMenuItem.Name = "自动更新总价ToolStripMenuItem";
-            this.自动更新总价ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.自动更新总价ToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.自动更新总价ToolStripMenuItem.Text = "自动更新总价";
             this.自动更新总价ToolStripMenuItem.Click += new System.EventHandler(this.自动更新总价ToolStripMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(181, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(205, 6);
             // 
             // 清除领馆款项ToolStripMenuItem
             // 
             this.清除领馆款项ToolStripMenuItem.Name = "清除领馆款项ToolStripMenuItem";
-            this.清除领馆款项ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.清除领馆款项ToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.清除领馆款项ToolStripMenuItem.Text = "清除领馆款项";
             this.清除领馆款项ToolStripMenuItem.Click += new System.EventHandler(this.清除领馆款项ToolStripMenuItem_Click);
             // 
             // 清除杂费款项ToolStripMenuItem
             // 
             this.清除杂费款项ToolStripMenuItem.Name = "清除杂费款项ToolStripMenuItem";
-            this.清除杂费款项ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.清除杂费款项ToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.清除杂费款项ToolStripMenuItem.Text = "清除杂费款项";
             this.清除杂费款项ToolStripMenuItem.Click += new System.EventHandler(this.清除杂费款项ToolStripMenuItem_Click);
             // 
             // 设置请款标记ToolStripMenuItem
             // 
             this.设置请款标记ToolStripMenuItem.Name = "设置请款标记ToolStripMenuItem";
-            this.设置请款标记ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.设置请款标记ToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.设置请款标记ToolStripMenuItem.Text = "设置请款标记";
             this.设置请款标记ToolStripMenuItem.Click += new System.EventHandler(this.设置请款标记ToolStripMenuItem_Click);
+            // 
+            // 添加到设置请款费用列表ToolStripMenuItem
+            // 
+            this.添加到设置请款费用列表ToolStripMenuItem.Name = "添加到设置请款费用列表ToolStripMenuItem";
+            this.添加到设置请款费用列表ToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.添加到设置请款费用列表ToolStripMenuItem.Text = "添加到设置请款费用列表";
+            this.添加到设置请款费用列表ToolStripMenuItem.Click += new System.EventHandler(this.添加到设置请款费用列表ToolStripMenuItem_Click);
             // 
             // panelBars
             // 
@@ -955,6 +964,8 @@
             // 
             this.panelSerachBar.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelSerachBar.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelSerachBar.Controls.Add(this.txtRequestFlagUserName);
+            this.panelSerachBar.Controls.Add(this.labelX9);
             this.panelSerachBar.Controls.Add(this.txtRequestFlag);
             this.panelSerachBar.Controls.Add(this.labelX4);
             this.panelSerachBar.Controls.Add(this.cbSubmitState);
@@ -1009,9 +1020,9 @@
             this.txtRequestFlag.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtRequestFlag.DisabledBackColor = System.Drawing.Color.White;
             this.txtRequestFlag.ForeColor = System.Drawing.Color.Black;
-            this.txtRequestFlag.Location = new System.Drawing.Point(592, 34);
+            this.txtRequestFlag.Location = new System.Drawing.Point(561, 37);
             this.txtRequestFlag.Name = "txtRequestFlag";
-            this.txtRequestFlag.Size = new System.Drawing.Size(60, 21);
+            this.txtRequestFlag.Size = new System.Drawing.Size(56, 21);
             this.txtRequestFlag.TabIndex = 57;
             // 
             // labelX4
@@ -1020,7 +1031,7 @@
             // 
             // 
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(520, 33);
+            this.labelX4.Location = new System.Drawing.Point(500, 36);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(66, 21);
             this.labelX4.TabIndex = 58;
@@ -1033,9 +1044,9 @@
             this.cbSubmitState.ForeColor = System.Drawing.Color.Black;
             this.cbSubmitState.FormattingEnabled = true;
             this.cbSubmitState.ItemHeight = 15;
-            this.cbSubmitState.Location = new System.Drawing.Point(432, 35);
+            this.cbSubmitState.Location = new System.Drawing.Point(419, 35);
             this.cbSubmitState.Name = "cbSubmitState";
-            this.cbSubmitState.Size = new System.Drawing.Size(82, 21);
+            this.cbSubmitState.Size = new System.Drawing.Size(71, 21);
             this.cbSubmitState.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cbSubmitState.TabIndex = 56;
             // 
@@ -1181,7 +1192,7 @@
             this.progressLoading.BackgroundStyle.BackgroundImageAlpha = ((byte)(64));
             this.progressLoading.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.progressLoading.FocusCuesEnabled = false;
-            this.progressLoading.Location = new System.Drawing.Point(1220, 5);
+            this.progressLoading.Location = new System.Drawing.Point(1299, 7);
             this.progressLoading.Name = "progressLoading";
             this.progressLoading.ProgressBarType = DevComponents.DotNetBar.eCircularProgressType.Dot;
             this.progressLoading.ProgressColor = System.Drawing.Color.YellowGreen;
@@ -1198,7 +1209,7 @@
             this.lbMonneyCount.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lbMonneyCount.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbMonneyCount.ForeColor = System.Drawing.Color.ForestGreen;
-            this.lbMonneyCount.Location = new System.Drawing.Point(1093, 5);
+            this.lbMonneyCount.Location = new System.Drawing.Point(1172, 7);
             this.lbMonneyCount.Name = "lbMonneyCount";
             this.lbMonneyCount.Size = new System.Drawing.Size(166, 51);
             this.lbMonneyCount.TabIndex = 54;
@@ -1208,7 +1219,7 @@
             // 
             this.btnUpdate.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnUpdate.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnUpdate.Location = new System.Drawing.Point(999, 5);
+            this.btnUpdate.Location = new System.Drawing.Point(1079, 4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(87, 52);
             this.btnUpdate.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -1226,7 +1237,7 @@
             this.txtSalesPerson.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtSalesPerson.DisabledBackColor = System.Drawing.Color.White;
             this.txtSalesPerson.ForeColor = System.Drawing.Color.Black;
-            this.txtSalesPerson.Location = new System.Drawing.Point(738, 36);
+            this.txtSalesPerson.Location = new System.Drawing.Point(818, 35);
             this.txtSalesPerson.Name = "txtSalesPerson";
             this.txtSalesPerson.Size = new System.Drawing.Size(60, 21);
             this.txtSalesPerson.TabIndex = 42;
@@ -1277,7 +1288,7 @@
             // 
             // 
             this.labelX5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX5.Location = new System.Drawing.Point(704, 38);
+            this.labelX5.Location = new System.Drawing.Point(775, 34);
             this.labelX5.Name = "labelX5";
             this.labelX5.Size = new System.Drawing.Size(37, 21);
             this.labelX5.TabIndex = 44;
@@ -1324,7 +1335,7 @@
             // 
             this.btnShowToday.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnShowToday.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnShowToday.Location = new System.Drawing.Point(902, 34);
+            this.btnShowToday.Location = new System.Drawing.Point(982, 33);
             this.btnShowToday.Name = "btnShowToday";
             this.btnShowToday.Size = new System.Drawing.Size(92, 23);
             this.btnShowToday.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -1349,7 +1360,7 @@
             // 
             this.btnClearSchConditions.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnClearSchConditions.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnClearSchConditions.Location = new System.Drawing.Point(804, 34);
+            this.btnClearSchConditions.Location = new System.Drawing.Point(884, 33);
             this.btnClearSchConditions.Name = "btnClearSchConditions";
             this.btnClearSchConditions.Size = new System.Drawing.Size(92, 23);
             this.btnClearSchConditions.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -1518,7 +1529,7 @@
             // 
             this.btnShowAll.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnShowAll.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnShowAll.Location = new System.Drawing.Point(902, 5);
+            this.btnShowAll.Location = new System.Drawing.Point(982, 4);
             this.btnShowAll.Name = "btnShowAll";
             this.btnShowAll.Size = new System.Drawing.Size(91, 23);
             this.btnShowAll.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -1530,7 +1541,7 @@
             // 
             this.btnSearch.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnSearch.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnSearch.Location = new System.Drawing.Point(804, 6);
+            this.btnSearch.Location = new System.Drawing.Point(884, 5);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(92, 23);
             this.btnSearch.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -1569,20 +1580,6 @@
             this.panelDgv.TabIndex = 37;
             this.panelDgv.Text = "panelEx1";
             // 
-            // cmsAddToGroup
-            // 
-            this.cmsAddToGroup.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.添加到团号ToolStripMenuItem});
-            this.cmsAddToGroup.Name = "cmsAddToGroup";
-            this.cmsAddToGroup.Size = new System.Drawing.Size(149, 26);
-            // 
-            // 添加到团号ToolStripMenuItem
-            // 
-            this.添加到团号ToolStripMenuItem.Name = "添加到团号ToolStripMenuItem";
-            this.添加到团号ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.添加到团号ToolStripMenuItem.Text = "添加到此团号";
-            this.添加到团号ToolStripMenuItem.Click += new System.EventHandler(this.添加到团号ToolStripMenuItem_Click);
-            // 
             // bar2
             // 
             this.bar2.AntiAlias = true;
@@ -1610,12 +1607,46 @@
             this.lbCount.Name = "lbCount";
             this.lbCount.Text = "--";
             // 
-            // 添加到设置请款费用列表ToolStripMenuItem
+            // cmsAddToGroup
             // 
-            this.添加到设置请款费用列表ToolStripMenuItem.Name = "添加到设置请款费用列表ToolStripMenuItem";
-            this.添加到设置请款费用列表ToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
-            this.添加到设置请款费用列表ToolStripMenuItem.Text = "添加到设置请款费用列表";
-            this.添加到设置请款费用列表ToolStripMenuItem.Click += new System.EventHandler(this.添加到设置请款费用列表ToolStripMenuItem_Click);
+            this.cmsAddToGroup.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.添加到团号ToolStripMenuItem});
+            this.cmsAddToGroup.Name = "cmsAddToGroup";
+            this.cmsAddToGroup.Size = new System.Drawing.Size(149, 26);
+            // 
+            // 添加到团号ToolStripMenuItem
+            // 
+            this.添加到团号ToolStripMenuItem.Name = "添加到团号ToolStripMenuItem";
+            this.添加到团号ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.添加到团号ToolStripMenuItem.Text = "添加到此团号";
+            this.添加到团号ToolStripMenuItem.Click += new System.EventHandler(this.添加到团号ToolStripMenuItem_Click);
+            // 
+            // txtRequestFlagUserName
+            // 
+            this.txtRequestFlagUserName.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txtRequestFlagUserName.Border.Class = "TextBoxBorder";
+            this.txtRequestFlagUserName.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtRequestFlagUserName.DisabledBackColor = System.Drawing.Color.White;
+            this.txtRequestFlagUserName.ForeColor = System.Drawing.Color.Black;
+            this.txtRequestFlagUserName.Location = new System.Drawing.Point(700, 37);
+            this.txtRequestFlagUserName.Name = "txtRequestFlagUserName";
+            this.txtRequestFlagUserName.Size = new System.Drawing.Size(69, 21);
+            this.txtRequestFlagUserName.TabIndex = 59;
+            // 
+            // labelX9
+            // 
+            // 
+            // 
+            // 
+            this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX9.Location = new System.Drawing.Point(623, 37);
+            this.labelX9.Name = "labelX9";
+            this.labelX9.Size = new System.Drawing.Size(75, 21);
+            this.labelX9.TabIndex = 60;
+            this.labelX9.Text = "请款标记人:";
             // 
             // FrmVisaRequestPayoutManage
             // 
@@ -1637,8 +1668,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSchRealTimeTo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSchRealTimeFrom)).EndInit();
             this.panelDgv.ResumeLayout(false);
-            this.cmsAddToGroup.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bar2)).EndInit();
+            this.cmsAddToGroup.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1774,5 +1805,7 @@
         private DevComponents.DotNetBar.Bar bar2;
         private DevComponents.DotNetBar.LabelItem lbCount;
         private System.Windows.Forms.ToolStripMenuItem 添加到设置请款费用列表ToolStripMenuItem;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtRequestFlagUserName;
+        private DevComponents.DotNetBar.LabelX labelX9;
     }
 }

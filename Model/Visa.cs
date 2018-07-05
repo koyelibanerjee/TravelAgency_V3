@@ -118,6 +118,8 @@ namespace TravelAgency.Model
     private string _outdeliveryplace;
         		                  
     private string _requestflag;
+        		                  
+    private string _requestflagusername;
         
     /// <summary>
 		/// Visa_id
@@ -722,6 +724,17 @@ namespace TravelAgency.Model
         {
             get{ return _requestflag; }
             set{ _requestflag = value; }
+        }    
+      
+		/// <summary>
+		/// RequestFlagUserName
+        /// </summary>		
+		      		  
+  
+        public string RequestFlagUserName
+        {
+            get{ return _requestflagusername; }
+            set{ _requestflagusername = value; }
         }    
       
 		   
