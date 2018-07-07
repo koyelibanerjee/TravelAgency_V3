@@ -145,6 +145,7 @@
     <Compile Include="AppStatusDal.cs" />
     <Compile Include="ClaimMoneyDal.cs" />
     <Compile Include="ClaimMoney.cs" />
+    <Compile Include="Commision.cs" />
     <Compile Include="CustomerBalanceDal.cs" />
     <Compile Include="CustomerBalance.cs" />
     <Compile Include="CustomerInfoDal.cs" />

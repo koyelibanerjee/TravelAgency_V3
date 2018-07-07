@@ -569,9 +569,7 @@ namespace TravelAgency.CSUI.FrmSub
                 txtDepartureType.Items.Add("十年多次");
                 txtDepartureType.Items.Add("十年多次加急");
             }
-
         }
-
 
 
         private void UpdateGroupNo()
