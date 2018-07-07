@@ -263,7 +263,6 @@
     <Compile Include="Word\DocComGenerator.cs" />
     <Compile Include="Word\DocDocxGenerator.cs" />
     <Compile Include="XmlHandler.cs" />
-    <Compile Include="DepartureType.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Security.AccessControl;
 
-namespace TravelAgency.Common
+namespace TravelAgency.Model.Enums
 {
     public static class DepartureType
     {

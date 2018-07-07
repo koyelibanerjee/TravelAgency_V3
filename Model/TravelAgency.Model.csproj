@@ -131,6 +131,7 @@
     <Compile Include="CustomerInfo.cs" />
     <Compile Include="Enums\ActType.cs" />
     <Compile Include="Enums\AirInfos.cs" />
+    <Compile Include="Enums\DepartureType.cs" />
     <Compile Include="Enums\HasChecked.cs" />
     <Compile Include="Enums\HasTypeIn.cs" />
     <Compile Include="Enums\MsgType.cs" />

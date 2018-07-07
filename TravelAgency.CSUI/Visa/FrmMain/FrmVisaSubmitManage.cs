@@ -751,16 +751,16 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             //按照出境类型(按照Excel报表中来)，人数排序(从小到大)
             visaList.Sort((model1, model2) =>
             {
-                if (!Common.DepartureType.Dict.ContainsKey(model1.DepartureType))
+                if (!Model.Enums.DepartureType.Dict.ContainsKey(model1.DepartureType))
                     return 1;
 
-                if (!Common.DepartureType.Dict.ContainsKey(model2.DepartureType))
+                if (!Model.Enums.DepartureType.Dict.ContainsKey(model2.DepartureType))
                     return -1;
 
-                if (Common.DepartureType.Dict[model1.DepartureType] < Common.DepartureType.Dict[model2.DepartureType])
+                if (Model.Enums.DepartureType.Dict[model1.DepartureType] < Model.Enums.DepartureType.Dict[model2.DepartureType])
                     return -1;
-                else if (Common.DepartureType.Dict[model1.DepartureType] ==
-                         Common.DepartureType.Dict[model2.DepartureType])
+                else if (Model.Enums.DepartureType.Dict[model1.DepartureType] ==
+                         Model.Enums.DepartureType.Dict[model2.DepartureType])
                 {
                     return model1.Number < model2.Number ? -1 : 1;
                 }
@@ -1900,16 +1900,16 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 if (model2.DepartureType == null && model1.DepartureType == null)
                     return -1;
 
-                if (!Common.DepartureType.Dict.ContainsKey(model1.DepartureType))
+                if (!Model.Enums.DepartureType.Dict.ContainsKey(model1.DepartureType))
                     return 1;
 
-                if (!Common.DepartureType.Dict.ContainsKey(model2.DepartureType))
+                if (!Model.Enums.DepartureType.Dict.ContainsKey(model2.DepartureType))
                     return -1;
 
-                if (Common.DepartureType.Dict[model1.DepartureType] < Common.DepartureType.Dict[model2.DepartureType])
+                if (Model.Enums.DepartureType.Dict[model1.DepartureType] < Model.Enums.DepartureType.Dict[model2.DepartureType])
                     return -1;
-                else if (Common.DepartureType.Dict[model1.DepartureType] ==
-                         Common.DepartureType.Dict[model2.DepartureType])
+                else if (Model.Enums.DepartureType.Dict[model1.DepartureType] ==
+                         Model.Enums.DepartureType.Dict[model2.DepartureType])
                 {
                     return model1.Number < model2.Number ? -1 : 1;
                 }
