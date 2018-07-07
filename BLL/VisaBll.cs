@@ -4,14 +4,14 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TravelAgency.Common;
 
 namespace TravelAgency.BLL
 {
     public partial class Visa
     {
-        public string TableName { get { return "Visa"; } }
-
-
+        #region getFieldList
+        private string TableName = "Visa";
         public List<string> GetClientList()
         {
             return CommonBll.GetFieldList(TableName, "Client");
@@ -26,26 +26,11 @@ namespace TravelAgency.BLL
         {
             return CommonBll.GetFieldList(TableName, "Types");
         }
-
         public List<string> GetDepartureTypeList()
         {
             return CommonBll.GetFieldList(TableName, "DepartureType");
         }
-
-        ///// <summary>
-        ///// 返回成功数量
-        ///// </summary>
-        ///// <param name="list"></param>
-        ///// <returns></returns>
-        //public int UpdateList(List<Model.Visa> list)
-        //{
-        //    int res = 0;
-        //    for (int i = 0; i < list.Count; i++)
-        //    {
-        //        res += Update(list[i]) ? 1 : 0;
-        //    }
-        //    return res;
-        //}
+        #endregion
 
         public List<Model.Visa> GetListByPage(int pageIndex, int pageSize, string where)
         {
@@ -85,17 +70,14 @@ namespace TravelAgency.BLL
             return Delete(model.Visa_id);
         }
 
-
-
-
         /// <summary>
         /// 查询指定类型的最新一条记录
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        public Model.Visa GetLastRecord(string type,string typeinperson,string country)
+        public Model.Visa GetLastRecord(string type, string typeinperson, string country)
         {
-            var ds = dal.GetLastRecord(type, typeinperson,country);
+            var ds = dal.GetLastRecord(type, typeinperson, country);
             if (ds.Tables[0].Rows.Count > 0 && ds.Tables[0].Rows[0] != null)
                 return dal.DataRowToModel(ds.Tables[0].Rows[0]);
             return null;
@@ -137,5 +119,27 @@ namespace TravelAgency.BLL
                 return null;
             }
         }
+
+
+        public Model.Visa CopyVisa(Model.Visa orig)
+        {
+            Model.Visa newModel = orig.ToObjectCopy();
+            newModel.Visa_id = new Guid();
+            newModel.GroupNo = GetNewGroupNo(orig);
+            return newModel;
+        }
+
+        public string GetNewGroupNo(Model.Visa visa)
+        {
+            string origGroupNo = visa.GroupNo;
+            if (visa.GroupNo.Contains("_"))
+            {
+                origGroupNo = visa.GroupNo.Substring(0, visa.GroupNo.Length - 2);
+            }
+            var list = GetModelList($" groupno like '{origGroupNo}%'");
+            int newAppendixStart = list.Count;
+            return origGroupNo + $"_{newAppendixStart}";
+        }
+
     }
 }

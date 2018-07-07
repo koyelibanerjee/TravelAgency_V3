@@ -57,6 +57,7 @@
     <Compile Include="StatisticsBllTests.cs" />
     <Compile Include="UserQueueTests.cs" />
     <Compile Include="VisaInfo_JobTests.cs" />
+    <Compile Include="VisaTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\TravelAgency.BLL.csproj">
