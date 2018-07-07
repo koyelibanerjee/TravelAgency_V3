@@ -194,7 +194,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
             if (selIdxs.Count > 0)
                 dataGridView1.ClearSelection();
-            if (selIdxs.Count>0 && dataGridView1.Rows.Count >= selIdxs[selIdxs.Count - 1])
+            if (selIdxs.Count > 0 && dataGridView1.Rows.Count >= selIdxs[selIdxs.Count - 1])
                 foreach (var idx in selIdxs)
                     dataGridView1.Rows[idx].Selected = true;
 
@@ -527,6 +527,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
 
             Font font = new Font(new FontFamily("Consolas"), 13.0f, FontStyle.Bold);
+            Color colorSave = dataGridView1.DefaultCellStyle.BackColor;
             //int peopleCount = 0;
             //int hasDo = 0;
             decimal moneycount = 0;
@@ -541,7 +542,6 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                 }
                 if (dataGridView1.Rows[i].Cells["Cost"].Value != null)
                     moneycount += decimal.Parse(dataGridView1.Rows[i].Cells["Cost"].Value.ToString());
-
                 if (DgvDataSourceToList()[i].SubmitFlag == 1)
                 {
                     dataGridView1.Rows[i].Cells["SubmitFlag"].Style.BackColor = Color.LimeGreen;
@@ -549,7 +549,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                 }
                 else
                 {
-                    //dataGridView1.Rows[i].Cells["SubmitFlag"].Style.BackColor = Color.;
+                    dataGridView1.Rows[i].Cells["SubmitFlag"].Style.BackColor = colorSave;
                     dataGridView1.Rows[i].Cells["SubmitFlag"].Value = "未提交";
                 }
             }
@@ -1642,6 +1642,11 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                     MessageBoxEx.Show($"团号:{visa.GroupNo}还未设置进出签时间，不能进行请款!");
                     return;
                 }
+                if (visa.SubmitFlag == 1)
+                {
+                    MessageBoxEx.Show($"团号:{visa.GroupNo}已经请过款，请先生成新团号再进行请款!");
+                    return;
+                }
             }
 
 
@@ -1686,6 +1691,31 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                 MessageBoxEx.Show("没有打开设置请款费用窗口!!!");
                 return;
             }
+        }
+
+        private void 生成新团号ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var list = GetSelectedVisaList();
+            if (list.Count > 1)
+            {
+                MessageBoxEx.Show("请选中一条记录操作!!");
+                return;
+            }
+
+            if (list[0].SubmitFlag == 0)
+            {
+                if ((MessageBoxEx.Show("该选项还没有请款，是否生成新团号?") == DialogResult.Cancel))
+                    return;
+            }
+
+            var newModel = _bllVisa.CopyVisa(list[0]);
+            if (_bllVisa.Add(newModel) != Guid.Empty)
+            {
+                MessageBoxEx.Show($"生成新团号{newModel.GroupNo}成功!");
+                LoadDataToDgvAsyn();
+            }
+            else
+                MessageBoxEx.Show("添加失败!");
         }
     }
 }
