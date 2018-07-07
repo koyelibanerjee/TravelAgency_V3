@@ -1536,6 +1536,15 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             //for (int i = dataGridView1.SelectedRows.Count - 1; i >= 0; i--)
             //    selIdxs.Add(dataGridView1.SelectedRows[i].Index);
             var list = GetSelectedVisaList();
+            foreach (var visa in list)
+            {
+                if (visa.SubmitFlag == 1)
+                {
+                    MessageBoxEx.Show($"团号{visa.GroupNo}已经提交过请款申请，不能再修改!!");
+                    return;
+                }
+            }
+
             if (FrmsManager.FormSetCharge == null)
             {
                 FrmSetCharge frm = new FrmSetCharge(list, LoadDataToDataGridView, _curPage);
@@ -1549,14 +1558,6 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                 MessageBoxEx.Show("已经打开了设置请款费用界面，请不要重复打开!!!");
                 return;
             }
-
-            //if (selIdxs.Count > 0)
-            //    dataGridView1.ClearSelection();
-            //if (dataGridView1.Rows.Count >= selIdxs.Count)
-            //    foreach (var idx in selIdxs)
-            //        dataGridView1.Rows[idx].Selected = true;
-            //自动更新单价ToolStripMenuItem_Click(null, null); //自动触发更新事件
-            //自动更新总价ToolStripMenuItem_Click(null, null);
         }
 
         private void 清除领馆款项ToolStripMenuItem_Click(object sender, EventArgs e)
