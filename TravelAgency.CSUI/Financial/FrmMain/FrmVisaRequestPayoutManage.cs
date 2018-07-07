@@ -1450,7 +1450,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
         /// <param name="e"></param>
         private void dataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
-            //TODO:这里也要限制在那8列之中，好麻烦，想个其他解决办法吧
+            
             string name = dataGridView1.Columns[e.ColumnIndex].Name;
             if (name == "ConsulateCost" || name == "VisaPersonCost" || name == "InvitationCost" || name == "Receipt" ||
                 name == "Quidco" || name == "Picture" || name == "MailCost" || name == "Price")
@@ -1466,8 +1466,17 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
         private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
+
             if (e.RowIndex < 0 || e.ColumnIndex < 0)
                 return;
+
+            if (DgvDataSourceToList()[e.RowIndex].SubmitFlag == 1)
+            {
+                MessageBoxEx.Show("已经提交请款的团号费用不允许修改!!");
+                dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = _numBackup;
+                return;
+            }
+
             string name = dataGridView1.Columns[e.ColumnIndex].Name;
             if (name == "ConsulateCost" || name == "VisaPersonCost" || name == "InvitationCost" || name == "Receipt" ||
                 name == "Quidco" || name == "Picture" || name == "MailCost" || name == "Price")
@@ -1580,6 +1589,11 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             //单元格值发生变化的时候，变成橙色
             if (!_needDoUpdateEvent || e.RowIndex < 0 || e.ColumnIndex < 0)
                 return;
+
+            if (DgvDataSourceToList()[e.RowIndex].SubmitFlag == 1)
+            {
+                return;
+            }
 
             dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.DarkOrange;
             Font f = new Font("微软雅黑", 12.0f, FontStyle.Bold);
