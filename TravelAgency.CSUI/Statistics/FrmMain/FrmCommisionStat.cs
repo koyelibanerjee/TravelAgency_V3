@@ -55,7 +55,7 @@ namespace TravelAgency.CSUI.Statistics.FrmMain
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders; //这里也一定不能AllCell自适应!
 
             dataGridView1.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
-
+            dataGridView1.RowsAdded += DataGridView1_RowsAdded;
 
             //设置可跨线程访问窗体
             //TODO:这里可能需要修改
@@ -73,6 +73,21 @@ namespace TravelAgency.CSUI.Statistics.FrmMain
             progressLoading.Visible = false;
 
             //LoadDataToDgvAsyn();
+        }
+
+        private void DataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            {
+                DataGridViewRow row = dataGridView1.Rows[i];
+                row.HeaderCell.Value = (i + 1).ToString();
+                for (int j = 0; j != dataGridView1.ColumnCount; ++j)
+                {
+                    var value = dataGridView1.Rows[i].Cells[j].Value;
+                    if (dataGridView1.Rows[i].Cells[j].ValueType == typeof(decimal) && value != null)
+                        dataGridView1.Rows[i].Cells[j].Value = DecimalHandler.DecimalToString((decimal?)value);
+                }
+            }
         }
 
 
@@ -351,7 +366,7 @@ namespace TravelAgency.CSUI.Statistics.FrmMain
 
             }
 
-            if (string.IsNullOrEmpty(txtTypeInPerson.Text))
+            if (string.IsNullOrEmpty(txtOperator.Text))
             {
                 MessageBoxEx.Show("请先填写操作!");
                 return;
