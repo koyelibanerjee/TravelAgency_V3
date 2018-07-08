@@ -21,9 +21,9 @@ namespace TravelAgency.BLL
             {
                 string depatureType = commisionList[i].DepartureType;
                 string country = commisionList[i].Country;
-                var singlePrice = commisionList[i].TypeInCost ?? 0;
+                var singlePrice = type == "TypeInPerson" ? (commisionList[i].TypeInCost ?? 0) : (commisionList[i].OperatorCommision ?? 0);
 
-                var count = 0;
+                int count;
                 if (commisionList[i].DepartureType == "团队签证")
                     count = _bllVisa.GetRecordVisaInfoCount($" (entrytime between '{timefrom}' and '{timeto}') and " +
                                                     $"{type}='{userName}' and Types='团签' and Country = '{country}'");
@@ -32,7 +32,7 @@ namespace TravelAgency.BLL
                     count = _bllVisa.GetRecordVisaInfoCount($" (entrytime between '{timefrom}' and '{timeto}') and " +
                                                      $"{type}='{userName}' and DepartureType='{depatureType}' and Country = '{country}'");
                 }
-                
+
                 StatStruct ss = new StatStruct()
                 {
                     Country = country,
