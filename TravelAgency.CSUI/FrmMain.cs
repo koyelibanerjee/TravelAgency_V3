@@ -175,7 +175,8 @@ namespace TravelAgency.CSUI.FrmMain
 
         private void btnPersonalCount_Click(object sender, EventArgs e)
         {
-            FrmPersonalWorkCount frm = new FrmPersonalWorkCount();
+            //FrmPersonalWorkCount frm = new FrmPersonalWorkCount();
+            FrmCommisionStat frm = new FrmCommisionStat();
             OpenTab(frm, frm.Name);
         }
 

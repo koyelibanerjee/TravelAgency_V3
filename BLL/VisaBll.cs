@@ -17,6 +17,11 @@ namespace TravelAgency.BLL
             return CommonBll.GetFieldList(TableName, "Client");
         }
 
+        public List<string> GetTypeInPersonList()
+        {
+            return CommonBll.GetFieldList(TableName, "TypeInPerson");
+        }
+
         public List<string> GetCountryList()
         {
             return CommonBll.GetFieldList(TableName, "Country");
@@ -140,6 +145,11 @@ namespace TravelAgency.BLL
             var list = GetModelList($" groupno like '{origGroupNo}%'");
             int newAppendixStart = list.Count;
             return origGroupNo + $"_{newAppendixStart}";
+        }
+
+        public int GetRecordVisaInfoCount(string where)
+        {
+            return dal.GetRecordVisaInfoCount(where);
         }
 
     }

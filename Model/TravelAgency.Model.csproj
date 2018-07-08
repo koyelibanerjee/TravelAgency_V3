@@ -153,6 +153,7 @@
     <Compile Include="OrderInfo.cs" />
     <Compile Include="Orders.cs" />
     <Compile Include="OrdersLogs.cs" />
+    <Compile Include="StatStruct.cs" />
     <Compile Include="UserQueueModel.cs" />
     <Compile Include="AuthUser.cs" />
     <Compile Include="ClientCharge.cs" />

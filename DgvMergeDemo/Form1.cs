@@ -16,7 +16,7 @@ namespace DgvMergeDemo
         List<String> colsHeaderText_V = new List<String>();
         List<String> colsHeaderText_H = new List<String>();
 
-        List<TravelAgency.Model.VisaInfo> _list = new List<TravelAgency.Model.VisaInfo>(); 
+        List<TravelAgency.Model.VisaInfo> _list = new List<TravelAgency.Model.VisaInfo>();
 
         public Form1()
         {
@@ -179,14 +179,15 @@ namespace DgvMergeDemo
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(255, 0, 0);
+            //dataGridView1.EnableHeadersVisualStyles = false;
+            //dataGridView1.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(255, 0, 0);
 
-            TravelAgency.BLL.VisaInfo bll = new TravelAgency.BLL.VisaInfo();
-            _list = bll.GetListByPageOrderByOutState(1,30,string.Empty);
+            //TravelAgency.BLL.VisaInfo bll = new TravelAgency.BLL.VisaInfo();
+            //_list = bll.GetListByPageOrderByOutState(1,30,string.Empty);
 
-            dataGridView1.DataSource = _list;
-            
+
+            var list = new TravelAgency.BLL.Commision().GetTStatList("2018/05/01 00:00", "2018/06/07 00:00", "TypeInPerson", "吴思亭");
+            dataGridView1.DataSource = list;
 
         }
 

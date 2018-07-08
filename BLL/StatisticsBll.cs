@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using DevComponents.DotNetBar;
 using TravelAgency.DAL;
 using TravelAgency.Model;
 
@@ -140,7 +141,11 @@ namespace TravelAgency.BLL
                 stat.Type04Count = statBll.GetActRecordCount("04校验", stat.UserName, from, to);
                 statList.Add(stat);
             }
-
+            for (int i = 0; i < statList.Count; i++)
+            {
+                if (statList[i] == null)
+                    MessageBoxEx.Show(i.ToString() + "是空");
+            }
             statList.Sort((model1, model2) => { return model1.Count < model2.Count ? 1 : -1; }); //按照总量排序
             return statList;
         }

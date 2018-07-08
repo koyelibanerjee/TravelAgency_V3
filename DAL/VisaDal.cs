@@ -61,5 +61,27 @@ namespace TravelAgency.DAL
 
             return DbHelperSQL.Query(sql);
         }
+
+        /// <summary>
+		/// 获取记录总数
+		/// </summary>
+		public int GetRecordVisaInfoCount(string strWhere)
+        {
+            StringBuilder strSql = new StringBuilder();
+            strSql.Append("select sum(Number) FROM Visa ");
+            if (strWhere.Trim() != "")
+            {
+                strSql.Append(" where " + strWhere);
+            }
+            object obj = DbHelperSQL.GetSingle(strSql.ToString());
+            if (obj == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return Convert.ToInt32(obj);
+            }
+        }
     }
 }

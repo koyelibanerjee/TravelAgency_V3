@@ -148,6 +148,12 @@
     <Compile Include="Statistics\FrmMain\FrmDataBackUp.Designer.cs">
       <DependentUpon>FrmDataBackUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Statistics\FrmMain\FrmCommisionStat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Statistics\FrmMain\FrmCommisionStat.Designer.cs">
+      <DependentUpon>FrmCommisionStat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visa\FrmMain\FrmJiaoJieManage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -494,6 +500,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Statistics\FrmMain\FrmDataBackUp.resx">
       <DependentUpon>FrmDataBackUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Statistics\FrmMain\FrmCommisionStat.resx">
+      <DependentUpon>FrmCommisionStat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visa\FrmMain\FrmJiaoJieManage.resx">
       <DependentUpon>FrmJiaoJieManage.cs</DependentUpon>
