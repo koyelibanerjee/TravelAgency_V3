@@ -14,11 +14,11 @@ namespace TravelAgency.BLL
 
 	    static Enums_OrderInfo_PaymentPlatform()
         {
-            var list = new Enums_OrderInfo_OrderType().GetModelList(String.Empty);
+            var list = new Enums_OrderInfo_PaymentPlatform().GetModelList(String.Empty);
             foreach (var item in list)
             {
-                keyValueMap.Add(item.TypeNo, item.TypeName);
-                valueKeyMap.Add(item.TypeName, item.TypeNo);
+                keyValueMap.Add(item.PlatNo, item.PlateName);
+                valueKeyMap.Add(item.PlateName, item.PlatNo);
             }
         }
 
