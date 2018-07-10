@@ -636,7 +636,9 @@ namespace TravelAgency.CSUI.FrmSub
             _dgvList.Clear();
             for (int i = 0; i < lvIn.Items.Count; ++i)
             {
-                _dgvList.Add((Model.VisaInfo)lvIn.Items[i].Tag);
+                var model = (Model.VisaInfo) lvIn.Items[i].Tag;
+                model.AgencyOpinion = "没问题"; //默认没问题，20180710
+                _dgvList.Add(model);
             }
 
             //也从新更新backuplist
