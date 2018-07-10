@@ -145,6 +145,7 @@ namespace TravelAgency.CSUI.FrmMain
             if (workId != "10000" && workId != "10301" && workId != "10302")
             {
                 btnCommisionMoneyManage.Enabled = false;
+                btnPersonalCount.Enabled = false;
             }
         }
 
