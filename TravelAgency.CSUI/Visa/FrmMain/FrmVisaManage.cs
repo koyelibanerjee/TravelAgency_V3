@@ -1001,9 +1001,9 @@ namespace TravelAgency.CSUI.FrmMain
             var visaList = GetSelectedVisaList();
             var visaInfoList = GetSelectedVisaInfoList();
 
-            if (visaInfoList.Count > 37)
+            if (visaInfoList.Count > 43)
             {
-                MessageBoxEx.Show("超出37人限制!");
+                MessageBoxEx.Show("超出43人限制!");
                 return;
             }
             GlobalUtils.DocDocxGenerator.SetDocType(DocDocxGenerator.DocType.Type08XXTYCLS);
@@ -1012,7 +1012,7 @@ namespace TravelAgency.CSUI.FrmMain
             list.Add(visaList[0].EntryTime.Value.Date.Month.ToString());
             list.Add(visaList[0].EntryTime.Value.Date.Day.ToString());
 
-            for (int i = 0; i != 37; ++i)
+            for (int i = 0; i != 43; ++i)
             {
                 if (i < visaInfoList.Count)
                 {

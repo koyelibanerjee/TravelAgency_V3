@@ -44,8 +44,6 @@
             this.lbCommisionMoneyCount = new DevComponents.DotNetBar.LabelX();
             this.panelBars = new DevComponents.DotNetBar.PanelEx();
             this.panelSerachBar = new DevComponents.DotNetBar.PanelEx();
-            this.txtOperator = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.txtTypeInPerson = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.labelxaa = new DevComponents.DotNetBar.LabelX();
             this.btnShowTypeInPersonCommison = new DevComponents.DotNetBar.ButtonX();
@@ -79,6 +77,8 @@
             this.bgWorkerLoadData = new System.ComponentModel.BackgroundWorker();
             this.cms4AddToExport = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.添加到送签统计ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtOperator = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.txtTypeInPerson = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panelDgv.SuspendLayout();
@@ -118,7 +118,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -276,8 +276,8 @@
             // 
             this.panelSerachBar.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelSerachBar.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelSerachBar.Controls.Add(this.txtOperator);
             this.panelSerachBar.Controls.Add(this.txtTypeInPerson);
+            this.panelSerachBar.Controls.Add(this.txtOperator);
             this.panelSerachBar.Controls.Add(this.labelX1);
             this.panelSerachBar.Controls.Add(this.labelxaa);
             this.panelSerachBar.Controls.Add(this.btnShowTypeInPersonCommison);
@@ -301,32 +301,6 @@
             this.panelSerachBar.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.panelSerachBar.Style.GradientAngle = 90;
             this.panelSerachBar.TabIndex = 24;
-            // 
-            // txtOperator
-            // 
-            // 
-            // 
-            // 
-            this.txtOperator.Border.Class = "TextBoxBorder";
-            this.txtOperator.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtOperator.Location = new System.Drawing.Point(67, 36);
-            this.txtOperator.Name = "txtOperator";
-            this.txtOperator.PreventEnterBeep = true;
-            this.txtOperator.Size = new System.Drawing.Size(100, 21);
-            this.txtOperator.TabIndex = 31;
-            // 
-            // txtTypeInPerson
-            // 
-            // 
-            // 
-            // 
-            this.txtTypeInPerson.Border.Class = "TextBoxBorder";
-            this.txtTypeInPerson.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtTypeInPerson.Location = new System.Drawing.Point(354, 34);
-            this.txtTypeInPerson.Name = "txtTypeInPerson";
-            this.txtTypeInPerson.PreventEnterBeep = true;
-            this.txtTypeInPerson.Size = new System.Drawing.Size(100, 21);
-            this.txtTypeInPerson.TabIndex = 32;
             // 
             // labelX1
             // 
@@ -671,6 +645,30 @@
             this.添加到送签统计ToolStripMenuItem.Name = "添加到送签统计ToolStripMenuItem";
             this.添加到送签统计ToolStripMenuItem.Size = new System.Drawing.Size(68, 22);
             // 
+            // txtOperator
+            // 
+            this.txtOperator.DisplayMember = "Text";
+            this.txtOperator.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.txtOperator.FormattingEnabled = true;
+            this.txtOperator.ItemHeight = 15;
+            this.txtOperator.Location = new System.Drawing.Point(67, 36);
+            this.txtOperator.Name = "txtOperator";
+            this.txtOperator.Size = new System.Drawing.Size(82, 21);
+            this.txtOperator.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.txtOperator.TabIndex = 48;
+            // 
+            // txtTypeInPerson
+            // 
+            this.txtTypeInPerson.DisplayMember = "Text";
+            this.txtTypeInPerson.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.txtTypeInPerson.FormattingEnabled = true;
+            this.txtTypeInPerson.ItemHeight = 15;
+            this.txtTypeInPerson.Location = new System.Drawing.Point(354, 36);
+            this.txtTypeInPerson.Name = "txtTypeInPerson";
+            this.txtTypeInPerson.Size = new System.Drawing.Size(82, 21);
+            this.txtTypeInPerson.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.txtTypeInPerson.TabIndex = 49;
+            // 
             // FrmCommisionStat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -735,8 +733,6 @@
         private DevComponents.DotNetBar.LabelX lbCommisionMoneyCount;
         private DevComponents.DotNetBar.ButtonX btnShowOperatorCommision;
         private DevComponents.DotNetBar.ButtonX btnShowTypeInPersonCommison;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtTypeInPerson;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtOperator;
         private DevComponents.DotNetBar.LabelX labelxaa;
         private DevComponents.DotNetBar.LabelX labelX1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Country;
@@ -744,6 +740,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CommisionSingle;
         private System.Windows.Forms.DataGridViewTextBoxColumn Count;
         private System.Windows.Forms.DataGridViewTextBoxColumn CommisionTotal;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx txtOperator;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx txtTypeInPerson;
     }
 }
 

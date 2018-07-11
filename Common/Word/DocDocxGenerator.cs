@@ -167,7 +167,7 @@ namespace TravelAgency.Common.Word
             }
             if (type == DocDocxGenerator.DocType.Type08XXTYCLS)
             {
-                PlaceHolderNum = 40;
+                PlaceHolderNum = 46;
                 DefaultName = "信息处理同意书.docx";
                 TemplaceDocFileName = "template_信息处理同意书.docx";
             }

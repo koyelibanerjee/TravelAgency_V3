@@ -66,6 +66,8 @@
             this.btnAllIn = new DevComponents.DotNetBar.ButtonX();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelGroupInfo = new DevComponents.DotNetBar.PanelEx();
+            this.txtClient = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.labelX6 = new DevComponents.DotNetBar.LabelX();
             this.cbOutDeliveryPlace = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.cbOutDelivery = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.chkSaleFirst = new DevComponents.DotNetBar.Controls.CheckBoxX();
@@ -73,7 +75,6 @@
             this.txtPeiQianYuan = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.txtOperator = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.txtSalesPerson = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.txtClient = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX18 = new DevComponents.DotNetBar.LabelX();
             this.txtRealTime = new DevComponents.Editors.DateTimeAdv.DateTimeInput();
             this.labelX17 = new DevComponents.DotNetBar.LabelX();
@@ -98,7 +99,6 @@
             this.labelX10 = new DevComponents.DotNetBar.LabelX();
             this.labelX8 = new DevComponents.DotNetBar.LabelX();
             this.labelX7 = new DevComponents.DotNetBar.LabelX();
-            this.labelX6 = new DevComponents.DotNetBar.LabelX();
             this.labelX5 = new DevComponents.DotNetBar.LabelX();
             this.txtFetchType = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.txtSubmitCondition = new DevComponents.DotNetBar.Controls.ComboBoxEx();
@@ -680,6 +680,30 @@
             this.panelGroupInfo.Style.GradientAngle = 90;
             this.panelGroupInfo.TabIndex = 47;
             // 
+            // txtClient
+            // 
+            this.txtClient.DisplayMember = "Text";
+            this.txtClient.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.txtClient.FormattingEnabled = true;
+            this.txtClient.ItemHeight = 15;
+            this.txtClient.Location = new System.Drawing.Point(312, 179);
+            this.txtClient.Name = "txtClient";
+            this.txtClient.Size = new System.Drawing.Size(93, 21);
+            this.txtClient.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.txtClient.TabIndex = 89;
+            // 
+            // labelX6
+            // 
+            // 
+            // 
+            // 
+            this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX6.Location = new System.Drawing.Point(217, 180);
+            this.labelX6.Name = "labelX6";
+            this.labelX6.Size = new System.Drawing.Size(91, 23);
+            this.labelX6.TabIndex = 55;
+            this.labelX6.Text = "客户:";
+            // 
             // cbOutDeliveryPlace
             // 
             this.cbOutDeliveryPlace.DisplayMember = "Text";
@@ -768,18 +792,6 @@
             this.txtSalesPerson.Size = new System.Drawing.Size(93, 21);
             this.txtSalesPerson.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.txtSalesPerson.TabIndex = 90;
-            // 
-            // txtClient
-            // 
-            this.txtClient.DisplayMember = "Text";
-            this.txtClient.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.txtClient.FormattingEnabled = true;
-            this.txtClient.ItemHeight = 15;
-            this.txtClient.Location = new System.Drawing.Point(312, 179);
-            this.txtClient.Name = "txtClient";
-            this.txtClient.Size = new System.Drawing.Size(93, 21);
-            this.txtClient.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.txtClient.TabIndex = 89;
             // 
             // labelX18
             // 
@@ -1096,18 +1108,6 @@
             this.labelX7.Size = new System.Drawing.Size(91, 23);
             this.labelX7.TabIndex = 56;
             this.labelX7.Text = "交资料时间:";
-            // 
-            // labelX6
-            // 
-            // 
-            // 
-            // 
-            this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX6.Location = new System.Drawing.Point(217, 180);
-            this.labelX6.Name = "labelX6";
-            this.labelX6.Size = new System.Drawing.Size(91, 23);
-            this.labelX6.TabIndex = 55;
-            this.labelX6.Text = "客户:";
             // 
             // labelX5
             // 

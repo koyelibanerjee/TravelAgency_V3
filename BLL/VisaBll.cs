@@ -22,6 +22,17 @@ namespace TravelAgency.BLL
             return CommonBll.GetFieldList(TableName, "TypeInPerson");
         }
 
+        public List<string> GetOperatorList()
+        {
+            return CommonBll.GetFieldList(TableName, "Operator");
+        }
+
+        public List<string> GetSalesPersonList()
+        {
+            return CommonBll.GetFieldList(TableName, "SalesPerson");
+        }
+
+
         public List<string> GetCountryList()
         {
             return CommonBll.GetFieldList(TableName, "Country");

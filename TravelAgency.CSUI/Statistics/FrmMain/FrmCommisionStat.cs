@@ -16,6 +16,7 @@ namespace TravelAgency.CSUI.Statistics.FrmMain
     public partial class FrmCommisionStat : Form
     {
         private readonly BLL.Commision _bllCommision = new BLL.Commision();
+        private readonly BLL.Visa _bllVisa= new BLL.Visa();
         private int _curPage = 1;
         private int _pageCount = 0;
         private int _pageSize;
@@ -73,10 +74,37 @@ namespace TravelAgency.CSUI.Statistics.FrmMain
             progressLoading.Visible = false;
 
             //LoadDataToDgvAsyn();
+            InitComboboxs();
+
         }
+
+        private void InitComboboxs()
+        {
+            //txtClient.DropDownStyle = ComboBoxStyle.DropDown;
+            //txtSalesPerson.DropDownStyle = ComboBoxStyle.DropDown;
+            txtOperator.DropDownStyle = ComboBoxStyle.DropDown;
+            txtTypeInPerson.DropDownStyle = ComboBoxStyle.DropDown;
+
+            var list = _bllVisa.GetOperatorList();
+            if (list != null && list.Count > 0)
+                foreach (var item in list)
+                {
+                    txtOperator.Items.Add(item);
+                }
+
+            list = _bllVisa.GetTypeInPersonList();
+            if (list != null && list.Count > 0)
+                foreach (var item in list)
+                {
+                    txtTypeInPerson.Items.Add(item);
+                }
+
+        }
+
 
         private void DataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
+            decimal total = 0;
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 DataGridViewRow row = dataGridView1.Rows[i];
@@ -87,7 +115,11 @@ namespace TravelAgency.CSUI.Statistics.FrmMain
                     if (dataGridView1.Rows[i].Cells[j].ValueType == typeof(decimal) && value != null)
                         dataGridView1.Rows[i].Cells[j].Value = DecimalHandler.DecimalToString((decimal?)value);
                 }
+                total += DecimalHandler.Parse(dataGridView1.Rows[i].Cells["CommisionTotal"].Value.ToString());
             }
+
+            lbCommisionMoneyCount.Text = $"提成总计:{total} 元.";
+
         }
 
 
