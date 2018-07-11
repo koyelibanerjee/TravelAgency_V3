@@ -11,7 +11,8 @@ namespace TravelAgency.BLL
     /// </summary>
     public partial class AppAll
     {
-        public string TableName { get { return "AppAll"; } }
+        private string _tableName => "AppAll";
+        private string _where => " DepartmentId = 'A86ED375-76DB-45DF-A4E9-D0BB8815D49C'";
 
         public int GetMaxTemp()
         {
@@ -27,22 +28,29 @@ namespace TravelAgency.BLL
 
         public List<string> GetBankFromToList()
         {
-            var list = CommonBll.GetFieldList(TableName, "Bank_To");
-            list.AddRange(CommonBll.GetFieldList(TableName, "Bank_From"));
+            var list = CommonBll.GetFieldList(_tableName, "Bank_To", _where);
+            list.AddRange(CommonBll.GetFieldList(_tableName, "Bank_From", _where));
             return list;
         }
 
         public List<string> GetBankList()
         {
-            var list = CommonBll.GetFieldList(TableName, "Bank");
+            var list = CommonBll.GetFieldList(_tableName, "Bank", _where);
             return list;
         }
 
         public List<string> GetPersonList()
         {
-            var list = CommonBll.GetFieldList(TableName, "Person");
+            var list = CommonBll.GetFieldList(_tableName, "Person", _where);
             return list;
         }
+
+        public List<string> GetAccountList()
+        {
+            var list = CommonBll.GetFieldList(_tableName, "Account", _where);
+            return list;
+        }
+
 
         public List<Model.AppAll> GetDataByPageOrderByEntryTime(int pageIndex, int pageSize, string where)
         {

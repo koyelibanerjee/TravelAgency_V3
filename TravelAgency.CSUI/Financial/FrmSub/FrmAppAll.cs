@@ -74,6 +74,12 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             {
                 cbPerson.Items.Add(item);
             }
+
+            list = _bllAppAll.GetAccountList();
+            foreach (var item in list)
+            {
+                cbAccount.Items.Add(item);
+            }
         }
 
 
