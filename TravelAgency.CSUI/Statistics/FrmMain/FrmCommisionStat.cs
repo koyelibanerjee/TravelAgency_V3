@@ -16,7 +16,8 @@ namespace TravelAgency.CSUI.Statistics.FrmMain
     public partial class FrmCommisionStat : Form
     {
         private readonly BLL.Commision _bllCommision = new BLL.Commision();
-        private readonly BLL.Visa _bllVisa= new BLL.Visa();
+        private readonly BLL.Commision_Sale _bllCommisionSale = new BLL.Commision_Sale();
+        private readonly BLL.Visa _bllVisa = new BLL.Visa();
         private int _curPage = 1;
         private int _pageCount = 0;
         private int _pageSize;
@@ -54,9 +55,15 @@ namespace TravelAgency.CSUI.Statistics.FrmMain
             dgvOperCommision.AutoGenerateColumns = false;
             dgvOperCommision.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //列宽自适应,一定不能用AllCells
             dgvOperCommision.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders; //这里也一定不能AllCell自适应!
-
             dgvOperCommision.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
-            dgvOperCommision.RowsAdded += DataGridView1_RowsAdded;
+
+            dgvSaleCommision.AutoGenerateColumns = false;
+            dgvSaleCommision.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //列宽自适应,一定不能用AllCells
+            dgvSaleCommision.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders; //这里也一定不能AllCell自适应!
+            dgvSaleCommision.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
+
+            dgvOperCommision.RowsAdded += dgvOperCommision_RowsAdded;
+            dgvSaleCommision.RowsAdded += DgvSaleCommision_RowsAdded;
 
             //设置可跨线程访问窗体
             //TODO:这里可能需要修改
@@ -76,6 +83,25 @@ namespace TravelAgency.CSUI.Statistics.FrmMain
             //LoadDataToDgvAsyn();
             InitComboboxs();
 
+        }
+
+        private void DgvSaleCommision_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            decimal total = 0;
+            for (int i = 0; i < dgvSaleCommision.Rows.Count; i++)
+            {
+                DataGridViewRow row = dgvSaleCommision.Rows[i];
+                row.HeaderCell.Value = (i + 1).ToString();
+                for (int j = 0; j != dgvSaleCommision.ColumnCount; ++j)
+                {
+                    var value = dgvSaleCommision.Rows[i].Cells[j].Value;
+                    if (dgvSaleCommision.Rows[i].Cells[j].ValueType == typeof(decimal) && value != null)
+                        dgvSaleCommision.Rows[i].Cells[j].Value = DecimalHandler.DecimalToString((decimal?)value);
+                }
+                total += DecimalHandler.Parse(dgvSaleCommision.Rows[i].Cells["Sale_CommisionTotal"].Value.ToString());
+            }
+
+            lbSaleCommisionCount.Text = $"提成总计:{total} 元.";
         }
 
         private void InitComboboxs()
@@ -102,7 +128,7 @@ namespace TravelAgency.CSUI.Statistics.FrmMain
         }
 
 
-        private void DataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        private void dgvOperCommision_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             decimal total = 0;
             for (int i = 0; i < dgvOperCommision.Rows.Count; i++)
@@ -213,6 +239,19 @@ namespace TravelAgency.CSUI.Statistics.FrmMain
             if (curSelectedRow != -1 && dgvOperCommision.Rows.Count > curSelectedRow)
                 dgvOperCommision.CurrentCell = dgvOperCommision.Rows[curSelectedRow].Cells[0];
             dgvOperCommision.Update();
+            GlobalStat.UpdateStatistics();
+        }
+
+        public void LoadDataToSaleDataGridView(int page) //刷新后保持选中
+        {
+            int curSelectedRow = -1;
+            if (dgvSaleCommision.SelectedRows.Count > 0)
+                curSelectedRow = dgvSaleCommision.SelectedRows[0].Index;
+            dgvSaleCommision.DataSource = _bllCommisionSale.GetTStatList(txtSchEntryTimeFrom.Text, txtSchEntryTimeTo.Text,
+              _username);
+            if (curSelectedRow != -1 && dgvSaleCommision.Rows.Count > curSelectedRow)
+                dgvSaleCommision.CurrentCell = dgvSaleCommision.Rows[curSelectedRow].Cells[0];
+            dgvSaleCommision.Update();
             GlobalStat.UpdateStatistics();
         }
 
@@ -426,6 +465,25 @@ namespace TravelAgency.CSUI.Statistics.FrmMain
             _commisontype = "TypeInPerson";
             _username = txtTypeInPerson.Text;
             LoadDataToDgvAsyn();
+        }
+
+        private void btnShowSalesPersonCommision_Click(object sender, EventArgs e)
+        {
+            if (txtSchEntryTimeTo.Text == "" || txtSchEntryTimeFrom.Text == "")
+            {
+                MessageBoxEx.Show("请先选择时间区间!");
+                return;
+
+            }
+
+            if (string.IsNullOrEmpty(txtSalesPerson.Text))
+            {
+                MessageBoxEx.Show("请先填写销售!");
+                return;
+            }
+            _username = txtSalesPerson.Text;
+            LoadDataToSaleDataGridView(_curPage);
+
         }
     }
 }

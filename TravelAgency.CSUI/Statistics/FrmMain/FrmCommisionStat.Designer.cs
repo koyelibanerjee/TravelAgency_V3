@@ -43,10 +43,14 @@
             this.CommisionTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMain = new DevComponents.DotNetBar.PanelEx();
             this.panelDgv = new DevComponents.DotNetBar.PanelEx();
+            this.dgvSaleCommision = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.panelBottom = new DevComponents.DotNetBar.PanelEx();
             this.lbCommisionMoneyCount = new DevComponents.DotNetBar.LabelX();
             this.panelBars = new DevComponents.DotNetBar.PanelEx();
             this.panelSerachBar = new DevComponents.DotNetBar.PanelEx();
+            this.btnShowSalesPersonCommision = new DevComponents.DotNetBar.ButtonX();
+            this.txtSalesPerson = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.txtTypeInPerson = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.txtOperator = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
@@ -82,15 +86,22 @@
             this.bgWorkerLoadData = new System.ComponentModel.BackgroundWorker();
             this.cms4AddToExport = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.添加到送签统计ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridViewX1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbSaleCommisionCount = new DevComponents.DotNetBar.LabelX();
+            this.Sale_Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sale_DepartureType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Commision1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Count1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Commision2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Count2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Commision3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Count3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CommisionDirect = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CountDirect = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sale_CommisionTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOperCommision)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panelDgv.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSaleCommision)).BeginInit();
             this.panelBottom.SuspendLayout();
             this.panelBars.SuspendLayout();
             this.panelSerachBar.SuspendLayout();
@@ -99,7 +110,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             this.cmsDgvRb.SuspendLayout();
             this.cms4AddToExport.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvOperCommision
@@ -148,7 +158,7 @@
             this.dgvOperCommision.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvOperCommision.RowTemplate.Height = 30;
             this.dgvOperCommision.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOperCommision.Size = new System.Drawing.Size(624, 498);
+            this.dgvOperCommision.Size = new System.Drawing.Size(530, 498);
             this.dgvOperCommision.TabIndex = 10;
             this.dgvOperCommision.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dgvOperCommision.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseUp);
@@ -214,7 +224,7 @@
             // 
             this.panelDgv.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelDgv.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelDgv.Controls.Add(this.dataGridViewX1);
+            this.panelDgv.Controls.Add(this.dgvSaleCommision);
             this.panelDgv.Controls.Add(this.dgvOperCommision);
             this.panelDgv.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelDgv.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -230,10 +240,66 @@
             this.panelDgv.Style.GradientAngle = 90;
             this.panelDgv.TabIndex = 38;
             // 
+            // dgvSaleCommision
+            // 
+            this.dgvSaleCommision.AllowUserToAddRows = false;
+            this.dgvSaleCommision.AllowUserToDeleteRows = false;
+            this.dgvSaleCommision.AllowUserToOrderColumns = true;
+            this.dgvSaleCommision.AllowUserToResizeRows = false;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSaleCommision.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvSaleCommision.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSaleCommision.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Sale_Country,
+            this.Sale_DepartureType,
+            this.Commision1,
+            this.Count1,
+            this.Commision2,
+            this.Count2,
+            this.Commision3,
+            this.Count3,
+            this.CommisionDirect,
+            this.CountDirect,
+            this.Sale_CommisionTotal});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvSaleCommision.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvSaleCommision.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvSaleCommision.EnableHeadersVisualStyles = false;
+            this.dgvSaleCommision.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.dgvSaleCommision.Location = new System.Drawing.Point(530, 0);
+            this.dgvSaleCommision.Name = "dgvSaleCommision";
+            this.dgvSaleCommision.ReadOnly = true;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSaleCommision.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvSaleCommision.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            this.dgvSaleCommision.RowTemplate.Height = 30;
+            this.dgvSaleCommision.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvSaleCommision.Size = new System.Drawing.Size(741, 498);
+            this.dgvSaleCommision.TabIndex = 11;
+            // 
             // panelBottom
             // 
             this.panelBottom.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelBottom.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelBottom.Controls.Add(this.lbSaleCommisionCount);
             this.panelBottom.Controls.Add(this.lbCommisionMoneyCount);
             this.panelBottom.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -287,6 +353,9 @@
             // 
             this.panelSerachBar.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelSerachBar.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelSerachBar.Controls.Add(this.btnShowSalesPersonCommision);
+            this.panelSerachBar.Controls.Add(this.txtSalesPerson);
+            this.panelSerachBar.Controls.Add(this.labelX2);
             this.panelSerachBar.Controls.Add(this.txtTypeInPerson);
             this.panelSerachBar.Controls.Add(this.txtOperator);
             this.panelSerachBar.Controls.Add(this.labelX1);
@@ -312,6 +381,42 @@
             this.panelSerachBar.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.panelSerachBar.Style.GradientAngle = 90;
             this.panelSerachBar.TabIndex = 24;
+            // 
+            // btnShowSalesPersonCommision
+            // 
+            this.btnShowSalesPersonCommision.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnShowSalesPersonCommision.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnShowSalesPersonCommision.Location = new System.Drawing.Point(1144, 33);
+            this.btnShowSalesPersonCommision.Name = "btnShowSalesPersonCommision";
+            this.btnShowSalesPersonCommision.Size = new System.Drawing.Size(98, 23);
+            this.btnShowSalesPersonCommision.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnShowSalesPersonCommision.TabIndex = 52;
+            this.btnShowSalesPersonCommision.Text = "查看销售提成";
+            this.btnShowSalesPersonCommision.Click += new System.EventHandler(this.btnShowSalesPersonCommision_Click);
+            // 
+            // txtSalesPerson
+            // 
+            this.txtSalesPerson.DisplayMember = "Text";
+            this.txtSalesPerson.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.txtSalesPerson.FormattingEnabled = true;
+            this.txtSalesPerson.ItemHeight = 15;
+            this.txtSalesPerson.Location = new System.Drawing.Point(1046, 34);
+            this.txtSalesPerson.Name = "txtSalesPerson";
+            this.txtSalesPerson.Size = new System.Drawing.Size(82, 21);
+            this.txtSalesPerson.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.txtSalesPerson.TabIndex = 51;
+            // 
+            // labelX2
+            // 
+            // 
+            // 
+            // 
+            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX2.Location = new System.Drawing.Point(977, 33);
+            this.labelX2.Name = "labelX2";
+            this.labelX2.Size = new System.Drawing.Size(63, 21);
+            this.labelX2.TabIndex = 50;
+            this.labelX2.Text = "销售:";
             // 
             // txtTypeInPerson
             // 
@@ -680,89 +785,96 @@
             this.添加到送签统计ToolStripMenuItem.Name = "添加到送签统计ToolStripMenuItem";
             this.添加到送签统计ToolStripMenuItem.Size = new System.Drawing.Size(68, 22);
             // 
-            // dataGridViewX1
+            // lbSaleCommisionCount
             // 
-            this.dataGridViewX1.AllowUserToAddRows = false;
-            this.dataGridViewX1.AllowUserToDeleteRows = false;
-            this.dataGridViewX1.AllowUserToOrderColumns = true;
-            this.dataGridViewX1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewX1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewX1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewX1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewX1.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridViewX1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewX1.EnableHeadersVisualStyles = false;
-            this.dataGridViewX1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.dataGridViewX1.Location = new System.Drawing.Point(624, 0);
-            this.dataGridViewX1.Name = "dataGridViewX1";
-            this.dataGridViewX1.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewX1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridViewX1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            this.dataGridViewX1.RowTemplate.Height = 30;
-            this.dataGridViewX1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewX1.Size = new System.Drawing.Size(647, 498);
-            this.dataGridViewX1.TabIndex = 11;
             // 
-            // dataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Country";
-            this.dataGridViewTextBoxColumn1.HeaderText = "国家";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn2
+            this.lbSaleCommisionCount.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lbSaleCommisionCount.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbSaleCommisionCount.ForeColor = System.Drawing.Color.CornflowerBlue;
+            this.lbSaleCommisionCount.Location = new System.Drawing.Point(932, 6);
+            this.lbSaleCommisionCount.Name = "lbSaleCommisionCount";
+            this.lbSaleCommisionCount.Size = new System.Drawing.Size(327, 23);
+            this.lbSaleCommisionCount.TabIndex = 1;
+            this.lbSaleCommisionCount.Text = "提成总计:0.0元";
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "DepartureType";
-            this.dataGridViewTextBoxColumn2.HeaderText = "出境类型";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // Sale_Country
             // 
-            // dataGridViewTextBoxColumn3
+            this.Sale_Country.DataPropertyName = "Country";
+            this.Sale_Country.HeaderText = "国家";
+            this.Sale_Country.Name = "Sale_Country";
+            this.Sale_Country.ReadOnly = true;
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "CommisionSingle";
-            this.dataGridViewTextBoxColumn3.HeaderText = "提成";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            // Sale_DepartureType
             // 
-            // dataGridViewTextBoxColumn4
+            this.Sale_DepartureType.DataPropertyName = "DepartureType";
+            this.Sale_DepartureType.HeaderText = "出境类型";
+            this.Sale_DepartureType.Name = "Sale_DepartureType";
+            this.Sale_DepartureType.ReadOnly = true;
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Count";
-            this.dataGridViewTextBoxColumn4.HeaderText = "数量";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // Commision1
             // 
-            // dataGridViewTextBoxColumn5
+            this.Commision1.DataPropertyName = "Commision1";
+            this.Commision1.HeaderText = "一类单价";
+            this.Commision1.Name = "Commision1";
+            this.Commision1.ReadOnly = true;
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "CommisionTotal";
-            this.dataGridViewTextBoxColumn5.HeaderText = "总计";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // Count1
+            // 
+            this.Count1.DataPropertyName = "Count1";
+            this.Count1.HeaderText = "一类人数";
+            this.Count1.Name = "Count1";
+            this.Count1.ReadOnly = true;
+            // 
+            // Commision2
+            // 
+            this.Commision2.DataPropertyName = "Commision2";
+            this.Commision2.HeaderText = "二类单价";
+            this.Commision2.Name = "Commision2";
+            this.Commision2.ReadOnly = true;
+            // 
+            // Count2
+            // 
+            this.Count2.DataPropertyName = "Count2";
+            this.Count2.HeaderText = "二类人数";
+            this.Count2.Name = "Count2";
+            this.Count2.ReadOnly = true;
+            // 
+            // Commision3
+            // 
+            this.Commision3.DataPropertyName = "Commision3";
+            this.Commision3.HeaderText = "三类单价";
+            this.Commision3.Name = "Commision3";
+            this.Commision3.ReadOnly = true;
+            // 
+            // Count3
+            // 
+            this.Count3.DataPropertyName = "Count3";
+            this.Count3.HeaderText = "三类人数";
+            this.Count3.Name = "Count3";
+            this.Count3.ReadOnly = true;
+            // 
+            // CommisionDirect
+            // 
+            this.CommisionDirect.DataPropertyName = "CommisionDirect";
+            this.CommisionDirect.HeaderText = "直客单价";
+            this.CommisionDirect.Name = "CommisionDirect";
+            this.CommisionDirect.ReadOnly = true;
+            // 
+            // CountDirect
+            // 
+            this.CountDirect.DataPropertyName = "CountDirect";
+            this.CountDirect.HeaderText = "直客人数";
+            this.CountDirect.Name = "CountDirect";
+            this.CountDirect.ReadOnly = true;
+            // 
+            // Sale_CommisionTotal
+            // 
+            this.Sale_CommisionTotal.DataPropertyName = "CommisionTotal";
+            this.Sale_CommisionTotal.HeaderText = "总计";
+            this.Sale_CommisionTotal.Name = "Sale_CommisionTotal";
+            this.Sale_CommisionTotal.ReadOnly = true;
             // 
             // FrmCommisionStat
             // 
@@ -776,6 +888,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvOperCommision)).EndInit();
             this.panelMain.ResumeLayout(false);
             this.panelDgv.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSaleCommision)).EndInit();
             this.panelBottom.ResumeLayout(false);
             this.panelBars.ResumeLayout(false);
             this.panelSerachBar.ResumeLayout(false);
@@ -784,7 +897,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).EndInit();
             this.cmsDgvRb.ResumeLayout(false);
             this.cms4AddToExport.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewX1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -838,12 +950,22 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CommisionTotal;
         private DevComponents.DotNetBar.Controls.ComboBoxEx txtOperator;
         private DevComponents.DotNetBar.Controls.ComboBoxEx txtTypeInPerson;
-        private DevComponents.DotNetBar.Controls.DataGridViewX dataGridViewX1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private DevComponents.DotNetBar.Controls.DataGridViewX dgvSaleCommision;
+        private DevComponents.DotNetBar.ButtonX btnShowSalesPersonCommision;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx txtSalesPerson;
+        private DevComponents.DotNetBar.LabelX labelX2;
+        private DevComponents.DotNetBar.LabelX lbSaleCommisionCount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sale_Country;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sale_DepartureType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Commision1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Count1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Commision2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Count2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Commision3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Count3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CommisionDirect;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CountDirect;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sale_CommisionTotal;
     }
 }
 
