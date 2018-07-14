@@ -158,7 +158,7 @@
             this.dgvOperCommision.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvOperCommision.RowTemplate.Height = 30;
             this.dgvOperCommision.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOperCommision.Size = new System.Drawing.Size(530, 498);
+            this.dgvOperCommision.Size = new System.Drawing.Size(423, 498);
             this.dgvOperCommision.TabIndex = 10;
             this.dgvOperCommision.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             this.dgvOperCommision.CellMouseUp += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseUp);
@@ -278,7 +278,7 @@
             this.dgvSaleCommision.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvSaleCommision.EnableHeadersVisualStyles = false;
             this.dgvSaleCommision.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
-            this.dgvSaleCommision.Location = new System.Drawing.Point(530, 0);
+            this.dgvSaleCommision.Location = new System.Drawing.Point(423, 0);
             this.dgvSaleCommision.Name = "dgvSaleCommision";
             this.dgvSaleCommision.ReadOnly = true;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -292,7 +292,7 @@
             this.dgvSaleCommision.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
             this.dgvSaleCommision.RowTemplate.Height = 30;
             this.dgvSaleCommision.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvSaleCommision.Size = new System.Drawing.Size(741, 498);
+            this.dgvSaleCommision.Size = new System.Drawing.Size(848, 498);
             this.dgvSaleCommision.TabIndex = 11;
             // 
             // panelBottom

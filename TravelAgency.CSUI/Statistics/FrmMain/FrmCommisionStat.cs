@@ -125,6 +125,13 @@ namespace TravelAgency.CSUI.Statistics.FrmMain
                     txtTypeInPerson.Items.Add(item);
                 }
 
+            list = _bllVisa.GetSalesPersonList();
+            if (list != null && list.Count > 0)
+                foreach (var item in list)
+                {
+                    txtSalesPerson.Items.Add(item);
+                }
+
         }
 
 

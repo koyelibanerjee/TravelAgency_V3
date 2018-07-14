@@ -24,27 +24,27 @@ namespace TravelAgency.BLL
                     continue;
                 else
                 {
-                    cnt[0] = _dal.GetSaleCommisionCount(timefrom, timeto, country, depatureType,
+                    cnt[0] = _dal.GetSaleCommisionCount(timefrom, timeto, userName, country, depatureType,
                         commisionList[i].Price1 ?? 0, commisionList[i].Price2 ?? -1);
-                    cnt[1] = _dal.GetSaleCommisionCount(timefrom, timeto, country, depatureType,
+                    cnt[1] = _dal.GetSaleCommisionCount(timefrom, timeto, userName, country, depatureType,
     commisionList[i].Price2 ?? 0, commisionList[i].Price3 ?? -1);
-                    cnt[2] = _dal.GetSaleCommisionCount(timefrom, timeto, country, depatureType,
+                    cnt[2] = _dal.GetSaleCommisionCount(timefrom, timeto, userName, country, depatureType,
     commisionList[i].Price3 ?? 0, commisionList[i].DirectGuestPrice ?? -1);
-                    cnt[3] = _dal.GetSaleCommisionCount(timefrom, timeto, country, depatureType,
+                    cnt[3] = _dal.GetSaleCommisionCount(timefrom, timeto, userName, country, depatureType,
 commisionList[i].DirectGuestPrice ?? 0, -1);
                 }
 
                 StatStruct_Sale ss = new StatStruct_Sale()
                 {
                     Country = country,
-                    DepartureType =  depatureType,
+                    DepartureType = depatureType,
                     Count1 = cnt[0],
                     Count2 = cnt[1],
                     Count3 = cnt[2],
                     CountDirect = cnt[3],
-                    Commision1 = commisionList[i].Commision1??0,
-                    Commision2 = commisionList[i].Commision2??0,
-                    Commision3 = commisionList[i].Commision3??0,
+                    Commision1 = commisionList[i].Commision1 ?? 0,
+                    Commision2 = commisionList[i].Commision2 ?? 0,
+                    Commision3 = commisionList[i].Commision3 ?? 0,
                     CommisionDirect = commisionList[i].DirectGuestCommision ?? 0
                 };
                 ss.CommisionTotal = ss.Count1 * ss.Commision1 + ss.Count2 * ss.Commision2 + ss.Count3 * ss.Commision3 + ss.CountDirect * ss.CommisionDirect;

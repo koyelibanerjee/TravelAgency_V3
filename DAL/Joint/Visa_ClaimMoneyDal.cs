@@ -10,12 +10,13 @@ namespace TravelAgency.DAL.Joint
     public class Visa_ClaimMoneyDal
     {
 
-        public int GetSaleCommisionCount(string timefrom, string timeto, string country, string departuretype,
+        public int GetSaleCommisionCount(string timefrom, string timeto,string username, string country, string departuretype,
             decimal price1, decimal price2 = -1)
         {
             string sql = $" select count(1) from Visa " +
                          $"inner join ClaimMoney as cm on cm.groupNo=Visa.GroupNo " +
                          $"where visa.EntryTime between '{timefrom}' and '{timeto}' " +
+                         $"and Visa.SalesPerson = '{username}' " +
                          $"and Visa.Number is not null and Visa.Number>0 " +
                          $"and Country = '{country}' and DepartureType = '{departuretype}' ";
 
