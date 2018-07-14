@@ -379,7 +379,7 @@ namespace TravelAgency.CSUI.FrmSub
                     Color c = Color.Empty;
                     //string state = e.Value.ToString();
                     string state = rowMergeView1.Rows[i].Cells["outState"].Value.ToString();
-                    if (state == OutState.TYPE10Exported)
+                    if (state == OutState.Type10Exported)
                     {
                         c = Color.DarkOrange;
                     }

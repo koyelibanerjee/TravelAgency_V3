@@ -116,7 +116,7 @@ namespace TravelAgency.CSUI.FrmMain
                     Color c = Color.Empty;
                     //string state = e.Value.ToString();
                     string state = dataGridView1.Rows[i].Cells["outState"].Value.ToString();
-                    if (state == OutState.Type01NoRecord || state == OutState.TYPE10Exported)
+                    if (state == OutState.Type01NoRecord || state == OutState.Type10Exported)
                         c = Color.AliceBlue;
                     else if (state == OutState.Type01Delay)
                         c = Color.DarkOrange;
@@ -124,7 +124,7 @@ namespace TravelAgency.CSUI.FrmMain
                         c = Color.Yellow;
                     else if (state == OutState.Type03NormalOut)
                         c = Color.Green;
-                    else if (state == OutState.TYPE04AbnormalOut)
+                    else if (state == OutState.Type04AbnormalOut)
                         c = Color.Red;
                     else
                         c = Color.Black;

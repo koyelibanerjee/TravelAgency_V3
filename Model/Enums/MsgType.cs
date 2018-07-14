@@ -6,9 +6,9 @@ namespace TravelAgency.Model.Enums
     {
         public static  List<string> List = new List<string>
         {
-             type00Normal,type01Refund
+             Type00Normal,Type01Refund
         };  
-        public const string type00Normal = "普通";
-        public const string type01Refund = "退款申请";
+        public const string Type00Normal = "普通";
+        public const string Type01Refund = "退款申请";
     }
 }

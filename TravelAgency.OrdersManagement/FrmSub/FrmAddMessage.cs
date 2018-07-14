@@ -117,7 +117,7 @@ namespace TravelAgency.OrdersManagement
                     txtToUser.Enabled = false;
                     txtOrderNo.Enabled = false;
                     //回复的退款
-                    if (_model.MsgType == MsgType.type01Refund)
+                    if (_model.MsgType == MsgType.Type01Refund)
                     {
                         groupBox1.Enabled = true;
                         _ordersModel = _bllOrders.GetModelList(" orderno = '" + _model.OrderNo + "' ")[0];
@@ -263,7 +263,7 @@ namespace TravelAgency.OrdersManagement
                         return;
                     }
 
-                    if ( txtMsgType.Text == MsgType.type01Refund) //新增退款消息或者回复退款消息的时候
+                    if ( txtMsgType.Text == MsgType.Type01Refund) //新增退款消息或者回复退款消息的时候
                     {
                         _ordersModel.RefundAmout = CtrlParser.Parse2Decimal(txtRefundAmout);
                         _ordersModel.RefundReason = CtrlParser.Parse2String(txtRefundReason);

@@ -21,12 +21,12 @@ namespace TravelAgency.Model.Enums
         };
 
 
-        public static int value2Key(string value)
+        public static int Value2Key(string value)
         {
             return keyList[valueList.IndexOf(value)];
         }
 
-        public static string key2Value(int key)
+        public static string Key2Value(int key)
         {
             return valueList[keyList.IndexOf(key)];
         }

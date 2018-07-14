@@ -51,12 +51,12 @@ namespace TravelAgency.CSUI.Statistics.FrmMain
             cbPageSize.SelectedIndex = 2;
             _pageSize = int.Parse(cbPageSize.Text);
 
-            dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //列宽自适应,一定不能用AllCells
-            dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders; //这里也一定不能AllCell自适应!
+            dgvOperCommision.AutoGenerateColumns = false;
+            dgvOperCommision.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //列宽自适应,一定不能用AllCells
+            dgvOperCommision.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders; //这里也一定不能AllCell自适应!
 
-            dataGridView1.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
-            dataGridView1.RowsAdded += DataGridView1_RowsAdded;
+            dgvOperCommision.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
+            dgvOperCommision.RowsAdded += DataGridView1_RowsAdded;
 
             //设置可跨线程访问窗体
             //TODO:这里可能需要修改
@@ -105,17 +105,17 @@ namespace TravelAgency.CSUI.Statistics.FrmMain
         private void DataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             decimal total = 0;
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            for (int i = 0; i < dgvOperCommision.Rows.Count; i++)
             {
-                DataGridViewRow row = dataGridView1.Rows[i];
+                DataGridViewRow row = dgvOperCommision.Rows[i];
                 row.HeaderCell.Value = (i + 1).ToString();
-                for (int j = 0; j != dataGridView1.ColumnCount; ++j)
+                for (int j = 0; j != dgvOperCommision.ColumnCount; ++j)
                 {
-                    var value = dataGridView1.Rows[i].Cells[j].Value;
-                    if (dataGridView1.Rows[i].Cells[j].ValueType == typeof(decimal) && value != null)
-                        dataGridView1.Rows[i].Cells[j].Value = DecimalHandler.DecimalToString((decimal?)value);
+                    var value = dgvOperCommision.Rows[i].Cells[j].Value;
+                    if (dgvOperCommision.Rows[i].Cells[j].ValueType == typeof(decimal) && value != null)
+                        dgvOperCommision.Rows[i].Cells[j].Value = DecimalHandler.DecimalToString((decimal?)value);
                 }
-                total += DecimalHandler.Parse(dataGridView1.Rows[i].Cells["CommisionTotal"].Value.ToString());
+                total += DecimalHandler.Parse(dgvOperCommision.Rows[i].Cells["CommisionTotal"].Value.ToString());
             }
 
             lbCommisionMoneyCount.Text = $"提成总计:{total} 元.";
@@ -206,13 +206,13 @@ namespace TravelAgency.CSUI.Statistics.FrmMain
         public void LoadDataToDataGridView(int page) //刷新后保持选中
         {
             int curSelectedRow = -1;
-            if (dataGridView1.SelectedRows.Count > 0)
-                curSelectedRow = dataGridView1.SelectedRows[0].Index;
-            dataGridView1.DataSource = _bllCommision.GetTStatList(txtSchEntryTimeFrom.Text, txtSchEntryTimeTo.Text,
+            if (dgvOperCommision.SelectedRows.Count > 0)
+                curSelectedRow = dgvOperCommision.SelectedRows[0].Index;
+            dgvOperCommision.DataSource = _bllCommision.GetTStatList(txtSchEntryTimeFrom.Text, txtSchEntryTimeTo.Text,
                 _commisontype, _username);
-            if (curSelectedRow != -1 && dataGridView1.Rows.Count > curSelectedRow)
-                dataGridView1.CurrentCell = dataGridView1.Rows[curSelectedRow].Cells[0];
-            dataGridView1.Update();
+            if (curSelectedRow != -1 && dgvOperCommision.Rows.Count > curSelectedRow)
+                dgvOperCommision.CurrentCell = dgvOperCommision.Rows[curSelectedRow].Cells[0];
+            dgvOperCommision.Update();
             GlobalStat.UpdateStatistics();
         }
 
@@ -274,9 +274,9 @@ namespace TravelAgency.CSUI.Statistics.FrmMain
         /// <param name="e"></param>
         private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            for (int i = 0; i < dataGridView1.Rows.Count; i++)
+            for (int i = 0; i < dgvOperCommision.Rows.Count; i++)
             {
-                DataGridViewRow row = dataGridView1.Rows[i];
+                DataGridViewRow row = dgvOperCommision.Rows[i];
                 row.HeaderCell.Value = (i + 1).ToString();
             }
         }
@@ -294,19 +294,19 @@ namespace TravelAgency.CSUI.Statistics.FrmMain
                 {
                     //若行已是选中状态就不再进行设置
                     //如果没选中当前活动行则选中这一行
-                    if (dataGridView1.Rows[e.RowIndex].Selected == false)
+                    if (dgvOperCommision.Rows[e.RowIndex].Selected == false)
                     {
-                        dataGridView1.ClearSelection();
-                        dataGridView1.Rows[e.RowIndex].Selected = true;
+                        dgvOperCommision.ClearSelection();
+                        dgvOperCommision.Rows[e.RowIndex].Selected = true;
                     }
                     //只选中一行时设置活动单元格
-                    if (dataGridView1.SelectedRows.Count == 1)
+                    if (dgvOperCommision.SelectedRows.Count == 1)
                     {
                         if (e.ColumnIndex != -1) //选中表头了
-                            dataGridView1.CurrentCell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                            dgvOperCommision.CurrentCell = dgvOperCommision.Rows[e.RowIndex].Cells[e.ColumnIndex];
                         else
                         {
-                            dataGridView1.CurrentCell = dataGridView1.Rows[e.RowIndex].Cells[0];
+                            dgvOperCommision.CurrentCell = dgvOperCommision.Rows[e.RowIndex].Cells[0];
                         }
 
                     }

@@ -4,9 +4,6 @@ using TravelAgency.Model;
 
 namespace TravelAgency.BLL
 {
-
-
-
     public partial class Commision
     {
         private BLL.Visa _bllVisa = new BLL.Visa();

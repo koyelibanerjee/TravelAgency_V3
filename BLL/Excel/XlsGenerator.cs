@@ -305,7 +305,7 @@ namespace TravelAgency.Common.Excel
                         {
                             _bllLoger.AddRecord(ActType._10Exported, GlobalUtils.LoginUser, visaInfoList[i],
                                 null);
-                            visaInfoList[i].outState = OutState.TYPE10Exported;
+                            visaInfoList[i].outState = OutState.Type10Exported;
                             _bllVisaInfo.Update(visaInfoList[i]);
                         }
 

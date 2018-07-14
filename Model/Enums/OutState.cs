@@ -9,8 +9,8 @@
         public const string Type01Delay = "01延后";
         public const string Type02In = "02进签";
         public const string Type03NormalOut = "03出签";
-        public const string TYPE04AbnormalOut = "04未正常出签";
+        public const string Type04AbnormalOut = "04未正常出签";
         //public const string TYPE04AbnormalOut = "04未正常出签";
-        public const string TYPE10Exported = "10已导出";
+        public const string Type10Exported = "10已导出";
     }
 }

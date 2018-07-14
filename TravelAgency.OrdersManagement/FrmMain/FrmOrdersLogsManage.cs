@@ -206,7 +206,7 @@ namespace TravelAgency.OrdersManagement
             }
 
             if (cbActType.Text != "全部")
-                conditions.Add(" Acttype = " + OrdersActtype.value2Key(cbActType.Text) + " ");
+                conditions.Add(" Acttype = " + OrdersActtype.Value2Key(cbActType.Text) + " ");
 
             string[] arr = conditions.ToArray();
             string where = string.Join(" and ", arr);
@@ -265,7 +265,7 @@ namespace TravelAgency.OrdersManagement
                 //SetRowColorByReserveTime(row);
                 //SetRowColorByGuestInfoTypedIn(row);
                 if (list[i].ActType.HasValue)
-                    row.Cells["Acttype"].Value = OrdersActtype.key2Value(list[i].ActType.Value);
+                    row.Cells["Acttype"].Value = OrdersActtype.Key2Value(list[i].ActType.Value);
 
 
                 for (int j = 0; j != dataGridView1.ColumnCount; ++j)

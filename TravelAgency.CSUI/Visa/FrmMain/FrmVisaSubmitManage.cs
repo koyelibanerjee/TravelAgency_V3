@@ -200,7 +200,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
         private void RbtnAbOut_CheckedChanged(object sender, EventArgs e)
         {
-            _outState = OutState.TYPE04AbnormalOut;
+            _outState = OutState.Type04AbnormalOut;
         }
 
 
@@ -851,7 +851,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             int hasOut = 0;
             var dictIn = _visaActTypeCountBll.GetVisaOutStateCountDict(visas, OutState.Type02In);
             var dictOut = _visaActTypeCountBll.GetVisaOutStateCountDict(visas, OutState.Type03NormalOut);
-            var dictAbOut = _visaActTypeCountBll.GetVisaOutStateCountDict(visas, OutState.TYPE04AbnormalOut);
+            var dictAbOut = _visaActTypeCountBll.GetVisaOutStateCountDict(visas, OutState.Type04AbnormalOut);
 
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {

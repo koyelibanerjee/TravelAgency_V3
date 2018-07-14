@@ -633,9 +633,9 @@ namespace TravelAgency.CSUI.FrmMain
                         c = Color.Yellow;
                     else if (state == OutState.Type03NormalOut)
                         c = Color.Green;
-                    else if (state == OutState.TYPE04AbnormalOut)
+                    else if (state == OutState.Type04AbnormalOut)
                         c = Color.Red;
-                    else if (state == OutState.TYPE10Exported)
+                    else if (state == OutState.Type10Exported)
                         c = Color.DarkGreen;
                     else
                         c = Color.Black;

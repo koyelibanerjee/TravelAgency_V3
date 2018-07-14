@@ -402,7 +402,7 @@ namespace TravelAgency.OrdersManagement
                         return;
                     }
                     model.Id = id;
-                    _bllLoger.AddLog(GlobalUtils.LoginUser, OrdersActtype.value2Key("客服:录入订单"), model);
+                    _bllLoger.AddLog(GlobalUtils.LoginUser, OrdersActtype.Value2Key("客服:录入订单"), model);
 
                     //添加客人信息
                     var list = DgvDataSourceToList();

@@ -100,7 +100,7 @@ namespace TravelAgency.CSUI.FrmSub
                 {
                     return;
                 }
-                UpdateVisaInfoOutStates(OutState.TYPE04AbnormalOut);
+                UpdateVisaInfoOutStates(OutState.Type04AbnormalOut);
             }
             _updateDel(_curPage);
             this.DialogResult = DialogResult.OK;
