@@ -24,6 +24,7 @@ namespace TravelAgency.OrdersManagement
         private int _pageCount = 0;
         private int _pageSize;
         private int _recordCount = 0;
+        private bool _autoRefresh = false;
         private string _where = string.Empty;
         private readonly System.Windows.Forms.Timer _refreshTimer = new System.Windows.Forms.Timer();
         public FrmOrdersManage_Oper()
@@ -36,7 +37,7 @@ namespace TravelAgency.OrdersManagement
         {
             _recordCount = _bllOrders.GetRecordCount(_where);
             _pageCount = (int)Math.Ceiling(_recordCount / (double)_pageSize);
-            _refreshTimer.Interval = 30 * 1000;
+            _refreshTimer.Interval = GlobalUtils.AutoRefreshTime * 1000;
             _refreshTimer.Tick += LoadDataToDgvAsyn;
             _refreshTimer.Enabled = true;
 
@@ -79,6 +80,7 @@ namespace TravelAgency.OrdersManagement
         /// <param name="e"></param>
         private void LoadDataToDgvAsyn(object sender, EventArgs e)
         {
+            _autoRefresh = true;
             LoadDataToDgvAsyn();
         }
 
@@ -168,12 +170,6 @@ namespace TravelAgency.OrdersManagement
 
         }
 
-        private void DataGridView1_DoubleClick(object sender, EventArgs e)
-        {
-            //查看客人信息ToolStripMenuItem_Click(null, null);
-            查看录入订单操作信息ToolStripMenuItem_Click(null, null);
-        }
-
         private void CbPageSize_TextChanged(object sender, EventArgs e)
         {
             _pageSize = int.Parse(cbPageSize.Text);
@@ -196,14 +192,24 @@ namespace TravelAgency.OrdersManagement
         public void LoadDataToDataGridView(int page) //刷新后保持选中
         {
             _where = GetWhereCondition();
+            var list = _bllOrders.GetListByPageOrderByPK(_curPage, _pageSize, _where);
+            if (_autoRefresh)
+            {
+                _autoRefresh = false;
+                var orig_list = DgvDataSourceToList();
+                if (ObjectDeepCompare.CompareListDeep(list, orig_list, typeof(Model.Orders)) == true)
+                    return;
+            }
             int curSelectedRow = -1;
             if (dataGridView1.SelectedRows.Count > 0)
                 curSelectedRow = dataGridView1.SelectedRows[0].Index;
-            dataGridView1.DataSource = _bllOrders.GetListByPageOrderByPK(_curPage, _pageSize, _where);
+            dataGridView1.DataSource = list;
             if (curSelectedRow != -1 && dataGridView1.Rows.Count > curSelectedRow)
                 dataGridView1.CurrentCell = dataGridView1.Rows[curSelectedRow].Cells[0];
             dataGridView1.Update();
         }
+
+
 
         private void UpdateState()
         {

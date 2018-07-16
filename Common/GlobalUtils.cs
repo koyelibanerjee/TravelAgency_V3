@@ -32,6 +32,8 @@ namespace TravelAgency.Common
         public static readonly DocDocxGenerator DocDocxGenerator;
         public static RigthLevel LoginUserLevel;
         public static ILog Logger = log4net.LogManager.GetLogger("DemoWriter");
+        public static int AutoRefreshTime = 30;
+
         static GlobalUtils()
         {
             InitFtp();
@@ -39,7 +41,6 @@ namespace TravelAgency.Common
 
             //从配置文件读取log4net的配置，然后进行一个初始化工作。
             log4net.Config.XmlConfigurator.Configure();
-
         }
 
         private static void InitFtp()

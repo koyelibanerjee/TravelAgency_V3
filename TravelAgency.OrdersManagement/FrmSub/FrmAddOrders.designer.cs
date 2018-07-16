@@ -37,6 +37,7 @@
             this.btnOK = new DevComponents.DotNetBar.ButtonX();
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
             this.panelMain = new DevComponents.DotNetBar.PanelEx();
+            this.txtGuestUseTime = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.lbGuestCount = new DevComponents.DotNetBar.LabelX();
             this.txtOperRemark = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX18 = new DevComponents.DotNetBar.LabelX();
@@ -103,7 +104,6 @@
             this.移到顶部ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.移到底部ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.复制选中单元格ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtGuestUseTime = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.panelEx1.SuspendLayout();
             this.panelMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -231,6 +231,19 @@
             this.panelMain.Style.GradientAngle = 90;
             this.panelMain.TabIndex = 106;
             // 
+            // txtGuestUseTime
+            // 
+            // 
+            // 
+            // 
+            this.txtGuestUseTime.Border.Class = "TextBoxBorder";
+            this.txtGuestUseTime.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtGuestUseTime.Location = new System.Drawing.Point(402, 144);
+            this.txtGuestUseTime.Multiline = true;
+            this.txtGuestUseTime.Name = "txtGuestUseTime";
+            this.txtGuestUseTime.Size = new System.Drawing.Size(149, 27);
+            this.txtGuestUseTime.TabIndex = 131;
+            // 
             // lbGuestCount
             // 
             // 
@@ -281,6 +294,7 @@
             this.txtWaitorRemark.Location = new System.Drawing.Point(124, 279);
             this.txtWaitorRemark.Multiline = true;
             this.txtWaitorRemark.Name = "txtWaitorRemark";
+            this.txtWaitorRemark.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtWaitorRemark.Size = new System.Drawing.Size(186, 63);
             this.txtWaitorRemark.TabIndex = 175;
             // 
@@ -989,19 +1003,6 @@
             this.复制选中单元格ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.复制选中单元格ToolStripMenuItem.Text = "复制选中单元格";
             this.复制选中单元格ToolStripMenuItem.Click += new System.EventHandler(this.复制选中单元格ToolStripMenuItem_Click);
-            // 
-            // txtGuestUseTime
-            // 
-            // 
-            // 
-            // 
-            this.txtGuestUseTime.Border.Class = "TextBoxBorder";
-            this.txtGuestUseTime.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtGuestUseTime.Location = new System.Drawing.Point(402, 144);
-            this.txtGuestUseTime.Multiline = true;
-            this.txtGuestUseTime.Name = "txtGuestUseTime";
-            this.txtGuestUseTime.Size = new System.Drawing.Size(149, 27);
-            this.txtGuestUseTime.TabIndex = 131;
             // 
             // FrmAddOrders
             // 

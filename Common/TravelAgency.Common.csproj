@@ -227,6 +227,7 @@
     <Compile Include="FTP\FtpHandler.cs" />
     <Compile Include="InfoChecker.cs" />
     <Compile Include="JsonHandler.cs" />
+    <Compile Include="ObjectDeepCompare.cs" />
     <Compile Include="PathHelper.cs" />
     <Compile Include="PayoutUpdateRules.cs" />
     <Compile Include="PicHandler.cs" />

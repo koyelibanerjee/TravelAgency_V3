@@ -27,6 +27,7 @@ namespace TravelAgency.OrdersManagement
         private int _recordCount = 0;
         private string _where = string.Empty;
         private readonly System.Windows.Forms.Timer _refreshTimer = new System.Windows.Forms.Timer();
+        private bool _autoRefresh = false;
 
         public FrmOrdersManage_Waitor()
         {
@@ -38,7 +39,7 @@ namespace TravelAgency.OrdersManagement
             _recordCount = _bllOrders.GetRecordCount(_where);
             _pageCount = (int)Math.Ceiling(_recordCount / (double)_pageSize);
 
-            _refreshTimer.Interval = 30 * 1000;
+            _refreshTimer.Interval = GlobalUtils.AutoRefreshTime * 1000;
             _refreshTimer.Tick += LoadDataToDgvAsyn;
             _refreshTimer.Enabled = true;
 
@@ -91,6 +92,7 @@ namespace TravelAgency.OrdersManagement
 
         private void LoadDataToDgvAsyn(object sender, EventArgs e)
         {
+            _autoRefresh = true;
             LoadDataToDgvAsyn();
         }
 
@@ -204,13 +206,32 @@ namespace TravelAgency.OrdersManagement
             progressLoading.IsRunning = true;
         }
 
+        //public bool CheckChanged(List<Model.Orders> list1, List<Model.Orders> list2)
+        //{
+        //    if (list1.Count != list2.Count)
+        //        return false;
+        //    for (int i = 0; i < list1.Count; i++)
+        //    {
+
+        //    }
+        //}
+
+
         public void LoadDataToDataGridView(int page) //刷新后保持选中
         {
             _where = GetWhereCondition();
+            var list = _bllOrders.GetListByPageOrderByPK(_curPage, _pageSize, _where);
+            if (_autoRefresh)
+            {
+                _autoRefresh = false;
+                var orig_list = DgvDataSourceToList();
+                if (ObjectDeepCompare.CompareListDeep(list, orig_list, typeof (Model.Orders)) == true)
+                    return;
+            }
             int curSelectedRow = -1;
             if (dataGridView1.SelectedRows.Count > 0)
                 curSelectedRow = dataGridView1.SelectedRows[0].Index;
-            dataGridView1.DataSource = _bllOrders.GetListByPageOrderByPK(_curPage, _pageSize, _where);
+            dataGridView1.DataSource = list;
             if (curSelectedRow != -1 && dataGridView1.Rows.Count > curSelectedRow)
                 dataGridView1.CurrentCell = dataGridView1.Rows[curSelectedRow].Cells[0];
             dataGridView1.Update();
@@ -446,7 +467,7 @@ namespace TravelAgency.OrdersManagement
             if (!DgvDataSourceToList()[row.Index].OrderColor.HasValue)
             {
                 row.HeaderCell.Style.BackColor = StyleControler.RowHeaderDefaulBackColor;
-                row.DefaultCellStyle.BackColor = row.Index%2==0?StyleControler.CellDefaultBackColor:StyleControler.CellDefaultAlterBackColor;
+                row.DefaultCellStyle.BackColor = row.Index % 2 == 0 ? StyleControler.CellDefaultBackColor : StyleControler.CellDefaultAlterBackColor;
             }
             else
             {
@@ -549,6 +570,7 @@ namespace TravelAgency.OrdersManagement
             ShowProgress();
             bgWorkerLoadData.RunWorkerAsync();
         }
+
 
         private void bgWorkerLoadData_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
@@ -938,7 +960,7 @@ namespace TravelAgency.OrdersManagement
 
         private void toolStripTextBox5_Click(object sender, EventArgs e)
         {
-            SetOrdersColor(Color.FromArgb(146,208,80).ToArgb());
+            SetOrdersColor(Color.FromArgb(146, 208, 80).ToArgb());
         }
 
         private void toolStripTextBox6_Click(object sender, EventArgs e)

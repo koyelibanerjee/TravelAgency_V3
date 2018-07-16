@@ -63,6 +63,7 @@
     <Compile Include="IDCard\IDCardTests.cs" />
     <Compile Include="InfoCheckerTests.cs" />
     <Compile Include="JsonHandlerTests.cs" />
+    <Compile Include="ObjectDeepCompareTests.cs" />
     <Compile Include="PathHelperTests.cs" />
     <Compile Include="PicHandlerTests.cs" />
     <Compile Include="PictureHandler\GaopaiPicHandlerTests.cs" />
@@ -73,6 +74,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BLL\TravelAgency.BLL.csproj">
+      <Project>{38d7aa58-c95b-449b-86c6-a8073a56e11f}</Project>
+      <Name>TravelAgency.BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Common\TravelAgency.Common.csproj">
       <Project>{E3D8759A-C5EB-402D-9F10-F5C6029A8D1A}</Project>
       <Name>TravelAgency.Common</Name>

@@ -460,7 +460,6 @@ namespace TravelAgency.CSUI.Statistics.FrmMain
             {
                 MessageBoxEx.Show("请先选择时间区间!");
                 return;
-
             }
 
             if (string.IsNullOrEmpty(txtTypeInPerson.Text))

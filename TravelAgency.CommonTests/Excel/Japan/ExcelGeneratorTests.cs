@@ -13,21 +13,6 @@ namespace TravelAgency.Common.Excel.Japan.Tests
     public class ExcelGeneratorTests
     {
         [TestMethod()]
-        public void CheckGroupNoMatchTest()
-        {
-            List<Model.Visa> list= new List<Visa>();
-
-            list.Add(new Visa() {GroupNo = "TOPC171214"});
-            list.Add(new Visa() { GroupNo = "TOPC171214我玩" });
-
-            Assert.IsTrue(ExcelGenerator.CheckGroupNoMatch(list));
-            list.Add(new Visa() { GroupNo = "TOPC171211我玩" });
-            Assert.IsFalse(ExcelGenerator.CheckGroupNoMatch(list));
-
-
-        }
-
-        [TestMethod()]
         public void GetTeamVisaExcelOfJapan()
         {
             //List<Model.visa>

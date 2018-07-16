@@ -11,16 +11,6 @@ namespace TravelAgency.Common.Excel.Tests
     [TestClass()]
     public class ExcelGeneratorTests
     {
-        [TestMethod()]
-        public void Get8PassPicTableTest()
-        {
-            ExcelGenerator.Get8PassPicTable(null);
-        }
 
-        [TestMethod()]
-        public void TestGenTest()
-        {
-            ExcelGenerator.TestGen();
-        }
     }
 }

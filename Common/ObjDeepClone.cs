@@ -60,7 +60,7 @@ namespace TravelAgency.Common
                 {
                     if (!field.FieldType.IsValueType && field.FieldType != typeof(String))
                     {
-                        //不符合条件的字段，直接忽略，避免报错。  
+                        //不符合条件的字段，直接忽略，避免报错 
                         if ((field.FieldType.IsArray && (field.FieldType.GetArrayRank() > 1 || (!(tmptype = field.FieldType.GetElementType()).IsValueType && tmptype != typeof(String) && tmptype.GetConstructor(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic, null, Type.EmptyTypes, null) == null))) ||
                             (!field.FieldType.IsArray && field.FieldType.GetConstructor(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic, null, Type.EmptyTypes, null) == null))
                             break;
