@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
 using DevComponents.DotNetBar;
 using NPOI.HSSF.UserModel;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
-using TravelAgency.Model;
+using TravelAgency.Common;
 using TravelAgency.Model.Enums;
 using PassportPicHandler = TravelAgency.BLL.FTPFileHandler.PassportPicHandler;
 
-namespace TravelAgency.Common.Excel
+namespace TravelAgency.BLL.Excel
 {
     /// <summary>
     /// 这个类是用占位符替换生成的报表（或者是直接填空位的方式）
@@ -24,7 +23,7 @@ namespace TravelAgency.Common.Excel
 
 
 
-        public static bool IsOutSigned(VisaInfo model)
+        public static bool IsOutSigned(Model.VisaInfo model)
         {
             return model.IssuePlace != "云南" && model.IssuePlace != "四川" &&
                    model.IssuePlace != "贵州" && model.IssuePlace != "重庆";
@@ -292,7 +291,7 @@ namespace TravelAgency.Common.Excel
                         BLL.HasExported8Report bll = new BLL.HasExported8Report();
                         for (int i = 0; i < visaInfoList.Count; i++)
                         {
-                            Model.HasExported8Report model = new HasExported8Report();
+                            Model.HasExported8Report model = new Model.HasExported8Report();
                             model.VisaInfo_id = visaInfoList[i].VisaInfo_id;
                             model.EntryTime = DateTime.Now;
                             if (!bll.Exists(model.VisaInfo_id)) //重复导出就更新时间

@@ -32,7 +32,6 @@
             this.cbPerson = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.btnOK = new DevComponents.DotNetBar.ButtonX();
-            this.cbBankFrom = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.cbBank = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.cbBankTo = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.cbAccount = new DevComponents.DotNetBar.Controls.ComboBoxEx();
@@ -40,12 +39,9 @@
             this.labelX24 = new DevComponents.DotNetBar.LabelX();
             this.labelX23 = new DevComponents.DotNetBar.LabelX();
             this.labelX18 = new DevComponents.DotNetBar.LabelX();
-            this.txtAmountSpend = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.lbAmount = new DevComponents.DotNetBar.LabelX();
-            this.labelX12 = new DevComponents.DotNetBar.LabelX();
             this.txtGroupNo = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX11 = new DevComponents.DotNetBar.LabelX();
-            this.labelX7 = new DevComponents.DotNetBar.LabelX();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.panelMain.SuspendLayout();
@@ -58,7 +54,6 @@
             this.panelMain.Controls.Add(this.cbPerson);
             this.panelMain.Controls.Add(this.btnCancel);
             this.panelMain.Controls.Add(this.btnOK);
-            this.panelMain.Controls.Add(this.cbBankFrom);
             this.panelMain.Controls.Add(this.cbBank);
             this.panelMain.Controls.Add(this.cbBankTo);
             this.panelMain.Controls.Add(this.cbAccount);
@@ -66,19 +61,16 @@
             this.panelMain.Controls.Add(this.labelX24);
             this.panelMain.Controls.Add(this.labelX23);
             this.panelMain.Controls.Add(this.labelX18);
-            this.panelMain.Controls.Add(this.txtAmountSpend);
             this.panelMain.Controls.Add(this.lbAmount);
-            this.panelMain.Controls.Add(this.labelX12);
             this.panelMain.Controls.Add(this.txtGroupNo);
             this.panelMain.Controls.Add(this.labelX11);
-            this.panelMain.Controls.Add(this.labelX7);
             this.panelMain.Controls.Add(this.labelX3);
             this.panelMain.Controls.Add(this.labelX2);
             this.panelMain.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(599, 217);
+            this.panelMain.Size = new System.Drawing.Size(561, 181);
             this.panelMain.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelMain.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelMain.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -104,7 +96,7 @@
             // 
             this.btnCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnCancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnCancel.Location = new System.Drawing.Point(306, 182);
+            this.btnCancel.Location = new System.Drawing.Point(220, 144);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -116,25 +108,13 @@
             // 
             this.btnOK.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnOK.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnOK.Location = new System.Drawing.Point(164, 182);
+            this.btnOK.Location = new System.Drawing.Point(78, 144);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnOK.TabIndex = 106;
             this.btnOK.Text = "确认";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
-            // 
-            // cbBankFrom
-            // 
-            this.cbBankFrom.DisplayMember = "Text";
-            this.cbBankFrom.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbBankFrom.FormattingEnabled = true;
-            this.cbBankFrom.ItemHeight = 15;
-            this.cbBankFrom.Location = new System.Drawing.Point(121, 117);
-            this.cbBankFrom.Name = "cbBankFrom";
-            this.cbBankFrom.Size = new System.Drawing.Size(174, 21);
-            this.cbBankFrom.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbBankFrom.TabIndex = 105;
             // 
             // cbBank
             // 
@@ -179,7 +159,7 @@
             // 
             this.txtDetails.Border.Class = "TextBoxBorder";
             this.txtDetails.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtDetails.Location = new System.Drawing.Point(396, 67);
+            this.txtDetails.Location = new System.Drawing.Point(381, 67);
             this.txtDetails.Multiline = true;
             this.txtDetails.Name = "txtDetails";
             this.txtDetails.PreventEnterBeep = true;
@@ -216,24 +196,11 @@
             // 
             // 
             this.labelX18.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX18.Location = new System.Drawing.Point(315, 67);
+            this.labelX18.Location = new System.Drawing.Point(300, 67);
             this.labelX18.Name = "labelX18";
             this.labelX18.Size = new System.Drawing.Size(75, 23);
             this.labelX18.TabIndex = 96;
             this.labelX18.Text = "摘要:";
-            // 
-            // txtAmountSpend
-            // 
-            // 
-            // 
-            // 
-            this.txtAmountSpend.Border.Class = "TextBoxBorder";
-            this.txtAmountSpend.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtAmountSpend.Location = new System.Drawing.Point(121, 144);
-            this.txtAmountSpend.Name = "txtAmountSpend";
-            this.txtAmountSpend.PreventEnterBeep = true;
-            this.txtAmountSpend.Size = new System.Drawing.Size(174, 21);
-            this.txtAmountSpend.TabIndex = 95;
             // 
             // lbAmount
             // 
@@ -243,23 +210,11 @@
             this.lbAmount.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lbAmount.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbAmount.ForeColor = System.Drawing.Color.Green;
-            this.lbAmount.Location = new System.Drawing.Point(424, 144);
+            this.lbAmount.Location = new System.Drawing.Point(396, 144);
             this.lbAmount.Name = "lbAmount";
-            this.lbAmount.Size = new System.Drawing.Size(146, 23);
+            this.lbAmount.Size = new System.Drawing.Size(191, 23);
             this.lbAmount.TabIndex = 94;
             this.lbAmount.Text = "请款金额:12000元";
-            // 
-            // labelX12
-            // 
-            // 
-            // 
-            // 
-            this.labelX12.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX12.Location = new System.Drawing.Point(35, 144);
-            this.labelX12.Name = "labelX12";
-            this.labelX12.Size = new System.Drawing.Size(80, 23);
-            this.labelX12.TabIndex = 91;
-            this.labelX12.Text = "支出金额:";
             // 
             // txtGroupNo
             // 
@@ -268,7 +223,7 @@
             // 
             this.txtGroupNo.Border.Class = "TextBoxBorder";
             this.txtGroupNo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtGroupNo.Location = new System.Drawing.Point(396, 12);
+            this.txtGroupNo.Location = new System.Drawing.Point(381, 12);
             this.txtGroupNo.Multiline = true;
             this.txtGroupNo.Name = "txtGroupNo";
             this.txtGroupNo.PreventEnterBeep = true;
@@ -281,23 +236,11 @@
             // 
             // 
             this.labelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX11.Location = new System.Drawing.Point(315, 11);
+            this.labelX11.Location = new System.Drawing.Point(300, 11);
             this.labelX11.Name = "labelX11";
             this.labelX11.Size = new System.Drawing.Size(96, 23);
             this.labelX11.TabIndex = 72;
             this.labelX11.Text = "团号:";
-            // 
-            // labelX7
-            // 
-            // 
-            // 
-            // 
-            this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX7.Location = new System.Drawing.Point(35, 119);
-            this.labelX7.Name = "labelX7";
-            this.labelX7.Size = new System.Drawing.Size(80, 23);
-            this.labelX7.TabIndex = 74;
-            this.labelX7.Text = "支出银行:";
             // 
             // labelX3
             // 
@@ -327,7 +270,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(599, 217);
+            this.ClientSize = new System.Drawing.Size(561, 181);
             this.Controls.Add(this.panelMain);
             this.Name = "FrmAppAll";
             this.Text = "提交请款申请";
@@ -343,18 +286,14 @@
         private DevComponents.DotNetBar.LabelX labelX24;
         private DevComponents.DotNetBar.LabelX labelX23;
         private DevComponents.DotNetBar.LabelX labelX18;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtAmountSpend;
         private DevComponents.DotNetBar.LabelX lbAmount;
-        private DevComponents.DotNetBar.LabelX labelX12;
         private DevComponents.DotNetBar.Controls.TextBoxX txtGroupNo;
         private DevComponents.DotNetBar.Controls.TextBoxX txtDetails;
         private DevComponents.DotNetBar.LabelX labelX11;
-        private DevComponents.DotNetBar.LabelX labelX7;
         private DevComponents.DotNetBar.LabelX labelX3;
         private DevComponents.DotNetBar.LabelX labelX2;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cbAccount;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cbBankTo;
-        private DevComponents.DotNetBar.Controls.ComboBoxEx cbBankFrom;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cbBank;
         private DevComponents.DotNetBar.ButtonX btnOK;
         private DevComponents.DotNetBar.ButtonX btnCancel;

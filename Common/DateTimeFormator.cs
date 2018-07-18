@@ -118,6 +118,7 @@ namespace TravelAgency.Common
 
         public static DateTime GetNextWorkDate(DateTime time)
         {
+            time = time.AddDays(1);
             if (time.DayOfWeek == DayOfWeek.Saturday)
             {
                 return time.AddDays((double)2);

@@ -1,18 +1,14 @@
-﻿using DevComponents.DotNetBar;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using DevComponents.DotNetBar;
 using NPOI.HSSF.UserModel;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TravelAgency.BLL;
 using TravelAgency.BLL.FTPFileHandler;
-using TravelAgency.Model.Enums;
+using TravelAgency.Common;
 
-namespace TravelAgency.Common.Excel
+namespace TravelAgency.BLL.Excel
 {
     public class OrderInfoExcelParser
     {

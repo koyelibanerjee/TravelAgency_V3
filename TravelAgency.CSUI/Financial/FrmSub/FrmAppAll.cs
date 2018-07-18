@@ -47,15 +47,9 @@ namespace TravelAgency.CSUI.Financial.FrmSub
         private void InitCbs()
         {
             //cbBankFrom.DropDownStyle = ComboBoxStyle.DropDownList;
-            var list = _bllAppAll.GetBankFromToList();
-            foreach (var item in list)
-            {
-                cbBankFrom.Items.Add(item);
-            }
-
-
+           
             //cbBankTo.DropDownStyle = ComboBoxStyle.DropDownList;
-            list = _bllAppAll.GetBankFromToList();
+            var list = _bllAppAll.GetBankFromToList();
             foreach (var item in list)
             {
                 cbBankTo.Items.Add(item);
@@ -90,7 +84,6 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             model.Account = cbAccount.Text;
             model.Amount = _amount;
             model.Bank = cbBank.Text;
-            model.Bank_From = cbBankFrom.Text;
             model.Bank_To = cbBankTo.Text;
             model.Person = cbPerson.Text;
             model.Details = txtDetails.Text;

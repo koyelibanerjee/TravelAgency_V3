@@ -173,7 +173,6 @@
     <Compile Include="Excel\FrmOrderInfoExcelParser.Designer.cs">
       <DependentUpon>FrmOrderInfoExcelParser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Excel\NOPIHelper.cs" />
     <Compile Include="Excel\OrderInfoExcelParser.cs" />
     <Compile Include="Excel\XlsGenerator.cs" />
     <Compile Include="FrmGroupOrIndividualValue.cs">

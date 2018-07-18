@@ -16,7 +16,6 @@ using TravelAgency.CSUI.Properties;
 using TravelAgency.Model;
 using System.Configuration;
 using TravelAgency.BLL.FTPFileHandler;
-using TravelAgency.Common.Excel;
 using TravelAgency.CSUI.Visa.FrmSub;
 
 namespace TravelAgency.CSUI.FrmMain
