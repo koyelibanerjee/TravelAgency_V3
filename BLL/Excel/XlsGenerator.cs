@@ -460,7 +460,7 @@ namespace TravelAgency.BLL.Excel
 
 
                 //sheet.IsPrintGridlines = true;
-                string dstName = GlobalUtils.ShowSaveFileDlg("两人保险申请表.xls", "Excel XLS|*.xls");
+                string dstName = GlobalUtils.ShowSaveFileDlg("保险申请表.xls", "Excel XLS|*.xls");
 
                 // If the file name is not an empty string open it for saving.
                 if (!string.IsNullOrEmpty(dstName))

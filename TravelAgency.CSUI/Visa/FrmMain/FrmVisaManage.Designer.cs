@@ -138,10 +138,10 @@
             this.bgWorkerLoadData = new System.ComponentModel.BackgroundWorker();
             this.labelItem8 = new DevComponents.DotNetBar.LabelItem();
             this.panelDgv = new DevComponents.DotNetBar.PanelEx();
-            this.cmsAddToGroup = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.添加到团号ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bar2 = new DevComponents.DotNetBar.Bar();
             this.lbCount = new DevComponents.DotNetBar.LabelItem();
+            this.cmsAddToGroup = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.添加到团号ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cmsDgv.SuspendLayout();
@@ -150,8 +150,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSchEntryTimeTo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSchEntryTimeFrom)).BeginInit();
             this.panelDgv.SuspendLayout();
-            this.cmsAddToGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bar2)).BeginInit();
+            this.cmsAddToGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // bar1
@@ -454,7 +454,7 @@
             this.导出报表ToolStripMenuItem,
             this.设置备注2ToolStripMenuItem});
             this.cmsDgv.Name = "cmsDgv";
-            this.cmsDgv.Size = new System.Drawing.Size(185, 192);
+            this.cmsDgv.Size = new System.Drawing.Size(185, 214);
             // 
             // 复制ToolStripMenuItem
             // 
@@ -523,7 +523,7 @@
             // 打印报表ToolStripMenuItem
             // 
             this.打印报表ToolStripMenuItem.Name = "打印报表ToolStripMenuItem";
-            this.打印报表ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.打印报表ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.打印报表ToolStripMenuItem.Text = "打印报表";
             this.打印报表ToolStripMenuItem.Click += new System.EventHandler(this.打印报表ToolStripMenuItem_Click);
             // 
@@ -547,7 +547,7 @@
             this.东东全日空ToolStripMenuItem,
             this.新北东航ToolStripMenuItem});
             this.日本ToolStripMenuItem.Name = "日本ToolStripMenuItem";
-            this.日本ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.日本ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.日本ToolStripMenuItem.Text = "日本";
             // 
             // 日本团队综合名单ToolStripMenuItem
@@ -666,7 +666,7 @@
             this.韩国担保函ToolStripMenuItem,
             this.韩国加急申请书ToolStripMenuItem});
             this.韩国ToolStripMenuItem.Name = "韩国ToolStripMenuItem";
-            this.韩国ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.韩国ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.韩国ToolStripMenuItem.Text = "韩国";
             // 
             // 韩国担保函ToolStripMenuItem
@@ -694,61 +694,61 @@
             this.川航机票ToolStripMenuItem,
             this.泰航机票ToolStripMenuItem});
             this.泰国ToolStripMenuItem.Name = "泰国ToolStripMenuItem";
-            this.泰国ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.泰国ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.泰国ToolStripMenuItem.Text = "泰国";
             // 
             // 数据源报表ToolStripMenuItem
             // 
             this.数据源报表ToolStripMenuItem.Name = "数据源报表ToolStripMenuItem";
-            this.数据源报表ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.数据源报表ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.数据源报表ToolStripMenuItem.Text = "数据源报表";
             this.数据源报表ToolStripMenuItem.Click += new System.EventHandler(this.数据源报表ToolStripMenuItem_Click);
             // 
             // 泰签担保函ToolStripMenuItem
             // 
             this.泰签担保函ToolStripMenuItem.Name = "泰签担保函ToolStripMenuItem";
-            this.泰签担保函ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.泰签担保函ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.泰签担保函ToolStripMenuItem.Text = "泰签担保函";
             this.泰签担保函ToolStripMenuItem.Click += new System.EventHandler(this.泰签担保函ToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(133, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
             // 
             // 机票报表ToolStripMenuItem1
             // 
             this.机票报表ToolStripMenuItem1.Name = "机票报表ToolStripMenuItem1";
-            this.机票报表ToolStripMenuItem1.Size = new System.Drawing.Size(136, 22);
+            this.机票报表ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.机票报表ToolStripMenuItem1.Text = "机票报表";
             this.机票报表ToolStripMenuItem1.Click += new System.EventHandler(this.机票报表ToolStripMenuItem1_Click);
             // 
             // 东航机票ToolStripMenuItem
             // 
             this.东航机票ToolStripMenuItem.Name = "东航机票ToolStripMenuItem";
-            this.东航机票ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.东航机票ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.东航机票ToolStripMenuItem.Text = "东航机票";
             this.东航机票ToolStripMenuItem.Click += new System.EventHandler(this.东航机票ToolStripMenuItem_Click);
             // 
             // 川航机票ToolStripMenuItem
             // 
             this.川航机票ToolStripMenuItem.Name = "川航机票ToolStripMenuItem";
-            this.川航机票ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.川航机票ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.川航机票ToolStripMenuItem.Text = "川航机票";
             this.川航机票ToolStripMenuItem.Click += new System.EventHandler(this.川航机票ToolStripMenuItem_Click);
             // 
             // 泰航机票ToolStripMenuItem
             // 
             this.泰航机票ToolStripMenuItem.Name = "泰航机票ToolStripMenuItem";
-            this.泰航机票ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
+            this.泰航机票ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.泰航机票ToolStripMenuItem.Text = "泰航机票";
             this.泰航机票ToolStripMenuItem.Click += new System.EventHandler(this.泰航机票ToolStripMenuItem_Click);
             // 
             // 两人保险报表ToolStripMenuItem
             // 
             this.两人保险报表ToolStripMenuItem.Name = "两人保险报表ToolStripMenuItem";
-            this.两人保险报表ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.两人保险报表ToolStripMenuItem.Text = "两人保险报表";
+            this.两人保险报表ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.两人保险报表ToolStripMenuItem.Text = "保险报表";
             this.两人保险报表ToolStripMenuItem.Click += new System.EventHandler(this.两人保险报表ToolStripMenuItem_Click);
             // 
             // 设置备注2ToolStripMenuItem
@@ -1280,20 +1280,6 @@
             this.panelDgv.TabIndex = 37;
             this.panelDgv.Text = "panelEx1";
             // 
-            // cmsAddToGroup
-            // 
-            this.cmsAddToGroup.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.添加到团号ToolStripMenuItem});
-            this.cmsAddToGroup.Name = "cmsAddToGroup";
-            this.cmsAddToGroup.Size = new System.Drawing.Size(149, 26);
-            // 
-            // 添加到团号ToolStripMenuItem
-            // 
-            this.添加到团号ToolStripMenuItem.Name = "添加到团号ToolStripMenuItem";
-            this.添加到团号ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.添加到团号ToolStripMenuItem.Text = "添加到此团号";
-            this.添加到团号ToolStripMenuItem.Click += new System.EventHandler(this.添加到团号ToolStripMenuItem_Click);
-            // 
             // bar2
             // 
             this.bar2.AntiAlias = true;
@@ -1321,6 +1307,20 @@
             this.lbCount.Name = "lbCount";
             this.lbCount.Text = "--";
             // 
+            // cmsAddToGroup
+            // 
+            this.cmsAddToGroup.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.添加到团号ToolStripMenuItem});
+            this.cmsAddToGroup.Name = "cmsAddToGroup";
+            this.cmsAddToGroup.Size = new System.Drawing.Size(149, 26);
+            // 
+            // 添加到团号ToolStripMenuItem
+            // 
+            this.添加到团号ToolStripMenuItem.Name = "添加到团号ToolStripMenuItem";
+            this.添加到团号ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.添加到团号ToolStripMenuItem.Text = "添加到此团号";
+            this.添加到团号ToolStripMenuItem.Click += new System.EventHandler(this.添加到团号ToolStripMenuItem_Click);
+            // 
             // FrmVisaManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1339,8 +1339,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtSchEntryTimeTo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSchEntryTimeFrom)).EndInit();
             this.panelDgv.ResumeLayout(false);
-            this.cmsAddToGroup.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bar2)).EndInit();
+            this.cmsAddToGroup.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

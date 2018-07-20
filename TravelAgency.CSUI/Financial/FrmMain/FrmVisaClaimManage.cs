@@ -578,8 +578,8 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                     dataGridView1.Rows[i].Cells["CountryImage"].Value =
                        TravelAgency.Common.CountryPicHandler.LoadImageByCountryName(countryName);
                 }
-                if (dataGridView1.Rows[i].Cells["Cost"].Value != null)
-                    moneycount += decimal.Parse(dataGridView1.Rows[i].Cells["Cost"].Value.ToString());
+                if (dataGridView1.Rows[i].Cells["ActuallyAmount"].Value != null)
+                    moneycount += decimal.Parse(dataGridView1.Rows[i].Cells["ActuallyAmount"].Value.ToString());
 
 
             }
