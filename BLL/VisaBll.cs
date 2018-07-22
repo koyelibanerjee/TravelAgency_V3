@@ -143,6 +143,7 @@ namespace TravelAgency.BLL
             newModel.Visa_id = new Guid();
             newModel.GroupNo = GetNewGroupNo(orig);
             newModel.SubmitFlag = 0; //新生成的为0
+            newModel.ForRequestGroupNo = true;
             return newModel;
         }
 

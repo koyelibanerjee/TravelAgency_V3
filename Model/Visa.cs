@@ -120,6 +120,8 @@ namespace TravelAgency.Model
     private string _requestflag;
         		                  
     private string _requestflagusername;
+        		                  
+    private bool? _forrequestgroupno;
         
     /// <summary>
 		/// Visa_id
@@ -735,6 +737,17 @@ namespace TravelAgency.Model
         {
             get{ return _requestflagusername; }
             set{ _requestflagusername = value; }
+        }    
+      
+		/// <summary>
+		/// ForRequestGroupNo
+        /// </summary>		
+		        		  
+  
+        public bool? ForRequestGroupNo
+        {
+            get{ return _forrequestgroupno; }
+            set{ _forrequestgroupno = value; }
         }    
       
 		   

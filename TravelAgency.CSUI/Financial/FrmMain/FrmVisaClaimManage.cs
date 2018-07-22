@@ -398,7 +398,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                 conditions.Add(" (ClaimedFlag ='" + cbClaimedFlag.Text + "')"); //
             }
 
-
+            conditions.Add(" ForRequestGroupNo = 0 ");
             string[] arr = conditions.ToArray();
             string where = string.Join(" and ", arr);
             return where;

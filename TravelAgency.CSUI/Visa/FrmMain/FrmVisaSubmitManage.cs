@@ -669,7 +669,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             {
                 conditions.Add(" DepartureType = '" + cbDepatureType.Text + "' ");
             }
-
+            conditions.Add(" ForRequestGroupNo = 0 ");
 
             string[] arr = conditions.ToArray();
             string where = string.Join(" and ", arr);
