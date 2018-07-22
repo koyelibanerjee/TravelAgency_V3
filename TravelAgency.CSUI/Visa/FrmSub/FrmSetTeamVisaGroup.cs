@@ -537,7 +537,7 @@ namespace TravelAgency.CSUI.FrmSub
             {
                 ListViewItem lvItem = lvOut.Items[i];
                 lvOut.Items.Remove(lvOut.Items[i]);
-                lvIn.Items.Add(lvItem);
+                lvIn.Items.Insert(0, lvItem);
             }
             UpdateGroupNo();
             UpdateDgvAndListViaListView();
@@ -549,7 +549,7 @@ namespace TravelAgency.CSUI.FrmSub
             {
                 ListViewItem lvItem = lvIn.Items[i];
                 lvIn.Items.Remove(lvIn.Items[i]);
-                lvOut.Items.Add(lvItem);
+                lvOut.Items.Insert(0, lvItem);
             }
             UpdateGroupNo();
             UpdateDgvAndListViaListView();
