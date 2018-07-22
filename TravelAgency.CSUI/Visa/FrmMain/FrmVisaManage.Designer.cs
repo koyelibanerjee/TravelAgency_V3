@@ -142,6 +142,8 @@
             this.lbCount = new DevComponents.DotNetBar.LabelItem();
             this.cmsAddToGroup = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.添加到团号ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtTypeInPerson = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX8 = new DevComponents.DotNetBar.LabelX();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cmsDgv.SuspendLayout();
@@ -290,7 +292,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -454,7 +456,7 @@
             this.导出报表ToolStripMenuItem,
             this.设置备注2ToolStripMenuItem});
             this.cmsDgv.Name = "cmsDgv";
-            this.cmsDgv.Size = new System.Drawing.Size(185, 214);
+            this.cmsDgv.Size = new System.Drawing.Size(185, 192);
             // 
             // 复制ToolStripMenuItem
             // 
@@ -782,10 +784,12 @@
             // 
             this.panelSerachBar.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelSerachBar.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelSerachBar.Controls.Add(this.txtTypeInPerson);
+            this.panelSerachBar.Controls.Add(this.txtSalesPerson);
+            this.panelSerachBar.Controls.Add(this.labelX8);
             this.panelSerachBar.Controls.Add(this.txtOperator);
             this.panelSerachBar.Controls.Add(this.labelX1);
             this.panelSerachBar.Controls.Add(this.btnAddVisa);
-            this.panelSerachBar.Controls.Add(this.txtSalesPerson);
             this.panelSerachBar.Controls.Add(this.txtClient);
             this.panelSerachBar.Controls.Add(this.cbDepatureType);
             this.panelSerachBar.Controls.Add(this.labelX7);
@@ -1321,6 +1325,30 @@
             this.添加到团号ToolStripMenuItem.Text = "添加到此团号";
             this.添加到团号ToolStripMenuItem.Click += new System.EventHandler(this.添加到团号ToolStripMenuItem_Click);
             // 
+            // txtTypeInPerson
+            // 
+            // 
+            // 
+            // 
+            this.txtTypeInPerson.Border.Class = "TextBoxBorder";
+            this.txtTypeInPerson.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtTypeInPerson.Location = new System.Drawing.Point(843, 36);
+            this.txtTypeInPerson.Name = "txtTypeInPerson";
+            this.txtTypeInPerson.Size = new System.Drawing.Size(60, 21);
+            this.txtTypeInPerson.TabIndex = 51;
+            // 
+            // labelX8
+            // 
+            // 
+            // 
+            // 
+            this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX8.Location = new System.Drawing.Point(797, 38);
+            this.labelX8.Name = "labelX8";
+            this.labelX8.Size = new System.Drawing.Size(54, 21);
+            this.labelX8.TabIndex = 52;
+            this.labelX8.Text = "资料员:";
+            // 
             // FrmVisaManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1457,5 +1485,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Visa_id;
         private DevComponents.DotNetBar.Bar bar2;
         private DevComponents.DotNetBar.LabelItem lbCount;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtTypeInPerson;
+        private DevComponents.DotNetBar.LabelX labelX8;
     }
 }

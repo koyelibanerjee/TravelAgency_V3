@@ -231,13 +231,6 @@ namespace TravelAgency.BLL.Excel
                     if (visaList[j] != null && !string.IsNullOrEmpty(visaList[j].DepartureType))
                         row.GetCell(14).SetCellValue(visaList[j].DepartureType);
 
-                    //23行设置发行地
-                    row = sheet.GetRow(23 + j * 4);
-                    if (IsOutSigned(visaInfoList[j])) //是外签的话设置发行地
-                        row.GetCell(8).SetCellValue("发行地：" + visaInfoList[j].IssuePlace);
-                    //else
-                    //row.GetCell(11).SetCellValue(string.Empty);
-
                     //24行设置居住地
                     row = sheet.GetRow(24 + j * 4);
 
@@ -248,21 +241,21 @@ namespace TravelAgency.BLL.Excel
                         {
                             residence = visaInfoList[j].Residence.Split(' ')[0];
                             if (residence.EndsWith("省") || residence.EndsWith("市"))
-                            {
                                 residence = residence.Substring(0, residence.Length - 1);
-                            }
                         }
                         row.GetCell(11).SetCellValue(residence);
                     }
                     else
-                    {
                         row.GetCell(11).SetCellValue(string.Empty);
-                    }
+
+                    //23行设置发行地
+                    row = sheet.GetRow(23 + j * 4);
+                    if (IsOutSigned(visaInfoList[j])
+                        || residence != visaInfoList[j].IssuePlace) //是外签或者居住地不等于发行地的话设置发行地
+                        row.GetCell(8).SetCellValue("发行地：" + visaInfoList[j].IssuePlace);
+                    //else
+                    //row.GetCell(11).SetCellValue(string.Empty);
                 }
-
-
-
-
 
                 //sheet.IsPrintGridlines = true;
                 string dstName = GlobalUtils.ShowSaveFileDlg("8人申请表.xls", "Excel XLS|*.xls");
@@ -627,7 +620,7 @@ namespace TravelAgency.BLL.Excel
 
                 //插入合计的公式
                 var cntCell = sheet.GetRow(11 + visaList.Count).GetCell(5);
-                cntCell.SetCellFormula($"SUM(F12:F{12 + visaList.Count-1})");
+                cntCell.SetCellFormula($"SUM(F12:F{12 + visaList.Count - 1})");
 
                 string dstName = GlobalUtils.ShowSaveFileDlg("账单.xlsx", "Excel XLSX|*.xlsx");
 

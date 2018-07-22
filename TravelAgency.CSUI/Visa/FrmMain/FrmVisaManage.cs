@@ -38,6 +38,7 @@ namespace TravelAgency.CSUI.FrmMain
         private bool _init = false;
         private string _where = string.Empty;
         private bool _forAddToGroup = false; //为没有添加团号的用户添加到团号的时候选择团号而设计
+        private bool _forStatDetails = false;
         private List<Model.VisaInfo> _listToAddToGroup;
         //private bool _hasFormated = false; //标志，用于防止重复触发rows_added事件(现在不用了，触发两次其实效率也没啥影响，并且如果只是第二次才进行操作的话会出问题)
 
@@ -46,14 +47,25 @@ namespace TravelAgency.CSUI.FrmMain
             InitializeComponent();
         }
 
-        public FrmVisaManage(bool forAddToGroup, List<Model.VisaInfo> list)
+        public FrmVisaManage(bool forAddToGroup, List<Model.VisaInfo> list) : this()
         {
             _forAddToGroup = forAddToGroup;
             _listToAddToGroup = list;
             this.StartPosition = FormStartPosition.CenterParent;
             this.Text = "请选择需要添加到的团号";
-            InitializeComponent();
         }
+
+        public FrmVisaManage(string userName, string type) : this()
+        {
+            _forStatDetails = true;
+            if (type == "TypeInPerson")
+                txtTypeInPerson.Text = userName;
+            else if (type == "Operator")
+                txtOperator.Text = userName;
+            _where = GetWhereCondition();
+            this.Text = userName + type == "TypeInPerson" ? "做资料" : "操作" + "明细查看";
+        }
+
 
 
         private void FrmVisaManage_Load(object sender, EventArgs e)
@@ -322,6 +334,11 @@ namespace TravelAgency.CSUI.FrmMain
                 conditions.Add(" (Operator like '%" + txtOperator.Text + "%') ");
             }
 
+            if (!string.IsNullOrEmpty(txtTypeInPerson.Text.Trim()))
+            {
+                conditions.Add(" (TypeInPerson like '%" + txtTypeInPerson.Text + "%') ");
+            }
+
             if (cbDepatureType.Text == "全部")
             {
 
@@ -345,6 +362,8 @@ namespace TravelAgency.CSUI.FrmMain
             txtSchGroupNo.Text = string.Empty;
             txtSalesPerson.Text = string.Empty;
             txtClient.Text = string.Empty;
+            txtOperator.Text = "";
+            txtTypeInPerson.Text = "";
 
             cbState.Text = "全部";
             cbDepatureType.Text = "全部";
@@ -409,7 +428,7 @@ namespace TravelAgency.CSUI.FrmMain
             //按照出境类型(按照Excel报表中来)，人数排序(从小到大)
             visaList.Sort((model1, model2) =>
             {
-                if (model1.DepartureType == null && model2.DepartureType!=null)
+                if (model1.DepartureType == null && model2.DepartureType != null)
                     return 1;
 
                 if (model2.DepartureType == null && model1.DepartureType != null)
@@ -523,7 +542,7 @@ namespace TravelAgency.CSUI.FrmMain
                     continue;
                 }
 
-                if (visas[i].IsUrgent??false)
+                if (visas[i].IsUrgent ?? false)
                 {
                     dataGridView1.Rows[i].Cells["IsUrgent"].Value = "急件";
                     dataGridView1.Rows[i].Cells["IsUrgent"].Style.BackColor = Color.Red;
@@ -1473,8 +1492,8 @@ namespace TravelAgency.CSUI.FrmMain
                 return;
             }
 
-            FrmSetStringValue frm = new FrmSetStringValue("设置备注2",GetSelectedVisaList()[0].Tips2);
-            if(frm.ShowDialog()== DialogResult.Cancel)
+            FrmSetStringValue frm = new FrmSetStringValue("设置备注2", GetSelectedVisaList()[0].Tips2);
+            if (frm.ShowDialog() == DialogResult.Cancel)
                 return;
 
             var visa = GetSelectedVisaList()[0];
