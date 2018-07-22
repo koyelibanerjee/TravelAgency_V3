@@ -62,7 +62,7 @@ namespace TravelAgency.Common.Word
         {
             if (type == DocDocxGenerator.DocType.Type01JinQiaoList)
             {
-                PlaceHolderNum = 44;
+                PlaceHolderNum = 49;
                 DefaultName = "金桥大名单.docx";
                 TemplaceDocFileName = "template_成都金桥大名单_添加占位符1-31.docx";
             }

@@ -851,11 +851,8 @@ namespace TravelAgency.CSUI.FrmMain
         private void 金桥大名单ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var visainfoList = GetSelectedVisaInfoList();
-            if (visainfoList.Count > 44)
-            {
-                MessageBoxEx.Show("超出模板人数限制(44人)");
+            if (visainfoList.Count < 1)
                 return;
-            }
             List<string> list = new List<string>();
             for (int i = 0; i < visainfoList.Count; i++)
                 list.Add(visainfoList[i].Name);

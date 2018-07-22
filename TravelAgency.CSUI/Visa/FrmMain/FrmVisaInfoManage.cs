@@ -521,7 +521,6 @@ namespace TravelAgency.CSUI.FrmMain
 
             if (cbOutState.Text == "全部")
             {
-
             }
             else
             {
@@ -538,7 +537,6 @@ namespace TravelAgency.CSUI.FrmMain
             {
                 conditions.Add(" HasTypeIn = '否' ");
             }
-
 
             string[] arr = conditions.ToArray();
             string where = string.Join(" and ", arr);
