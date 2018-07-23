@@ -66,8 +66,6 @@ namespace TravelAgency.CSUI.FrmMain
             this.Text = userName + type == "TypeInPerson" ? "做资料" : "操作" + "明细查看";
         }
 
-
-
         private void FrmVisaManage_Load(object sender, EventArgs e)
         {
             _recordCount = _bllVisa.GetRecordCount(string.Empty);
@@ -347,7 +345,7 @@ namespace TravelAgency.CSUI.FrmMain
             {
                 conditions.Add(" DepartureType = '" + cbDepatureType.Text + "' ");
             }
-            conditions.Add(" ForRequestGroupNo = 0 ");
+            conditions.Add(" (ForRequestGroupNo = 0 or ForRequestGroupNo is null) ");
 
             string[] arr = conditions.ToArray();
             string where = string.Join(" and ", arr);

@@ -806,6 +806,7 @@ _dgvList[i], _visaModel);
                 _visaModel.Types = Types.Team; //设置为团签
                 _visaModel.IsUrgent = chbIsUrgent.Checked;
                 _visaModel.Person = txtPerson.Text;
+                _visaModel.ForRequestGroupNo = false;
                 return true;
             }
             catch (Exception)
@@ -844,6 +845,7 @@ _dgvList[i], _visaModel);
                 model.Types = Types.Team; //设置为团签
                 model.IsUrgent = chbIsUrgent.Checked;
                 model.Person = txtPerson.Text;
+                model.ForRequestGroupNo = false;
 
                 model.EntryTime = DateTime.Now; //20171217，也跟着操作改变
                 return true;
