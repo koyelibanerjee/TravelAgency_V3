@@ -135,6 +135,12 @@
     <Compile Include="Financial\FrmSub\FrmSetClaim.Designer.cs">
       <DependentUpon>FrmSetClaim.cs</DependentUpon>
     </Compile>
+    <Compile Include="Financial\FrmSub\FrmCustomerBalance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial\FrmSub\FrmCustomerBalance.Designer.cs">
+      <DependentUpon>FrmCustomerBalance.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -494,6 +500,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Financial\FrmSub\FrmSetClaim.resx">
       <DependentUpon>FrmSetClaim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial\FrmSub\FrmCustomerBalance.resx">
+      <DependentUpon>FrmCustomerBalance.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>

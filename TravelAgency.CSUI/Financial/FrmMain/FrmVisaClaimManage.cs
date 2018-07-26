@@ -906,7 +906,8 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
         private void lbShowCustomerBalance_Click(object sender, EventArgs e)
         {
-
+            FrmCustomerBalance frm = new FrmCustomerBalance();
+            frm.Show();
         }
     }
 }

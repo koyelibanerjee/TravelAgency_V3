@@ -39,7 +39,7 @@ namespace TravelAgency.DAL.Joint
                 }
                 if (row["Amount"] != null && row["Amount"].ToString() != "")
                 {
-                    model.Amount = decimal.Parse(row["Money_id"].ToString());
+                    model.Amount = decimal.Parse(row["Amount"].ToString());
                 }
                 if (row["balanceAmount"] != null && row["balanceAmount"].ToString() != "")
                 {

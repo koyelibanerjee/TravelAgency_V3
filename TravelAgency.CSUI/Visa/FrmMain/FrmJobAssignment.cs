@@ -19,6 +19,7 @@ using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Properties;
 using TravelAgency.CSUI.Visa.FrmSub;
 using TravelAgency.Model;
+using FrmCustomerBalance = TravelAgency.CSUI.Financial.FrmSub.FrmCustomerBalance;
 
 namespace TravelAgency.CSUI.Visa.FrmMain
 {
@@ -1378,7 +1379,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
         private void btnShowWorkerStatus_Click(object sender, EventArgs e)
         {
-            FrmWorkerStatus frm = new FrmWorkerStatus();
+            FrmCustomerBalance frm = new FrmCustomerBalance();
             frm.Show();
         }
 
