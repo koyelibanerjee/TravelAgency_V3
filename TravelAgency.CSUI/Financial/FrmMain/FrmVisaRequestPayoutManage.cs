@@ -1449,7 +1449,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
         /// <param name="e"></param>
         private void dataGridView1_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
         {
-            
+
             string name = dataGridView1.Columns[e.ColumnIndex].Name;
             if (name == "ConsulateCost" || name == "VisaPersonCost" || name == "InvitationCost" || name == "Receipt" ||
                 name == "Quidco" || name == "Picture" || name == "MailCost" || name == "Price")
@@ -1713,6 +1713,12 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             if (list.Count > 1)
             {
                 MessageBoxEx.Show("请选中一条记录操作!!");
+                return;
+            }
+
+            if (list[0].FinishTime == null || list[0].RealTime == null)
+            {
+                MessageBoxEx.Show("请先设置团号的进出签时间!!!");
                 return;
             }
 

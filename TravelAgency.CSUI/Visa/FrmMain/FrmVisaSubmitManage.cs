@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using TravelAgency.BLL;
@@ -51,7 +52,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         private bool _forAddToGroup = false; //为没有添加团号的用户添加到团号的时候选择团号而设计
         private List<Model.VisaInfo> _listToAddToGroup;
         //private bool _hasFormated = false; //标志，用于防止重复触发rows_added事件(现在不用了，触发两次其实效率也没啥影响，并且如果只是第二次才进行操作的话会出问题)
-
+        private string _duplicateInfo = null;
         private DateTime? _finishTime = null;
         private DateTime? _realTime = null;
 
@@ -919,7 +920,45 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
             lbPeopleCount.Text = "进签:" + hasIn + "/" + peopleCount.ToString() + ",出签:" + hasOut + "/" + peopleCount.ToString();
 
+            new Thread(CheckDuplicate) { IsBackground = true }.Start();
+
             //_hasFormated = true;
+        }
+
+        private void CheckDuplicate()
+        {
+            Dictionary<string, string> nameGroupNoMap = new Dictionary<string, string>();
+            Dictionary<string, string> namePassportNoMap = new Dictionary<string, string>();
+            StringBuilder sb = new StringBuilder();
+            var visaList = DgvDataSourceToList();
+            for (int i = 0; i < dataGridView1.Rows.Count; ++i)
+            {
+                var visainfoList =
+                    _bllVisaInfo.GetModelListByVisaIdOrderByPosition(visaList[i].Visa_id);
+                foreach (var visaInfo in visainfoList)
+                {
+                    if (nameGroupNoMap.ContainsKey(visaInfo.Name))
+                        sb.Append($"团号:{visaList[i].GroupNo}\r\n和团号:{nameGroupNoMap[visaInfo.Name]} \r\n" +
+                                  $"存在重复姓名:{visaInfo.Name}\r\n护照号为:{namePassportNoMap[visaInfo.Name]}和{visaInfo.PassportNo}");
+                    else
+                    {
+                        nameGroupNoMap.Add(visaInfo.Name, visaList[i].GroupNo);
+                        namePassportNoMap.Add(visaInfo.Name, visaInfo.PassportNo);
+
+                    }
+                }
+            }
+            _duplicateInfo = sb.ToString();
+            if (!string.IsNullOrEmpty(_duplicateInfo))
+            {
+                lbDuplicate.Text = "发现重复";
+                lbDuplicate.ForeColor = Color.OrangeRed;
+            }
+            else
+            {
+                lbDuplicate.ForeColor = Color.ForestGreen;
+                lbDuplicate.Text = "无重复";
+            }
         }
 
         /// <summary>
@@ -1985,6 +2024,14 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             }
             _bllVisa.UpdateList(list);
             LoadDataToDgvAsyn();
+        }
+
+        private void lbDuplicate_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(_duplicateInfo))
+            {
+                MessageBoxEx.Show(_duplicateInfo);
+            }
         }
     }
 }

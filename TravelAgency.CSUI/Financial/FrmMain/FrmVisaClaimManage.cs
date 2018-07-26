@@ -903,5 +903,10 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                 return;
             }
         }
+
+        private void lbShowCustomerBalance_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

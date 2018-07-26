@@ -155,6 +155,7 @@
     <Compile Include="Enums_OrderInfo_OrderType.cs" />
     <Compile Include="Enums_OrderInfo_PaymentPlatform.cs" />
     <Compile Include="JobAssignmentDal.cs" />
+    <Compile Include="Joint\CustomerBalance_AuthUserDal.cs" />
     <Compile Include="Joint\Visa_ClaimMoneyDal.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="OrderExcel.cs" />
