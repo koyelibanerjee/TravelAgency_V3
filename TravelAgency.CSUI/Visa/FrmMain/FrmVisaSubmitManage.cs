@@ -928,7 +928,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         private void CheckDuplicate()
         {
             Dictionary<string, string> nameGroupNoMap = new Dictionary<string, string>();
-            Dictionary<string, string> namePassportNoMap = new Dictionary<string, string>();
+            Dictionary<string, Model.VisaInfo> nameModelMap = new Dictionary<string, Model.VisaInfo>();
             StringBuilder sb = new StringBuilder();
             var visaList = DgvDataSourceToList();
             for (int i = 0; i < dataGridView1.Rows.Count; ++i)
@@ -938,12 +938,15 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 foreach (var visaInfo in visainfoList)
                 {
                     if (nameGroupNoMap.ContainsKey(visaInfo.Name))
-                        sb.Append($"团号:{visaList[i].GroupNo}\r\n和团号:{nameGroupNoMap[visaInfo.Name]} \r\n" +
-                                  $"存在重复姓名:{visaInfo.Name}\r\n护照号为:{namePassportNoMap[visaInfo.Name]}和{visaInfo.PassportNo}");
+                        sb.Append($"发现重复姓名：{visaInfo.Name}\r\n" +
+                                  $"团号：\"{visaList[i].GroupNo}\"\t\"{nameGroupNoMap[visaInfo.Name]}\"\r\n" +
+                                  $"护照号为：\"{nameModelMap[visaInfo.Name].PassportNo}\"\t\"{visaInfo.PassportNo}\"\r\n" +
+                                  $"签发地为：\"{nameModelMap[visaInfo.Name].IssuePlace}\"\t\"{visaInfo.IssuePlace}\"\r\n" +
+                                  $"性别为：\"{nameModelMap[visaInfo.Name].Sex}\"\t\"{visaInfo.Sex}\"");
                     else
                     {
                         nameGroupNoMap.Add(visaInfo.Name, visaList[i].GroupNo);
-                        namePassportNoMap.Add(visaInfo.Name, visaInfo.PassportNo);
+                        nameModelMap.Add(visaInfo.Name, visaInfo);
 
                     }
                 }
@@ -2030,7 +2033,8 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         {
             if (!string.IsNullOrEmpty(_duplicateInfo))
             {
-                MessageBoxEx.Show(_duplicateInfo);
+               FrmShowStringValue frm = new FrmShowStringValue(_duplicateInfo);
+                frm.Show();
             }
         }
     }

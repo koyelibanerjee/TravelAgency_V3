@@ -84,11 +84,8 @@ namespace TravelAgency.DAL
             }
             else
             {
-
                 return Convert.ToInt32(obj);
             }
-
-
         }
 
 

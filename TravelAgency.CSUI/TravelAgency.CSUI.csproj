@@ -232,6 +232,12 @@
     <Compile Include="Visa\FrmSub\FrmSetValue\FrmTimeSpanChooseWithVisaRecord.Designer.cs">
       <DependentUpon>FrmTimeSpanChooseWithVisaRecord.cs</DependentUpon>
     </Compile>
+    <Compile Include="Visa\FrmSub\FrmShowStringValue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visa\FrmSub\FrmShowStringValue.Designer.cs">
+      <DependentUpon>FrmShowStringValue.cs</DependentUpon>
+    </Compile>
     <Compile Include="Visa\FrmSub\FrmUploadLocalImages.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -551,6 +557,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visa\FrmSub\FrmSetValue\FrmTimeSpanChooseWithVisaRecord.resx">
       <DependentUpon>FrmTimeSpanChooseWithVisaRecord.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visa\FrmSub\FrmShowStringValue.resx">
+      <DependentUpon>FrmShowStringValue.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visa\FrmSub\FrmUploadLocalImages.resx">
       <DependentUpon>FrmUploadLocalImages.cs</DependentUpon>

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.btnConfirm = new DevComponents.DotNetBar.ButtonX();
             this.panelDgv = new DevComponents.DotNetBar.PanelEx();
@@ -64,26 +64,26 @@
             this.Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubmitFlag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Visa_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bar2 = new DevComponents.DotNetBar.Bar();
+            this.lbCount = new DevComponents.DotNetBar.LabelItem();
             this.panelBtns = new DevComponents.DotNetBar.PanelEx();
             this.btnGenPayList = new DevComponents.DotNetBar.ButtonX();
             this.lbClientBalance = new DevComponents.DotNetBar.LabelX();
             this.cmsDgv = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.签证认账ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.自动更新实收ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bar2 = new DevComponents.DotNetBar.Bar();
-            this.lbCount = new DevComponents.DotNetBar.LabelItem();
             this.panelDgv.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bar2)).BeginInit();
             this.panelBtns.SuspendLayout();
             this.cmsDgv.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bar2)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancel
             // 
             this.btnCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnCancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnCancel.Location = new System.Drawing.Point(495, 6);
+            this.btnCancel.Location = new System.Drawing.Point(194, 6);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -95,7 +95,7 @@
             // 
             this.btnConfirm.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnConfirm.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnConfirm.Location = new System.Drawing.Point(414, 6);
+            this.btnConfirm.Location = new System.Drawing.Point(113, 6);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(75, 23);
             this.btnConfirm.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -128,14 +128,14 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.GroupNo,
@@ -166,28 +166,28 @@
             this.Cost,
             this.SubmitFlag,
             this.Visa_id});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -404,76 +404,6 @@
             this.Visa_id.ReadOnly = true;
             this.Visa_id.Visible = false;
             // 
-            // panelBtns
-            // 
-            this.panelBtns.CanvasColor = System.Drawing.SystemColors.Control;
-            this.panelBtns.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelBtns.Controls.Add(this.btnGenPayList);
-            this.panelBtns.Controls.Add(this.lbClientBalance);
-            this.panelBtns.Controls.Add(this.btnCancel);
-            this.panelBtns.Controls.Add(this.btnConfirm);
-            this.panelBtns.DisabledBackColor = System.Drawing.Color.Empty;
-            this.panelBtns.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBtns.Location = new System.Drawing.Point(0, 526);
-            this.panelBtns.Name = "panelBtns";
-            this.panelBtns.Size = new System.Drawing.Size(1132, 32);
-            this.panelBtns.Style.Alignment = System.Drawing.StringAlignment.Center;
-            this.panelBtns.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.panelBtns.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.panelBtns.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.panelBtns.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.panelBtns.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.panelBtns.Style.GradientAngle = 90;
-            this.panelBtns.TabIndex = 27;
-            // 
-            // btnGenPayList
-            // 
-            this.btnGenPayList.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnGenPayList.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnGenPayList.Location = new System.Drawing.Point(317, 6);
-            this.btnGenPayList.Name = "btnGenPayList";
-            this.btnGenPayList.Size = new System.Drawing.Size(75, 23);
-            this.btnGenPayList.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnGenPayList.TabIndex = 24;
-            this.btnGenPayList.Text = "生成账单";
-            this.btnGenPayList.Click += new System.EventHandler(this.btnGenPayList_Click);
-            // 
-            // lbClientBalance
-            // 
-            // 
-            // 
-            // 
-            this.lbClientBalance.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lbClientBalance.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbClientBalance.Location = new System.Drawing.Point(626, 6);
-            this.lbClientBalance.Name = "lbClientBalance";
-            this.lbClientBalance.Size = new System.Drawing.Size(477, 23);
-            this.lbClientBalance.TabIndex = 23;
-            this.lbClientBalance.Text = "labelX1";
-            this.lbClientBalance.DoubleClick += new System.EventHandler(this.lbClientBalance_DoubleClick);
-            // 
-            // cmsDgv
-            // 
-            this.cmsDgv.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.签证认账ToolStripMenuItem,
-            this.自动更新实收ToolStripMenuItem});
-            this.cmsDgv.Name = "cmsDgv";
-            this.cmsDgv.Size = new System.Drawing.Size(149, 48);
-            // 
-            // 签证认账ToolStripMenuItem
-            // 
-            this.签证认账ToolStripMenuItem.Name = "签证认账ToolStripMenuItem";
-            this.签证认账ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.签证认账ToolStripMenuItem.Text = "认账";
-            this.签证认账ToolStripMenuItem.Click += new System.EventHandler(this.签证认账ToolStripMenuItem_Click);
-            // 
-            // 自动更新实收ToolStripMenuItem
-            // 
-            this.自动更新实收ToolStripMenuItem.Name = "自动更新实收ToolStripMenuItem";
-            this.自动更新实收ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.自动更新实收ToolStripMenuItem.Text = "自动更新实收";
-            this.自动更新实收ToolStripMenuItem.Click += new System.EventHandler(this.自动更新实收ToolStripMenuItem_Click);
-            // 
             // bar2
             // 
             this.bar2.AntiAlias = true;
@@ -501,6 +431,76 @@
             this.lbCount.Name = "lbCount";
             this.lbCount.Text = "--";
             // 
+            // panelBtns
+            // 
+            this.panelBtns.CanvasColor = System.Drawing.SystemColors.Control;
+            this.panelBtns.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelBtns.Controls.Add(this.btnGenPayList);
+            this.panelBtns.Controls.Add(this.lbClientBalance);
+            this.panelBtns.Controls.Add(this.btnCancel);
+            this.panelBtns.Controls.Add(this.btnConfirm);
+            this.panelBtns.DisabledBackColor = System.Drawing.Color.Empty;
+            this.panelBtns.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelBtns.Location = new System.Drawing.Point(0, 526);
+            this.panelBtns.Name = "panelBtns";
+            this.panelBtns.Size = new System.Drawing.Size(1132, 32);
+            this.panelBtns.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelBtns.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.panelBtns.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.panelBtns.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.panelBtns.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.panelBtns.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.panelBtns.Style.GradientAngle = 90;
+            this.panelBtns.TabIndex = 27;
+            // 
+            // btnGenPayList
+            // 
+            this.btnGenPayList.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnGenPayList.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnGenPayList.Location = new System.Drawing.Point(16, 6);
+            this.btnGenPayList.Name = "btnGenPayList";
+            this.btnGenPayList.Size = new System.Drawing.Size(75, 23);
+            this.btnGenPayList.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnGenPayList.TabIndex = 24;
+            this.btnGenPayList.Text = "生成账单";
+            this.btnGenPayList.Click += new System.EventHandler(this.btnGenPayList_Click);
+            // 
+            // lbClientBalance
+            // 
+            // 
+            // 
+            // 
+            this.lbClientBalance.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lbClientBalance.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbClientBalance.Location = new System.Drawing.Point(275, 6);
+            this.lbClientBalance.Name = "lbClientBalance";
+            this.lbClientBalance.Size = new System.Drawing.Size(854, 23);
+            this.lbClientBalance.TabIndex = 23;
+            this.lbClientBalance.Text = "labelX1";
+            this.lbClientBalance.DoubleClick += new System.EventHandler(this.lbClientBalance_DoubleClick);
+            // 
+            // cmsDgv
+            // 
+            this.cmsDgv.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.签证认账ToolStripMenuItem,
+            this.自动更新实收ToolStripMenuItem});
+            this.cmsDgv.Name = "cmsDgv";
+            this.cmsDgv.Size = new System.Drawing.Size(149, 48);
+            // 
+            // 签证认账ToolStripMenuItem
+            // 
+            this.签证认账ToolStripMenuItem.Name = "签证认账ToolStripMenuItem";
+            this.签证认账ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.签证认账ToolStripMenuItem.Text = "认账";
+            this.签证认账ToolStripMenuItem.Click += new System.EventHandler(this.签证认账ToolStripMenuItem_Click);
+            // 
+            // 自动更新实收ToolStripMenuItem
+            // 
+            this.自动更新实收ToolStripMenuItem.Name = "自动更新实收ToolStripMenuItem";
+            this.自动更新实收ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.自动更新实收ToolStripMenuItem.Text = "自动更新实收";
+            this.自动更新实收ToolStripMenuItem.Click += new System.EventHandler(this.自动更新实收ToolStripMenuItem_Click);
+            // 
             // FrmSetClaim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -513,9 +513,9 @@
             this.Load += new System.EventHandler(this.FrmSetClaim_Load);
             this.panelDgv.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bar2)).EndInit();
             this.panelBtns.ResumeLayout(false);
             this.cmsDgv.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bar2)).EndInit();
             this.ResumeLayout(false);
 
         }
