@@ -15,32 +15,21 @@ namespace TravelAgency.BLL.RPC
     {
         public enum ImageType
         {
-            type01Passport,
-            type02Gaopai,
-            type03Jiaojie
+            type01Passport
+            //type02Gaopai,
+            //type03Jiaojie
         }
 
 
-        public static string RemoteHproseAddr
-        {
-            get { return AppSettingHandler.ReadConfig("HproseServer"); }
-        }
+        public static string RemoteHproseAddr => AppSettingHandler.ReadConfig("HproseServer");
 
-        private static string remotePassportPicPath
-        {
-            get { return AppSettingHandler.ReadConfig("PassportPicPath"); }
-        }
-        private static string remoteGaopaiPicPath
-        {
-            get { return AppSettingHandler.ReadConfig("GaopaiPicPath"); }
-        }
+        private static string remotePassportPicPath => AppSettingHandler.ReadConfig("PassportPicPath");
 
-        private static string remoteJiaoJiePicPath
-        {
-            get { return AppSettingHandler.ReadConfig("JiaoJiePicPath"); }
-        }
+        private static string remoteGaopaiPicPath => AppSettingHandler.ReadConfig("GaopaiPicPath");
 
-        public static HproseHttpClient _hproseclient = new HproseHttpClient(RemoteHproseAddr);
+        private static string remoteJiaoJiePicPath => AppSettingHandler.ReadConfig("JiaoJiePicPath");
+
+        private static readonly HproseHttpClient _hproseclient = new HproseHttpClient(RemoteHproseAddr);
         private static string _uploadCall = "RcvFile";
 
 
@@ -54,12 +43,12 @@ namespace TravelAgency.BLL.RPC
                 case ImageType.type01Passport:
                     dstName = remotePassportPicPath;
                     break;
-                case ImageType.type02Gaopai:
-                    dstName = remoteGaopaiPicPath;
-                    break;
-                case ImageType.type03Jiaojie:
-                    dstName = remoteJiaoJiePicPath;
-                    break;
+                //case ImageType.type02Gaopai:
+                //    dstName = remoteGaopaiPicPath;
+                //    break;
+                //case ImageType.type03Jiaojie:
+                //    dstName = remoteJiaoJiePicPath;
+                //    break;
             }
             dstName += "/" + nameNoPath;
             _hproseclient.Invoke(_uploadCall, new object[] { data, dstName });
