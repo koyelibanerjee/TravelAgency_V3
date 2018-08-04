@@ -3,6 +3,7 @@ using System.Data;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using TravelAgency.Common;
 //using Maticsoft.Common;
 using TravelAgency.Model;
 
@@ -43,6 +44,7 @@ namespace TravelAgency.BLL
             {
                 Model.JobAssignment jobAssignment = new Model.JobAssignment();
                 jobAssignment.EntryTime = DateTime.Now;
+                jobAssignment.District = GlobalUtils.LoginUser.District;
                 retJobId = _bllJobAssignment.Add(jobAssignment); //失败返回0
             }
 
@@ -75,6 +77,7 @@ namespace TravelAgency.BLL
                         {
                             Model.JobAssignment jobAssignment = new Model.JobAssignment();
                             jobAssignment.EntryTime = DateTime.Now;
+                            jobAssignment.District = GlobalUtils.LoginUser.District;
                             int retId = _bllJobAssignment.Add(jobAssignment); //失败返回0 
                             model.JobId = retId;
                             model.Types = types; //设置类型

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Collections.Generic;
+using TravelAgency.Common;
 using TravelAgency.Model;
 namespace TravelAgency.BLL
 {
@@ -17,14 +18,14 @@ namespace TravelAgency.BLL
 
         public bool ChangeUserBusyState(string workId, bool v)
         {
-            var model = GetModelList(string.Format(" workid = '{0}'", workId))[0];
+            var model = GetModelList($" workid = '{workId}' and district = {GlobalUtils.LoginUser.District} ")[0];
             model.IsBusy = v;
             return Update(model);
         }
 
         public bool ChangeUserAcceptState(string workId, bool v)
         {
-            var list = GetModelList(string.Format(" workid = '{0}'", workId));
+            var list = GetModelList($" workid = '{workId}' and district = {GlobalUtils.LoginUser.District} ");
             if (list.Count == 0)
                 return false;
             var model = list[0];

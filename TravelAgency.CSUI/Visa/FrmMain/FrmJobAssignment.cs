@@ -305,7 +305,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             if (_workerDict == null) //延迟加载，只加载一次
             {
                 _workerDict = new Dictionary<string, WorkerAssignCount>();
-                _workerList = _bllWorkerQueue.GetModelList("");
+                _workerList = _bllWorkerQueue.GetModelList($" district = {GlobalUtils.LoginUser.District} ");
                 foreach (var item in _workerList)
                 {
                     WorkerAssignCount wac = new WorkerAssignCount();

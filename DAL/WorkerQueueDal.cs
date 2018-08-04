@@ -4,6 +4,7 @@ using System.Text;
 using System.Data.SqlClient;
 using Maticsoft.DBUtility;//Please add references
 using System.Collections.Generic;
+using TravelAgency.Common;
 
 namespace TravelAgency.DAL
 {
@@ -14,7 +15,9 @@ namespace TravelAgency.DAL
     {
         public Model.WorkerQueue GetNextWorker()
         {
-            string sql = "select * from WorkerQueue where Priority = (select min(Priority) from WorkerQueue where IsBusy=0 and CanAccept=1)";
+            string sql = $"select * from WorkerQueue where Priority = " +
+                         $" (select min(Priority) from WorkerQueue where IsBusy=0 and CanAccept=1 and district = {GlobalUtils.LoginUser.District} ) " +
+                         $" and district = {GlobalUtils.LoginUser.District} ";
             DataSet ds = DbHelperSQL.Query(sql.ToString());
             List<Model.WorkerQueue> list = new List<Model.WorkerQueue>();
             if (ds.Tables[0].Rows.Count > 0)

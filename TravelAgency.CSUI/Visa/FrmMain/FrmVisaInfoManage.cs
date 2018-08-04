@@ -62,7 +62,7 @@ namespace TravelAgency.CSUI.FrmMain
             _recordCount = _bllVisaInfo.GetRecordCount(_where);
             _pageCount = (int)Math.Ceiling(_recordCount / (double)_pageSize);
 
-            var list = _bllWorkerQueue.GetModelList(string.Format(" workid = '{0}'", GlobalUtils.LoginUser.WorkId));
+            var list = _bllWorkerQueue.GetModelList($" workid = '{GlobalUtils.LoginUser.WorkId}' and district = {GlobalUtils.LoginUser.District} ");
             if (list.Count <= 0)
             {
                 _isWorker = false; //没有在工作用户里面的，不用管这些，是领导
@@ -366,7 +366,7 @@ namespace TravelAgency.CSUI.FrmMain
             if (!_init || !_isWorker)
                 return;
             //_bllUserQueue.ChangeUserCanAcceptState(GlobalUtils.LoginUser.WorkId, btnCanAcceptNewWork.Value);
-            var model = _bllWorkerQueue.GetModelList(string.Format(" workid = '{0}'", GlobalUtils.LoginUser.WorkId))[0];
+            var model = _bllWorkerQueue.GetModelList($" workid = '{GlobalUtils.LoginUser.WorkId}' and district = {GlobalUtils.LoginUser.District} ")[0];
             if (model.CanAccept == btnCanAcceptNewWork.Value)
                 return;
             model.CanAccept = btnCanAcceptNewWork.Value;

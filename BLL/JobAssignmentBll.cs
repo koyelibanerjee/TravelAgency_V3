@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Collections.Generic;
+using TravelAgency.Common;
 using TravelAgency.Model;
 namespace TravelAgency.BLL
 {
@@ -11,11 +12,6 @@ namespace TravelAgency.BLL
     {
         private readonly BLL.WorkerQueue _bllWorkerQueue = new WorkerQueue();
         private readonly BLL.VisaInfo _bllVisaInfo = new VisaInfo();
-
-        public int GetMaxId()
-        {
-            return dal.GetMaxId();
-        }
 
         public Model.JobAssignment Top()
         {
@@ -35,7 +31,7 @@ namespace TravelAgency.BLL
         public bool UserWorkFinished(string workId)
         {
             return _bllVisaInfo.GetModelList(
-                string.Format("AssignmentToWorkId='{0}' and HasTypeIn = '否' and Country='日本' and Types in ('个签','团做个','商务') ", workId))
+                $"AssignmentToWorkId='{workId}' and HasTypeIn = '否' and Country='日本' and Types in ('个签','团做个','商务') ")
                 .Count <= 0;//其他国家根本不会有AssignmentToWorkId，所以不用加国家限制,还是加上国家限制。。
         }
 
@@ -58,7 +54,7 @@ namespace TravelAgency.BLL
 
             var jobModel = Top();
             int cnt = 0;
-            int userCnt = _bllWorkerQueue.GetRecordCount("");
+            int userCnt = _bllWorkerQueue.GetRecordCount($" district = {GlobalUtils.LoginUser.District} ");
             while (jobModel != null && cnt < userCnt) //每一次尽可能分配完任务
             {
                 var user = _bllWorkerQueue.GetNextWorker();
