@@ -163,6 +163,7 @@
     <Compile Include="CustomerBalance.cs" />
     <Compile Include="CustomerInfoBll.cs" />
     <Compile Include="CustomerInfo.cs" />
+    <Compile Include="DistrictCondAppender.cs" />
     <Compile Include="Enums_OrderInfo_OrderInfoStateBll.cs" />
     <Compile Include="Enums_OrderInfo_OrderInfoState.cs" />
     <Compile Include="Enums_OrderInfo_OrderTypeBll.cs" />

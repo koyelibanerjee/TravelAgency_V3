@@ -164,7 +164,8 @@ namespace TravelAgency.CSUI.FrmMain
         /// </summary>
         public void LoadDataToList() //刷新后保持选中
         {
-            _list = _bllVisaInfoTmp.GetModelList(0, string.Empty, "haschecked asc,entrytime desc"); //里面的DataTableToList保证了不会是null,只可能是空的list
+            _list = _bllVisaInfoTmp.GetModelList(0, $" district = {GlobalUtils.LoginUser.District} ",
+                "haschecked asc,entrytime desc"); //里面的DataTableToList保证了不会是null,只可能是空的list
         }
 
 
@@ -357,7 +358,7 @@ namespace TravelAgency.CSUI.FrmMain
         private void btnReadData_Click(object sender, EventArgs e)
         {
             VisaInfo_Tmp model = _idCard.RecogoInfo(txtPicPath.Text, checkRegSucShowDlg.Checked);
-            
+
             //VisaInfo_Tmp model = new VisaInfo_Tmp(){Name = "杨小鹏",EnglishName = "Yang Xiaopeng",Sex = "男",PassportNo = "E12345678"};
 
             if (model == null)
@@ -385,7 +386,7 @@ namespace TravelAgency.CSUI.FrmMain
             }
 
             //读取成功了
-            if (_bllVisaInfoTmp.Add(model)==Guid.Empty)
+            if (_bllVisaInfoTmp.Add(model) == Guid.Empty)
             {
                 MessageBoxEx.Show(Resources.FailedAddToDatabase);
                 return;
@@ -432,7 +433,7 @@ namespace TravelAgency.CSUI.FrmMain
                     }
 
                     //读取成功了
-                    if (_bllVisaInfoTmp.Add(model)==Guid.Empty)
+                    if (_bllVisaInfoTmp.Add(model) == Guid.Empty)
                     {
                         MessageBoxEx.Show(Resources.FailedAddToDatabase);
                         continue;
@@ -493,8 +494,8 @@ namespace TravelAgency.CSUI.FrmMain
 
             //读取成功了
             //执行entrytime设置
-            
-            if (_bllVisaInfoTmp.Add(model)==Guid.Empty)
+
+            if (_bllVisaInfoTmp.Add(model) == Guid.Empty)
             {
                 MessageBoxEx.Show(Resources.FailedAddToDatabase);
                 return;

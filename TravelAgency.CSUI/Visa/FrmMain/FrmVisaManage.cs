@@ -346,7 +346,7 @@ namespace TravelAgency.CSUI.FrmMain
                 conditions.Add(" DepartureType = '" + cbDepatureType.Text + "' ");
             }
             conditions.Add(" (ForRequestGroupNo = 0 or ForRequestGroupNo is null) ");
-
+            DistrictCondAppender.AddDistrictCondition(conditions);
             string[] arr = conditions.ToArray();
             string where = string.Join(" and ", arr);
             return where;
@@ -411,7 +411,9 @@ namespace TravelAgency.CSUI.FrmMain
     _bllVisa.GetModelList(" (EntryTime between '" +
                                     DateTimeFormator.DateTimeToString(from, DateTimeFormator.TimeFormat.Type06LongTime) + "' and '" +
                                     DateTimeFormator.DateTimeToString(to, DateTimeFormator.TimeFormat.Type06LongTime) +
-                         "') and (Types='个签' or Types='团做个') and (country = '日本') order by entrytime asc");
+                         "') and (Types='个签' or Types='团做个') and (country = '日本') " +
+                         $" and district = {GlobalUtils.LoginUser.District} " + 
+                          " order by entrytime asc ");
 
             //这里干脆就不判断entrytime了，直接找记录算了
             visaList = _bllActionRecords.CheckStatesAndRemove(visaList, ActType._02TypeInData, 4); //只保留已经做完了的

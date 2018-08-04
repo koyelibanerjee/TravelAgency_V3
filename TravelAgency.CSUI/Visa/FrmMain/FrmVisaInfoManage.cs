@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using TravelAgency.BLL;
 using TravelAgency.BLL.Excel;
 using TravelAgency.BLL.FTPFileHandler;
 using TravelAgency.Common;
@@ -14,8 +15,8 @@ using TravelAgency.Common.QRCode;
 using TravelAgency.Common.Word;
 using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Properties;
-using TravelAgency.Model;
 using TravelAgency.Model.Enums;
+using VisaInfo = TravelAgency.Model.VisaInfo;
 
 namespace TravelAgency.CSUI.FrmMain
 {
@@ -57,6 +58,7 @@ namespace TravelAgency.CSUI.FrmMain
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            _where = GetWhereCondition();
             _recordCount = _bllVisaInfo.GetRecordCount(_where);
             _pageCount = (int)Math.Ceiling(_recordCount / (double)_pageSize);
 
@@ -537,6 +539,8 @@ namespace TravelAgency.CSUI.FrmMain
             {
                 conditions.Add(" HasTypeIn = '否' ");
             }
+
+            DistrictCondAppender.AddDistrictCondition(conditions);
 
             string[] arr = conditions.ToArray();
             string where = string.Join(" and ", arr);

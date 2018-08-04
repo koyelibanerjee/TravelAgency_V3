@@ -496,6 +496,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             //conditions.Add(" HasTypeIn = '否' "); //默认只显示还未做的
             conditions.Add(" Country = '" + "日本" + "' ");
             conditions.Add(" Types in ('个签','商务','团做个')");
+            DistrictCondAppender.AddDistrictCondition(conditions);
 
             string[] arr = conditions.ToArray();
             string where = string.Join(" and ", arr);

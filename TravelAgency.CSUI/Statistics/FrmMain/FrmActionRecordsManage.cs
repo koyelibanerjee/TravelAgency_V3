@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using TravelAgency.BLL;
 using TravelAgency.BLL.Excel;
 using TravelAgency.BLL.FTPFileHandler;
 using TravelAgency.Common;
@@ -15,8 +16,8 @@ using TravelAgency.Common.Word;
 using TravelAgency.CSUI.FrmMain;
 using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Properties;
-using TravelAgency.Model;
 using FrmTimeSpanChoose = TravelAgency.CSUI.Visa.FrmSub.FrmSetValue.FrmTimeSpanChoose;
+using VisaInfo = TravelAgency.Model.VisaInfo;
 
 namespace TravelAgency.CSUI.Statistics.FrmMain
 {
@@ -361,7 +362,7 @@ namespace TravelAgency.CSUI.Statistics.FrmMain
                 conditions.Add(" (EntryTime between '" + txtSchEntryTimeFrom.Text + "' and " + " '" + txtSchEntryTimeTo.Text +
                                "') ");
             }
-
+            DistrictCondAppender.AddDistrictCondition(condi: conditions);
             string[] arr = conditions.ToArray();
             string where = string.Join(" and ", arr);
             return where;

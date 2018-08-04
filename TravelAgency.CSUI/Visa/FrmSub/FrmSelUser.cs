@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using TravelAgency.Common;
 
 namespace TravelAgency.CSUI.Visa.FrmSub
 {
@@ -39,7 +40,8 @@ namespace TravelAgency.CSUI.Visa.FrmSub
 
         private void LoadDataToDgv()
         {
-            var list = _bllAuthUser.GetModelList(" departmentid = 'A86ED375-76DB-45DF-A4E9-D0BB8815D49C'");
+            var list = _bllAuthUser.GetModelList(" departmentid = 'A86ED375-76DB-45DF-A4E9-D0BB8815D49C' and " +
+                                                 $"district = {GlobalUtils.LoginUser.District} ");
             dataGridView1.DataSource = list;
         }
 

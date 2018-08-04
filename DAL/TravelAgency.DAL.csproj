@@ -107,6 +107,10 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\TravelAgency.Common.csproj">
+      <Project>{E3D8759A-C5EB-402D-9F10-F5C6029A8D1A}</Project>
+      <Name>TravelAgency.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Model\TravelAgency.Model.csproj">
       <Project>{53995dbb-9836-4647-ad22-865884fdeb9e}</Project>
       <Name>TravelAgency.Model</Name>

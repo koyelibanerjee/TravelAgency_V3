@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Collections.Generic;
+using TravelAgency.Common;
 //using Maticsoft.Common;
 using TravelAgency.Model;
 
@@ -100,7 +101,7 @@ namespace TravelAgency.BLL
 
         public List<Model.VisaInfo> GetDelayList()
         {
-            DataSet ds = dal.GetList(" outState = '01延后' order by entrytime desc");
+            DataSet ds = dal.GetList(0, $" outState = '01延后' and district = {GlobalUtils.LoginUser.District} ", " entrytime desc ");
             var list = DataTableToList(ds.Tables[0]);
             return list;
         }

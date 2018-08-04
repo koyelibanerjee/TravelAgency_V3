@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.Data;
 using System.Text;
 using System.Data.SqlClient;
-using Maticsoft.DBUtility;//Please add references
+using Maticsoft.DBUtility;
+using TravelAgency.Common;
+
+//Please add references
 
 namespace TravelAgency.DAL
 {
@@ -147,6 +150,7 @@ namespace TravelAgency.DAL
             string sql = "select top 1 * from visainfo";
 
             sql += " where entrytime between'" + date.ToString("yyyy-MM-dd") + " 0:0:0' and '" + date.ToString("yyyy-MM-dd") + " 23:59:59' ";
+            sql += $" and district = {GlobalUtils.LoginUser.District} ";
             sql += "order by entryTime desc";
 
             return DbHelperSQL.Query(sql);
