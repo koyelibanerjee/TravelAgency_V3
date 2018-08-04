@@ -369,6 +369,7 @@ namespace TravelAgency.CSUI.FrmMain
             else
                 model.Country = null;
             model.EntryTime = DateTime.Now;
+            model.District = GlobalUtils.LoginUser.District;
 
             //图像上传到服务器
             PassportPicHandler.UploadPassportPic(
@@ -416,6 +417,7 @@ namespace TravelAgency.CSUI.FrmMain
                     else
                         model.Country = null;
                     model.EntryTime = DateTime.Now;
+                    model.District = GlobalUtils.LoginUser.District;
 
                     //把拍照的图像上传到服务器
                     PassportPicHandler.UploadPassportPic(
@@ -482,6 +484,8 @@ namespace TravelAgency.CSUI.FrmMain
             if (!CtrlsToModel(model))
                 return;
             model.EntryTime = DateTime.Now;
+            model.District = GlobalUtils.LoginUser.District;
+
 
             if (!InfoChecker.CheckByPinYin(model.Name, model.EnglishName)) //检查到错误
             {
