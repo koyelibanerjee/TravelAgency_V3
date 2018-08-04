@@ -305,7 +305,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             if (_workerDict == null) //延迟加载，只加载一次
             {
                 _workerDict = new Dictionary<string, WorkerAssignCount>();
-                _workerList  = _bllWorkerQueue.GetModelList("");
+                _workerList = _bllWorkerQueue.GetModelList("");
                 foreach (var item in _workerList)
                 {
                     WorkerAssignCount wac = new WorkerAssignCount();
@@ -556,7 +556,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             int groupCnt = -1;
             int pre = -1;
 
-            foreach(var item in _workerDict.Keys)
+            foreach (var item in _workerDict.Keys)
             {
                 _workerDict[item].AssignmentNum = 0;
                 _workerDict[item].UnDoNum = 0;
@@ -636,9 +636,9 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             //生成最下面的统计状态栏
             StringBuilder sb = new StringBuilder();
             sb.Append("分配统计: 未做/分配 ");
-            for(int i = 0; i < _workerList.Count; ++i)
+            for (int i = 0; i < _workerList.Count; ++i)
             {
-                sb.AppendFormat("{0}:{1}/{2} ", 
+                sb.AppendFormat("{0}:{1}/{2} ",
                     _workerList[i].UserName,
                     _workerDict[_workerList[i].UserName].UnDoNum,
                     _workerDict[_workerList[i].UserName].AssignmentNum);
@@ -839,8 +839,8 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 sb.Append(",");
             }
 
-            int n = _bllVisaInfo.DeleteList(sb.ToString());
-            GlobalUtils.MessageBoxWithRecordNum("删除", n, count);
+            bool b = _bllVisaInfo.DeleteList(sb.ToString());
+            GlobalUtils.MessageBoxWithRecordNum("删除", b ? count : 0, count);
             LoadDataToDataGridView(_curPage);
             UpdateState();
         }
@@ -1442,7 +1442,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                     MessageBoxEx.Show("选中项中已有设置过任务编号的签证!!!");
                     return;
                 }
-                
+
             }
 
             Model.JobAssignment job = new Model.JobAssignment();

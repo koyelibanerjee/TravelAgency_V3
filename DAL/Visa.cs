@@ -32,9 +32,9 @@ namespace TravelAgency.DAL
         {
             StringBuilder strSql = new StringBuilder();
             strSql.Append("insert into Visa(");
-            strSql.Append("Visa_id,GroupNo,Name,Types,Tips,PredictTime,RealTime,FinishTime,Satus,Person,Number,Picture,ListCount,List,SalesPerson,Receipt,Quidco,Cost,OtherCost,ExpressNo,Call,Sale_id,DepartmentId,EntryTime,Country,Passengers,WorkId,Documenter,Price,ConsulateCost,VisaPersonCost,MailCost,Tips2,SubmitFlag,GroupPrice,InvitationCost,Remark,SubmitTime,InTime,OutTime,client,DepartureType,SubmitCondition,FetchCondition,TypeInPerson,CheckPerson,IsUrgent,PeiQianYuan,QuQianYuan,Operator,ClaimedFlag,ActuallyAmount,IsOutDelivery,OutDeliveryPlace,RequestFlag,RequestFlagUserName,ForRequestGroupNo");
+            strSql.Append("Visa_id,GroupNo,Name,Types,Tips,PredictTime,RealTime,FinishTime,Satus,Person,Number,Picture,ListCount,List,SalesPerson,Receipt,Quidco,Cost,OtherCost,ExpressNo,Call,Sale_id,DepartmentId,EntryTime,Country,Passengers,WorkId,Documenter,Price,ConsulateCost,VisaPersonCost,MailCost,Tips2,SubmitFlag,GroupPrice,InvitationCost,Remark,SubmitTime,InTime,OutTime,client,DepartureType,SubmitCondition,FetchCondition,TypeInPerson,CheckPerson,IsUrgent,PeiQianYuan,QuQianYuan,Operator,ClaimedFlag,ActuallyAmount,IsOutDelivery,OutDeliveryPlace,RequestFlag,RequestFlagUserName,ForRequestGroupNo,District");
             strSql.Append(") values (");
-            strSql.Append("@Visa_id,@GroupNo,@Name,@Types,@Tips,@PredictTime,@RealTime,@FinishTime,@Satus,@Person,@Number,@Picture,@ListCount,@List,@SalesPerson,@Receipt,@Quidco,@Cost,@OtherCost,@ExpressNo,@Call,@Sale_id,@DepartmentId,@EntryTime,@Country,@Passengers,@WorkId,@Documenter,@Price,@ConsulateCost,@VisaPersonCost,@MailCost,@Tips2,@SubmitFlag,@GroupPrice,@InvitationCost,@Remark,@SubmitTime,@InTime,@OutTime,@client,@DepartureType,@SubmitCondition,@FetchCondition,@TypeInPerson,@CheckPerson,@IsUrgent,@PeiQianYuan,@QuQianYuan,@Operator,@ClaimedFlag,@ActuallyAmount,@IsOutDelivery,@OutDeliveryPlace,@RequestFlag,@RequestFlagUserName,@ForRequestGroupNo");
+            strSql.Append("@Visa_id,@GroupNo,@Name,@Types,@Tips,@PredictTime,@RealTime,@FinishTime,@Satus,@Person,@Number,@Picture,@ListCount,@List,@SalesPerson,@Receipt,@Quidco,@Cost,@OtherCost,@ExpressNo,@Call,@Sale_id,@DepartmentId,@EntryTime,@Country,@Passengers,@WorkId,@Documenter,@Price,@ConsulateCost,@VisaPersonCost,@MailCost,@Tips2,@SubmitFlag,@GroupPrice,@InvitationCost,@Remark,@SubmitTime,@InTime,@OutTime,@client,@DepartureType,@SubmitCondition,@FetchCondition,@TypeInPerson,@CheckPerson,@IsUrgent,@PeiQianYuan,@QuQianYuan,@Operator,@ClaimedFlag,@ActuallyAmount,@IsOutDelivery,@OutDeliveryPlace,@RequestFlag,@RequestFlagUserName,@ForRequestGroupNo,@District");
             strSql.Append(") ");
 
             SqlParameter[] parameters = {
@@ -94,8 +94,11 @@ namespace TravelAgency.DAL
                         new SqlParameter("@OutDeliveryPlace", SqlDbType.VarChar,20) ,
                         new SqlParameter("@RequestFlag", SqlDbType.VarChar,50) ,
                         new SqlParameter("@RequestFlagUserName", SqlDbType.VarChar,50) ,
-                        new SqlParameter("@ForRequestGroupNo", SqlDbType.Bit,1)
+                        new SqlParameter("@ForRequestGroupNo", SqlDbType.Bit,1) ,
+                        new SqlParameter("@District", SqlDbType.Int,4)
+
             };
+
             parameters[0].Value = Guid.NewGuid();
             parameters[1].Value = model.GroupNo;
             parameters[2].Value = model.Name;
@@ -153,6 +156,7 @@ namespace TravelAgency.DAL
             parameters[54].Value = model.RequestFlag;
             parameters[55].Value = model.RequestFlagUserName;
             parameters[56].Value = model.ForRequestGroupNo;
+            parameters[57].Value = model.District;
             int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
             if (rows > 0)
             {
@@ -230,7 +234,8 @@ namespace TravelAgency.DAL
             strSql.Append(" OutDeliveryPlace = @OutDeliveryPlace , ");
             strSql.Append(" RequestFlag = @RequestFlag , ");
             strSql.Append(" RequestFlagUserName = @RequestFlagUserName , ");
-            strSql.Append(" ForRequestGroupNo = @ForRequestGroupNo  ");
+            strSql.Append(" ForRequestGroupNo = @ForRequestGroupNo , ");
+            strSql.Append(" District = @District  ");
             strSql.Append(" where Visa_id=@Visa_id  ");
 
             SqlParameter[] parameters = {
@@ -290,7 +295,8 @@ namespace TravelAgency.DAL
                         new SqlParameter("@OutDeliveryPlace", SqlDbType.VarChar,20) ,
                         new SqlParameter("@RequestFlag", SqlDbType.VarChar,50) ,
                         new SqlParameter("@RequestFlagUserName", SqlDbType.VarChar,50) ,
-                        new SqlParameter("@ForRequestGroupNo", SqlDbType.Bit,1)
+                        new SqlParameter("@ForRequestGroupNo", SqlDbType.Bit,1) ,
+                        new SqlParameter("@District", SqlDbType.Int,4)
 
             };
 
@@ -351,6 +357,7 @@ namespace TravelAgency.DAL
             parameters[54].Value = model.RequestFlag;
             parameters[55].Value = model.RequestFlagUserName;
             parameters[56].Value = model.ForRequestGroupNo;
+            parameters[57].Value = model.District;
             int rows = DbHelperSQL.ExecuteSql(strSql.ToString(), parameters);
             if (rows > 0)
             {
@@ -415,7 +422,7 @@ namespace TravelAgency.DAL
         {
 
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select Visa_id, GroupNo, Name, Types, Tips, PredictTime, RealTime, FinishTime, Satus, Person, Number, Picture, ListCount, List, SalesPerson, Receipt, Quidco, Cost, OtherCost, ExpressNo, Call, Sale_id, DepartmentId, EntryTime, Country, Passengers, WorkId, Documenter, Price, ConsulateCost, VisaPersonCost, MailCost, Tips2, SubmitFlag, GroupPrice, InvitationCost, Remark, SubmitTime, InTime, OutTime, client, DepartureType, SubmitCondition, FetchCondition, TypeInPerson, CheckPerson, IsUrgent, PeiQianYuan, QuQianYuan, Operator, ClaimedFlag, ActuallyAmount, IsOutDelivery, OutDeliveryPlace, RequestFlag, RequestFlagUserName, ForRequestGroupNo  ");
+            strSql.Append("select Visa_id, GroupNo, Name, Types, Tips, PredictTime, RealTime, FinishTime, Satus, Person, Number, Picture, ListCount, List, SalesPerson, Receipt, Quidco, Cost, OtherCost, ExpressNo, Call, Sale_id, DepartmentId, EntryTime, Country, Passengers, WorkId, Documenter, Price, ConsulateCost, VisaPersonCost, MailCost, Tips2, SubmitFlag, GroupPrice, InvitationCost, Remark, SubmitTime, InTime, OutTime, client, DepartureType, SubmitCondition, FetchCondition, TypeInPerson, CheckPerson, IsUrgent, PeiQianYuan, QuQianYuan, Operator, ClaimedFlag, ActuallyAmount, IsOutDelivery, OutDeliveryPlace, RequestFlag, RequestFlagUserName, ForRequestGroupNo, District  ");
             strSql.Append("  from Visa ");
             strSql.Append(" where Visa_id=@Visa_id ");
             SqlParameter[] parameters = {
@@ -694,6 +701,10 @@ namespace TravelAgency.DAL
                         model.ForRequestGroupNo = false;
                     }
                 }
+                if (row["District"] != null && row["District"].ToString() != "")
+                {
+                    model.District = int.Parse(row["District"].ToString());
+                }
 
                 return model;
             }
@@ -722,7 +733,7 @@ namespace TravelAgency.DAL
             {
                 strSql.Append(" top " + Top.ToString());
             }
-            strSql.Append(" Visa_id, GroupNo, Name, Types, Tips, PredictTime, RealTime, FinishTime, Satus, Person, Number, Picture, ListCount, List, SalesPerson, Receipt, Quidco, Cost, OtherCost, ExpressNo, Call, Sale_id, DepartmentId, EntryTime, Country, Passengers, WorkId, Documenter, Price, ConsulateCost, VisaPersonCost, MailCost, Tips2, SubmitFlag, GroupPrice, InvitationCost, Remark, SubmitTime, InTime, OutTime, client, DepartureType, SubmitCondition, FetchCondition, TypeInPerson, CheckPerson, IsUrgent, PeiQianYuan, QuQianYuan, Operator, ClaimedFlag, ActuallyAmount, IsOutDelivery, OutDeliveryPlace, RequestFlag, RequestFlagUserName, ForRequestGroupNo  ");
+            strSql.Append(" Visa_id, GroupNo, Name, Types, Tips, PredictTime, RealTime, FinishTime, Satus, Person, Number, Picture, ListCount, List, SalesPerson, Receipt, Quidco, Cost, OtherCost, ExpressNo, Call, Sale_id, DepartmentId, EntryTime, Country, Passengers, WorkId, Documenter, Price, ConsulateCost, VisaPersonCost, MailCost, Tips2, SubmitFlag, GroupPrice, InvitationCost, Remark, SubmitTime, InTime, OutTime, client, DepartureType, SubmitCondition, FetchCondition, TypeInPerson, CheckPerson, IsUrgent, PeiQianYuan, QuQianYuan, Operator, ClaimedFlag, ActuallyAmount, IsOutDelivery, OutDeliveryPlace, RequestFlag, RequestFlagUserName, ForRequestGroupNo, District  ");
             strSql.Append(" FROM Visa ");
             if (strWhere.Trim() != "")
             {
@@ -764,7 +775,7 @@ namespace TravelAgency.DAL
         public DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
         {
             StringBuilder strSql = new StringBuilder();
-            strSql.Append("select Visa_id, GroupNo, Name, Types, Tips, PredictTime, RealTime, FinishTime, Satus, Person, Number, Picture, ListCount, List, SalesPerson, Receipt, Quidco, Cost, OtherCost, ExpressNo, Call, Sale_id, DepartmentId, EntryTime, Country, Passengers, WorkId, Documenter, Price, ConsulateCost, VisaPersonCost, MailCost, Tips2, SubmitFlag, GroupPrice, InvitationCost, Remark, SubmitTime, InTime, OutTime, client, DepartureType, SubmitCondition, FetchCondition, TypeInPerson, CheckPerson, IsUrgent, PeiQianYuan, QuQianYuan, Operator, ClaimedFlag, ActuallyAmount, IsOutDelivery, OutDeliveryPlace, RequestFlag, RequestFlagUserName, ForRequestGroupNo  ");
+            strSql.Append("select Visa_id, GroupNo, Name, Types, Tips, PredictTime, RealTime, FinishTime, Satus, Person, Number, Picture, ListCount, List, SalesPerson, Receipt, Quidco, Cost, OtherCost, ExpressNo, Call, Sale_id, DepartmentId, EntryTime, Country, Passengers, WorkId, Documenter, Price, ConsulateCost, VisaPersonCost, MailCost, Tips2, SubmitFlag, GroupPrice, InvitationCost, Remark, SubmitTime, InTime, OutTime, client, DepartureType, SubmitCondition, FetchCondition, TypeInPerson, CheckPerson, IsUrgent, PeiQianYuan, QuQianYuan, Operator, ClaimedFlag, ActuallyAmount, IsOutDelivery, OutDeliveryPlace, RequestFlag, RequestFlagUserName, ForRequestGroupNo, District  ");
 
             strSql.Append(" FROM ( ");
             strSql.Append(" SELECT ROW_NUMBER() OVER (");

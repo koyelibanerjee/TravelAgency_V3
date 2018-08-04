@@ -50,7 +50,7 @@ namespace TravelAgency.CSUI.Visa.FrmSub
 
             for (int i = 0; i < dataGridView1.Rows.Count; ++i)
             {
-                if (list[i].IsBusy)
+                if (list[i].IsBusy.Value)
                 {
                     dataGridView1.Rows[i].Cells["IsBusy"].Value = "忙";
                     dataGridView1.Rows[i].Cells["IsBusy"].Style.BackColor = Color.Orange;
@@ -61,7 +61,7 @@ namespace TravelAgency.CSUI.Visa.FrmSub
                     dataGridView1.Rows[i].Cells["IsBusy"].Style.BackColor = Color.White;
                 }
 
-                if (list[i].CanAccept)
+                if (list[i].CanAccept.Value)
                 {
                     dataGridView1.Rows[i].Cells["CanAccept"].Value = "能";
                     dataGridView1.Rows[i].Cells["CanAccept"].Style.BackColor = Color.Orange;
@@ -72,7 +72,7 @@ namespace TravelAgency.CSUI.Visa.FrmSub
                     dataGridView1.Rows[i].Cells["CanAccept"].Style.BackColor = Color.OrangeRed;
                 }
 
-                if (!list[i].IsBusy && list[i].CanAccept)
+                if (!list[i].IsBusy.Value && list[i].CanAccept.Value)
                 {
                     dataGridView1.Rows[i].Cells["CanAccept"].Style.BackColor = Color.ForestGreen;
                     dataGridView1.Rows[i].Cells["IsBusy"].Style.BackColor = Color.ForestGreen;

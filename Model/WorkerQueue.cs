@@ -1,71 +1,105 @@
-﻿using System;
+﻿using System; 
+using System.Text;
+using System.Collections.Generic; 
+using System.Data;
 namespace TravelAgency.Model
 {
-	/// <summary>
-	/// WorkerQueue:实体类(属性说明自动提取数据库字段的描述信息)
-	/// </summary>
-	[Serializable]
+	 	//WorkerQueue
+		[Serializable]
 	public partial class WorkerQueue
 	{
-		public WorkerQueue()
-		{}
-		#region Model
-		private int _id;
-		private string _workid;
-		private string _username;
-		private bool _isbusy;
-		private bool _canaccept;
-		private int? _priority;
+        		                  
+    private int _id;
+        		                  
+    private string _workid;
+        		                  
+    private string _username;
+        		                  
+    private bool? _isbusy;
+        		                  
+    private bool? _canaccept;
+        		                  
+    private int? _priority;
+        		                  
+    private int? _district;
+        
+    /// <summary>
+		/// Id
+        /// </summary>		
+		      		  
+  
+        public int Id
+        {
+            get{ return _id; }
+            set{ _id = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public int Id
-		{
-			set{ _id=value;}
-			get{return _id;}
-		}
+		/// WorkId
+        /// </summary>		
+		      		  
+  
+        public string WorkId
+        {
+            get{ return _workid; }
+            set{ _workid = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string WorkId
-		{
-			set{ _workid=value;}
-			get{return _workid;}
-		}
+		/// UserName
+        /// </summary>		
+		      		  
+  
+        public string UserName
+        {
+            get{ return _username; }
+            set{ _username = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string UserName
-		{
-			set{ _username=value;}
-			get{return _username;}
-		}
+		/// IsBusy
+        /// </summary>		
+		        		  
+  
+        public bool? IsBusy
+        {
+            get{ return _isbusy; }
+            set{ _isbusy = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public bool IsBusy
-		{
-			set{ _isbusy=value;}
-			get{return _isbusy;}
-		}
+		/// CanAccept
+        /// </summary>		
+		        		  
+  
+        public bool? CanAccept
+        {
+            get{ return _canaccept; }
+            set{ _canaccept = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public bool CanAccept
-		{
-			set{ _canaccept=value;}
-			get{return _canaccept;}
-		}
+		/// Priority
+        /// </summary>		
+		        		  
+  
+        public int? Priority
+        {
+            get{ return _priority; }
+            set{ _priority = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public int? Priority
-		{
-			set{ _priority=value;}
-			get{return _priority;}
-		}
-		#endregion Model
-
+		/// District
+        /// </summary>		
+		        		  
+  
+        public int? District
+        {
+            get{ return _district; }
+            set{ _district = value; }
+        }    
+      
+		   
 	}
 }
-

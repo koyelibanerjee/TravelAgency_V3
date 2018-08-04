@@ -621,8 +621,8 @@ namespace TravelAgency.CSUI.Statistics.FrmMain
                 sb.Append(",");
             }
 
-            int n = _bllVisaInfo.DeleteList(sb.ToString());
-            GlobalUtils.MessageBoxWithRecordNum("删除", n, count);
+            bool b = _bllVisaInfo.DeleteList(sb.ToString());
+            GlobalUtils.MessageBoxWithRecordNum("删除", b?count:0, count);
             LoadDataToDataGridView(_curPage);
             UpdateState();
         }

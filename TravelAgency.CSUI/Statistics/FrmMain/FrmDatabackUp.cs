@@ -70,7 +70,7 @@ namespace TravelAgency.CSUI.FrmMain
             else
             {
                 _isWorker = true;
-                this.btnCanAcceptNewWork.Value = list[0].CanAccept;
+                this.btnCanAcceptNewWork.Value = list[0].CanAccept.Value;
             }
 
             //初始化一些控件
@@ -864,8 +864,8 @@ namespace TravelAgency.CSUI.FrmMain
                 sb.Append(",");
             }
 
-            int n = _bllVisaInfo.DeleteList(sb.ToString());
-            GlobalUtils.MessageBoxWithRecordNum("删除", n, count);
+            bool b = _bllVisaInfo.DeleteList(sb.ToString());
+            GlobalUtils.MessageBoxWithRecordNum("删除", b ? count : 0, count);
             LoadDataToDataGridView(_curPage);
             UpdateState();
         }

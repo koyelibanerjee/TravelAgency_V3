@@ -122,6 +122,8 @@ namespace TravelAgency.Model
     private string _requestflagusername;
         		                  
     private bool? _forrequestgroupno;
+        		                  
+    private int? _district;
         
     /// <summary>
 		/// Visa_id
@@ -748,6 +750,17 @@ namespace TravelAgency.Model
         {
             get{ return _forrequestgroupno; }
             set{ _forrequestgroupno = value; }
+        }    
+      
+		/// <summary>
+		/// District
+        /// </summary>		
+		        		  
+  
+        public int? District
+        {
+            get{ return _district; }
+            set{ _district = value; }
         }    
       
 		   

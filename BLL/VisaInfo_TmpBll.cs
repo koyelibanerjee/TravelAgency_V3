@@ -81,7 +81,7 @@ namespace TravelAgency.BLL
                         }
                     }
 
-                    if (_bllVisaInfo.Add(model) && Delete(list[i].VisaInfo_id)) //从tmp表到数据表
+                    if (_bllVisaInfo.Add(model) != Guid.Empty && Delete(list[i].VisaInfo_id)) //从tmp表到数据表
                     {
                         res++;
                         //添加录入的操作记录

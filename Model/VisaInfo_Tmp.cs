@@ -42,6 +42,8 @@ namespace TravelAgency.Model
     private string _checkperson;
         		                  
     private DateTime? _entrytime;
+        		                  
+    private int? _district;
         
     /// <summary>
 		/// VisaInfo_id
@@ -228,6 +230,17 @@ namespace TravelAgency.Model
         {
             get{ return _entrytime; }
             set{ _entrytime = value; }
+        }    
+      
+		/// <summary>
+		/// District
+        /// </summary>		
+		        		  
+  
+        public int? District
+        {
+            get{ return _district; }
+            set{ _district = value; }
         }    
       
 		   

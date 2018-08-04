@@ -124,6 +124,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionRecords.cs" />
     <Compile Include="AppAll.cs" />
     <Compile Include="AppStatus.cs" />
     <Compile Include="ClaimMoney.cs" />
@@ -179,7 +180,6 @@
     <Compile Include="VisaInfo.cs" />
     <Compile Include="VisaInfo_Tmp.cs" />
     <Compile Include="VisaInfo_TmpModel.cs" />
-    <Compile Include="ActionRecordsModel.cs" />
     <Compile Include="WorkerQueue.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,71 +1,105 @@
-﻿using System;
+﻿using System; 
+using System.Text;
+using System.Collections.Generic; 
+using System.Data;
 namespace TravelAgency.Model
 {
-	/// <summary>
-	/// JobAssignment:实体类(属性说明自动提取数据库字段的描述信息)
-	/// </summary>
-	[Serializable]
+	 	//JobAssignment
+		[Serializable]
 	public partial class JobAssignment
 	{
-		public JobAssignment()
-		{}
-		#region Model
-		private int _id;
-		private DateTime? _entrytime;
-		private string _assignmenttoworkid;
-		private string _operatorid;
-		private DateTime? _assignmenttime;
-		private string _assignmenttousername;
+        		                  
+    private int _id;
+        		                  
+    private DateTime? _entrytime;
+        		                  
+    private string _assignmenttoworkid;
+        		                  
+    private string _operatorid;
+        		                  
+    private DateTime? _assignmenttime;
+        		                  
+    private string _assignmenttousername;
+        		                  
+    private int? _district;
+        
+    /// <summary>
+		/// Id
+        /// </summary>		
+		      		  
+  
+        public int Id
+        {
+            get{ return _id; }
+            set{ _id = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public int Id
-		{
-			set{ _id=value;}
-			get{return _id;}
-		}
+		/// EntryTime
+        /// </summary>		
+		        		  
+  
+        public DateTime? EntryTime
+        {
+            get{ return _entrytime; }
+            set{ _entrytime = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime? EntryTime
-		{
-			set{ _entrytime=value;}
-			get{return _entrytime;}
-		}
+		/// AssignmentToWorkId
+        /// </summary>		
+		      		  
+  
+        public string AssignmentToWorkId
+        {
+            get{ return _assignmenttoworkid; }
+            set{ _assignmenttoworkid = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string AssignmentToWorkId
-		{
-			set{ _assignmenttoworkid=value;}
-			get{return _assignmenttoworkid;}
-		}
+		/// OperatorId
+        /// </summary>		
+		      		  
+  
+        public string OperatorId
+        {
+            get{ return _operatorid; }
+            set{ _operatorid = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string OperatorId
-		{
-			set{ _operatorid=value;}
-			get{return _operatorid;}
-		}
+		/// AssignmentTime
+        /// </summary>		
+		        		  
+  
+        public DateTime? AssignmentTime
+        {
+            get{ return _assignmenttime; }
+            set{ _assignmenttime = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime? AssignmentTime
-		{
-			set{ _assignmenttime=value;}
-			get{return _assignmenttime;}
-		}
+		/// AssignmentToUserName
+        /// </summary>		
+		      		  
+  
+        public string AssignmentToUserName
+        {
+            get{ return _assignmenttousername; }
+            set{ _assignmenttousername = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string AssignmentToUserName
-		{
-			set{ _assignmenttousername=value;}
-			get{return _assignmenttousername;}
-		}
-		#endregion Model
-
+		/// District
+        /// </summary>		
+		        		  
+  
+        public int? District
+        {
+            get{ return _district; }
+            set{ _district = value; }
+        }    
+      
+		   
 	}
 }
-

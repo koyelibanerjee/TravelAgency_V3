@@ -1,458 +1,664 @@
-﻿using System;
+﻿using System; 
+using System.Text;
+using System.Collections.Generic; 
+using System.Data;
 namespace TravelAgency.Model
 {
-	/// <summary>
-	/// VisaInfo:实体类(属性说明自动提取数据库字段的描述信息)
-	/// </summary>
-	[Serializable]
+	 	//VisaInfo
+		[Serializable]
 	public partial class VisaInfo
 	{
-		public VisaInfo()
-		{}
-		#region Model
-		private Guid _visainfo_id;
-		private string _visa_id;
-		private string _groupno;
-		private string _name;
-		private string _englishname;
-		private string _sex;
-		private DateTime? _birthday;
-		private string _passportno;
-		private DateTime? _licencetime;
-		private DateTime? _expirydate;
-		private string _birthplace;
-		private string _issueplace;
-		private string _post;
-		private string _phone;
-		private string _guideno;
-		private string _client;
-		private string _salesperson;
-		private string _types;
-		private Guid _sale_id;
-		private Guid _departmentid;
-		private string _tips;
-		private DateTime? _entrytime= DateTime.Now;
-		private DateTime? _embassytime;
-		private DateTime? _intime;
-		private DateTime? _outtime;
-		private string _realout;
-		private DateTime? _realouttime;
-		private string _country;
-		private string _call;
-		private string _exportstate;
-		private string _outstate="01未记录";
-		private string _residence;
-		private string _occupation;
-		private string _departurerecord;
-		private string _marriaged;
-		private string _identification;
-		private string _financialcapacity;
-		private string _agencyopinion;
-		private string _hastypein="否";
-		private DateTime? _abnormalouttime;
-		private string _haschecked="否";
-		private string _checkperson;
-		private DateTime? _returntime;
-		private int? _position;
-		private string _issueplaceenglish;
-		private string _birthplaceenglish;
-		private int? _jobid;
-		private string _assignmenttoworkid;
-		private string _assignmenttousername;
+        		                  
+    private Guid _visainfo_id;
+        		                  
+    private string _visa_id;
+        		                  
+    private string _groupno;
+        		                  
+    private string _name;
+        		                  
+    private string _englishname;
+        		                  
+    private string _sex;
+        		                  
+    private DateTime? _birthday;
+        		                  
+    private string _passportno;
+        		                  
+    private DateTime? _licencetime;
+        		                  
+    private DateTime? _expirydate;
+        		                  
+    private string _birthplace;
+        		                  
+    private string _issueplace;
+        		                  
+    private string _post;
+        		                  
+    private string _phone;
+        		                  
+    private string _guideno;
+        		                  
+    private string _client;
+        		                  
+    private string _salesperson;
+        		                  
+    private string _types;
+        		                  
+    private Guid _sale_id;
+        		                  
+    private Guid _departmentid;
+        		                  
+    private string _tips;
+        		                  
+    private DateTime? _entrytime;
+        		                  
+    private DateTime? _embassytime;
+        		                  
+    private DateTime? _intime;
+        		                  
+    private DateTime? _outtime;
+        		                  
+    private string _realout;
+        		                  
+    private DateTime? _realouttime;
+        		                  
+    private string _country;
+        		                  
+    private string _call;
+        		                  
+    private string _exportstate;
+        		                  
+    private string _outstate;
+        		                  
+    private string _residence;
+        		                  
+    private string _occupation;
+        		                  
+    private string _departurerecord;
+        		                  
+    private string _marriaged;
+        		                  
+    private string _identification;
+        		                  
+    private string _financialcapacity;
+        		                  
+    private string _agencyopinion;
+        		                  
+    private string _hastypein;
+        		                  
+    private DateTime? _abnormalouttime;
+        		                  
+    private string _haschecked;
+        		                  
+    private string _checkperson;
+        		                  
+    private DateTime? _returntime;
+        		                  
+    private int? _position;
+        		                  
+    private string _issueplaceenglish;
+        		                  
+    private string _birthplaceenglish;
+        		                  
+    private int? _jobid;
+        		                  
+    private string _assignmenttoworkid;
+        		                  
+    private string _assignmenttousername;
+        		                  
+    private int? _district;
+        
+    /// <summary>
+		/// VisaInfo_id
+        /// </summary>		
+		      		  
+  
+        public Guid VisaInfo_id
+        {
+            get{ return _visainfo_id; }
+            set{ _visainfo_id = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public Guid VisaInfo_id
-		{
-			set{ _visainfo_id=value;}
-			get{return _visainfo_id;}
-		}
+		/// Visa_id
+        /// </summary>		
+		      		  
+  
+        public string Visa_id
+        {
+            get{ return _visa_id; }
+            set{ _visa_id = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string Visa_id
-		{
-			set{ _visa_id=value;}
-			get{return _visa_id;}
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		public string GroupNo
-		{
-			set{ _groupno=value;}
-			get{return _groupno;}
-		}
+		/// GroupNo
+        /// </summary>		
+		      		  
+  
+        public string GroupNo
+        {
+            get{ return _groupno; }
+            set{ _groupno = value; }
+        }    
+      
 		/// <summary>
 		/// 姓名
-		/// </summary>
-		public string Name
-		{
-			set{ _name=value;}
-			get{return _name;}
-		}
+        /// </summary>		
+		      		  
+  
+        public string Name
+        {
+            get{ return _name; }
+            set{ _name = value; }
+        }    
+      
 		/// <summary>
 		/// 英语姓名
-		/// </summary>
-		public string EnglishName
-		{
-			set{ _englishname=value;}
-			get{return _englishname;}
-		}
+        /// </summary>		
+		      		  
+  
+        public string EnglishName
+        {
+            get{ return _englishname; }
+            set{ _englishname = value; }
+        }    
+      
 		/// <summary>
 		/// 性别
-		/// </summary>
-		public string Sex
-		{
-			set{ _sex=value;}
-			get{return _sex;}
-		}
+        /// </summary>		
+		      		  
+  
+        public string Sex
+        {
+            get{ return _sex; }
+            set{ _sex = value; }
+        }    
+      
 		/// <summary>
 		/// 生日
-		/// </summary>
-		public DateTime? Birthday
-		{
-			set{ _birthday=value;}
-			get{return _birthday;}
-		}
+        /// </summary>		
+		        		  
+  
+        public DateTime? Birthday
+        {
+            get{ return _birthday; }
+            set{ _birthday = value; }
+        }    
+      
 		/// <summary>
 		/// 护照号
-		/// </summary>
-		public string PassportNo
-		{
-			set{ _passportno=value;}
-			get{return _passportno;}
-		}
+        /// </summary>		
+		      		  
+  
+        public string PassportNo
+        {
+            get{ return _passportno; }
+            set{ _passportno = value; }
+        }    
+      
 		/// <summary>
 		/// 发证日期
-		/// </summary>
-		public DateTime? LicenceTime
-		{
-			set{ _licencetime=value;}
-			get{return _licencetime;}
-		}
+        /// </summary>		
+		        		  
+  
+        public DateTime? LicenceTime
+        {
+            get{ return _licencetime; }
+            set{ _licencetime = value; }
+        }    
+      
 		/// <summary>
 		/// 有效期
-		/// </summary>
-		public DateTime? ExpiryDate
-		{
-			set{ _expirydate=value;}
-			get{return _expirydate;}
-		}
+        /// </summary>		
+		        		  
+  
+        public DateTime? ExpiryDate
+        {
+            get{ return _expirydate; }
+            set{ _expirydate = value; }
+        }    
+      
 		/// <summary>
 		/// 出生地
-		/// </summary>
-		public string Birthplace
-		{
-			set{ _birthplace=value;}
-			get{return _birthplace;}
-		}
+        /// </summary>		
+		      		  
+  
+        public string Birthplace
+        {
+            get{ return _birthplace; }
+            set{ _birthplace = value; }
+        }    
+      
 		/// <summary>
 		/// 签发地
-		/// </summary>
-		public string IssuePlace
-		{
-			set{ _issueplace=value;}
-			get{return _issueplace;}
-		}
+        /// </summary>		
+		      		  
+  
+        public string IssuePlace
+        {
+            get{ return _issueplace; }
+            set{ _issueplace = value; }
+        }    
+      
 		/// <summary>
 		/// 职位
-		/// </summary>
-		public string Post
-		{
-			set{ _post=value;}
-			get{return _post;}
-		}
+        /// </summary>		
+		      		  
+  
+        public string Post
+        {
+            get{ return _post; }
+            set{ _post = value; }
+        }    
+      
 		/// <summary>
 		/// 电话
-		/// </summary>
-		public string Phone
-		{
-			set{ _phone=value;}
-			get{return _phone;}
-		}
+        /// </summary>		
+		      		  
+  
+        public string Phone
+        {
+            get{ return _phone; }
+            set{ _phone = value; }
+        }    
+      
 		/// <summary>
 		/// 领队编号
-		/// </summary>
-		public string GuideNo
-		{
-			set{ _guideno=value;}
-			get{return _guideno;}
-		}
+        /// </summary>		
+		      		  
+  
+        public string GuideNo
+        {
+            get{ return _guideno; }
+            set{ _guideno = value; }
+        }    
+      
 		/// <summary>
 		/// 客户
-		/// </summary>
-		public string Client
-		{
-			set{ _client=value;}
-			get{return _client;}
-		}
+        /// </summary>		
+		      		  
+  
+        public string Client
+        {
+            get{ return _client; }
+            set{ _client = value; }
+        }    
+      
 		/// <summary>
 		/// 销售员
-		/// </summary>
-		public string Salesperson
-		{
-			set{ _salesperson=value;}
-			get{return _salesperson;}
-		}
+        /// </summary>		
+		      		  
+  
+        public string Salesperson
+        {
+            get{ return _salesperson; }
+            set{ _salesperson = value; }
+        }    
+      
 		/// <summary>
 		/// 签证类型
-		/// </summary>
-		public string Types
-		{
-			set{ _types=value;}
-			get{return _types;}
-		}
+        /// </summary>		
+		      		  
+  
+        public string Types
+        {
+            get{ return _types; }
+            set{ _types = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public Guid Sale_id
-		{
-			set{ _sale_id=value;}
-			get{return _sale_id;}
-		}
+		/// Sale_id
+        /// </summary>		
+		      		  
+  
+        public Guid Sale_id
+        {
+            get{ return _sale_id; }
+            set{ _sale_id = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public Guid DepartmentId
-		{
-			set{ _departmentid=value;}
-			get{return _departmentid;}
-		}
+		/// DepartmentId
+        /// </summary>		
+		      		  
+  
+        public Guid DepartmentId
+        {
+            get{ return _departmentid; }
+            set{ _departmentid = value; }
+        }    
+      
 		/// <summary>
 		/// 备注
-		/// </summary>
-		public string Tips
-		{
-			set{ _tips=value;}
-			get{return _tips;}
-		}
+        /// </summary>		
+		      		  
+  
+        public string Tips
+        {
+            get{ return _tips; }
+            set{ _tips = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime? EntryTime
-		{
-			set{ _entrytime=value;}
-			get{return _entrytime;}
-		}
+		/// EntryTime
+        /// </summary>		
+		        		  
+  
+        public DateTime? EntryTime
+        {
+            get{ return _entrytime; }
+            set{ _entrytime = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime? EmbassyTime
-		{
-			set{ _embassytime=value;}
-			get{return _embassytime;}
-		}
+		/// EmbassyTime
+        /// </summary>		
+		        		  
+  
+        public DateTime? EmbassyTime
+        {
+            get{ return _embassytime; }
+            set{ _embassytime = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime? InTime
-		{
-			set{ _intime=value;}
-			get{return _intime;}
-		}
+		/// InTime
+        /// </summary>		
+		        		  
+  
+        public DateTime? InTime
+        {
+            get{ return _intime; }
+            set{ _intime = value; }
+        }    
+      
 		/// <summary>
 		/// 归国时间
-		/// </summary>
-		public DateTime? OutTime
-		{
-			set{ _outtime=value;}
-			get{return _outtime;}
-		}
+        /// </summary>		
+		        		  
+  
+        public DateTime? OutTime
+        {
+            get{ return _outtime; }
+            set{ _outtime = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string RealOut
-		{
-			set{ _realout=value;}
-			get{return _realout;}
-		}
+		/// RealOut
+        /// </summary>		
+		      		  
+  
+        public string RealOut
+        {
+            get{ return _realout; }
+            set{ _realout = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime? RealOutTime
-		{
-			set{ _realouttime=value;}
-			get{return _realouttime;}
-		}
+		/// RealOutTime
+        /// </summary>		
+		        		  
+  
+        public DateTime? RealOutTime
+        {
+            get{ return _realouttime; }
+            set{ _realouttime = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string Country
-		{
-			set{ _country=value;}
-			get{return _country;}
-		}
+		/// Country
+        /// </summary>		
+		      		  
+  
+        public string Country
+        {
+            get{ return _country; }
+            set{ _country = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string Call
-		{
-			set{ _call=value;}
-			get{return _call;}
-		}
+		/// Call
+        /// </summary>		
+		      		  
+  
+        public string Call
+        {
+            get{ return _call; }
+            set{ _call = value; }
+        }    
+      
 		/// <summary>
 		/// 0未导出,1已导出
-		/// </summary>
-		public string ExportState
-		{
-			set{ _exportstate=value;}
-			get{return _exportstate;}
-		}
+        /// </summary>		
+		      		  
+  
+        public string ExportState
+        {
+            get{ return _exportstate; }
+            set{ _exportstate = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string outState
-		{
-			set{ _outstate=value;}
-			get{return _outstate;}
-		}
+		/// outState
+        /// </summary>		
+		      		  
+  
+        public string outState
+        {
+            get{ return _outstate; }
+            set{ _outstate = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string Residence
-		{
-			set{ _residence=value;}
-			get{return _residence;}
-		}
+		/// Residence
+        /// </summary>		
+		      		  
+  
+        public string Residence
+        {
+            get{ return _residence; }
+            set{ _residence = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string Occupation
-		{
-			set{ _occupation=value;}
-			get{return _occupation;}
-		}
+		/// Occupation
+        /// </summary>		
+		      		  
+  
+        public string Occupation
+        {
+            get{ return _occupation; }
+            set{ _occupation = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string DepartureRecord
-		{
-			set{ _departurerecord=value;}
-			get{return _departurerecord;}
-		}
+		/// DepartureRecord
+        /// </summary>		
+		      		  
+  
+        public string DepartureRecord
+        {
+            get{ return _departurerecord; }
+            set{ _departurerecord = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string Marriaged
-		{
-			set{ _marriaged=value;}
-			get{return _marriaged;}
-		}
+		/// Marriaged
+        /// </summary>		
+		      		  
+  
+        public string Marriaged
+        {
+            get{ return _marriaged; }
+            set{ _marriaged = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string Identification
-		{
-			set{ _identification=value;}
-			get{return _identification;}
-		}
+		/// Identification
+        /// </summary>		
+		      		  
+  
+        public string Identification
+        {
+            get{ return _identification; }
+            set{ _identification = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string FinancialCapacity
-		{
-			set{ _financialcapacity=value;}
-			get{return _financialcapacity;}
-		}
+		/// FinancialCapacity
+        /// </summary>		
+		      		  
+  
+        public string FinancialCapacity
+        {
+            get{ return _financialcapacity; }
+            set{ _financialcapacity = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string AgencyOpinion
-		{
-			set{ _agencyopinion=value;}
-			get{return _agencyopinion;}
-		}
+		/// AgencyOpinion
+        /// </summary>		
+		      		  
+  
+        public string AgencyOpinion
+        {
+            get{ return _agencyopinion; }
+            set{ _agencyopinion = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string HasTypeIn
-		{
-			set{ _hastypein=value;}
-			get{return _hastypein;}
-		}
+		/// HasTypeIn
+        /// </summary>		
+		      		  
+  
+        public string HasTypeIn
+        {
+            get{ return _hastypein; }
+            set{ _hastypein = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime? AbnormalOutTime
-		{
-			set{ _abnormalouttime=value;}
-			get{return _abnormalouttime;}
-		}
+		/// AbnormalOutTime
+        /// </summary>		
+		        		  
+  
+        public DateTime? AbnormalOutTime
+        {
+            get{ return _abnormalouttime; }
+            set{ _abnormalouttime = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string HasChecked
-		{
-			set{ _haschecked=value;}
-			get{return _haschecked;}
-		}
+		/// HasChecked
+        /// </summary>		
+		      		  
+  
+        public string HasChecked
+        {
+            get{ return _haschecked; }
+            set{ _haschecked = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string CheckPerson
-		{
-			set{ _checkperson=value;}
-			get{return _checkperson;}
-		}
+		/// CheckPerson
+        /// </summary>		
+		      		  
+  
+        public string CheckPerson
+        {
+            get{ return _checkperson; }
+            set{ _checkperson = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime? ReturnTime
-		{
-			set{ _returntime=value;}
-			get{return _returntime;}
-		}
+		/// ReturnTime
+        /// </summary>		
+		        		  
+  
+        public DateTime? ReturnTime
+        {
+            get{ return _returntime; }
+            set{ _returntime = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public int? Position
-		{
-			set{ _position=value;}
-			get{return _position;}
-		}
+		/// Position
+        /// </summary>		
+		        		  
+  
+        public int? Position
+        {
+            get{ return _position; }
+            set{ _position = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string IssuePlaceEnglish
-		{
-			set{ _issueplaceenglish=value;}
-			get{return _issueplaceenglish;}
-		}
+		/// IssuePlaceEnglish
+        /// </summary>		
+		      		  
+  
+        public string IssuePlaceEnglish
+        {
+            get{ return _issueplaceenglish; }
+            set{ _issueplaceenglish = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string BirthPlaceEnglish
-		{
-			set{ _birthplaceenglish=value;}
-			get{return _birthplaceenglish;}
-		}
+		/// BirthPlaceEnglish
+        /// </summary>		
+		      		  
+  
+        public string BirthPlaceEnglish
+        {
+            get{ return _birthplaceenglish; }
+            set{ _birthplaceenglish = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public int? JobId
-		{
-			set{ _jobid=value;}
-			get{return _jobid;}
-		}
+		/// JobId
+        /// </summary>		
+		        		  
+  
+        public int? JobId
+        {
+            get{ return _jobid; }
+            set{ _jobid = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string AssignmentToWorkId
-		{
-			set{ _assignmenttoworkid=value;}
-			get{return _assignmenttoworkid;}
-		}
+		/// AssignmentToWorkId
+        /// </summary>		
+		      		  
+  
+        public string AssignmentToWorkId
+        {
+            get{ return _assignmenttoworkid; }
+            set{ _assignmenttoworkid = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string AssignmentToUserName
-		{
-			set{ _assignmenttousername=value;}
-			get{return _assignmenttousername;}
-		}
-		#endregion Model
-
+		/// AssignmentToUserName
+        /// </summary>		
+		      		  
+  
+        public string AssignmentToUserName
+        {
+            get{ return _assignmenttousername; }
+            set{ _assignmenttousername = value; }
+        }    
+      
+		/// <summary>
+		/// District
+        /// </summary>		
+		        		  
+  
+        public int? District
+        {
+            get{ return _district; }
+            set{ _district = value; }
+        }    
+      
+		   
 	}
 }
-

@@ -24,6 +24,8 @@ namespace TravelAgency.Model
     private Guid _rid;
         		                  
     private string _rolename;
+        		                  
+    private int? _district;
         
     /// <summary>
 		/// 用户ID
@@ -111,6 +113,17 @@ namespace TravelAgency.Model
         {
             get{ return _rolename; }
             set{ _rolename = value; }
+        }    
+      
+		/// <summary>
+		/// District
+        /// </summary>		
+		        		  
+  
+        public int? District
+        {
+            get{ return _district; }
+            set{ _district = value; }
         }    
       
 		   

@@ -43,7 +43,7 @@ namespace TravelAgency.BLL
         }
 
 
-        public int DeleteList(string VisaInfo_idlist)
+        public bool DeleteList(string VisaInfo_idlist)
         {
             return dal.DeleteList(VisaInfo_idlist);
         }
@@ -68,17 +68,6 @@ namespace TravelAgency.BLL
             return res;
         }
 
-
-        /// <summary>
-        /// 获得数据列表,并且按照所在团里面的Position进行排序
-        /// </summary>
-        public List<TravelAgency.Model.VisaInfo> GetModelList(string strWhere)
-        {
-            DataSet ds = dal.GetList(strWhere);
-            var list =  DataTableToList(ds.Tables[0]);
-            //list.Sort((model1, model2) => { return model1.Position < model2.Position ? -1 : 1; }); //按照position先排序
-            return list;
-        }
 
         /// <summary>
         /// 获得数据列表,并且按照所在团里面的Position进行排序
