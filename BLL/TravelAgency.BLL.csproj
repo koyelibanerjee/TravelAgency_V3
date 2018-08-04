@@ -188,8 +188,8 @@
     <Compile Include="FTPFileHandler\OrderExcelHandler.cs" />
     <Compile Include="FTPFileHandler\OrderFilesHandler.cs" />
     <Compile Include="FTPFileHandler\PassportPicHandler.cs" />
-    <Compile Include="HasExported8ReportBLL.cs" />
     <Compile Include="HasExported8Report.cs" />
+    <Compile Include="HasExported8ReportBLL.cs" />
     <Compile Include="JobAssignmentBll.cs" />
     <Compile Include="JobAssignment.cs" />
     <Compile Include="Joint\CustomerBalance_AuthUser.cs" />
@@ -215,8 +215,6 @@
     <Compile Include="TimeHandlers\DateFormat.cs" />
     <Compile Include="TimeHandlers\TimeHelper.cs" />
     <Compile Include="TimeHandlers\TimeParser.cs" />
-    <Compile Include="UserQueueBll.cs" />
-    <Compile Include="user_copy.cs" />
     <Compile Include="VisaActTypeCountBll.cs" />
     <Compile Include="VisaInfo_JobBll.cs" />
     <Compile Include="VisaWithActRecords.cs" />
@@ -229,7 +227,6 @@
     <Compile Include="VisaInfoStatisticsBll.cs" />
     <Compile Include="VisaStatisticsBll.cs" />
     <Compile Include="ConsulateChargeBll.cs" />
-    <Compile Include="visa_copy.cs" />
     <Compile Include="WorkerQueueBll.cs" />
     <Compile Include="WorkerQueue.cs" />
   </ItemGroup>

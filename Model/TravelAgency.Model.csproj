@@ -157,7 +157,6 @@
     <Compile Include="OrdersLogs.cs" />
     <Compile Include="StatStruct_Sale.cs" />
     <Compile Include="StatStruct.cs" />
-    <Compile Include="UserQueueModel.cs" />
     <Compile Include="AuthUser.cs" />
     <Compile Include="ClientCharge.cs" />
     <Compile Include="CommisionMoney.cs" />
@@ -173,7 +172,6 @@
     <Compile Include="QZApplication.cs" />
     <Compile Include="SysNode.cs" />
     <Compile Include="User.cs" />
-    <Compile Include="user_copy.cs" />
     <Compile Include="VisaActTypeCountModel.cs" />
     <Compile Include="VisaInfo_JobModel.cs" />
     <Compile Include="VisaWithActRecords.cs" />
@@ -182,7 +180,6 @@
     <Compile Include="VisaInfo_Tmp.cs" />
     <Compile Include="VisaInfo_TmpModel.cs" />
     <Compile Include="ActionRecordsModel.cs" />
-    <Compile Include="visa_copy.cs" />
     <Compile Include="WorkerQueue.cs" />
   </ItemGroup>
   <ItemGroup>

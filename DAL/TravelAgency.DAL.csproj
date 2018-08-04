@@ -164,7 +164,6 @@
     <Compile Include="OrderInfo.cs" />
     <Compile Include="Orders.cs" />
     <Compile Include="OrdersLogs.cs" />
-    <Compile Include="UserQueueDal.cs" />
     <Compile Include="AuthUser.cs" />
     <Compile Include="ClientChargeDal.cs" />
     <Compile Include="ClientCharge.cs" />
@@ -184,7 +183,6 @@
     <Compile Include="StatisticsDal.cs" />
     <Compile Include="SysManage.cs" />
     <Compile Include="OrdersDal.cs" />
-    <Compile Include="user_copy.cs" />
     <Compile Include="VisaActTypeCountDal.cs" />
     <Compile Include="VisaInfo_JobDal.cs" />
     <Compile Include="VisaWithActRecords.cs" />
@@ -197,7 +195,6 @@
     <Compile Include="VisaInfo_TmpDal.cs" />
     <Compile Include="ActionRecordsDal.cs" />
     <Compile Include="ConsulateChargeDal.cs" />
-    <Compile Include="visa_copy.cs" />
     <Compile Include="WorkerQueueDal.cs" />
     <Compile Include="WorkerQueue.cs" />
   </ItemGroup>
