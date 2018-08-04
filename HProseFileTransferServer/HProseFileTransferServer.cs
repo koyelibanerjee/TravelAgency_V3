@@ -39,9 +39,10 @@ namespace HProseFileTransferServer
     {
         static void Main(string[] args)
         {
-            HproseHttpListenerServer server = new HproseHttpListenerServer("http://127.0.0.1:50002/");
-            server.IsCrossDomainEnabled = true;
-            
+            //HproseHttpListenerServer server = new HproseHttpListenerServer("http://127.0.0.1:50002/");
+            HproseHttpListenerServer server = new HproseHttpListenerServer("http://0.0.0.0:50002/");
+            //server.IsCrossDomainEnabled = true;
+
             TestService ts = new TestService();
             server.Add("RecvImage", ts);
             server.Add("printHello", ts);

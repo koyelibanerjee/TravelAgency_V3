@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="FrmSetValue\FrmIdentificationValueTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Visa\FrmMain\FrmVisaManageTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TravelAgency.CSUI\TravelAgency.CSUI.csproj">

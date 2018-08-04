@@ -189,7 +189,7 @@ namespace TravelAgency.BLL.Excel
                 for (int c = 0; c < row.LastCellNum; ++c)
                 {
                     string dtString =
-                        DateTimeFormator.DateTimeToString(DateTimeFormator.GetNextWorkDate(DateTime.Now.AddDays(1)));
+                        DateTimeFormator.DateTimeToString(DateTimeFormator.GetNextWorkDate(DateTime.Now));
                     //时间替换为下一个工作日
                     string[] datearr = dtString.Split('/');
                     //1.获取每个单元格

@@ -84,6 +84,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HProseFileTransferServer", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HProseFileTransferUIClient", "HProseFileTransferUIClient\HProseFileTransferUIClient.csproj", "{50040FF9-7194-4A95-B673-78F29B8BF4B5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseStressTest", "DatabaseStressTest\DatabaseStressTest.csproj", "{D319FC4B-53A2-4E46-80B0-A405261F19D9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|.NET = Debug|.NET
@@ -638,6 +640,22 @@ Global
 		{50040FF9-7194-4A95-B673-78F29B8BF4B5}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{50040FF9-7194-4A95-B673-78F29B8BF4B5}.Release|x86.ActiveCfg = Release|Any CPU
 		{50040FF9-7194-4A95-B673-78F29B8BF4B5}.Release|x86.Build.0 = Release|Any CPU
+		{D319FC4B-53A2-4E46-80B0-A405261F19D9}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{D319FC4B-53A2-4E46-80B0-A405261F19D9}.Debug|.NET.Build.0 = Debug|Any CPU
+		{D319FC4B-53A2-4E46-80B0-A405261F19D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D319FC4B-53A2-4E46-80B0-A405261F19D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D319FC4B-53A2-4E46-80B0-A405261F19D9}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{D319FC4B-53A2-4E46-80B0-A405261F19D9}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{D319FC4B-53A2-4E46-80B0-A405261F19D9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D319FC4B-53A2-4E46-80B0-A405261F19D9}.Debug|x86.Build.0 = Debug|Any CPU
+		{D319FC4B-53A2-4E46-80B0-A405261F19D9}.Release|.NET.ActiveCfg = Release|Any CPU
+		{D319FC4B-53A2-4E46-80B0-A405261F19D9}.Release|.NET.Build.0 = Release|Any CPU
+		{D319FC4B-53A2-4E46-80B0-A405261F19D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D319FC4B-53A2-4E46-80B0-A405261F19D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D319FC4B-53A2-4E46-80B0-A405261F19D9}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{D319FC4B-53A2-4E46-80B0-A405261F19D9}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{D319FC4B-53A2-4E46-80B0-A405261F19D9}.Release|x86.ActiveCfg = Release|Any CPU
+		{D319FC4B-53A2-4E46-80B0-A405261F19D9}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -673,6 +691,7 @@ Global
 		{F5A0CFAA-C9A5-4BDA-9D65-951FFC9AE2D6} = {3F9A535C-0513-451F-92D3-58D71E4A8A6A}
 		{F3A8E9AA-EF2B-4BAE-8AF2-9257DA71B703} = {3F9A535C-0513-451F-92D3-58D71E4A8A6A}
 		{50040FF9-7194-4A95-B673-78F29B8BF4B5} = {3F9A535C-0513-451F-92D3-58D71E4A8A6A}
+		{D319FC4B-53A2-4E46-80B0-A405261F19D9} = {3F9A535C-0513-451F-92D3-58D71E4A8A6A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A62CC67B-E573-4C00-A549-DBA38AD9F5E1}

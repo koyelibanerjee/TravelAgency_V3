@@ -31,8 +31,8 @@ namespace HProseFileTransferUIClient
             string filename = TravelAgency.Common.GlobalUtils.ShowOpenFileDlg();
             txtFilePath.Text = filename;
         }
-        //static HproseHttpClient client = new HproseHttpClient("http://182.150.20.247:50002/");
-        static HproseHttpClient client = new HproseHttpClient("http://127.0.0.1:50002/");
+        static HproseHttpClient client = new HproseHttpClient("http://182.150.20.247:50002/");
+        //static HproseHttpClient client = new HproseHttpClient("http://127.0.0.1:50002/");
         private void btnSendFile_Click(object sender, EventArgs e)
         {
             client.KeepAlive = true;

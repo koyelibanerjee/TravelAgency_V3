@@ -18,18 +18,21 @@ namespace HProseFileTransferClient
     }
     class HProseFileTransferClient
     {
-       
+
         static void Main(string[] args)
         {
-             HproseHttpClient client;
-            client = new HproseHttpClient(" http://localhost:2012/");
+            HproseHttpClient client;
+            //client = new HproseHttpClient(" http://localhost:2012/");
+            //client = new HproseHttpClient("http://182.150.20.247:50002/");
+            
+            //client = new HproseHttpClient("http://0.0.0.0:50002");
             client.KeepAlive = true;
 
-            FileStream fs = new FileStream(@"I:\My Documents\My Pictures\unsplash\christopher-burns-497236-unsplash.jpg",FileMode.Open);
+            FileStream fs = new FileStream(@"I:\My Documents\My Pictures\unsplash\christopher-burns-497236-unsplash.jpg", FileMode.Open);
             byte[] picturedata = new byte[fs.Length];
             fs.Read(picturedata, 0, picturedata.Length);
 
-            client.Invoke("RecvImage", new object[] {fs, @"C:\rcvImages\abcdef.jpg" });
+            client.Invoke("RecvImage", new object[] { fs, @"C:\rcvImages\abcdef.jpg" });
 
         }
     }

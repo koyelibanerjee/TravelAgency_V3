@@ -91,6 +91,12 @@ namespace TravelAgency.CSUI.FrmSub
                 return;
             }
 
+            if (string.IsNullOrEmpty(txtClient.Text) || string.IsNullOrEmpty(txtSalesPerson.Text))
+            {
+                MessageBoxEx.Show("销售和客户不能为空!");
+                return;
+            }
+
             Model.Visa visaModel = CtrlsToVisaModel();
             if (visaModel == null)
                 return;

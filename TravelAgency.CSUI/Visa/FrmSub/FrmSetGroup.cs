@@ -4,6 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using DevComponents.DotNetBar.Controls;
@@ -129,20 +130,6 @@ namespace TravelAgency.CSUI.FrmSub
 
         private void InitComboBoxs()
         {
-            //var list = BLL.CommonBll.GetFieldList("CustomerInfo", "CustomerName");
-
-            //if (GlobalUtils.LoginUserLevel == RigthLevel.Manager)
-            //{
-            //    txtClient.DropDownStyle = ComboBoxStyle.DropDown;
-            //    txtSalesPerson.DropDownStyle = ComboBoxStyle.DropDown;
-            //    txtOperator.DropDownStyle = ComboBoxStyle.DropDown;
-            //}
-            //else
-            //{
-            //    txtClient.DropDownStyle = ComboBoxStyle.DropDownList;
-            //    txtSalesPerson.DropDownStyle = ComboBoxStyle.DropDownList;
-            //    txtOperator.DropDownStyle = ComboBoxStyle.DropDownList;
-            //}
 
             txtClient.DropDownStyle = ComboBoxStyle.DropDown;
             txtSalesPerson.DropDownStyle = ComboBoxStyle.DropDown;
@@ -234,6 +221,8 @@ namespace TravelAgency.CSUI.FrmSub
             cbOutDeliveryPlace.Items.Add("广州");
             cbOutDeliveryPlace.Items.Add("重庆");
             cbOutDeliveryPlace.Text = "";
+
+
         }
 
         private void TxtClient_SelChangeGetSalesPerson(object sender, EventArgs e)
@@ -635,7 +624,7 @@ namespace TravelAgency.CSUI.FrmSub
             _dgvList.Clear();
             for (int i = 0; i < lvIn.Items.Count; ++i)
             {
-                var model = (Model.VisaInfo) lvIn.Items[i].Tag;
+                var model = (Model.VisaInfo)lvIn.Items[i].Tag;
                 model.AgencyOpinion = "没问题"; //默认没问题，20180710
                 _dgvList.Add(model);
             }
@@ -1242,7 +1231,7 @@ namespace TravelAgency.CSUI.FrmSub
             try
             {
                 //单独处理remark
-                if (dgvGroupInfo.Rows.Count>0 &&  dgvGroupInfo.Rows[0].Cells["Remark"].Value!=null &&
+                if (dgvGroupInfo.Rows.Count > 0 && dgvGroupInfo.Rows[0].Cells["Remark"].Value != null &&
                     !string.IsNullOrEmpty((string)dgvGroupInfo.Rows[0].Cells["Remark"].Value))
                     model.Remark = (string)dgvGroupInfo.Rows[0].Cells["Remark"].Value;
 
