@@ -108,6 +108,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevComponents.DotNetBar2, Version=12.5.0.2, Culture=neutral, PublicKeyToken=c39c3242a43eee2b, processorArchitecture=MSIL" />
+    <Reference Include="Hprose.Client">
+      <HintPath>..\packages\HProse\Hprose.Client.dll</HintPath>
+    </Reference>
     <Reference Include="NPOI">
       <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.dll</HintPath>
     </Reference>
@@ -205,6 +208,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="QZApplication.cs" />
+    <Compile Include="RPC\HproseClient.cs" />
     <Compile Include="StatisticsBll.cs" />
     <Compile Include="OrderInfoBll.cs" />
     <Compile Include="SysManage.cs" />

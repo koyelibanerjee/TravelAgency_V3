@@ -254,5 +254,9 @@ namespace TravelAgency.Common
             else
                 MessageBoxEx.Show(string.Format("{0}条记录{1}成功.", succeded, operation));
         }
+
+
+
+
     }
 }
