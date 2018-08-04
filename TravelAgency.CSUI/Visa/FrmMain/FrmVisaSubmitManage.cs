@@ -671,7 +671,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 conditions.Add(" DepartureType = '" + cbDepatureType.Text + "' ");
             }
             conditions.Add(" (ForRequestGroupNo = 0 or ForRequestGroupNo is null)");
-
+            DistrictCondAppender.AddDistrictCondition(conditions);
             string[] arr = conditions.ToArray();
             string where = string.Join(" and ", arr);
             return where;
