@@ -25,7 +25,7 @@ namespace TravelAgency.BLL
             var list = GetModelList(0, string.Empty, " entrytime desc");
 
             string types = null;
-            DialogResult dlgResult = DialogResult.None; //其他国家就不会弹出这个对话框，为None
+            DialogResult isfamilyret = DialogResult.None; //其他国家就不会弹出这个对话框，为None
             if (list[0].Country == "日本")
             {
                 FrmGroupOrIndividualValue frm = new FrmGroupOrIndividualValue();
@@ -35,12 +35,12 @@ namespace TravelAgency.BLL
                     return 0;
 
                 if (types != null && types != "团签")
-                    dlgResult = MessageBoxEx.Show("即将提交，是否将待提交签证设置为\"一家人\"?", "提示", MessageBoxButtons.YesNoCancel);
+                    isfamilyret = MessageBoxEx.Show("即将提交，是否将待提交签证设置为\"一家人\"?", "提示", MessageBoxButtons.YesNoCancel);
             }
 
 
             int retJobId = 0;
-            if (dlgResult == DialogResult.Yes)
+            if (isfamilyret == DialogResult.Yes)
             {
                 Model.JobAssignment jobAssignment = new Model.JobAssignment();
                 jobAssignment.EntryTime = DateTime.Now;
@@ -55,6 +55,7 @@ namespace TravelAgency.BLL
                 {
                     Model.VisaInfo model = new Model.VisaInfo();
                     list[i].CopyToVisaInfo(model);
+                    model.HasTypeIn = "否"; //不能依赖于数据库的默认值!!!
                     //model.EntryTime = DateTime.Now;
 
                     if (_bllVisaInfo.GetModelList(" passportNo ='" + model.PassportNo + "'").Count > 0)
@@ -66,14 +67,14 @@ namespace TravelAgency.BLL
                         }
                     }
 
-                    if (retJobId != 0 && dlgResult != DialogResult.None) //如果返回值不是0，代表用户设置了一家人
+                    if (retJobId != 0 && isfamilyret != DialogResult.None) //如果返回值不是0，代表用户设置了一家人
                     {
                         model.JobId = retJobId;
                         model.Types = types; //设置类型
                     }
                     else //每本签证单独一个工作编号
                     {
-                        if (dlgResult != DialogResult.None) //None的话代表是其他国家
+                        if (isfamilyret != DialogResult.None) //None的话代表是其他国家
                         {
                             Model.JobAssignment jobAssignment = new Model.JobAssignment();
                             jobAssignment.EntryTime = DateTime.Now;
@@ -101,7 +102,7 @@ namespace TravelAgency.BLL
             }
 
             //触发一次工作分配逻辑
-            if (dlgResult != DialogResult.None)
+            if (isfamilyret != DialogResult.None)
             {
                 _bllJobAssignment.AssignmentJob();
             }

@@ -76,7 +76,7 @@ namespace TravelAgency.CSUI.FrmMain
                 return;
             }
             Common.GlobalUtils.LoginUser = list[0];
-            if (list[0].WorkId == "10000" || list[0].WorkId == "10301" || list[0].WorkId == "10302")
+            if (list[0].WorkId == "10000" || list[0].WorkId == "10301" || list[0].WorkId == "10302" || list[0].WorkId == "11301")
             {
                 GlobalUtils.LoginUserLevel = RigthLevel.Manager;
             }

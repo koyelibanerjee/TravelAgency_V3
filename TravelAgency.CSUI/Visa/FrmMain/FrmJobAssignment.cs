@@ -131,7 +131,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             cbAssignmentToUserName.Items.Add("全部");
             cbAssignmentToUserName.SelectedIndex = 0;
             cbAssignmentToUserName.DropDownStyle = ComboBoxStyle.DropDownList;
-            var list = CommonBll.GetFieldList("WorkerQueue", "UserName");
+            var list = CommonBll.GetFieldList("WorkerQueue", "UserName", $" district = {GlobalUtils.LoginUser.District} ");
             if (list != null)
                 foreach (var item in list)
                 {
