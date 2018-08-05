@@ -1,12 +1,15 @@
 ﻿using System;
 using System.IO;
 using Hprose.Server;
+using log4net;
+using TravelAgency.Common;
 
 namespace HProseFileTransferServer
 {
 
     class TestService
     {
+        public static ILog Logger = log4net.LogManager.GetLogger("HProseFileTransferServerLogger");
         public string printHello(int i)
         {
             return $"hello:{i}";
@@ -19,6 +22,7 @@ namespace HProseFileTransferServer
             {
                 fs.Write(filedata, 0, filedata.Length);
                 Console.WriteLine("Received File:{0},Saved To:{1}", filename, filename);
+                Logger.InfoFormat("Received File:{0},Saved To:{1}", filename, filename);
                 fs.Close();
             }
         }
@@ -31,18 +35,22 @@ namespace HProseFileTransferServer
 
     class HProseFileTransferServer
     {
+        public static ILog Logger = log4net.LogManager.GetLogger("HProseFileTransferServerLogger");
         static void Main(string[] args)
         {
             //HproseHttpListenerServer server = new HproseHttpListenerServer("http://127.0.0.1:50002/");
             HproseHttpListenerServer server = new HproseHttpListenerServer("http://0.0.0.0:50002/");
 
             TestService ts = new TestService();
+            
             server.Add("RcvFile", ts);
             server.Add("SndFile", ts);
             server.Add("printHello", ts);
             server.Start();
+            Logger.InfoFormat("Server Started At:{0}", DateTime.Now);
             Console.WriteLine("Server started.");
             Console.ReadLine();
+            Logger.InfoFormat("Server Ended At:{0}", DateTime.Now);
             Console.WriteLine("Server stopped.");
         }
     }
