@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.IO;
 using DevComponents.DotNetBar;
+using TravelAgency.BLL.RPC;
 using TravelAgency.Common;
 using TravelAgency.Common.FTP;
 
@@ -44,6 +45,9 @@ namespace TravelAgency.BLL.FTPFileHandler
         {
             FtpHandler.ChangeFtpUri(ConfigurationManager.AppSettings["PassportPicPath"]);
             FtpHandler.Upload(filename, GetFileName(passportNo, PicType.Type01Normal));
+
+            RPC.HproseClient.UploadImage(HproseClient.ImageType.type01Passport, filename, passportNo);
+
         }
 
 
@@ -138,7 +142,7 @@ namespace TravelAgency.BLL.FTPFileHandler
             return true;
         }
 
-        
+
 
         /// <summary>
         /// 批量下载护照指定类型图像

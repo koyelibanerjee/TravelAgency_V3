@@ -33,24 +33,31 @@ namespace TravelAgency.BLL.RPC
         private static string _uploadCall = "RcvFile";
 
 
-        public static void UploadImage(ImageType type, string filename)
+        /// <summary>
+        /// 上传图片，type，filename指定本地文件名，args如果type是护照图像，指定护照号
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="filename"></param>
+        /// <param name="args"></param>
+        public static void UploadImage(ImageType type, string filename, object args)
         {
             var data = File.ReadAllBytes(filename);
-            string nameNoPath = Path.GetFileName(filename);
+            //string nameNoPath = Path.GetFileName(filename);
             string dstName = "";
             switch (type)
             {
                 case ImageType.type01Passport:
                     dstName = remotePassportPicPath;
+                    dstName += "/" + (string)args + ".jpg";
                     break;
-                //case ImageType.type02Gaopai:
-                //    dstName = remoteGaopaiPicPath;
-                //    break;
-                //case ImageType.type03Jiaojie:
-                //    dstName = remoteJiaoJiePicPath;
-                //    break;
+                    //case ImageType.type02Gaopai:
+                    //    dstName = remoteGaopaiPicPath;
+                    //    break;
+                    //case ImageType.type03Jiaojie:
+                    //    dstName = remoteJiaoJiePicPath;
+                    //    break;
             }
-            dstName += "/" + nameNoPath;
+
             _hproseclient.Invoke(_uploadCall, new object[] { data, dstName });
         }
     }

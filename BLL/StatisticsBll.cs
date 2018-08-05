@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using DevComponents.DotNetBar;
+using TravelAgency.Common;
 using TravelAgency.DAL;
 using TravelAgency.Model;
 
