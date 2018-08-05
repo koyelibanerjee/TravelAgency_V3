@@ -46,8 +46,8 @@ namespace TravelAgency.BLL.FTPFileHandler
             FtpHandler.ChangeFtpUri(ConfigurationManager.AppSettings["PassportPicPath"]);
             FtpHandler.Upload(filename, GetFileName(passportNo, PicType.Type01Normal));
 
-            RPC.HproseClient.UploadImage(HproseClient.ImageType.type01Passport, filename, passportNo);
-
+            if (GlobalUtils.LoginUser.District != 0)
+                RPC.HproseClient.UploadImage(HproseClient.ImageType.type01Passport, filename, passportNo);
         }
 
 
