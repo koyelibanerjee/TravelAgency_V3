@@ -164,7 +164,7 @@ namespace TravelAgency.CSUI.FrmSub
             cbCountry.Text = _visaModel.Country;
             txtSalesPerson.Text = _visaModel.SalesPerson;
             txtClient.Text = _visaModel.client;
-            chbIsUrgent.Checked = _visaModel.IsUrgent??false;
+            chbIsUrgent.Checked = _visaModel.IsUrgent ?? false;
             txtPerson.Text = _visaModel.Person;
             this.Text += "(" + _visaModel.Types + ")";
 
@@ -807,6 +807,7 @@ _dgvList[i], _visaModel);
                 _visaModel.IsUrgent = chbIsUrgent.Checked;
                 _visaModel.Person = txtPerson.Text;
                 _visaModel.ForRequestGroupNo = false;
+                _visaModel.District = GlobalUtils.LoginUser.District;
                 return true;
             }
             catch (Exception)
@@ -846,7 +847,7 @@ _dgvList[i], _visaModel);
                 model.IsUrgent = chbIsUrgent.Checked;
                 model.Person = txtPerson.Text;
                 model.ForRequestGroupNo = false;
-
+                model.District = GlobalUtils.LoginUser.District;
                 model.EntryTime = DateTime.Now; //20171217，也跟着操作改变
                 return true;
             }

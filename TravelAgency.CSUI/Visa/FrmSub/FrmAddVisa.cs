@@ -163,6 +163,7 @@ namespace TravelAgency.CSUI.FrmSub
 
                 visaModel.IsUrgent = chbIsUrgent.Checked;
                 visaModel.Person = txtPerson.Text;
+                visaModel.District = GlobalUtils.LoginUser.District;
                 return visaModel;
             }
             catch (Exception)

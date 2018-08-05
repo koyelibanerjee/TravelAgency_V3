@@ -1194,6 +1194,7 @@ namespace TravelAgency.CSUI.FrmSub
                 if (!string.IsNullOrEmpty(txtQuQianYuan.Text))
                     _visaModel.QuQianYuan = txtQuQianYuan.Text;
                 _visaModel.ForRequestGroupNo = false;
+                _visaModel.District = GlobalUtils.LoginUser.District;
                 return true;
             }
             catch (Exception)
@@ -1305,7 +1306,7 @@ namespace TravelAgency.CSUI.FrmSub
                 if (!string.IsNullOrEmpty(txtQuQianYuan.Text))
                     model.QuQianYuan = txtQuQianYuan.Text;
                 model.ForRequestGroupNo = false;
-
+                model.District = GlobalUtils.LoginUser.District;
                 //model.EntryTime = DateTime.Now; //20171217，也跟着操作改变，20171231 改成询问用户
                 return true;
             }
