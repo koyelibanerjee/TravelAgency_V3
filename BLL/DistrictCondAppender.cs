@@ -12,9 +12,10 @@ namespace TravelAgency.BLL
         public static List<string> AddDistrictCondition(List<string> condi)
         {
             if (GlobalUtils.LoginUser.District != 0)
-                condi.Add($" (District = {GlobalUtils.LoginUser.District}) ");
+                condi.Add($" ((District = {GlobalUtils.LoginUser.District}) or " +
+                          $"(IsOutDelivery = 1 and OutDeliveryPlace = '" +
+                          $"{TravelAgency.Model.Enums.District.DistrictList[GlobalUtils.LoginUser.District.Value]}')) ");
             return condi;
         }
-
     }
 }
