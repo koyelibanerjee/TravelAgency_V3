@@ -61,8 +61,8 @@
             this.ribbonBar5 = new DevComponents.DotNetBar.RibbonBar();
             this.btnChangeLoginUser = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonTabItem3 = new DevComponents.DotNetBar.RibbonTabItem();
-            this.ribbonTabItem1 = new DevComponents.DotNetBar.RibbonTabItem();
-            this.ribbonTabItem2 = new DevComponents.DotNetBar.RibbonTabItem();
+            this.rbTabStat = new DevComponents.DotNetBar.RibbonTabItem();
+            this.rbTabFinancial = new DevComponents.DotNetBar.RibbonTabItem();
             this.ribbonTabItem5 = new DevComponents.DotNetBar.RibbonTabItem();
             this.btnVip = new DevComponents.DotNetBar.ButtonItem();
             this.btnUsers = new DevComponents.DotNetBar.ButtonItem();
@@ -88,14 +88,14 @@
             // 
             this.ribbonControl1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonControl1.Controls.Add(this.ribbonPanel3);
-            this.ribbonControl1.Controls.Add(this.ribbonPanel1);
-            this.ribbonControl1.Controls.Add(this.ribbonPanel2);
             this.ribbonControl1.Controls.Add(this.ribbonPanel5);
+            this.ribbonControl1.Controls.Add(this.ribbonPanel2);
+            this.ribbonControl1.Controls.Add(this.ribbonPanel1);
             this.ribbonControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.ribbonControl1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.ribbonTabItem3,
-            this.ribbonTabItem1,
-            this.ribbonTabItem2,
+            this.rbTabStat,
+            this.rbTabFinancial,
             this.ribbonTabItem5});
             this.ribbonControl1.KeyTipsFont = new System.Drawing.Font("Tahoma", 7F);
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
@@ -614,17 +614,17 @@
             this.ribbonTabItem3.Panel = this.ribbonPanel3;
             this.ribbonTabItem3.Text = "签证管理";
             // 
-            // ribbonTabItem1
+            // rbTabStat
             // 
-            this.ribbonTabItem1.Name = "ribbonTabItem1";
-            this.ribbonTabItem1.Panel = this.ribbonPanel1;
-            this.ribbonTabItem1.Text = "数据统计";
+            this.rbTabStat.Name = "rbTabStat";
+            this.rbTabStat.Panel = this.ribbonPanel1;
+            this.rbTabStat.Text = "数据统计";
             // 
-            // ribbonTabItem2
+            // rbTabFinancial
             // 
-            this.ribbonTabItem2.Name = "ribbonTabItem2";
-            this.ribbonTabItem2.Panel = this.ribbonPanel2;
-            this.ribbonTabItem2.Text = "财务管理";
+            this.rbTabFinancial.Name = "rbTabFinancial";
+            this.rbTabFinancial.Panel = this.ribbonPanel2;
+            this.rbTabFinancial.Text = "财务管理";
             // 
             // ribbonTabItem5
             // 
@@ -749,12 +749,12 @@
         private DevComponents.DotNetBar.ButtonItem btnFrmGaoPaiManage;
         private System.Windows.Forms.Label lbVisaInfoCount;
         private DevComponents.DotNetBar.RibbonPanel ribbonPanel1;
-        private DevComponents.DotNetBar.RibbonTabItem ribbonTabItem1;
+        private DevComponents.DotNetBar.RibbonTabItem rbTabStat;
         private DevComponents.DotNetBar.RibbonBar ribbonBar1;
         private DevComponents.DotNetBar.ButtonItem btntActionRecordsCount;
         private DevComponents.DotNetBar.ButtonItem btnPersonalCount;
         private DevComponents.DotNetBar.RibbonPanel ribbonPanel2;
-        private DevComponents.DotNetBar.RibbonTabItem ribbonTabItem2;
+        private DevComponents.DotNetBar.RibbonTabItem rbTabFinancial;
         private DevComponents.DotNetBar.RibbonBar ribbonBar3;
         private DevComponents.DotNetBar.ButtonItem btnVisaRequestPayoutManage;
         private DevComponents.DotNetBar.RibbonBar ribbonBar4;

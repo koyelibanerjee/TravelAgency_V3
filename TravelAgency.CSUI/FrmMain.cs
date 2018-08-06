@@ -53,7 +53,7 @@ namespace TravelAgency.CSUI.FrmMain
         {
             if (IsOpenTab(Name))
                 return;
-            
+
             DevComponents.DotNetBar.TabItem tp = new DevComponents.DotNetBar.TabItem();
             DevComponents.DotNetBar.TabControlPanel tcp = new DevComponents.DotNetBar.TabControlPanel();
             tp.MouseDown += new MouseEventHandler(tp_MouseDown);
@@ -141,11 +141,17 @@ namespace TravelAgency.CSUI.FrmMain
             MinimumSize = Size;
             FrmsManager.OpenedForms.Add(this);
             GlobalStat.UpdateStatistics();
-           string workId =  GlobalUtils.LoginUser.WorkId;
+            string workId = GlobalUtils.LoginUser.WorkId;
             if (workId != "10000" && workId != "10301" && workId != "10302")
             {
                 btnCommisionMoneyManage.Enabled = false;
                 btnPersonalCount.Enabled = false;
+            }
+
+            if (GlobalUtils.LoginUser.District != 0)
+            {
+                rbTabFinancial.Visible = false;
+                rbTabStat.Visible = false;
             }
         }
 
@@ -262,7 +268,7 @@ namespace TravelAgency.CSUI.FrmMain
         private void btnClaimManage_Click(object sender, EventArgs e)
         {
             FrmVisaClaimManage frm = new FrmVisaClaimManage();
-            OpenTab(frm,frm.Name);
+            OpenTab(frm, frm.Name);
         }
     }
 }

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bar1 = new DevComponents.DotNetBar.Bar();
             this.btnPageFirst = new DevComponents.DotNetBar.ButtonItem();
             this.btnPagePre = new DevComponents.DotNetBar.ButtonItem();
@@ -106,10 +106,12 @@
             this.设置备注2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelBars = new DevComponents.DotNetBar.PanelEx();
             this.panelSerachBar = new DevComponents.DotNetBar.PanelEx();
+            this.txtTypeInPerson = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.txtSalesPerson = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX8 = new DevComponents.DotNetBar.LabelX();
             this.txtOperator = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.btnAddVisa = new DevComponents.DotNetBar.ButtonX();
-            this.txtSalesPerson = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.txtClient = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.cbDepatureType = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX7 = new DevComponents.DotNetBar.LabelX();
@@ -142,8 +144,8 @@
             this.lbCount = new DevComponents.DotNetBar.LabelItem();
             this.cmsAddToGroup = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.添加到团号ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtTypeInPerson = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX8 = new DevComponents.DotNetBar.LabelX();
+            this.cbDistrict = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.labelX9 = new DevComponents.DotNetBar.LabelX();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cmsDgv.SuspendLayout();
@@ -260,14 +262,14 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.GroupNo,
@@ -287,28 +289,28 @@
             this.Tips,
             this.Tips2,
             this.Visa_id});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -525,7 +527,7 @@
             // 打印报表ToolStripMenuItem
             // 
             this.打印报表ToolStripMenuItem.Name = "打印报表ToolStripMenuItem";
-            this.打印报表ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.打印报表ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.打印报表ToolStripMenuItem.Text = "打印报表";
             this.打印报表ToolStripMenuItem.Click += new System.EventHandler(this.打印报表ToolStripMenuItem_Click);
             // 
@@ -549,7 +551,7 @@
             this.东东全日空ToolStripMenuItem,
             this.新北东航ToolStripMenuItem});
             this.日本ToolStripMenuItem.Name = "日本ToolStripMenuItem";
-            this.日本ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.日本ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.日本ToolStripMenuItem.Text = "日本";
             // 
             // 日本团队综合名单ToolStripMenuItem
@@ -668,7 +670,7 @@
             this.韩国担保函ToolStripMenuItem,
             this.韩国加急申请书ToolStripMenuItem});
             this.韩国ToolStripMenuItem.Name = "韩国ToolStripMenuItem";
-            this.韩国ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.韩国ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.韩国ToolStripMenuItem.Text = "韩国";
             // 
             // 韩国担保函ToolStripMenuItem
@@ -696,60 +698,60 @@
             this.川航机票ToolStripMenuItem,
             this.泰航机票ToolStripMenuItem});
             this.泰国ToolStripMenuItem.Name = "泰国ToolStripMenuItem";
-            this.泰国ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.泰国ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.泰国ToolStripMenuItem.Text = "泰国";
             // 
             // 数据源报表ToolStripMenuItem
             // 
             this.数据源报表ToolStripMenuItem.Name = "数据源报表ToolStripMenuItem";
-            this.数据源报表ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.数据源报表ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.数据源报表ToolStripMenuItem.Text = "数据源报表";
             this.数据源报表ToolStripMenuItem.Click += new System.EventHandler(this.数据源报表ToolStripMenuItem_Click);
             // 
             // 泰签担保函ToolStripMenuItem
             // 
             this.泰签担保函ToolStripMenuItem.Name = "泰签担保函ToolStripMenuItem";
-            this.泰签担保函ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.泰签担保函ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.泰签担保函ToolStripMenuItem.Text = "泰签担保函";
             this.泰签担保函ToolStripMenuItem.Click += new System.EventHandler(this.泰签担保函ToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(133, 6);
             // 
             // 机票报表ToolStripMenuItem1
             // 
             this.机票报表ToolStripMenuItem1.Name = "机票报表ToolStripMenuItem1";
-            this.机票报表ToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.机票报表ToolStripMenuItem1.Size = new System.Drawing.Size(136, 22);
             this.机票报表ToolStripMenuItem1.Text = "机票报表";
             this.机票报表ToolStripMenuItem1.Click += new System.EventHandler(this.机票报表ToolStripMenuItem1_Click);
             // 
             // 东航机票ToolStripMenuItem
             // 
             this.东航机票ToolStripMenuItem.Name = "东航机票ToolStripMenuItem";
-            this.东航机票ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.东航机票ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.东航机票ToolStripMenuItem.Text = "东航机票";
             this.东航机票ToolStripMenuItem.Click += new System.EventHandler(this.东航机票ToolStripMenuItem_Click);
             // 
             // 川航机票ToolStripMenuItem
             // 
             this.川航机票ToolStripMenuItem.Name = "川航机票ToolStripMenuItem";
-            this.川航机票ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.川航机票ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.川航机票ToolStripMenuItem.Text = "川航机票";
             this.川航机票ToolStripMenuItem.Click += new System.EventHandler(this.川航机票ToolStripMenuItem_Click);
             // 
             // 泰航机票ToolStripMenuItem
             // 
             this.泰航机票ToolStripMenuItem.Name = "泰航机票ToolStripMenuItem";
-            this.泰航机票ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.泰航机票ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
             this.泰航机票ToolStripMenuItem.Text = "泰航机票";
             this.泰航机票ToolStripMenuItem.Click += new System.EventHandler(this.泰航机票ToolStripMenuItem_Click);
             // 
             // 两人保险报表ToolStripMenuItem
             // 
             this.两人保险报表ToolStripMenuItem.Name = "两人保险报表ToolStripMenuItem";
-            this.两人保险报表ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.两人保险报表ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.两人保险报表ToolStripMenuItem.Text = "保险报表";
             this.两人保险报表ToolStripMenuItem.Click += new System.EventHandler(this.两人保险报表ToolStripMenuItem_Click);
             // 
@@ -784,6 +786,8 @@
             // 
             this.panelSerachBar.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelSerachBar.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelSerachBar.Controls.Add(this.cbDistrict);
+            this.panelSerachBar.Controls.Add(this.labelX9);
             this.panelSerachBar.Controls.Add(this.txtTypeInPerson);
             this.panelSerachBar.Controls.Add(this.txtSalesPerson);
             this.panelSerachBar.Controls.Add(this.labelX8);
@@ -829,6 +833,42 @@
             this.panelSerachBar.Style.GradientAngle = 90;
             this.panelSerachBar.TabIndex = 29;
             // 
+            // txtTypeInPerson
+            // 
+            // 
+            // 
+            // 
+            this.txtTypeInPerson.Border.Class = "TextBoxBorder";
+            this.txtTypeInPerson.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtTypeInPerson.Location = new System.Drawing.Point(843, 36);
+            this.txtTypeInPerson.Name = "txtTypeInPerson";
+            this.txtTypeInPerson.Size = new System.Drawing.Size(60, 21);
+            this.txtTypeInPerson.TabIndex = 51;
+            // 
+            // txtSalesPerson
+            // 
+            // 
+            // 
+            // 
+            this.txtSalesPerson.Border.Class = "TextBoxBorder";
+            this.txtSalesPerson.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtSalesPerson.Location = new System.Drawing.Point(738, 36);
+            this.txtSalesPerson.Name = "txtSalesPerson";
+            this.txtSalesPerson.Size = new System.Drawing.Size(60, 21);
+            this.txtSalesPerson.TabIndex = 42;
+            // 
+            // labelX8
+            // 
+            // 
+            // 
+            // 
+            this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX8.Location = new System.Drawing.Point(797, 38);
+            this.labelX8.Name = "labelX8";
+            this.labelX8.Size = new System.Drawing.Size(54, 21);
+            this.labelX8.TabIndex = 52;
+            this.labelX8.Text = "资料员:";
+            // 
             // txtOperator
             // 
             // 
@@ -864,18 +904,6 @@
             this.btnAddVisa.TabIndex = 48;
             this.btnAddVisa.Text = "添加团号";
             this.btnAddVisa.Click += new System.EventHandler(this.btnAddVisa_Click);
-            // 
-            // txtSalesPerson
-            // 
-            // 
-            // 
-            // 
-            this.txtSalesPerson.Border.Class = "TextBoxBorder";
-            this.txtSalesPerson.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtSalesPerson.Location = new System.Drawing.Point(738, 36);
-            this.txtSalesPerson.Name = "txtSalesPerson";
-            this.txtSalesPerson.Size = new System.Drawing.Size(60, 21);
-            this.txtSalesPerson.TabIndex = 42;
             // 
             // txtClient
             // 
@@ -1095,7 +1123,7 @@
             this.txtSchGroupNo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtSchGroupNo.Location = new System.Drawing.Point(62, 7);
             this.txtSchGroupNo.Name = "txtSchGroupNo";
-            this.txtSchGroupNo.Size = new System.Drawing.Size(230, 21);
+            this.txtSchGroupNo.Size = new System.Drawing.Size(118, 21);
             this.txtSchGroupNo.TabIndex = 23;
             // 
             // lb1
@@ -1325,29 +1353,29 @@
             this.添加到团号ToolStripMenuItem.Text = "添加到此团号";
             this.添加到团号ToolStripMenuItem.Click += new System.EventHandler(this.添加到团号ToolStripMenuItem_Click);
             // 
-            // txtTypeInPerson
+            // cbDistrict
+            // 
+            this.cbDistrict.DisplayMember = "Text";
+            this.cbDistrict.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbDistrict.FormattingEnabled = true;
+            this.cbDistrict.ItemHeight = 15;
+            this.cbDistrict.Location = new System.Drawing.Point(226, 5);
+            this.cbDistrict.Name = "cbDistrict";
+            this.cbDistrict.Size = new System.Drawing.Size(66, 21);
+            this.cbDistrict.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cbDistrict.TabIndex = 54;
+            // 
+            // labelX9
             // 
             // 
             // 
             // 
-            this.txtTypeInPerson.Border.Class = "TextBoxBorder";
-            this.txtTypeInPerson.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtTypeInPerson.Location = new System.Drawing.Point(843, 36);
-            this.txtTypeInPerson.Name = "txtTypeInPerson";
-            this.txtTypeInPerson.Size = new System.Drawing.Size(60, 21);
-            this.txtTypeInPerson.TabIndex = 51;
-            // 
-            // labelX8
-            // 
-            // 
-            // 
-            // 
-            this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX8.Location = new System.Drawing.Point(797, 38);
-            this.labelX8.Name = "labelX8";
-            this.labelX8.Size = new System.Drawing.Size(54, 21);
-            this.labelX8.TabIndex = 52;
-            this.labelX8.Text = "资料员:";
+            this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX9.Location = new System.Drawing.Point(186, 5);
+            this.labelX9.Name = "labelX9";
+            this.labelX9.Size = new System.Drawing.Size(42, 21);
+            this.labelX9.TabIndex = 53;
+            this.labelX9.Text = "地区:";
             // 
             // FrmVisaManage
             // 
@@ -1487,5 +1515,7 @@
         private DevComponents.DotNetBar.LabelItem lbCount;
         private DevComponents.DotNetBar.Controls.TextBoxX txtTypeInPerson;
         private DevComponents.DotNetBar.LabelX labelX8;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cbDistrict;
+        private DevComponents.DotNetBar.LabelX labelX9;
     }
 }

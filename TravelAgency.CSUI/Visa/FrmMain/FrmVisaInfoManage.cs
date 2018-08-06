@@ -127,6 +127,17 @@ namespace TravelAgency.CSUI.FrmMain
             }
             cbCountry.SelectedIndex = 0;
 
+            //地区列表框初始化
+            cbDistrict.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbDistrict.Items.Add("全部");
+            foreach (string dis in Model.Enums.District.DistrictList)
+                cbDistrict.Items.Add(dis);
+            cbDistrict.SelectedIndex = 0;
+            if (GlobalUtils.LoginUser.District != 0)
+            {
+                cbDistrict.Text = District.key2Value(GlobalUtils.LoginUser.District.Value);
+                cbDistrict.Enabled = false;
+            }
 
 
 
@@ -540,7 +551,12 @@ namespace TravelAgency.CSUI.FrmMain
                 conditions.Add(" HasTypeIn = '否' ");
             }
 
-            DistrictCondAppender.AddDistrictCondition(conditions);
+            if (cbDistrict.Text != "全部")
+            {
+                conditions.Add($" district  = {District.value2Key(cbDistrict.Text)} ");
+            }
+
+            //DistrictCondAppender.AddDistrictCondition(conditions);
 
             string[] arr = conditions.ToArray();
             string where = string.Join(" and ", arr);

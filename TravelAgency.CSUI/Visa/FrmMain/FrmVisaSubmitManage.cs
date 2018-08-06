@@ -127,6 +127,18 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             }
             cbCountry.SelectedIndex = 0;
 
+            //地区列表框初始化
+            cbDistrict.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbDistrict.Items.Add("全部");
+            foreach (string dis in Model.Enums.District.DistrictList)
+                cbDistrict.Items.Add(dis);
+            cbDistrict.SelectedIndex = 0;
+            if (GlobalUtils.LoginUser.District != 0)
+            {
+                cbDistrict.Text = District.key2Value(GlobalUtils.LoginUser.District.Value);
+                cbDistrict.Enabled = false;
+            }
+
             cbState.Items.Add("全部");
             cbState.Items.Add("已做");
             cbState.Items.Add("未做");
@@ -670,8 +682,14 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             {
                 conditions.Add(" DepartureType = '" + cbDepatureType.Text + "' ");
             }
+
+            if (cbDistrict.Text != "全部")
+            {
+                conditions.Add($" (district  = {District.value2Key(cbDistrict.Text)} or OutDeliveryPlace = '{cbDistrict.Text}') ");
+            }
+
+
             conditions.Add(" (ForRequestGroupNo = 0 or ForRequestGroupNo is null)");
-            DistrictCondAppender.AddDistrictCondition(conditions);
             string[] arr = conditions.ToArray();
             string where = string.Join(" and ", arr);
             return where;

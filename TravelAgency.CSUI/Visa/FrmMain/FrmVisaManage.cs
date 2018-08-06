@@ -68,7 +68,8 @@ namespace TravelAgency.CSUI.FrmMain
 
         private void FrmVisaManage_Load(object sender, EventArgs e)
         {
-            _recordCount = _bllVisa.GetRecordCount(string.Empty);
+            _where = GetWhereCondition();
+            _recordCount = _bllVisa.GetRecordCount(_where);
             _pageCount = (int)Math.Ceiling((double)_recordCount / _pageSize);
             cbPageSize.Items.Add("30");
             cbPageSize.Items.Add("50");
@@ -102,6 +103,19 @@ namespace TravelAgency.CSUI.FrmMain
                 cbCountry.Items.Add(countryName);
             }
             cbCountry.SelectedIndex = 0;
+
+            //地区列表框初始化
+            cbDistrict.DropDownStyle= ComboBoxStyle.DropDownList;
+            cbDistrict.Items.Add("全部");
+            foreach (string dis in Model.Enums.District.DistrictList)
+                cbDistrict.Items.Add(dis);
+            cbDistrict.SelectedIndex = 0;
+            if (GlobalUtils.LoginUser.District != 0)
+            {
+                cbDistrict.Text = District.key2Value(GlobalUtils.LoginUser.District.Value);
+                cbDistrict.Enabled = false;
+            }
+
 
             cbState.Items.Add("全部");
             cbState.Items.Add("已做");
@@ -345,8 +359,15 @@ namespace TravelAgency.CSUI.FrmMain
             {
                 conditions.Add(" DepartureType = '" + cbDepatureType.Text + "' ");
             }
+
+            if (cbDistrict.Text != "全部")
+            {
+                conditions.Add($" (district  = {District.value2Key(cbDistrict.Text)} or OutDeliveryPlace = '{cbDistrict.Text}') ");
+            }
+
+
             conditions.Add(" (ForRequestGroupNo = 0 or ForRequestGroupNo is null) ");
-            DistrictCondAppender.AddDistrictCondition(conditions);
+            //DistrictCondAppender.AddDistrictCondition(conditions);
             string[] arr = conditions.ToArray();
             string where = string.Join(" and ", arr);
             return where;
@@ -412,7 +433,7 @@ namespace TravelAgency.CSUI.FrmMain
                                     DateTimeFormator.DateTimeToString(from, DateTimeFormator.TimeFormat.Type06LongTime) + "' and '" +
                                     DateTimeFormator.DateTimeToString(to, DateTimeFormator.TimeFormat.Type06LongTime) +
                          "') and (Types='个签' or Types='团做个') and (country = '日本') " +
-                         $" and district = {GlobalUtils.LoginUser.District} " + 
+                         $" and (district = {GlobalUtils.LoginUser.District}  or OutDeliveryPlace = '{cbDistrict.Text}') ) " + 
                           " order by entrytime asc ");
 
             //这里干脆就不判断entrytime了，直接找记录算了

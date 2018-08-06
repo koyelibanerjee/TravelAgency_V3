@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bar1 = new DevComponents.DotNetBar.Bar();
             this.btnPageFirst = new DevComponents.DotNetBar.ButtonItem();
             this.btnPagePre = new DevComponents.DotNetBar.ButtonItem();
@@ -44,6 +44,7 @@
             this.cbPageSize = new DevComponents.DotNetBar.ComboBoxItem();
             this.labelItem2 = new DevComponents.DotNetBar.LabelItem();
             this.lbCurPage = new DevComponents.DotNetBar.LabelItem();
+            this.lbDuplicate = new DevComponents.DotNetBar.LabelItem();
             this.dataGridView1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
             this.GroupNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -158,7 +159,8 @@
             this.lbRealTime = new DevComponents.DotNetBar.LabelX();
             this.labelX9 = new DevComponents.DotNetBar.LabelX();
             this.txtInput = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.lbDuplicate = new DevComponents.DotNetBar.LabelItem();
+            this.cbDistrict = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.labelX8 = new DevComponents.DotNetBar.LabelX();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cmsDgv.SuspendLayout();
@@ -266,19 +268,27 @@
             // 
             this.lbCurPage.Name = "lbCurPage";
             // 
+            // lbDuplicate
+            // 
+            this.lbDuplicate.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbDuplicate.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lbDuplicate.Name = "lbDuplicate";
+            this.lbDuplicate.Text = "无重复";
+            this.lbDuplicate.Click += new System.EventHandler(this.lbDuplicate_Click);
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.GroupNo,
@@ -298,28 +308,28 @@
             this.Operator,
             this.Tips2,
             this.Visa_id});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -842,6 +852,8 @@
             // 
             this.panelSerachBar.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelSerachBar.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelSerachBar.Controls.Add(this.cbDistrict);
+            this.panelSerachBar.Controls.Add(this.labelX8);
             this.panelSerachBar.Controls.Add(this.cbSchTimeType);
             this.panelSerachBar.Controls.Add(this.lbPeopleCount);
             this.panelSerachBar.Controls.Add(this.btnAddVisa);
@@ -1100,7 +1112,7 @@
             this.cbDisplayType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbDisplayType.FormattingEnabled = true;
             this.cbDisplayType.ItemHeight = 15;
-            this.cbDisplayType.Location = new System.Drawing.Point(333, 6);
+            this.cbDisplayType.Location = new System.Drawing.Point(376, 6);
             this.cbDisplayType.Name = "cbDisplayType";
             this.cbDisplayType.Size = new System.Drawing.Size(79, 21);
             this.cbDisplayType.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -1141,7 +1153,7 @@
             // 
             // 
             this.labelX15.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX15.Location = new System.Drawing.Point(298, 7);
+            this.labelX15.Location = new System.Drawing.Point(341, 7);
             this.labelX15.Name = "labelX15";
             this.labelX15.Size = new System.Drawing.Size(46, 21);
             this.labelX15.TabIndex = 24;
@@ -1154,9 +1166,9 @@
             // 
             this.txtSchGroupNo.Border.Class = "TextBoxBorder";
             this.txtSchGroupNo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtSchGroupNo.Location = new System.Drawing.Point(62, 7);
+            this.txtSchGroupNo.Location = new System.Drawing.Point(38, 7);
             this.txtSchGroupNo.Name = "txtSchGroupNo";
-            this.txtSchGroupNo.Size = new System.Drawing.Size(230, 21);
+            this.txtSchGroupNo.Size = new System.Drawing.Size(185, 21);
             this.txtSchGroupNo.TabIndex = 23;
             // 
             // lb1
@@ -1567,13 +1579,29 @@
             this.txtInput.Size = new System.Drawing.Size(178, 342);
             this.txtInput.TabIndex = 0;
             // 
-            // lbDuplicate
+            // cbDistrict
             // 
-            this.lbDuplicate.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbDuplicate.ForeColor = System.Drawing.Color.ForestGreen;
-            this.lbDuplicate.Name = "lbDuplicate";
-            this.lbDuplicate.Text = "无重复";
-            this.lbDuplicate.Click += new System.EventHandler(this.lbDuplicate_Click);
+            this.cbDistrict.DisplayMember = "Text";
+            this.cbDistrict.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbDistrict.FormattingEnabled = true;
+            this.cbDistrict.ItemHeight = 15;
+            this.cbDistrict.Location = new System.Drawing.Point(269, 5);
+            this.cbDistrict.Name = "cbDistrict";
+            this.cbDistrict.Size = new System.Drawing.Size(66, 21);
+            this.cbDistrict.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cbDistrict.TabIndex = 60;
+            // 
+            // labelX8
+            // 
+            // 
+            // 
+            // 
+            this.labelX8.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX8.Location = new System.Drawing.Point(229, 5);
+            this.labelX8.Name = "labelX8";
+            this.labelX8.Size = new System.Drawing.Size(42, 21);
+            this.labelX8.TabIndex = 59;
+            this.labelX8.Text = "地区:";
             // 
             // FrmVisaSubmitManage
             // 
@@ -1733,5 +1761,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Tips2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Visa_id;
         private DevComponents.DotNetBar.LabelItem lbDuplicate;
+        private DevComponents.DotNetBar.Controls.ComboBoxEx cbDistrict;
+        private DevComponents.DotNetBar.LabelX labelX8;
     }
 }

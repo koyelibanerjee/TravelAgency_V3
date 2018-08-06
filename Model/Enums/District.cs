@@ -13,5 +13,15 @@ namespace TravelAgency.Model.Enums
             "成都","重庆"
         };
 
+        public static string key2Value(int key)
+        {
+            return DistrictList[key];
+        }
+
+        public static int value2Key(string value)
+        {
+            return DistrictList.IndexOf(value);
+        }
+
     }
 }
