@@ -19,6 +19,7 @@ using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Properties;
 using TravelAgency.CSUI.Visa.FrmSub;
 using TravelAgency.Model;
+using TravelAgency.Model.Enums;
 
 namespace TravelAgency.CSUI.Visa.FrmMain
 {
@@ -146,6 +147,19 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 cbCountry.Items.Add(countryName);
             }
             cbCountry.SelectedIndex = 0;
+
+
+            //地区列表框初始化
+            cbDistrict.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbDistrict.Items.Add("全部");
+            foreach (string dis in Model.Enums.District.DistrictList)
+                cbDistrict.Items.Add(dis);
+            cbDistrict.SelectedIndex = 0;
+            if (GlobalUtils.LoginUser.District != 0)
+            {
+                cbDistrict.Text = District.key2Value(GlobalUtils.LoginUser.District.Value);
+                cbDistrict.Enabled = false;
+            }
 
             bgWorkerLoadData.WorkerReportsProgress = true;
             progressLoading.Visible = false;
@@ -496,7 +510,10 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             //conditions.Add(" HasTypeIn = '否' "); //默认只显示还未做的
             conditions.Add(" Country = '" + "日本" + "' ");
             conditions.Add(" Types in ('个签','商务','团做个')");
-            DistrictCondAppender.AddDistrictCondition(conditions);
+            if (cbDistrict.Text != "全部")
+            {
+                conditions.Add($" disctrict  = {District.value2Key(cbDistrict.Text)} ");
+            }
 
             string[] arr = conditions.ToArray();
             string where = string.Join(" and ", arr);
