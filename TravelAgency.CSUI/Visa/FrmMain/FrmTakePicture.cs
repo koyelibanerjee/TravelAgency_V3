@@ -11,6 +11,7 @@ using System.Threading;
 using System.Windows.Forms;
 using TravelAgency.BLL.FTPFileHandler;
 using TravelAgency.Common;
+using TravelAgency.Model;
 
 namespace ScanCtrlTest
 {
@@ -18,10 +19,19 @@ namespace ScanCtrlTest
     {
         private GaopaiPicHandler _gaopaiPicHandler = new GaopaiPicHandler(GaopaiPicHandler.PictureType.Type01_Normal);
         private GaopaiPicHandler _jiaojiePicHandler = new GaopaiPicHandler(GaopaiPicHandler.PictureType.Type02_JiaoJie);
+        private bool _add2Visa = false;
+        private TravelAgency.Model.Visa _visaModel = new Visa();
+
         string _types = "未分类";
         public FrmTackePicture()
         {
             InitializeComponent();
+        }
+
+        public FrmTackePicture(TravelAgency.Model.Visa model) : this()
+        {
+            _add2Visa = true;
+            _visaModel = model;
         }
 
         #region 按钮事件
@@ -40,6 +50,7 @@ namespace ScanCtrlTest
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+
         private void button2_Click(object sender, EventArgs e)
         {
             axScanCtrl1.StopPreview();
@@ -67,19 +78,34 @@ namespace ScanCtrlTest
             string filename = textBox1.Text + "\\" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".jpg";
             axScanCtrl1.Scan(filename); //传的参数就是存储路径
 
-            //再上传到服务器端
-            if (rbtnGaoPai.Checked)
-                _gaopaiPicHandler.UploadGaoPaiImageAsync(new List<string> { filename, _types });
-            else
-                _jiaojiePicHandler.UploadGaoPaiImageAsync(new List<string> { filename, _types });
+            if (_add2Visa)
+            {
+                _gaopaiPicHandler.UploadGaoPaiImageAsyncForVisa(new List<string> { filename, _visaModel.Visa_id.ToString() });
 
-            new Thread(UpdateLable) { IsBackground = true }.Start(DateTime.Now.ToString("yyyyMMddHHmmss") + ".jpg 保存成功.");
-            PicHandler.MakeThumbnail(filename, _gaopaiPicHandler.GetThumbName(filename), GlobalUtils.ThumbNailRatio);
-            //再上传缩略图到服务器端
-            if (rbtnGaoPai.Checked)
-                _gaopaiPicHandler.UploadGaoPaiImageAsync(new List<string> { _gaopaiPicHandler.GetThumbName(filename), _types });
+                new Thread(UpdateLable) { IsBackground = true }.Start(DateTime.Now.ToString("yyyyMMddHHmmss") + ".jpg 保存成功.");
+                PicHandler.MakeThumbnail(filename, _gaopaiPicHandler.GetThumbName(filename), GlobalUtils.ThumbNailRatio);
+
+                _gaopaiPicHandler.UploadGaoPaiImageAsyncForVisa(new List<string> { _gaopaiPicHandler.GetThumbName(filename), _visaModel.Visa_id.ToString() });
+            }
             else
-                _jiaojiePicHandler.UploadGaoPaiImageAsync(new List<string> { _gaopaiPicHandler.GetThumbName(filename), _types });
+            {
+                //再上传到服务器端
+                if (rbtnGaoPai.Checked)
+                    _gaopaiPicHandler.UploadGaoPaiImageAsync(new List<string> { filename, _types });
+                else
+                    _jiaojiePicHandler.UploadGaoPaiImageAsync(new List<string> { filename, _types });
+
+                new Thread(UpdateLable) { IsBackground = true }.Start(DateTime.Now.ToString("yyyyMMddHHmmss") + ".jpg 保存成功.");
+                PicHandler.MakeThumbnail(filename, _gaopaiPicHandler.GetThumbName(filename), GlobalUtils.ThumbNailRatio);
+
+                //再上传缩略图到服务器端
+                if (rbtnGaoPai.Checked)
+                    _gaopaiPicHandler.UploadGaoPaiImageAsync(new List<string> { _gaopaiPicHandler.GetThumbName(filename), _types });
+                else
+                    _jiaojiePicHandler.UploadGaoPaiImageAsync(new List<string> { _gaopaiPicHandler.GetThumbName(filename), _types });
+            }
+
+
 
         }
         /// <summary>
@@ -184,9 +210,19 @@ namespace ScanCtrlTest
             comboBox5.Items.Add("黑白");
             comboBox5.SelectedIndex = 0;
 
-            textBox1.Text = GlobalUtils.LocalGaoPaiPicPath + "\\" + DateTime.Now.ToString("yyyyMMdd");
+
             rbtnGaoPai.Checked = true;
             rbtn未分类.Checked = true;
+
+            if (!_add2Visa)
+                textBox1.Text = GlobalUtils.LocalGaoPaiPicPath + "\\" + DateTime.Now.ToString("yyyyMMdd");
+            else
+            {
+                panel1.Enabled = false;
+                panel2.Enabled = false;
+                textBox1.Text = GlobalUtils.LocalGaoPaiPicPath + "\\" + _visaModel.Visa_id.ToString();
+            }
+
         }
 
         private void comboBox5_SelectedIndexChanged(object sender, EventArgs e)

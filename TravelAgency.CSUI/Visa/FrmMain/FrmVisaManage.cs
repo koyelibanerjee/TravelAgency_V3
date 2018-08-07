@@ -2,14 +2,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using ScanCtrlTest;
 using TravelAgency.BLL;
 using TravelAgency.BLL.Excel;
 using TravelAgency.Common;
 using TravelAgency.Common.FrmSetValues;
+using TravelAgency.Common.FTP;
 using TravelAgency.Common.Word;
 using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Properties;
@@ -105,7 +108,7 @@ namespace TravelAgency.CSUI.FrmMain
             cbCountry.SelectedIndex = 0;
 
             //地区列表框初始化
-            cbDistrict.DropDownStyle= ComboBoxStyle.DropDownList;
+            cbDistrict.DropDownStyle = ComboBoxStyle.DropDownList;
             cbDistrict.Items.Add("全部");
             foreach (string dis in Model.Enums.District.DistrictList)
                 cbDistrict.Items.Add(dis);
@@ -433,7 +436,7 @@ namespace TravelAgency.CSUI.FrmMain
                                     DateTimeFormator.DateTimeToString(from, DateTimeFormator.TimeFormat.Type06LongTime) + "' and '" +
                                     DateTimeFormator.DateTimeToString(to, DateTimeFormator.TimeFormat.Type06LongTime) +
                          "') and (Types='个签' or Types='团做个') and (country = '日本') " +
-                         $" and (district = {GlobalUtils.LoginUser.District}  or OutDeliveryPlace = '{cbDistrict.Text}') ) " + 
+                         $" and (district = {GlobalUtils.LoginUser.District}  or OutDeliveryPlace = '{cbDistrict.Text}') ) " +
                           " order by entrytime asc ");
 
             //这里干脆就不判断entrytime了，直接找记录算了
@@ -1522,6 +1525,49 @@ namespace TravelAgency.CSUI.FrmMain
 
             _bllVisa.Update(visa);
             LoadDataToDgvAsyn();
+        }
+
+        private void cms高拍仪采集图像_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 1)
+            {
+                MessageBoxEx.Show("请选中一条记录");
+                return;
+            }
+            FrmTackePicture frm = new FrmTackePicture(GetSelectedVisaList()[0]);
+            frm.Show();
+        }
+
+        private void 查看高拍仪图像ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 1)
+            {
+                MessageBoxEx.Show("请选中一条记录");
+                return;
+            }
+            string visaid = GetSelectedVisaList()[0].Visa_id.ToString();
+            FtpHandler.ChangeFtpUri(AppSettingHandler.ReadConfig("GaopaiPicPath") + "/" + visaid);
+
+            List<string> list = FtpHandler.GetFileList("*.*");
+
+            if (list == null || list.Count == 0)
+            {
+                MessageBoxEx.Show("没有对应图像");
+                return;
+            }
+
+            for (int i = list.Count - 1; i >= 0; --i)
+            {
+                if (list[i].Contains("thumb"))
+                    list.RemoveAt(i);
+            }
+            if (list.Count == 0)
+            {
+                MessageBoxEx.Show("没有对应图像");
+                return;
+            }
+            FrmShowPicture frm = new FrmShowPicture(list, visaid, 0);
+            frm.Show();
         }
     }
 }

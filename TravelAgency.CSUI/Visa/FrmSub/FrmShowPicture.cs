@@ -37,6 +37,15 @@ namespace TravelAgency.CSUI.FrmSub
             _gaopaiPicHandler = new GaopaiPicHandler(type);
         }
 
+        public FrmShowPicture(List<string> imageList, string visaid, int idx)
+    : this()
+        {
+            _imageList = imageList;
+            _prefix = visaid;
+            _idx = idx;
+            _gaopaiPicHandler = new GaopaiPicHandler(GaopaiPicHandler.PictureType.Type01_Normal);
+        }
+
         #region 窗体事件
         private void FrmShowPicture_Load(object sender, EventArgs e)
         {

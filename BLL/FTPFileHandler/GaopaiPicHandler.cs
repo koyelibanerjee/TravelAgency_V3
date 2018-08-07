@@ -29,7 +29,7 @@ namespace TravelAgency.BLL.FTPFileHandler
                 RemoteRootPath = path;
                 LocalGaoPaiPicPath = GlobalUtils.LocalGaoPaiPicPath;
                 //FtpHandler.ChangeFtpUri(RemoteRootPath);
-                
+
                 //if (!Directory.Exists(path))
                 //    Directory.CreateDirectory(path);
             }
@@ -55,7 +55,7 @@ namespace TravelAgency.BLL.FTPFileHandler
 
         public string LocalGaoPaiPicPath
         {
-            get;set;
+            get; set;
         }
 
 
@@ -268,10 +268,15 @@ namespace TravelAgency.BLL.FTPFileHandler
             new Thread(UploadGaoPaiImage) { IsBackground = true }.Start(filenameAndTypes);
         }
 
+        public void UploadGaoPaiImageAsyncForVisa(List<string> filenameAndvisaid)
+        {
+            new Thread(UploadGaoPaiImage) { IsBackground = true }.Start(filenameAndvisaid);
+        }
+
         public void UploadGaoPaiImage(object filename)
         {
             var list = (List<string>)filename;
-            UploadGaoPaiImage(list[0], list[1]);
+            UploadGaoPaiImageForVisa(list[0], list[1]);
         }
 
 
@@ -298,6 +303,24 @@ namespace TravelAgency.BLL.FTPFileHandler
                     FtpHandler.DeepMakeDir(savePrefix);
                 }
 
+                FtpHandler.ChangeFtpUri(RemoteRootPath + "/" + savePrefix);
+                FtpHandler.Upload(filename);
+            }
+        }
+
+        public void UploadGaoPaiImageForVisa(string filename, string visaid)
+        {
+            string savePrefix = visaid;
+
+            lock ("refConstant")
+            {
+                FtpHandler.ChangeFtpUri(RemoteRootPath);
+                if (!FtpHandler.DeepDirectoryExist(savePrefix))
+                {
+                    //这里一定要先改回来path,在DeepDirectoryExist判断的时候是修改了路径的
+                    FtpHandler.ChangeFtpUri(RemoteRootPath);
+                    FtpHandler.DeepMakeDir(savePrefix);
+                }
                 FtpHandler.ChangeFtpUri(RemoteRootPath + "/" + savePrefix);
                 FtpHandler.Upload(filename);
             }

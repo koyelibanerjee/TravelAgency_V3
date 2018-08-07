@@ -261,6 +261,7 @@
             this.textBox1.Location = new System.Drawing.Point(12, 418);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox1.Size = new System.Drawing.Size(152, 49);
             this.textBox1.TabIndex = 19;
             this.textBox1.Text = "D:\\1.jpg";
