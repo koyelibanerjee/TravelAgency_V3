@@ -83,14 +83,19 @@ namespace ScanCtrlTest
             if (_add2Visa)
             {
                 _gaopaiPicHandler.UploadGaoPaiImageAsyncForVisa(new List<string> { filename, _visaModel.Visa_id.ToString() });
-                
+
 
                 new Thread(UpdateLable) { IsBackground = true }.Start(DateTime.Now.ToString("yyyyMMddHHmmss") + ".jpg 保存成功.");
 
                 PicHandler.MakeThumbnail(filename, _gaopaiPicHandler.GetThumbName(filename), GlobalUtils.ThumbNailRatio);
                 _gaopaiPicHandler.UploadGaoPaiImageAsyncForVisa(new List<string> { _gaopaiPicHandler.GetThumbName(filename), _visaModel.Visa_id.ToString() });
-                HproseClient.UploadImage(HproseClient.ImageType.type04GaopaiVisa, filename, _visaModel.Visa_id.ToString());
-                HproseClient.UploadImage(HproseClient.ImageType.type04GaopaiVisa, _gaopaiPicHandler.GetThumbName(filename), _visaModel.Visa_id.ToString());
+                if (needSyncImage)
+                {
+                    HproseClient.UploadImage(HproseClient.ImageType.type04GaopaiVisa, filename,
+                        _visaModel.Visa_id.ToString());
+                    HproseClient.UploadImage(HproseClient.ImageType.type04GaopaiVisa,
+                        _gaopaiPicHandler.GetThumbName(filename), _visaModel.Visa_id.ToString());
+                }
             }
             else
             {
@@ -103,14 +108,15 @@ namespace ScanCtrlTest
                 if (rbtnGaoPai.Checked)
                 {
                     _gaopaiPicHandler.UploadGaoPaiImageAsync(new List<string> { filename, _types });
-
-                    HproseClient.UploadImage(HproseClient.ImageType.type02Gaopai, filename,
-                        savePrefix + (_types == "未分类" ? "" : "/" + _types));
+                    if (needSyncImage)
+                        HproseClient.UploadImage(HproseClient.ImageType.type02Gaopai, filename,
+                            savePrefix + (_types == "未分类" ? "" : "/" + _types));
                 }
                 else
                 {
                     _jiaojiePicHandler.UploadGaoPaiImageAsync(new List<string> { filename, _types });
-                    HproseClient.UploadImage(HproseClient.ImageType.type03Jiaojie, filename,
+                    if (needSyncImage)
+                        HproseClient.UploadImage(HproseClient.ImageType.type03Jiaojie, filename,
                        savePrefix);
                 }
 
@@ -125,13 +131,15 @@ namespace ScanCtrlTest
                         _gaopaiPicHandler.GetThumbName(filename),
                         _types
                     });
-                    HproseClient.UploadImage(HproseClient.ImageType.type02Gaopai, filename,
+                    if (needSyncImage)
+                        HproseClient.UploadImage(HproseClient.ImageType.type02Gaopai, _gaopaiPicHandler.GetThumbName(filename),
                         savePrefix + (_types == "未分类" ? "" : "/" + _types));
                 }
                 else
                 {
                     _jiaojiePicHandler.UploadGaoPaiImageAsync(new List<string> { _gaopaiPicHandler.GetThumbName(filename), _types });
-                    HproseClient.UploadImage(HproseClient.ImageType.type03Jiaojie, filename,
+                    if (needSyncImage)
+                        HproseClient.UploadImage(HproseClient.ImageType.type03Jiaojie, _gaopaiPicHandler.GetThumbName(filename),
                        savePrefix);
                 }
             }
