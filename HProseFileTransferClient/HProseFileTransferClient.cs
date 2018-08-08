@@ -11,20 +11,16 @@ using Hprose.Common;
 
 namespace HProseFileTransferClient
 {
-    public interface IStub
-    {
-        [SimpleMode(true)]
-        Task RecvImage(byte[] imageData, string imageName);
-    }
+
     class HProseFileTransferClient
     {
 
         static void Main(string[] args)
         {
             HproseHttpClient client;
-            //client = new HproseHttpClient(" http://localhost:2012/");
+            client = new HproseHttpClient(" http://localhost:50002/");
             //client = new HproseHttpClient("http://182.150.20.247:50002/");
-            
+
             //client = new HproseHttpClient("http://0.0.0.0:50002");
             client.KeepAlive = true;
 
@@ -32,7 +28,8 @@ namespace HProseFileTransferClient
             byte[] picturedata = new byte[fs.Length];
             fs.Read(picturedata, 0, picturedata.Length);
 
-            client.Invoke("RecvImage", new object[] { fs, @"C:\rcvImages\abcdef.jpg" });
+            client.Invoke("RcvFile", new object[] { picturedata, @"C:\rcvImages\abcdef.jpg" });
+            //client.Invoke("printHello", new object[] { 1});
 
         }
     }
