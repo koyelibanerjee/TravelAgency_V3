@@ -18,8 +18,8 @@ namespace HProseFileTransferServer
         //Client类稍微比TcpClient类麻烦一点
         public void RcvFile(byte[] filedata, string filename)
         {
-            if (!Directory.Exists(Path.GetDirectoryName(filename)))
-                Directory.CreateDirectory(Path.GetDirectoryName(filename)); //C# 支持直接递归创建
+            //if (!Directory.Exists(Path.GetDirectoryName(filename)))
+            //    Directory.CreateDirectory(Path.GetDirectoryName(filename)); //C# 支持直接递归创建
             using (FileStream fs = new FileStream(filename, FileMode.OpenOrCreate))
             {
                 fs.Write(filedata, 0, filedata.Length);
@@ -40,8 +40,8 @@ namespace HProseFileTransferServer
         public static ILog Logger = log4net.LogManager.GetLogger("HProseFileTransferServerLogger");
         static void Main(string[] args)
         {
-            //HproseHttpListenerServer server = new HproseHttpListenerServer("http://127.0.0.1:50002/");
-            HproseHttpListenerServer server = new HproseHttpListenerServer("http://0.0.0.0:50002/");
+            HproseHttpListenerServer server = new HproseHttpListenerServer("http://127.0.0.1:50002/");
+            //HproseHttpListenerServer server = new HproseHttpListenerServer("http://0.0.0.0:50002/");
 
             TestService ts = new TestService();
             

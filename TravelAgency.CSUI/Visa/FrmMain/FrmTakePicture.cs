@@ -83,13 +83,14 @@ namespace ScanCtrlTest
             if (_add2Visa)
             {
                 _gaopaiPicHandler.UploadGaoPaiImageAsyncForVisa(new List<string> { filename, _visaModel.Visa_id.ToString() });
+                
 
                 new Thread(UpdateLable) { IsBackground = true }.Start(DateTime.Now.ToString("yyyyMMddHHmmss") + ".jpg 保存成功.");
 
                 PicHandler.MakeThumbnail(filename, _gaopaiPicHandler.GetThumbName(filename), GlobalUtils.ThumbNailRatio);
-
                 _gaopaiPicHandler.UploadGaoPaiImageAsyncForVisa(new List<string> { _gaopaiPicHandler.GetThumbName(filename), _visaModel.Visa_id.ToString() });
-                HproseClient.UploadImage(HproseClient.ImageType.type04GaopaiVisa, filename, _visaModel.Visa_id);
+                HproseClient.UploadImage(HproseClient.ImageType.type04GaopaiVisa, filename, _visaModel.Visa_id.ToString());
+                HproseClient.UploadImage(HproseClient.ImageType.type04GaopaiVisa, _gaopaiPicHandler.GetThumbName(filename), _visaModel.Visa_id.ToString());
             }
             else
             {

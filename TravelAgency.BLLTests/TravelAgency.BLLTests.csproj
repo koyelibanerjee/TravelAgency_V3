@@ -54,6 +54,7 @@
     <Compile Include="JobAssignmentTests.cs" />
     <Compile Include="OrdersTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RPC\HproseClientTests.cs" />
     <Compile Include="StatisticsBllTests.cs" />
     <Compile Include="UserQueueTests.cs" />
     <Compile Include="VisaInfo_JobTests.cs" />

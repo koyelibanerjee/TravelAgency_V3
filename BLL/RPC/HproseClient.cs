@@ -54,7 +54,6 @@ namespace TravelAgency.BLL.RPC
                 case ImageType.type02Gaopai: //高拍仪图像就是
                     dstName = remoteGaopaiPicPath;
                     dstName += "/" + (string) args + "/" + Path.GetFileName(filename); //args可能是 20180808/团签 这种
-                    MessageBox.Show(dstName);
                     break;
                 case ImageType.type03Jiaojie:
                     dstName = remoteJiaoJiePicPath;
@@ -64,7 +63,6 @@ namespace TravelAgency.BLL.RPC
                 case ImageType.type04GaopaiVisa:
                     dstName = remoteGaopaiPicPath;
                     dstName += "/" + (string)args + "/" + Path.GetFileName(filename); //可能是 visa_id 这种
-                    MessageBox.Show(dstName);
                     break;
             }
 
