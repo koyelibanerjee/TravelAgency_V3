@@ -15,9 +15,10 @@ namespace TravelAgency.BLL.RPC
     {
         public enum ImageType
         {
-            type01Passport
-            //type02Gaopai,
-            //type03Jiaojie
+            type01Passport,
+            type02Gaopai,
+            type03Jiaojie,
+            type04GaopaiVisa
         }
 
 
@@ -50,12 +51,19 @@ namespace TravelAgency.BLL.RPC
                     dstName = remotePassportPicPath;
                     dstName += "/" + (string)args + ".jpg";
                     break;
-                    //case ImageType.type02Gaopai:
-                    //    dstName = remoteGaopaiPicPath;
-                    //    break;
-                    //case ImageType.type03Jiaojie:
-                    //    dstName = remoteJiaoJiePicPath;
-                    //    break;
+                case ImageType.type02Gaopai: //高拍仪图像就是
+                    dstName = remoteGaopaiPicPath;
+                    dstName += "/" + (string) args + "/" + Path.GetFileName(filename); //args可能是 20180808/团签 这种
+                    break;
+                case ImageType.type03Jiaojie:
+                    dstName = remoteJiaoJiePicPath;
+                    dstName += "/" + (string)args + "/" + Path.GetFileName(filename); //可能是 20180808 这种
+                    break;
+
+                case ImageType.type04GaopaiVisa:
+                    dstName = remoteGaopaiPicPath;
+                    dstName += "/" + (string)args + "/" + Path.GetFileName(filename); //可能是 visa_id 这种
+                    break;
             }
 
             _hproseclient.Invoke(_uploadCall, new object[] { data, dstName });

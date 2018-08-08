@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using TravelAgency.BLL.FTPFileHandler;
+using TravelAgency.BLL.RPC;
 using TravelAgency.Common;
 using TravelAgency.Model;
 
@@ -86,27 +87,51 @@ namespace ScanCtrlTest
                 PicHandler.MakeThumbnail(filename, _gaopaiPicHandler.GetThumbName(filename), GlobalUtils.ThumbNailRatio);
 
                 _gaopaiPicHandler.UploadGaoPaiImageAsyncForVisa(new List<string> { _gaopaiPicHandler.GetThumbName(filename), _visaModel.Visa_id.ToString() });
+                HproseClient.UploadImage(HproseClient.ImageType.type04GaopaiVisa, filename,_visaModel.Visa_id);
             }
             else
             {
+                string savePrefix = "";
+                if (filename.Contains("thumb_"))
+                    savePrefix += Path.GetFileName(filename).Substring(6, 8);
+                else
+                    savePrefix += Path.GetFileName(filename).Substring(0, 8); //日期的文本 20180304
                 //再上传到服务器端
                 if (rbtnGaoPai.Checked)
-                    _gaopaiPicHandler.UploadGaoPaiImageAsync(new List<string> { filename, _types });
+                {
+                    _gaopaiPicHandler.UploadGaoPaiImageAsync(new List<string> {filename, _types});
+
+                    HproseClient.UploadImage(HproseClient.ImageType.type02Gaopai, filename,
+                        savePrefix + "/" + _types == "未分类" ? "" : _types);
+                }
                 else
+                {
                     _jiaojiePicHandler.UploadGaoPaiImageAsync(new List<string> { filename, _types });
+                    HproseClient.UploadImage(HproseClient.ImageType.type03Jiaojie, filename,
+                       savePrefix);
+                }
 
                 new Thread(UpdateLable) { IsBackground = true }.Start(DateTime.Now.ToString("yyyyMMddHHmmss") + ".jpg 保存成功.");
                 PicHandler.MakeThumbnail(filename, _gaopaiPicHandler.GetThumbName(filename), GlobalUtils.ThumbNailRatio);
 
                 //再上传缩略图到服务器端
                 if (rbtnGaoPai.Checked)
-                    _gaopaiPicHandler.UploadGaoPaiImageAsync(new List<string> { _gaopaiPicHandler.GetThumbName(filename), _types });
+                {
+                    _gaopaiPicHandler.UploadGaoPaiImageAsync(new List<string>
+                    {
+                        _gaopaiPicHandler.GetThumbName(filename),
+                        _types
+                    });
+                    HproseClient.UploadImage(HproseClient.ImageType.type02Gaopai, filename,
+                        savePrefix + "/" + _types == "未分类" ? "" : _types);
+                }
                 else
+                {
                     _jiaojiePicHandler.UploadGaoPaiImageAsync(new List<string> { _gaopaiPicHandler.GetThumbName(filename), _types });
+                    HproseClient.UploadImage(HproseClient.ImageType.type03Jiaojie, filename,
+                       savePrefix);
+                }
             }
-
-
-
         }
         /// <summary>
         /// 放大

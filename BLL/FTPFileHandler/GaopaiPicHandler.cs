@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Threading;
+using System.Windows.Forms;
 using TravelAgency.Common;
 using TravelAgency.Common.FTP;
 
@@ -150,6 +151,10 @@ namespace TravelAgency.BLL.FTPFileHandler
         public List<List<string>> GetFolderListGroupByMonth()
         {
             var list = GetFolderList();
+
+            for (int i = list.Count - 1; i >= 0; --i)
+                if (list[i].Length == 36)
+                    list.RemoveAt(i); //去除按照visa分的
             return GroupListByMonth(list);
         }
 

@@ -18,11 +18,13 @@ namespace HProseFileTransferServer
         //Client类稍微比TcpClient类麻烦一点
         public void RcvFile(byte[] filedata, string filename)
         {
+            if (!Directory.Exists(Path.GetFileName(filename)))
+                Directory.CreateDirectory(Path.GetFileName(filename)); //C# 支持直接递归创建
             using (FileStream fs = new FileStream(filename, FileMode.OpenOrCreate))
             {
                 fs.Write(filedata, 0, filedata.Length);
-                Console.WriteLine("Received File:{0},Saved To:{1}", filename, filename);
-                Logger.InfoFormat("Received File:{0},Saved To:{1}", filename, filename);
+                Console.WriteLine("Received File,Saved To:{1}", filename);
+                Logger.InfoFormat("Received File,Saved To:{1}", filename);
                 fs.Close();
             }
         }
