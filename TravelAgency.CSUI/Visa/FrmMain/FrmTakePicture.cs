@@ -77,6 +77,7 @@ namespace ScanCtrlTest
             if (!Directory.Exists(textBox1.Text))
                 Directory.CreateDirectory(textBox1.Text);
             string filename = textBox1.Text + "\\" + DateTime.Now.ToString("yyyyMMddHHmmss") + ".jpg";
+            bool needSyncImage = GlobalUtils.LoginUser.District != 0;
             axScanCtrl1.Scan(filename); //传的参数就是存储路径
 
             if (_add2Visa)
@@ -84,10 +85,11 @@ namespace ScanCtrlTest
                 _gaopaiPicHandler.UploadGaoPaiImageAsyncForVisa(new List<string> { filename, _visaModel.Visa_id.ToString() });
 
                 new Thread(UpdateLable) { IsBackground = true }.Start(DateTime.Now.ToString("yyyyMMddHHmmss") + ".jpg 保存成功.");
+
                 PicHandler.MakeThumbnail(filename, _gaopaiPicHandler.GetThumbName(filename), GlobalUtils.ThumbNailRatio);
 
                 _gaopaiPicHandler.UploadGaoPaiImageAsyncForVisa(new List<string> { _gaopaiPicHandler.GetThumbName(filename), _visaModel.Visa_id.ToString() });
-                HproseClient.UploadImage(HproseClient.ImageType.type04GaopaiVisa, filename,_visaModel.Visa_id);
+                HproseClient.UploadImage(HproseClient.ImageType.type04GaopaiVisa, filename, _visaModel.Visa_id);
             }
             else
             {
@@ -99,10 +101,10 @@ namespace ScanCtrlTest
                 //再上传到服务器端
                 if (rbtnGaoPai.Checked)
                 {
-                    _gaopaiPicHandler.UploadGaoPaiImageAsync(new List<string> {filename, _types});
+                    _gaopaiPicHandler.UploadGaoPaiImageAsync(new List<string> { filename, _types });
 
                     HproseClient.UploadImage(HproseClient.ImageType.type02Gaopai, filename,
-                        savePrefix + "/" + _types == "未分类" ? "" : _types);
+                        savePrefix + (_types == "未分类" ? "" : "/" + _types));
                 }
                 else
                 {
@@ -123,7 +125,7 @@ namespace ScanCtrlTest
                         _types
                     });
                     HproseClient.UploadImage(HproseClient.ImageType.type02Gaopai, filename,
-                        savePrefix + "/" + _types == "未分类" ? "" : _types);
+                        savePrefix + (_types == "未分类" ? "" : "/" + _types));
                 }
                 else
                 {

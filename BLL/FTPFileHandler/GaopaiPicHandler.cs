@@ -275,10 +275,16 @@ namespace TravelAgency.BLL.FTPFileHandler
 
         public void UploadGaoPaiImageAsyncForVisa(List<string> filenameAndvisaid)
         {
-            new Thread(UploadGaoPaiImage) { IsBackground = true }.Start(filenameAndvisaid);
+            new Thread(UploadGaoPaiImageForVisa) { IsBackground = true }.Start(filenameAndvisaid);
         }
 
         public void UploadGaoPaiImage(object filename)
+        {
+            var list = (List<string>)filename;
+            UploadGaoPaiImage(list[0], list[1]);
+        }
+
+        public void UploadGaoPaiImageForVisa(object filename)
         {
             var list = (List<string>)filename;
             UploadGaoPaiImageForVisa(list[0], list[1]);
