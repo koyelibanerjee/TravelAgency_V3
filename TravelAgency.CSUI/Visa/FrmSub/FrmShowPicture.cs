@@ -77,9 +77,15 @@ namespace TravelAgency.CSUI.FrmSub
 
             if (!_isOtherDistrict)
                 this.picBox1.Image = _gaopaiPicHandler.GetGaoPaiImage(_prefix + "/" + _imageList[_idx]);
+
             else
+            {
                 this.picBox1.Image = HproseClient.GetGaopaiImageOfVisa(_prefix + "/" + _imageList[_idx]);
+                this.picBox1.FileName = GlobalUtils.LocalGaoPaiPicPath + "/" + _prefix + "/" + _imageList[_idx];
+            }
+
             lbPageIdx.Text = (_idx + 1) + "/" + _imageList.Count;
+
         }
 
         #endregion

@@ -151,7 +151,12 @@ namespace TravelAgency.BLL.FTPFileHandler
         public List<List<string>> GetFolderListGroupByMonth()
         {
             var list = GetFolderList();
-
+            if (list == null || list.Count == 0)
+            {
+                MessageBox.Show("null list");
+                return null;
+            }
+               
             for (int i = list.Count - 1; i >= 0; --i)
                 if (list[i].Length == 36)
                     list.RemoveAt(i); //去除按照visa分的

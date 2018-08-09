@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
+using DevComponents.DotNetBar;
 
 namespace TravelAgency.Common.CustomCtrls
 {
@@ -69,6 +72,7 @@ namespace TravelAgency.Common.CustomCtrls
         private Point? _clickedPoint;
         private ProTransformation _transformation;
         private bool _firstSetScale = true;
+        public string FileName { get; set; }
 
 
         #region 重写Image属性，add imagechanged event
@@ -107,6 +111,8 @@ namespace TravelAgency.Common.CustomCtrls
         private System.Windows.Forms.ToolStripMenuItem 右旋90度ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 垂直翻转ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 水平翻转ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 本地查看ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 打开文件夹ToolStripMenuItem;
 
 
         public Point GetRealMousePosition(Point p)
@@ -149,7 +155,7 @@ namespace TravelAgency.Common.CustomCtrls
             MouseWheel += OnMouseWheel;
             Resize += OnResize;
             ImageChanged += OnImageChanged;
-            
+
 
             #region 右键菜单初始化
             this.cmsPicBox = new System.Windows.Forms.ContextMenuStrip();
@@ -159,13 +165,15 @@ namespace TravelAgency.Common.CustomCtrls
             this.右旋90度ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.垂直翻转ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.水平翻转ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.本地查看ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.打开文件夹ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 
             // 
             // cmsPicBox
             // 
             this.cmsPicBox.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
                 this.保存图像ToolStripMenuItem,
-                this.旋转图像ToolStripMenuItem});
+                this.旋转图像ToolStripMenuItem,this.本地查看ToolStripMenuItem,this.打开文件夹ToolStripMenuItem});
             this.cmsPicBox.Name = "cmsPicBox";
             this.cmsPicBox.Size = new System.Drawing.Size(153, 70);
             // 
@@ -214,6 +222,23 @@ namespace TravelAgency.Common.CustomCtrls
             this.水平翻转ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.水平翻转ToolStripMenuItem.Text = "水平翻转";
             this.水平翻转ToolStripMenuItem.Click += new System.EventHandler(this.水平翻转ToolStripMenuItem_Click);
+
+            // 
+            // 本地查看ToolStripMenuItem
+            // 
+            this.本地查看ToolStripMenuItem.Name = "本地查看ToolStripMenuItem";
+            this.本地查看ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.本地查看ToolStripMenuItem.Text = "本地查看";
+            this.本地查看ToolStripMenuItem.Click += new System.EventHandler(this.本地查看ToolStripMenuItem_Click);
+
+            // 
+            // 打开文件夹ToolStripMenuItem
+            // 
+            this.打开文件夹ToolStripMenuItem.Name = "打开文件夹ToolStripMenuItem";
+            this.打开文件夹ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.打开文件夹ToolStripMenuItem.Text = "打开文件夹";
+            this.打开文件夹ToolStripMenuItem.Click += new System.EventHandler(this.打开文件夹ToolStripMenuItem_Click);
+
             #endregion
 
         }
@@ -243,6 +268,21 @@ namespace TravelAgency.Common.CustomCtrls
         private void 水平翻转ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RotateImage(RotateFlipType.Rotate180FlipY);
+        }
+        private void 本地查看ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(FileName))
+                Process.Start(FileName);
+            else
+                MessageBoxEx.Show("找不到对应文件!");
+        }
+
+        private void 打开文件夹ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(FileName))
+                Process.Start(Path.GetDirectoryName(FileName));
+            else
+                MessageBoxEx.Show("找不到对应文件!");
         }
 
         private void RotateImage(RotateFlipType type)

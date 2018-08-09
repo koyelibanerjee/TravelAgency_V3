@@ -208,9 +208,9 @@ namespace TravelAgency.BLL.Excel
                     row = sheet.GetRow(21 + j * 4);
 
                     //如果是同一个团中的第二个人，加一个" 符号
-                    if (pre != null && visaList[j].GroupNo == pre)
+                    if (pre != null && !string.IsNullOrEmpty(visaList[j].GroupNo) && visaList[j].GroupNo == pre)
                         row.GetCell(2).SetCellValue("\"");
-                    pre = visaList[j].GroupNo;
+                    pre = visaList[j] == null ? "" : visaList[j].GroupNo;
                     //姓名
                     if (IsOutSigned(visaInfoList[j]) && visaList[j] != null &&
                         !string.IsNullOrEmpty(visaList[j].SubmitCondition))
