@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -31,7 +32,9 @@ namespace TravelAgency.BLL.RPC
         private static string remoteJiaoJiePicPath => AppSettingHandler.ReadConfig("JiaoJiePicPath");
 
         private static readonly HproseHttpClient _hproseclient = new HproseHttpClient(RemoteHproseAddr);
-        private static string _uploadCall = "RcvFile";
+        private static string _uploadFileCall = "RcvFile";
+        private static string _listDirCall = "GetDirList";
+        private static string _sndFileCall = "SndFile";
 
 
         /// <summary>
@@ -53,7 +56,7 @@ namespace TravelAgency.BLL.RPC
                     break;
                 case ImageType.type02Gaopai: //高拍仪图像就是
                     dstName = remoteGaopaiPicPath;
-                    dstName += "/" + (string) args + "/" + Path.GetFileName(filename); //args可能是 20180808/团签 这种
+                    dstName += "/" + (string)args + "/" + Path.GetFileName(filename); //args可能是 20180808/团签 这种
                     break;
                 case ImageType.type03Jiaojie:
                     dstName = remoteJiaoJiePicPath;
@@ -66,7 +69,35 @@ namespace TravelAgency.BLL.RPC
                     break;
             }
 
-            _hproseclient.Invoke(_uploadCall, new object[] { data, dstName });
+            _hproseclient.Invoke(_uploadFileCall, new object[] { data, dstName });
         }
+
+        public static List<string> GetVisaGaopaiList(string visaid)
+        {
+            List<string> list = _hproseclient.Invoke<List<string>>(_listDirCall, new object[] { remoteGaopaiPicPath + "/" + visaid });
+            if (list == null || list.Count == 0)
+                return null;
+            return list;
+        }
+
+        /// <summary>
+        /// 传入实例:visa_id/imagename.jpg
+        /// </summary>
+        /// <param name="prefixAndName"></param>
+        /// <returns></returns>
+        public static Image GetGaopaiImageOfVisa(string prefixAndName)
+        {
+            string localname = GlobalUtils.LocalGaoPaiPicPath + "/" + prefixAndName;
+            if (File.Exists(localname))
+                return Image.FromFile(localname);
+
+            byte[] imagedata =
+                _hproseclient.Invoke<byte[]>(_sndFileCall, new object[] { remoteGaopaiPicPath + "/" + prefixAndName });
+            if (!Directory.Exists(Path.GetDirectoryName(localname)))
+                Directory.CreateDirectory(Path.GetDirectoryName(localname));
+            File.WriteAllBytes(localname, imagedata);
+            return Image.FromFile(localname);
+        }
+
     }
 }

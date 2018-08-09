@@ -10,6 +10,7 @@ using DevComponents.DotNetBar;
 using ScanCtrlTest;
 using TravelAgency.BLL;
 using TravelAgency.BLL.Excel;
+using TravelAgency.BLL.RPC;
 using TravelAgency.Common;
 using TravelAgency.Common.FrmSetValues;
 using TravelAgency.Common.FTP;
@@ -1545,29 +1546,54 @@ namespace TravelAgency.CSUI.FrmMain
                 MessageBoxEx.Show("请选中一条记录");
                 return;
             }
+            var visa = GetSelectedVisaList()[0];
             string visaid = GetSelectedVisaList()[0].Visa_id.ToString();
-            FtpHandler.ChangeFtpUri(AppSettingHandler.ReadConfig("GaopaiPicPath") + "/" + visaid);
-
-            List<string> list = FtpHandler.GetFileList("*.*");
-
-            if (list == null || list.Count == 0)
+            List<string> list;
+            if (GlobalUtils.LoginUser.District == visa.District)
             {
-                MessageBoxEx.Show("没有对应图像");
-                return;
+                FtpHandler.ChangeFtpUri(AppSettingHandler.ReadConfig("GaopaiPicPath") + "/" + visaid);
+                list = FtpHandler.GetFileList("*.*");
+
+                if (list == null || list.Count == 0)
+                {
+                    MessageBoxEx.Show("没有对应图像");
+                    return;
+                }
+
+                for (int i = list.Count - 1; i >= 0; --i)
+                {
+                    if (list[i].Contains("thumb"))
+                        list.RemoveAt(i);
+                }
+                if (list.Count == 0)
+                {
+                    MessageBoxEx.Show("没有对应图像");
+                    return;
+                }
+                FrmShowPicture frm = new FrmShowPicture(list, visaid, 0);
+                frm.Show();
+            }
+            else
+            {
+                list = HproseClient.GetVisaGaopaiList(visaid);
+                if (list == null || list.Count == 0)
+                {
+                    MessageBoxEx.Show("没有对应图像");
+                    return;
+                }
+                for (int i = list.Count - 1; i >= 0; --i)
+                {
+                    list[i] = Path.GetFileName(list[i]);
+                    if (list[i].Contains("thumb"))
+                        list.RemoveAt(i);
+                }
+                FrmShowPicture frm = new FrmShowPicture(list, visaid, 0, true);
+                frm.Show();
             }
 
-            for (int i = list.Count - 1; i >= 0; --i)
-            {
-                if (list[i].Contains("thumb"))
-                    list.RemoveAt(i);
-            }
-            if (list.Count == 0)
-            {
-                MessageBoxEx.Show("没有对应图像");
-                return;
-            }
-            FrmShowPicture frm = new FrmShowPicture(list, visaid, 0);
-            frm.Show();
+
+
+
         }
     }
 }

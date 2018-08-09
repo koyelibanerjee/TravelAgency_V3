@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Windows.Input;
 using TravelAgency.BLL.FTPFileHandler;
+using TravelAgency.BLL.RPC;
 using TravelAgency.Common;
 using MouseEventArgs = System.Windows.Forms.MouseEventArgs;
 
@@ -22,6 +23,8 @@ namespace TravelAgency.CSUI.FrmSub
 
         private int _idx = 0; //当前位置
 
+        private bool _isOtherDistrict = false;
+
         public FrmShowPicture()
         {
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -37,13 +40,14 @@ namespace TravelAgency.CSUI.FrmSub
             _gaopaiPicHandler = new GaopaiPicHandler(type);
         }
 
-        public FrmShowPicture(List<string> imageList, string visaid, int idx)
+        public FrmShowPicture(List<string> imageList, string visaid, int idx, bool isOtherDis = false)
     : this()
         {
             _imageList = imageList;
             _prefix = visaid;
             _idx = idx;
             _gaopaiPicHandler = new GaopaiPicHandler(GaopaiPicHandler.PictureType.Type01_Normal);
+            _isOtherDistrict = isOtherDis;
         }
 
         #region 窗体事件
@@ -69,7 +73,12 @@ namespace TravelAgency.CSUI.FrmSub
             if (_idx == _imageList.Count - 1)
                 btnNext.Enabled = false;
             this.Text = "图片查看:  " + _imageList[_idx];
-            this.picBox1.Image = _gaopaiPicHandler.GetGaoPaiImage(_prefix + "/" + _imageList[_idx]);
+
+
+            if (!_isOtherDistrict)
+                this.picBox1.Image = _gaopaiPicHandler.GetGaoPaiImage(_prefix + "/" + _imageList[_idx]);
+            else
+                this.picBox1.Image = HproseClient.GetGaopaiImageOfVisa(_prefix + "/" + _imageList[_idx]);
             lbPageIdx.Text = (_idx + 1) + "/" + _imageList.Count;
         }
 

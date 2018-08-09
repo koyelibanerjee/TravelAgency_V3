@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Hprose.Server;
 using log4net;
 using TravelAgency.Common;
@@ -24,15 +26,31 @@ namespace HProseFileTransferServer
             {
                 fs.Write(filedata, 0, filedata.Length);
                 Console.WriteLine("Received File,Saved To:{0}", filename);
-                Logger.InfoFormat("Received File,Saved To:{0}", filename);
+                Logger.DebugFormat("Received File,Saved To:{0}", filename);
                 fs.Close();
             }
         }
 
         public byte[] SndFile(string filename)
         {
+            Console.WriteLine("SndFile :{0}", filename);
+            Logger.DebugFormat("SndFile :{0}", filename);
             return File.ReadAllBytes(filename);
         }
+
+        public List<string> GetDirList(string path)
+        {
+            Console.WriteLine("GetDirList of:{0}", path);
+            Logger.DebugFormat("GetDirList of:{0}", path);
+            if (!Directory.Exists(path))
+                return null;
+            var arr = Directory.GetFiles(path);
+            if (arr.Length == 0)
+                return null;
+            return arr.ToList();
+        }
+
+
     }
 
     class HProseFileTransferServer
@@ -47,12 +65,13 @@ namespace HProseFileTransferServer
 
             server.Add("RcvFile", ts);
             server.Add("SndFile", ts);
+            server.Add("GetDirList", ts);
             server.Add("printHello", ts);
             server.Start();
-            Logger.InfoFormat("Server Started At:{0}", DateTime.Now);
+            Logger.DebugFormat("Server Started At:{0}", DateTime.Now);
             Console.WriteLine("Server started.");
             Console.ReadLine();
-            Logger.InfoFormat("Server Ended At:{0}", DateTime.Now);
+            Logger.DebugFormat("Server Ended At:{0}", DateTime.Now);
             Console.WriteLine("Server stopped.");
         }
     }
