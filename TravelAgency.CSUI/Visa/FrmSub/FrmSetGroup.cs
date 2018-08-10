@@ -135,22 +135,33 @@ namespace TravelAgency.CSUI.FrmSub
             txtSalesPerson.DropDownStyle = ComboBoxStyle.DropDown;
             txtOperator.DropDownStyle = ComboBoxStyle.DropDown;
 
-            var list = BLL.CustomerInfo.GetCustomerList();
-            if (list != null && list.Count > 0)
-                foreach (var item in list)
-                {
-                    var cbitem = new ComboBoxItem();
-                    cbitem.Text = item.Value; //name
-                    cbitem.Tag = item.Key; //id
-                    txtClient.Items.Add(cbitem);
-                }
+            if (GlobalUtils.LoginUser.District == 0)
+            {
+                var list = BLL.CustomerInfo.GetCustomerList();
+                if (list != null && list.Count > 0)
+                    foreach (var item in list)
+                    {
+                        var cbitem = new ComboBoxItem();
+                        cbitem.Text = item.Value; //name
+                        cbitem.Tag = item.Key; //id
+                        txtClient.Items.Add(cbitem);
+                    }
 
-            chkSaleFirst.Checked = false;
+                chkSaleFirst.Checked = false;
 
-            //txtClient.SelectedIndex = 0;
-            //txtClient.SelectedIndexChanged += TxtClient_SelChangeGetSalesPerson;
-            txtClient.SelectedIndexChanged += TxtClient_SelChangeGetOperator;
-            txtClient.SelectedIndexChanged += TxtClient_SelChangeGetSalesPerson;
+                //txtClient.SelectedIndex = 0;
+                //txtClient.SelectedIndexChanged += TxtClient_SelChangeGetSalesPerson;
+                txtClient.SelectedIndexChanged += TxtClient_SelChangeGetOperator;
+                txtClient.SelectedIndexChanged += TxtClient_SelChangeGetSalesPerson;
+            }
+            else if (GlobalUtils.LoginUser.District == 1)
+            {
+                txtClient.Text = "李鑫";
+                txtSalesPerson.Text = "李鑫";
+            }
+
+
+
             //初始化comboBox的成员
             //出境类型
             txtDepartureType.Items.Add("单次");

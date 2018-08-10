@@ -132,12 +132,9 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             cbDistrict.Items.Add("全部");
             foreach (string dis in Model.Enums.District.DistrictList)
                 cbDistrict.Items.Add(dis);
-            cbDistrict.SelectedIndex = 0;
+            cbDistrict.Text = District.key2Value(GlobalUtils.LoginUser.District.Value);
             if (GlobalUtils.LoginUser.District != 0)
-            {
-                cbDistrict.Text = District.key2Value(GlobalUtils.LoginUser.District.Value);
                 cbDistrict.Enabled = false;
-            }
 
             cbState.Items.Add("全部");
             cbState.Items.Add("已做");

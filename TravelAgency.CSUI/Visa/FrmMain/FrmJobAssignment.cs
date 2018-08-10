@@ -154,12 +154,9 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             cbDistrict.Items.Add("全部");
             foreach (string dis in Model.Enums.District.DistrictList)
                 cbDistrict.Items.Add(dis);
-            cbDistrict.SelectedIndex = 0;
+            cbDistrict.Text = District.key2Value(GlobalUtils.LoginUser.District.Value);
             if (GlobalUtils.LoginUser.District != 0)
-            {
-                cbDistrict.Text = District.key2Value(GlobalUtils.LoginUser.District.Value);
                 cbDistrict.Enabled = false;
-            }
 
             bgWorkerLoadData.WorkerReportsProgress = true;
             progressLoading.Visible = false;
@@ -512,7 +509,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             conditions.Add(" Types in ('个签','商务','团做个')");
             if (cbDistrict.Text != "全部")
             {
-                conditions.Add($" disctrict  = {District.value2Key(cbDistrict.Text)} ");
+                conditions.Add($" district  = {District.value2Key(cbDistrict.Text)} ");
             }
 
             string[] arr = conditions.ToArray();

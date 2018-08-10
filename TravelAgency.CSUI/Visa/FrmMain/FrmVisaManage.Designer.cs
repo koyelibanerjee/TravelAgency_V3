@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bar1 = new DevComponents.DotNetBar.Bar();
             this.btnPageFirst = new DevComponents.DotNetBar.ButtonItem();
             this.btnPagePre = new DevComponents.DotNetBar.ButtonItem();
@@ -72,6 +72,7 @@
             this.修改做资料状态ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.修改选中类型ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.设置备注2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.导出报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.打印报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.日本ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -103,8 +104,9 @@
             this.川航机票ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.泰航机票ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.两人保险报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.设置备注2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.cms高拍仪采集图像 = new System.Windows.Forms.ToolStripMenuItem();
+            this.查看高拍仪图像ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelBars = new DevComponents.DotNetBar.PanelEx();
             this.panelSerachBar = new DevComponents.DotNetBar.PanelEx();
             this.cbDistrict = new DevComponents.DotNetBar.Controls.ComboBoxEx();
@@ -147,8 +149,7 @@
             this.lbCount = new DevComponents.DotNetBar.LabelItem();
             this.cmsAddToGroup = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.添加到团号ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.查看高拍仪图像ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.个人签证申请表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cmsDgv.SuspendLayout();
@@ -265,14 +266,14 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.GroupNo,
@@ -292,28 +293,28 @@
             this.Tips,
             this.Tips2,
             this.Visa_id});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -518,6 +519,13 @@
             this.toolStripSeparator2.Name = "toolStripSeparator2";
             this.toolStripSeparator2.Size = new System.Drawing.Size(181, 6);
             // 
+            // 设置备注2ToolStripMenuItem
+            // 
+            this.设置备注2ToolStripMenuItem.Name = "设置备注2ToolStripMenuItem";
+            this.设置备注2ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.设置备注2ToolStripMenuItem.Text = "设置备注2";
+            this.设置备注2ToolStripMenuItem.Click += new System.EventHandler(this.设置备注2ToolStripMenuItem_Click);
+            // 
             // 导出报表ToolStripMenuItem
             // 
             this.导出报表ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -533,7 +541,7 @@
             // 打印报表ToolStripMenuItem
             // 
             this.打印报表ToolStripMenuItem.Name = "打印报表ToolStripMenuItem";
-            this.打印报表ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.打印报表ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.打印报表ToolStripMenuItem.Text = "打印报表";
             this.打印报表ToolStripMenuItem.Click += new System.EventHandler(this.打印报表ToolStripMenuItem_Click);
             // 
@@ -548,6 +556,7 @@
             this.外领担保函ToolStripMenuItem,
             this.信息同意处理书ToolStripMenuItem,
             this.toolStripMenuItem1,
+            this.个人签证申请表ToolStripMenuItem,
             this.toolStripSeparator1,
             this.机票报表ToolStripMenuItem,
             this.阪阪川航ToolStripMenuItem,
@@ -557,7 +566,7 @@
             this.东东全日空ToolStripMenuItem,
             this.新北东航ToolStripMenuItem});
             this.日本ToolStripMenuItem.Name = "日本ToolStripMenuItem";
-            this.日本ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.日本ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.日本ToolStripMenuItem.Text = "日本";
             // 
             // 日本团队综合名单ToolStripMenuItem
@@ -676,7 +685,7 @@
             this.韩国担保函ToolStripMenuItem,
             this.韩国加急申请书ToolStripMenuItem});
             this.韩国ToolStripMenuItem.Name = "韩国ToolStripMenuItem";
-            this.韩国ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.韩国ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.韩国ToolStripMenuItem.Text = "韩国";
             // 
             // 韩国担保函ToolStripMenuItem
@@ -704,7 +713,7 @@
             this.川航机票ToolStripMenuItem,
             this.泰航机票ToolStripMenuItem});
             this.泰国ToolStripMenuItem.Name = "泰国ToolStripMenuItem";
-            this.泰国ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.泰国ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.泰国ToolStripMenuItem.Text = "泰国";
             // 
             // 数据源报表ToolStripMenuItem
@@ -757,16 +766,14 @@
             // 两人保险报表ToolStripMenuItem
             // 
             this.两人保险报表ToolStripMenuItem.Name = "两人保险报表ToolStripMenuItem";
-            this.两人保险报表ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.两人保险报表ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.两人保险报表ToolStripMenuItem.Text = "保险报表";
             this.两人保险报表ToolStripMenuItem.Click += new System.EventHandler(this.两人保险报表ToolStripMenuItem_Click);
             // 
-            // 设置备注2ToolStripMenuItem
+            // toolStripSeparator5
             // 
-            this.设置备注2ToolStripMenuItem.Name = "设置备注2ToolStripMenuItem";
-            this.设置备注2ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.设置备注2ToolStripMenuItem.Text = "设置备注2";
-            this.设置备注2ToolStripMenuItem.Click += new System.EventHandler(this.设置备注2ToolStripMenuItem_Click);
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(181, 6);
             // 
             // cms高拍仪采集图像
             // 
@@ -774,6 +781,13 @@
             this.cms高拍仪采集图像.Size = new System.Drawing.Size(184, 22);
             this.cms高拍仪采集图像.Text = "高拍仪采集图像";
             this.cms高拍仪采集图像.Click += new System.EventHandler(this.cms高拍仪采集图像_Click);
+            // 
+            // 查看高拍仪图像ToolStripMenuItem
+            // 
+            this.查看高拍仪图像ToolStripMenuItem.Name = "查看高拍仪图像ToolStripMenuItem";
+            this.查看高拍仪图像ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.查看高拍仪图像ToolStripMenuItem.Text = "查看高拍仪图像";
+            this.查看高拍仪图像ToolStripMenuItem.Click += new System.EventHandler(this.查看高拍仪图像ToolStripMenuItem_Click);
             // 
             // panelBars
             // 
@@ -1390,17 +1404,12 @@
             this.添加到团号ToolStripMenuItem.Text = "添加到此团号";
             this.添加到团号ToolStripMenuItem.Click += new System.EventHandler(this.添加到团号ToolStripMenuItem_Click);
             // 
-            // 查看高拍仪图像ToolStripMenuItem
+            // 个人签证申请表ToolStripMenuItem
             // 
-            this.查看高拍仪图像ToolStripMenuItem.Name = "查看高拍仪图像ToolStripMenuItem";
-            this.查看高拍仪图像ToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.查看高拍仪图像ToolStripMenuItem.Text = "查看高拍仪图像";
-            this.查看高拍仪图像ToolStripMenuItem.Click += new System.EventHandler(this.查看高拍仪图像ToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(181, 6);
+            this.个人签证申请表ToolStripMenuItem.Name = "个人签证申请表ToolStripMenuItem";
+            this.个人签证申请表ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.个人签证申请表ToolStripMenuItem.Text = "个人签证申请表";
+            this.个人签证申请表ToolStripMenuItem.Click += new System.EventHandler(this.个人签证申请表ToolStripMenuItem_Click);
             // 
             // FrmVisaManage
             // 
@@ -1545,5 +1554,6 @@
         private System.Windows.Forms.ToolStripMenuItem cms高拍仪采集图像;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem 查看高拍仪图像ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 个人签证申请表ToolStripMenuItem;
     }
 }

@@ -128,16 +128,14 @@ namespace TravelAgency.CSUI.FrmMain
             cbCountry.SelectedIndex = 0;
 
             //地区列表框初始化
+            //地区列表框初始化
             cbDistrict.DropDownStyle = ComboBoxStyle.DropDownList;
             cbDistrict.Items.Add("全部");
             foreach (string dis in Model.Enums.District.DistrictList)
                 cbDistrict.Items.Add(dis);
-            cbDistrict.SelectedIndex = 0;
+            cbDistrict.Text = District.key2Value(GlobalUtils.LoginUser.District.Value);
             if (GlobalUtils.LoginUser.District != 0)
-            {
-                cbDistrict.Text = District.key2Value(GlobalUtils.LoginUser.District.Value);
                 cbDistrict.Enabled = false;
-            }
 
 
 
@@ -1501,12 +1499,12 @@ namespace TravelAgency.CSUI.FrmMain
                 tmp.Add(visaInfo.ExpiryDate.Value.Year.ToString());
                 tmp.Add(visaInfo.ExpiryDate.Value.Month.ToString());
                 tmp.Add(visaInfo.ExpiryDate.Value.Day.ToString());
-                tmp.Add(DateTimeFormator.DateTimeToString(visaList[i].InTime));
-                tmp.Add(DateTimeFormator.DateTimeToString(visaList[i].OutTime));
-                tmp.Add(DateTimeFormator.DateTimeToString(visaList[i].InTime));
-                tmp.Add(visaInfo.Residence.ToString());
-                tmp.Add(visaInfo.Phone.ToString());
-                tmp.Add(visaInfo.Occupation.ToString());
+                tmp.Add(visaList[i] == null ? "" : DateTimeFormator.DateTimeToString(visaList[i].InTime));
+                tmp.Add(visaList[i] == null ? "" : DateTimeFormator.DateTimeToString(visaList[i].OutTime));
+                tmp.Add(visaList[i] == null ? "" : DateTimeFormator.DateTimeToString(visaList[i].InTime));
+                tmp.Add(visaInfo.Residence?.ToString() ?? "");
+                tmp.Add(visaInfo.Phone?.ToString()??"");
+                tmp.Add(visaInfo.Occupation?.ToString()??"");
                 stringList.Add(tmp);
             }
 

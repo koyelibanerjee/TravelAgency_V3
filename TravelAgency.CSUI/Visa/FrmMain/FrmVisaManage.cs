@@ -109,16 +109,14 @@ namespace TravelAgency.CSUI.FrmMain
             cbCountry.SelectedIndex = 0;
 
             //地区列表框初始化
+            //地区列表框初始化
             cbDistrict.DropDownStyle = ComboBoxStyle.DropDownList;
             cbDistrict.Items.Add("全部");
             foreach (string dis in Model.Enums.District.DistrictList)
                 cbDistrict.Items.Add(dis);
-            cbDistrict.SelectedIndex = 0;
+            cbDistrict.Text = District.key2Value(GlobalUtils.LoginUser.District.Value);
             if (GlobalUtils.LoginUser.District != 0)
-            {
-                cbDistrict.Text = District.key2Value(GlobalUtils.LoginUser.District.Value);
                 cbDistrict.Enabled = false;
-            }
 
 
             cbState.Items.Add("全部");
@@ -1594,6 +1592,53 @@ namespace TravelAgency.CSUI.FrmMain
 
 
 
+        }
+
+        private void 个人签证申请表ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var list = GetSelectedVisaInfoList();
+            if (list.Count < 1)
+                return;
+
+            var visaList = _bllVisa.GetVisaListViaVisaInfoList(list);
+
+            string dst = GlobalUtils.ShowBrowseFolderDlg();
+            if (string.IsNullOrEmpty(dst))
+                return;
+
+            List<List<string>> stringList = new List<List<string>>();
+            for (int i = 0; i < list.Count; ++i)
+            {
+                var visaInfo = list[i];
+                List<string> tmp = new List<string>();
+                var english = visaInfo.EnglishName.Split(' ');
+                tmp.Add(english[0]);
+                tmp.Add(visaInfo.Name.Substring(0, 1));
+                tmp.Add(english[english.Length - 1]);
+                tmp.Add(visaInfo.Name.Substring(1, visaInfo.Name.Length - 1));
+                tmp.Add(visaInfo.Birthday.Value.Year.ToString());
+                tmp.Add(visaInfo.Birthday.Value.Month.ToString());
+                tmp.Add(visaInfo.Birthday.Value.Day.ToString());
+                tmp.Add(visaInfo.Birthplace);
+                tmp.Add("");
+                tmp.Add(visaInfo.PassportNo);
+                tmp.Add(visaInfo.IssuePlace);
+                tmp.Add(visaInfo.LicenceTime.Value.Year.ToString());
+                tmp.Add(visaInfo.LicenceTime.Value.Month.ToString());
+                tmp.Add(visaInfo.LicenceTime.Value.Day.ToString());
+                tmp.Add(visaInfo.ExpiryDate.Value.Year.ToString());
+                tmp.Add(visaInfo.ExpiryDate.Value.Month.ToString());
+                tmp.Add(visaInfo.ExpiryDate.Value.Day.ToString());
+                tmp.Add(visaList[i] == null ? "" : DateTimeFormator.DateTimeToString(visaList[i].InTime));
+                tmp.Add(visaList[i] == null ? "" : DateTimeFormator.DateTimeToString(visaList[i].OutTime));
+                tmp.Add(visaList[i] == null ? "" : DateTimeFormator.DateTimeToString(visaList[i].InTime));
+                tmp.Add(visaInfo.Residence?.ToString() ?? "");
+                tmp.Add(visaInfo.Phone?.ToString() ?? "");
+                tmp.Add(visaInfo.Occupation?.ToString() ?? "");
+                stringList.Add(tmp);
+            }
+            GlobalUtils.DocDocxGenerator.SetDocType(DocDocxGenerator.DocType.Type09个人申请表);
+            GlobalUtils.DocDocxGenerator.GenerateBatch(stringList, dst);
         }
     }
 }
