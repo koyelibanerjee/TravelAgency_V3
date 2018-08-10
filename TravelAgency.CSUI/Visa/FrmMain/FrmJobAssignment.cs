@@ -148,7 +148,6 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             }
             cbCountry.SelectedIndex = 0;
 
-
             //地区列表框初始化
             cbDistrict.DropDownStyle = ComboBoxStyle.DropDownList;
             cbDistrict.Items.Add("全部");
@@ -156,7 +155,10 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 cbDistrict.Items.Add(dis);
             cbDistrict.Text = District.key2Value(GlobalUtils.LoginUser.District.Value);
             if (GlobalUtils.LoginUser.District != 0)
-                cbDistrict.Enabled = false;
+            {
+                cbCountry.Text = "日本";
+                cbCountry.Enabled = false;
+            }
 
             bgWorkerLoadData.WorkerReportsProgress = true;
             progressLoading.Visible = false;

@@ -109,14 +109,16 @@ namespace TravelAgency.CSUI.FrmMain
             cbCountry.SelectedIndex = 0;
 
             //地区列表框初始化
-            //地区列表框初始化
             cbDistrict.DropDownStyle = ComboBoxStyle.DropDownList;
             cbDistrict.Items.Add("全部");
             foreach (string dis in Model.Enums.District.DistrictList)
                 cbDistrict.Items.Add(dis);
             cbDistrict.Text = District.key2Value(GlobalUtils.LoginUser.District.Value);
             if (GlobalUtils.LoginUser.District != 0)
-                cbDistrict.Enabled = false;
+            {
+                cbCountry.Text = "日本";
+                cbCountry.Enabled = false;
+            }
 
 
             cbState.Items.Add("全部");
