@@ -1107,7 +1107,7 @@ namespace TravelAgency.CSUI.FrmMain
         private void 人申请表ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var visainfos = GetDgvSelList();
-            XlsGenerator.GetGuolvJinGunMingDan(visainfos, _bllVisa.GetVisaListViaVisaInfoList(visainfos));
+            XlsGenerator.GetGuolvJinGunMingDan(visainfos, _bllVisa.GetVisaListViaVisaInfoList(visainfos),true);
         }
 
         private void 机票报表ToolStripMenuItem_Click(object sender, EventArgs e)

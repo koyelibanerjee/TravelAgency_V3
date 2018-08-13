@@ -233,8 +233,15 @@ namespace TravelAgency.BLL.Excel
 
                     //24行设置居住地
                     row = sheet.GetRow(24 + j * 4);
-
                     string residence = visaInfoList[j].Residence;
+                    if (single)
+                    {
+                        if (IsOutSigned(visaInfoList[j])
+                         || residence != visaInfoList[j].IssuePlace) //从签证信息导出的时候，默认设置这里是发行地
+                            row.GetCell(11).SetCellValue(visaInfoList[j].IssuePlace);
+                            continue;
+                    }
+
                     if (!string.IsNullOrEmpty(residence))
                     {
                         if (visaInfoList[j].Residence.Contains(" "))
@@ -253,8 +260,6 @@ namespace TravelAgency.BLL.Excel
                     if (IsOutSigned(visaInfoList[j])
                         || residence != visaInfoList[j].IssuePlace) //是外签或者居住地不等于发行地的话设置发行地
                         row.GetCell(8).SetCellValue("发行地：" + visaInfoList[j].IssuePlace);
-                    //else
-                    //row.GetCell(11).SetCellValue(string.Empty);
                 }
 
                 //sheet.IsPrintGridlines = true;
