@@ -331,9 +331,15 @@ namespace TravelAgency.CSUI.FrmSub
             //if (_type != Types.Team2Individual)
             //    return;
 
+            txtTypeInPerson.Text = GlobalUtils.LoginUser.UserName; //初始没做的时候，typeinperson就是当前人
+            txtTypeInPerson.Enabled = false;
+            cbOutDeliveryPlace.Enabled = false;
+
             _recentVisa = _bllVisa.GetLastRecord(_type, GlobalUtils.LoginUser.UserName, _list[0].Country ?? ""); //如果是个签的话就是null这个值
             if (_recentVisa == null)
                 return;
+
+            //赋值recentVisa
             txtGroupNo.Text = _recentVisa.GroupNo;
             cbCountry.Text = _recentVisa.Country;
             txtDepartureType.Text = _recentVisa.DepartureType;
@@ -348,11 +354,9 @@ namespace TravelAgency.CSUI.FrmSub
             txtFetchType.Text = _recentVisa.FetchCondition;
             txtCheckPerson.Text = _recentVisa.CheckPerson;
             chbIsUrgent.Checked = _recentVisa.IsUrgent ?? false;
-            txtRealTime.Text = "";
+            txtRealTime.Text = DateTimeFormator.DateTimeToString(_recentVisa.RealTime);
 
-            txtTypeInPerson.Text = GlobalUtils.LoginUser.UserName; //初始没做的时候，typeinperson就是当前人
-            txtTypeInPerson.Enabled = false;
-            cbOutDeliveryPlace.Enabled = false;
+           
         }
 
 
