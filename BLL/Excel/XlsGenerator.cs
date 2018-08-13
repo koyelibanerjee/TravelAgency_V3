@@ -171,7 +171,7 @@ namespace TravelAgency.BLL.Excel
         /// </summary>
         /// <param name="visaInfoList"></param>
         /// <param name="visaList">这个list是每有一个visainfo就有一个visa,就是对应的visa，重复也不管</param>
-        public static void GetGuolvJinGunMingDan(List<Model.VisaInfo> visaInfoList, List<Model.Visa> visaList)
+        public static void GetGuolvJinGunMingDan(List<Model.VisaInfo> visaInfoList, List<Model.Visa> visaList,bool single=false)
         {
             //if (visaInfoList.Count > 8)
             //{

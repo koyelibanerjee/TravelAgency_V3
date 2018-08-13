@@ -424,6 +424,15 @@ namespace TravelAgency.CSUI.FrmMain
                         GlobalUtils.LocalPassportPicPath + "\\" + PassportPicHandler.GetFileName(model.PassportNo, PassportPicHandler.PicType.Type01Normal),
                         model.PassportNo);
 
+                    if (!InfoChecker.CheckNotExpire(model.ExpiryDate.Value)) //检查到快过期了
+                    {
+                        ModelToCtrls(model);
+                        MessageBoxEx.Show("检查到护照即将过期(小于6个月)，请校验信息正确后执行手动添加!");
+                        btnAutoReadThreadStart_Click(null, null); //点击停止
+                        continue;
+                    }
+
+
                     if (!InfoChecker.CheckByPinYin(model.Name, model.EnglishName)) //检查到错误
                     {
                         ModelToCtrls(model);

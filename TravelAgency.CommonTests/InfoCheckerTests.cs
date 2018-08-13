@@ -36,7 +36,7 @@ namespace TravelAgency.Common.Tests
         [TestMethod()]
         public void CheckTheSameTest()
         {
-            Model.VisaInfo visaInfo1 = new VisaInfo(){VisaInfo_id = new Guid(),Name = "杨小鹏",ExpiryDate = DateTime.Now,Position = 1};
+            Model.VisaInfo visaInfo1 = new VisaInfo() { VisaInfo_id = new Guid(), Name = "杨小鹏", ExpiryDate = DateTime.Now, Position = 1 };
             Model.VisaInfo visaInfo2 = visaInfo1.ToObjectCopy();
             Assert.IsTrue(InfoChecker.CheckVisaInfoSame(visaInfo1, visaInfo2));
             visaInfo2.Name = "杨小1";
@@ -47,6 +47,17 @@ namespace TravelAgency.Common.Tests
             Assert.IsFalse(InfoChecker.CheckVisaInfoSame(visaInfo1, visaInfo2));
         }
 
-
+        [TestMethod()]
+        public void CheckNotExpireTest()
+        {
+            DateTime date = DateTime.Now.AddMonths(-3);
+           Assert.IsTrue(!InfoChecker.CheckNotExpire(date));
+            date = DateTime.Now.AddMonths(3);
+            Assert.IsTrue(!InfoChecker.CheckNotExpire(date));
+            date = DateTime.Now.AddMonths(6);
+            Assert.IsTrue(InfoChecker.CheckNotExpire(date));
+            date = DateTime.Now.AddMonths(7);
+            Assert.IsTrue(InfoChecker.CheckNotExpire(date));
+        }
     }
 }

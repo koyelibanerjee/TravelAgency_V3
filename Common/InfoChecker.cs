@@ -9,6 +9,13 @@ namespace TravelAgency.Common
     public class InfoChecker
     {
 
+        public static bool CheckNotExpire(DateTime expireDate)
+        {
+            if (expireDate < DateTime.Now)
+                return false;
+            return (expireDate.Date - DateTime.Now.Date).TotalDays > 180;
+        }
+
         public static bool CheckByPinYin(string Name, string PinYin)
         {
             return
