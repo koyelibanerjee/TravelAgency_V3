@@ -10,6 +10,7 @@ using DevComponents.DotNetBar;
 using ScanCtrlTest;
 using TravelAgency.BLL;
 using TravelAgency.BLL.Excel;
+using TravelAgency.BLL.FTPFileHandler;
 using TravelAgency.BLL.RPC;
 using TravelAgency.Common;
 using TravelAgency.Common.FrmSetValues;
@@ -25,6 +26,7 @@ using FrmTimeSpanChoose = TravelAgency.CSUI.Visa.FrmSub.FrmSetValue.FrmTimeSpanC
 using HasExported8Report = TravelAgency.BLL.HasExported8Report;
 using Visa = TravelAgency.Model.Visa;
 using VisaInfo = TravelAgency.Model.VisaInfo;
+using TravelAgency.CSUI.Visa.FrmSub;
 
 namespace TravelAgency.CSUI.FrmMain
 {
@@ -1641,6 +1643,65 @@ namespace TravelAgency.CSUI.FrmMain
             }
             GlobalUtils.DocDocxGenerator.SetDocType(DocDocxGenerator.DocType.Type09个人申请表);
             GlobalUtils.DocDocxGenerator.GenerateBatch(stringList, dst);
+        }
+
+        private void 下载高拍仪图像ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 1)
+            {
+                MessageBoxEx.Show("请选中一条记录");
+                return;
+            }
+            var visa = GetSelectedVisaList()[0];
+            string visaid = GetSelectedVisaList()[0].Visa_id.ToString();
+            List<string> list;
+            bool local;
+            if (GlobalUtils.LoginUser.District == visa.District)
+            {
+                FtpHandler.ChangeFtpUri(AppSettingHandler.ReadConfig("GaopaiPicPath") + "/" + visaid);
+                list = FtpHandler.GetFileList("*.*");
+
+                if (list == null || list.Count == 0)
+                {
+                    MessageBoxEx.Show("没有对应图像");
+                    return;
+                }
+
+                for (int i = list.Count - 1; i >= 0; --i)
+                {
+                    if (list[i].Contains("thumb"))
+                        list.RemoveAt(i);
+                }
+                if (list.Count == 0)
+                {
+                    MessageBoxEx.Show("没有对应图像");
+                    return;
+                }
+                local = true;
+
+            }
+            else
+            {
+                list = HproseClient.GetVisaGaopaiList(visaid);
+                if (list == null || list.Count == 0)
+                {
+                    MessageBoxEx.Show("没有对应图像");
+                    return;
+                }
+                for (int i = list.Count - 1; i >= 0; --i)
+                {
+                    list[i] = Path.GetFileName(list[i]);
+                    if (list[i].Contains("thumb"))
+                        list.RemoveAt(i);
+                }
+                local = false;
+            }
+
+            string dstPath = GlobalUtils.ShowBrowseFolderDlg();
+            if (string.IsNullOrEmpty(dstPath))
+                return;
+            FrmDownloadPics frm = new FrmDownloadPics(dstPath,visaid,local);
+            frm.ShowDialog();
         }
     }
 }

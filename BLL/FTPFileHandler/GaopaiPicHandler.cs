@@ -156,7 +156,7 @@ namespace TravelAgency.BLL.FTPFileHandler
                 MessageBox.Show("null list");
                 return null;
             }
-               
+
             for (int i = list.Count - 1; i >= 0; --i)
                 if (list[i].Length == 36)
                     list.RemoveAt(i); //去除按照visa分的
@@ -195,7 +195,7 @@ namespace TravelAgency.BLL.FTPFileHandler
         }
 
         /// <summary>
-        /// 传入文件名格式: 20171228/xxxx.jpg
+        /// 传入文件名格式: 20171228/xxxx.jpg,或者visaid/xxx.jpg
         /// </summary>
         /// <param name="filename"></param>
         /// <returns></returns>
@@ -238,6 +238,21 @@ namespace TravelAgency.BLL.FTPFileHandler
             {
                 GetGaoPaiImage(filenames[i]).Save(savePath + "\\" + Path.GetFileName(filenames[i]));
             }
+        }
+
+        public List<string> GetGaopaiImageListOfVisa(string visaid)
+        {
+            FtpHandler.ChangeFtpUri(RemoteRootPath);
+            if (!FtpHandler.DeepDirectoryExist( visaid))
+                return null;
+            FtpHandler.ChangeFtpUri(RemoteRootPath + "/" + visaid);
+            var list = FtpHandler.GetFileNoDirList("*.*");
+            for (int i = list.Count - 1; i >= 0; i--)
+            {
+                if (list[i].Contains("thumb"))
+                    list.RemoveAt(i);
+            }
+            return list;
         }
 
         /// <summary>
