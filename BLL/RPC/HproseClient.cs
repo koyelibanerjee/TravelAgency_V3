@@ -72,6 +72,12 @@ namespace TravelAgency.BLL.RPC
             _hproseclient.Invoke(_uploadFileCall, new object[] { data, dstName });
         }
 
+
+        /// <summary>
+        /// 返回的是全路径
+        /// </summary>
+        /// <param name="visaid"></param>
+        /// <returns></returns>
         public static List<string> GetVisaGaopaiList(string visaid)
         {
             List<string> list = _hproseclient.Invoke<List<string>>(_listDirCall, new object[] { remoteGaopaiPicPath + "/" + visaid });
@@ -97,6 +103,21 @@ namespace TravelAgency.BLL.RPC
                 Directory.CreateDirectory(Path.GetDirectoryName(localname));
             File.WriteAllBytes(localname, imagedata);
             return Image.FromFile(localname);
+        }
+
+
+        /// <summary>
+        /// 例子:
+        /// </summary>
+        /// <param name="prefixAndName">visa_id/imagename.jpg</param>
+        /// <param name="dstPath">E:/folder1/</param>
+        public static void DownloadGaopaiImageOfVisa(string remotefilename,string dstPath)
+        {
+            byte[] imagedata =
+                _hproseclient.Invoke<byte[]>(_sndFileCall, new object[] { remotefilename });
+            if (!Directory.Exists(Path.GetDirectoryName(dstPath)))
+                Directory.CreateDirectory(Path.GetDirectoryName(dstPath));
+            File.WriteAllBytes(dstPath + "/" + Path.GetFileName(remotefilename), imagedata);
         }
 
     }

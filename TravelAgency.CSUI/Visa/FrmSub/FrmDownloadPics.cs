@@ -54,9 +54,9 @@ namespace TravelAgency.CSUI.Visa.FrmSub
             }
             else
             {
-
+                list = HproseClient.GetVisaGaopaiList(_visaid);
             }
-            if(list==null || list.Count==0)
+            if (list == null || list.Count == 0)
                 return;
             new Thread(DownloadPicsThread) { IsBackground = true }.Start(list);
         }
@@ -83,6 +83,10 @@ namespace TravelAgency.CSUI.Visa.FrmSub
                 {
                     _gaopaiPicHandler.DownloadGaoPaiImage(_visaid + "/" + list[i], _dstPath + "/" + list[i]);
                 }
+                else
+                {
+                    HproseClient.DownloadGaopaiImageOfVisa(list[i], _dstPath);
+                }
 
                 this.Invoke(new Action(() =>
                 {
@@ -91,7 +95,7 @@ namespace TravelAgency.CSUI.Visa.FrmSub
                 }));
             }
 
-            
+
 
             Process.Start(_dstPath);
             this.Invoke(new Action(() =>
