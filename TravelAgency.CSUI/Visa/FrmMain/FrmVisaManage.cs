@@ -1553,21 +1553,9 @@ namespace TravelAgency.CSUI.FrmMain
             List<string> list;
             if (GlobalUtils.LoginUser.District == visa.District)
             {
-                FtpHandler.ChangeFtpUri(AppSettingHandler.ReadConfig("GaopaiPicPath") + "/" + visaid);
-                list = FtpHandler.GetFileList("*.*");
+                list = new GaopaiPicHandler(GaopaiPicHandler.PictureType.Type01_Normal).GetGaopaiImageListOfVisa(visaid);
 
                 if (list == null || list.Count == 0)
-                {
-                    MessageBoxEx.Show("没有对应图像");
-                    return;
-                }
-
-                for (int i = list.Count - 1; i >= 0; --i)
-                {
-                    if (list[i].Contains("thumb"))
-                        list.RemoveAt(i);
-                }
-                if (list.Count == 0)
                 {
                     MessageBoxEx.Show("没有对应图像");
                     return;
@@ -1583,19 +1571,9 @@ namespace TravelAgency.CSUI.FrmMain
                     MessageBoxEx.Show("没有对应图像");
                     return;
                 }
-                for (int i = list.Count - 1; i >= 0; --i)
-                {
-                    list[i] = Path.GetFileName(list[i]);
-                    if (list[i].Contains("thumb"))
-                        list.RemoveAt(i);
-                }
                 FrmShowPicture frm = new FrmShowPicture(list, visaid, 0, true);
                 frm.Show();
             }
-
-
-
-
         }
 
         private void 个人签证申请表ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1658,27 +1636,13 @@ namespace TravelAgency.CSUI.FrmMain
             bool local;
             if (GlobalUtils.LoginUser.District == visa.District)
             {
-                FtpHandler.ChangeFtpUri(AppSettingHandler.ReadConfig("GaopaiPicPath") + "/" + visaid);
-                list = FtpHandler.GetFileList("*.*");
-
+                list = new GaopaiPicHandler(GaopaiPicHandler.PictureType.Type01_Normal).GetGaopaiImageListOfVisa(visaid);
                 if (list == null || list.Count == 0)
                 {
                     MessageBoxEx.Show("没有对应图像");
                     return;
                 }
-
-                for (int i = list.Count - 1; i >= 0; --i)
-                {
-                    if (list[i].Contains("thumb"))
-                        list.RemoveAt(i);
-                }
-                if (list.Count == 0)
-                {
-                    MessageBoxEx.Show("没有对应图像");
-                    return;
-                }
                 local = true;
-
             }
             else
             {
@@ -1687,12 +1651,6 @@ namespace TravelAgency.CSUI.FrmMain
                 {
                     MessageBoxEx.Show("没有对应图像");
                     return;
-                }
-                for (int i = list.Count - 1; i >= 0; --i)
-                {
-                    list[i] = Path.GetFileName(list[i]);
-                    if (list[i].Contains("thumb"))
-                        list.RemoveAt(i);
                 }
                 local = false;
             }

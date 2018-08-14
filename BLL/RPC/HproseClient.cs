@@ -83,6 +83,15 @@ namespace TravelAgency.BLL.RPC
             List<string> list = _hproseclient.Invoke<List<string>>(_listDirCall, new object[] { remoteGaopaiPicPath + "/" + visaid });
             if (list == null || list.Count == 0)
                 return null;
+
+            for (int i = list.Count - 1; i >= 0; --i)
+            {
+                list[i] = Path.GetFileName(list[i]);
+                if (list[i].Contains("thumb"))
+                    list.RemoveAt(i);
+            }
+            if (list == null || list.Count == 0)
+                return null;
             return list;
         }
 
