@@ -40,7 +40,7 @@ namespace TravelAgency.CSUI.FrmMain
         private bool _init = false;
         private string _where = string.Empty;
         private bool _isWorker = false;
-
+        private BLL.JobAssignmentConfigBll _bllJobAssignmentConfigBll = new JobAssignmentConfigBll();
         public List<Model.VisaInfo> List4AddToExport;
         private bool _b4AddToExport = false;
 
@@ -917,24 +917,30 @@ namespace TravelAgency.CSUI.FrmMain
             if (list == null)
                 return;
 
-
-            bool canDo = false; bool hasJapan = false;
-            foreach (var visainfo in list)
+            bool jobAssignmentOpen = _bllJobAssignmentConfigBll.
+                getDistrictAssignmentEnable(GlobalUtils.LoginUser.District.Value);
+            if (jobAssignmentOpen)
             {
-                if (visainfo.Country == "日本"
-                    && (visainfo.Types == "个签" || visainfo.Types == "团做个" || visainfo.Types == "商务"))
+                //检查任务分配限制只能做自己的
+                bool canDo = false; bool hasJapan = false;
+                foreach (var visainfo in list)
                 {
-                    if (visainfo.AssignmentToWorkId == GlobalUtils.LoginUser.WorkId)
-                        canDo = true;
-                    hasJapan = true;
+                    if (visainfo.Country == "日本"
+                        && (visainfo.Types == "个签" || visainfo.Types == "团做个" || visainfo.Types == "商务"))
+                    {
+                        if (visainfo.AssignmentToWorkId == GlobalUtils.LoginUser.WorkId)
+                            canDo = true;
+                        hasJapan = true;
+                    }
+                }
+
+                if (hasJapan && !canDo)
+                {
+                    MessageBoxEx.Show("日本非团签只能做分配到自己的任务!");
+                    return;
                 }
             }
-
-            if (hasJapan && !canDo)
-            {
-                MessageBoxEx.Show("日本非团签只能做分配到自己的任务!");
-                return;
-            }
+           
 
             FrmGroupOrIndividual frmGroupOrIndividual = new FrmGroupOrIndividual(list, LoadDataToDataGridView, _curPage);
             if (frmGroupOrIndividual.ShowDialog() == DialogResult.Cancel)
@@ -1107,7 +1113,7 @@ namespace TravelAgency.CSUI.FrmMain
         private void 人申请表ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var visainfos = GetDgvSelList();
-            XlsGenerator.GetGuolvJinGunMingDan(visainfos, _bllVisa.GetVisaListViaVisaInfoList(visainfos),true);
+            XlsGenerator.GetGuolvJinGunMingDan(visainfos, _bllVisa.GetVisaListViaVisaInfoList(visainfos), true);
         }
 
         private void 机票报表ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1505,8 +1511,8 @@ namespace TravelAgency.CSUI.FrmMain
                 tmp.Add(visaList[i] == null ? "" : DateTimeFormator.DateTimeToString(visaList[i].OutTime));
                 tmp.Add(visaList[i] == null ? "" : DateTimeFormator.DateTimeToString(visaList[i].InTime));
                 tmp.Add(visaInfo.Residence?.ToString() ?? "");
-                tmp.Add(visaInfo.Phone?.ToString()??"");
-                tmp.Add(visaInfo.Occupation?.ToString()??"");
+                tmp.Add(visaInfo.Phone?.ToString() ?? "");
+                tmp.Add(visaInfo.Occupation?.ToString() ?? "");
                 stringList.Add(tmp);
             }
 

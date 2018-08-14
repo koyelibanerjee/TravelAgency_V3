@@ -56,6 +56,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
         public List<Model.VisaInfo> List4AddToExport;
         private bool _b4AddToExport = false;
+        private  BLL.JobAssignmentConfigBll _bllJobAssignmentConfigBll =  new BLL.JobAssignmentConfigBll();
 
         public FrmJobAssignment(bool b4Add = false)
         {
@@ -159,6 +160,10 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 cbCountry.Text = "日本";
                 cbCountry.Enabled = false;
             }
+
+            //工作分配功能按钮初始化
+            btnOpenJobAssignment.Value =
+                _bllJobAssignmentConfigBll.getDistrictAssignmentEnable(GlobalUtils.LoginUser.District.Value);
 
             bgWorkerLoadData.WorkerReportsProgress = true;
             progressLoading.Visible = false;
@@ -1480,6 +1485,12 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             var res = _bllVisaInfo.UpdateByList(list);
             GlobalUtils.MessageBoxWithRecordNum("设置工作编号", res, list.Count);
             LoadDataToDgvAsyn();
+        }
+
+        private void btnOpenJobAssignment_ValueChanged(object sender, EventArgs e)
+        {
+            _bllJobAssignmentConfigBll.
+                setDistrictAssignmentEnable(GlobalUtils.LoginUser.District.Value,btnOpenJobAssignment.Value);
         }
     }
 }

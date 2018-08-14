@@ -1127,7 +1127,7 @@
             this.上传护照图像ToolStripMenuItem,
             this.添加到任务分配队列ToolStripMenuItem});
             this.cmsDgvRb.Name = "cmsDgvRb";
-            this.cmsDgvRb.Size = new System.Drawing.Size(185, 374);
+            this.cmsDgvRb.Size = new System.Drawing.Size(185, 352);
             // 
             // 复制ToolStripMenuItem
             // 
@@ -1233,7 +1233,7 @@
             this.金桥担保函ToolStripMenuItem,
             this.个人签证申请表ToolStripMenuItem});
             this.日本ToolStripMenuItem.Name = "日本ToolStripMenuItem";
-            this.日本ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.日本ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.日本ToolStripMenuItem.Text = "日本";
             // 
             // 人申请表ToolStripMenuItem
@@ -1274,7 +1274,7 @@
             // 打印报表ToolStripMenuItem
             // 
             this.打印报表ToolStripMenuItem.Name = "打印报表ToolStripMenuItem";
-            this.打印报表ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.打印报表ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.打印报表ToolStripMenuItem.Text = "打印报表";
             this.打印报表ToolStripMenuItem.Click += new System.EventHandler(this.打印报表ToolStripMenuItem_Click);
             // 
@@ -1284,7 +1284,7 @@
             this.韩国担保函ToolStripMenuItem,
             this.韩国加急申请书ToolStripMenuItem});
             this.韩国ToolStripMenuItem.Name = "韩国ToolStripMenuItem";
-            this.韩国ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.韩国ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.韩国ToolStripMenuItem.Text = "韩国";
             // 
             // 韩国担保函ToolStripMenuItem
@@ -1306,7 +1306,7 @@
             this.泰国ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.人首页ToolStripMenuItem});
             this.泰国ToolStripMenuItem.Name = "泰国ToolStripMenuItem";
-            this.泰国ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.泰国ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.泰国ToolStripMenuItem.Text = "泰国";
             // 
             // 人首页ToolStripMenuItem

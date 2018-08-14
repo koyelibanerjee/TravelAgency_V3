@@ -200,21 +200,6 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         //    frm.Show();
         //}
 
-        private void RbtnIn_CheckedChanged(object sender, EventArgs e)
-        {
-            _outState = OutState.Type02In;
-        }
-
-        private void RBtnOut_CheckedChanged(object sender, EventArgs e)
-        {
-            _outState = OutState.Type03NormalOut;
-        }
-
-        private void RbtnAbOut_CheckedChanged(object sender, EventArgs e)
-        {
-            _outState = OutState.Type04AbnormalOut;
-        }
-
 
         private void BtnClearInput_Click(object sender, EventArgs e)
         {

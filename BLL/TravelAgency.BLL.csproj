@@ -193,6 +193,7 @@
     <Compile Include="HasExported8ReportBLL.cs" />
     <Compile Include="JobAssignmentBll.cs" />
     <Compile Include="JobAssignment.cs" />
+    <Compile Include="JobAssignmentConfigBll.cs" />
     <Compile Include="Joint\CustomerBalance_AuthUser.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="OrderExcel.cs" />
@@ -213,6 +214,7 @@
     <Compile Include="StatisticsBll.cs" />
     <Compile Include="OrderInfoBll.cs" />
     <Compile Include="SysManage.cs" />
+    <Compile Include="SystemConfigBll.cs" />
     <Compile Include="TimeHandlers\DateFormat.cs" />
     <Compile Include="TimeHandlers\TimeHelper.cs" />
     <Compile Include="TimeHandlers\TimeParser.cs" />
