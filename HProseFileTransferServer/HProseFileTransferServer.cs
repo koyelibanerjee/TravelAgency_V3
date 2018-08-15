@@ -58,8 +58,8 @@ namespace HProseFileTransferServer
         public static ILog Logger = log4net.LogManager.GetLogger("HProseFileTransferServerLogger");
         static void Main(string[] args)
         {
-            //HproseHttpListenerServer server = new HproseHttpListenerServer("http://127.0.0.1:50002/");
-            HproseHttpListenerServer server = new HproseHttpListenerServer("http://0.0.0.0:50002/");
+            HproseHttpListenerServer server = new HproseHttpListenerServer("http://127.0.0.1:50002/");
+            //HproseHttpListenerServer server = new HproseHttpListenerServer("http://0.0.0.0:50002/");
 
             TestService ts = new TestService();
 

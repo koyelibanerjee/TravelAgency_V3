@@ -75,7 +75,6 @@ namespace TravelAgency.BLL.RPC
 
         /// <summary>
         /// 返回的是全路径
-        /// </summary>
         /// <param name="visaid"></param>
         /// <returns></returns>
         public static List<string> GetVisaGaopaiList(string visaid)

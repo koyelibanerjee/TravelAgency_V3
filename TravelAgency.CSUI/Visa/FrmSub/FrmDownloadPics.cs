@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using TravelAgency.BLL.FTPFileHandler;
 using TravelAgency.BLL.RPC;
+using TravelAgency.Common;
 using TravelAgency.Common.FTP;
 
 namespace TravelAgency.CSUI.Visa.FrmSub
@@ -24,6 +25,7 @@ namespace TravelAgency.CSUI.Visa.FrmSub
         private bool _local = false;
         private GaopaiPicHandler _gaopaiPicHandler;
         private HproseClient _hproseClient;
+        private string remoteGaopaiPicPath = AppSettingHandler.ReadConfig("GaopaiPicPath");
 
 
         public FrmDownloadPics()
@@ -54,6 +56,7 @@ namespace TravelAgency.CSUI.Visa.FrmSub
             }
             else
             {
+               
                 list = HproseClient.GetVisaGaopaiList(_visaid);
             }
             if (list == null || list.Count == 0)
@@ -85,7 +88,7 @@ namespace TravelAgency.CSUI.Visa.FrmSub
                 }
                 else
                 {
-                    HproseClient.DownloadGaopaiImageOfVisa(list[i], _dstPath);
+                    HproseClient.DownloadGaopaiImageOfVisa(remoteGaopaiPicPath + "/" + _visaid + "/" + list[i], _dstPath);
                 }
 
                 this.Invoke(new Action(() =>
