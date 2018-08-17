@@ -225,6 +225,7 @@
       <DependentUpon>FrmTimeSpanChoose.cs</DependentUpon>
     </Compile>
     <Compile Include="FTP\FtpHandler.cs" />
+    <Compile Include="HttpProc.cs" />
     <Compile Include="InfoChecker.cs" />
     <Compile Include="JsonHandler.cs" />
     <Compile Include="ObjectDeepCompare.cs" />
@@ -232,6 +233,7 @@
     <Compile Include="PayoutUpdateRules.cs" />
     <Compile Include="PicHandler.cs" />
     <Compile Include="PinyinParse\FirstLetterHelper.cs" />
+    <Compile Include="RMB.cs" />
     <Compile Include="RngWord.cs" />
     <Compile Include="StyleControler.cs" />
     <Compile Include="TextHandler.cs" />
