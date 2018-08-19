@@ -11,7 +11,6 @@ namespace HProseFileTransferServer
 
     class TestService
     {
-        public static ILog Logger = log4net.LogManager.GetLogger("HProseFileTransferServerLogger");
         public string printHello(int i)
         {
             return $"hello:{i}";
@@ -26,7 +25,7 @@ namespace HProseFileTransferServer
             {
                 fs.Write(filedata, 0, filedata.Length);
                 Console.WriteLine("Received File,Saved To:{0}", filename);
-                Logger.DebugFormat("Received File,Saved To:{0}", filename);
+                Log.Logger.DebugFormat("Received File,Saved To:{0}", filename);
                 fs.Close();
             }
         }
@@ -34,14 +33,14 @@ namespace HProseFileTransferServer
         public byte[] SndFile(string filename)
         {
             Console.WriteLine("SndFile :{0}", filename);
-            Logger.DebugFormat("SndFile :{0}", filename);
+            Log.Logger.DebugFormat("SndFile :{0}", filename);
             return File.ReadAllBytes(filename);
         }
 
         public List<string> GetDirList(string path)
         {
             Console.WriteLine("GetDirList of:{0}", path);
-            Logger.DebugFormat("GetDirList of:{0}", path);
+            Log.Logger.DebugFormat("GetDirList of:{0}", path);
             if (!Directory.Exists(path))
                 return null;
             var arr = Directory.GetFiles(path);
@@ -55,11 +54,11 @@ namespace HProseFileTransferServer
 
     class HProseFileTransferServer
     {
-        public static ILog Logger = log4net.LogManager.GetLogger("HProseFileTransferServerLogger");
+        
         static void Main(string[] args)
         {
-            HproseHttpListenerServer server = new HproseHttpListenerServer("http://127.0.0.1:50002/");
-            //HproseHttpListenerServer server = new HproseHttpListenerServer("http://0.0.0.0:50002/");
+            //HproseHttpListenerServer server = new HproseHttpListenerServer("http://127.0.0.1:50002/");
+            HproseHttpListenerServer server = new HproseHttpListenerServer("http://0.0.0.0:50002/");
 
             TestService ts = new TestService();
 
@@ -68,10 +67,10 @@ namespace HProseFileTransferServer
             server.Add("GetDirList", ts);
             server.Add("printHello", ts);
             server.Start();
-            Logger.DebugFormat("Server Started At:{0}", DateTime.Now);
+            Log.Logger.DebugFormat("Server Started At:{0}", DateTime.Now);
             Console.WriteLine("Server started.");
             Console.ReadLine();
-            Logger.DebugFormat("Server Ended At:{0}", DateTime.Now);
+            Log.Logger.DebugFormat("Server Ended At:{0}", DateTime.Now);
             Console.WriteLine("Server stopped.");
         }
     }
