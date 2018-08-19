@@ -354,7 +354,7 @@ namespace TravelAgency.CSUI.FrmSub
             txtFetchType.Text = _recentVisa.FetchCondition;
             txtCheckPerson.Text = _recentVisa.CheckPerson;
             chbIsUrgent.Checked = _recentVisa.IsUrgent ?? false;
-            txtRealTime.Text = DateTimeFormator.DateTimeToString(_recentVisa.RealTime);
+            //txtRealTime.Text = DateTimeFormator.DateTimeToString(_recentVisa.RealTime);
 
            
         }
