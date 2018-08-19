@@ -120,22 +120,23 @@
             // No
             // 
             this.No.Text = "编号";
+            this.No.Width = 67;
             // 
             // EntryTime
             // 
             this.EntryTime.Text = "时间";
-            this.EntryTime.Width = 65;
+            this.EntryTime.Width = 77;
             // 
             // Operation
             // 
             this.Operation.Text = "操作";
             this.Operation.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Operation.Width = 118;
+            this.Operation.Width = 77;
             // 
             // Details
             // 
             this.Details.Text = "内容";
-            this.Details.Width = 610;
+            this.Details.Width = 482;
             // 
             // State
             // 
@@ -145,7 +146,7 @@
             // 
             this.notifyIcon1.ContextMenuStrip = this.notifycms;
             this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Text = "东瀛假日签证识别管理系统文件传输服务";
             this.notifyIcon1.Visible = true;
             this.notifyIcon1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseDoubleClick);
             // 

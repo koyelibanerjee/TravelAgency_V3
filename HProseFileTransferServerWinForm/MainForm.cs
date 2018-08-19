@@ -58,8 +58,8 @@ namespace HProseFileTransferServerWinForm
 
         private static void InitHProseService()
         {
-            HproseHttpListenerServer server = new HproseHttpListenerServer("http://127.0.0.1:50002/");
-            //HproseHttpListenerServer server = new HproseHttpListenerServer("http://0.0.0.0:50002/");
+            //HproseHttpListenerServer server = new HproseHttpListenerServer("http://127.0.0.1:50002/");
+            HproseHttpListenerServer server = new HproseHttpListenerServer("http://0.0.0.0:50002/");
             FileTransferService ts = new FileTransferService();
             server.Add("RcvFile", ts);
             server.Add("SndFile", ts);
