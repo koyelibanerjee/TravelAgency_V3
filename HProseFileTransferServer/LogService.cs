@@ -7,10 +7,10 @@ using log4net;
 
 namespace HProseFileTransferServer
 {
-    public class Log
+    public class LogService
     {
         public static ILog Logger;
-        static Log()
+        static LogService()
         {
             log4net.Config.XmlConfigurator.Configure();
             Logger = log4net.LogManager.GetLogger("HProseFileTransferServerLogger");

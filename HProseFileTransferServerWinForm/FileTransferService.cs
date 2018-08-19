@@ -2,13 +2,12 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Hprose.Server;
-using log4net;
-using TravelAgency.Common;
+using System.Text;
+using System.Threading.Tasks;
+using HProseFileTransferServer;
 
-namespace HProseFileTransferServer
+namespace HProseFileTransferServerWinForm
 {
-
     class FileTransferService
     {
         public string printHello(int i)
@@ -24,7 +23,8 @@ namespace HProseFileTransferServer
             using (FileStream fs = new FileStream(filename, FileMode.OpenOrCreate))
             {
                 fs.Write(filedata, 0, filedata.Length);
-                Console.WriteLine("Received File,Saved To:{0}", filename);
+                //Console.WriteLine("Received File,Saved To:{0}", filename);
+                GlobalUtils.MainFrm.AddLvItem(DateTime.Now.ToString(),"上传文件",filename,"成功");
                 LogService.Logger.DebugFormat("Received File,Saved To:{0}", filename);
                 fs.Close();
             }
@@ -32,14 +32,16 @@ namespace HProseFileTransferServer
 
         public byte[] SndFile(string filename)
         {
-            Console.WriteLine("SndFile :{0}", filename);
+            //Console.WriteLine("SndFile :{0}", filename);
             LogService.Logger.DebugFormat("SndFile :{0}", filename);
+            GlobalUtils.MainFrm.AddLvItem(DateTime.Now.ToString(), "下载文件", filename, "成功");
             return File.ReadAllBytes(filename);
         }
 
         public List<string> GetDirList(string path)
         {
-            Console.WriteLine("GetDirList of:{0}", path);
+            //Console.WriteLine("GetDirList of:{0}", path);
+            GlobalUtils.MainFrm.AddLvItem(DateTime.Now.ToString(), "取文件列表", path, "成功");
             LogService.Logger.DebugFormat("GetDirList of:{0}", path);
             if (!Directory.Exists(path))
                 return null;
@@ -47,29 +49,6 @@ namespace HProseFileTransferServer
             if (arr.Length == 0)
                 return null;
             return arr.ToList();
-        }
-    }
-
-    class HProseFileTransferServer
-    {
-        
-        static void Main(string[] args)
-        {
-            //HproseHttpListenerServer server = new HproseHttpListenerServer("http://127.0.0.1:50002/");
-            HproseHttpListenerServer server = new HproseHttpListenerServer("http://0.0.0.0:50002/");
-
-            FileTransferService ts = new FileTransferService();
-
-            server.Add("RcvFile", ts);
-            server.Add("SndFile", ts);
-            server.Add("GetDirList", ts);
-            server.Add("printHello", ts);
-            server.Start();
-            LogService.Logger.DebugFormat("Server Started At:{0}", DateTime.Now);
-            Console.WriteLine("Server started.");
-            Console.ReadLine();
-            LogService.Logger.DebugFormat("Server Ended At:{0}", DateTime.Now);
-            Console.WriteLine("Server stopped.");
         }
     }
 }

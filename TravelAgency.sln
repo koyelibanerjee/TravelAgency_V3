@@ -86,6 +86,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HProseFileTransferUIClient"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseStressTest", "DatabaseStressTest\DatabaseStressTest.csproj", "{D319FC4B-53A2-4E46-80B0-A405261F19D9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HProseFileTransferServerWinForm", "HProseFileTransferServerWinForm\HProseFileTransferServerWinForm.csproj", "{99FCC209-D55D-4B33-A0D7-0A5B01F7806D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|.NET = Debug|.NET
@@ -656,6 +658,22 @@ Global
 		{D319FC4B-53A2-4E46-80B0-A405261F19D9}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{D319FC4B-53A2-4E46-80B0-A405261F19D9}.Release|x86.ActiveCfg = Release|Any CPU
 		{D319FC4B-53A2-4E46-80B0-A405261F19D9}.Release|x86.Build.0 = Release|Any CPU
+		{99FCC209-D55D-4B33-A0D7-0A5B01F7806D}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{99FCC209-D55D-4B33-A0D7-0A5B01F7806D}.Debug|.NET.Build.0 = Debug|Any CPU
+		{99FCC209-D55D-4B33-A0D7-0A5B01F7806D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99FCC209-D55D-4B33-A0D7-0A5B01F7806D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99FCC209-D55D-4B33-A0D7-0A5B01F7806D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{99FCC209-D55D-4B33-A0D7-0A5B01F7806D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{99FCC209-D55D-4B33-A0D7-0A5B01F7806D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{99FCC209-D55D-4B33-A0D7-0A5B01F7806D}.Debug|x86.Build.0 = Debug|Any CPU
+		{99FCC209-D55D-4B33-A0D7-0A5B01F7806D}.Release|.NET.ActiveCfg = Release|Any CPU
+		{99FCC209-D55D-4B33-A0D7-0A5B01F7806D}.Release|.NET.Build.0 = Release|Any CPU
+		{99FCC209-D55D-4B33-A0D7-0A5B01F7806D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99FCC209-D55D-4B33-A0D7-0A5B01F7806D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99FCC209-D55D-4B33-A0D7-0A5B01F7806D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{99FCC209-D55D-4B33-A0D7-0A5B01F7806D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{99FCC209-D55D-4B33-A0D7-0A5B01F7806D}.Release|x86.ActiveCfg = Release|Any CPU
+		{99FCC209-D55D-4B33-A0D7-0A5B01F7806D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
