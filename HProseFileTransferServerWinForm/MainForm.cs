@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevComponents.DotNetBar;
 using Hprose.Server;
 using HProseFileTransferServer;
 
@@ -47,9 +49,20 @@ namespace HProseFileTransferServerWinForm
             this.lbCount.Text = $"上传文件:{_rcvFileCnt}项，下载文件{_sndFileCnt}项。";
         }
 
+        private void checkUnique()
+        {
+            Process[] ps = Process.GetProcessesByName("HProseFileTransferServerWinForm");
+            if (ps.Length > 1)
+            {
+                //发现重复进程
+                MessageBoxEx.Show("服务已经在运行中，请勿重复运行!");
+                Application.Exit();
+            }
+        }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            checkUnique();
             this.notifyIcon1.Visible = false;
             GlobalUtils.MainFrm = this;
             InitHProseService();

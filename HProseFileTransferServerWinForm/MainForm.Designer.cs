@@ -88,7 +88,7 @@
             // 
             // 
             this.lbCount.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lbCount.Location = new System.Drawing.Point(291, 400);
+            this.lbCount.Location = new System.Drawing.Point(262, 400);
             this.lbCount.Name = "lbCount";
             this.lbCount.Size = new System.Drawing.Size(539, 34);
             this.lbCount.TabIndex = 38;
