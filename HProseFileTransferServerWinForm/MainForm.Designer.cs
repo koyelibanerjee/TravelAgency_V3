@@ -78,7 +78,7 @@
             this.labelX1.ForeColor = System.Drawing.Color.ForestGreen;
             this.labelX1.Location = new System.Drawing.Point(12, 386);
             this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(256, 48);
+            this.labelX1.Size = new System.Drawing.Size(141, 48);
             this.labelX1.TabIndex = 39;
             this.labelX1.Text = "服务运行中";
             // 
@@ -88,9 +88,9 @@
             // 
             // 
             this.lbCount.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lbCount.Location = new System.Drawing.Point(262, 400);
+            this.lbCount.Location = new System.Drawing.Point(159, 400);
             this.lbCount.Name = "lbCount";
-            this.lbCount.Size = new System.Drawing.Size(539, 34);
+            this.lbCount.Size = new System.Drawing.Size(642, 34);
             this.lbCount.TabIndex = 38;
             this.lbCount.Text = "上传文件:xxx项，下载文件xxx项。";
             // 
