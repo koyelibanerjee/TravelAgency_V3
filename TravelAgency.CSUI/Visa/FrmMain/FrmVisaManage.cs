@@ -565,6 +565,14 @@ namespace TravelAgency.CSUI.FrmMain
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 dataGridView1.Rows[i].HeaderCell.Value = (i + 1).ToString();
+
+                if (visas[i].IsOutDelivery??false)
+                {
+                    dataGridView1.Rows[i].Cells["OutPlace"].Value =
+                        $"从{District.key2Value(visas[i].District.Value)}送往{visas[i].OutDeliveryPlace}";
+                }
+                
+
                 if (dataGridView1.Rows[i].Cells["Country"].Value != null)
                 {
                     string countryName = dataGridView1.Rows[i].Cells["Country"].Value.ToString();
