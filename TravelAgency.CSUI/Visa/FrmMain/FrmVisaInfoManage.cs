@@ -160,6 +160,8 @@ namespace TravelAgency.CSUI.FrmMain
             _init = true;
         }
 
+ 
+
         private void DataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedRows.Count < 1)

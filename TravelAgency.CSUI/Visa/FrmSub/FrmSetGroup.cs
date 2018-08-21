@@ -103,6 +103,18 @@ namespace TravelAgency.CSUI.FrmSub
             _inited = true;
         }
 
+        private void OtherDistrictInit()
+        {
+            if (GlobalUtils.LoginUser.District != 0)
+            {
+                if (_visaModel != null && _visaModel.District == 0 && _visaModel.OutDeliveryPlace !=
+                    District.key2Value(GlobalUtils.LoginUser.District.Value))
+                {
+                    txtClient.Visible = false;
+                }
+            }
+        }
+
         private void InitCtrls()
         {
             //设置最小尺寸
@@ -126,6 +138,7 @@ namespace TravelAgency.CSUI.FrmSub
 
             chkSaleFirst.Checked = true;
 
+            OtherDistrictInit();
         }
 
         private void InitComboBoxs()
@@ -356,7 +369,7 @@ namespace TravelAgency.CSUI.FrmSub
             chbIsUrgent.Checked = _recentVisa.IsUrgent ?? false;
             //txtRealTime.Text = DateTimeFormator.DateTimeToString(_recentVisa.RealTime);
 
-           
+
         }
 
 

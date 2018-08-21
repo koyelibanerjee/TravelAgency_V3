@@ -153,6 +153,17 @@ namespace TravelAgency.CSUI.FrmMain
                 rbTabFinancial.Visible = false;
                 rbTabStat.Visible = false;
             }
+
+            OtherDistrictInit();
+
+        }
+
+        private void OtherDistrictInit()
+        {
+            if (GlobalUtils.LoginUser.District != 0)
+            {
+                lbVisaInfoCount.Visible = false;
+            }
         }
 
         private void FrmMain_FormClosed(object sender, FormClosedEventArgs e)

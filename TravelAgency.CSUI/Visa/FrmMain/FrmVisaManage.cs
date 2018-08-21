@@ -149,12 +149,22 @@ namespace TravelAgency.CSUI.FrmMain
             dataGridView1.Columns["GroupNo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             dataGridView1.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
             dataGridView1.SelectionChanged += DataGridView1_SelectionChanged;
+
+            OtherDistrictInit();
+
             bgWorkerLoadData.WorkerReportsProgress = true;
             progressLoading.Visible = false;
             LoadDataToDgvAsyn();
             _init = true;
+
+            ;
         }
 
+        private void OtherDistrictInit()
+        {
+            if (GlobalUtils.LoginUser.District != 0)
+                Client.Visible = false;
+        }
 
 
         #region dgv用到的相关方法
@@ -1658,7 +1668,7 @@ namespace TravelAgency.CSUI.FrmMain
             string dstPath = GlobalUtils.ShowBrowseFolderDlg();
             if (string.IsNullOrEmpty(dstPath))
                 return;
-            FrmDownloadPics frm = new FrmDownloadPics(dstPath,visaid,local);
+            FrmDownloadPics frm = new FrmDownloadPics(dstPath, visaid, local);
             frm.ShowDialog();
         }
     }

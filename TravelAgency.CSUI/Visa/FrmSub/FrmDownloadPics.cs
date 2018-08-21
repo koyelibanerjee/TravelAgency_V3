@@ -24,7 +24,6 @@ namespace TravelAgency.CSUI.Visa.FrmSub
         private string _visaid;
         private bool _local = false;
         private GaopaiPicHandler _gaopaiPicHandler;
-        private HproseClient _hproseClient;
         private string remoteGaopaiPicPath = AppSettingHandler.ReadConfig("GaopaiPicPath");
 
 
