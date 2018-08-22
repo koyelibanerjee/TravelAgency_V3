@@ -566,12 +566,12 @@ namespace TravelAgency.CSUI.FrmMain
             {
                 dataGridView1.Rows[i].HeaderCell.Value = (i + 1).ToString();
 
-                if (visas[i].IsOutDelivery??false)
+                if (visas[i].IsOutDelivery ?? false)
                 {
                     dataGridView1.Rows[i].Cells["OutPlace"].Value =
                         $"从{District.key2Value(visas[i].District.Value)}送往{visas[i].OutDeliveryPlace}";
                 }
-                
+
 
                 if (dataGridView1.Rows[i].Cells["Country"].Value != null)
                 {
@@ -1569,7 +1569,8 @@ namespace TravelAgency.CSUI.FrmMain
             var visa = GetSelectedVisaList()[0];
             string visaid = GetSelectedVisaList()[0].Visa_id.ToString();
             List<string> list;
-            if (GlobalUtils.LoginUser.District == visa.District)
+            if (GlobalUtils.LoginUser.District == visa.District || 
+                GlobalUtils.LoginUser.District == 0) //成都的所有都走ftp
             {
                 list = new GaopaiPicHandler(GaopaiPicHandler.PictureType.Type01_Normal).GetGaopaiImageListOfVisa(visaid);
 
@@ -1652,7 +1653,8 @@ namespace TravelAgency.CSUI.FrmMain
             string visaid = GetSelectedVisaList()[0].Visa_id.ToString();
             List<string> list;
             bool local;
-            if (GlobalUtils.LoginUser.District == visa.District)
+            if (GlobalUtils.LoginUser.District == visa.District ||
+                GlobalUtils.LoginUser.District == 0) //成都的所有都走ftp
             {
                 list = new GaopaiPicHandler(GaopaiPicHandler.PictureType.Type01_Normal).GetGaopaiImageListOfVisa(visaid);
                 if (list == null || list.Count == 0)
