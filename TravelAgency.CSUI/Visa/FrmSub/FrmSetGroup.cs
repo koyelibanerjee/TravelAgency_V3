@@ -1330,7 +1330,9 @@ namespace TravelAgency.CSUI.FrmSub
                 if (!string.IsNullOrEmpty(txtQuQianYuan.Text))
                     model.QuQianYuan = txtQuQianYuan.Text;
                 model.ForRequestGroupNo = false;
-                model.District = GlobalUtils.LoginUser.District;
+
+
+                //model.District = GlobalUtils.LoginUser.District; //model初始化就不能改district了
                 //model.EntryTime = DateTime.Now; //20171217，也跟着操作改变，20171231 改成询问用户
                 return true;
             }
