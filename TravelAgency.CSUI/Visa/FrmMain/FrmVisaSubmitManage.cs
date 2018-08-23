@@ -159,6 +159,8 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             cbDepatureType.Items.Add("其他");
             cbDepatureType.SelectedIndex = 0;
 
+            OtherDistrictInit();
+
             dataGridView1.AutoGenerateColumns = false; //不显示指定之外的列
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //列宽自适应,一定不能用AllCells
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders; //这里也一定不能AllCell自适应!
@@ -168,9 +170,16 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             bgWorkerLoadData.WorkerReportsProgress = true;
             progressLoading.Visible = false;
             LoadDataToDgvAsyn();
+
             dataGridView1.SelectionChanged += DataGridView1_SelectionChanged;
             _init = true;
             #endregion
+        }
+
+        private void OtherDistrictInit()
+        {
+            if (GlobalUtils.LoginUser.District != 0)
+                Client.Visible = false;
         }
 
         #region 解析签证送签部分

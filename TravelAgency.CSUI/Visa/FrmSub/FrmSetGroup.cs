@@ -111,6 +111,7 @@ namespace TravelAgency.CSUI.FrmSub
                     District.key2Value(GlobalUtils.LoginUser.District.Value))
                 {
                     txtClient.Visible = false;
+                    cb公司.Visible = true;
                 }
             }
         }
