@@ -52,7 +52,8 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         private bool _forAddToGroup = false; //为没有添加团号的用户添加到团号的时候选择团号而设计
         private List<Model.VisaInfo> _listToAddToGroup;
         //private bool _hasFormated = false; //标志，用于防止重复触发rows_added事件(现在不用了，触发两次其实效率也没啥影响，并且如果只是第二次才进行操作的话会出问题)
-        private string _duplicateInfo = null;
+        private List<Model.VisaInfo> _duplicateVisaInfos = new List<VisaInfo>();
+
         private DateTime? _finishTime = null;
         private DateTime? _realTime = null;
 
@@ -939,9 +940,12 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
         private void CheckDuplicate()
         {
-            Dictionary<string, string> nameGroupNoMap = new Dictionary<string, string>();
+            Dictionary<string, bool> addedMap = new Dictionary<string, bool>();
             Dictionary<string, Model.VisaInfo> nameModelMap = new Dictionary<string, Model.VisaInfo>();
             StringBuilder sb = new StringBuilder();
+
+            _duplicateVisaInfos.Clear();
+
             var visaList = DgvDataSourceToList();
             for (int i = 0; i < dataGridView1.Rows.Count; ++i)
             {
@@ -949,22 +953,21 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                     _bllVisaInfo.GetModelListByVisaIdOrderByPosition(visaList[i].Visa_id);
                 foreach (var visaInfo in visainfoList)
                 {
-                    if (nameGroupNoMap.ContainsKey(visaInfo.Name))
-                        sb.Append($"发现重复姓名：{visaInfo.Name}\r\n" +
-                                  $"团号：\"{visaList[i].GroupNo}\"\t\"{nameGroupNoMap[visaInfo.Name]}\"\r\n" +
-                                  $"护照号为：\"{nameModelMap[visaInfo.Name].PassportNo}\"\t\"{visaInfo.PassportNo}\"\r\n" +
-                                  $"签发地为：\"{nameModelMap[visaInfo.Name].IssuePlace}\"\t\"{visaInfo.IssuePlace}\"\r\n" +
-                                  $"性别为：\"{nameModelMap[visaInfo.Name].Sex}\"\t\"{visaInfo.Sex}\"");
+                    if (nameModelMap.ContainsKey(visaInfo.Name))
+                    {
+                        if (addedMap[visaInfo.Name] == false)
+                            _duplicateVisaInfos.Add(nameModelMap[visaInfo.Name]);
+                        _duplicateVisaInfos.Add(visaInfo);
+                        addedMap[visaInfo.Name] = true;
+                    }
                     else
                     {
-                        nameGroupNoMap.Add(visaInfo.Name, visaList[i].GroupNo);
                         nameModelMap.Add(visaInfo.Name, visaInfo);
-
+                        addedMap.Add(visaInfo.Name, false);
                     }
                 }
             }
-            _duplicateInfo = sb.ToString();
-            if (!string.IsNullOrEmpty(_duplicateInfo))
+            if (_duplicateVisaInfos.Count > 0)
             {
                 lbDuplicate.Text = "发现重复";
                 lbDuplicate.ForeColor = Color.OrangeRed;
@@ -2043,9 +2046,9 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
         private void lbDuplicate_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(_duplicateInfo))
+            if (_duplicateVisaInfos.Count>0)
             {
-               FrmShowStringValue frm = new FrmShowStringValue(_duplicateInfo);
+                FrmShowVisaInfos frm = new FrmShowVisaInfos(_duplicateVisaInfos);
                 frm.Show();
             }
         }
