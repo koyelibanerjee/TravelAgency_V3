@@ -914,6 +914,23 @@ namespace TravelAgency.CSUI.FrmSub
                 return;
             }
 
+            //检查销售是否正确
+            bool finded = false;
+            for (int i = 0; i < txtSalesPerson.Items.Count; ++i)
+            {
+                if (txtSalesPerson.Text == txtSalesPerson.Items[i].ToString())
+                {
+                    finded = true;
+                    break;
+                }
+            }
+            if (!finded)
+            {
+                MessageBoxEx.Show("销售请选择下拉框中已有项，不能输入自定义项，或联系管理添加!");
+                return;
+            }
+
+
             if (!CheckGroupNoMatched())
             {
                 //检查团号是否匹配

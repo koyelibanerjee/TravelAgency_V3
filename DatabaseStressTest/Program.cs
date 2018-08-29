@@ -71,7 +71,7 @@ namespace DatabaseStressTest
 
         static void Main(string[] args)
         {
-            int thNum = 6;
+            int thNum = 16; //换了服务器后，最大的优点就是多线程的时候，本机不会CPU使用率很高，因为之前就是一直在等待服务器CPU的响应
             for (int i = 0; i < thNum; i++)
             {
                 new Thread(testVisa).Start(i);
