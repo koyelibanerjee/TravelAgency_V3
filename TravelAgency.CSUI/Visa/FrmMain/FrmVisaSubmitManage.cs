@@ -940,43 +940,48 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
         private void CheckDuplicate()
         {
-            Dictionary<string, bool> addedMap = new Dictionary<string, bool>();
-            Dictionary<string, Model.VisaInfo> nameModelMap = new Dictionary<string, Model.VisaInfo>();
-            StringBuilder sb = new StringBuilder();
-
-            _duplicateVisaInfos.Clear();
-
-            var visaList = DgvDataSourceToList();
-            for (int i = 0; i < dataGridView1.Rows.Count; ++i)
+            lock ("abc")
             {
-                var visainfoList =
-                    _bllVisaInfo.GetModelListByVisaIdOrderByPosition(visaList[i].Visa_id);
-                foreach (var visaInfo in visainfoList)
+                Dictionary<string, bool> addedMap = new Dictionary<string, bool>();
+                Dictionary<string, Model.VisaInfo> nameModelMap = new Dictionary<string, Model.VisaInfo>();
+                StringBuilder sb = new StringBuilder();
+
+                _duplicateVisaInfos.Clear();
+
+                var visaList = DgvDataSourceToList();
+                for (int i = 0; i < dataGridView1.Rows.Count; ++i)
                 {
-                    if (nameModelMap.ContainsKey(visaInfo.Name))
+                    var visainfoList =
+                        _bllVisaInfo.GetModelListByVisaIdOrderByPosition(visaList[i].Visa_id);
+                    foreach (var visaInfo in visainfoList)
                     {
-                        if (addedMap[visaInfo.Name] == false)
-                            _duplicateVisaInfos.Add(nameModelMap[visaInfo.Name]);
-                        _duplicateVisaInfos.Add(visaInfo);
-                        addedMap[visaInfo.Name] = true;
-                    }
-                    else
-                    {
-                        nameModelMap.Add(visaInfo.Name, visaInfo);
-                        addedMap.Add(visaInfo.Name, false);
+                        if (nameModelMap.ContainsKey(visaInfo.Name))
+                        {
+                            if (addedMap[visaInfo.Name] == false)
+                                _duplicateVisaInfos.Add(nameModelMap[visaInfo.Name]);
+                            _duplicateVisaInfos.Add(visaInfo);
+                            addedMap[visaInfo.Name] = true;
+                        }
+                        else
+                        {
+                            nameModelMap.Add(visaInfo.Name, visaInfo);
+                            addedMap.Add(visaInfo.Name, false);
+                        }
                     }
                 }
+                if (_duplicateVisaInfos.Count > 0)
+                {
+                    lbDuplicate.Text = "发现重复";
+                    lbDuplicate.ForeColor = Color.OrangeRed;
+                }
+                else
+                {
+                    lbDuplicate.ForeColor = Color.ForestGreen;
+                    lbDuplicate.Text = "无重复";
+                }
             }
-            if (_duplicateVisaInfos.Count > 0)
-            {
-                lbDuplicate.Text = "发现重复";
-                lbDuplicate.ForeColor = Color.OrangeRed;
-            }
-            else
-            {
-                lbDuplicate.ForeColor = Color.ForestGreen;
-                lbDuplicate.Text = "无重复";
-            }
+
+
         }
 
         /// <summary>
@@ -2046,7 +2051,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
         private void lbDuplicate_Click(object sender, EventArgs e)
         {
-            if (_duplicateVisaInfos.Count>0)
+            if (_duplicateVisaInfos.Count > 0)
             {
                 FrmShowVisaInfos frm = new FrmShowVisaInfos(_duplicateVisaInfos);
                 frm.Show();
