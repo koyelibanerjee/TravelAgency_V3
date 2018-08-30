@@ -637,6 +637,8 @@ namespace TravelAgency.CSUI.FrmMain
         {
             int peopleCount = 0, delayCount = 0;
             var total = dataGridView1.Rows.Count;
+            var defaultColor =
+            StyleControler.CellDefaultBackColor;
             for (int i = 0; i < total; i++)
             {
                 DataGridViewRow row = dataGridView1.Rows[i];
@@ -662,7 +664,7 @@ namespace TravelAgency.CSUI.FrmMain
                     //string state = e.Value.ToString();
                     string state = dataGridView1.Rows[i].Cells["outState"].Value.ToString();
                     if (state == OutState.Type01NoRecord)
-                        c = Color.AliceBlue;
+                        c = defaultColor;
                     else if (state == OutState.Type01Delay)
                         c = Color.DarkOrange;
                     else if (state == OutState.Type02In)
@@ -674,8 +676,12 @@ namespace TravelAgency.CSUI.FrmMain
                     else if (state == OutState.Type10Exported)
                         c = Color.DarkGreen;
                     else
-                        c = Color.Black;
+                        c = defaultColor;
                     dataGridView1.Rows[i].Cells["outState"].Style.BackColor = c;
+                }
+                else
+                {
+                    dataGridView1.Rows[i].Cells["outState"].Style.BackColor = defaultColor;
                 }
                 if (dataGridView1.Rows[i].Cells["Visa_id"].Value != null &&
                     !string.IsNullOrEmpty(dataGridView1.Rows[i].Cells["Visa_id"].Value.ToString()))
