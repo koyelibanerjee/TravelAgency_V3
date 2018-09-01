@@ -643,7 +643,7 @@ namespace TravelAgency.CSUI.FrmSub
                 _visaName += "(" + txtDepartureType.Text + ")";
 
             if (cbOutDelivery.Checked)
-                _visaName += "(外送" + cbOutDeliveryPlace.Text + ")";
+                _visaName += "(" + cbOutDeliveryPlace.Text + ")";
 
             txtGroupNo.Text = _visaName;
         }
@@ -924,7 +924,8 @@ namespace TravelAgency.CSUI.FrmSub
                     break;
                 }
             }
-            if (!finded)
+
+            if (GlobalUtils.LoginUser.District == 0 && !finded) //成都地区才检查
             {
                 MessageBoxEx.Show("销售请选择下拉框中已有项，不能输入自定义项，或联系管理添加!");
                 return;
