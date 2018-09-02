@@ -599,7 +599,7 @@ namespace TravelAgency.CSUI.FrmSub
             if (_initFromVisaModel)
                 return;
             string prefix = string.Empty;
-            if (_type == Types.Individual)
+            if (_type == Types.Individual || _type == Types.Team2Individual) //20180902 团做个也和个签一样
             {
                 prefix = "QZC"; //个签自动加上前缀
                 if (!string.IsNullOrEmpty(cbCountry.Text)
@@ -624,12 +624,12 @@ namespace TravelAgency.CSUI.FrmSub
             }
 
             _visaName = prefix;
-            if (_type == Types.Team2Individual && _recentVisa != null) //团做个要去保持上一次的信息(取前缀)
-            {
-                string pattern = "[a-zA-Z]+\\d+";
-                var matched = Regex.Match(_recentVisa.GroupNo, pattern);
-                _visaName += matched.Groups[0].Value;
-            }
+            //if (_type == Types.Team2Individual && _recentVisa != null) //团做个要去保持上一次的信息(取前缀)
+            //{
+            //    string pattern = "[a-zA-Z]+\\d+";
+            //    var matched = Regex.Match(_recentVisa.GroupNo, pattern);
+            //    _visaName += matched.Groups[0].Value;
+            //}
 
             for (int i = 0; i < lvIn.Items.Count; ++i) //个签和团做个后面都跟上姓名
             {
