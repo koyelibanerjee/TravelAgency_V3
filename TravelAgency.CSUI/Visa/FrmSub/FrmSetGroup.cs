@@ -359,10 +359,8 @@ namespace TravelAgency.CSUI.FrmSub
             txtDepartureType.Text = _recentVisa.DepartureType;
             txtDepartureTime.Text = DateTimeFormator.DateTimeToString(_recentVisa.PredictTime);
             txtSubmitTime.Text = DateTimeFormator.DateTimeToString(_recentVisa.SubmitTime);
-            txtSalesPerson.Text = _recentVisa.SalesPerson;
             txtInTime.Text = DateTimeFormator.DateTimeToString(_recentVisa.InTime);
             txtOutTime.Text = DateTimeFormator.DateTimeToString(_recentVisa.OutTime);
-            txtClient.Text = _recentVisa.client;
             txtPerson.Text = _recentVisa.Person;
             txtSubmitCondition.Text = _recentVisa.SubmitCondition;
             txtFetchType.Text = _recentVisa.FetchCondition;
@@ -370,7 +368,11 @@ namespace TravelAgency.CSUI.FrmSub
             chbIsUrgent.Checked = _recentVisa.IsUrgent ?? false;
             //txtRealTime.Text = DateTimeFormator.DateTimeToString(_recentVisa.RealTime);
 
-
+            if (GlobalUtils.LoginUser.District == 0)
+            {
+                txtClient.Text = _recentVisa.client;
+                txtSalesPerson.Text = _recentVisa.SalesPerson;
+            }
         }
 
 
