@@ -324,7 +324,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             }
             else if (cbDisplayType.Text == "个签&&团做个")
             {
-                conditions.Add(" Types = '团做个' or Types = '个签'");
+                conditions.Add(" (Types = '团做个' or Types = '个签') ");
             }
 
             if (!string.IsNullOrEmpty(txtSchGroupNo.Text.Trim()))
