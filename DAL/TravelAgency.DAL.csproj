@@ -161,6 +161,7 @@
     <Compile Include="JobAssignmentDal.cs" />
     <Compile Include="Joint\CustomerBalance_AuthUserDal.cs" />
     <Compile Include="Joint\Visa_ClaimMoneyDal.cs" />
+    <Compile Include="Joint\Visa_QZApplicationDal.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="OrderExcel.cs" />
     <Compile Include="OrderFiles.cs" />
@@ -190,9 +191,8 @@
     <Compile Include="SystemConfigDal.cs" />
     <Compile Include="VisaActTypeCountDal.cs" />
     <Compile Include="VisaInfo_JobDal.cs" />
-    <Compile Include="VisaWithActRecords.cs" />
+    <Compile Include="Joint\VisaWithActRecords.cs" />
     <Compile Include="Visa.cs" />
-    <Compile Include="VisaWithActRecordsDal.cs" />
     <Compile Include="VisaDal.cs" />
     <Compile Include="VisaInfo.cs" />
     <Compile Include="VisaInfoDal.cs" />

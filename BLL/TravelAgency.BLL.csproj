@@ -195,6 +195,7 @@
     <Compile Include="JobAssignment.cs" />
     <Compile Include="JobAssignmentConfigBll.cs" />
     <Compile Include="Joint\CustomerBalance_AuthUser.cs" />
+    <Compile Include="Joint\Visa_QZApplication.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="OrderExcel.cs" />
     <Compile Include="OrderFiles.cs" />

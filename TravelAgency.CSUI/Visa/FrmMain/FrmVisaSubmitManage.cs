@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using TravelAgency.BLL;
 using TravelAgency.BLL.Excel;
+using TravelAgency.BLL.Joint;
 using TravelAgency.Common;
 using TravelAgency.Common.Enums;
 using TravelAgency.Common.FrmSetValues;
@@ -565,9 +566,8 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         private void btnSearch_Click(object sender, EventArgs e)
         {
             _where = GetWhereCondition();
-
+            _curPage = 1;
             LoadDataToDgvAsyn();
-
         }
 
         private void btnShowAll_Click(object sender, EventArgs e)
@@ -858,6 +858,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             var visas = dataGridView1.DataSource as List<Model.Visa>;
+            BLL.Joint.Visa_QZApplication bllVisaQzApplication  = new Visa_QZApplication();
             Font font = new Font(new FontFamily("Consolas"), 13.0f, FontStyle.Bold);
             int peopleCount = 0;
             int hasIn = 0;
@@ -865,10 +866,23 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             var dictIn = _visaActTypeCountBll.GetVisaOutStateCountDict(visas, OutState.Type02In);
             var dictOut = _visaActTypeCountBll.GetVisaOutStateCountDict(visas, OutState.Type03NormalOut);
             var dictAbOut = _visaActTypeCountBll.GetVisaOutStateCountDict(visas, OutState.Type04AbnormalOut);
-
+            var hasSendRequestPayout = bllVisaQzApplication.CheckVisaSendPayoutRequest(visas);
+            Color defaultColor = StyleControler.CellDefaultBackColor;
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 dataGridView1.Rows[i].HeaderCell.Value = (i + 1).ToString();
+
+                //没有进行请款的设置为红色背景色
+                if (hasSendRequestPayout.Contains(dataGridView1.Rows[i].Cells["visa_id"].Value.ToString()))
+                {
+                    dataGridView1.Rows[i].Cells["GroupNo"].Style.BackColor = defaultColor;
+                }
+                else
+                {
+                    dataGridView1.Rows[i].Cells["GroupNo"].Style.BackColor = Color.Red;
+
+                }
+
                 if (dataGridView1.Rows[i].Cells["Country"].Value != null)
                 {
                     string countryName = dataGridView1.Rows[i].Cells["Country"].Value.ToString();
