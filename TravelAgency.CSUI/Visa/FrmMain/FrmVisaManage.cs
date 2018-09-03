@@ -410,7 +410,6 @@ namespace TravelAgency.CSUI.FrmMain
 
         private void btnShowToday_Click(object sender, EventArgs e)
         {
-
             var _modelYestodayLast = _bllVisa.GetLastRecordOfTheDay(DateTime.Now.AddDays(-1.0));
             var _modelTodayLast = _bllVisa.GetLastRecordOfTheDay(DateTime.Now);
             if (_modelYestodayLast != null)
@@ -462,7 +461,7 @@ namespace TravelAgency.CSUI.FrmMain
                 return;
             }
 
-            //按照出境类型(按照Excel报表中来)，人数排序(从小到大)
+            //按照出境类型(按照Excel报表中来)，人数排序(从小到大)，做资料时间(从小到大)
             visaList.Sort((model1, model2) =>
             {
                 if (model1.DepartureType == null && model2.DepartureType != null)
@@ -485,6 +484,11 @@ namespace TravelAgency.CSUI.FrmMain
                 else if (Model.Enums.DepartureType.Dict[model1.DepartureType] ==
                          Model.Enums.DepartureType.Dict[model2.DepartureType])
                 {
+                    //按照人数排序后还要按照时间排序
+                    if (model1.Number == model2.Number)
+                    {
+                        return model1.EntryTime < model2.EntryTime ? -1 : 1;
+                    }
                     return model1.Number < model2.Number ? -1 : 1;
                 }
                 else
@@ -512,14 +516,12 @@ namespace TravelAgency.CSUI.FrmMain
                     visaList.Remove(visaList[i]); //如果这个团所有人都被移出去了，那么就直接把这个团也删除掉
             }
 
-            ////再去除已经导出8人报表的
+            //再去除已经导出8人报表的
             //_bllHasExported8Report.CheckExistAndRemove(visaList, visaInfoList);
             FrmTodaySubmit frm = new FrmTodaySubmit(visaList, visaInfoList);
             frm.From = from;
             frm.To = to;
-            //frm.ShowDialog();
             frm.Show();
-            //ExcelGenerator.GetEverydayExcel(visaList, visaInfoList);
         }
 
         #endregion

@@ -171,7 +171,7 @@ namespace TravelAgency.BLL.Excel
         /// </summary>
         /// <param name="visaInfoList"></param>
         /// <param name="visaList">这个list是每有一个visainfo就有一个visa,就是对应的visa，重复也不管</param>
-        public static void GetGuolvJinGunMingDan(List<Model.VisaInfo> visaInfoList, List<Model.Visa> visaList,bool single=false)
+        public static void GetGuolvJinGunMingDan(List<Model.VisaInfo> visaInfoList, List<Model.Visa> visaList, bool single = false)
         {
             //if (visaInfoList.Count > 8)
             //{
@@ -208,7 +208,7 @@ namespace TravelAgency.BLL.Excel
                     row = sheet.GetRow(21 + j * 4);
 
                     //如果是同一个团中的第二个人，加一个" 符号
-                    if (pre != null && visaList[j]!=null && !string.IsNullOrEmpty(visaList[j].GroupNo) && visaList[j].GroupNo == pre)
+                    if (pre != null && visaList[j] != null && !string.IsNullOrEmpty(visaList[j].GroupNo) && visaList[j].GroupNo == pre)
                         row.GetCell(2).SetCellValue("\"");
                     pre = visaList[j] == null ? "" : visaList[j].GroupNo;
                     //姓名
@@ -239,7 +239,7 @@ namespace TravelAgency.BLL.Excel
                         if (IsOutSigned(visaInfoList[j])
                          || residence != visaInfoList[j].IssuePlace) //从签证信息导出的时候，默认设置这里是发行地
                             row.GetCell(11).SetCellValue(visaInfoList[j].IssuePlace);
-                            continue;
+                        continue;
                     }
 
                     if (!string.IsNullOrEmpty(residence))
