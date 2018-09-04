@@ -846,11 +846,11 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 //没有进行请款的设置为红色背景色
                 if (hasSendRequestPayout.Contains(dataGridView1.Rows[i].Cells["visa_id"].Value.ToString()))
                 {
-                    dataGridView1.Rows[i].Cells["GroupNo"].Style.BackColor = defaultColor;
+                    dataGridView1.Rows[i].Cells["Country"].Style.BackColor = defaultColor;
                 }
                 else
                 {
-                    dataGridView1.Rows[i].Cells["GroupNo"].Style.BackColor = Color.Red;
+                    dataGridView1.Rows[i].Cells["Country"].Style.BackColor = Color.Red;
 
                 }
 
