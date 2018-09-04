@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using TravelAgency.BLL;
 using TravelAgency.BLL.Excel;
 using TravelAgency.Common;
 using TravelAgency.CSUI.Financial.FrmSub;
 using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Properties;
-using TravelAgency.Model;
+using ClientCharge = TravelAgency.Model.ClientCharge;
 
 namespace TravelAgency.CSUI.Financial.FrmMain
 {
@@ -251,29 +252,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
         private string GetWhereCondition()
         {
             List<string> conditions = new List<string>();
-            if (cbDisplayType.Text == "全部")
-            {
-            }
-            else if (cbDisplayType.Text == "未记录")
-            {
-                conditions.Add(" Types is null or Types='' ");
-            }
-            else if (cbDisplayType.Text == "个签")
-            {
-                conditions.Add(" Types = '个签' ");
-            }
-            else if (cbDisplayType.Text == "团签")
-            {
-                conditions.Add(" Types = '团签' ");
-            }
-            else if (cbDisplayType.Text == "团做个")
-            {
-                conditions.Add(" Types = '团做个' ");
-            }
-            else if (cbDisplayType.Text == "个签&&团做个")
-            {
-                conditions.Add(" (Types = '团做个' or Types = '个签') ");
-            }
+            SearchCondition.GetVisaTypesCondition(conditions, cbDisplayType.Text);
 
             if (cbCountry.Text == "全部")
             {
