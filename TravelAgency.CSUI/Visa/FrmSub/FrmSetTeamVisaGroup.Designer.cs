@@ -762,7 +762,7 @@
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX4.Location = new System.Drawing.Point(11, 10);
             this.labelX4.Name = "labelX4";
-            this.labelX4.Size = new System.Drawing.Size(40, 23);
+            this.labelX4.Size = new System.Drawing.Size(75, 23);
             this.labelX4.TabIndex = 72;
             this.labelX4.Text = "国家/地区:";
             // 

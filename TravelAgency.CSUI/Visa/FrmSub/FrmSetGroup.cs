@@ -41,6 +41,7 @@ namespace TravelAgency.CSUI.FrmSub
         private readonly int _curPage; //主界面更新数据库需要一个当前页
         private Model.Visa _recentVisa;
         private readonly string _type; //团做个还是个签
+        private string _districtPrefix; //地区前缀
 
         private List<Model.VisaInfo> _visainfoListBackUp;
         private bool _inited = false;
@@ -373,6 +374,11 @@ namespace TravelAgency.CSUI.FrmSub
                 txtClient.Text = _recentVisa.client;
                 txtSalesPerson.Text = _recentVisa.SalesPerson;
             }
+
+
+            //只有从list初始化的时候才设置地区前缀
+            cbSaleTo.Visible = true;
+            ControlInitializer.InitCombo(cbSaleTo, District.DistrictList);
         }
 
 
@@ -468,6 +474,8 @@ namespace TravelAgency.CSUI.FrmSub
                 this.Text += "  当前状态:已做资料";
             else
                 this.Text += "  当前状态:未做资料";
+
+            cbSaleTo.Visible = false;
 
         }
 
@@ -601,7 +609,7 @@ namespace TravelAgency.CSUI.FrmSub
             string prefix = string.Empty;
             if (_type == Types.Individual || _type == Types.Team2Individual) //20180902 团做个也和个签一样
             {
-                prefix = "QZC"; //个签自动加上前缀
+                prefix = _districtPrefix; //个签自动加上前缀
                 if (!string.IsNullOrEmpty(cbCountry.Text)
                     && CountryCode.Dict.ContainsKey(cbCountry.Text)
                     && !string.IsNullOrEmpty(CountryCode.Dict[cbCountry.Text]))
@@ -1854,6 +1862,12 @@ namespace TravelAgency.CSUI.FrmSub
 
         private void cbOutDeliveryPlace_SelectedIndexChanged(object sender, EventArgs e)
         {
+            UpdateGroupNo();
+        }
+
+        private void cbSaleTo_SelectedValueChanged(object sender, EventArgs e)
+        {
+            _districtPrefix = District.getDisPrefix(cbSaleTo.Text);
             UpdateGroupNo();
         }
     }
