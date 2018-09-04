@@ -71,6 +71,11 @@ namespace TravelAgency.CSUI.FrmSub
                 }
                 else
                 {
+                    if (GlobalUtils.LoginUserLevel != RigthLevel.Manager)
+                    {
+                        MessageBoxEx.Show("权限不足,只有经理级别权限能够选择缺省类型!");
+                        return;
+                    }
                     frmSetGroup = new FrmSetGroup(_list, _updateDel, _curPage, Types.Default);
                 }
                 frmSetGroup.Show();
