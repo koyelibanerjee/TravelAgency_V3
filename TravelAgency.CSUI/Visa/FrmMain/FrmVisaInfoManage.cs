@@ -1501,5 +1501,18 @@ namespace TravelAgency.CSUI.FrmMain
             GlobalUtils.DocDocxGenerator.SetDocType(DocDocxGenerator.DocType.Type09个人申请表);
             GlobalUtils.DocDocxGenerator.GenerateBatch(stringList, dst);
         }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var list = GetDgvSelList();
+            if (list.Count < 1)
+                return;
+            StringBuilder sb = new StringBuilder();
+            foreach (var visaInfo in list)
+            {
+                sb.Append(MyQRCode.GenQrInfo(visaInfo) + "\r\n");
+            }
+            Clipboard.SetText(sb.ToString());
+        }
     }
 }
