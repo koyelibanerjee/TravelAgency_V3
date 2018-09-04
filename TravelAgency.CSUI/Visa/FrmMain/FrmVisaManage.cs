@@ -86,14 +86,7 @@ namespace TravelAgency.CSUI.FrmMain
             cbPageSize.DropDownStyle = ComboBoxStyle.DropDownList;
             cbPageSize.SelectedIndex = 1;
 
-            cbDisplayType.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbDisplayType.Items.Add("全部");
-            cbDisplayType.Items.Add("未记录");
-            cbDisplayType.Items.Add("个签");
-            cbDisplayType.Items.Add("团签");
-            cbDisplayType.Items.Add("团做个");
-            cbDisplayType.Items.Add("个签&&团做个");
-            cbDisplayType.SelectedIndex = 0;
+            ControlInitializer.InitCombo(cbDisplayType, Model.Enums.Types.List, ComboBoxStyle.DropDownList, 0);
 
             cbIsUrgent.DropDownStyle = ComboBoxStyle.DropDownList;
             cbIsUrgent.Items.Add("全部");
@@ -291,29 +284,7 @@ namespace TravelAgency.CSUI.FrmMain
         private string GetWhereCondition()
         {
             List<string> conditions = new List<string>();
-            if (cbDisplayType.Text == "全部")
-            {
-            }
-            else if (cbDisplayType.Text == "未记录")
-            {
-                conditions.Add(" Types is null or Types='' ");
-            }
-            else if (cbDisplayType.Text == "个签")
-            {
-                conditions.Add(" Types = '个签' ");
-            }
-            else if (cbDisplayType.Text == "团签")
-            {
-                conditions.Add(" Types = '团签' ");
-            }
-            else if (cbDisplayType.Text == "团做个")
-            {
-                conditions.Add(" Types = '团做个' ");
-            }
-            else if (cbDisplayType.Text == "个签&&团做个")
-            {
-                conditions.Add(" (Types = '团做个' or Types = '个签') ");
-            }
+            SearchCondition.GetVisaTypesCondition(conditions, cbDisplayType.Text);
 
             if (!string.IsNullOrEmpty(txtSchGroupNo.Text.Trim()))
             {
@@ -1571,7 +1542,7 @@ namespace TravelAgency.CSUI.FrmMain
             var visa = GetSelectedVisaList()[0];
             string visaid = GetSelectedVisaList()[0].Visa_id.ToString();
             List<string> list;
-            if (GlobalUtils.LoginUser.District == visa.District || 
+            if (GlobalUtils.LoginUser.District == visa.District ||
                 GlobalUtils.LoginUser.District == 0) //成都的所有都走ftp
             {
                 list = new GaopaiPicHandler(GaopaiPicHandler.PictureType.Type01_Normal).GetGaopaiImageListOfVisa(visaid);

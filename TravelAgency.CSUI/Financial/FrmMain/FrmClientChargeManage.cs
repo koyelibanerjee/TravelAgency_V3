@@ -49,14 +49,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             cbPageSize.DropDownStyle = ComboBoxStyle.DropDownList;
             cbPageSize.SelectedIndex = 2;
 
-            cbDisplayType.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbDisplayType.Items.Add("全部");
-            cbDisplayType.Items.Add("未记录");
-            cbDisplayType.Items.Add("个签");
-            cbDisplayType.Items.Add("团签");
-            cbDisplayType.Items.Add("团做个");
-            cbDisplayType.Items.Add("个签&&团做个");
-            cbDisplayType.SelectedIndex = 0;
+            ControlInitializer.InitCombo(cbDisplayType, Model.Enums.Types.List, ComboBoxStyle.DropDownList, 0);
 
             cbDepatureType.Items.Add("全部");
             cbDepatureType.Items.Add("单次");

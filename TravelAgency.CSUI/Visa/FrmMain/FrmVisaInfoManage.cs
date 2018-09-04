@@ -97,14 +97,7 @@ namespace TravelAgency.CSUI.FrmMain
             dataGridView1.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
             dataGridView1.SelectionChanged += DataGridView1_SelectionChanged;
 
-            cbDisplayType.Items.Add("全部");
-            cbDisplayType.Items.Add("未记录");
-            cbDisplayType.Items.Add("个签");
-            cbDisplayType.Items.Add("团签");
-            cbDisplayType.Items.Add("团做个");
-            cbDisplayType.Items.Add("个签&&团做个");
-            cbDisplayType.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbDisplayType.SelectedIndex = 0;
+            ControlInitializer.InitCombo(cbDisplayType, Model.Enums.Types.List, ComboBoxStyle.DropDownList, 0);
             //checkShowConfirm.Checked = true;
             //checkRegSucShowDlg.Checked = true;
 

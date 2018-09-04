@@ -56,7 +56,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
         public List<Model.VisaInfo> List4AddToExport;
         private bool _b4AddToExport = false;
-        private  BLL.JobAssignmentConfigBll _bllJobAssignmentConfigBll =  new BLL.JobAssignmentConfigBll();
+        private BLL.JobAssignmentConfigBll _bllJobAssignmentConfigBll = new BLL.JobAssignmentConfigBll();
 
         public FrmJobAssignment(bool b4Add = false)
         {
@@ -79,6 +79,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             _colorList.Add(Color.DarkSlateBlue);
             _colorList.Add(Color.DeepPink);
 
+            _where = GetWhereCondition();
             _recordCount = _bllVisaInfo.GetRecordCount(_where);
             _pageCount = (int)Math.Ceiling(_recordCount / (double)_pageSize);
 
@@ -119,16 +120,8 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             dataGridView1.CellMouseUp += dataGridView1_CellMouseUp;
             dataGridView1.DoubleClick += dataGridView1_DoubleClick;
 
-            cbDisplayType.Items.Add("全部");
-            cbDisplayType.Items.Add("未记录");
-            cbDisplayType.Items.Add("个签");
-            cbDisplayType.Items.Add("团签");
-            cbDisplayType.Items.Add("团做个");
-            cbDisplayType.Items.Add("个签&&团做个");
-            cbDisplayType.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbDisplayType.SelectedIndex = 0;
-            //checkShowConfirm.Checked = true;
-            //checkRegSucShowDlg.Checked = true;
+
+            ControlInitializer.InitCombo(cbDisplayType, Model.Enums.Types.List, ComboBoxStyle.DropDownList, 0);
 
             cbAssignmentToUserName.Items.Add("全部");
             cbAssignmentToUserName.SelectedIndex = 0;
@@ -454,6 +447,10 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             else if (cbDisplayType.Text == "个签&&团做个")
             {
                 conditions.Add(" Types = '团做个' or Types = '个签' ");
+            }
+            else
+            {
+                
             }
 
             if (!string.IsNullOrEmpty(txtSchPassportNo.Text.Trim()))
@@ -1490,7 +1487,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         private void btnOpenJobAssignment_ValueChanged(object sender, EventArgs e)
         {
             _bllJobAssignmentConfigBll.
-                setDistrictAssignmentEnable(GlobalUtils.LoginUser.District.Value,btnOpenJobAssignment.Value);
+                setDistrictAssignmentEnable(GlobalUtils.LoginUser.District.Value, btnOpenJobAssignment.Value);
         }
     }
 }
