@@ -634,9 +634,9 @@
             this.cbCountry.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbCountry.FormattingEnabled = true;
             this.cbCountry.ItemHeight = 15;
-            this.cbCountry.Location = new System.Drawing.Point(552, 5);
+            this.cbCountry.Location = new System.Drawing.Point(568, 5);
             this.cbCountry.Name = "cbCountry";
-            this.cbCountry.Size = new System.Drawing.Size(83, 21);
+            this.cbCountry.Size = new System.Drawing.Size(67, 21);
             this.cbCountry.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cbCountry.TabIndex = 38;
             // 
@@ -646,11 +646,11 @@
             // 
             // 
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX3.Location = new System.Drawing.Point(517, 6);
+            this.labelX3.Location = new System.Drawing.Point(495, 6);
             this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(46, 21);
+            this.labelX3.Size = new System.Drawing.Size(67, 21);
             this.labelX3.TabIndex = 37;
-            this.labelX3.Text = "国家:";
+            this.labelX3.Text = "国家/地区:";
             // 
             // btnShowToday
             // 
@@ -726,7 +726,7 @@
             this.txtSchGroupNo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtSchGroupNo.Location = new System.Drawing.Point(341, 6);
             this.txtSchGroupNo.Name = "txtSchGroupNo";
-            this.txtSchGroupNo.Size = new System.Drawing.Size(170, 21);
+            this.txtSchGroupNo.Size = new System.Drawing.Size(148, 21);
             this.txtSchGroupNo.TabIndex = 23;
             // 
             // lb1

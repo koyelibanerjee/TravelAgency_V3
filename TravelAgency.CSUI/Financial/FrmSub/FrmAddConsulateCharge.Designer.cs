@@ -245,7 +245,7 @@
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(46, 23);
             this.labelX1.TabIndex = 1;
-            this.labelX1.Text = "国家:";
+            this.labelX1.Text = "国家/地区:";
             // 
             // cbDepartureType
             // 

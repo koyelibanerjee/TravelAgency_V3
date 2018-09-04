@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bar1 = new DevComponents.DotNetBar.Bar();
             this.btnPageFirst = new DevComponents.DotNetBar.ButtonItem();
             this.btnPagePre = new DevComponents.DotNetBar.ButtonItem();
@@ -121,8 +121,11 @@
             this.清除杂费款项ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.设置请款标记ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.添加到设置请款费用列表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.生成新团号ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelBars = new DevComponents.DotNetBar.PanelEx();
             this.panelSerachBar = new DevComponents.DotNetBar.PanelEx();
+            this.txtRequestFlagUserName = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX9 = new DevComponents.DotNetBar.LabelX();
             this.txtRequestFlag = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX4 = new DevComponents.DotNetBar.LabelX();
             this.cbSubmitState = new DevComponents.DotNetBar.Controls.ComboBoxEx();
@@ -161,9 +164,6 @@
             this.lbCount = new DevComponents.DotNetBar.LabelItem();
             this.cmsAddToGroup = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.添加到团号ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtRequestFlagUserName = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX9 = new DevComponents.DotNetBar.LabelX();
-            this.生成新团号ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cmsDgv.SuspendLayout();
@@ -283,14 +283,14 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.GroupNo,
@@ -323,28 +323,28 @@
             this.SubmitFlag,
             this.RequestFlag,
             this.Visa_id});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -613,7 +613,7 @@
             this.添加到设置请款费用列表ToolStripMenuItem,
             this.生成新团号ToolStripMenuItem});
             this.cmsDgv.Name = "cmsDgv";
-            this.cmsDgv.Size = new System.Drawing.Size(209, 402);
+            this.cmsDgv.Size = new System.Drawing.Size(209, 380);
             // 
             // 复制ToolStripMenuItem
             // 
@@ -943,6 +943,13 @@
             this.添加到设置请款费用列表ToolStripMenuItem.Text = "添加到设置请款费用列表";
             this.添加到设置请款费用列表ToolStripMenuItem.Click += new System.EventHandler(this.添加到设置请款费用列表ToolStripMenuItem_Click);
             // 
+            // 生成新团号ToolStripMenuItem
+            // 
+            this.生成新团号ToolStripMenuItem.Name = "生成新团号ToolStripMenuItem";
+            this.生成新团号ToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.生成新团号ToolStripMenuItem.Text = "生成新团号";
+            this.生成新团号ToolStripMenuItem.Click += new System.EventHandler(this.生成新团号ToolStripMenuItem_Click);
+            // 
             // panelBars
             // 
             this.panelBars.CanvasColor = System.Drawing.SystemColors.Control;
@@ -1011,6 +1018,33 @@
             this.panelSerachBar.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.panelSerachBar.Style.GradientAngle = 90;
             this.panelSerachBar.TabIndex = 29;
+            // 
+            // txtRequestFlagUserName
+            // 
+            this.txtRequestFlagUserName.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txtRequestFlagUserName.Border.Class = "TextBoxBorder";
+            this.txtRequestFlagUserName.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtRequestFlagUserName.DisabledBackColor = System.Drawing.Color.White;
+            this.txtRequestFlagUserName.ForeColor = System.Drawing.Color.Black;
+            this.txtRequestFlagUserName.Location = new System.Drawing.Point(700, 37);
+            this.txtRequestFlagUserName.Name = "txtRequestFlagUserName";
+            this.txtRequestFlagUserName.Size = new System.Drawing.Size(69, 21);
+            this.txtRequestFlagUserName.TabIndex = 59;
+            // 
+            // labelX9
+            // 
+            // 
+            // 
+            // 
+            this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX9.Location = new System.Drawing.Point(623, 37);
+            this.labelX9.Name = "labelX9";
+            this.labelX9.Size = new System.Drawing.Size(75, 21);
+            this.labelX9.TabIndex = 60;
+            this.labelX9.Text = "请款标记人:";
             // 
             // txtRequestFlag
             // 
@@ -1254,7 +1288,7 @@
             this.txtClient.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.txtClient.DisabledBackColor = System.Drawing.Color.White;
             this.txtClient.ForeColor = System.Drawing.Color.Black;
-            this.txtClient.Location = new System.Drawing.Point(738, 6);
+            this.txtClient.Location = new System.Drawing.Point(786, 6);
             this.txtClient.Name = "txtClient";
             this.txtClient.Size = new System.Drawing.Size(60, 21);
             this.txtClient.TabIndex = 43;
@@ -1266,7 +1300,7 @@
             this.cbDepatureType.ForeColor = System.Drawing.Color.Black;
             this.cbDepatureType.FormattingEnabled = true;
             this.cbDepatureType.ItemHeight = 15;
-            this.cbDepatureType.Location = new System.Drawing.Point(614, 5);
+            this.cbDepatureType.Location = new System.Drawing.Point(662, 5);
             this.cbDepatureType.Name = "cbDepatureType";
             this.cbDepatureType.Size = new System.Drawing.Size(82, 21);
             this.cbDepatureType.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -1278,7 +1312,7 @@
             // 
             // 
             this.labelX7.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX7.Location = new System.Drawing.Point(555, 7);
+            this.labelX7.Location = new System.Drawing.Point(603, 7);
             this.labelX7.Name = "labelX7";
             this.labelX7.Size = new System.Drawing.Size(66, 21);
             this.labelX7.TabIndex = 46;
@@ -1302,7 +1336,7 @@
             // 
             // 
             this.labelX6.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX6.Location = new System.Drawing.Point(704, 6);
+            this.labelX6.Location = new System.Drawing.Point(752, 6);
             this.labelX6.Name = "labelX6";
             this.labelX6.Size = new System.Drawing.Size(37, 21);
             this.labelX6.TabIndex = 45;
@@ -1315,7 +1349,7 @@
             this.cbCountry.ForeColor = System.Drawing.Color.Black;
             this.cbCountry.FormattingEnabled = true;
             this.cbCountry.ItemHeight = 15;
-            this.cbCountry.Location = new System.Drawing.Point(471, 5);
+            this.cbCountry.Location = new System.Drawing.Point(519, 5);
             this.cbCountry.Name = "cbCountry";
             this.cbCountry.Size = new System.Drawing.Size(79, 21);
             this.cbCountry.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -1329,9 +1363,9 @@
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX3.Location = new System.Drawing.Point(419, 6);
             this.labelX3.Name = "labelX3";
-            this.labelX3.Size = new System.Drawing.Size(46, 21);
+            this.labelX3.Size = new System.Drawing.Size(86, 21);
             this.labelX3.TabIndex = 35;
-            this.labelX3.Text = "国家:";
+            this.labelX3.Text = "国家/地区:";
             // 
             // btnShowToday
             // 
@@ -1622,40 +1656,6 @@
             this.添加到团号ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.添加到团号ToolStripMenuItem.Text = "添加到此团号";
             this.添加到团号ToolStripMenuItem.Click += new System.EventHandler(this.添加到团号ToolStripMenuItem_Click);
-            // 
-            // txtRequestFlagUserName
-            // 
-            this.txtRequestFlagUserName.BackColor = System.Drawing.Color.White;
-            // 
-            // 
-            // 
-            this.txtRequestFlagUserName.Border.Class = "TextBoxBorder";
-            this.txtRequestFlagUserName.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtRequestFlagUserName.DisabledBackColor = System.Drawing.Color.White;
-            this.txtRequestFlagUserName.ForeColor = System.Drawing.Color.Black;
-            this.txtRequestFlagUserName.Location = new System.Drawing.Point(700, 37);
-            this.txtRequestFlagUserName.Name = "txtRequestFlagUserName";
-            this.txtRequestFlagUserName.Size = new System.Drawing.Size(69, 21);
-            this.txtRequestFlagUserName.TabIndex = 59;
-            // 
-            // labelX9
-            // 
-            // 
-            // 
-            // 
-            this.labelX9.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX9.Location = new System.Drawing.Point(623, 37);
-            this.labelX9.Name = "labelX9";
-            this.labelX9.Size = new System.Drawing.Size(75, 21);
-            this.labelX9.TabIndex = 60;
-            this.labelX9.Text = "请款标记人:";
-            // 
-            // 生成新团号ToolStripMenuItem
-            // 
-            this.生成新团号ToolStripMenuItem.Name = "生成新团号ToolStripMenuItem";
-            this.生成新团号ToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
-            this.生成新团号ToolStripMenuItem.Text = "生成新团号";
-            this.生成新团号ToolStripMenuItem.Click += new System.EventHandler(this.生成新团号ToolStripMenuItem_Click);
             // 
             // FrmVisaRequestPayoutManage
             // 

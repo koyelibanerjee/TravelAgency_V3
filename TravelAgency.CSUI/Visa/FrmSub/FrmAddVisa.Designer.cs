@@ -225,7 +225,7 @@
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(40, 23);
             this.labelX4.TabIndex = 99;
-            this.labelX4.Text = "国家:";
+            this.labelX4.Text = "国家/地区:";
             // 
             // txtDepartureTime
             // 

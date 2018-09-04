@@ -319,7 +319,7 @@ namespace TravelAgency.CSUI.FrmMain
             this.labelX13.Name = "labelX13";
             this.labelX13.Size = new System.Drawing.Size(54, 23);
             this.labelX13.TabIndex = 22;
-            this.labelX13.Text = "国家:";
+            this.labelX13.Text = "国家/地区:";
             // 
             // rbtnJapan
             // 

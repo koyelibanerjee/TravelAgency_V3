@@ -455,7 +455,7 @@ namespace TravelAgency.CSUI.FrmSub
             this.labelX22.Name = "labelX22";
             this.labelX22.Size = new System.Drawing.Size(96, 23);
             this.labelX22.TabIndex = 65;
-            this.labelX22.Text = "国家:";
+            this.labelX22.Text = "国家/地区:";
             // 
             // btnCancel
             // 
