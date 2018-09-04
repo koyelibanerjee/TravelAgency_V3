@@ -40,7 +40,7 @@ namespace TravelAgency.CSUI.FrmSub
             _updateDel = del;
             _curPage = page;
 
-           
+
         }
 
         public FrmGroupOrIndividual(List<Model.VisaInfo> list, Action<int> del, int page)
@@ -60,21 +60,20 @@ namespace TravelAgency.CSUI.FrmSub
                 if (rbtnIndividual.Checked)
                 {
                     frmSetGroup = new FrmSetGroup(_list, _updateDel, _curPage, Types.Individual);
-                    //frmSetGroup.ShowDialog();
-                    frmSetGroup.Show();
                 }
                 else if (rBtnTeam.Checked)
                 {
-                     frmSetGroup = new FrmSetTeamVisaGroup(_list, _updateDel, _curPage);
-                    //frmSetGroup.ShowDialog();
-                    frmSetGroup.Show();
+                    frmSetGroup = new FrmSetTeamVisaGroup(_list, _updateDel, _curPage);
                 }
                 else if (rbtnTeamToInd.Checked)
                 {
-                     frmSetGroup = new FrmSetGroup(_list, _updateDel, _curPage, Types.Team2Individual);
-                    //frmSetGroup.ShowDialog();
-                    frmSetGroup.Show();
+                    frmSetGroup = new FrmSetGroup(_list, _updateDel, _curPage, Types.Team2Individual);
                 }
+                else
+                {
+                    frmSetGroup = new FrmSetGroup(_list, _updateDel, _curPage, Types.Default);
+                }
+                frmSetGroup.Show();
             }
             else //从model初始化,更改团的类型
             {
@@ -85,6 +84,8 @@ namespace TravelAgency.CSUI.FrmSub
                     type = Types.Team;
                 else if (rbtnTeamToInd.Checked)
                     type = Types.Team2Individual;
+                else
+                    type = Types.Default;
                 if (type != _visaModel.Types)
                 {
                     //执行更新
@@ -130,20 +131,18 @@ namespace TravelAgency.CSUI.FrmSub
             if (_visaModel.Types == Types.Individual)
             {
                 rbtnIndividual.Checked = true;
-                rbtnTeamToInd.Checked = false;
-                rBtnTeam.Checked = false;
             }
             else if (_visaModel.Types == Types.Team2Individual)
             {
                 rbtnTeamToInd.Checked = true;
-                rBtnTeam.Checked = false;
-                rbtnIndividual.Checked = false;
             }
             else if (_visaModel.Types == Types.Team)
             {
                 rBtnTeam.Checked = true;
-                rbtnTeamToInd.Checked = false;
-                rbtnIndividual.Checked = false;
+            }
+            else
+            {
+                rbtnDefault.Checked = true;
             }
 
         }

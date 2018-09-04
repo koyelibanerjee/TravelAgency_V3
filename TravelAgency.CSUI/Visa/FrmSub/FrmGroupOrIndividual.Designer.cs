@@ -29,12 +29,13 @@
         private void InitializeComponent()
         {
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
-            this.btnCancel = new DevComponents.DotNetBar.ButtonX();
-            this.btnOK = new DevComponents.DotNetBar.ButtonX();
-            this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.rbtnTeamToInd = new System.Windows.Forms.RadioButton();
             this.rbtnIndividual = new System.Windows.Forms.RadioButton();
             this.rBtnTeam = new System.Windows.Forms.RadioButton();
+            this.btnCancel = new DevComponents.DotNetBar.ButtonX();
+            this.btnOK = new DevComponents.DotNetBar.ButtonX();
+            this.labelX1 = new DevComponents.DotNetBar.LabelX();
+            this.rbtnDefault = new System.Windows.Forms.RadioButton();
             this.panelEx1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,6 +43,7 @@
             // 
             this.panelEx1.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx1.Controls.Add(this.rbtnDefault);
             this.panelEx1.Controls.Add(this.rbtnTeamToInd);
             this.panelEx1.Controls.Add(this.rbtnIndividual);
             this.panelEx1.Controls.Add(this.rBtnTeam);
@@ -61,6 +63,43 @@
             this.panelEx1.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.panelEx1.Style.GradientAngle = 90;
             this.panelEx1.TabIndex = 0;
+            // 
+            // rbtnTeamToInd
+            // 
+            this.rbtnTeamToInd.AutoSize = true;
+            this.rbtnTeamToInd.ForeColor = System.Drawing.Color.OrangeRed;
+            this.rbtnTeamToInd.Location = new System.Drawing.Point(134, 41);
+            this.rbtnTeamToInd.Name = "rbtnTeamToInd";
+            this.rbtnTeamToInd.Size = new System.Drawing.Size(59, 16);
+            this.rbtnTeamToInd.TabIndex = 21;
+            this.rbtnTeamToInd.TabStop = true;
+            this.rbtnTeamToInd.Text = "团做个";
+            this.rbtnTeamToInd.UseVisualStyleBackColor = true;
+            // 
+            // rbtnIndividual
+            // 
+            this.rbtnIndividual.AutoSize = true;
+            this.rbtnIndividual.BackColor = System.Drawing.Color.Transparent;
+            this.rbtnIndividual.ForeColor = System.Drawing.Color.OrangeRed;
+            this.rbtnIndividual.Location = new System.Drawing.Point(12, 41);
+            this.rbtnIndividual.Name = "rbtnIndividual";
+            this.rbtnIndividual.Size = new System.Drawing.Size(47, 16);
+            this.rbtnIndividual.TabIndex = 23;
+            this.rbtnIndividual.TabStop = true;
+            this.rbtnIndividual.Text = "个签";
+            this.rbtnIndividual.UseVisualStyleBackColor = false;
+            // 
+            // rBtnTeam
+            // 
+            this.rBtnTeam.AutoSize = true;
+            this.rBtnTeam.ForeColor = System.Drawing.Color.OrangeRed;
+            this.rBtnTeam.Location = new System.Drawing.Point(77, 41);
+            this.rBtnTeam.Name = "rBtnTeam";
+            this.rBtnTeam.Size = new System.Drawing.Size(47, 16);
+            this.rBtnTeam.TabIndex = 22;
+            this.rBtnTeam.TabStop = true;
+            this.rBtnTeam.Text = "团签";
+            this.rBtnTeam.UseVisualStyleBackColor = true;
             // 
             // btnCancel
             // 
@@ -98,42 +137,17 @@
             this.labelX1.TabIndex = 1;
             this.labelX1.Text = "签证类型选择:";
             // 
-            // rbtnTeamToInd
+            // rbtnDefault
             // 
-            this.rbtnTeamToInd.AutoSize = true;
-            this.rbtnTeamToInd.ForeColor = System.Drawing.Color.OrangeRed;
-            this.rbtnTeamToInd.Location = new System.Drawing.Point(168, 41);
-            this.rbtnTeamToInd.Name = "rbtnTeamToInd";
-            this.rbtnTeamToInd.Size = new System.Drawing.Size(59, 16);
-            this.rbtnTeamToInd.TabIndex = 21;
-            this.rbtnTeamToInd.TabStop = true;
-            this.rbtnTeamToInd.Text = "团做个";
-            this.rbtnTeamToInd.UseVisualStyleBackColor = true;
-            // 
-            // rbtnIndividual
-            // 
-            this.rbtnIndividual.AutoSize = true;
-            this.rbtnIndividual.BackColor = System.Drawing.Color.Transparent;
-            this.rbtnIndividual.ForeColor = System.Drawing.Color.OrangeRed;
-            this.rbtnIndividual.Location = new System.Drawing.Point(39, 41);
-            this.rbtnIndividual.Name = "rbtnIndividual";
-            this.rbtnIndividual.Size = new System.Drawing.Size(47, 16);
-            this.rbtnIndividual.TabIndex = 23;
-            this.rbtnIndividual.TabStop = true;
-            this.rbtnIndividual.Text = "个签";
-            this.rbtnIndividual.UseVisualStyleBackColor = false;
-            // 
-            // rBtnTeam
-            // 
-            this.rBtnTeam.AutoSize = true;
-            this.rBtnTeam.ForeColor = System.Drawing.Color.OrangeRed;
-            this.rBtnTeam.Location = new System.Drawing.Point(104, 41);
-            this.rBtnTeam.Name = "rBtnTeam";
-            this.rBtnTeam.Size = new System.Drawing.Size(47, 16);
-            this.rBtnTeam.TabIndex = 22;
-            this.rBtnTeam.TabStop = true;
-            this.rBtnTeam.Text = "团签";
-            this.rBtnTeam.UseVisualStyleBackColor = true;
+            this.rbtnDefault.AutoSize = true;
+            this.rbtnDefault.ForeColor = System.Drawing.Color.OrangeRed;
+            this.rbtnDefault.Location = new System.Drawing.Point(204, 41);
+            this.rbtnDefault.Name = "rbtnDefault";
+            this.rbtnDefault.Size = new System.Drawing.Size(47, 16);
+            this.rbtnDefault.TabIndex = 24;
+            this.rbtnDefault.TabStop = true;
+            this.rbtnDefault.Text = "缺省";
+            this.rbtnDefault.UseVisualStyleBackColor = true;
             // 
             // FrmGroupOrIndividual
             // 
@@ -159,5 +173,6 @@
         private System.Windows.Forms.RadioButton rbtnTeamToInd;
         private System.Windows.Forms.RadioButton rbtnIndividual;
         private System.Windows.Forms.RadioButton rBtnTeam;
+        private System.Windows.Forms.RadioButton rbtnDefault;
     }
 }

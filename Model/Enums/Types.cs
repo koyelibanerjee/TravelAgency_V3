@@ -8,5 +8,6 @@
         public const string Individual = "个签";
         public const string Team = "团签";
         public const string Team2Individual = "团做个";
+        public const string Default = "缺省";
     }
 }
