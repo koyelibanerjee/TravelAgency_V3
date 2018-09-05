@@ -296,6 +296,12 @@ namespace TravelAgency.CSUI.Financial.FrmMain
         private string GetWhereCondition()
         {
             List<string> conditions = new List<string>();
+
+            if (!string.IsNullOrEmpty(txtSchGroupNo.Text.Trim()))
+            {
+                conditions.Add(" (GroupNo like '%" + txtSchGroupNo.Text + "%') ");
+            }
+
             SearchCondition.GetVisaTypesCondition(conditions, cbDisplayType.Text);
 
             string timeType;
