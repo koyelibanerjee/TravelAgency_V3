@@ -169,13 +169,9 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
         public void LoadDataToDataGridView(int page) //刷新后保持选中
         {
-            int curSelectedRow = -1;
-            if (dataGridView1.SelectedRows.Count > 0)
-                curSelectedRow = dataGridView1.SelectedRows[0].Index;
+            var selRows = SelectionKeeper.GetSelectedGuids(dataGridView1, "App_id");
             dataGridView1.DataSource = _bllAppAll.GetNotCheckedAppAllOrderByEntryTime(_curPage,_pageSize,_where);
-            //if (curSelectedRow != -1 && dataGridView1.Rows.Count > curSelectedRow)
-            //    dataGridView1.CurrentCell = dataGridView1.Rows[curSelectedRow].Cells[0];
-            //dataGridView1.Update();
+            SelectionKeeper.RestoreSelection(selRows, dataGridView1, "App_id");
             GlobalStat.UpdateStatistics();
         }
 

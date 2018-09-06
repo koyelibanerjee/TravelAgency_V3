@@ -203,9 +203,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             _where = GetWhereCondition();
             NeedDoUpdateEvent = false;
             //Console.WriteLine("加载一次");
-            int curSelectedRow = -1;
-            if (dataGridView1.SelectedRows.Count > 0)
-                curSelectedRow = dataGridView1.SelectedRows[0].Index;
+            var selRows = SelectionKeeper.GetSelectedGuids(dataGridView1, "Visa_id");
 
             var list = _bllVisa.GetListByPage(page, _pageSize, _where);
             dataGridView1.DataSource = list;
@@ -215,8 +213,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                 _visaListBackUp.Add(visa.ToObjectCopy());
             }
 
-            if (curSelectedRow != -1 && dataGridView1.Rows.Count > curSelectedRow)
-                dataGridView1.CurrentCell = dataGridView1.Rows[curSelectedRow].Cells[0];
+            SelectionKeeper.RestoreSelection(selRows, dataGridView1, "Visa_id");
 
             GlobalStat.UpdateStatistics();
             NeedDoUpdateEvent = true;

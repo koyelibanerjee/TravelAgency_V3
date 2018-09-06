@@ -317,12 +317,9 @@ namespace TravelAgency.CSUI.FrmMain
         public void LoadDataToDataGridView(int page) //刷新后保持选中
         {
             _where = GetWhereCondition();
-            int curSelectedRow = -1;
-            if (dataGridView1.SelectedRows.Count > 0)
-                curSelectedRow = dataGridView1.SelectedRows[0].Index;
+            var selRows = SelectionKeeper.GetSelectedGuids(dataGridView1, "Visainfo_id");
             dataGridView1.DataSource = _bllVisaInfo.GetListByPageOrderByGroupNo(page, _pageSize, _where);
-            if (curSelectedRow != -1 && dataGridView1.Rows.Count > curSelectedRow)
-                dataGridView1.CurrentCell = dataGridView1.Rows[curSelectedRow].Cells[0];
+            SelectionKeeper.RestoreSelection(selRows, dataGridView1, "Visainfo_id");
             dataGridView1.Update();
             GlobalStat.UpdateStatistics();
         }

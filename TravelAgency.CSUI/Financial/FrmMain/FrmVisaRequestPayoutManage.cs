@@ -172,9 +172,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             _where = GetWhereCondition();
             _needDoUpdateEvent = false;
 
-            List<int> selIdxs = new List<int>();
-            for (int i = dataGridView1.SelectedRows.Count - 1; i >= 0; i--)
-                selIdxs.Add(dataGridView1.SelectedRows[i].Index);
+            var selRows = SelectionKeeper.GetSelectedGuids(dataGridView1, "Visa_id");
 
             var list = _bllVisa.GetListByPage(page, _pageSize, _where);
             dataGridView1.DataSource = list;
@@ -184,12 +182,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                 _visaListBackUp.Add(visa.ToObjectCopy());
             }
 
-            if (selIdxs.Count > 0)
-                dataGridView1.ClearSelection();
-            if (selIdxs.Count > 0 && dataGridView1.Rows.Count >= selIdxs[selIdxs.Count - 1])
-                foreach (var idx in selIdxs)
-                    dataGridView1.Rows[idx].Selected = true;
-
+            SelectionKeeper.RestoreSelection(selRows, dataGridView1, "Visa_id");
             GlobalStat.UpdateStatistics();
             _needDoUpdateEvent = true;
         }
@@ -1502,9 +1495,6 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
         private void 设置请款费用ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //List<int> selIdxs = new List<int>();
-            //for (int i = dataGridView1.SelectedRows.Count - 1; i >= 0; i--)
-            //    selIdxs.Add(dataGridView1.SelectedRows[i].Index);
             var list = GetSelectedVisaList();
             foreach (var visa in list)
             {
