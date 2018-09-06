@@ -236,6 +236,7 @@
     <Compile Include="PinyinParse\FirstLetterHelper.cs" />
     <Compile Include="RMB.cs" />
     <Compile Include="RngWord.cs" />
+    <Compile Include="SelectionKeeper.cs" />
     <Compile Include="StyleControler.cs" />
     <Compile Include="TextHandler.cs" />
     <Compile Include="CtrlParser.cs" />
