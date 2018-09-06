@@ -311,9 +311,6 @@ namespace TravelAgency.CSUI.FrmMain
             progressLoading.IsRunning = true;
         }
 
-
-
-
         public void LoadDataToDataGridView(int page) //刷新后保持选中
         {
             _where = GetWhereCondition();

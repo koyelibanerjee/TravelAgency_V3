@@ -2009,8 +2009,11 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         private void 设置销售客户备注ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var list = GetSelectedVisaList();
-            if (list.Count < 1)
+            if (list.Count > 1)
+            {
+                MessageBoxEx.Show("请选择一条记录进行操作!");
                 return;
+            }
 
             FrmSetMultiStringValue frm = new FrmSetMultiStringValue("设置", list[0].client, list[0].SalesPerson,
                 list[0].Operator, list[0].Tips2);
