@@ -170,8 +170,13 @@ namespace TravelAgency.CSUI.Financial.FrmMain
         public void LoadDataToDataGridView(int page) //刷新后保持选中
         {
             var selRows = SelectionKeeper.GetSelectedGuids(dataGridView1, "App_id");
+            int rowsCnt, rowIdx, colIdx;
+            SelectionKeeper.GetSelectedPos(dataGridView1, out rowsCnt, out rowIdx, out colIdx);
+
             dataGridView1.DataSource = _bllAppAll.GetNotCheckedAppAllOrderByEntryTime(_curPage,_pageSize,_where);
             SelectionKeeper.RestoreSelection(selRows, dataGridView1, "App_id");
+            SelectionKeeper.RestoreSelectedPos(dataGridView1, rowsCnt, rowIdx, colIdx);
+
             GlobalStat.UpdateStatistics();
         }
 

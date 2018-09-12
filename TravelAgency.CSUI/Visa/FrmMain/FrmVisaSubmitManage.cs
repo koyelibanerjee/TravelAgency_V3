@@ -468,8 +468,9 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             //Console.WriteLine("加载一次");
             _where = GetWhereCondition();
             var selRows = SelectionKeeper.GetSelectedGuids(dataGridView1, "Visa_id");
-            int rowIdx, colIdx;
-            SelectionKeeper.GetSelectedPos(dataGridView1, out rowIdx, out colIdx);
+            int rowsCnt, rowIdx, colIdx;
+            SelectionKeeper.GetSelectedPos(dataGridView1, out rowsCnt, out rowIdx, out colIdx);
+
 
             var list = _bllVisa.GetListByPage(page, _pageSize, _where);
 
@@ -490,7 +491,8 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             //_hasFormated = false; //每次加载后，设置为还没有格式化(设置其他的显示，比如未做已做的状态等)
             dataGridView1.DataSource = list;
             SelectionKeeper.RestoreSelection(selRows, dataGridView1, "Visa_id");
-            SelectionKeeper.RestoreSelectedPos(dataGridView1, rowIdx, colIdx);
+            SelectionKeeper.RestoreSelectedPos(dataGridView1, rowsCnt, rowIdx, colIdx);
+
             GlobalStat.UpdateStatistics();
 
         }

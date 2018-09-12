@@ -173,6 +173,8 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             _needDoUpdateEvent = false;
 
             var selRows = SelectionKeeper.GetSelectedGuids(dataGridView1, "Visa_id");
+            int rowsCnt, rowIdx, colIdx;
+            SelectionKeeper.GetSelectedPos(dataGridView1, out rowsCnt, out rowIdx, out colIdx);
 
             var list = _bllVisa.GetListByPage(page, _pageSize, _where);
             dataGridView1.DataSource = list;
@@ -183,6 +185,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             }
 
             SelectionKeeper.RestoreSelection(selRows, dataGridView1, "Visa_id");
+            SelectionKeeper.RestoreSelectedPos(dataGridView1, rowsCnt, rowIdx, colIdx);
             GlobalStat.UpdateStatistics();
             _needDoUpdateEvent = true;
         }

@@ -326,8 +326,13 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
             _where = GetWhereCondition();
             var selRows = SelectionKeeper.GetSelectedGuids(dataGridView1, "Visainfo_id");
+            int rowsCnt, rowIdx, colIdx;
+            SelectionKeeper.GetSelectedPos(dataGridView1, out rowsCnt, out rowIdx, out colIdx);
+
             dataGridView1.DataSource = _bllVisaInfo.GetListByPageOrderByGroupNo(page, _pageSize, _where);
             SelectionKeeper.RestoreSelection(selRows, dataGridView1, "Visainfo_id");
+            SelectionKeeper.RestoreSelectedPos(dataGridView1, rowsCnt, rowIdx, colIdx);
+
             dataGridView1.Update();
             GlobalStat.UpdateStatistics();
         }

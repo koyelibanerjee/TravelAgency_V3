@@ -18,10 +18,11 @@ namespace TravelAgency.Common
             return selRows;
         }
 
-        public static void GetSelectedPos(DataGridView dgv, out int rowIdx, out int colIdx)
+        public static void GetSelectedPos(DataGridView dgv, out int rowsCnt, out int rowIdx, out int colIdx)
         {
             rowIdx = dgv.FirstDisplayedScrollingRowIndex;
             colIdx = dgv.FirstDisplayedScrollingColumnIndex;
+            rowsCnt = dgv.Rows.Count;
         }
 
         public static void RestoreSelection(HashSet<string> selRows, DataGridView dgv, string colName)
@@ -38,8 +39,10 @@ namespace TravelAgency.Common
             }
         }
 
-        public static void RestoreSelectedPos(DataGridView dgv, int rowIdx, int colIdx)
+        public static void RestoreSelectedPos(DataGridView dgv, int rowsCnt, int rowIdx, int colIdx)
         {
+            if (rowsCnt != dgv.Rows.Count)
+                return;
             if (dgv.Rows.Count > rowIdx && rowIdx >= 0)
                 dgv.FirstDisplayedScrollingRowIndex = rowIdx;
             if (dgv.Columns.Count > colIdx && colIdx >= 0)
