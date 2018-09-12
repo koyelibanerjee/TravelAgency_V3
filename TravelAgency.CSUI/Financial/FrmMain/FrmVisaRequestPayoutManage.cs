@@ -1701,5 +1701,21 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             else
                 MessageBoxEx.Show("添加失败!");
         }
+
+        private void 生成账单ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBoxEx.Show("生成账单后，会提交所做修改到数据库，是否继续?", "提示", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+                return;
+            FrmSetStringValue frm = new FrmSetStringValue("设置账单编号");
+            frm.ShowDialog();
+            string paymentNo = frm.RetValue;
+            var list = GetSelectedVisaList();
+            if (!BLL.VisaClaimChecker.checkGreaterThanCost(list))
+            {
+                if (MessageBoxEx.Show("选中项中有收款小于成本的，是否继续?", "提示", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+                    return;
+            }
+            XlsGenerator.GetPaymentList(list, paymentNo);
+        }
     }
 }

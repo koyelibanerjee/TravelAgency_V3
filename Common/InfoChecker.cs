@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using TravelAgency.Common.PinyinParse;
@@ -73,6 +74,9 @@ namespace TravelAgency.Common
             }
             return true;
         }
+
+
+
 
 
     }

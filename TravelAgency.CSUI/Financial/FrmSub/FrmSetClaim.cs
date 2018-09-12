@@ -6,6 +6,7 @@ using DevComponents.DotNetBar;
 using TravelAgency.BLL;
 using TravelAgency.BLL.Excel;
 using TravelAgency.Common;
+using TravelAgency.Common.FrmSetValues;
 
 namespace TravelAgency.CSUI.Financial.FrmSub
 {
@@ -466,9 +467,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 if (qzappList.Count > 0) //TODO:对应关系???,多条or?
                 {
                     if (qzappList[0].Price * qzappList[0].Number > visa.ActuallyAmount)
-                    {
                         return false;
-                    }
                 }
             }
             return true;
@@ -479,21 +478,16 @@ namespace TravelAgency.CSUI.Financial.FrmSub
         {
             if (MessageBoxEx.Show("生成账单后，会提交所做修改到数据库，是否继续?", "提示", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
                 return;
-
+            FrmSetStringValue frm = new FrmSetStringValue("设置账单编号");
+            frm.ShowDialog();
+            string paymentNo = frm.RetValue;
             var list = DgvDataSourceToList();
-
             if (!checkGreaterThanCost(list))
             {
                 if (MessageBoxEx.Show("选中项中有收款小于成本的，是否继续?", "提示", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
                     return;
             }
-
-
-            //int res = _bllVisa.UpdateList(list);
-
-            //GlobalUtils.MessageBoxWithRecordNum("更新", res, list.Count);
-
-            XlsGenerator.GetPaymentList(list);
+            XlsGenerator.GetPaymentList(list, paymentNo);
         }
 
         private void lbClientBalance_DoubleClick(object sender, EventArgs e)

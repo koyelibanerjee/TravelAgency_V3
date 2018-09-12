@@ -535,7 +535,7 @@ namespace TravelAgency.BLL.Excel
         /// 账单模板
         /// </summary>
         /// <param name="visaList"></param>
-        public static void GetPaymentList(List<Model.Visa> visaList)
+        public static void GetPaymentList(List<Model.Visa> visaList,string paymentNo="")
         {
             if (visaList == null || visaList.Count < 1)
                 return;
@@ -558,6 +558,11 @@ namespace TravelAgency.BLL.Excel
                 IClientAnchor anchor = new XSSFClientAnchor(0, 0, 0, 0, 1, 21 + visaList.Count, 3, 28 + visaList.Count);
                 patriach.CreatePicture(anchor, pictureIdx);
 
+                //添加账单号
+                if (!string.IsNullOrEmpty(paymentNo))
+                {
+                    sheet.GetRow(1).GetCell(0).SetCellValue($"账单号:{paymentNo}");
+                }
 
                 //wkbook.GetAllPictures()
                 // 在 在  i poi  中日期是以  e double  类型表示的 ， 所 以要格式化

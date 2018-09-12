@@ -161,6 +161,7 @@
             this.lbRealTime = new DevComponents.DotNetBar.LabelX();
             this.labelX9 = new DevComponents.DotNetBar.LabelX();
             this.txtInput = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.生成账单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cmsDgv.SuspendLayout();
@@ -482,9 +483,10 @@
             this.修改进出签时间ToolStripMenuItem,
             this.导出日本每日送签报表ToolStripMenuItem,
             this.导出日本送签时间表ToolStripMenuItem,
-            this.设置销售客户备注ToolStripMenuItem});
+            this.设置销售客户备注ToolStripMenuItem,
+            this.生成账单ToolStripMenuItem});
             this.cmsDgv.Name = "cmsDgv";
-            this.cmsDgv.Size = new System.Drawing.Size(197, 324);
+            this.cmsDgv.Size = new System.Drawing.Size(197, 368);
             // 
             // 复制ToolStripMenuItem
             // 
@@ -562,7 +564,7 @@
             // 打印报表ToolStripMenuItem
             // 
             this.打印报表ToolStripMenuItem.Name = "打印报表ToolStripMenuItem";
-            this.打印报表ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.打印报表ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.打印报表ToolStripMenuItem.Text = "打印报表";
             this.打印报表ToolStripMenuItem.Click += new System.EventHandler(this.打印报表ToolStripMenuItem_Click);
             // 
@@ -586,7 +588,7 @@
             this.东东全日空ToolStripMenuItem,
             this.新北东航ToolStripMenuItem});
             this.日本ToolStripMenuItem.Name = "日本ToolStripMenuItem";
-            this.日本ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.日本ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.日本ToolStripMenuItem.Text = "日本";
             this.日本ToolStripMenuItem.Visible = false;
             // 
@@ -706,7 +708,7 @@
             this.韩国担保函ToolStripMenuItem,
             this.韩国加急申请书ToolStripMenuItem});
             this.韩国ToolStripMenuItem.Name = "韩国ToolStripMenuItem";
-            this.韩国ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.韩国ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.韩国ToolStripMenuItem.Text = "韩国";
             this.韩国ToolStripMenuItem.Visible = false;
             // 
@@ -735,7 +737,7 @@
             this.川航机票ToolStripMenuItem,
             this.泰航机票ToolStripMenuItem});
             this.泰国ToolStripMenuItem.Name = "泰国ToolStripMenuItem";
-            this.泰国ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.泰国ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.泰国ToolStripMenuItem.Text = "泰国";
             this.泰国ToolStripMenuItem.Visible = false;
             // 
@@ -1603,6 +1605,13 @@
             this.txtInput.Size = new System.Drawing.Size(178, 342);
             this.txtInput.TabIndex = 0;
             // 
+            // 生成账单ToolStripMenuItem
+            // 
+            this.生成账单ToolStripMenuItem.Name = "生成账单ToolStripMenuItem";
+            this.生成账单ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.生成账单ToolStripMenuItem.Text = "生成账单";
+            this.生成账单ToolStripMenuItem.Click += new System.EventHandler(this.生成账单ToolStripMenuItem_Click);
+            // 
             // FrmVisaSubmitManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1763,5 +1772,6 @@
         private DevComponents.DotNetBar.LabelItem lbDuplicate;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cbDistrict;
         private DevComponents.DotNetBar.LabelX labelX8;
+        private System.Windows.Forms.ToolStripMenuItem 生成账单ToolStripMenuItem;
     }
 }

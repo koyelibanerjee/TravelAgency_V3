@@ -221,6 +221,7 @@
     <Compile Include="TimeHandlers\TimeHelper.cs" />
     <Compile Include="TimeHandlers\TimeParser.cs" />
     <Compile Include="VisaActTypeCountBll.cs" />
+    <Compile Include="VisaClaimChecker.cs" />
     <Compile Include="VisaInfo_JobBll.cs" />
     <Compile Include="VisaWithActRecords.cs" />
     <Compile Include="Visa.cs" />

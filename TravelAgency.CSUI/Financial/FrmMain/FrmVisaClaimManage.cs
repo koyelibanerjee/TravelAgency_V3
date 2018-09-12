@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using TravelAgency.BLL;
+using TravelAgency.BLL.Excel;
 using TravelAgency.Common;
 using TravelAgency.Common.FrmSetValues;
 using TravelAgency.Common.Word;
@@ -752,8 +753,19 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
         private void 生成账单ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //var list = GetSelectedVisaList();
-            //ExcelGenerator.GetPaymentList(list);
+            if (MessageBoxEx.Show("生成账单后，会提交所做修改到数据库，是否继续?", "提示", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+                return;
+            FrmSetStringValue frm = new FrmSetStringValue("设置账单编号");
+            frm.ShowDialog();
+            string paymentNo = frm.RetValue;
+            var list = GetSelectedVisaList();
+            if (!BLL.VisaClaimChecker.checkGreaterThanCost(list))
+            {
+                if (MessageBoxEx.Show("选中项中有收款小于成本的，是否继续?", "提示", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+                    return;
+            }
+            XlsGenerator.GetPaymentList(list, paymentNo);
+
         }
 
         private void cbSchTimeType_SelectedIndexChanged(object sender, EventArgs e)

@@ -164,6 +164,7 @@
             this.lbCount = new DevComponents.DotNetBar.LabelItem();
             this.cmsAddToGroup = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.添加到团号ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.生成账单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cmsDgv.SuspendLayout();
@@ -603,6 +604,7 @@
             this.导出报表ToolStripMenuItem,
             this.设置领馆费用ToolStripMenuItem,
             this.提交请款ToolStripMenuItem,
+            this.生成账单ToolStripMenuItem,
             this.toolStripSeparator5,
             this.自动更新单价ToolStripMenuItem,
             this.自动更新总价ToolStripMenuItem,
@@ -613,7 +615,7 @@
             this.添加到设置请款费用列表ToolStripMenuItem,
             this.生成新团号ToolStripMenuItem});
             this.cmsDgv.Name = "cmsDgv";
-            this.cmsDgv.Size = new System.Drawing.Size(209, 380);
+            this.cmsDgv.Size = new System.Drawing.Size(209, 424);
             // 
             // 复制ToolStripMenuItem
             // 
@@ -1657,6 +1659,13 @@
             this.添加到团号ToolStripMenuItem.Text = "添加到此团号";
             this.添加到团号ToolStripMenuItem.Click += new System.EventHandler(this.添加到团号ToolStripMenuItem_Click);
             // 
+            // 生成账单ToolStripMenuItem
+            // 
+            this.生成账单ToolStripMenuItem.Name = "生成账单ToolStripMenuItem";
+            this.生成账单ToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.生成账单ToolStripMenuItem.Text = "生成账单";
+            this.生成账单ToolStripMenuItem.Click += new System.EventHandler(this.生成账单ToolStripMenuItem_Click);
+            // 
             // FrmVisaRequestPayoutManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1817,5 +1826,6 @@
         private DevComponents.DotNetBar.Controls.TextBoxX txtRequestFlagUserName;
         private DevComponents.DotNetBar.LabelX labelX9;
         private System.Windows.Forms.ToolStripMenuItem 生成新团号ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 生成账单ToolStripMenuItem;
     }
 }
