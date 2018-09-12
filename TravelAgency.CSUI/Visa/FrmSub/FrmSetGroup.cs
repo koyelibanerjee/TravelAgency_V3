@@ -140,6 +140,8 @@ namespace TravelAgency.CSUI.FrmSub
 
             chkSaleFirst.Checked = true;
 
+            txtRealTime.Text = DateTime.Now.Date.AddDays(1).ToString(); //默认进签时间是第二天
+
             OtherDistrictInit();
         }
 
@@ -1869,6 +1871,45 @@ namespace TravelAgency.CSUI.FrmSub
         {
             _districtPrefix = District.getDisPrefix(cbSaleTo.Text);
             UpdateGroupNo();
+        }
+
+        private void txtRealTime_ValueChanged(object sender, EventArgs e)
+        {
+            //if(_inited)
+            
+
+
+
+
+        }
+
+        private void txtRealTime_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtRealTime.Text) || _initFromVisaModel)
+                return;
+
+            DateTime date = DateTime.Parse(txtRealTime.Text).Date;
+            var dayDiff = (date - DateTime.Now.Date).Days;
+            if (dayDiff >= 3)
+            {
+                chkDelay.Checked = true;
+                chbIsUrgent.Checked = false;
+            }
+            else if (dayDiff >= 2)
+            {
+                chkDelay.Checked = false;
+                chbIsUrgent.Checked = false;
+            }
+            else if (dayDiff >= 1)
+            {
+                chkDelay.Checked = false;
+                chbIsUrgent.Checked = true;
+            }
+            else
+            {
+                chkDelay.Checked = false;
+                chbIsUrgent.Checked = true;
+            }
         }
     }
 }

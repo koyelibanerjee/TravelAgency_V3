@@ -105,6 +105,8 @@
             this.txtSubmitCondition = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.txtDepartureType = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.panelTop = new DevComponents.DotNetBar.PanelEx();
+            this.cbSaleTo = new DevComponents.DotNetBar.Controls.ComboBoxEx();
+            this.labelX19 = new DevComponents.DotNetBar.LabelX();
             this.lbPhoneCompleteStatus = new DevComponents.DotNetBar.LabelX();
             this.lbInfoCompleteStatus = new DevComponents.DotNetBar.LabelX();
             this.lbCount = new DevComponents.DotNetBar.LabelX();
@@ -129,8 +131,6 @@
             this.移到顶部ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.移到底部ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查看资料ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cbSaleTo = new DevComponents.DotNetBar.Controls.ComboBoxEx();
-            this.labelX19 = new DevComponents.DotNetBar.LabelX();
             this.panelMain.SuspendLayout();
             this.panelMid2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGroupInfo)).BeginInit();
@@ -222,7 +222,7 @@
             dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvGroupInfo.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvGroupInfo.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -868,6 +868,8 @@
             this.txtRealTime.Size = new System.Drawing.Size(93, 21);
             this.txtRealTime.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.txtRealTime.TabIndex = 86;
+            this.txtRealTime.ValueChanged += new System.EventHandler(this.txtRealTime_ValueChanged);
+            this.txtRealTime.TextChanged += new System.EventHandler(this.txtRealTime_TextChanged);
             // 
             // labelX17
             // 
@@ -1202,6 +1204,31 @@
             this.panelTop.Style.GradientAngle = 90;
             this.panelTop.TabIndex = 32;
             // 
+            // cbSaleTo
+            // 
+            this.cbSaleTo.DisplayMember = "Text";
+            this.cbSaleTo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbSaleTo.FormattingEnabled = true;
+            this.cbSaleTo.ItemHeight = 15;
+            this.cbSaleTo.Location = new System.Drawing.Point(650, 9);
+            this.cbSaleTo.Name = "cbSaleTo";
+            this.cbSaleTo.Size = new System.Drawing.Size(70, 21);
+            this.cbSaleTo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.cbSaleTo.TabIndex = 101;
+            this.cbSaleTo.SelectedValueChanged += new System.EventHandler(this.cbSaleTo_SelectedValueChanged);
+            // 
+            // labelX19
+            // 
+            // 
+            // 
+            // 
+            this.labelX19.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX19.Location = new System.Drawing.Point(592, 9);
+            this.labelX19.Name = "labelX19";
+            this.labelX19.Size = new System.Drawing.Size(91, 23);
+            this.labelX19.TabIndex = 100;
+            this.labelX19.Text = "销售到:";
+            // 
             // lbPhoneCompleteStatus
             // 
             // 
@@ -1476,31 +1503,6 @@
             this.查看资料ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.查看资料ToolStripMenuItem.Text = "查看资料";
             this.查看资料ToolStripMenuItem.Click += new System.EventHandler(this.查看资料ToolStripMenuItem_Click);
-            // 
-            // cbSaleTo
-            // 
-            this.cbSaleTo.DisplayMember = "Text";
-            this.cbSaleTo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbSaleTo.FormattingEnabled = true;
-            this.cbSaleTo.ItemHeight = 15;
-            this.cbSaleTo.Location = new System.Drawing.Point(650, 9);
-            this.cbSaleTo.Name = "cbSaleTo";
-            this.cbSaleTo.Size = new System.Drawing.Size(70, 21);
-            this.cbSaleTo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.cbSaleTo.TabIndex = 101;
-            this.cbSaleTo.SelectedValueChanged += new System.EventHandler(this.cbSaleTo_SelectedValueChanged);
-            // 
-            // labelX19
-            // 
-            // 
-            // 
-            // 
-            this.labelX19.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX19.Location = new System.Drawing.Point(592, 9);
-            this.labelX19.Name = "labelX19";
-            this.labelX19.Size = new System.Drawing.Size(91, 23);
-            this.labelX19.TabIndex = 100;
-            this.labelX19.Text = "销售到:";
             // 
             // FrmSetGroup
             // 
