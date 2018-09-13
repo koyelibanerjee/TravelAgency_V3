@@ -1126,6 +1126,7 @@
             this.Controls.Add(this.panelBars);
             this.Name = "FrmVisaClaimManage";
             this.Text = "签证认账";
+            this.Click += 签证认账ToolStripMenuItem_Click;
             this.Load += new System.EventHandler(this.FrmVisaManage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

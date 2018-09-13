@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bar1 = new DevComponents.DotNetBar.Bar();
             this.btnPageFirst = new DevComponents.DotNetBar.ButtonItem();
             this.btnPagePre = new DevComponents.DotNetBar.ButtonItem();
@@ -72,13 +72,18 @@
             this.cmsItemShowGroupNo = new System.Windows.Forms.ToolStripMenuItem();
             this.修改做资料状态ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.修改选中类型ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.导出报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.打印报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.复制二维码信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.更改送签状态ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.修改进出签时间ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.设置销售客户备注ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.导出报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.打印报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.导出日本每日送签报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.导出日本送签时间表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.生成账单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.复制二维码信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.和Excel进行对比ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelBars = new DevComponents.DotNetBar.PanelEx();
             this.panelSerachBar = new DevComponents.DotNetBar.PanelEx();
             this.cbDistrict = new DevComponents.DotNetBar.Controls.ComboBoxEx();
@@ -131,11 +136,6 @@
             this.lbRealTime = new DevComponents.DotNetBar.LabelX();
             this.labelX9 = new DevComponents.DotNetBar.LabelX();
             this.txtInput = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.和Excel进行对比ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.生成账单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.导出日本每日送签报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.导出日本送签时间表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cmsDgv.SuspendLayout();
@@ -256,14 +256,14 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle34.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle34.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle34;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.GroupNo,
@@ -283,28 +283,28 @@
             this.Operator,
             this.Tips2,
             this.Visa_id});
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle35;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle36;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -518,36 +518,6 @@
             this.修改选中类型ToolStripMenuItem.Visible = false;
             this.修改选中类型ToolStripMenuItem.Click += new System.EventHandler(this.修改选中类型ToolStripMenuItem_Click);
             // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(193, 6);
-            // 
-            // 导出报表ToolStripMenuItem
-            // 
-            this.导出报表ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.打印报表ToolStripMenuItem,
-            this.导出日本每日送签报表ToolStripMenuItem,
-            this.导出日本送签时间表ToolStripMenuItem,
-            this.生成账单ToolStripMenuItem});
-            this.导出报表ToolStripMenuItem.Name = "导出报表ToolStripMenuItem";
-            this.导出报表ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.导出报表ToolStripMenuItem.Text = "导出报表";
-            // 
-            // 打印报表ToolStripMenuItem
-            // 
-            this.打印报表ToolStripMenuItem.Name = "打印报表ToolStripMenuItem";
-            this.打印报表ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.打印报表ToolStripMenuItem.Text = "打印报表";
-            this.打印报表ToolStripMenuItem.Click += new System.EventHandler(this.打印报表ToolStripMenuItem_Click);
-            // 
-            // 复制二维码信息ToolStripMenuItem
-            // 
-            this.复制二维码信息ToolStripMenuItem.Name = "复制二维码信息ToolStripMenuItem";
-            this.复制二维码信息ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.复制二维码信息ToolStripMenuItem.Text = "复制二维码信息";
-            this.复制二维码信息ToolStripMenuItem.Click += new System.EventHandler(this.复制二维码信息ToolStripMenuItem_Click);
-            // 
             // 更改送签状态ToolStripMenuItem
             // 
             this.更改送签状态ToolStripMenuItem.Name = "更改送签状态ToolStripMenuItem";
@@ -568,6 +538,69 @@
             this.设置销售客户备注ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.设置销售客户备注ToolStripMenuItem.Text = "设置销售客户备注";
             this.设置销售客户备注ToolStripMenuItem.Click += new System.EventHandler(this.设置销售客户备注ToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(193, 6);
+            // 
+            // 导出报表ToolStripMenuItem
+            // 
+            this.导出报表ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.打印报表ToolStripMenuItem,
+            this.导出日本每日送签报表ToolStripMenuItem,
+            this.导出日本送签时间表ToolStripMenuItem,
+            this.生成账单ToolStripMenuItem});
+            this.导出报表ToolStripMenuItem.Name = "导出报表ToolStripMenuItem";
+            this.导出报表ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.导出报表ToolStripMenuItem.Text = "导出报表";
+            // 
+            // 打印报表ToolStripMenuItem
+            // 
+            this.打印报表ToolStripMenuItem.Name = "打印报表ToolStripMenuItem";
+            this.打印报表ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.打印报表ToolStripMenuItem.Text = "打印报表";
+            this.打印报表ToolStripMenuItem.Click += new System.EventHandler(this.打印报表ToolStripMenuItem_Click);
+            // 
+            // 导出日本每日送签报表ToolStripMenuItem
+            // 
+            this.导出日本每日送签报表ToolStripMenuItem.Name = "导出日本每日送签报表ToolStripMenuItem";
+            this.导出日本每日送签报表ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.导出日本每日送签报表ToolStripMenuItem.Text = "导出日本每日送签报表";
+            this.导出日本每日送签报表ToolStripMenuItem.Click += new System.EventHandler(this.导出日本每日送签报表ToolStripMenuItem_Click);
+            // 
+            // 导出日本送签时间表ToolStripMenuItem
+            // 
+            this.导出日本送签时间表ToolStripMenuItem.Name = "导出日本送签时间表ToolStripMenuItem";
+            this.导出日本送签时间表ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.导出日本送签时间表ToolStripMenuItem.Text = "导出日本送签时间表";
+            this.导出日本送签时间表ToolStripMenuItem.Click += new System.EventHandler(this.导出日本送签时间表ToolStripMenuItem_Click);
+            // 
+            // 生成账单ToolStripMenuItem
+            // 
+            this.生成账单ToolStripMenuItem.Name = "生成账单ToolStripMenuItem";
+            this.生成账单ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.生成账单ToolStripMenuItem.Text = "生成账单";
+            this.生成账单ToolStripMenuItem.Click += new System.EventHandler(this.生成账单ToolStripMenuItem_Click);
+            // 
+            // 复制二维码信息ToolStripMenuItem
+            // 
+            this.复制二维码信息ToolStripMenuItem.Name = "复制二维码信息ToolStripMenuItem";
+            this.复制二维码信息ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.复制二维码信息ToolStripMenuItem.Text = "复制二维码信息";
+            this.复制二维码信息ToolStripMenuItem.Click += new System.EventHandler(this.复制二维码信息ToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(193, 6);
+            // 
+            // 和Excel进行对比ToolStripMenuItem
+            // 
+            this.和Excel进行对比ToolStripMenuItem.Name = "和Excel进行对比ToolStripMenuItem";
+            this.和Excel进行对比ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.和Excel进行对比ToolStripMenuItem.Text = "和Excel进行对比";
+            this.和Excel进行对比ToolStripMenuItem.Click += new System.EventHandler(this.和Excel进行对比ToolStripMenuItem_Click);
             // 
             // panelBars
             // 
@@ -1343,36 +1376,6 @@
             this.txtInput.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtInput.Size = new System.Drawing.Size(178, 342);
             this.txtInput.TabIndex = 0;
-            // 
-            // 和Excel进行对比ToolStripMenuItem
-            // 
-            this.和Excel进行对比ToolStripMenuItem.Name = "和Excel进行对比ToolStripMenuItem";
-            this.和Excel进行对比ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.和Excel进行对比ToolStripMenuItem.Text = "和Excel进行对比";
-            this.和Excel进行对比ToolStripMenuItem.Click += new System.EventHandler(this.和Excel进行对比ToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(193, 6);
-            // 
-            // 生成账单ToolStripMenuItem
-            // 
-            this.生成账单ToolStripMenuItem.Name = "生成账单ToolStripMenuItem";
-            this.生成账单ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.生成账单ToolStripMenuItem.Text = "生成账单";
-            // 
-            // 导出日本每日送签报表ToolStripMenuItem
-            // 
-            this.导出日本每日送签报表ToolStripMenuItem.Name = "导出日本每日送签报表ToolStripMenuItem";
-            this.导出日本每日送签报表ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.导出日本每日送签报表ToolStripMenuItem.Text = "导出日本每日送签报表";
-            // 
-            // 导出日本送签时间表ToolStripMenuItem
-            // 
-            this.导出日本送签时间表ToolStripMenuItem.Name = "导出日本送签时间表ToolStripMenuItem";
-            this.导出日本送签时间表ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.导出日本送签时间表ToolStripMenuItem.Text = "导出日本送签时间表";
             // 
             // FrmVisaSubmitManage
             // 

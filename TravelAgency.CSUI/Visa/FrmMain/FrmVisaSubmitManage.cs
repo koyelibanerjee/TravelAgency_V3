@@ -2106,9 +2106,10 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             }
 
             ExcelGenerator.GetCompareTable(excelList, dgvList, dict);
+        }
 
-
-
+        private void 导出日本每日送签报表ToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
 
         }
     }
