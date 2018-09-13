@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bar1 = new DevComponents.DotNetBar.Bar();
             this.btnPageFirst = new DevComponents.DotNetBar.ButtonItem();
             this.btnPagePre = new DevComponents.DotNetBar.ButtonItem();
@@ -75,39 +75,9 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.导出报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.打印报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.日本ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.日本团队综合名单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.个签意见书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.金桥大名单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.日本送签时间表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.人报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.外领担保函ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.信息同意处理书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.机票报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.阪阪川航ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.东阪川航ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.东东川航ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.东东国航ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.东东全日空ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.新北东航ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.韩国ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.韩国担保函ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.韩国加急申请书ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.泰国ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.数据源报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.泰签担保函ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.机票报表ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.东航机票ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.川航机票ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.泰航机票ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.复制二维码信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.更改送签状态ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.修改进出签时间ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.导出日本每日送签报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.导出日本送签时间表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.设置销售客户备注ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelBars = new DevComponents.DotNetBar.PanelEx();
             this.panelSerachBar = new DevComponents.DotNetBar.PanelEx();
@@ -161,7 +131,11 @@
             this.lbRealTime = new DevComponents.DotNetBar.LabelX();
             this.labelX9 = new DevComponents.DotNetBar.LabelX();
             this.txtInput = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.和Excel进行对比ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.生成账单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.导出日本每日送签报表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.导出日本送签时间表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cmsDgv.SuspendLayout();
@@ -282,14 +256,14 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.GroupNo,
@@ -309,28 +283,28 @@
             this.Operator,
             this.Tips2,
             this.Visa_id});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -476,17 +450,16 @@
             this.cmsItemShowGroupNo,
             this.修改做资料状态ToolStripMenuItem,
             this.修改选中类型ToolStripMenuItem,
+            this.更改送签状态ToolStripMenuItem,
+            this.修改进出签时间ToolStripMenuItem,
+            this.设置销售客户备注ToolStripMenuItem,
             this.toolStripSeparator2,
             this.导出报表ToolStripMenuItem,
             this.复制二维码信息ToolStripMenuItem,
-            this.更改送签状态ToolStripMenuItem,
-            this.修改进出签时间ToolStripMenuItem,
-            this.导出日本每日送签报表ToolStripMenuItem,
-            this.导出日本送签时间表ToolStripMenuItem,
-            this.设置销售客户备注ToolStripMenuItem,
-            this.生成账单ToolStripMenuItem});
+            this.toolStripSeparator5,
+            this.和Excel进行对比ToolStripMenuItem});
             this.cmsDgv.Name = "cmsDgv";
-            this.cmsDgv.Size = new System.Drawing.Size(197, 368);
+            this.cmsDgv.Size = new System.Drawing.Size(197, 330);
             // 
             // 复制ToolStripMenuItem
             // 
@@ -554,9 +527,9 @@
             // 
             this.导出报表ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.打印报表ToolStripMenuItem,
-            this.日本ToolStripMenuItem,
-            this.韩国ToolStripMenuItem,
-            this.泰国ToolStripMenuItem});
+            this.导出日本每日送签报表ToolStripMenuItem,
+            this.导出日本送签时间表ToolStripMenuItem,
+            this.生成账单ToolStripMenuItem});
             this.导出报表ToolStripMenuItem.Name = "导出报表ToolStripMenuItem";
             this.导出报表ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.导出报表ToolStripMenuItem.Text = "导出报表";
@@ -567,226 +540,6 @@
             this.打印报表ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.打印报表ToolStripMenuItem.Text = "打印报表";
             this.打印报表ToolStripMenuItem.Click += new System.EventHandler(this.打印报表ToolStripMenuItem_Click);
-            // 
-            // 日本ToolStripMenuItem
-            // 
-            this.日本ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.日本团队综合名单ToolStripMenuItem,
-            this.个签意见书ToolStripMenuItem,
-            this.金桥大名单ToolStripMenuItem,
-            this.日本送签时间表ToolStripMenuItem,
-            this.人报表ToolStripMenuItem,
-            this.外领担保函ToolStripMenuItem,
-            this.信息同意处理书ToolStripMenuItem,
-            this.toolStripMenuItem1,
-            this.toolStripSeparator1,
-            this.机票报表ToolStripMenuItem,
-            this.阪阪川航ToolStripMenuItem,
-            this.东阪川航ToolStripMenuItem,
-            this.东东川航ToolStripMenuItem,
-            this.东东国航ToolStripMenuItem,
-            this.东东全日空ToolStripMenuItem,
-            this.新北东航ToolStripMenuItem});
-            this.日本ToolStripMenuItem.Name = "日本ToolStripMenuItem";
-            this.日本ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.日本ToolStripMenuItem.Text = "日本";
-            this.日本ToolStripMenuItem.Visible = false;
-            // 
-            // 日本团队综合名单ToolStripMenuItem
-            // 
-            this.日本团队综合名单ToolStripMenuItem.Name = "日本团队综合名单ToolStripMenuItem";
-            this.日本团队综合名单ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.日本团队综合名单ToolStripMenuItem.Text = "日本团队综合名单";
-            this.日本团队综合名单ToolStripMenuItem.Click += new System.EventHandler(this.日本团队综合名单ToolStripMenuItem_Click);
-            // 
-            // 个签意见书ToolStripMenuItem
-            // 
-            this.个签意见书ToolStripMenuItem.Name = "个签意见书ToolStripMenuItem";
-            this.个签意见书ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.个签意见书ToolStripMenuItem.Text = "个签意见书";
-            this.个签意见书ToolStripMenuItem.Click += new System.EventHandler(this.个签意见书ToolStripMenuItem_Click);
-            // 
-            // 金桥大名单ToolStripMenuItem
-            // 
-            this.金桥大名单ToolStripMenuItem.Name = "金桥大名单ToolStripMenuItem";
-            this.金桥大名单ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.金桥大名单ToolStripMenuItem.Text = "金桥大名单";
-            this.金桥大名单ToolStripMenuItem.Click += new System.EventHandler(this.金桥大名单ToolStripMenuItem_Click);
-            // 
-            // 日本送签时间表ToolStripMenuItem
-            // 
-            this.日本送签时间表ToolStripMenuItem.Name = "日本送签时间表ToolStripMenuItem";
-            this.日本送签时间表ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.日本送签时间表ToolStripMenuItem.Text = "日本送签时间表";
-            this.日本送签时间表ToolStripMenuItem.Click += new System.EventHandler(this.日本送签时间表ToolStripMenuItem_Click);
-            // 
-            // 人报表ToolStripMenuItem
-            // 
-            this.人报表ToolStripMenuItem.Name = "人报表ToolStripMenuItem";
-            this.人报表ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.人报表ToolStripMenuItem.Text = "8人申请表";
-            this.人报表ToolStripMenuItem.Click += new System.EventHandler(this.人报表ToolStripMenuItem_Click);
-            // 
-            // 外领担保函ToolStripMenuItem
-            // 
-            this.外领担保函ToolStripMenuItem.Name = "外领担保函ToolStripMenuItem";
-            this.外领担保函ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.外领担保函ToolStripMenuItem.Text = "外领担保函";
-            this.外领担保函ToolStripMenuItem.Click += new System.EventHandler(this.外领担保函ToolStripMenuItem_Click);
-            // 
-            // 信息同意处理书ToolStripMenuItem
-            // 
-            this.信息同意处理书ToolStripMenuItem.Name = "信息同意处理书ToolStripMenuItem";
-            this.信息同意处理书ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.信息同意处理书ToolStripMenuItem.Text = "信息同意处理书";
-            this.信息同意处理书ToolStripMenuItem.Click += new System.EventHandler(this.信息同意处理书ToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(172, 22);
-            this.toolStripMenuItem1.Text = "身元模板";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(169, 6);
-            // 
-            // 机票报表ToolStripMenuItem
-            // 
-            this.机票报表ToolStripMenuItem.Name = "机票报表ToolStripMenuItem";
-            this.机票报表ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.机票报表ToolStripMenuItem.Text = "机票报表";
-            this.机票报表ToolStripMenuItem.Click += new System.EventHandler(this.机票报表ToolStripMenuItem_Click);
-            // 
-            // 阪阪川航ToolStripMenuItem
-            // 
-            this.阪阪川航ToolStripMenuItem.Name = "阪阪川航ToolStripMenuItem";
-            this.阪阪川航ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.阪阪川航ToolStripMenuItem.Text = "阪阪川航";
-            this.阪阪川航ToolStripMenuItem.Click += new System.EventHandler(this.阪阪川航ToolStripMenuItem_Click);
-            // 
-            // 东阪川航ToolStripMenuItem
-            // 
-            this.东阪川航ToolStripMenuItem.Name = "东阪川航ToolStripMenuItem";
-            this.东阪川航ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.东阪川航ToolStripMenuItem.Text = "东阪川航";
-            this.东阪川航ToolStripMenuItem.Click += new System.EventHandler(this.东阪川航ToolStripMenuItem_Click);
-            // 
-            // 东东川航ToolStripMenuItem
-            // 
-            this.东东川航ToolStripMenuItem.Name = "东东川航ToolStripMenuItem";
-            this.东东川航ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.东东川航ToolStripMenuItem.Text = "东东川航";
-            this.东东川航ToolStripMenuItem.Click += new System.EventHandler(this.东东川航ToolStripMenuItem_Click);
-            // 
-            // 东东国航ToolStripMenuItem
-            // 
-            this.东东国航ToolStripMenuItem.Name = "东东国航ToolStripMenuItem";
-            this.东东国航ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.东东国航ToolStripMenuItem.Text = "东东国航";
-            this.东东国航ToolStripMenuItem.Click += new System.EventHandler(this.东东国航ToolStripMenuItem_Click);
-            // 
-            // 东东全日空ToolStripMenuItem
-            // 
-            this.东东全日空ToolStripMenuItem.Name = "东东全日空ToolStripMenuItem";
-            this.东东全日空ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.东东全日空ToolStripMenuItem.Text = "东东全日空";
-            this.东东全日空ToolStripMenuItem.Click += new System.EventHandler(this.东东全日空ToolStripMenuItem_Click);
-            // 
-            // 新北东航ToolStripMenuItem
-            // 
-            this.新北东航ToolStripMenuItem.Name = "新北东航ToolStripMenuItem";
-            this.新北东航ToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.新北东航ToolStripMenuItem.Text = "新北东航";
-            this.新北东航ToolStripMenuItem.Click += new System.EventHandler(this.新北东航ToolStripMenuItem_Click);
-            // 
-            // 韩国ToolStripMenuItem
-            // 
-            this.韩国ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.韩国担保函ToolStripMenuItem,
-            this.韩国加急申请书ToolStripMenuItem});
-            this.韩国ToolStripMenuItem.Name = "韩国ToolStripMenuItem";
-            this.韩国ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.韩国ToolStripMenuItem.Text = "韩国";
-            this.韩国ToolStripMenuItem.Visible = false;
-            // 
-            // 韩国担保函ToolStripMenuItem
-            // 
-            this.韩国担保函ToolStripMenuItem.Name = "韩国担保函ToolStripMenuItem";
-            this.韩国担保函ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.韩国担保函ToolStripMenuItem.Text = "韩国担保函";
-            this.韩国担保函ToolStripMenuItem.Click += new System.EventHandler(this.韩国担保函ToolStripMenuItem_Click);
-            // 
-            // 韩国加急申请书ToolStripMenuItem
-            // 
-            this.韩国加急申请书ToolStripMenuItem.Name = "韩国加急申请书ToolStripMenuItem";
-            this.韩国加急申请书ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.韩国加急申请书ToolStripMenuItem.Text = "韩国加急申请书";
-            this.韩国加急申请书ToolStripMenuItem.Click += new System.EventHandler(this.韩国加急申请书ToolStripMenuItem_Click);
-            // 
-            // 泰国ToolStripMenuItem
-            // 
-            this.泰国ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.数据源报表ToolStripMenuItem,
-            this.泰签担保函ToolStripMenuItem,
-            this.toolStripSeparator4,
-            this.机票报表ToolStripMenuItem1,
-            this.东航机票ToolStripMenuItem,
-            this.川航机票ToolStripMenuItem,
-            this.泰航机票ToolStripMenuItem});
-            this.泰国ToolStripMenuItem.Name = "泰国ToolStripMenuItem";
-            this.泰国ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.泰国ToolStripMenuItem.Text = "泰国";
-            this.泰国ToolStripMenuItem.Visible = false;
-            // 
-            // 数据源报表ToolStripMenuItem
-            // 
-            this.数据源报表ToolStripMenuItem.Name = "数据源报表ToolStripMenuItem";
-            this.数据源报表ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.数据源报表ToolStripMenuItem.Text = "数据源报表";
-            this.数据源报表ToolStripMenuItem.Click += new System.EventHandler(this.数据源报表ToolStripMenuItem_Click);
-            // 
-            // 泰签担保函ToolStripMenuItem
-            // 
-            this.泰签担保函ToolStripMenuItem.Name = "泰签担保函ToolStripMenuItem";
-            this.泰签担保函ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.泰签担保函ToolStripMenuItem.Text = "泰签担保函";
-            this.泰签担保函ToolStripMenuItem.Click += new System.EventHandler(this.泰签担保函ToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(133, 6);
-            // 
-            // 机票报表ToolStripMenuItem1
-            // 
-            this.机票报表ToolStripMenuItem1.Name = "机票报表ToolStripMenuItem1";
-            this.机票报表ToolStripMenuItem1.Size = new System.Drawing.Size(136, 22);
-            this.机票报表ToolStripMenuItem1.Text = "机票报表";
-            this.机票报表ToolStripMenuItem1.Click += new System.EventHandler(this.机票报表ToolStripMenuItem1_Click);
-            // 
-            // 东航机票ToolStripMenuItem
-            // 
-            this.东航机票ToolStripMenuItem.Name = "东航机票ToolStripMenuItem";
-            this.东航机票ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.东航机票ToolStripMenuItem.Text = "东航机票";
-            this.东航机票ToolStripMenuItem.Click += new System.EventHandler(this.东航机票ToolStripMenuItem_Click);
-            // 
-            // 川航机票ToolStripMenuItem
-            // 
-            this.川航机票ToolStripMenuItem.Name = "川航机票ToolStripMenuItem";
-            this.川航机票ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.川航机票ToolStripMenuItem.Text = "川航机票";
-            this.川航机票ToolStripMenuItem.Click += new System.EventHandler(this.川航机票ToolStripMenuItem_Click);
-            // 
-            // 泰航机票ToolStripMenuItem
-            // 
-            this.泰航机票ToolStripMenuItem.Name = "泰航机票ToolStripMenuItem";
-            this.泰航机票ToolStripMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.泰航机票ToolStripMenuItem.Text = "泰航机票";
-            this.泰航机票ToolStripMenuItem.Click += new System.EventHandler(this.泰航机票ToolStripMenuItem_Click);
             // 
             // 复制二维码信息ToolStripMenuItem
             // 
@@ -808,20 +561,6 @@
             this.修改进出签时间ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.修改进出签时间ToolStripMenuItem.Text = "修改进出签时间";
             this.修改进出签时间ToolStripMenuItem.Click += new System.EventHandler(this.修改进出签时间ToolStripMenuItem_Click);
-            // 
-            // 导出日本每日送签报表ToolStripMenuItem
-            // 
-            this.导出日本每日送签报表ToolStripMenuItem.Name = "导出日本每日送签报表ToolStripMenuItem";
-            this.导出日本每日送签报表ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.导出日本每日送签报表ToolStripMenuItem.Text = "导出日本每日送签报表";
-            this.导出日本每日送签报表ToolStripMenuItem.Click += new System.EventHandler(this.导出日本每日送签报表ToolStripMenuItem_Click);
-            // 
-            // 导出日本送签时间表ToolStripMenuItem
-            // 
-            this.导出日本送签时间表ToolStripMenuItem.Name = "导出日本送签时间表ToolStripMenuItem";
-            this.导出日本送签时间表ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.导出日本送签时间表ToolStripMenuItem.Text = "导出日本送签时间表";
-            this.导出日本送签时间表ToolStripMenuItem.Click += new System.EventHandler(this.导出日本送签时间表ToolStripMenuItem_Click);
             // 
             // 设置销售客户备注ToolStripMenuItem
             // 
@@ -1605,12 +1344,35 @@
             this.txtInput.Size = new System.Drawing.Size(178, 342);
             this.txtInput.TabIndex = 0;
             // 
+            // 和Excel进行对比ToolStripMenuItem
+            // 
+            this.和Excel进行对比ToolStripMenuItem.Name = "和Excel进行对比ToolStripMenuItem";
+            this.和Excel进行对比ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.和Excel进行对比ToolStripMenuItem.Text = "和Excel进行对比";
+            this.和Excel进行对比ToolStripMenuItem.Click += new System.EventHandler(this.和Excel进行对比ToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(193, 6);
+            // 
             // 生成账单ToolStripMenuItem
             // 
             this.生成账单ToolStripMenuItem.Name = "生成账单ToolStripMenuItem";
             this.生成账单ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.生成账单ToolStripMenuItem.Text = "生成账单";
-            this.生成账单ToolStripMenuItem.Click += new System.EventHandler(this.生成账单ToolStripMenuItem_Click);
+            // 
+            // 导出日本每日送签报表ToolStripMenuItem
+            // 
+            this.导出日本每日送签报表ToolStripMenuItem.Name = "导出日本每日送签报表ToolStripMenuItem";
+            this.导出日本每日送签报表ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.导出日本每日送签报表ToolStripMenuItem.Text = "导出日本每日送签报表";
+            // 
+            // 导出日本送签时间表ToolStripMenuItem
+            // 
+            this.导出日本送签时间表ToolStripMenuItem.Name = "导出日本送签时间表ToolStripMenuItem";
+            this.导出日本送签时间表ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.导出日本送签时间表ToolStripMenuItem.Text = "导出日本送签时间表";
             // 
             // FrmVisaSubmitManage
             // 
@@ -1695,39 +1457,11 @@
         private DevComponents.DotNetBar.Controls.TextBoxX txtClient;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cbDepatureType;
         private DevComponents.DotNetBar.LabelX labelX7;
-        private System.Windows.Forms.ToolStripMenuItem 日本ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 日本团队综合名单ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 个签意见书ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 金桥大名单ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 日本送签时间表ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 人报表ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 机票报表ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 外领担保函ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 韩国ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 泰国ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 数据源报表ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 泰签担保函ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 机票报表ToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 韩国担保函ToolStripMenuItem;
         private DevComponents.DotNetBar.ButtonX btnAddVisa;
         private System.Windows.Forms.ToolStripMenuItem 修改做资料状态ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 韩国加急申请书ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem 信息同意处理书ToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem 复制ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripMenuItem 东航机票ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 川航机票ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 泰航机票ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 阪阪川航ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 东阪川航ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 东东川航ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 东东国航ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 东东全日空ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 新北东航ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private DevComponents.DotNetBar.PanelEx panel1;
         private DevComponents.DotNetBar.PanelEx panelBtns;
         private DevComponents.DotNetBar.LabelX labelX1;
@@ -1748,8 +1482,6 @@
         private System.Windows.Forms.ToolStripMenuItem 修改进出签时间ToolStripMenuItem;
         private DevComponents.DotNetBar.Bar bar2;
         private DevComponents.DotNetBar.LabelItem lbCount;
-        private System.Windows.Forms.ToolStripMenuItem 导出日本每日送签报表ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 导出日本送签时间表ToolStripMenuItem;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cbSchTimeType;
         private System.Windows.Forms.ToolStripMenuItem 设置销售客户备注ToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn GroupNo;
@@ -1772,6 +1504,10 @@
         private DevComponents.DotNetBar.LabelItem lbDuplicate;
         private DevComponents.DotNetBar.Controls.ComboBoxEx cbDistrict;
         private DevComponents.DotNetBar.LabelX labelX8;
+        private System.Windows.Forms.ToolStripMenuItem 和Excel进行对比ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripMenuItem 导出日本每日送签报表ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 导出日本送签时间表ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 生成账单ToolStripMenuItem;
     }
 }

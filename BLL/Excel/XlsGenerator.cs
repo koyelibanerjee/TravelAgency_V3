@@ -535,7 +535,7 @@ namespace TravelAgency.BLL.Excel
         /// 账单模板
         /// </summary>
         /// <param name="visaList"></param>
-        public static void GetPaymentList(List<Model.Visa> visaList,string paymentNo="")
+        public static void GetPaymentList(List<Model.Visa> visaList, string paymentNo = "")
         {
             if (visaList == null || visaList.Count < 1)
                 return;
@@ -687,5 +687,7 @@ namespace TravelAgency.BLL.Excel
         }
 
 
+
+        
     }
 }

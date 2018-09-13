@@ -171,6 +171,7 @@
     <Compile Include="Enums_OrderInfo_PaymentPlatformBll.cs" />
     <Compile Include="Enums_OrderInfo_PaymentPlatform.cs" />
     <Compile Include="Excel\ExcelGenerator.cs" />
+    <Compile Include="Excel\ExcelParser.cs" />
     <Compile Include="Excel\FrmOrderInfoExcelParser.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -1494,5 +1494,75 @@ namespace TravelAgency.BLL.Excel
             return SaveFile(dstName, wkbook);
         }
 
+        public static void GetCompareTable(List<string> excelList, List<string> dgvList, Dictionary<string, int> dict)
+        {
+            string dstName = GlobalUtils.ShowSaveFileDlg("CompareResult.xls", "office 2003 excel|*.xls");
+
+            string allExist = "都有";
+            string onlyExcel = "只有Excel";
+            string onlyDgv = "只有系统数据";
+
+            //1.创建工作簿对象
+            IWorkbook wkbook = new HSSFWorkbook();
+            //2.创建工作表对象
+            ISheet sheet = wkbook.CreateSheet("比较结果");
+
+            //2.1创建表头
+
+            IRow rowHeader = sheet.CreateRow(0);
+            rowHeader.CreateCell(0).SetCellValue("excel");
+            rowHeader.CreateCell(1).SetCellValue("系统数据");
+            rowHeader.CreateCell(2).SetCellValue("状态");
+
+            //3.插入行和单元格
+            for (int i = 0; i != excelList.Count; ++i)
+            {
+                //创建单元格
+                var row = sheet.CreateRow(i + 1);
+                row.CreateCell(0).SetCellValue(excelList[i]);
+                if (dict[excelList[i]] == 1)
+                {
+                    row.CreateCell(2).SetCellValue(onlyExcel);
+                    row.CreateCell(1).SetCellValue(""); //底下设置边框风格必须单元格存在
+                }
+                else
+                {
+                    row.CreateCell(1).SetCellValue(excelList[i]);
+                    row.CreateCell(2).SetCellValue(allExist);
+                }
+            }
+
+            for (int i = 0; i != dgvList.Count; ++i)
+            {
+                //创建单元格
+                var row = sheet.CreateRow(i + 1 + excelList.Count);
+                if (dict[excelList[i]] == 1)
+                {
+                    row.CreateCell(2).SetCellValue(onlyDgv);
+                    row.CreateCell(1).SetCellValue(dgvList[i]);
+                    row.CreateCell(0).SetCellValue("");
+                }
+            }
+
+            //4.1设置对齐风格和边框
+            ICellStyle style = wkbook.CreateCellStyle();
+            style.VerticalAlignment = VerticalAlignment.Center;
+            style.Alignment = HorizontalAlignment.Center;
+            style.WrapText = true; //文本自动换行
+            style.BorderTop = BorderStyle.Thin;
+            style.BorderBottom = BorderStyle.Thin;
+            style.BorderLeft = BorderStyle.Thin;
+            style.BorderRight = BorderStyle.Thin;
+
+            for (int i = 0; i <= sheet.LastRowNum; i++)
+            {
+                var row = sheet.GetRow(i);
+                for (int c = 0; c < row.LastCellNum; ++c)
+                    row.GetCell(c).CellStyle = style;
+            }
+            //5.执行写入磁盘
+            SaveFile(dstName, wkbook);
+        }
+
     }
 }

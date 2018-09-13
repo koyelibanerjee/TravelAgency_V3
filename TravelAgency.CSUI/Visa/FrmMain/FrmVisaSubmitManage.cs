@@ -2059,5 +2059,57 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             }
             XlsGenerator.GetPaymentList(list, paymentNo);
         }
+
+        private void 和Excel进行对比ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string filename = GlobalUtils.ShowOpenFileDlg("Excel文件|*.xls;*.xlsx");
+            if (string.IsNullOrEmpty(filename))
+                return;
+
+            List<string> excelList = ExcelParser.ParseExcelGetGroupNos(filename);
+            List<string> dgvList = new List<string>();
+
+            var list = GetSelectedVisaList();
+            for (int i = 0; i < list.Count; i++)
+                dgvList.Add(list[i].GroupNo);
+
+            //执行对比
+            //HashSet<string> excelSet = new HashSet<string>(excelList);
+            //HashSet<string> dgvSet = new HashSet<string>(dgvList);
+            //List<string> allExist = new List<string>();
+            //List<string> excelOnly = new List<string>();
+            //List<string> dgvOnly = new List<string>();
+            //HashSet<string> allSet = new HashSet<string>();
+
+            //for (int i = 0; i < excelList.Count; i++)
+            //{
+            //    if (dgvSet.Contains(excelList[i]))
+            //    {
+            //        allExist.Add(excelList[i]);
+            //        allSet.Add(excelList[i]);
+            //    }
+            //    else
+            //        excelOnly.Add(excelList[i]);
+            //}
+
+            //for(int i=0;i<dg)
+
+            Dictionary<string, int> dict = new Dictionary<string, int>();
+            foreach (var item in excelList)
+                dict.Add(item, 1);
+            foreach (var item in dgvList)
+            {
+                if (dict.ContainsKey(item))
+                    ++dict[item];
+                else
+                    dict.Add(item, 1);
+            }
+
+            ExcelGenerator.GetCompareTable(excelList, dgvList, dict);
+
+
+
+
+        }
     }
 }

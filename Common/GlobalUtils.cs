@@ -150,6 +150,8 @@ namespace TravelAgency.Common
         /// <returns></returns>
         public static string ShowOpenFileDlg(string Filter = "图像文件|*.jpg")
         {
+            //"标签|*.jpg;*.png;*.gif"
+            //"标签1|*.jpg|标签2|.png|标签3|.gif"
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = Filter;
             openFileDialog.Title = "Open";

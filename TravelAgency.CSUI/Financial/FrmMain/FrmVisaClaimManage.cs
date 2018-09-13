@@ -804,5 +804,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             FrmCustomerBalance frm = new FrmCustomerBalance();
             frm.Show();
         }
+
+        
     }
 }
