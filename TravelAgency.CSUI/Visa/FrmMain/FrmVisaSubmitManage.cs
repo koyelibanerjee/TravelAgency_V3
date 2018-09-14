@@ -2072,28 +2072,6 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             var list = GetSelectedVisaList();
             for (int i = 0; i < list.Count; i++)
                 dgvList.Add(list[i].GroupNo);
-
-            //执行对比
-            //HashSet<string> excelSet = new HashSet<string>(excelList);
-            //HashSet<string> dgvSet = new HashSet<string>(dgvList);
-            //List<string> allExist = new List<string>();
-            //List<string> excelOnly = new List<string>();
-            //List<string> dgvOnly = new List<string>();
-            //HashSet<string> allSet = new HashSet<string>();
-
-            //for (int i = 0; i < excelList.Count; i++)
-            //{
-            //    if (dgvSet.Contains(excelList[i]))
-            //    {
-            //        allExist.Add(excelList[i]);
-            //        allSet.Add(excelList[i]);
-            //    }
-            //    else
-            //        excelOnly.Add(excelList[i]);
-            //}
-
-            //for(int i=0;i<dg)
-
             Dictionary<string, int> dict = new Dictionary<string, int>();
             foreach (var item in excelList)
                 dict.Add(item, 1);
@@ -2104,13 +2082,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 else
                     dict.Add(item, 1);
             }
-
             ExcelGenerator.GetCompareTable(excelList, dgvList, dict);
-        }
-
-        private void 导出日本每日送签报表ToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-
         }
     }
 }

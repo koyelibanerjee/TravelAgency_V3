@@ -1531,13 +1531,13 @@ namespace TravelAgency.BLL.Excel
                     row.CreateCell(2).SetCellValue(allExist);
                 }
             }
-
+            int idx = 0;
             for (int i = 0; i != dgvList.Count; ++i)
             {
                 //创建单元格
-                var row = sheet.CreateRow(i + 1 + excelList.Count);
-                if (dict[excelList[i]] == 1)
+                if (dict[dgvList[i]] == 1)
                 {
+                    var row = sheet.CreateRow(idx++ + 1 + excelList.Count);
                     row.CreateCell(2).SetCellValue(onlyDgv);
                     row.CreateCell(1).SetCellValue(dgvList[i]);
                     row.CreateCell(0).SetCellValue("");
