@@ -537,6 +537,7 @@ namespace TravelAgency.BLL.Excel
         /// <param name="visaList"></param>
         public static void GetPaymentList(List<Model.Visa> visaList, string paymentNo = "")
         {
+            var bllVisa = new BLL.Visa();
             if (visaList == null || visaList.Count < 1)
                 return;
 
@@ -546,7 +547,7 @@ namespace TravelAgency.BLL.Excel
                 IWorkbook wkbook = new XSSFWorkbook(fs);
                 ISheet sheet = wkbook.GetSheet("sheet1");
 
-                var bllVisa = new BLL.Visa();
+
 
                 //移动行
                 sheet.ShiftRows(11, sheet.LastRowNum, visaList.Count);
@@ -636,6 +637,12 @@ namespace TravelAgency.BLL.Excel
 
                 SaveFile(dstName, wkbook);
 
+                if (!string.IsNullOrEmpty(paymentNo))
+                {
+                    foreach (var visa in visaList)
+                        visa.PaymentNo = paymentNo;
+                    int n = bllVisa.UpdateList(visaList);
+                }
             }
         }
 
@@ -688,6 +695,6 @@ namespace TravelAgency.BLL.Excel
 
 
 
-        
+
     }
 }

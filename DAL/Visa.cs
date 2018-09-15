@@ -247,7 +247,7 @@ SqlParameter[] parameters = {
                         new SqlParameter("@Name", SqlDbType.VarChar,150) ,            
                         new SqlParameter("@Types", SqlDbType.VarChar,50) ,            
                         new SqlParameter("@Tips", SqlDbType.VarChar,150) ,            
-                        new SqlParameter("@PredictTime", SqlDbType.DateTime,3) ,            
+                        new SqlParameter("@PredictTime", SqlDbType.DateTime,3) ,
                         new SqlParameter("@RealTime", SqlDbType.DateTime) ,            
                         new SqlParameter("@FinishTime", SqlDbType.DateTime) ,            
                         new SqlParameter("@Satus", SqlDbType.VarChar,50) ,            

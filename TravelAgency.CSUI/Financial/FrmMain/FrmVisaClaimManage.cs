@@ -47,6 +47,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
         private void FrmVisaManage_Load(object sender, EventArgs e)
         {
+            _where = GetWhereCondition();
             _recordCount = _bllVisa.GetRecordCount(string.Empty);
             _pageCount = (int)Math.Ceiling((double)_recordCount / _pageSize);
             cbPageSize.Items.Add("30");
@@ -301,7 +302,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             }
 
             SearchCondition.GetVisaTypesCondition(conditions, cbDisplayType.Text);
-
+            SearchCondition.GetVisaPaymentNoCondion(conditions,txtPaymentNo.Text);
             string timeType;
             if (cbSchTimeType.Text == "录入时间")
             {
@@ -382,6 +383,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             txtSchGroupNo.Text = string.Empty;
             txtSalesPerson.Text = string.Empty;
             txtClient.Text = string.Empty;
+            txtPaymentNo.Text = string.Empty;
 
             cbDepatureType.Text = "全部";
             cbDisplayType.Text = "全部";

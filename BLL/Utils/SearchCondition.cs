@@ -53,5 +53,15 @@ namespace TravelAgency.BLL
             if (!string.IsNullOrEmpty(condition))
                 conditionsList.Add(condition);
         }
+
+        public static void GetVisaPaymentNoCondion(List<string> conditionsList, string paymentNo)
+        {
+            if (!string.IsNullOrEmpty(paymentNo))
+            {
+                conditionsList.Add($" (paymentNo like '%{paymentNo}%' ) ");
+            }
+        }
+
+
     }
 }
