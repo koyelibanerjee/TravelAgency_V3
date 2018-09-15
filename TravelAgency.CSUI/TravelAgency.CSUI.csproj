@@ -352,12 +352,6 @@
     <Compile Include="Financial\FrmSub\FrmSetCharge.Designer.cs">
       <DependentUpon>FrmSetCharge.cs</DependentUpon>
     </Compile>
-    <Compile Include="Financial\FrmSub\FrmSetRequestPayout.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Financial\FrmSub\FrmSetRequestPayout.Designer.cs">
-      <DependentUpon>FrmSetRequestPayout.cs</DependentUpon>
-    </Compile>
     <Compile Include="Visa\FrmSub\FrmSetTypeInStatus.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -671,9 +665,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Visa\FrmSub\FrmQRCode.resx">
       <DependentUpon>FrmQRCode.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Financial\FrmSub\FrmSetRequestPayout.resx">
-      <DependentUpon>FrmSetRequestPayout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Visa\FrmSub\FrmSetTeamVisaGroup.resx">
       <DependentUpon>FrmSetTeamVisaGroup.cs</DependentUpon>

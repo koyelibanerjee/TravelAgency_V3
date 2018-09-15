@@ -124,6 +124,8 @@ namespace TravelAgency.Model
     private bool? _forrequestgroupno;
         		                  
     private int? _district;
+        		                  
+    private string _paymentno;
         
     /// <summary>
 		/// Visa_id
@@ -761,6 +763,17 @@ namespace TravelAgency.Model
         {
             get{ return _district; }
             set{ _district = value; }
+        }    
+      
+		/// <summary>
+		/// PaymentNo
+        /// </summary>		
+		      		  
+  
+        public string PaymentNo
+        {
+            get{ return _paymentno; }
+            set{ _paymentno = value; }
         }    
       
 		   
