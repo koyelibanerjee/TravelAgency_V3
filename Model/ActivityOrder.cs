@@ -29,11 +29,11 @@ namespace TravelAgency.Model
         		                  
     private string _amountpayable;
         		                  
-    private string _tailmoney;
+    private decimal? _tailmoney;
         		                  
     private DateTime? _entrytimepay;
         		                  
-    private string _amountpaid;
+    private decimal? _amountpaid;
         		                  
     private string _customername;
         		                  
@@ -41,9 +41,9 @@ namespace TravelAgency.Model
         		                  
     private string _mobile;
         		                  
-    private string _deposit;
+    private decimal? _deposit;
         		                  
-    private string _price_active;
+    private decimal? _price_active;
         		                  
     private string _paystate;
         		                  
@@ -164,9 +164,9 @@ namespace TravelAgency.Model
 		/// <summary>
 		/// 尾款
         /// </summary>		
-		      		  
+		        		  
   
-        public string TailMoney
+        public decimal? TailMoney
         {
             get{ return _tailmoney; }
             set{ _tailmoney = value; }
@@ -186,9 +186,9 @@ namespace TravelAgency.Model
 		/// <summary>
 		/// 已付定金
         /// </summary>		
-		      		  
+		        		  
   
-        public string AmountPaid
+        public decimal? AmountPaid
         {
             get{ return _amountpaid; }
             set{ _amountpaid = value; }
@@ -230,9 +230,9 @@ namespace TravelAgency.Model
 		/// <summary>
 		/// 产品要求定金
         /// </summary>		
-		      		  
+		        		  
   
-        public string Deposit
+        public decimal? Deposit
         {
             get{ return _deposit; }
             set{ _deposit = value; }
@@ -241,9 +241,9 @@ namespace TravelAgency.Model
 		/// <summary>
 		/// 活动单价
         /// </summary>		
-		      		  
+		        		  
   
-        public string Price_Active
+        public decimal? Price_Active
         {
             get{ return _price_active; }
             set{ _price_active = value; }

@@ -1,161 +1,235 @@
-﻿using System;
-namespace TravelAgency.Model
+﻿using System; 
+using System.Text;
+using System.Collections.Generic; 
+using System.Data;
+namespace TravelAngecy.Model
 {
-	/// <summary>
-	/// ClaimMoney:实体类(属性说明自动提取数据库字段的描述信息)
-	/// </summary>
-	[Serializable]
+	 	//ClaimMoney
+		[Serializable]
 	public partial class ClaimMoney
 	{
-		public ClaimMoney()
-		{}
-		#region Model
-		private Guid _claim_id;
-		private Guid _money_id;
-		private Guid _departmentid;
-		private string _name_claim;
-		private string _groupno;
-		private string _salesperson;
-		private string _guests;
-		private string _methods;
-		private decimal? _amount;
-		private string _workid;
-		private DateTime? _claimtime;
-		private string _username;
-		private string _orderno;
-		private DateTime? _entrytime= DateTime.Now;
-		private string _moneytype;
-		private string _claim_confirm;
-		/// <summary>
-		/// 
-		/// </summary>
-		public Guid Claim_id
-		{
-			set{ _claim_id=value;}
-			get{return _claim_id;}
-		}
+        		                  
+    private Guid _claim_id;
+        		                  
+    private Guid _money_id;
+        		                  
+    private Guid _departmentid;
+        		                  
+    private string _name_claim;
+        		                  
+    private string _groupno;
+        		                  
+    private string _salesperson;
+        		                  
+    private string _guests;
+        		                  
+    private string _methods;
+        		                  
+    private decimal? _amount;
+        		                  
+    private string _workid;
+        		                  
+    private DateTime? _claimtime;
+        		                  
+    private string _username;
+        		                  
+    private string _orderno;
+        		                  
+    private DateTime? _entrytime;
+        		                  
+    private string _moneytype;
+        		                  
+    private string _claim_confirm;
+        		                  
+    private string _activityorderno;
+        
+    /// <summary>
+		/// Claim_id
+        /// </summary>		
+		      		  
+  
+        public Guid Claim_id
+        {
+            get{ return _claim_id; }
+            set{ _claim_id = value; }
+        }    
+      
 		/// <summary>
 		/// 私账ID
-		/// </summary>
-		public Guid Money_id
-		{
-			set{ _money_id=value;}
-			get{return _money_id;}
-		}
+        /// </summary>		
+		      		  
+  
+        public Guid Money_id
+        {
+            get{ return _money_id; }
+            set{ _money_id = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public Guid DepartmentId
-		{
-			set{ _departmentid=value;}
-			get{return _departmentid;}
-		}
+		/// DepartmentId
+        /// </summary>		
+		      		  
+  
+        public Guid DepartmentId
+        {
+            get{ return _departmentid; }
+            set{ _departmentid = value; }
+        }    
+      
 		/// <summary>
 		/// 认领人
-		/// </summary>
-		public string Name_Claim
-		{
-			set{ _name_claim=value;}
-			get{return _name_claim;}
-		}
+        /// </summary>		
+		      		  
+  
+        public string Name_Claim
+        {
+            get{ return _name_claim; }
+            set{ _name_claim = value; }
+        }    
+      
 		/// <summary>
 		/// 团号
-		/// </summary>
-		public string GroupNo
-		{
-			set{ _groupno=value;}
-			get{return _groupno;}
-		}
+        /// </summary>		
+		      		  
+  
+        public string GroupNo
+        {
+            get{ return _groupno; }
+            set{ _groupno = value; }
+        }    
+      
 		/// <summary>
 		/// 销售人员
-		/// </summary>
-		public string Salesperson
-		{
-			set{ _salesperson=value;}
-			get{return _salesperson;}
-		}
+        /// </summary>		
+		      		  
+  
+        public string Salesperson
+        {
+            get{ return _salesperson; }
+            set{ _salesperson = value; }
+        }    
+      
 		/// <summary>
 		/// 客户
-		/// </summary>
-		public string Guests
-		{
-			set{ _guests=value;}
-			get{return _guests;}
-		}
+        /// </summary>		
+		      		  
+  
+        public string Guests
+        {
+            get{ return _guests; }
+            set{ _guests = value; }
+        }    
+      
 		/// <summary>
 		/// 款项用途
-		/// </summary>
-		public string Methods
-		{
-			set{ _methods=value;}
-			get{return _methods;}
-		}
+        /// </summary>		
+		      		  
+  
+        public string Methods
+        {
+            get{ return _methods; }
+            set{ _methods = value; }
+        }    
+      
 		/// <summary>
 		/// 认款金额
-		/// </summary>
-		public decimal? Amount
-		{
-			set{ _amount=value;}
-			get{return _amount;}
-		}
+        /// </summary>		
+		        		  
+  
+        public decimal? Amount
+        {
+            get{ return _amount; }
+            set{ _amount = value; }
+        }    
+      
 		/// <summary>
 		/// 工号
-		/// </summary>
-		public string WorkId
-		{
-			set{ _workid=value;}
-			get{return _workid;}
-		}
+        /// </summary>		
+		      		  
+  
+        public string WorkId
+        {
+            get{ return _workid; }
+            set{ _workid = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime? ClaimTime
-		{
-			set{ _claimtime=value;}
-			get{return _claimtime;}
-		}
+		/// ClaimTime
+        /// </summary>		
+		        		  
+  
+        public DateTime? ClaimTime
+        {
+            get{ return _claimtime; }
+            set{ _claimtime = value; }
+        }    
+      
 		/// <summary>
 		/// 操作用户
-		/// </summary>
-		public string username
-		{
-			set{ _username=value;}
-			get{return _username;}
-		}
+        /// </summary>		
+		      		  
+  
+        public string username
+        {
+            get{ return _username; }
+            set{ _username = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string OrderNo
-		{
-			set{ _orderno=value;}
-			get{return _orderno;}
-		}
+		/// OrderNo
+        /// </summary>		
+		      		  
+  
+        public string OrderNo
+        {
+            get{ return _orderno; }
+            set{ _orderno = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public DateTime? EntryTime
-		{
-			set{ _entrytime=value;}
-			get{return _entrytime;}
-		}
+		/// EntryTime
+        /// </summary>		
+		        		  
+  
+        public DateTime? EntryTime
+        {
+            get{ return _entrytime; }
+            set{ _entrytime = value; }
+        }    
+      
 		/// <summary>
-		/// 
-		/// </summary>
-		public string MoneyType
-		{
-			set{ _moneytype=value;}
-			get{return _moneytype;}
-		}
+		/// MoneyType
+        /// </summary>		
+		      		  
+  
+        public string MoneyType
+        {
+            get{ return _moneytype; }
+            set{ _moneytype = value; }
+        }    
+      
 		/// <summary>
 		/// 表示是否确认认领，0或空表示未认领完成，1表示认领完成
-		/// </summary>
-		public string Claim_Confirm
-		{
-			set{ _claim_confirm=value;}
-			get{return _claim_confirm;}
-		}
-		#endregion Model
-
+        /// </summary>		
+		      		  
+  
+        public string Claim_Confirm
+        {
+            get{ return _claim_confirm; }
+            set{ _claim_confirm = value; }
+        }    
+      
+		/// <summary>
+		/// ActivityOrderNo
+        /// </summary>		
+		      		  
+  
+        public string ActivityOrderNo
+        {
+            get{ return _activityorderno; }
+            set{ _activityorderno = value; }
+        }    
+      
+		   
 	}
 }
-

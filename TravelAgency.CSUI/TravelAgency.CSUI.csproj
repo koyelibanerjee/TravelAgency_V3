@@ -117,6 +117,12 @@
     <Compile Include="Financial\FrmMain\FrmVisaClaimManage.Designer.cs">
       <DependentUpon>FrmVisaClaimManage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Financial\FrmSub\FrmActivityOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial\FrmSub\FrmActivityOrder.Designer.cs">
+      <DependentUpon>FrmActivityOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Financial\FrmSub\FrmQZApplication.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -503,6 +509,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Financial\FrmMain\FrmVisaClaimManage.resx">
       <DependentUpon>FrmVisaClaimManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial\FrmSub\FrmActivityOrder.resx">
+      <DependentUpon>FrmActivityOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Financial\FrmSub\FrmQZApplication.resx">
       <DependentUpon>FrmQZApplication.cs</DependentUpon>

@@ -1,18 +1,19 @@
-﻿using System;
+﻿using System; 
+using System.Text;
+using System.Collections.Generic; 
 using System.Data;
-using System.Collections.Generic;
-using TravelAgency.Model;
-namespace TravelAgency.BLL
+using TravelAngecy.Model;
+namespace TravelAngecy.BLL  
 {
-	/// <summary>
-	/// ClaimMoney
-	/// </summary>
-	public partial class ClaimMoney
+	 	//ClaimMoney
+		public partial class ClaimMoney
 	{
-		private readonly TravelAgency.DAL.ClaimMoney dal=new TravelAgency.DAL.ClaimMoney();
+   		     
+		private readonly TravelAngecy.DAL.ClaimMoney dal=new TravelAngecy.DAL.ClaimMoney();
 		public ClaimMoney()
 		{}
-		#region  BasicMethod
+		
+		#region  Method
 		/// <summary>
 		/// 是否存在该记录
 		/// </summary>
@@ -24,15 +25,15 @@ namespace TravelAgency.BLL
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		public bool Add(TravelAgency.Model.ClaimMoney model)
-		{
-			return dal.Add(model);
-		}
+		    public Guid  Add(TravelAngecy.Model.ClaimMoney model)
+    		{
+            return dal.Add(model);
+      		}
 
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
-		public bool Update(TravelAgency.Model.ClaimMoney model)
+		public bool Update(TravelAngecy.Model.ClaimMoney model)
 		{
 			return dal.Update(model);
 		}
@@ -46,17 +47,16 @@ namespace TravelAgency.BLL
 			return dal.Delete(Claim_id);
 		}
 
-
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public TravelAgency.Model.ClaimMoney GetModel(Guid Claim_id)
+		public TravelAngecy.Model.ClaimMoney GetModel(Guid Claim_id)
 		{
 			
 			return dal.GetModel(Claim_id);
 		}
 
-				/// <summary>
+		/// <summary>
 		/// 获得数据列表
 		/// </summary>
 		public DataSet GetList(string strWhere)
@@ -73,7 +73,7 @@ namespace TravelAgency.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public List<TravelAgency.Model.ClaimMoney> GetModelList(string strWhere)
+		public List<TravelAngecy.Model.ClaimMoney> GetModelList(string strWhere)
 		{
 			DataSet ds = dal.GetList(strWhere);
 			return DataTableToList(ds.Tables[0]);
@@ -81,20 +81,18 @@ namespace TravelAgency.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public List<TravelAgency.Model.ClaimMoney> DataTableToList(DataTable dt)
+		public List<TravelAngecy.Model.ClaimMoney> DataTableToList(DataTable dt)
 		{
-			List<TravelAgency.Model.ClaimMoney> modelList = new List<TravelAgency.Model.ClaimMoney>();
+			List<TravelAngecy.Model.ClaimMoney> modelList = new List<TravelAngecy.Model.ClaimMoney>();
 			int rowsCount = dt.Rows.Count;
 			if (rowsCount > 0)
 			{
-				TravelAgency.Model.ClaimMoney model;
+				TravelAngecy.Model.ClaimMoney model;
 				for (int n = 0; n < rowsCount; n++)
 				{
-					model = dal.DataRowToModel(dt.Rows[n]);
-					if (model != null)
-					{
-						modelList.Add(model);
-					}
+					model = dal.DataRowToModel(dt.Rows[n]);			
+          if(model!=null)
+            modelList.Add(model);
 				}
 			}
 			return modelList;
@@ -107,33 +105,94 @@ namespace TravelAgency.BLL
 		{
 			return GetList("");
 		}
-
-		/// <summary>
-		/// 分页获取数据列表
+		
+    /// <summary>
+		/// 获取记录总数
 		/// </summary>
 		public int GetRecordCount(string strWhere)
 		{
 			return dal.GetRecordCount(strWhere);
 		}
-		/// <summary>
-		/// 分页获取数据列表
-		/// </summary>
-		public DataSet GetListByPage(string strWhere, string orderby, int startIndex, int endIndex)
-		{
-			return dal.GetListByPage( strWhere,  orderby,  startIndex,  endIndex);
-		}
-		/// <summary>
-		/// 分页获取数据列表
-		/// </summary>
-		//public DataSet GetList(int PageSize,int PageIndex,string strWhere)
-		//{
-			//return dal.GetList(PageSize,PageIndex,strWhere);
-		//}
+		
+    /// <summary>
+    /// 分页获取数据
+    /// </summary>
+    public List<TravelAngecy.Model.ClaimMoney> GetListByPage(string where, string orderby,int startIndex, int endIndex)
+    {
+        DataSet ds = dal.GetListByPage(where, orderby, startIndex, endIndex);
+        DataTable dt = ds.Tables[0];
+        return DataTableToList(dt);
+    }
+    
+    /// <summary>
+    /// 分页获取数据
+    /// </summary>
+    public List<TravelAngecy.Model.ClaimMoney> GetListByPage(int pageIndex, int pageSize, string where, string orderby)
+    {
+        int startIndex = (pageIndex - 1) * pageSize + 1;
+        int endIndex = pageIndex * pageSize;
+        return GetListByPage(where, orderby, startIndex, endIndex);
+    }
+    
 
-		#endregion  BasicMethod
-		#region  ExtensionMethod
+		
+		
+				
+    /// <summary>
+    /// 分页获取数据
+    /// </summary>
+    public List<TravelAngecy.Model.ClaimMoney> GetListByPageOrderByPK(int pageIndex, int pageSize, string where)
+    {
+        int startIndex = (pageIndex - 1) * pageSize + 1;
+        int endIndex = pageIndex * pageSize;
+        string orderby = "";
+        orderby = "Claim_id desc";          
+        return GetListByPage(where, orderby, startIndex, endIndex);
+    }
+		
+    /// <summary>
+    /// 新增list
+    /// </summary>		
+    public int AddList(List<TravelAngecy.Model.ClaimMoney> list)
+    {
+        int res = 0;
+        foreach (var item in list)
+        {
+                    res += dal.Add(item) == Guid.Empty ? 0 : 1; //返回值是Guid
+                }
+        return res;
+    }
 
-		#endregion  ExtensionMethod
+    /// <summary>
+    /// 更新list
+    /// </summary>
+    public int UpdateList(List<TravelAngecy.Model.ClaimMoney> list)
+    {
+        int res = 0;
+        foreach (var item in list)
+        {
+            res += dal.Update(item) ? 1 : 0; //返回值是id
+        }
+        return res;
+    }
+    
+    /// <summary>
+    /// 删除list
+    /// </summary>    
+    public bool DeleteList(List<TravelAngecy.Model.ClaimMoney> list)
+    {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < list.Count; ++i)
+        {
+                        sb.AppendFormat("'{0}',", list[i].Claim_id);
+                    }
+        string str_id_list = sb.ToString().TrimEnd(',');
+        return dal.DeleteList(str_id_list);
+    }
+				
+		
+		
+#endregion
+   
 	}
 }
-
