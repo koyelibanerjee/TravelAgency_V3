@@ -125,6 +125,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ActionRecords.cs" />
+    <Compile Include="ActivityOrder.cs" />
     <Compile Include="AppAll.cs" />
     <Compile Include="AppStatus.cs" />
     <Compile Include="ClaimMoney.cs" />

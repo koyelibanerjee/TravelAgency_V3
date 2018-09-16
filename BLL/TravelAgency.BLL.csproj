@@ -142,6 +142,7 @@
   <ItemGroup>
     <Compile Include="ActionRecords.cs" />
     <Compile Include="ActionRecordsBll.cs" />
+    <Compile Include="ActivityOrder.cs" />
     <Compile Include="AppAll.cs" />
     <Compile Include="AppAllBll.cs" />
     <Compile Include="AppStatus.cs" />
