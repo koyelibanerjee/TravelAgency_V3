@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 using System.Collections.Generic; 
 using System.Data;
 using Maticsoft.DBUtility;
-namespace TravelAngecy.DAL  
+namespace TravelAgency.DAL  
 {
 	 	//ClaimMoney
 		public partial class ClaimMoney
@@ -28,7 +28,7 @@ namespace TravelAngecy.DAL
 		/// <summary>
 		/// 增加一条数据,整形自增长返回id,guid返回parameters[0].Value,string返回true or false
 		/// </summary>
-		      public Guid Add(TravelAngecy.Model.ClaimMoney model)
+		      public Guid Add(TravelAgency.Model.ClaimMoney model)
     		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("insert into ClaimMoney(");			
@@ -91,7 +91,7 @@ namespace TravelAngecy.DAL
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
-		public bool Update(TravelAngecy.Model.ClaimMoney model)
+		public bool Update(TravelAgency.Model.ClaimMoney model)
 		{
 			StringBuilder strSql=new StringBuilder();
 			strSql.Append("update ClaimMoney set ");
@@ -213,7 +213,7 @@ SqlParameter[] parameters = {
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public TravelAngecy.Model.ClaimMoney GetModel(Guid Claim_id)
+		public TravelAgency.Model.ClaimMoney GetModel(Guid Claim_id)
 		{
 			
 			StringBuilder strSql=new StringBuilder();
@@ -225,7 +225,7 @@ SqlParameter[] parameters = {
 			parameters[0].Value = Claim_id;
 
 			
-			TravelAngecy.Model.ClaimMoney model=new TravelAngecy.Model.ClaimMoney();
+			TravelAgency.Model.ClaimMoney model=new TravelAgency.Model.ClaimMoney();
 			DataSet ds=DbHelperSQL.Query(strSql.ToString(),parameters);
 			
 			if(ds.Tables[0].Rows.Count>0)
@@ -242,9 +242,9 @@ SqlParameter[] parameters = {
 		/// <summary>
 		/// DataRow to Object Model
 		/// </summary>
-		public TravelAngecy.Model.ClaimMoney DataRowToModel(DataRow row)
+		public TravelAgency.Model.ClaimMoney DataRowToModel(DataRow row)
 		{
-			TravelAngecy.Model.ClaimMoney model=new TravelAngecy.Model.ClaimMoney();
+			TravelAgency.Model.ClaimMoney model=new TravelAgency.Model.ClaimMoney();
 			if(row != null)
 			{
 																								if(row["Claim_id"]!=null && row["Claim_id"].ToString()!="")

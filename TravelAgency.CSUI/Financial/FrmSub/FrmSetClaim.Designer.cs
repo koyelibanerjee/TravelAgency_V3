@@ -72,6 +72,7 @@
             this.cmsDgv = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.签证认账ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.自动更新实收ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panelDgv.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bar2)).BeginInit();
@@ -176,7 +177,7 @@
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -483,23 +484,31 @@
             // 
             this.cmsDgv.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.签证认账ToolStripMenuItem,
-            this.自动更新实收ToolStripMenuItem});
+            this.自动更新实收ToolStripMenuItem,
+            this.toolStripMenuItem1});
             this.cmsDgv.Name = "cmsDgv";
-            this.cmsDgv.Size = new System.Drawing.Size(149, 48);
+            this.cmsDgv.Size = new System.Drawing.Size(153, 92);
             // 
             // 签证认账ToolStripMenuItem
             // 
             this.签证认账ToolStripMenuItem.Name = "签证认账ToolStripMenuItem";
-            this.签证认账ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.签证认账ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.签证认账ToolStripMenuItem.Text = "认账";
             this.签证认账ToolStripMenuItem.Click += new System.EventHandler(this.签证认账ToolStripMenuItem_Click);
             // 
             // 自动更新实收ToolStripMenuItem
             // 
             this.自动更新实收ToolStripMenuItem.Name = "自动更新实收ToolStripMenuItem";
-            this.自动更新实收ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.自动更新实收ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.自动更新实收ToolStripMenuItem.Text = "自动更新实收";
             this.自动更新实收ToolStripMenuItem.Click += new System.EventHandler(this.自动更新实收ToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem1.Text = "套用活动价格";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // FrmSetClaim
             // 
@@ -561,5 +570,6 @@
         private DevComponents.DotNetBar.ButtonX btnGenPayList;
         private DevComponents.DotNetBar.Bar bar2;
         private DevComponents.DotNetBar.LabelItem lbCount;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }

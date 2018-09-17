@@ -148,7 +148,6 @@
     <Compile Include="AppAll.cs" />
     <Compile Include="AppStatus.cs" />
     <Compile Include="AppStatusDal.cs" />
-    <Compile Include="ClaimMoneyDal.cs" />
     <Compile Include="ClaimMoney.cs" />
     <Compile Include="Commision.cs" />
     <Compile Include="Commision_Sale.cs" />

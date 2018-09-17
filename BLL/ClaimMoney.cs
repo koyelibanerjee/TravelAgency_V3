@@ -2,14 +2,14 @@
 using System.Text;
 using System.Collections.Generic; 
 using System.Data;
-using TravelAngecy.Model;
-namespace TravelAngecy.BLL  
+using TravelAgency.Model;
+namespace TravelAgency.BLL  
 {
 	 	//ClaimMoney
 		public partial class ClaimMoney
 	{
    		     
-		private readonly TravelAngecy.DAL.ClaimMoney dal=new TravelAngecy.DAL.ClaimMoney();
+		private readonly TravelAgency.DAL.ClaimMoney dal=new TravelAgency.DAL.ClaimMoney();
 		public ClaimMoney()
 		{}
 		
@@ -25,7 +25,7 @@ namespace TravelAngecy.BLL
 		/// <summary>
 		/// 增加一条数据
 		/// </summary>
-		    public Guid  Add(TravelAngecy.Model.ClaimMoney model)
+		    public Guid  Add(TravelAgency.Model.ClaimMoney model)
     		{
             return dal.Add(model);
       		}
@@ -33,7 +33,7 @@ namespace TravelAngecy.BLL
 		/// <summary>
 		/// 更新一条数据
 		/// </summary>
-		public bool Update(TravelAngecy.Model.ClaimMoney model)
+		public bool Update(TravelAgency.Model.ClaimMoney model)
 		{
 			return dal.Update(model);
 		}
@@ -50,7 +50,7 @@ namespace TravelAngecy.BLL
 		/// <summary>
 		/// 得到一个对象实体
 		/// </summary>
-		public TravelAngecy.Model.ClaimMoney GetModel(Guid Claim_id)
+		public TravelAgency.Model.ClaimMoney GetModel(Guid Claim_id)
 		{
 			
 			return dal.GetModel(Claim_id);
@@ -73,7 +73,7 @@ namespace TravelAngecy.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public List<TravelAngecy.Model.ClaimMoney> GetModelList(string strWhere)
+		public List<TravelAgency.Model.ClaimMoney> GetModelList(string strWhere)
 		{
 			DataSet ds = dal.GetList(strWhere);
 			return DataTableToList(ds.Tables[0]);
@@ -81,13 +81,13 @@ namespace TravelAngecy.BLL
 		/// <summary>
 		/// 获得数据列表
 		/// </summary>
-		public List<TravelAngecy.Model.ClaimMoney> DataTableToList(DataTable dt)
+		public List<TravelAgency.Model.ClaimMoney> DataTableToList(DataTable dt)
 		{
-			List<TravelAngecy.Model.ClaimMoney> modelList = new List<TravelAngecy.Model.ClaimMoney>();
+			List<TravelAgency.Model.ClaimMoney> modelList = new List<TravelAgency.Model.ClaimMoney>();
 			int rowsCount = dt.Rows.Count;
 			if (rowsCount > 0)
 			{
-				TravelAngecy.Model.ClaimMoney model;
+				TravelAgency.Model.ClaimMoney model;
 				for (int n = 0; n < rowsCount; n++)
 				{
 					model = dal.DataRowToModel(dt.Rows[n]);			
@@ -117,7 +117,7 @@ namespace TravelAngecy.BLL
     /// <summary>
     /// 分页获取数据
     /// </summary>
-    public List<TravelAngecy.Model.ClaimMoney> GetListByPage(string where, string orderby,int startIndex, int endIndex)
+    public List<TravelAgency.Model.ClaimMoney> GetListByPage(string where, string orderby,int startIndex, int endIndex)
     {
         DataSet ds = dal.GetListByPage(where, orderby, startIndex, endIndex);
         DataTable dt = ds.Tables[0];
@@ -127,7 +127,7 @@ namespace TravelAngecy.BLL
     /// <summary>
     /// 分页获取数据
     /// </summary>
-    public List<TravelAngecy.Model.ClaimMoney> GetListByPage(int pageIndex, int pageSize, string where, string orderby)
+    public List<TravelAgency.Model.ClaimMoney> GetListByPage(int pageIndex, int pageSize, string where, string orderby)
     {
         int startIndex = (pageIndex - 1) * pageSize + 1;
         int endIndex = pageIndex * pageSize;
@@ -141,7 +141,7 @@ namespace TravelAngecy.BLL
     /// <summary>
     /// 分页获取数据
     /// </summary>
-    public List<TravelAngecy.Model.ClaimMoney> GetListByPageOrderByPK(int pageIndex, int pageSize, string where)
+    public List<TravelAgency.Model.ClaimMoney> GetListByPageOrderByPK(int pageIndex, int pageSize, string where)
     {
         int startIndex = (pageIndex - 1) * pageSize + 1;
         int endIndex = pageIndex * pageSize;
@@ -153,7 +153,7 @@ namespace TravelAngecy.BLL
     /// <summary>
     /// 新增list
     /// </summary>		
-    public int AddList(List<TravelAngecy.Model.ClaimMoney> list)
+    public int AddList(List<TravelAgency.Model.ClaimMoney> list)
     {
         int res = 0;
         foreach (var item in list)
@@ -166,7 +166,7 @@ namespace TravelAngecy.BLL
     /// <summary>
     /// 更新list
     /// </summary>
-    public int UpdateList(List<TravelAngecy.Model.ClaimMoney> list)
+    public int UpdateList(List<TravelAgency.Model.ClaimMoney> list)
     {
         int res = 0;
         foreach (var item in list)
@@ -179,7 +179,7 @@ namespace TravelAngecy.BLL
     /// <summary>
     /// 删除list
     /// </summary>    
-    public bool DeleteList(List<TravelAngecy.Model.ClaimMoney> list)
+    public bool DeleteList(List<TravelAgency.Model.ClaimMoney> list)
     {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < list.Count; ++i)

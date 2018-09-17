@@ -16,6 +16,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
         private List<Model.Visa> _list;
         private BLL.ClientCharge _bllClientCharge = new ClientCharge();
         private BLL.Visa _bllVisa = new BLL.Visa();
+        private BLL.ActivityOrder _bllActivityOrder = new BLL.ActivityOrder();
         private readonly Action<int> _updateDel; //副界面传来更新数据库的委托
         private readonly int _curPage; //主界面更新数据库需要一个当前页
         private readonly BLL.CustomerBalance _bllBalance = new CustomerBalance();
@@ -24,6 +25,9 @@ namespace TravelAgency.CSUI.Financial.FrmSub
         private string _clientName = null;
 
         private decimal _clientBalance = 0;
+
+        private string _activityOrderNo = null;
+        private Dictionary<string, int> _selActivityOrderCnt = new Dictionary<string, int>();
 
         private FrmSetClaim()
         {
@@ -240,7 +244,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             string type = GetCellValue(e.RowIndex, "Types");
             string depatureType = GetCellValue(e.RowIndex, "DepartureType");
             string client = GetCellValue(e.RowIndex, "Client");
-            if (frm.ChangeAllAlike)//全部一起修改
+            if (frm.ChangeAllAlike) //全部一起修改
             {
                 for (int i = 0; i < dataGridView1.Rows.Count; i++)
                 {
@@ -347,6 +351,10 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 claimMoney.EntryTime = DateTime.Now;
                 claimMoney.MoneyType = balance.MoneyType;
                 claimMoney.Claim_Confirm = "1";
+
+                if (!string.IsNullOrEmpty(_activityOrderNo))
+                    claimMoney.ActivityOrderNo = _activityOrderNo;
+
                 if (_clientName != visa.client)
                 {
                     claimMoney.Guests = string.Format("{0} 帮 {1} 认领 {2} 元.", _clientName, visa.client, claimMoney.Amount);
@@ -362,7 +370,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             //执行所有的更新
             int sucClaim = 0, sucVisa = 0, sucBalance = 0;
             for (int i = 0; i < newClaims.Count; ++i)
-                sucClaim += _bllClaimMoney.Add(newClaims[i]) ? 1 : 0;
+                sucClaim += _bllClaimMoney.Add(newClaims[i]) == Guid.Empty ? 1 : 0;
 
             for (int i = 0; i < newBalances.Count; i++)
                 sucBalance += _bllBalance.Update(newBalances[i]) ? 1 : 0;
@@ -372,6 +380,13 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 visaBackup[i].ClaimedFlag = "是";
                 //实收和收款是在model里面自己就带了的
                 sucVisa += _bllVisa.Update(visaBackup[i]) ? 1 : 0;
+            }
+
+            foreach (var pair in _selActivityOrderCnt)
+            {
+                var activityOrderModel = _bllActivityOrder.GetModel(pair.Key);
+                activityOrderModel.BalanceBooks -= pair.Value;
+                _bllActivityOrder.Update(activityOrderModel);
             }
             return true;
         }
@@ -499,6 +514,37 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             _clientName = frm.RetClient;
 
             UpdateClientBalanceInfo();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            var list = GetSelectedModelList();
+            if (list.Count < 1)
+                return;
+
+            int selPeopleCnt = 0;
+            HashSet<string> custNameSet = new HashSet<string>();
+            foreach (var visa in list)
+            {
+                selPeopleCnt += visa.Number ?? 0;
+                custNameSet.Add(visa.client);
+            }
+            if (custNameSet.Count > 1)
+            {
+                MessageBoxEx.Show("不同客户不能同时选择!");
+                return;
+            }
+
+            FrmActivityOrder frm = new FrmActivityOrder(list[0].client, selPeopleCnt, _selActivityOrderCnt);
+            if (frm.ShowDialog() == DialogResult.Cancel)
+                return;
+            if (!_selActivityOrderCnt.ContainsKey(frm.RetOrderNo))
+                _selActivityOrderCnt.Add(frm.RetOrderNo, selPeopleCnt); //记录下来,后面带进去，好防止出现多次选择出错
+            else
+                _selActivityOrderCnt[frm.RetOrderNo] += selPeopleCnt;
+            for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
+                dataGridView1.SelectedRows[i].Cells["Price"].Value = frm.RetActivityPrice;
+            _activityOrderNo = frm.RetOrderNo;
         }
     }
 }

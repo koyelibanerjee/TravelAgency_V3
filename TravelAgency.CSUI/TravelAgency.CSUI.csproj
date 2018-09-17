@@ -135,17 +135,23 @@
     <Compile Include="Financial\FrmSub\FrmSelectClient.Designer.cs">
       <DependentUpon>FrmSelectClient.cs</DependentUpon>
     </Compile>
-    <Compile Include="Financial\FrmSub\FrmSetClaim.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Financial\FrmSub\FrmSetClaim.Designer.cs">
-      <DependentUpon>FrmSetClaim.cs</DependentUpon>
-    </Compile>
     <Compile Include="Financial\FrmSub\FrmCustomerBalance.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Financial\FrmSub\FrmCustomerBalance.Designer.cs">
       <DependentUpon>FrmCustomerBalance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial\FrmSub\FrmSetClaim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial\FrmSub\FrmSetClaim.designer.cs">
+      <DependentUpon>FrmSetClaim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Financial\FrmSub\FrmSetClaimType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial\FrmSub\FrmSetClaimType.Designer.cs">
+      <DependentUpon>FrmSetClaimType.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
@@ -519,11 +525,14 @@
     <EmbeddedResource Include="Financial\FrmSub\FrmSelectClient.resx">
       <DependentUpon>FrmSelectClient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Financial\FrmSub\FrmCustomerBalance.resx">
+      <DependentUpon>FrmCustomerBalance.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Financial\FrmSub\FrmSetClaim.resx">
       <DependentUpon>FrmSetClaim.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Financial\FrmSub\FrmCustomerBalance.resx">
-      <DependentUpon>FrmCustomerBalance.cs</DependentUpon>
+    <EmbeddedResource Include="Financial\FrmSub\FrmSetClaimType.resx">
+      <DependentUpon>FrmSetClaimType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>

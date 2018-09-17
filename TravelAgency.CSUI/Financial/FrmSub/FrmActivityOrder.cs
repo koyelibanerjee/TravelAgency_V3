@@ -4,19 +4,32 @@ using System.Drawing;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using TravelAgency.Common.FrmSetValues;
+using TravelAgency.Model;
 
 namespace TravelAgency.CSUI.Financial.FrmSub
 {
     public partial class FrmActivityOrder : Form
     {
-        private readonly BLL.Joint.CustomerBalance_AuthUser _bllCustomerBalanceAuthUser = new BLL.Joint.CustomerBalance_AuthUser();
-        //private readonly  BLL.ActivityOrder 
+        private readonly BLL.ActivityOrder _bllActivityOrder = new BLL.ActivityOrder();
+        private readonly string _customerName;
+        private readonly int _peopleCnt;
+        private readonly Dictionary<string, int> _dictCount;
+
+        public string RetOrderNo;
+        public decimal RetActivityPrice;
 
 
-        public FrmActivityOrder()
+        private FrmActivityOrder()
         {
             this.StartPosition = FormStartPosition.CenterParent;
             InitializeComponent();
+        }
+
+        public FrmActivityOrder(string custName, int cnt,Dictionary<string,int> dict) : this()
+        {
+            this._customerName = custName;
+            this._peopleCnt = cnt;
+            _dictCount = dict;
         }
 
         private void FrmSelUser_Load(object sender, EventArgs e)
@@ -31,26 +44,24 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
             LoadDataToDgv();
             dataGridView1.CellMouseUp += dataGridView1_CellMouseUp;
-            dataGridView1.RowsAdded += DataGridView1_RowsAdded;
+            dataGridView1.DoubleClick += DataGridView1_DoubleClick;
         }
 
-
-        private void DataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        private void DataGridView1_DoubleClick(object sender, EventArgs e)
         {
-            if (dataGridView1.Rows.Count < 1)
-                return;
+            选择当前项ToolStripMenuItem_Click(null, null);
         }
 
         private void LoadDataToDgv()
         {
-            var list = _bllCustomerBalanceAuthUser.GetModelList();
+            string where = $" CustomerName = '{_customerName}' and BalanceBooks > 0 ";
+            var list = _bllActivityOrder.GetModelList(where);
+            foreach (var activityOrder in list)
+            {
+                if (_dictCount.ContainsKey(activityOrder.ActivityOrderNo))
+                    activityOrder.BalanceBooks -= _dictCount[activityOrder.ActivityOrderNo];
+            }
             dataGridView1.DataSource = list;
-            DataGridView1_RowsAdded(null, null);
-        }
-
-        private void FrmSelUser_DoubleClick(object sender, EventArgs e)
-        {
-
         }
 
         /// <summary>
@@ -64,7 +75,6 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             {
                 if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
                 {
-
                     //若行已是选中状态就不再进行设置
                     //如果没选中当前活动行则选中这一行
                     if (dataGridView1.Rows[e.RowIndex].Selected == false)
@@ -86,14 +96,22 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             }
         }
 
-        private void 分配给选中用户ToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void 选择当前项ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LoadDataToDgv();
+            var list = dataGridView1.DataSource as List<ActivityOrder>;
+            var item = list[dataGridView1.SelectedRows[0].Index];
+
+            if (item.BalanceBooks < _peopleCnt)
+            {
+                MessageBoxEx.Show("剩余量不足，请重新选择!!!");
+                return;
+            }
+
+            this.RetOrderNo = item.ActivityOrderNo;
+            this.RetActivityPrice = item.Price_Active.Value;
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
-
-
-       
-
-       
     }
 }

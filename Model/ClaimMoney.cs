@@ -2,7 +2,7 @@
 using System.Text;
 using System.Collections.Generic; 
 using System.Data;
-namespace TravelAngecy.Model
+namespace TravelAgency.Model
 {
 	 	//ClaimMoney
 		[Serializable]
