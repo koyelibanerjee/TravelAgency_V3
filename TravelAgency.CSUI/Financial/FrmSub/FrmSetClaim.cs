@@ -26,8 +26,9 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
         private decimal _clientBalance = 0;
 
-        private string _activityOrderNo = null;
         private Dictionary<string, int> _selActivityOrderCnt = new Dictionary<string, int>();
+        private Dictionary<string, string> _visaidOrderDict = new Dictionary<string, string>();
+
 
         private FrmSetClaim()
         {
@@ -352,13 +353,11 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 claimMoney.MoneyType = balance.MoneyType;
                 claimMoney.Claim_Confirm = "1";
 
-                if (!string.IsNullOrEmpty(_activityOrderNo))
-                    claimMoney.ActivityOrderNo = _activityOrderNo;
+                if (_visaidOrderDict.ContainsKey(visa.Visa_id.ToString()))
+                    claimMoney.ActivityOrderNo = _visaidOrderDict[visa.Visa_id.ToString()];
 
                 if (_clientName != visa.client)
-                {
-                    claimMoney.Guests = string.Format("{0} 帮 {1} 认领 {2} 元.", _clientName, visa.client, claimMoney.Amount);
-                }
+                    claimMoney.Guests = $"{_clientName} 帮 {visa.client} 认领 {claimMoney.Amount} 元.";
 
                 newClaims.Add(claimMoney);
             }
@@ -497,6 +496,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             frm.ShowDialog();
             string paymentNo = frm.RetValue;
             var list = DgvDataSourceToList();
+            _bllVisa.UpdateList(list);
             if (!checkGreaterThanCost(list))
             {
                 if (MessageBoxEx.Show("选中项中有收款小于成本的，是否继续?", "提示", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
@@ -538,13 +538,29 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             FrmActivityOrder frm = new FrmActivityOrder(list[0].client, selPeopleCnt, _selActivityOrderCnt);
             if (frm.ShowDialog() == DialogResult.Cancel)
                 return;
+
+            //变更订单的先扣除原来的计数器
+            foreach (var visa in list)
+            {
+                if (_visaidOrderDict.ContainsKey(visa.Visa_id.ToString()))
+                    _selActivityOrderCnt[_visaidOrderDict[visa.Visa_id.ToString()]] -= visa.Number.Value;
+            }
+
             if (!_selActivityOrderCnt.ContainsKey(frm.RetOrderNo))
                 _selActivityOrderCnt.Add(frm.RetOrderNo, selPeopleCnt); //记录下来,后面带进去，好防止出现多次选择出错
             else
                 _selActivityOrderCnt[frm.RetOrderNo] += selPeopleCnt;
+
+            foreach (var visa in list)
+            {
+                if (!_visaidOrderDict.ContainsKey(visa.Visa_id.ToString()))
+                    _visaidOrderDict.Add(visa.Visa_id.ToString(), frm.RetOrderNo);
+                else
+                    _visaidOrderDict[visa.Visa_id.ToString()] = frm.RetOrderNo;
+            }
+
             for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
                 dataGridView1.SelectedRows[i].Cells["Price"].Value = frm.RetActivityPrice;
-            _activityOrderNo = frm.RetOrderNo;
         }
     }
 }

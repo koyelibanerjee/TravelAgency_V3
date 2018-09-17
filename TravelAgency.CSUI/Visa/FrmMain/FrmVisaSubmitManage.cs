@@ -15,6 +15,7 @@ using TravelAgency.Common.Enums;
 using TravelAgency.Common.FrmSetValues;
 using TravelAgency.Common.QRCode;
 using TravelAgency.Common.Word;
+using TravelAgency.CSUI.Financial.FrmSub;
 using TravelAgency.CSUI.FrmMain;
 using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Properties;
@@ -2046,18 +2047,49 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
         private void 生成账单ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (MessageBoxEx.Show("生成账单后，会提交所做修改到数据库，是否继续?", "提示", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
-                return;
-            FrmSetStringValue frm = new FrmSetStringValue("设置账单编号");
-            frm.ShowDialog();
-            string paymentNo = frm.RetValue;
+            //if (MessageBoxEx.Show("生成账单后，会提交所做修改到数据库，是否继续?", "提示", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+            //    return;
+            //FrmSetStringValue frm = new FrmSetStringValue("设置账单编号");
+            //frm.ShowDialog();
+            //string paymentNo = frm.RetValue;
+            //var list = GetSelectedVisaList();
+            //if (!BLL.VisaClaimChecker.checkGreaterThanCost(list))
+            //{
+            //    if (MessageBoxEx.Show("选中项中有收款小于成本的，是否继续?", "提示", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+            //        return;
+            //}
+            //XlsGenerator.GetPaymentList(list, paymentNo);
+
             var list = GetSelectedVisaList();
-            if (!BLL.VisaClaimChecker.checkGreaterThanCost(list))
+            HashSet<string> set = new HashSet<string>();
+            bool claimed = false;
+            for (int i = 0; i < list.Count; ++i)
             {
-                if (MessageBoxEx.Show("选中项中有收款小于成本的，是否继续?", "提示", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
-                    return;
+                if (list[i].ClaimedFlag == "是")
+                {
+                    claimed = true;
+                }
+                set.Add(list[i].client);
             }
-            XlsGenerator.GetPaymentList(list, paymentNo);
+            if (set.Count > 1)
+            {
+                MessageBoxEx.Show("不同客户的团号不能一起认账!!!");
+                return;
+            }
+
+
+            if (claimed && MessageBoxEx.Show("选中项中已经有认过账的团号，是否继续?", "提示", MessageBoxButtons.YesNo) == DialogResult.No)
+                return;
+            if (FrmsManager.FormSetClaim == null)
+            {
+                FrmSetClaim frm = new FrmSetClaim(list, LoadDataToDataGridView, _curPage);
+                frm.Show();
+            }
+            else
+            {
+                MessageBoxEx.Show("请不要重复打开设置认账界面!!!");
+                return;
+            }
         }
 
         private void 和Excel进行对比ToolStripMenuItem_Click(object sender, EventArgs e)
