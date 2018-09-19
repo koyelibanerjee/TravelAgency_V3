@@ -46,24 +46,6 @@
             this.lbCurPage = new DevComponents.DotNetBar.LabelItem();
             this.lbPeopleCount = new DevComponents.DotNetBar.LabelItem();
             this.dataGridView1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
-            this.GroupNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CountryImage = new System.Windows.Forms.DataGridViewImageColumn();
-            this.PredictTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.EntryTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TypeInPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Types = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsUrgent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DepartureType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Client = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SalesPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Operator = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tips = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tips2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OutPlace = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Visa_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmsDgv = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.复制ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -152,6 +134,25 @@
             this.lbCount = new DevComponents.DotNetBar.LabelItem();
             this.cmsAddToGroup = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.添加到团号ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.GroupNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CountryImage = new System.Windows.Forms.DataGridViewImageColumn();
+            this.PredictTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OutTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.EntryTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeInPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Types = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsUrgent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DepartureType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Client = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SalesPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Operator = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tips = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tips2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OutPlace = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Visa_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cmsDgv.SuspendLayout();
@@ -283,6 +284,7 @@
             this.Number,
             this.CountryImage,
             this.PredictTime,
+            this.OutTime,
             this.EntryTime,
             this.TypeInPerson,
             this.Types,
@@ -328,134 +330,6 @@
             this.dataGridView1.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
-            // 
-            // GroupNo
-            // 
-            this.GroupNo.DataPropertyName = "GroupNo";
-            this.GroupNo.HeaderText = "团号";
-            this.GroupNo.Name = "GroupNo";
-            this.GroupNo.ReadOnly = true;
-            this.GroupNo.Width = 300;
-            // 
-            // Country
-            // 
-            this.Country.DataPropertyName = "Country";
-            this.Country.HeaderText = "国家";
-            this.Country.Name = "Country";
-            this.Country.ReadOnly = true;
-            // 
-            // Number
-            // 
-            this.Number.DataPropertyName = "Number";
-            this.Number.HeaderText = "人数";
-            this.Number.Name = "Number";
-            this.Number.ReadOnly = true;
-            // 
-            // CountryImage
-            // 
-            this.CountryImage.HeaderText = "国家图标";
-            this.CountryImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.CountryImage.Name = "CountryImage";
-            this.CountryImage.ReadOnly = true;
-            this.CountryImage.Width = 200;
-            // 
-            // PredictTime
-            // 
-            this.PredictTime.DataPropertyName = "PredictTime";
-            this.PredictTime.HeaderText = "出发时间";
-            this.PredictTime.Name = "PredictTime";
-            this.PredictTime.ReadOnly = true;
-            // 
-            // EntryTime
-            // 
-            this.EntryTime.DataPropertyName = "EntryTime";
-            this.EntryTime.HeaderText = "办理时间";
-            this.EntryTime.Name = "EntryTime";
-            this.EntryTime.ReadOnly = true;
-            // 
-            // TypeInPerson
-            // 
-            this.TypeInPerson.DataPropertyName = "TypeInPerson";
-            this.TypeInPerson.HeaderText = "办理人";
-            this.TypeInPerson.Name = "TypeInPerson";
-            this.TypeInPerson.ReadOnly = true;
-            // 
-            // Types
-            // 
-            this.Types.DataPropertyName = "Types";
-            this.Types.HeaderText = "类型";
-            this.Types.Name = "Types";
-            this.Types.ReadOnly = true;
-            // 
-            // IsUrgent
-            // 
-            this.IsUrgent.HeaderText = "是否急件";
-            this.IsUrgent.Name = "IsUrgent";
-            this.IsUrgent.ReadOnly = true;
-            this.IsUrgent.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.IsUrgent.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // Status
-            // 
-            this.Status.HeaderText = "状态";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            // 
-            // DepartureType
-            // 
-            this.DepartureType.DataPropertyName = "DepartureType";
-            this.DepartureType.HeaderText = "出境类型";
-            this.DepartureType.Name = "DepartureType";
-            this.DepartureType.ReadOnly = true;
-            // 
-            // Client
-            // 
-            this.Client.DataPropertyName = "Client";
-            this.Client.HeaderText = "客户";
-            this.Client.Name = "Client";
-            this.Client.ReadOnly = true;
-            // 
-            // SalesPerson
-            // 
-            this.SalesPerson.DataPropertyName = "SalesPerson";
-            this.SalesPerson.HeaderText = "销售";
-            this.SalesPerson.Name = "SalesPerson";
-            this.SalesPerson.ReadOnly = true;
-            // 
-            // Operator
-            // 
-            this.Operator.DataPropertyName = "Operator";
-            this.Operator.HeaderText = "操作";
-            this.Operator.Name = "Operator";
-            this.Operator.ReadOnly = true;
-            // 
-            // Tips
-            // 
-            this.Tips.DataPropertyName = "Tips";
-            this.Tips.HeaderText = "备注";
-            this.Tips.Name = "Tips";
-            this.Tips.ReadOnly = true;
-            // 
-            // Tips2
-            // 
-            this.Tips2.DataPropertyName = "Tips2";
-            this.Tips2.HeaderText = "备注2";
-            this.Tips2.Name = "Tips2";
-            this.Tips2.ReadOnly = true;
-            // 
-            // OutPlace
-            // 
-            this.OutPlace.HeaderText = "外送";
-            this.OutPlace.Name = "OutPlace";
-            this.OutPlace.ReadOnly = true;
-            // 
-            // Visa_id
-            // 
-            this.Visa_id.DataPropertyName = "Visa_id";
-            this.Visa_id.HeaderText = "Visa_id";
-            this.Visa_id.Name = "Visa_id";
-            this.Visa_id.ReadOnly = true;
-            this.Visa_id.Visible = false;
             // 
             // cmsDgv
             // 
@@ -1428,6 +1302,141 @@
             this.添加到团号ToolStripMenuItem.Text = "添加到此团号";
             this.添加到团号ToolStripMenuItem.Click += new System.EventHandler(this.添加到团号ToolStripMenuItem_Click);
             // 
+            // GroupNo
+            // 
+            this.GroupNo.DataPropertyName = "GroupNo";
+            this.GroupNo.HeaderText = "团号";
+            this.GroupNo.Name = "GroupNo";
+            this.GroupNo.ReadOnly = true;
+            this.GroupNo.Width = 300;
+            // 
+            // Country
+            // 
+            this.Country.DataPropertyName = "Country";
+            this.Country.HeaderText = "国家";
+            this.Country.Name = "Country";
+            this.Country.ReadOnly = true;
+            // 
+            // Number
+            // 
+            this.Number.DataPropertyName = "Number";
+            this.Number.HeaderText = "人数";
+            this.Number.Name = "Number";
+            this.Number.ReadOnly = true;
+            // 
+            // CountryImage
+            // 
+            this.CountryImage.HeaderText = "国家图标";
+            this.CountryImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.CountryImage.Name = "CountryImage";
+            this.CountryImage.ReadOnly = true;
+            this.CountryImage.Width = 200;
+            // 
+            // PredictTime
+            // 
+            this.PredictTime.DataPropertyName = "PredictTime";
+            this.PredictTime.HeaderText = "出发时间";
+            this.PredictTime.Name = "PredictTime";
+            this.PredictTime.ReadOnly = true;
+            // 
+            // OutTime
+            // 
+            this.OutTime.DataPropertyName = "OutTime";
+            this.OutTime.HeaderText = "归国时间";
+            this.OutTime.Name = "OutTime";
+            this.OutTime.ReadOnly = true;
+            // 
+            // EntryTime
+            // 
+            this.EntryTime.DataPropertyName = "EntryTime";
+            this.EntryTime.HeaderText = "办理时间";
+            this.EntryTime.Name = "EntryTime";
+            this.EntryTime.ReadOnly = true;
+            // 
+            // TypeInPerson
+            // 
+            this.TypeInPerson.DataPropertyName = "TypeInPerson";
+            this.TypeInPerson.HeaderText = "办理人";
+            this.TypeInPerson.Name = "TypeInPerson";
+            this.TypeInPerson.ReadOnly = true;
+            // 
+            // Types
+            // 
+            this.Types.DataPropertyName = "Types";
+            this.Types.HeaderText = "类型";
+            this.Types.Name = "Types";
+            this.Types.ReadOnly = true;
+            // 
+            // IsUrgent
+            // 
+            this.IsUrgent.HeaderText = "是否急件";
+            this.IsUrgent.Name = "IsUrgent";
+            this.IsUrgent.ReadOnly = true;
+            this.IsUrgent.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.IsUrgent.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Status
+            // 
+            this.Status.HeaderText = "状态";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            // 
+            // DepartureType
+            // 
+            this.DepartureType.DataPropertyName = "DepartureType";
+            this.DepartureType.HeaderText = "出境类型";
+            this.DepartureType.Name = "DepartureType";
+            this.DepartureType.ReadOnly = true;
+            // 
+            // Client
+            // 
+            this.Client.DataPropertyName = "Client";
+            this.Client.HeaderText = "客户";
+            this.Client.Name = "Client";
+            this.Client.ReadOnly = true;
+            // 
+            // SalesPerson
+            // 
+            this.SalesPerson.DataPropertyName = "SalesPerson";
+            this.SalesPerson.HeaderText = "销售";
+            this.SalesPerson.Name = "SalesPerson";
+            this.SalesPerson.ReadOnly = true;
+            // 
+            // Operator
+            // 
+            this.Operator.DataPropertyName = "Operator";
+            this.Operator.HeaderText = "操作";
+            this.Operator.Name = "Operator";
+            this.Operator.ReadOnly = true;
+            // 
+            // Tips
+            // 
+            this.Tips.DataPropertyName = "Tips";
+            this.Tips.HeaderText = "备注";
+            this.Tips.Name = "Tips";
+            this.Tips.ReadOnly = true;
+            // 
+            // Tips2
+            // 
+            this.Tips2.DataPropertyName = "Tips2";
+            this.Tips2.HeaderText = "备注2";
+            this.Tips2.Name = "Tips2";
+            this.Tips2.ReadOnly = true;
+            // 
+            // OutPlace
+            // 
+            this.OutPlace.HeaderText = "外送";
+            this.OutPlace.Name = "OutPlace";
+            this.OutPlace.ReadOnly = true;
+            // 
+            // Visa_id
+            // 
+            this.Visa_id.DataPropertyName = "Visa_id";
+            this.Visa_id.HeaderText = "Visa_id";
+            this.Visa_id.Name = "Visa_id";
+            this.Visa_id.ReadOnly = true;
+            this.Visa_id.Visible = false;
+            // 
             // FrmVisaManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1561,6 +1570,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Number;
         private System.Windows.Forms.DataGridViewImageColumn CountryImage;
         private System.Windows.Forms.DataGridViewTextBoxColumn PredictTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OutTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn EntryTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn TypeInPerson;
         private System.Windows.Forms.DataGridViewTextBoxColumn Types;

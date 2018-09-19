@@ -12,34 +12,39 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 {
     public partial class FrmSetClaim : Form
     {
+        //当前页面list
         private List<Model.Visa> _list;
-        private BLL.ClientCharge _bllClientCharge = new ClientCharge();
-        private BLL.Visa _bllVisa = new BLL.Visa();
-        private BLL.ActivityOrder _bllActivityOrder = new BLL.ActivityOrder();
-        private readonly Action<int> _updateDel; //副界面传来更新数据库的委托
-        private readonly int _curPage; //主界面更新数据库需要一个当前页
+
+        //bll相关
+        private readonly BLL.ClientCharge _bllClientCharge = new ClientCharge();
+        private readonly BLL.Visa _bllVisa = new BLL.Visa();
+        private readonly BLL.ActivityOrder _bllActivityOrder = new BLL.ActivityOrder();
         private readonly BLL.CustomerBalance _bllBalance = new CustomerBalance();
         private readonly BLL.ClaimMoney _bllClaimMoney = new ClaimMoney();
+
+        //主界面的刷新操作
+        private readonly Action<int> _updateDel; //副界面传来更新数据库的委托
+        private readonly int _curPage; //主界面更新数据库需要一个当前页
+
+
+        //认账相关
         private List<Model.CustomerBalance> _normalBalanceList;
         private List<Model.CustomerBalance> _activityBalanceList;
         private string _clientName = null;
         private decimal _clientNormalBalance = 0;
         private decimal _clientActivityBalance = 0;
-
-        private Dictionary<string, int> _curActivityOrderCnt = new Dictionary<string, int>(); //activityNo对应一共扣了多少本
-        private Dictionary<string, int> _origActivityOrderCnt = new Dictionary<string, int>(); //进入这个窗口的时候activityNo每个已经扣了多少本
-        private Dictionary<string, string> _visaidOrderDict = new Dictionary<string, string>(); //visa对应的每一个订单号
-
-
+        private readonly Dictionary<string, int> _curActivityOrderCnt = new Dictionary<string, int>(); //activityNo对应一共扣了多少本
+        private readonly Dictionary<string, int> _origActivityOrderCnt = new Dictionary<string, int>(); //进入这个窗口的时候activityNo每个已经扣了多少本
+        private readonly Dictionary<string, string> _visaidOrderDict = new Dictionary<string, string>(); //visa对应的每一个订单号
 
         private string _activityName = "20180913活动";
 
         private FrmSetClaim()
         {
             if (this.Modal)
-                this.StartPosition = FormStartPosition.CenterScreen;
-            else
                 this.StartPosition = FormStartPosition.CenterParent;
+            else
+                this.StartPosition = FormStartPosition.CenterScreen;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             FrmsManager.FormSetClaim = this;
@@ -93,7 +98,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
         private void UpdateClientBalanceInfo()
         {
             //查询客户余额
-            _normalBalanceList = _bllBalance.GetClientBalanceListOrderByBalanceAsc(_clientName, "");
+            _normalBalanceList = _bllBalance.GetClientBalanceListOrderByBalanceAsc(_clientName, ""); //查询非活动可用余额
             if (_normalBalanceList.Count < 1)
             {
                 MessageBoxEx.Show("未找到客户可用余额信息!!!");
@@ -101,13 +106,8 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 return;
             }
 
-            _activityBalanceList = _bllBalance.GetClientBalanceListOrderByBalanceAsc(_clientName, _activityName);
-            if (_activityBalanceList.Count < 1)
-            {
-                MessageBoxEx.Show("未找到客户可用活动订单余额信息!!!");
-                lbCount.Text = "客户可用余额不足!!!";
-                return;
-            }
+            _activityBalanceList = _bllBalance.GetClientBalanceListOrderByBalanceAsc(_clientName, _activityName); //查询客户可用活动余额
+
             _clientNormalBalance = 0;
             for (int i = 0; i < _normalBalanceList.Count; ++i)
                 _clientNormalBalance += _normalBalanceList[i].BalanceAmount;
@@ -116,7 +116,6 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             for (int i = 0; i < _activityBalanceList.Count; ++i)
                 _clientActivityBalance += _activityBalanceList[i].BalanceAmount;
 
-            //lbClientBalance.Text = "客户可用余额:" + _clientNormalBalance + "元.";
             lbCount.Text = $"客户可用余额:{_clientNormalBalance}元,活动定金可用余额为:{_clientActivityBalance}.";
         }
 
@@ -126,34 +125,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 FrmsManager.FormSetClaim = null;
         }
 
-        public void AddVisa(List<Model.Visa> visaList)
-        {
-            foreach (var visa in visaList)
-            {
-                if (visa.client != _list[0].client)
-                {
-                    MessageBoxEx.Show("不同客户不能同时认账!!!");
-                    return;
-                }
-            }
-            var list = dataGridView1.DataSource as List<Model.Visa>;
-
-            HashSet<Guid> set = new HashSet<Guid>();
-            foreach (var visa_old in list)
-                set.Add(visa_old.Visa_id);
-
-            foreach (var visa_new in visaList)
-            {
-                if (set.Contains(visa_new.Visa_id))
-                    continue;
-                list.Add(visa_new);
-            }
-
-            dataGridView1.DataSource = null;
-            dataGridView1.DataSource = list;
-            _list = list;
-        }
-
+        #region dgv events
         private void DataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
@@ -162,24 +134,6 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                     !string.IsNullOrEmpty(dataGridView1.Rows[i].Cells["Tips2"].Value.ToString()))
                     dataGridView1.Rows[i].Cells["Tips2"].Style.BackColor = Color.Chocolate;
             }
-        }
-
-        private List<Model.Visa> DgvDataSourceToList()
-        {
-            return dataGridView1.DataSource as List<Model.Visa>;
-        }
-
-        /// <summary>
-        /// 返回当前选择的行的visaModel的List
-        /// </summary>
-        /// <returns></returns>
-        private List<Model.Visa> GetSelectedModelList()
-        {
-            var visaList = dataGridView1.DataSource as List<Model.Visa>;
-            List<Model.Visa> res = new List<Model.Visa>();
-            for (int i = dataGridView1.SelectedRows.Count - 1; i >= 0; i--)
-                res.Add(DgvDataSourceToList()[dataGridView1.SelectedRows[i].Index]);
-            return res.Count > 0 ? res : null;
         }
 
         private void DataGridView1_SelectionChanged(object sender, EventArgs e)
@@ -201,52 +155,6 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 _clientNormalBalance, totalNormalMoney, _clientNormalBalance - totalNormalMoney, _clientActivityBalance,
                 totalActivityMoney, _clientActivityBalance - totalActivityMoney);
         }
-
-
-        /// <summary>
-        /// 查询指定行的配置条目
-        /// </summary>
-        /// <returns></returns>
-        private List<Model.ClientCharge> GetClientCharges(int rowidx)
-        {
-            List<string> conditions = new List<string>();
-            string str = GetCellValue(rowidx, "DepartureType");
-            if (!string.IsNullOrEmpty(str))
-            {
-                //sb.Append(" DepartureType='" + cbDepartureType.Text + "'");
-
-                conditions.Add(" (DepartureType like  '%" + str + "%') ");
-            }
-            str = GetCellValue(rowidx, "Country");
-
-            if (!string.IsNullOrEmpty(str))
-            {
-                //sb.Append(" Country='" + cbCountry.Text + "'");
-                conditions.Add(" (Country like  '%" + str + "%') ");
-            }
-            str = GetCellValue(rowidx, "Types");
-
-            if (!string.IsNullOrEmpty(str))
-            {
-                conditions.Add(" (Types like  '%" + str + "%') ");
-                //sb.Append(" Types='" + cbType.Text + "'");
-            }
-
-            str = GetCellValue(rowidx, "Client");
-
-            if (!string.IsNullOrEmpty(str))
-            {
-                conditions.Add(" (Client like  '%" + str + "%') ");
-                //sb.Append(" Types='" + cbType.Text + "'");
-            }
-
-            string[] arr = conditions.ToArray();
-            string where = string.Join(" and ", arr);
-
-            var list = _bllClientCharge.GetModelList(where);
-            return list;
-        }
-
 
         private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -277,8 +185,8 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                     {
                         dataGridView1.Rows[i].Cells["Price"].Value = list[frm.SelIdx].Charge;
                         var visa = DgvDataSourceToList()[i];
-                        if (!string.IsNullOrEmpty(visa.ActivityOrderNo) &&
-                            _curActivityOrderCnt.ContainsKey(visa.ActivityOrderNo))
+                        if (!string.IsNullOrEmpty(visa.ActivityOrderNo) && //更新和活动订单相关的变量
+                            _curActivityOrderCnt.ContainsKey(visa.ActivityOrderNo)) //原来是设置的活动订单的价格，现在是套的普通的价格，就要执行恢复
                         {
                             _curActivityOrderCnt[visa.ActivityOrderNo] -= visa.Number.Value;
                             _visaidOrderDict.Remove(visa.Visa_id.ToString());
@@ -291,7 +199,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 dataGridView1.Rows[e.RowIndex].Cells["Price"].Value = list[frm.SelIdx].Charge;
                 var visa = GetSelectedModelList()[0];
                 if (!string.IsNullOrEmpty(visa.ActivityOrderNo) &&
-                    _curActivityOrderCnt.ContainsKey(visa.ActivityOrderNo))
+                    _curActivityOrderCnt.ContainsKey(visa.ActivityOrderNo)) //同上，只是是一条
                 {
                     _curActivityOrderCnt[visa.ActivityOrderNo] -= visa.Number.Value;
                     _visaidOrderDict.Remove(visa.Visa_id.ToString());
@@ -300,11 +208,116 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             }
         }
 
+        #endregion
 
+
+        /// <summary>
+        /// 主界面执行添加的时候调用此函数添加到此界面
+        /// </summary>
+        /// <param name="visaList"></param>
+        public void AddVisa(List<Model.Visa> visaList)
+        {
+            foreach (var visa in visaList)
+            {
+                if (visa.client != _list[0].client)
+                {
+                    MessageBoxEx.Show("不同客户不能同时认账!!!");
+                    return;
+                }
+            }
+            var list = dataGridView1.DataSource as List<Model.Visa>;
+
+            HashSet<Guid> set = new HashSet<Guid>();
+            foreach (var visa_old in list)
+                set.Add(visa_old.Visa_id);
+
+            foreach (var visa_new in visaList)
+            {
+                if (set.Contains(visa_new.Visa_id))
+                    continue;
+                list.Add(visa_new);
+            }
+
+            dataGridView1.DataSource = null;
+            dataGridView1.DataSource = list;
+            _list = list;
+        }
+        #region DgvUtils
+
+        private void UpdateDgvList()
+        {
+            var list = DgvDataSourceToList();
+            dataGridView1.DataSource = null;
+            if (list != null && list.Count > 0)
+                dataGridView1.DataSource = list;
+        }
+
+        private List<Model.Visa> DgvDataSourceToList()
+        {
+            return dataGridView1.DataSource as List<Model.Visa>;
+        }
 
         private string GetCellValue(int rowidx, string colname)
         {
             return dataGridView1.Rows[rowidx].Cells[colname].Value.ToString();
+        }
+
+        /// <summary>
+        /// 返回当前选择的行的visaModel的List
+        /// </summary>
+        /// <returns></returns>
+        private List<Model.Visa> GetSelectedModelList()
+        {
+            var visaList = dataGridView1.DataSource as List<Model.Visa>;
+            List<Model.Visa> res = new List<Model.Visa>();
+            for (int i = dataGridView1.SelectedRows.Count - 1; i >= 0; i--)
+                res.Add(DgvDataSourceToList()[dataGridView1.SelectedRows[i].Index]);
+            return res.Count > 0 ? res : null;
+        }
+        #endregion
+
+
+
+
+
+
+        #region 按钮事件
+
+        private void btnGenPayList_Click(object sender, EventArgs e)
+        {
+            if (MessageBoxEx.Show("生成账单后，会提交所做修改到数据库，是否继续?", "提示", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+                return;
+
+            var list = DgvDataSourceToList();
+
+            if (!checkGreaterThanCost(list))
+            {
+                if (MessageBoxEx.Show("选中项中有收款小于成本的，是否继续?", "提示", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+                    return;
+            }
+
+            FrmSetStringValue frm = new FrmSetStringValue("设置账单编号");
+            frm.ShowDialog();
+            string paymentNo = frm.RetValue;
+            XlsGenerator.GetPaymentList(list, paymentNo);
+
+            //更新Visa的list
+            foreach (var visa in list) //每个的活动订单号在套用活动价格的时候就设置了
+            {
+                visa.ClaimedFlag = "已生成账单";
+                visa.PaymentNo = paymentNo;
+            }
+            _bllVisa.UpdateList(list);
+
+
+            UpdateActivityOrders();
+
+            //foreach (var pair in _curActivityOrderCnt)
+            //{
+            //    var activityOrderModel = _bllActivityOrder.GetModel(pair.Key);
+            //    activityOrderModel.BalanceBooks -= pair.Value;
+            //    _bllActivityOrder.Update(activityOrderModel);
+            //}
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
@@ -318,6 +331,46 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 return;
             this.Close();
             _updateDel(_curPage);
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        #endregion
+
+        #region 认账相关
+
+        /// <summary>
+        /// 查询指定行的配置条目
+        /// </summary>
+        /// <returns></returns>
+        private List<Model.ClientCharge> GetClientCharges(int rowidx)
+        {
+            List<string> conditions = new List<string>();
+            string str = GetCellValue(rowidx, "DepartureType");
+            if (!string.IsNullOrEmpty(str))
+                conditions.Add(" (DepartureType like  '%" + str + "%') ");
+            str = GetCellValue(rowidx, "Country");
+
+            if (!string.IsNullOrEmpty(str))
+                conditions.Add(" (Country like  '%" + str + "%') ");
+            str = GetCellValue(rowidx, "Types");
+
+            if (!string.IsNullOrEmpty(str))
+                conditions.Add(" (Types like  '%" + str + "%') ");
+
+            str = GetCellValue(rowidx, "Client");
+
+            if (!string.IsNullOrEmpty(str))
+                conditions.Add(" (Client like  '%" + str + "%') ");
+
+            string[] arr = conditions.ToArray();
+            string where = string.Join(" and ", arr);
+            var list = _bllClientCharge.GetModelList(where);
+            return list;
         }
 
         decimal[] GetVisaNormalAndActivityMoney(Model.Visa visa)
@@ -541,6 +594,12 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 newBalances.Add(normalBalanceList[0]); //这里倒不用判断，反正始终更新一下应该是不会出错的
 
         }
+        #endregion
+
+
+
+
+
 
         /// <summary>
         /// dgv右键响应
@@ -575,11 +634,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
         }
 
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
-        }
+
 
         private void 签证认账ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -611,13 +666,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             UpdateDgvList();
         }
 
-        private void UpdateDgvList()
-        {
-            var list = DgvDataSourceToList();
-            dataGridView1.DataSource = null;
-            if (list != null && list.Count > 0)
-                dataGridView1.DataSource = list;
-        }
+
 
 
         private bool checkGreaterThanCost(List<Model.Visa> list)
@@ -636,42 +685,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
         }
 
 
-        private void btnGenPayList_Click(object sender, EventArgs e)
-        {
-            if (MessageBoxEx.Show("生成账单后，会提交所做修改到数据库，是否继续?", "提示", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
-                return;
 
-            var list = DgvDataSourceToList();
-
-            if (!checkGreaterThanCost(list))
-            {
-                if (MessageBoxEx.Show("选中项中有收款小于成本的，是否继续?", "提示", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
-                    return;
-            }
-
-            FrmSetStringValue frm = new FrmSetStringValue("设置账单编号");
-            frm.ShowDialog();
-            string paymentNo = frm.RetValue;
-            XlsGenerator.GetPaymentList(list, paymentNo);
-
-            //更新Visa的list
-            foreach (var visa in list) //每个的活动订单号在套用活动价格的时候就设置了
-            {
-                visa.ClaimedFlag = "已生成账单";
-                visa.PaymentNo = paymentNo;
-            }
-            _bllVisa.UpdateList(list);
-
-
-            UpdateActivityOrders();
-
-            //foreach (var pair in _curActivityOrderCnt)
-            //{
-            //    var activityOrderModel = _bllActivityOrder.GetModel(pair.Key);
-            //    activityOrderModel.BalanceBooks -= pair.Value;
-            //    _bllActivityOrder.Update(activityOrderModel);
-            //}
-        }
 
         private void UpdateActivityOrders()
         {
