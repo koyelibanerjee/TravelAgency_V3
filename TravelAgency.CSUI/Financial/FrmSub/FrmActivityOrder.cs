@@ -59,7 +59,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             foreach (var activityOrder in list)
             {
                 if (_dictCount.ContainsKey(activityOrder.ActivityOrderNo))
-                    activityOrder.BalanceBooks -= _dictCount[activityOrder.ActivityOrderNo];
+                    activityOrder.BalanceBooks -= _dictCount[activityOrder.ActivityOrderNo]; //扣掉当前窗口选中的
             }
             dataGridView1.DataSource = list;
         }

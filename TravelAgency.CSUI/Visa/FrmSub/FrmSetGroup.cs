@@ -1184,14 +1184,11 @@ namespace TravelAgency.CSUI.FrmSub
                     !string.IsNullOrEmpty((string)dgvGroupInfo.Rows[0].Cells["Remark"].Value))
                     _visaModel.Remark = (string)dgvGroupInfo.Rows[0].Cells["Remark"].Value;
 
-                if (!string.IsNullOrEmpty(txtDepartureTime.Text))
-                    _visaModel.PredictTime = CtrlParser.Parse2Datetime(txtDepartureTime);
-                if (!string.IsNullOrEmpty(txtSubmitTime.Text))
-                    _visaModel.SubmitTime = CtrlParser.Parse2Datetime(txtSubmitTime);
-                if (!string.IsNullOrEmpty(txtInTime.Text))
-                    _visaModel.InTime = CtrlParser.Parse2Datetime(txtInTime);
-                if (!string.IsNullOrEmpty(txtOutTime.Text))
-                    _visaModel.OutTime = CtrlParser.Parse2Datetime(txtOutTime);
+
+                _visaModel.PredictTime = CtrlParser.Parse2Datetime(txtDepartureTime);
+                _visaModel.SubmitTime = CtrlParser.Parse2Datetime(txtSubmitTime);
+                _visaModel.InTime = CtrlParser.Parse2Datetime(txtInTime);
+                _visaModel.OutTime = CtrlParser.Parse2Datetime(txtOutTime);
 
                 _visaModel.EntryTime = DateTime.Now;
                 _visaModel.GroupNo = CtrlParser.Parse2String(txtGroupNo);
@@ -1211,37 +1208,15 @@ namespace TravelAgency.CSUI.FrmSub
                 _visaModel.Person = CtrlParser.Parse2String(txtPerson);
                 _visaModel.Operator = CtrlParser.Parse2String(txtOperator);
                 _visaModel.IsOutDelivery = cbOutDelivery.Checked;
+
+
                 if (_visaModel.IsOutDelivery ?? false)
                     _visaModel.OutDeliveryPlace = cbOutDeliveryPlace.Text;
                 else
                     _visaModel.OutDeliveryPlace = null;
-                //if (chkSaleFirst.Checked)
-                //{
-                //    if (GlobalUtils.LoginUserLevel != RigthLevel.Manager &&
-                //        (!CheckInComboBox(_visaModel.client, txtClient) ||
-                //         !CheckInComboBox(_visaModel.SalesPerson, txtSalesPerson)))
-                //    {
-                //        MessageBoxEx.Show("销售、客户、输入有误(必须是下拉框中选项),请重新输入!!!");
-                //        _visaModel = null;
-                //        return false;
-                //    }
-                //}
-                //else
-                //{
-                //    if (GlobalUtils.LoginUserLevel != RigthLevel.Manager &&
-                //        (!CheckInComboBox(_visaModel.client, txtClient) ||
-                //        !CheckInComboBox(_visaModel.Operator, txtOperator) ||
-                //        !CheckInComboBox(_visaModel.SalesPerson, txtSalesPerson)))
-                //    {
-                //        MessageBoxEx.Show("销售、客户、操作输入有误(必须是下拉框中选项),请重新输入!!!");
-                //        _visaModel = null;
-                //        return false;
-                //    }
-                //}
-
 
                 if (!string.IsNullOrEmpty(txtRealTime.Text))
-                    _visaModel.RealTime = DateTime.Parse(txtRealTime.Text);
+                    _visaModel.RealTime = DateTime.Parse(txtRealTime.Text); //20180917修改为使用PredictTime
 
                 if (!string.IsNullOrEmpty(txtPeiQianYuan.Text))
                     _visaModel.PeiQianYuan = txtPeiQianYuan.Text;
@@ -1876,7 +1851,7 @@ namespace TravelAgency.CSUI.FrmSub
         private void txtRealTime_ValueChanged(object sender, EventArgs e)
         {
             //if(_inited)
-            
+
 
 
 

@@ -707,9 +707,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             for (int i = 0; i < list.Count; ++i)
             {
                 if (list[i].ClaimedFlag == "是")
-                {
                     claimed = true;
-                }
                 set.Add(list[i].client);
             }
             if (set.Count > 1)

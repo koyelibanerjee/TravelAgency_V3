@@ -537,7 +537,6 @@ namespace TravelAgency.BLL.Excel
         /// <param name="visaList"></param>
         public static void GetPaymentList(List<Model.Visa> visaList, string paymentNo = "")
         {
-            var bllVisa = new BLL.Visa();
             if (visaList == null || visaList.Count < 1)
                 return;
 
@@ -546,8 +545,6 @@ namespace TravelAgency.BLL.Excel
             {
                 IWorkbook wkbook = new XSSFWorkbook(fs);
                 ISheet sheet = wkbook.GetSheet("sheet1");
-
-
 
                 //移动行
                 sheet.ShiftRows(11, sheet.LastRowNum, visaList.Count);
@@ -614,13 +611,6 @@ namespace TravelAgency.BLL.Excel
 
                     row.CreateCell(6).SetCellValue(visaList[i].Country);
                     row.CreateCell(7).SetCellValue(visaList[i].Tips2); //备注2的数据导在这里
-
-                    visaList[i].ClaimedFlag = "已生成账单";
-                    for (int j = 0; j < row.LastCellNum; j++)
-                    {
-                        row.Cells[j].CellStyle = borderCellStyle;
-                    }
-                    bllVisa.Update(visaList[i]);
                 }
 
                 //设置其他信息
@@ -634,15 +624,7 @@ namespace TravelAgency.BLL.Excel
                 cntCell.SetCellFormula($"SUM(F12:F{12 + visaList.Count - 1})");
 
                 string dstName = GlobalUtils.ShowSaveFileDlg("账单.xlsx", "Excel XLSX|*.xlsx");
-
                 SaveFile(dstName, wkbook);
-
-                if (!string.IsNullOrEmpty(paymentNo))
-                {
-                    foreach (var visa in visaList)
-                        visa.PaymentNo = paymentNo;
-                    int n = bllVisa.UpdateList(visaList);
-                }
             }
         }
 
