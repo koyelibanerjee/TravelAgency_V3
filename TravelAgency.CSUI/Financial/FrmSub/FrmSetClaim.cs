@@ -102,7 +102,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             if (_normalBalanceList.Count < 1)
             {
                 MessageBoxEx.Show("未找到客户可用余额信息!!!");
-                lbCount.Text = "客户可用余额不足!!!";
+                lbCount.Text = "无客户可用余额信息!(无常规余额的情况下，活动余额也不会参与计算)";
                 return;
             }
 
