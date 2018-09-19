@@ -620,8 +620,6 @@ namespace TravelAgency.BLL.Excel
                 sheet.GetRow(4).GetCell(1).SetCellValue(visaList[0].client);
                 sheet.GetRow(5).GetCell(2).SetCellValue(visaList[0].Person);
                 sheet.GetRow(6).GetCell(7).SetCellValue(visaList[0].SalesPerson);
-
-
                 //插入合计的公式
                 var cntCell = sheet.GetRow(11 + visaList.Count).GetCell(5);
                 cntCell.SetCellFormula($"SUM(F12:F{12 + visaList.Count - 1})");

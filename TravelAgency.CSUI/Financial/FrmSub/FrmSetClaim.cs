@@ -297,7 +297,8 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             }
 
             FrmSetStringValue frm = new FrmSetStringValue("设置账单编号");
-            frm.ShowDialog();
+            if (frm.ShowDialog() == DialogResult.Cancel)
+                return;
             string paymentNo = frm.RetValue;
             XlsGenerator.GetPaymentList(list, paymentNo);
 
