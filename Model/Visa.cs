@@ -19,7 +19,7 @@ namespace TravelAgency.Model
         		                  
     private string _tips;
         		                  
-    private DateTime? _predicttime;
+    private DateTime? _departuretime;
         		                  
     private DateTime? _realtime;
         		                  
@@ -128,6 +128,8 @@ namespace TravelAgency.Model
     private string _paymentno;
         		                  
     private string _activityorderno;
+        		                  
+    private DateTime? _predicttime;
         
     /// <summary>
 		/// Visa_id
@@ -189,10 +191,10 @@ namespace TravelAgency.Model
         /// </summary>		
 		        		  
   
-        public DateTime? PredictTime
+        public DateTime? DepartureTime
         {
-            get{ return _predicttime; }
-            set{ _predicttime = value; }
+            get{ return _departuretime; }
+            set{ _departuretime = value; }
         }    
       
 		/// <summary>
@@ -787,6 +789,17 @@ namespace TravelAgency.Model
         {
             get{ return _activityorderno; }
             set{ _activityorderno = value; }
+        }    
+      
+		/// <summary>
+		/// PredictTime
+        /// </summary>		
+		        		  
+  
+        public DateTime? PredictTime
+        {
+            get{ return _predicttime; }
+            set{ _predicttime = value; }
         }    
       
 		   

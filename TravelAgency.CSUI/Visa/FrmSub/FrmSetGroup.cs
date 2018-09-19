@@ -140,7 +140,7 @@ namespace TravelAgency.CSUI.FrmSub
 
             chkSaleFirst.Checked = true;
 
-            txtRealTime.Text = DateTime.Now.Date.AddDays(1).ToString(); //默认进签时间是第二天
+            txtPredictTime.Text = DateTime.Now.Date.AddDays(1).ToString(); //默认进签时间是第二天
 
             OtherDistrictInit();
         }
@@ -457,7 +457,7 @@ namespace TravelAgency.CSUI.FrmSub
 
             txtQuQianYuan.Text = _visaModel.QuQianYuan;
             txtPeiQianYuan.Text = _visaModel.PeiQianYuan;
-            txtRealTime.Text = DateTimeFormator.DateTimeToString(_visaModel.RealTime);
+            txtPredictTime.Text = DateTimeFormator.DateTimeToString(_visaModel.RealTime);
             txtGroupNo.Text = _visaModel.GroupNo;
 
             txtOperator.Text = _visaModel.Operator;
@@ -1185,7 +1185,7 @@ namespace TravelAgency.CSUI.FrmSub
                     _visaModel.Remark = (string)dgvGroupInfo.Rows[0].Cells["Remark"].Value;
 
 
-                _visaModel.PredictTime = CtrlParser.Parse2Datetime(txtDepartureTime);
+                _visaModel.DepartureTime = CtrlParser.Parse2Datetime(txtDepartureTime);
                 _visaModel.SubmitTime = CtrlParser.Parse2Datetime(txtSubmitTime);
                 _visaModel.InTime = CtrlParser.Parse2Datetime(txtInTime);
                 _visaModel.OutTime = CtrlParser.Parse2Datetime(txtOutTime);
@@ -1215,14 +1215,12 @@ namespace TravelAgency.CSUI.FrmSub
                 else
                     _visaModel.OutDeliveryPlace = null;
 
-                if (!string.IsNullOrEmpty(txtRealTime.Text))
-                    _visaModel.RealTime = DateTime.Parse(txtRealTime.Text); //20180917修改为使用PredictTime
 
-                if (!string.IsNullOrEmpty(txtPeiQianYuan.Text))
-                    _visaModel.PeiQianYuan = txtPeiQianYuan.Text;
+                _visaModel.PredictTime = CtrlParser.Parse2Datetime(txtPredictTime); //20180917修改为使用PredictTime
+                _visaModel.PeiQianYuan = CtrlParser.Parse2String(txtPeiQianYuan);
+                _visaModel.QuQianYuan = CtrlParser.Parse2String(txtQuQianYuan);
+                
 
-                if (!string.IsNullOrEmpty(txtQuQianYuan.Text))
-                    _visaModel.QuQianYuan = txtQuQianYuan.Text;
                 _visaModel.ForRequestGroupNo = false;
                 _visaModel.District = GlobalUtils.LoginUser.District;
                 return true;
@@ -1269,77 +1267,33 @@ namespace TravelAgency.CSUI.FrmSub
                 //1.保存团号信息修改到数据库,Visa表（sales_person,country,GroupNo,PredictTime）
                 model.GroupNo = CtrlParser.Parse2String(txtGroupNo);
                 model.SalesPerson = txtSalesPerson.Text;
-                model.Country = cbCountry.Text;
+                model.Country = CtrlParser.Parse2String(cbCountry);
                 model.Number = lvIn.Items.Count;
-
-                if (!string.IsNullOrEmpty(txtDepartureTime.Text))
-                    model.PredictTime = DateTime.Parse(txtDepartureTime.Text);
-                if (!string.IsNullOrEmpty(txtSubmitTime.Text))
-                    model.SubmitTime = DateTime.Parse(txtSubmitTime.Text);
-                if (!string.IsNullOrEmpty(txtInTime.Text))
-                    model.InTime = DateTime.Parse(txtInTime.Text);
-                if (!string.IsNullOrEmpty(txtOutTime.Text))
-                    model.OutTime = DateTime.Parse(txtOutTime.Text);
-
-                //_visaModel.SubmitTime = DateTime.Parse(txtSubmitTime.Text);
-                //_visaModel.InTime = DateTime.Parse(txtInTime.Text);
-                //_visaModel.OutTime = DateTime.Parse(txtOutTime.Text);
-                model.client = txtClient.Text;
-                model.Name = txtClient.Text;
-
-                model.DepartureType = txtDepartureType.Text;
-                model.SubmitCondition = txtSubmitCondition.Text;
-                model.FetchCondition = txtFetchType.Text;
-                model.TypeInPerson = txtTypeInPerson.Text;
-                model.CheckPerson = txtCheckPerson.Text;
-                //model.Types = _type; //设置为指定类型 type不去修改
-                model.IsUrgent = chbIsUrgent.Checked;
-                model.Person = txtPerson.Text;
-
+                model.PredictTime = CtrlParser.Parse2Datetime(txtPredictTime);
+                model.DepartureTime = CtrlParser.Parse2Datetime(txtDepartureTime);
+                model.SubmitTime = CtrlParser.Parse2Datetime(txtSubmitTime);
+                model.InTime = CtrlParser.Parse2Datetime(txtInTime);
+                model.OutTime = CtrlParser.Parse2Datetime(txtOutTime);
+                model.client = CtrlParser.Parse2String(txtClient);
+                model.Name = CtrlParser.Parse2String(txtClient);
+                model.DepartureType = CtrlParser.Parse2String(txtDepartureType);
+                model.SubmitCondition = CtrlParser.Parse2String(txtSubmitCondition);
+                model.FetchCondition = CtrlParser.Parse2String(txtFetchType);
+                model.TypeInPerson = CtrlParser.Parse2String(txtTypeInPerson);
+                model.CheckPerson = CtrlParser.Parse2String(txtCheckPerson);
+                model.PeiQianYuan = CtrlParser.Parse2String(txtPeiQianYuan);
+                model.QuQianYuan = CtrlParser.Parse2String(txtQuQianYuan);
+                model.Person = CtrlParser.Parse2String(txtPerson);
                 model.Operator = CtrlParser.Parse2String(txtOperator);
 
+
+                model.IsUrgent = chbIsUrgent.Checked;
                 model.IsOutDelivery = cbOutDelivery.Checked;
                 if (model.IsOutDelivery ?? false)
-                    model.OutDeliveryPlace = cbOutDeliveryPlace.Text;
+                    model.OutDeliveryPlace = CtrlParser.Parse2String(cbOutDeliveryPlace);
                 else
                     model.OutDeliveryPlace = null;
-
-                //if (chkSaleFirst.Checked)
-                //{
-                //    if (GlobalUtils.LoginUserLevel != RigthLevel.Manager &&
-                //        (!CheckInComboBox(model.client, txtClient) ||
-                //         !CheckInComboBox(model.SalesPerson, txtSalesPerson)))
-                //    {
-                //        MessageBoxEx.Show("销售、客户输入有误(必须是下拉框中选项),请重新输入!!!");
-                //        return false;
-                //    }
-                //}
-                //else
-                //{
-                //    if (GlobalUtils.LoginUserLevel != RigthLevel.Manager &&
-                //         (!CheckInComboBox(model.client, txtClient) ||
-                //          !CheckInComboBox(model.Operator, txtOperator) ||
-                //          !CheckInComboBox(model.SalesPerson, txtSalesPerson)))
-                //    {
-                //        MessageBoxEx.Show("销售、客户、操作输入有误(必须是下拉框中选项),请重新输入!!!");
-                //        return false;
-                //    }
-                //}
-
-
-                if (!string.IsNullOrEmpty(txtRealTime.Text))
-                    model.RealTime = DateTime.Parse(txtRealTime.Text);
-
-                if (!string.IsNullOrEmpty(txtPeiQianYuan.Text))
-                    model.PeiQianYuan = txtPeiQianYuan.Text;
-
-                if (!string.IsNullOrEmpty(txtQuQianYuan.Text))
-                    model.QuQianYuan = txtQuQianYuan.Text;
                 model.ForRequestGroupNo = false;
-
-
-                //model.District = GlobalUtils.LoginUser.District; //model初始化就不能改district了
-                //model.EntryTime = DateTime.Now; //20171217，也跟着操作改变，20171231 改成询问用户
                 return true;
             }
             catch (Exception ex)
@@ -1848,22 +1802,12 @@ namespace TravelAgency.CSUI.FrmSub
             UpdateGroupNo();
         }
 
-        private void txtRealTime_ValueChanged(object sender, EventArgs e)
+        private void txtPredictTime_TextChanged(object sender, EventArgs e)
         {
-            //if(_inited)
-
-
-
-
-
-        }
-
-        private void txtRealTime_TextChanged(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(txtRealTime.Text) || _initFromVisaModel)
+            if (string.IsNullOrEmpty(txtPredictTime.Text) || _initFromVisaModel)
                 return;
 
-            DateTime date = DateTime.Parse(txtRealTime.Text).Date;
+            DateTime date = DateTime.Parse(txtPredictTime.Text).Date;
             var dayDiff = (date - DateTime.Now.Date).Days;
             if (dayDiff >= 3)
             {

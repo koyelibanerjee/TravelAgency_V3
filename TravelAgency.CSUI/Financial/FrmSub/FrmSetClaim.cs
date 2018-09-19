@@ -688,7 +688,11 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 return;
             }
 
-            FrmActivityOrder frm = new FrmActivityOrder(list[0].client, selPeopleCnt, _curActivityOrderCnt);
+            string custName = list[0].client;
+            if (custName.Contains("-"))
+                custName = custName.Substring(0, custName.IndexOf("-"));
+
+            FrmActivityOrder frm = new FrmActivityOrder(custName, selPeopleCnt, _curActivityOrderCnt);
             if (frm.ShowDialog() == DialogResult.Cancel)
                 return;
 
