@@ -130,6 +130,8 @@ namespace TravelAgency.Model
     private string _activityorderno;
         		                  
     private DateTime? _predicttime;
+        		                  
+    private string _submittempno;
         
     /// <summary>
 		/// Visa_id
@@ -800,6 +802,17 @@ namespace TravelAgency.Model
         {
             get{ return _predicttime; }
             set{ _predicttime = value; }
+        }    
+      
+		/// <summary>
+		/// SubmitTempNo
+        /// </summary>		
+		      		  
+  
+        public string SubmitTempNo
+        {
+            get{ return _submittempno; }
+            set{ _submittempno = value; }
         }    
       
 		   
