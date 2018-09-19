@@ -653,6 +653,10 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 conditions.Add($" (district  = {District.value2Key(cbDistrict.Text)} or OutDeliveryPlace = '{cbDistrict.Text}') ");
             }
 
+            if (!string.IsNullOrEmpty(txtTempNo.Text.Trim()))
+            {
+                conditions.Add(" (SubmitTempNo like '%" + txtTempNo.Text + "%') ");
+            }
 
             conditions.Add(" (ForRequestGroupNo = 0 or ForRequestGroupNo is null)");
             string[] arr = conditions.ToArray();
@@ -670,6 +674,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             txtSchGroupNo.Text = string.Empty;
             txtSalesPerson.Text = string.Empty;
             txtClient.Text = string.Empty;
+            txtTempNo.Text = string.Empty;
 
             cbState.Text = "全部";
             cbDepatureType.Text = "全部";
@@ -2115,6 +2120,23 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                     dict.Add(item, 1);
             }
             ExcelGenerator.GetCompareTable(excelList, dgvList, dict);
+        }
+
+        private void 设置流水编号ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var list = GetSelectedVisaList();
+            if (list == null || list.Count < 1)
+                return;
+            
+            FrmSetStringValue frm = new FrmSetStringValue("设置流水编号",DateTime.Now.ToString("yyyyMMddHHmmss"));
+            if (frm.ShowDialog() == DialogResult.Cancel)
+                return;
+
+            foreach (var visa in list)
+                visa.SubmitTempNo = frm.RetValue;
+            int n = _bllVisa.UpdateList(list);
+            GlobalUtils.MessageBoxWithRecordNum("更新", n, list.Count);
+            LoadDataToDgvAsyn();
         }
     }
 }
