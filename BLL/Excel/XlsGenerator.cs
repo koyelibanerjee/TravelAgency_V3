@@ -611,6 +611,9 @@ namespace TravelAgency.BLL.Excel
 
                     row.CreateCell(6).SetCellValue(visaList[i].Country);
                     row.CreateCell(7).SetCellValue(visaList[i].Tips2); //备注2的数据导在这里
+
+                    for (int j = 0; j < row.LastCellNum; j++)
+                        row.Cells[j].CellStyle = borderCellStyle;
                 }
 
                 //设置其他信息
