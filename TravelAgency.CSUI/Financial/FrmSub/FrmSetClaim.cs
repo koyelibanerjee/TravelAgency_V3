@@ -33,8 +33,13 @@ namespace TravelAgency.CSUI.Financial.FrmSub
         private string _clientName = null;
         private decimal _clientNormalBalance = 0;
         private decimal _clientActivityBalance = 0;
-        private readonly Dictionary<string, int> _curActivityOrderCnt = new Dictionary<string, int>(); //activityNo对应一共扣了多少本
-        private readonly Dictionary<string, int> _origActivityOrderCnt = new Dictionary<string, int>(); //进入这个窗口的时候activityNo每个已经扣了多少本
+
+        private readonly Dictionary<string, int> _curActivityOrderCnt = new Dictionary<string, int>();
+        //activityNo对应一共扣了多少本
+
+        private readonly Dictionary<string, int> _origActivityOrderCnt = new Dictionary<string, int>();
+        //进入这个窗口的时候activityNo每个已经扣了多少本
+
         private readonly Dictionary<string, string> _visaidOrderDict = new Dictionary<string, string>(); //visa对应的每一个订单号
 
         private string _activityName = "20180913活动";
@@ -52,7 +57,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
         }
 
         public FrmSetClaim(List<Model.Visa> list, Action<int> updateDel, int curPage)
-        : this()
+            : this()
         {
             _list = list;
             _updateDel = updateDel;
@@ -66,7 +71,8 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
             dataGridView1.AutoGenerateColumns = false; //不显示指定之外的列
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //列宽自适应,一定不能用AllCells
-            dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders; //这里也一定不能AllCell自适应!
+            dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
+            //这里也一定不能AllCell自适应!
             dataGridView1.Columns["GroupNo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             dataGridView1.ReadOnly = false;
 
@@ -106,7 +112,8 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 return;
             }
 
-            _activityBalanceList = _bllBalance.GetClientBalanceListOrderByBalanceAsc(_clientName, _activityName); //查询客户可用活动余额
+            _activityBalanceList = _bllBalance.GetClientBalanceListOrderByBalanceAsc(_clientName, _activityName);
+            //查询客户可用活动余额
 
             _clientNormalBalance = 0;
             for (int i = 0; i < _normalBalanceList.Count; ++i)
@@ -126,6 +133,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
         }
 
         #region dgv events
+
         private void DataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
@@ -208,6 +216,38 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             }
         }
 
+        /// <summary>
+        /// dgv右键响应
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dataGridView1_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+                {
+                    //若行已是选中状态就不再进行设置
+                    //如果没选中当前活动行则选中这一行
+                    if (dataGridView1.Rows[e.RowIndex].Selected == false)
+                    {
+                        dataGridView1.ClearSelection();
+                        dataGridView1.Rows[e.RowIndex].Selected = true;
+                    }
+                    //只选中一行时设置活动单元格
+                    if (dataGridView1.SelectedRows.Count == 1)
+                    {
+                        if (e.ColumnIndex != -1) //选中表头了
+                            dataGridView1.CurrentCell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                        else
+                            dataGridView1.CurrentCell = dataGridView1.Rows[e.RowIndex].Cells[0];
+                    }
+                    //弹出操作菜单
+                    cmsDgv.Show(MousePosition.X, MousePosition.Y);
+                }
+            }
+        }
+
         #endregion
 
 
@@ -242,6 +282,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             dataGridView1.DataSource = list;
             _list = list;
         }
+
         #region DgvUtils
 
         private void UpdateDgvList()
@@ -274,12 +315,8 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 res.Add(DgvDataSourceToList()[dataGridView1.SelectedRows[i].Index]);
             return res.Count > 0 ? res : null;
         }
+
         #endregion
-
-
-
-
-
 
         #region 按钮事件
 
@@ -393,7 +430,8 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             return retMoney;
         }
 
-        private bool ClaimMoney(List<Model.Visa> visaList, List<Model.CustomerBalance> normalBalanceList, List<Model.CustomerBalance> activityBalanceList)
+        private bool ClaimMoney(List<Model.Visa> visaList, List<Model.CustomerBalance> normalBalanceList,
+            List<Model.CustomerBalance> activityBalanceList)
         {
 
             //同一个客户在进来就限制了
@@ -595,47 +633,10 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 newBalances.Add(normalBalanceList[0]); //这里倒不用判断，反正始终更新一下应该是不会出错的
 
         }
+
         #endregion
 
-
-
-
-
-
-        /// <summary>
-        /// dgv右键响应
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void dataGridView1_CellMouseUp(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)
-            {
-                if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
-                {
-                    //若行已是选中状态就不再进行设置
-                    //如果没选中当前活动行则选中这一行
-                    if (dataGridView1.Rows[e.RowIndex].Selected == false)
-                    {
-                        dataGridView1.ClearSelection();
-                        dataGridView1.Rows[e.RowIndex].Selected = true;
-                    }
-                    //只选中一行时设置活动单元格
-                    if (dataGridView1.SelectedRows.Count == 1)
-                    {
-                        if (e.ColumnIndex != -1) //选中表头了
-                            dataGridView1.CurrentCell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
-                        else
-                            dataGridView1.CurrentCell = dataGridView1.Rows[e.RowIndex].Cells[0];
-                    }
-                    //弹出操作菜单
-                    cmsDgv.Show(MousePosition.X, MousePosition.Y);
-                }
-            }
-        }
-
-
-
+        #region 右键菜单响应
 
         private void 签证认账ToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -665,67 +666,6 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 visa.ActuallyAmount = visa.Price * (visa.Number ?? 1);
             }
             UpdateDgvList();
-        }
-
-
-
-
-        private bool checkGreaterThanCost(List<Model.Visa> list)
-        {
-            BLL.QZApplication qzApplication = new QZApplication();
-            foreach (var visa in list)
-            {
-                var qzappList = qzApplication.GetModelList($" visa_id = '{visa.Visa_id}'");
-                if (qzappList.Count > 0) //TODO:对应关系???,多条or?
-                {
-                    if (qzappList[0].Price * qzappList[0].Number > visa.ActuallyAmount)
-                        return false;
-                }
-            }
-            return true;
-        }
-
-
-
-
-        private void UpdateActivityOrders()
-        {
-            //余额是一定够的，单用户情况下，(在选择活动订单的界面就限制了数量)
-
-            //更新活动订单的剩余数量
-            //根据原有的，看有没有移除掉的
-            foreach (var item in _origActivityOrderCnt)
-            {
-                var model = _bllActivityOrder.GetModel(item.Key);
-                //原来有，现在没有   或数量不一致
-                if (!_curActivityOrderCnt.ContainsKey(item.Key))
-                    model.BalanceBooks += item.Value; //原来的补回去
-                else if (_curActivityOrderCnt[item.Key] > item.Value)
-                    model.BalanceBooks -= _curActivityOrderCnt[item.Key] - item.Value;
-                else if (_curActivityOrderCnt[item.Key] < item.Value)
-                    model.BalanceBooks += _curActivityOrderCnt[item.Key] - item.Value;
-            }
-
-            //原来没有的，现在有
-            foreach (var item in _curActivityOrderCnt)
-            {
-                if (!_origActivityOrderCnt.ContainsKey(item.Key))
-                {
-                    var model = _bllActivityOrder.GetModel(item.Key);
-                    model.BalanceBooks -= item.Value; //现在的剪掉
-                    _bllActivityOrder.Update(model);
-                }
-            }
-        }
-
-        //TODO:更换客户被取消了
-        private void lbClientBalance_DoubleClick(object sender, EventArgs e)
-        {
-            FrmSelectClient frm = new FrmSelectClient();
-            if (frm.ShowDialog() == DialogResult.Cancel)
-                return;
-            _clientName = frm.RetClient;
-            UpdateClientBalanceInfo();
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
@@ -778,5 +718,61 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
                 dataGridView1.SelectedRows[i].Cells["Price"].Value = frm.RetActivityPrice;
         }
+        #endregion
+        private bool checkGreaterThanCost(List<Model.Visa> list)
+        {
+            BLL.QZApplication qzApplication = new QZApplication();
+            foreach (var visa in list)
+            {
+                var qzappList = qzApplication.GetModelList($" visa_id = '{visa.Visa_id}'");
+                if (qzappList.Count > 0) //TODO:对应关系???,多条or?
+                {
+                    if (qzappList[0].Price * qzappList[0].Number > visa.ActuallyAmount)
+                        return false;
+                }
+            }
+            return true;
+        }
+
+        private void UpdateActivityOrders()
+        {
+            //余额是一定够的，单用户情况下，(在选择活动订单的界面就限制了数量)
+
+            //更新活动订单的剩余数量
+            //根据原有的，看有没有移除掉的
+            foreach (var item in _origActivityOrderCnt)
+            {
+                var model = _bllActivityOrder.GetModel(item.Key);
+                //原来有，现在没有   或数量不一致
+                if (!_curActivityOrderCnt.ContainsKey(item.Key))
+                    model.BalanceBooks += item.Value; //原来的补回去
+                else if (_curActivityOrderCnt[item.Key] > item.Value)
+                    model.BalanceBooks -= _curActivityOrderCnt[item.Key] - item.Value;
+                else if (_curActivityOrderCnt[item.Key] < item.Value)
+                    model.BalanceBooks += _curActivityOrderCnt[item.Key] - item.Value;
+            }
+
+            //原来没有的，现在有
+            foreach (var item in _curActivityOrderCnt)
+            {
+                if (!_origActivityOrderCnt.ContainsKey(item.Key))
+                {
+                    var model = _bllActivityOrder.GetModel(item.Key);
+                    model.BalanceBooks -= item.Value; //现在的剪掉
+                    _bllActivityOrder.Update(model);
+                }
+            }
+        }
+
+        //TODO:更换客户被取消了
+        private void lbClientBalance_DoubleClick(object sender, EventArgs e)
+        {
+            FrmSelectClient frm = new FrmSelectClient();
+            if (frm.ShowDialog() == DialogResult.Cancel)
+                return;
+            _clientName = frm.RetClient;
+            UpdateClientBalanceInfo();
+        }
     }
+
 }
