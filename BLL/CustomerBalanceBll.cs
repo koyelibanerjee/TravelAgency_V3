@@ -19,7 +19,7 @@ namespace TravelAgency.BLL
             if (!string.IsNullOrEmpty(activityName))
                 where += $" and ActivityName = '{activityName}') ";
             else
-                where += $" and (len(ActivityName)=0 or ActivityName is null)) ";
+                where += $" and (len(ActivityName)=0 or ActivityName is null or ActivityName='无')) ";
             where += " order by BalanceAmount asc ";
             var balanceList = GetModelList(where);
             return balanceList;
