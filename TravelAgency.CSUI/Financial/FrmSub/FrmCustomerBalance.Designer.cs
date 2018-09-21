@@ -34,13 +34,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelDgv = new DevComponents.DotNetBar.PanelEx();
             this.dataGridView1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.cmsDgv = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.分配给选中用户ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BalanceAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EntryTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmsDgv = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.分配给选中用户ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BalanceId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelDgv.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cmsDgv.SuspendLayout();
@@ -85,7 +86,8 @@
             this.Amount,
             this.BalanceAmount,
             this.UserName,
-            this.EntryTime});
+            this.EntryTime,
+            this.BalanceId});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -113,6 +115,20 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(529, 402);
             this.dataGridView1.TabIndex = 10;
+            // 
+            // cmsDgv
+            // 
+            this.cmsDgv.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.分配给选中用户ToolStripMenuItem});
+            this.cmsDgv.Name = "cmsDgv";
+            this.cmsDgv.Size = new System.Drawing.Size(101, 26);
+            // 
+            // 分配给选中用户ToolStripMenuItem
+            // 
+            this.分配给选中用户ToolStripMenuItem.Name = "分配给选中用户ToolStripMenuItem";
+            this.分配给选中用户ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.分配给选中用户ToolStripMenuItem.Text = "刷新";
+            this.分配给选中用户ToolStripMenuItem.Click += new System.EventHandler(this.分配给选中用户ToolStripMenuItem_Click);
             // 
             // CustomerName
             // 
@@ -149,19 +165,13 @@
             this.EntryTime.Name = "EntryTime";
             this.EntryTime.ReadOnly = true;
             // 
-            // cmsDgv
+            // BalanceId
             // 
-            this.cmsDgv.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.分配给选中用户ToolStripMenuItem});
-            this.cmsDgv.Name = "cmsDgv";
-            this.cmsDgv.Size = new System.Drawing.Size(153, 48);
-            // 
-            // 分配给选中用户ToolStripMenuItem
-            // 
-            this.分配给选中用户ToolStripMenuItem.Name = "分配给选中用户ToolStripMenuItem";
-            this.分配给选中用户ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.分配给选中用户ToolStripMenuItem.Text = "刷新";
-            this.分配给选中用户ToolStripMenuItem.Click += new System.EventHandler(this.分配给选中用户ToolStripMenuItem_Click);
+            this.BalanceId.DataPropertyName = "BalanceId";
+            this.BalanceId.HeaderText = "BalanceId";
+            this.BalanceId.Name = "BalanceId";
+            this.BalanceId.ReadOnly = true;
+            this.BalanceId.Visible = false;
             // 
             // FrmCustomerBalance
             // 
@@ -191,5 +201,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn BalanceAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn UserName;
         private System.Windows.Forms.DataGridViewTextBoxColumn EntryTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BalanceId;
     }
 }

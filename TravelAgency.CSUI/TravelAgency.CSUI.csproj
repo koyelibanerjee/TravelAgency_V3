@@ -147,6 +147,12 @@
     <Compile Include="Financial\FrmSub\FrmSetClaim.designer.cs">
       <DependentUpon>FrmSetClaim.cs</DependentUpon>
     </Compile>
+    <Compile Include="Financial\FrmSub\FrmAutoOrManual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Financial\FrmSub\FrmAutoOrManual.Designer.cs">
+      <DependentUpon>FrmAutoOrManual.cs</DependentUpon>
+    </Compile>
     <Compile Include="Financial\FrmSub\FrmSetClaimType.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -530,6 +536,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Financial\FrmSub\FrmSetClaim.resx">
       <DependentUpon>FrmSetClaim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Financial\FrmSub\FrmAutoOrManual.resx">
+      <DependentUpon>FrmAutoOrManual.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Financial\FrmSub\FrmSetClaimType.resx">
       <DependentUpon>FrmSetClaimType.cs</DependentUpon>

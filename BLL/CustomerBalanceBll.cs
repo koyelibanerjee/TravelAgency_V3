@@ -13,8 +13,6 @@ namespace TravelAgency.BLL
         {
             //var balanceList = GetModelList(" CustomerName = '" + clientName + "' and BalanceAmount > 0");
             //balanceList.Sort((b1, b2) => b1.BalanceAmount - b2.BalanceAmount < 0 ? -1 : 1);
-
-
             string where = $" (CustomerName = '{clientName}' and BalanceAmount > 0 ";
             if (!string.IsNullOrEmpty(activityName))
                 where += $" and ActivityName = '{activityName}') ";

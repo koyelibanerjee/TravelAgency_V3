@@ -10,11 +10,22 @@ namespace TravelAgency.CSUI.Financial.FrmSub
     public partial class FrmCustomerBalance : Form
     {
         private readonly BLL.Joint.CustomerBalance_AuthUser _bllCustomerBalanceAuthUser = new BLL.Joint.CustomerBalance_AuthUser();
+        private string _clientName;
+        private decimal _needBalanceCount;
+        private bool _forSelectBalance = false;
+        public Guid RetBalanceId = Guid.Empty;
 
-        public FrmCustomerBalance()
+        public FrmCustomerBalance(string clientName = "", decimal needBalanceCount = 0)
         {
-            this.StartPosition = FormStartPosition.CenterParent;
+            if (this.Modal)
+                this.StartPosition = FormStartPosition.CenterParent;
+            else
+                this.StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
+            _clientName = clientName;
+            _needBalanceCount = needBalanceCount;
+            if (!string.IsNullOrEmpty(_clientName))
+                _forSelectBalance = true;
         }
 
         private void FrmSelUser_Load(object sender, EventArgs e)
@@ -30,57 +41,56 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             LoadDataToDgv();
             dataGridView1.CellMouseUp += dataGridView1_CellMouseUp;
             dataGridView1.RowsAdded += DataGridView1_RowsAdded;
+            dataGridView1.CellDoubleClick += DataGridView1_CellDoubleClick;
         }
 
+        private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (!_forSelectBalance)
+                return;
+
+            var list = dataGridView1.DataSource as List<Model.CustomerBalance_AuthUser>;
+            var customerBalanceAuthUser = list[dataGridView1.SelectedRows[0].Index];
+
+            if (customerBalanceAuthUser.BalanceAmount < _needBalanceCount)
+            {
+                MessageBoxEx.Show($"选中项余额不足{_needBalanceCount},请重新选择!");
+                return;
+            }
+
+            RetBalanceId = customerBalanceAuthUser.BalanceId;
+
+            if (MessageBoxEx.Show("提示", "确认选择", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+                return;
+
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
 
         private void DataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             if (dataGridView1.Rows.Count < 1)
                 return;
-
-            //var list = dataGridView1.DataSource as List<Model.WorkerQueue>;
-
-            //for (int i = 0; i < dataGridView1.Rows.Count; ++i)
-            //{
-            //    if (list[i].IsBusy)
-            //    {
-            //        dataGridView1.Rows[i].Cells["IsBusy"].Value = "忙";
-            //        dataGridView1.Rows[i].Cells["IsBusy"].Style.BackColor = Color.Orange;
-            //    }
-            //    else
-            //    {
-            //        dataGridView1.Rows[i].Cells["IsBusy"].Value = "不忙";
-            //        dataGridView1.Rows[i].Cells["IsBusy"].Style.BackColor = Color.White;
-            //    }
-
-            //    if (list[i].CanAccept)
-            //    {
-            //        dataGridView1.Rows[i].Cells["CanAccept"].Value = "能";
-            //        dataGridView1.Rows[i].Cells["CanAccept"].Style.BackColor = Color.Orange;
-            //    }
-            //    else
-            //    {
-            //        dataGridView1.Rows[i].Cells["CanAccept"].Value = "不能";
-            //        dataGridView1.Rows[i].Cells["CanAccept"].Style.BackColor = Color.OrangeRed;
-            //    }
-
-            //    if (!list[i].IsBusy && list[i].CanAccept)
-            //    {
-            //        dataGridView1.Rows[i].Cells["CanAccept"].Style.BackColor = Color.ForestGreen;
-            //        dataGridView1.Rows[i].Cells["IsBusy"].Style.BackColor = Color.ForestGreen;
-            //    }
-
-
-            //}
-
-
         }
 
         private void LoadDataToDgv()
         {
-            var list = _bllCustomerBalanceAuthUser.GetModelList();
+            string where = "";
+            if (!string.IsNullOrEmpty(_clientName))
+                where = $" CustomerName = '{_clientName}'";
+            var list = _bllCustomerBalanceAuthUser.GetModelList(where);
+
+            if (list == null || list.Count == 0)
+            {
+                this.DialogResult = DialogResult.Cancel;
+                this.Close();
+            }
+
             dataGridView1.DataSource = list;
             DataGridView1_RowsAdded(null, null);
+
+
+
         }
 
         private void FrmSelUser_DoubleClick(object sender, EventArgs e)
@@ -127,8 +137,8 @@ namespace TravelAgency.CSUI.Financial.FrmSub
         }
 
 
-       
 
-       
+
+
     }
 }

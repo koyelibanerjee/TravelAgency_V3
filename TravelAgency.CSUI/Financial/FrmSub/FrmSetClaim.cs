@@ -464,7 +464,21 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 return false;
             }
 
-            UpdateActivityOrders(); //更新活动订单
+            //
+            FrmAutoOrManual frmAutoOrManual = new FrmAutoOrManual();
+            if (frmAutoOrManual.ShowDialog() == DialogResult.Cancel)
+                return false;
+
+            if (frmAutoOrManual.RetValue == FrmAutoOrManual.ClaimType.Type02_Manual) //手动
+            {
+                FrmCustomerBalance frmBalance = new FrmCustomerBalance(UtilsBll.getClientNameNoHR(_clientName),totalNormalMoney);
+                if (frmBalance.ShowDialog() == DialogResult.Cancel)
+                    return false;
+                var guid = frmBalance.RetBalanceId;
+
+            }
+
+
 
             List<Model.CustomerBalance> newBalances = new List<Model.CustomerBalance>();
             List<Model.ClaimMoney> newClaims = new List<Model.ClaimMoney>();
@@ -481,6 +495,8 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 ClaimActivityMoney(visaCopyed2, activityBalanceList, visaActivityMoney, newBalances, newClaims);
 
             //执行所有的更新
+            UpdateActivityOrders(); //更新活动订单
+
             int sucClaim = 0, sucVisa = 0, sucBalance = 0;
             for (int i = 0; i < newClaims.Count; ++i)
                 sucClaim += _bllClaimMoney.Add(newClaims[i]) == Guid.Empty ? 1 : 0;
@@ -680,7 +696,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             foreach (var visa in list)
             {
                 selPeopleCnt += visa.Number ?? 0;
-                custNameSet.Add(UtilsBll.getClientNameNoHR( visa.client));
+                custNameSet.Add(UtilsBll.getClientNameNoHR(visa.client));
             }
 
             if (custNameSet.Count > 1)

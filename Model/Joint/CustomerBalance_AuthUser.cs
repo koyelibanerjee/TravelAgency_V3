@@ -10,12 +10,19 @@ namespace TravelAgency.Model
         public CustomerBalance_AuthUser()
         { }
         #region Model
+        private Guid _balanceId;
         private string _customername;
         private decimal _amount;
         private decimal _balanceamount;
         private string _username;
         private DateTime _entrytime = DateTime.Now;
         private string _moneytype;
+
+        public Guid BalanceId
+        {
+            get { return _balanceId;}
+            set { _balanceId = value; }
+        }
 
         /// <summary>
         /// 主键

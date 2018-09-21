@@ -10,9 +10,9 @@ namespace TravelAgency.BLL.Joint
     {
         private readonly  DAL.Joint.CustomerBalance_AuthUser _dal = new DAL.Joint.CustomerBalance_AuthUser();
 
-        public List<Model.CustomerBalance_AuthUser> GetModelList()
+        public List<Model.CustomerBalance_AuthUser> GetModelList(string where ="")
         {
-            return _dal.GetModelList();
+            return _dal.GetModelList(where);
         } 
 
 

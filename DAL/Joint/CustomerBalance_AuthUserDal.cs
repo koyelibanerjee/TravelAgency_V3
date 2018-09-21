@@ -11,13 +11,15 @@ namespace TravelAgency.DAL.Joint
 {
     public class CustomerBalance_AuthUser
     {
-        public List<Model.CustomerBalance_AuthUser> GetModelList()
+        public List<Model.CustomerBalance_AuthUser> GetModelList(string where = "")
         {
-            string sql = "select CustomerName,Amount,BalanceAmount,au.UserName as UserName,cb.EntryTime as EntryTime " +
+            string sql = "select BalanceId,CustomerName,Amount,BalanceAmount,au.UserName as UserName,cb.EntryTime as EntryTime " +
                          "from customerbalance as cb " +
                          "left join authuser as au on au.workid=cb.workid " +
-                         "where balanceAmount>0 order by entrytime desc";
-
+                         "where balanceAmount>0 ";
+            if (!string.IsNullOrEmpty(where))
+                sql += " and " + where;
+            sql += "order by entrytime desc";
             DataSet ds = DbHelperSQL.Query(sql);
             List<Model.CustomerBalance_AuthUser> res = new List<Model.CustomerBalance_AuthUser>();
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
@@ -33,6 +35,11 @@ namespace TravelAgency.DAL.Joint
             TravelAgency.Model.CustomerBalance_AuthUser model = new TravelAgency.Model.CustomerBalance_AuthUser();
             if (row != null)
             {
+                if (row["BalanceId"] != null && row["BalanceId"].ToString() != "")
+                {
+                    model.BalanceId = Guid.Parse(row["BalanceId"].ToString());
+                }
+
                 if (row["CustomerName"] != null && row["CustomerName"].ToString() != "")
                 {
                     model.CustomerName = row["CustomerName"].ToString();
