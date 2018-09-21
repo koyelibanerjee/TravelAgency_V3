@@ -214,6 +214,7 @@
     </Compile>
     <Compile Include="QZApplication.cs" />
     <Compile Include="RPC\HproseClient.cs" />
+    <Compile Include="UtilsBll.cs" />
     <Compile Include="Utils\SearchCondition.cs" />
     <Compile Include="StatisticsBll.cs" />
     <Compile Include="OrderInfoBll.cs" />

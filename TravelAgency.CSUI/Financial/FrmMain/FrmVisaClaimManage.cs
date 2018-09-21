@@ -302,7 +302,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             }
 
             SearchCondition.GetVisaTypesCondition(conditions, cbDisplayType.Text);
-            SearchCondition.GetVisaPaymentNoCondion(conditions,txtPaymentNo.Text);
+            SearchCondition.GetVisaPaymentNoCondion(conditions, txtPaymentNo.Text);
             string timeType;
             if (cbSchTimeType.Text == "录入时间")
             {
@@ -708,7 +708,9 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             {
                 if (list[i].ClaimedFlag == "是")
                     claimed = true;
-                set.Add(list[i].client);
+                string custName = list[i].client;
+                
+                set.Add(UtilsBll.getClientNameNoHR(custName));
             }
             if (set.Count > 1)
             {
@@ -716,8 +718,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                 return;
             }
 
-
-            if (claimed &&  MessageBoxEx.Show("选中项中已经有认过账的团号，是否继续?", "提示", MessageBoxButtons.YesNo) == DialogResult.No)
+            if (claimed && MessageBoxEx.Show("选中项中已经有认过账的团号，是否继续?", "提示", MessageBoxButtons.YesNo) == DialogResult.No)
                 return;
             if (FrmsManager.FormSetClaim == null)
             {
@@ -774,7 +775,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                 {
                     claimed = true;
                 }
-                set.Add(list[i].client);
+                set.Add(UtilsBll.getClientNameNoHR( list[i].client));
             }
             if (set.Count > 1)
             {
@@ -835,6 +836,6 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             frm.Show();
         }
 
-        
+
     }
 }

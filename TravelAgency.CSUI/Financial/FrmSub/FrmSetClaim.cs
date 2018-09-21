@@ -62,7 +62,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             _list = list;
             _updateDel = updateDel;
             _curPage = curPage;
-            _clientName = list[0].client;
+            _clientName = UtilsBll.getClientNameNoHR(list[0].client);
         }
 
         private void FrmSetClaim_Load(object sender, EventArgs e)
@@ -259,7 +259,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
         {
             foreach (var visa in visaList)
             {
-                if (visa.client != _list[0].client)
+                if (UtilsBll.getClientNameNoHR(visa.client) != UtilsBll.getClientNameNoHR(_list[0].client))
                 {
                     MessageBoxEx.Show("不同客户不能同时认账!!!");
                     return;
@@ -562,7 +562,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 if (_visaidOrderDict.ContainsKey(visa.Visa_id.ToString()))
                     claimMoney.ActivityOrderNo = _visaidOrderDict[visa.Visa_id.ToString()];
 
-                if (_clientName != visa.client)
+                if (UtilsBll.getClientNameNoHR(_clientName) != UtilsBll.getClientNameNoHR(visa.client))
                     claimMoney.Guests = $"{_clientName} 帮 {visa.client} 认领 {claimMoney.Amount} 元.";
 
                 newClaims.Add(claimMoney);
@@ -623,7 +623,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 claimMoney.Claim_Confirm = "1";
                 claimMoney.ActivityOrderNo = visa.ActivityOrderNo;
 
-                if (_clientName != visa.client)
+                if (UtilsBll.getClientNameNoHR(_clientName) != UtilsBll.getClientNameNoHR(visa.client))
                     claimMoney.Guests = $"{_clientName} 帮 {visa.client} 认领 {claimMoney.Amount} 元.";
 
                 newClaims.Add(claimMoney);
@@ -680,7 +680,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             foreach (var visa in list)
             {
                 selPeopleCnt += visa.Number ?? 0;
-                custNameSet.Add(visa.client);
+                custNameSet.Add(UtilsBll.getClientNameNoHR( visa.client));
             }
 
             if (custNameSet.Count > 1)
@@ -689,9 +689,8 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 return;
             }
 
-            string custName = list[0].client;
-            if (custName.Contains("-"))
-                custName = custName.Substring(0, custName.IndexOf("-"));
+            string custName = UtilsBll.getClientNameNoHR(list[0].client);
+
 
             FrmActivityOrder frm = new FrmActivityOrder(custName, selPeopleCnt, _curActivityOrderCnt);
             if (frm.ShowDialog() == DialogResult.Cancel)
