@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Drawing;
+
 namespace TravelAgency.Model
 {
     /// <summary>
@@ -17,11 +19,18 @@ namespace TravelAgency.Model
         private string _username;
         private DateTime _entrytime = DateTime.Now;
         private string _moneytype;
+        private string _activityname;
 
         public Guid BalanceId
         {
             get { return _balanceId;}
             set { _balanceId = value; }
+        }
+
+        public string ActivityName
+        {
+            get { return _activityname;}
+            set { _activityname = value; }
         }
 
         /// <summary>

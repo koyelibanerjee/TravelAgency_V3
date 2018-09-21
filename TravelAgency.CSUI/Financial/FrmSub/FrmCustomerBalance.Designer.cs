@@ -41,6 +41,7 @@
             this.BalanceAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EntryTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ActivityName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BalanceId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelDgv.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -87,6 +88,7 @@
             this.BalanceAmount,
             this.UserName,
             this.EntryTime,
+            this.ActivityName,
             this.BalanceId});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -165,6 +167,13 @@
             this.EntryTime.Name = "EntryTime";
             this.EntryTime.ReadOnly = true;
             // 
+            // ActivityName
+            // 
+            this.ActivityName.DataPropertyName = "ActivityName";
+            this.ActivityName.HeaderText = "活动名称";
+            this.ActivityName.Name = "ActivityName";
+            this.ActivityName.ReadOnly = true;
+            // 
             // BalanceId
             // 
             this.BalanceId.DataPropertyName = "BalanceId";
@@ -201,6 +210,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn BalanceAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn UserName;
         private System.Windows.Forms.DataGridViewTextBoxColumn EntryTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ActivityName;
         private System.Windows.Forms.DataGridViewTextBoxColumn BalanceId;
     }
 }

@@ -464,35 +464,50 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 return false;
             }
 
-            //
+
+            List<Model.CustomerBalance> newBalances = new List<Model.CustomerBalance>();
+            List<Model.ClaimMoney> newClaims = new List<Model.ClaimMoney>();
+
+
+            //选择是手动还是自动认账
             FrmAutoOrManual frmAutoOrManual = new FrmAutoOrManual();
             if (frmAutoOrManual.ShowDialog() == DialogResult.Cancel)
                 return false;
 
             if (frmAutoOrManual.RetValue == FrmAutoOrManual.ClaimType.Type02_Manual) //手动
             {
-                FrmCustomerBalance frmBalance = new FrmCustomerBalance(UtilsBll.getClientNameNoHR(_clientName),totalNormalMoney);
+                FrmCustomerBalance frmBalance = new FrmCustomerBalance(UtilsBll.getClientNameNoHR(_clientName),
+                    totalNormalMoney, activityName: "");
                 if (frmBalance.ShowDialog() == DialogResult.Cancel)
                     return false;
                 var guid = frmBalance.RetBalanceId;
+                var model = _bllBalance.GetModel(guid);
+                ClaimNormalMoneyManual(visaList, model, visaActivityMoney, newBalances, newClaims); //
+                if (totalActivityMoney > 0)
+                {
+                    //TODO:认领活动金额
 
+                }
+            }
+            else
+            {
+                List<Model.Visa> visaCopyed1 = new List<Model.Visa>();
+                foreach (var visa in visaList)
+                    visaCopyed1.Add(visa.ToObjectCopy());
+                List<Model.Visa> visaCopyed2 = new List<Model.Visa>();
+                foreach (var visa in visaList)
+                    visaCopyed2.Add(visa.ToObjectCopy());
+                ClaimNormalMoneyAuto(visaCopyed1, normalBalanceList, visaActivityMoney, newBalances, newClaims);
+                if (totalActivityMoney > 0)
+                    ClaimActivityMoneyAuto(visaCopyed2, activityBalanceList, visaActivityMoney, newBalances, newClaims);
             }
 
 
 
-            List<Model.CustomerBalance> newBalances = new List<Model.CustomerBalance>();
-            List<Model.ClaimMoney> newClaims = new List<Model.ClaimMoney>();
-            List<Model.Visa> visaCopyed1 = new List<Model.Visa>();
-            foreach (var visa in visaList)
-                visaCopyed1.Add(visa.ToObjectCopy());
-            List<Model.Visa> visaCopyed2 = new List<Model.Visa>();
-            foreach (var visa in visaList)
-                visaCopyed2.Add(visa.ToObjectCopy());
 
 
-            ClaimNormalMoney(visaCopyed1, normalBalanceList, visaActivityMoney, newBalances, newClaims);
-            if (totalActivityMoney > 0)
-                ClaimActivityMoney(visaCopyed2, activityBalanceList, visaActivityMoney, newBalances, newClaims);
+
+
 
             //执行所有的更新
             UpdateActivityOrders(); //更新活动订单
@@ -521,7 +536,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             return true;
         }
 
-        private void ClaimActivityMoney(List<Model.Visa> visaList, List<Model.CustomerBalance> activityBalanceList,
+        private void ClaimActivityMoneyAuto(List<Model.Visa> visaList, List<Model.CustomerBalance> activityBalanceList,
             Dictionary<Guid, decimal[]> visaActivityMoney, List<Model.CustomerBalance> newBalances,
             List<Model.ClaimMoney> newClaims)
         {
@@ -590,7 +605,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
         }
 
 
-        private void ClaimNormalMoney(List<Model.Visa> visaList, List<Model.CustomerBalance> normalBalanceList,
+        private void ClaimNormalMoneyAuto(List<Model.Visa> visaList, List<Model.CustomerBalance> normalBalanceList,
             Dictionary<Guid, decimal[]> visaActivityMoney, List<Model.CustomerBalance> newBalances,
             List<Model.ClaimMoney> newClaims)
         {
@@ -650,6 +665,45 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 newBalances.Add(normalBalanceList[0]); //这里倒不用判断，反正始终更新一下应该是不会出错的
 
         }
+
+        private void ClaimNormalMoneyManual(List<Model.Visa> visaList, Model.CustomerBalance balance,
+            Dictionary<Guid, decimal[]> visaActivityMoney, List<Model.CustomerBalance> newBalances,
+            List<Model.ClaimMoney> newClaims)
+        {
+            decimal total = 0;
+            foreach (var visa in visaList)
+            {
+                Model.ClaimMoney claimMoney = new Model.ClaimMoney(); //每次都会生成一条新的claimMoney
+                decimal actuallyPay = visaActivityMoney[visa.Visa_id][0];
+
+                claimMoney.Amount = actuallyPay;
+                claimMoney.Money_id = balance.Money_id;
+                claimMoney.DepartmentId = GlobalUtils.LoginUser.DepartmentId;
+                claimMoney.Name_Claim = GlobalUtils.LoginUser.UserName;
+                claimMoney.GroupNo = visa.GroupNo;
+                claimMoney.Salesperson = visa.SalesPerson;
+                claimMoney.Methods = "签证系统认领";
+                claimMoney.WorkId = GlobalUtils.LoginUser.WorkId;
+                claimMoney.ClaimTime = DateTime.Now;
+                claimMoney.username = GlobalUtils.LoginUser.UserName;
+                claimMoney.EntryTime = DateTime.Now;
+                claimMoney.MoneyType = balance.MoneyType;
+                claimMoney.Claim_Confirm = "1";
+                claimMoney.ActivityOrderNo = visa.ActivityOrderNo;
+
+                if (UtilsBll.getClientNameNoHR(_clientName) != UtilsBll.getClientNameNoHR(visa.client))
+                    claimMoney.Guests = $"{_clientName} 帮 {visa.client} 认领 {claimMoney.Amount} 元.";
+
+                newClaims.Add(claimMoney);
+                total += actuallyPay;
+            }
+                
+            
+
+            balance.BalanceAmount -= total;
+            newBalances.Add(balance);
+        }
+
 
         #endregion
 

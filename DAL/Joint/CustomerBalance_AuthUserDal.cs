@@ -13,7 +13,7 @@ namespace TravelAgency.DAL.Joint
     {
         public List<Model.CustomerBalance_AuthUser> GetModelList(string where = "")
         {
-            string sql = "select BalanceId,CustomerName,Amount,BalanceAmount,au.UserName as UserName,cb.EntryTime as EntryTime " +
+            string sql = "select cb.BalanceId,CustomerName,Amount,BalanceAmount,cb.ActivityName,au.UserName as UserName,cb.EntryTime as EntryTime " +
                          "from customerbalance as cb " +
                          "left join authuser as au on au.workid=cb.workid " +
                          "where balanceAmount>0 ";
@@ -51,6 +51,11 @@ namespace TravelAgency.DAL.Joint
                 if (row["balanceAmount"] != null && row["balanceAmount"].ToString() != "")
                 {
                     model.BalanceAmount = decimal.Parse(row["balanceAmount"].ToString());
+                }
+
+                if (row["ActivityName"] != null && row["ActivityName"].ToString() != "")
+                {
+                    model.ActivityName = row["ActivityName"].ToString();
                 }
 
                 if (row["EntryTime"] != null && row["EntryTime"].ToString() != "")

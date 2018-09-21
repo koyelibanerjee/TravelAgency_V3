@@ -12,10 +12,11 @@ namespace TravelAgency.CSUI.Financial.FrmSub
         private readonly BLL.Joint.CustomerBalance_AuthUser _bllCustomerBalanceAuthUser = new BLL.Joint.CustomerBalance_AuthUser();
         private string _clientName;
         private decimal _needBalanceCount;
+        private string _activityName;
         private bool _forSelectBalance = false;
         public Guid RetBalanceId = Guid.Empty;
 
-        public FrmCustomerBalance(string clientName = "", decimal needBalanceCount = 0)
+        public FrmCustomerBalance(string clientName = "", decimal needBalanceCount = 0, string activityName = "")
         {
             if (this.Modal)
                 this.StartPosition = FormStartPosition.CenterParent;
@@ -24,6 +25,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             InitializeComponent();
             _clientName = clientName;
             _needBalanceCount = needBalanceCount;
+            _activityName = activityName;
             if (!string.IsNullOrEmpty(_clientName))
                 _forSelectBalance = true;
         }
@@ -60,7 +62,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
             RetBalanceId = customerBalanceAuthUser.BalanceId;
 
-            if (MessageBoxEx.Show("提示", "确认选择", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+            if (MessageBoxEx.Show("确认选择?", "提示", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
                 return;
 
             this.DialogResult = DialogResult.OK;
@@ -78,6 +80,11 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             string where = "";
             if (!string.IsNullOrEmpty(_clientName))
                 where = $" CustomerName = '{_clientName}'";
+            if (!string.IsNullOrEmpty(_activityName))
+                where += $" and ActivityName = '{_activityName}' ";
+            else
+                where += $" and ActivityName is null or len(ActivityName)=0 or ActivityName='无' ";
+
             var list = _bllCustomerBalanceAuthUser.GetModelList(where);
 
             if (list == null || list.Count == 0)
