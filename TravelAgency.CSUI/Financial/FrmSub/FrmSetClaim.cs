@@ -477,7 +477,8 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
 
             ClaimNormalMoney(visaCopyed1, normalBalanceList, visaActivityMoney, newBalances, newClaims);
-            ClaimActivityMoney(visaCopyed2, activityBalanceList, visaActivityMoney, newBalances, newClaims);
+            if (totalActivityMoney > 0)
+                ClaimActivityMoney(visaCopyed2, activityBalanceList, visaActivityMoney, newBalances, newClaims);
 
             //执行所有的更新
             int sucClaim = 0, sucVisa = 0, sucBalance = 0;
