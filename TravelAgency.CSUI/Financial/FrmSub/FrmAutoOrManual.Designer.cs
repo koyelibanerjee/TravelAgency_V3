@@ -33,6 +33,8 @@
             this.rbtnManual = new System.Windows.Forms.RadioButton();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
             this.btnOK = new DevComponents.DotNetBar.ButtonX();
+            this.labelX1 = new DevComponents.DotNetBar.LabelX();
+            this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.panelEx1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,15 +42,17 @@
             // 
             this.panelEx1.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx1.Controls.Add(this.labelX2);
             this.panelEx1.Controls.Add(this.rbtnAuto);
             this.panelEx1.Controls.Add(this.rbtnManual);
             this.panelEx1.Controls.Add(this.btnCancel);
             this.panelEx1.Controls.Add(this.btnOK);
             this.panelEx1.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelEx1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelEx1.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.panelEx1.Location = new System.Drawing.Point(0, 0);
             this.panelEx1.Name = "panelEx1";
-            this.panelEx1.Size = new System.Drawing.Size(232, 79);
+            this.panelEx1.Size = new System.Drawing.Size(303, 128);
             this.panelEx1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelEx1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -63,9 +67,9 @@
             this.rbtnAuto.AutoSize = true;
             this.rbtnAuto.BackColor = System.Drawing.Color.Transparent;
             this.rbtnAuto.ForeColor = System.Drawing.Color.OrangeRed;
-            this.rbtnAuto.Location = new System.Drawing.Point(34, 12);
+            this.rbtnAuto.Location = new System.Drawing.Point(83, 55);
             this.rbtnAuto.Name = "rbtnAuto";
-            this.rbtnAuto.Size = new System.Drawing.Size(47, 16);
+            this.rbtnAuto.Size = new System.Drawing.Size(50, 21);
             this.rbtnAuto.TabIndex = 35;
             this.rbtnAuto.TabStop = true;
             this.rbtnAuto.Text = "自动";
@@ -75,9 +79,9 @@
             // 
             this.rbtnManual.AutoSize = true;
             this.rbtnManual.ForeColor = System.Drawing.Color.OrangeRed;
-            this.rbtnManual.Location = new System.Drawing.Point(109, 12);
+            this.rbtnManual.Location = new System.Drawing.Point(158, 55);
             this.rbtnManual.Name = "rbtnManual";
-            this.rbtnManual.Size = new System.Drawing.Size(47, 16);
+            this.rbtnManual.Size = new System.Drawing.Size(50, 21);
             this.rbtnManual.TabIndex = 34;
             this.rbtnManual.TabStop = true;
             this.rbtnManual.Text = "手动";
@@ -87,7 +91,7 @@
             // 
             this.btnCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnCancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnCancel.Location = new System.Drawing.Point(109, 47);
+            this.btnCancel.Location = new System.Drawing.Point(158, 90);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(47, 20);
             this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -99,7 +103,7 @@
             // 
             this.btnOK.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnOK.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnOK.Location = new System.Drawing.Point(33, 47);
+            this.btnOK.Location = new System.Drawing.Point(82, 90);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(47, 20);
             this.btnOK.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -107,11 +111,37 @@
             this.btnOK.Text = "确认";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
+            // labelX1
+            // 
+            // 
+            // 
+            // 
+            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX1.Location = new System.Drawing.Point(170, 134);
+            this.labelX1.Name = "labelX1";
+            this.labelX1.Size = new System.Drawing.Size(75, 23);
+            this.labelX1.TabIndex = 4;
+            this.labelX1.Text = "labelX1";
+            // 
+            // labelX2
+            // 
+            // 
+            // 
+            // 
+            this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelX2.Location = new System.Drawing.Point(50, 3);
+            this.labelX2.Name = "labelX2";
+            this.labelX2.Size = new System.Drawing.Size(208, 45);
+            this.labelX2.TabIndex = 36;
+            this.labelX2.Text = "请选择常规金额认账方式:";
+            // 
             // FrmAutoOrManual
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(232, 79);
+            this.ClientSize = new System.Drawing.Size(303, 128);
+            this.Controls.Add(this.labelX1);
             this.Controls.Add(this.panelEx1);
             this.Name = "FrmAutoOrManual";
             this.Text = "选择认账类型:";
@@ -129,5 +159,7 @@
         private DevComponents.DotNetBar.ButtonX btnOK;
         private System.Windows.Forms.RadioButton rbtnAuto;
         private System.Windows.Forms.RadioButton rbtnManual;
+        private DevComponents.DotNetBar.LabelX labelX2;
+        private DevComponents.DotNetBar.LabelX labelX1;
     }
 }
