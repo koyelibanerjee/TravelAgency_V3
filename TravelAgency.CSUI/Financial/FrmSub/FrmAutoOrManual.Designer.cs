@@ -130,11 +130,12 @@
             // 
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelX2.Location = new System.Drawing.Point(50, 3);
+            this.labelX2.Location = new System.Drawing.Point(3, 3);
             this.labelX2.Name = "labelX2";
-            this.labelX2.Size = new System.Drawing.Size(208, 45);
+            this.labelX2.Size = new System.Drawing.Size(297, 45);
             this.labelX2.TabIndex = 36;
             this.labelX2.Text = "请选择常规金额认账方式:";
+            this.labelX2.TextAlignment = System.Drawing.StringAlignment.Center;
             // 
             // FrmAutoOrManual
             // 
