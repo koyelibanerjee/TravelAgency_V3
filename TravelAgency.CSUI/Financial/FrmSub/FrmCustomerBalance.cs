@@ -81,9 +81,9 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             if (!string.IsNullOrEmpty(_clientName))
                 where = $" CustomerName = '{_clientName}'";
             if (!string.IsNullOrEmpty(_activityName))
-                where += $" and ActivityName = '{_activityName}' ";
+                where += $"  ActivityName = '{_activityName}' ";
             else
-                where += $" and ActivityName is null or len(ActivityName)=0 or ActivityName='无' ";
+                where += $"  ActivityName is null or len(ActivityName)=0 or ActivityName='无' ";
 
             var list = _bllCustomerBalanceAuthUser.GetModelList(where);
 
