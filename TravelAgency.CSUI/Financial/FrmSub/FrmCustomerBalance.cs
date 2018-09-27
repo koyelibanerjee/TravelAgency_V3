@@ -81,9 +81,9 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             if (!string.IsNullOrEmpty(_clientName))
                 where = $" CustomerName = '{_clientName}'";
             if (!string.IsNullOrEmpty(_activityName))
-                where += $"  ActivityName = '{_activityName}' ";
+                where += $"  (ActivityName = '{_activityName}') ";
             else
-                where += $"  ActivityName is null or len(ActivityName)=0 or ActivityName='无' ";
+                where += $"  (ActivityName is null or len(ActivityName)=0 or ActivityName='无') ";
 
             var list = _bllCustomerBalanceAuthUser.GetModelList(where);
 
@@ -95,9 +95,6 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
             dataGridView1.DataSource = list;
             DataGridView1_RowsAdded(null, null);
-
-
-
         }
 
         private void FrmSelUser_DoubleClick(object sender, EventArgs e)

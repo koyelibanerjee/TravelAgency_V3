@@ -709,7 +709,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                 if (list[i].ClaimedFlag == "是")
                     claimed = true;
                 string custName = list[i].client;
-                
+
                 set.Add(UtilsBll.getClientNameNoHR(custName));
             }
             if (set.Count > 1)
@@ -771,11 +771,14 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             bool claimed = false;
             for (int i = 0; i < list.Count; ++i)
             {
-                if (list[i].ClaimedFlag == "是")
+                if (string.IsNullOrEmpty(list[i].client))
                 {
-                    claimed = true;
+                    MessageBoxEx.Show("未设置客户的团不能认账!!!");
+                    return;
                 }
-                set.Add(UtilsBll.getClientNameNoHR( list[i].client));
+                if (list[i].ClaimedFlag == "是")
+                    claimed = true;
+                set.Add(UtilsBll.getClientNameNoHR(list[i].client));
             }
             if (set.Count > 1)
             {

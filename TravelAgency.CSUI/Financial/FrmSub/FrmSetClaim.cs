@@ -34,13 +34,14 @@ namespace TravelAgency.CSUI.Financial.FrmSub
         private decimal _clientNormalBalance = 0;
         private decimal _clientActivityBalance = 0;
 
-        private readonly Dictionary<string, int> _curActivityOrderCnt = new Dictionary<string, int>();
         //activityNo对应一共扣了多少本
+        private readonly Dictionary<string, int> _curActivityOrderCnt = new Dictionary<string, int>();
 
-        private readonly Dictionary<string, int> _origActivityOrderCnt = new Dictionary<string, int>();
         //进入这个窗口的时候activityNo每个已经扣了多少本
+        private readonly Dictionary<string, int> _origActivityOrderCnt = new Dictionary<string, int>();
 
-        private readonly Dictionary<string, string> _visaidOrderDict = new Dictionary<string, string>(); //visa对应的每一个订单号
+        //当前visa每个对应的activityOrderNo
+        private readonly Dictionary<Guid, string> _visaidOrdeNorDict = new Dictionary<Guid, string>(); //visa对应的每一个订单号
 
         private string _activityName = "20180913活动";
 
@@ -197,7 +198,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                             _curActivityOrderCnt.ContainsKey(visa.ActivityOrderNo)) //原来是设置的活动订单的价格，现在是套的普通的价格，就要执行恢复
                         {
                             _curActivityOrderCnt[visa.ActivityOrderNo] -= visa.Number.Value;
-                            _visaidOrderDict.Remove(visa.Visa_id.ToString());
+                            _visaidOrdeNorDict.Remove(visa.Visa_id);
                         }
                     }
                 }
@@ -210,7 +211,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                     _curActivityOrderCnt.ContainsKey(visa.ActivityOrderNo)) //同上，只是是一条
                 {
                     _curActivityOrderCnt[visa.ActivityOrderNo] -= visa.Number.Value;
-                    _visaidOrderDict.Remove(visa.Visa_id.ToString());
+                    _visaidOrdeNorDict.Remove(visa.Visa_id);
                 }
 
             }
@@ -600,8 +601,8 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 claimMoney.Claim_Confirm = "1";
                 claimMoney.ActivityOrderNo = visa.ActivityOrderNo;
 
-                if (_visaidOrderDict.ContainsKey(visa.Visa_id.ToString()))
-                    claimMoney.ActivityOrderNo = _visaidOrderDict[visa.Visa_id.ToString()];
+                if (_visaidOrdeNorDict.ContainsKey(visa.Visa_id))
+                    claimMoney.ActivityOrderNo = _visaidOrdeNorDict[visa.Visa_id];
 
                 if (UtilsBll.getClientNameNoHR(_clientName) != UtilsBll.getClientNameNoHR(visa.client))
                     claimMoney.Guests = $"{_clientName} 帮 {visa.client} 认领 {claimMoney.Amount} 元.";
@@ -813,8 +814,8 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             //变更订单的先扣除原来的计数器
             foreach (var visa in list)
             {
-                if (_visaidOrderDict.ContainsKey(visa.Visa_id.ToString()))
-                    _curActivityOrderCnt[_visaidOrderDict[visa.Visa_id.ToString()]] -= visa.Number.Value;
+                if (_visaidOrdeNorDict.ContainsKey(visa.Visa_id))
+                    _curActivityOrderCnt[_visaidOrdeNorDict[visa.Visa_id]] -= visa.Number.Value;
             }
 
             if (!_curActivityOrderCnt.ContainsKey(frm.RetOrderNo))
@@ -824,10 +825,10 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
             foreach (var visa in list)
             {
-                if (!_visaidOrderDict.ContainsKey(visa.Visa_id.ToString()))
-                    _visaidOrderDict.Add(visa.Visa_id.ToString(), frm.RetOrderNo);
+                if (!_visaidOrdeNorDict.ContainsKey(visa.Visa_id))
+                    _visaidOrdeNorDict.Add(visa.Visa_id, frm.RetOrderNo);
                 else
-                    _visaidOrderDict[visa.Visa_id.ToString()] = frm.RetOrderNo;
+                    _visaidOrdeNorDict[visa.Visa_id] = frm.RetOrderNo;
 
                 //visa设置活动订单号
                 visa.ActivityOrderNo = frm.RetOrderNo;
