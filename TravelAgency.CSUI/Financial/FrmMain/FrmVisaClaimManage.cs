@@ -785,8 +785,6 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                 MessageBoxEx.Show("不同客户的团号不能一起认账!!!");
                 return;
             }
-
-
             if (claimed && MessageBoxEx.Show("选中项中已经有认过账的团号，是否继续?", "提示", MessageBoxButtons.YesNo) == DialogResult.No)
                 return;
             if (FrmsManager.FormSetClaim == null)
@@ -799,7 +797,6 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                 MessageBoxEx.Show("请不要重复打开设置认账界面!!!");
                 return;
             }
-
         }
 
         private void cbSchTimeType_SelectedIndexChanged(object sender, EventArgs e)
@@ -835,10 +832,8 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
         private void lbShowCustomerBalance_Click(object sender, EventArgs e)
         {
-            FrmCustomerBalance frm = new FrmCustomerBalance();
+            FrmCustomerBalance frm = new FrmCustomerBalance("",0,"",true);
             frm.Show();
         }
-
-
     }
 }

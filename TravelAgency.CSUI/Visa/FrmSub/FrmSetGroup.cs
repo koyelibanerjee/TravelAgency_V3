@@ -360,7 +360,7 @@ namespace TravelAgency.CSUI.FrmSub
             txtGroupNo.Text = _recentVisa.GroupNo;
             cbCountry.Text = _recentVisa.Country;
             txtDepartureType.Text = _recentVisa.DepartureType;
-            txtDepartureTime.Text = DateTimeFormator.DateTimeToString(_recentVisa.PredictTime);
+            txtDepartureTime.Text = DateTimeFormator.DateTimeToString(_recentVisa.DepartureTime);
             txtSubmitTime.Text = DateTimeFormator.DateTimeToString(_recentVisa.SubmitTime);
             txtInTime.Text = DateTimeFormator.DateTimeToString(_recentVisa.InTime);
             txtOutTime.Text = DateTimeFormator.DateTimeToString(_recentVisa.OutTime);
@@ -368,6 +368,7 @@ namespace TravelAgency.CSUI.FrmSub
             txtSubmitCondition.Text = _recentVisa.SubmitCondition;
             txtFetchType.Text = _recentVisa.FetchCondition;
             txtCheckPerson.Text = _recentVisa.CheckPerson;
+            txtPredictTime.Text = DateTimeFormator.DateTimeToString(_recentVisa.PredictTime);
             chbIsUrgent.Checked = _recentVisa.IsUrgent ?? false;
             //txtRealTime.Text = DateTimeFormator.DateTimeToString(_recentVisa.RealTime);
 
@@ -441,7 +442,7 @@ namespace TravelAgency.CSUI.FrmSub
             }
 
             //初始数据项
-            txtDepartureTime.Text = DateTimeFormator.DateTimeToString(_visaModel.PredictTime);
+            txtDepartureTime.Text = DateTimeFormator.DateTimeToString(_visaModel.DepartureTime);
             cbCountry.Text = _visaModel.Country;
             txtSalesPerson.Text = _visaModel.SalesPerson;
             txtSubmitTime.Text = DateTimeFormator.DateTimeToString(_visaModel.SubmitTime);
@@ -457,7 +458,7 @@ namespace TravelAgency.CSUI.FrmSub
 
             txtQuQianYuan.Text = _visaModel.QuQianYuan;
             txtPeiQianYuan.Text = _visaModel.PeiQianYuan;
-            txtPredictTime.Text = DateTimeFormator.DateTimeToString(_visaModel.RealTime);
+            txtPredictTime.Text = DateTimeFormator.DateTimeToString(_visaModel.PredictTime);
             txtGroupNo.Text = _visaModel.GroupNo;
 
             txtOperator.Text = _visaModel.Operator;

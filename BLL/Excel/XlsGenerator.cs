@@ -173,12 +173,6 @@ namespace TravelAgency.BLL.Excel
         /// <param name="visaList">这个list是每有一个visainfo就有一个visa,就是对应的visa，重复也不管</param>
         public static void GetGuolvJinGunMingDan(List<Model.VisaInfo> visaInfoList, List<Model.Visa> visaList, bool single = false)
         {
-            //if (visaInfoList.Count > 8)
-            //{
-            //    MessageBoxEx.Show("请选择8个人以下导出!");
-            //    return;
-            //}
-
             //READEXCEL
             using (FileStream fs = File.OpenRead(GlobalUtils.AppPath + @"\Excel\Templates\（）国旅旅行社申请名单表_进馆.xls"))
             {
@@ -308,7 +302,6 @@ namespace TravelAgency.BLL.Excel
 
                         Process.Start(dstName);
                     }
-
                     catch (Exception)
                     {
                         MessageBoxEx.Show("指定文件名的文件正在使用中，无法写入，请关闭后重试!");

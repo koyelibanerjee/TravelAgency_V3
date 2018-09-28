@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bar1 = new DevComponents.DotNetBar.Bar();
             this.btnPageFirst = new DevComponents.DotNetBar.ButtonItem();
             this.btnPagePre = new DevComponents.DotNetBar.ButtonItem();
@@ -46,6 +46,24 @@
             this.lbCurPage = new DevComponents.DotNetBar.LabelItem();
             this.lbDuplicate = new DevComponents.DotNetBar.LabelItem();
             this.dataGridView1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.GroupNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CountryImage = new System.Windows.Forms.DataGridViewImageColumn();
+            this.RealTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FinishTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeInPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Types = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IsUrgent = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubmitInStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubmitOutStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DepartureType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Client = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SalesPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Operator = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tips2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubmitTempNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Visa_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmsDgv = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.复制ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.删除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,8 +85,11 @@
             this.复制二维码信息ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.和Excel进行对比ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.设置流水编号ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelBars = new DevComponents.DotNetBar.PanelEx();
             this.panelSerachBar = new DevComponents.DotNetBar.PanelEx();
+            this.txtTempNo = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX10 = new DevComponents.DotNetBar.LabelX();
             this.cbDistrict = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX8 = new DevComponents.DotNetBar.LabelX();
             this.cbSchTimeType = new DevComponents.DotNetBar.Controls.ComboBoxEx();
@@ -119,27 +140,6 @@
             this.lbRealTime = new DevComponents.DotNetBar.LabelX();
             this.labelX9 = new DevComponents.DotNetBar.LabelX();
             this.txtInput = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.设置流水编号ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.GroupNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CountryImage = new System.Windows.Forms.DataGridViewImageColumn();
-            this.RealTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FinishTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TypeInPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Types = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsUrgent = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SubmitInStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SubmitOutStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DepartureType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Client = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SalesPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Operator = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tips2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SubmitTempNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Visa_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtTempNo = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX10 = new DevComponents.DotNetBar.LabelX();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cmsDgv.SuspendLayout();
@@ -260,14 +260,14 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.GroupNo,
@@ -288,28 +288,28 @@
             this.Tips2,
             this.SubmitTempNo,
             this.Visa_id});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGridView1.RowTemplate.Height = 30;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -321,6 +321,135 @@
             this.dataGridView1.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             this.dataGridView1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_KeyDown);
+            // 
+            // GroupNo
+            // 
+            this.GroupNo.DataPropertyName = "GroupNo";
+            this.GroupNo.HeaderText = "团号";
+            this.GroupNo.Name = "GroupNo";
+            this.GroupNo.ReadOnly = true;
+            this.GroupNo.Width = 300;
+            // 
+            // Country
+            // 
+            this.Country.DataPropertyName = "Country";
+            this.Country.HeaderText = "国家";
+            this.Country.Name = "Country";
+            this.Country.ReadOnly = true;
+            // 
+            // Number
+            // 
+            this.Number.DataPropertyName = "Number";
+            this.Number.HeaderText = "人数";
+            this.Number.Name = "Number";
+            this.Number.ReadOnly = true;
+            // 
+            // CountryImage
+            // 
+            this.CountryImage.HeaderText = "国家图标";
+            this.CountryImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.CountryImage.Name = "CountryImage";
+            this.CountryImage.ReadOnly = true;
+            this.CountryImage.Width = 200;
+            // 
+            // RealTime
+            // 
+            this.RealTime.DataPropertyName = "RealTime";
+            this.RealTime.HeaderText = "送签时间";
+            this.RealTime.Name = "RealTime";
+            this.RealTime.ReadOnly = true;
+            // 
+            // FinishTime
+            // 
+            this.FinishTime.DataPropertyName = "FinishTime";
+            this.FinishTime.HeaderText = "出签时间";
+            this.FinishTime.Name = "FinishTime";
+            this.FinishTime.ReadOnly = true;
+            // 
+            // TypeInPerson
+            // 
+            this.TypeInPerson.DataPropertyName = "TypeInPerson";
+            this.TypeInPerson.HeaderText = "办理人";
+            this.TypeInPerson.Name = "TypeInPerson";
+            this.TypeInPerson.ReadOnly = true;
+            // 
+            // Types
+            // 
+            this.Types.DataPropertyName = "Types";
+            this.Types.HeaderText = "类型";
+            this.Types.Name = "Types";
+            this.Types.ReadOnly = true;
+            // 
+            // IsUrgent
+            // 
+            this.IsUrgent.HeaderText = "是否急件";
+            this.IsUrgent.Name = "IsUrgent";
+            this.IsUrgent.ReadOnly = true;
+            this.IsUrgent.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.IsUrgent.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.IsUrgent.Visible = false;
+            // 
+            // SubmitInStatus
+            // 
+            this.SubmitInStatus.HeaderText = "进签状态";
+            this.SubmitInStatus.Name = "SubmitInStatus";
+            this.SubmitInStatus.ReadOnly = true;
+            // 
+            // SubmitOutStatus
+            // 
+            this.SubmitOutStatus.HeaderText = "出签状态";
+            this.SubmitOutStatus.Name = "SubmitOutStatus";
+            this.SubmitOutStatus.ReadOnly = true;
+            // 
+            // DepartureType
+            // 
+            this.DepartureType.DataPropertyName = "DepartureType";
+            this.DepartureType.HeaderText = "出境类型";
+            this.DepartureType.Name = "DepartureType";
+            this.DepartureType.ReadOnly = true;
+            // 
+            // Client
+            // 
+            this.Client.DataPropertyName = "Client";
+            this.Client.HeaderText = "客户";
+            this.Client.Name = "Client";
+            this.Client.ReadOnly = true;
+            // 
+            // SalesPerson
+            // 
+            this.SalesPerson.DataPropertyName = "SalesPerson";
+            this.SalesPerson.HeaderText = "销售";
+            this.SalesPerson.Name = "SalesPerson";
+            this.SalesPerson.ReadOnly = true;
+            // 
+            // Operator
+            // 
+            this.Operator.DataPropertyName = "Operator";
+            this.Operator.HeaderText = "操作";
+            this.Operator.Name = "Operator";
+            this.Operator.ReadOnly = true;
+            // 
+            // Tips2
+            // 
+            this.Tips2.DataPropertyName = "Tips2";
+            this.Tips2.HeaderText = "备注2";
+            this.Tips2.Name = "Tips2";
+            this.Tips2.ReadOnly = true;
+            // 
+            // SubmitTempNo
+            // 
+            this.SubmitTempNo.DataPropertyName = "SubmitTempNo";
+            this.SubmitTempNo.HeaderText = "流水号";
+            this.SubmitTempNo.Name = "SubmitTempNo";
+            this.SubmitTempNo.ReadOnly = true;
+            // 
+            // Visa_id
+            // 
+            this.Visa_id.DataPropertyName = "Visa_id";
+            this.Visa_id.HeaderText = "Visa_id";
+            this.Visa_id.Name = "Visa_id";
+            this.Visa_id.ReadOnly = true;
+            this.Visa_id.Visible = false;
             // 
             // cmsDgv
             // 
@@ -486,6 +615,13 @@
             this.和Excel进行对比ToolStripMenuItem.Text = "和Excel进行对比";
             this.和Excel进行对比ToolStripMenuItem.Click += new System.EventHandler(this.和Excel进行对比ToolStripMenuItem_Click);
             // 
+            // 设置流水编号ToolStripMenuItem
+            // 
+            this.设置流水编号ToolStripMenuItem.Name = "设置流水编号ToolStripMenuItem";
+            this.设置流水编号ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.设置流水编号ToolStripMenuItem.Text = "设置流水编号";
+            this.设置流水编号ToolStripMenuItem.Click += new System.EventHandler(this.设置流水编号ToolStripMenuItem_Click);
+            // 
             // panelBars
             // 
             this.panelBars.CanvasColor = System.Drawing.SystemColors.Control;
@@ -555,6 +691,30 @@
             this.panelSerachBar.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.panelSerachBar.Style.GradientAngle = 90;
             this.panelSerachBar.TabIndex = 29;
+            // 
+            // txtTempNo
+            // 
+            // 
+            // 
+            // 
+            this.txtTempNo.Border.Class = "TextBoxBorder";
+            this.txtTempNo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtTempNo.Location = new System.Drawing.Point(811, 33);
+            this.txtTempNo.Name = "txtTempNo";
+            this.txtTempNo.Size = new System.Drawing.Size(94, 21);
+            this.txtTempNo.TabIndex = 61;
+            // 
+            // labelX10
+            // 
+            // 
+            // 
+            // 
+            this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX10.Location = new System.Drawing.Point(756, 32);
+            this.labelX10.Name = "labelX10";
+            this.labelX10.Size = new System.Drawing.Size(49, 21);
+            this.labelX10.TabIndex = 62;
+            this.labelX10.Text = "流水号:";
             // 
             // cbDistrict
             // 
@@ -699,7 +859,7 @@
             this.cbState.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbState.FormattingEnabled = true;
             this.cbState.ItemHeight = 15;
-            this.cbState.Location = new System.Drawing.Point(648, 34);
+            this.cbState.Location = new System.Drawing.Point(666, 32);
             this.cbState.Name = "cbState";
             this.cbState.Size = new System.Drawing.Size(82, 21);
             this.cbState.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -711,7 +871,7 @@
             // 
             // 
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(609, 36);
+            this.labelX4.Location = new System.Drawing.Point(627, 34);
             this.labelX4.Name = "labelX4";
             this.labelX4.Size = new System.Drawing.Size(46, 21);
             this.labelX4.TabIndex = 40;
@@ -723,9 +883,9 @@
             this.cbCountry.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbCountry.FormattingEnabled = true;
             this.cbCountry.ItemHeight = 15;
-            this.cbCountry.Location = new System.Drawing.Point(507, 5);
+            this.cbCountry.Location = new System.Drawing.Point(535, 33);
             this.cbCountry.Name = "cbCountry";
-            this.cbCountry.Size = new System.Drawing.Size(66, 21);
+            this.cbCountry.Size = new System.Drawing.Size(90, 21);
             this.cbCountry.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.cbCountry.TabIndex = 36;
             // 
@@ -735,7 +895,7 @@
             // 
             // 
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX3.Location = new System.Drawing.Point(442, 6);
+            this.labelX3.Location = new System.Drawing.Point(470, 34);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(73, 21);
             this.labelX3.TabIndex = 35;
@@ -747,7 +907,7 @@
             this.cbIsUrgent.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbIsUrgent.FormattingEnabled = true;
             this.cbIsUrgent.ItemHeight = 15;
-            this.cbIsUrgent.Location = new System.Drawing.Point(531, 35);
+            this.cbIsUrgent.Location = new System.Drawing.Point(507, 8);
             this.cbIsUrgent.Name = "cbIsUrgent";
             this.cbIsUrgent.Size = new System.Drawing.Size(66, 21);
             this.cbIsUrgent.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -759,7 +919,7 @@
             // 
             // 
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Location = new System.Drawing.Point(465, 36);
+            this.labelX2.Location = new System.Drawing.Point(441, 9);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(68, 21);
             this.labelX2.TabIndex = 33;
@@ -1262,166 +1422,6 @@
             this.txtInput.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.txtInput.Size = new System.Drawing.Size(178, 342);
             this.txtInput.TabIndex = 0;
-            // 
-            // 设置流水编号ToolStripMenuItem
-            // 
-            this.设置流水编号ToolStripMenuItem.Name = "设置流水编号ToolStripMenuItem";
-            this.设置流水编号ToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.设置流水编号ToolStripMenuItem.Text = "设置流水编号";
-            this.设置流水编号ToolStripMenuItem.Click += new System.EventHandler(this.设置流水编号ToolStripMenuItem_Click);
-            // 
-            // GroupNo
-            // 
-            this.GroupNo.DataPropertyName = "GroupNo";
-            this.GroupNo.HeaderText = "团号";
-            this.GroupNo.Name = "GroupNo";
-            this.GroupNo.ReadOnly = true;
-            this.GroupNo.Width = 300;
-            // 
-            // Country
-            // 
-            this.Country.DataPropertyName = "Country";
-            this.Country.HeaderText = "国家";
-            this.Country.Name = "Country";
-            this.Country.ReadOnly = true;
-            // 
-            // Number
-            // 
-            this.Number.DataPropertyName = "Number";
-            this.Number.HeaderText = "人数";
-            this.Number.Name = "Number";
-            this.Number.ReadOnly = true;
-            // 
-            // CountryImage
-            // 
-            this.CountryImage.HeaderText = "国家图标";
-            this.CountryImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.CountryImage.Name = "CountryImage";
-            this.CountryImage.ReadOnly = true;
-            this.CountryImage.Width = 200;
-            // 
-            // RealTime
-            // 
-            this.RealTime.DataPropertyName = "RealTime";
-            this.RealTime.HeaderText = "送签时间";
-            this.RealTime.Name = "RealTime";
-            this.RealTime.ReadOnly = true;
-            // 
-            // FinishTime
-            // 
-            this.FinishTime.DataPropertyName = "FinishTime";
-            this.FinishTime.HeaderText = "出签时间";
-            this.FinishTime.Name = "FinishTime";
-            this.FinishTime.ReadOnly = true;
-            // 
-            // TypeInPerson
-            // 
-            this.TypeInPerson.DataPropertyName = "TypeInPerson";
-            this.TypeInPerson.HeaderText = "办理人";
-            this.TypeInPerson.Name = "TypeInPerson";
-            this.TypeInPerson.ReadOnly = true;
-            // 
-            // Types
-            // 
-            this.Types.DataPropertyName = "Types";
-            this.Types.HeaderText = "类型";
-            this.Types.Name = "Types";
-            this.Types.ReadOnly = true;
-            // 
-            // IsUrgent
-            // 
-            this.IsUrgent.HeaderText = "是否急件";
-            this.IsUrgent.Name = "IsUrgent";
-            this.IsUrgent.ReadOnly = true;
-            this.IsUrgent.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.IsUrgent.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.IsUrgent.Visible = false;
-            // 
-            // SubmitInStatus
-            // 
-            this.SubmitInStatus.HeaderText = "进签状态";
-            this.SubmitInStatus.Name = "SubmitInStatus";
-            this.SubmitInStatus.ReadOnly = true;
-            // 
-            // SubmitOutStatus
-            // 
-            this.SubmitOutStatus.HeaderText = "出签状态";
-            this.SubmitOutStatus.Name = "SubmitOutStatus";
-            this.SubmitOutStatus.ReadOnly = true;
-            // 
-            // DepartureType
-            // 
-            this.DepartureType.DataPropertyName = "DepartureType";
-            this.DepartureType.HeaderText = "出境类型";
-            this.DepartureType.Name = "DepartureType";
-            this.DepartureType.ReadOnly = true;
-            // 
-            // Client
-            // 
-            this.Client.DataPropertyName = "Client";
-            this.Client.HeaderText = "客户";
-            this.Client.Name = "Client";
-            this.Client.ReadOnly = true;
-            // 
-            // SalesPerson
-            // 
-            this.SalesPerson.DataPropertyName = "SalesPerson";
-            this.SalesPerson.HeaderText = "销售";
-            this.SalesPerson.Name = "SalesPerson";
-            this.SalesPerson.ReadOnly = true;
-            // 
-            // Operator
-            // 
-            this.Operator.DataPropertyName = "Operator";
-            this.Operator.HeaderText = "操作";
-            this.Operator.Name = "Operator";
-            this.Operator.ReadOnly = true;
-            // 
-            // Tips2
-            // 
-            this.Tips2.DataPropertyName = "Tips2";
-            this.Tips2.HeaderText = "备注2";
-            this.Tips2.Name = "Tips2";
-            this.Tips2.ReadOnly = true;
-            // 
-            // SubmitTempNo
-            // 
-            this.SubmitTempNo.DataPropertyName = "SubmitTempNo";
-            this.SubmitTempNo.HeaderText = "流水号";
-            this.SubmitTempNo.Name = "SubmitTempNo";
-            this.SubmitTempNo.ReadOnly = true;
-            // 
-            // Visa_id
-            // 
-            this.Visa_id.DataPropertyName = "Visa_id";
-            this.Visa_id.HeaderText = "Visa_id";
-            this.Visa_id.Name = "Visa_id";
-            this.Visa_id.ReadOnly = true;
-            this.Visa_id.Visible = false;
-            // 
-            // txtTempNo
-            // 
-            // 
-            // 
-            // 
-            this.txtTempNo.Border.Class = "TextBoxBorder";
-            this.txtTempNo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtTempNo.Location = new System.Drawing.Point(788, 36);
-            this.txtTempNo.Name = "txtTempNo";
-            this.txtTempNo.Size = new System.Drawing.Size(117, 21);
-            this.txtTempNo.TabIndex = 61;
-            // 
-            // labelX10
-            // 
-            // 
-            // 
-            // 
-            this.labelX10.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX10.Location = new System.Drawing.Point(733, 34);
-            this.labelX10.Name = "labelX10";
-            this.labelX10.Size = new System.Drawing.Size(49, 21);
-            this.labelX10.TabIndex = 62;
-            this.labelX10.Text = "流水号:";
             // 
             // FrmVisaSubmitManage
             // 

@@ -18,7 +18,7 @@ namespace TravelAgency.DAL.Joint
                          "left join authuser as au on au.workid=cb.workid " +
                          "where balanceAmount>0 ";
             if (!string.IsNullOrEmpty(where))
-                sql += " and " + where;
+                sql += " and (" + where + ") ";
             sql += "order by entrytime desc";
             DataSet ds = DbHelperSQL.Query(sql);
             List<Model.CustomerBalance_AuthUser> res = new List<Model.CustomerBalance_AuthUser>();

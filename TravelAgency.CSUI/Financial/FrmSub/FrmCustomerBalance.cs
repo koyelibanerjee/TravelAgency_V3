@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using TravelAgency.Common.FrmSetValues;
@@ -15,8 +16,9 @@ namespace TravelAgency.CSUI.Financial.FrmSub
         private string _activityName;
         private bool _forSelectBalance = false;
         public Guid RetBalanceId = Guid.Empty;
+        private bool _showAllType = false;
 
-        public FrmCustomerBalance(string clientName = "", decimal needBalanceCount = 0, string activityName = "")
+        public FrmCustomerBalance(string clientName = "", decimal needBalanceCount = 0, string activityName = "",bool showAllType = false)
         {
             if (this.Modal)
                 this.StartPosition = FormStartPosition.CenterParent;
@@ -28,6 +30,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             _activityName = activityName;
             if (!string.IsNullOrEmpty(_clientName))
                 _forSelectBalance = true;
+            _showAllType = showAllType;
         }
 
         private void FrmSelUser_Load(object sender, EventArgs e)
@@ -78,13 +81,21 @@ namespace TravelAgency.CSUI.Financial.FrmSub
         private void LoadDataToDgv()
         {
             string where = "";
-            if (!string.IsNullOrEmpty(_clientName))
-                where = $" CustomerName = '{_clientName}'";
-            if (!string.IsNullOrEmpty(_activityName))
-                where += $"  (ActivityName = '{_activityName}') ";
-            else
-                where += $"  (ActivityName is null or len(ActivityName)=0 or ActivityName='无') ";
+            List<string> conditions = new List<string>();
 
+            if (!string.IsNullOrEmpty(_clientName))
+                conditions.Add($" (CustomerName = '{_clientName}') ");
+
+            if (!string.IsNullOrEmpty(_activityName))
+                conditions.Add($"  (ActivityName = '{_activityName}') ");
+            else if (!_showAllType)
+                conditions.Add($"  (ActivityName is null or len(ActivityName)=0 or ActivityName='无') ");
+            else
+            {
+                
+            }
+            string[] arr = conditions.ToArray();
+            where = string.Join(" and ", arr);
             var list = _bllCustomerBalanceAuthUser.GetModelList(where);
 
             if (list == null || list.Count == 0)
