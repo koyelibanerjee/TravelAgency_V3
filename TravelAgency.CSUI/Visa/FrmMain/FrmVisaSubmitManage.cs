@@ -841,6 +841,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             var dictIn = _visaActTypeCountBll.GetVisaOutStateCountDict(visas, OutState.Type02In);
             var dictOut = _visaActTypeCountBll.GetVisaOutStateCountDict(visas, OutState.Type03NormalOut);
             var dictAbOut = _visaActTypeCountBll.GetVisaOutStateCountDict(visas, OutState.Type04AbnormalOut);
+            var dictSnded = _visaActTypeCountBll.GetVisaOutStateCountDict(visas, OutState.Type10Exported);
             var hasSendRequestPayout = bllVisaQzApplication.CheckVisaSendPayoutRequest(visas);
             Color defaultColor = StyleControler.CellDefaultBackColor;
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
@@ -886,6 +887,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 numIn += dictIn[visaid];
                 numIn += dictOut[visaid]; //进签的还要加上出签的人数
                 numIn += dictAbOut[visaid];
+                numIn += dictSnded[visaid];
                 hasIn += numIn;
 
                 dataGridView1.Rows[i].Cells["SubmitInStatus"].Style.Font = font;
@@ -894,6 +896,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 //这一段性能会好一些了
                 //int numOut = _bllActionRecords.GetVisaSubmitStateNum(visas[i], ActType._05SubmitOut);
                 int numOut = dictOut[visaid];
+                numOut += dictSnded[visaid];
                 hasOut += numOut;
                 int abOutNum = dictAbOut[visaid];
 
