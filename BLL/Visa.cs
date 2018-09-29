@@ -39,9 +39,22 @@ namespace TravelAgency.BLL
             var oldModel = GetModel(model.Visa_id);
             if (!string.IsNullOrEmpty(oldModel.SubmitTempNo) && string.IsNullOrEmpty(model.SubmitTempNo))
             {
-                MessageBox.Show("检测到致命bug,请联系张工!");
+                MessageBox.Show("检测到致命bug at SubmitTempNo,请火速联系张工!");
                 return false;
             }
+
+            if (oldModel.RealTime.HasValue && !model.RealTime.HasValue)
+            {
+                MessageBox.Show("检测到致命bug at RealTime,请火速联系张工!");
+                return false;
+            }
+
+            if (oldModel.FinishTime.HasValue && !model.FinishTime.HasValue)
+            {
+                MessageBox.Show("检测到致命bug at FinishTime,请火速联系张工!");
+                return false;
+            }
+
             return dal.Update(model);
         }
 
@@ -182,8 +195,21 @@ namespace TravelAgency.BLL
                 if (!string.IsNullOrEmpty(oldModel.SubmitTempNo) && string.IsNullOrEmpty(model.SubmitTempNo))
                 {
                     MessageBox.Show("检测到致命bug,请联系张工!");
-                    return 0;
+                    return res;
                 }
+
+                if (oldModel.RealTime.HasValue && !model.RealTime.HasValue)
+                {
+                    MessageBox.Show("检测到致命bug at RealTime,请火速联系张工!");
+                    return res;
+                }
+
+                if (oldModel.FinishTime.HasValue && !model.FinishTime.HasValue)
+                {
+                    MessageBox.Show("检测到致命bug at FinishTime,请火速联系张工!");
+                    return res;
+                }
+
                 res += dal.Update(model) ? 1 : 0; //返回值是id
             }
             return res;
