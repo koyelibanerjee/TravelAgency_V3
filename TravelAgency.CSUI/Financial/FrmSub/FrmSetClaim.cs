@@ -91,15 +91,19 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             dataGridView1.Columns["ActuallyAmount"].ReadOnly = false;
 
             UpdateClientBalanceInfo();
-
-            //记住原有的orderCnt
             foreach (var visa in _list)
                 if (!string.IsNullOrEmpty(visa.ActivityOrderNo))
-                    if (!_origActivityOrderCnt.ContainsKey(visa.ActivityOrderNo))
+                {
+                    if (!_origActivityOrderCnt.ContainsKey(visa.ActivityOrderNo))//记住原有的orderCnt
                         _origActivityOrderCnt.Add(visa.ActivityOrderNo, visa.Number.Value);
                     else
                         _origActivityOrderCnt[visa.ActivityOrderNo] += visa.Number.Value;
 
+                    if (!_curActivityOrderCnt.ContainsKey(visa.ActivityOrderNo)) //更新现有的orderCnt
+                        _curActivityOrderCnt.Add(visa.ActivityOrderNo, visa.Number.Value);
+                    else
+                        _curActivityOrderCnt[visa.ActivityOrderNo] += visa.Number.Value;
+                }
         }
 
         private void UpdateClientBalanceInfo()
@@ -485,7 +489,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 var guid = frmBalance.RetBalanceId;
                 var model = _bllBalance.GetModel(guid);
                 ClaimNormalMoneyManual(visaList, model, visaActivityMoney, newBalances, newClaims); //
-                
+
             }
             else
             {
@@ -708,8 +712,8 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 newClaims.Add(claimMoney);
                 total += actuallyPay;
             }
-                
-            
+
+
 
             balance.BalanceAmount -= total;
             newBalances.Add(balance);

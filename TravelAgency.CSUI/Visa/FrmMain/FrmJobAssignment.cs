@@ -1325,8 +1325,6 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             {
                 selJobList.Add(item.JobId ?? 0);
             }
-
-
             FrmSelUser frm = new FrmSelUser();
             if (frm.ShowDialog() == DialogResult.Cancel)
                 return;
