@@ -135,6 +135,10 @@ namespace TravelAgency.CSUI.Financial.FrmSub
         {
             if (FrmsManager.FormSetClaim != null)
                 FrmsManager.FormSetClaim = null;
+
+            _updateDel(_curPage);
+
+
         }
 
         #region dgv events
@@ -541,13 +545,13 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 sucVisa += _bllVisa.Update(visaList[i]) ? 1 : 0;
             }
 
-            //更新活动订单的剩余数量
-            foreach (var pair in _curActivityOrderCnt)
-            {
-                var activityOrderModel = _bllActivityOrder.GetModel(pair.Key);
-                activityOrderModel.BalanceBooks -= pair.Value;
-                _bllActivityOrder.Update(activityOrderModel);
-            }
+            ////更新活动订单的剩余数量
+            //foreach (var pair in _curActivityOrderCnt)
+            //{
+            //    var activityOrderModel = _bllActivityOrder.GetModel(pair.Key);
+            //    activityOrderModel.BalanceBooks -= pair.Value;
+            //    _bllActivityOrder.Update(activityOrderModel);
+            //}
             return true;
         }
 
