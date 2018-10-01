@@ -133,6 +133,7 @@
     <Compile Include="Commision_Sale.cs" />
     <Compile Include="CustomerBalance.cs" />
     <Compile Include="CustomerInfo.cs" />
+    <Compile Include="DeniedVisaInfo.cs" />
     <Compile Include="Enums\ActType.cs" />
     <Compile Include="Enums\AirInfos.cs" />
     <Compile Include="Enums\DepartureType.cs" />
