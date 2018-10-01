@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGaoPaiManage));
             this.panelMain = new DevComponents.DotNetBar.PanelEx();
             this.lvPics = new DevComponents.DotNetBar.Controls.ListViewEx();
             this.panelRightTop = new DevComponents.DotNetBar.PanelEx();
@@ -205,6 +206,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1207, 657);
             this.Controls.Add(this.panelMain);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmGaoPaiManage";
             this.Text = "高拍图像管理";
             this.Load += new System.EventHandler(this.FrmGaoPaiManage_Load);
