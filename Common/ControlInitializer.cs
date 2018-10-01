@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevComponents.DotNetBar;
 
 namespace TravelAgency.Common
 {
@@ -14,11 +15,19 @@ namespace TravelAgency.Common
         {
             cb.DropDownStyle = style;
             foreach (var item in valueList)
-            {
                 cb.Items.Add(item);
-            }
             cb.SelectedIndex = initIdx;
         }
+
+        public static void InitCombo(ComboBoxItem cb, List<string> valueList,
+    ComboBoxStyle style = ComboBoxStyle.DropDownList, int initIdx = 0)
+        {
+            cb.DropDownStyle = style;
+            foreach (var item in valueList)
+                cb.Items.Add(item);
+            cb.SelectedIndex = initIdx;
+        }
+
 
     }
 }

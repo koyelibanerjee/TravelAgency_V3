@@ -85,6 +85,7 @@ namespace TravelAgency.CSUI.FrmMain
             cbPageSize.Items.Add("1000");
             cbPageSize.DropDownStyle = ComboBoxStyle.DropDownList;
             cbPageSize.SelectedIndex = 2;
+
             _pageSize = int.Parse(cbPageSize.Text);
 
             dataGridView1.AutoGenerateColumns = false;

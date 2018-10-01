@@ -17,15 +17,15 @@ namespace TravelAgency.BLL
         //    {
         //        if (values[i] == null)
         //        {
-                    
+
         //        }
         //    }
         //}
 
-        public static void GetVisaTypesCondition(List<string> conditionsList,string visaTypes)
+        public static void GetVisaTypesCondition(List<string> conditionsList, string visaTypes)
         {
             string condition = null;
-            switch (visaTypes)
+            switch (visaTypes.Trim())
             {
                 case "全部":
                     break;
@@ -54,12 +54,24 @@ namespace TravelAgency.BLL
                 conditionsList.Add(condition);
         }
 
-        public static void GetVisaPaymentNoCondion(List<string> conditionsList, string paymentNo)
+        public static void GetFuzzyQueryCondition(List<string> conditionsList, string fieldName, string value)
         {
-            if (!string.IsNullOrEmpty(paymentNo))
-            {
-                conditionsList.Add($" (paymentNo like '%{paymentNo}%' ) ");
-            }
+            if (!string.IsNullOrEmpty(value.Trim()))
+                conditionsList.Add($" ({fieldName} like '%{value}%' ) ");
+        }
+
+        public static void GetSpanQueryCondition(List<string> conditionsList, string fieldName, string value1, string value2)
+        {
+            if (!string.IsNullOrEmpty(value1.Trim()) && !string.IsNullOrEmpty(value2.Trim()))
+                conditionsList.Add(" ({fieldName} between '{value1}' and '{value2}') ");
+        }
+
+
+        public static string GetSearchConditon(List<string> conditionList)
+        {
+            string[] arr = conditionList.ToArray();
+            string where = string.Join(" and ", arr);
+            return where;
         }
 
 

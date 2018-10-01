@@ -144,6 +144,7 @@
     <Compile Include="Enums\OrdersActtype.cs" />
     <Compile Include="Enums\OutState.cs" />
     <Compile Include="Enums\OutStateString.cs" />
+    <Compile Include="Enums\PageSize.cs" />
     <Compile Include="Enums\RefundState.cs" />
     <Compile Include="Enums\ReplyResult.cs" />
     <Compile Include="Enums\RequestFlag.cs" />

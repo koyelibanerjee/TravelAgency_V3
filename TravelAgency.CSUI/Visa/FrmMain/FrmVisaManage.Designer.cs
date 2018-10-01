@@ -152,6 +152,7 @@
             this.Tips = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tips2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OutPlace = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Visa_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -297,6 +298,7 @@
             this.Tips,
             this.Tips2,
             this.OutPlace,
+            this.Price,
             this.Visa_id});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -1429,6 +1431,13 @@
             this.OutPlace.Name = "OutPlace";
             this.OutPlace.ReadOnly = true;
             // 
+            // Price
+            // 
+            this.Price.DataPropertyName = "Price";
+            this.Price.HeaderText = "Price";
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            // 
             // Visa_id
             // 
             this.Visa_id.DataPropertyName = "Visa_id";
@@ -1583,6 +1592,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Tips;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tips2;
         private System.Windows.Forms.DataGridViewTextBoxColumn OutPlace;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn Visa_id;
     }
 }

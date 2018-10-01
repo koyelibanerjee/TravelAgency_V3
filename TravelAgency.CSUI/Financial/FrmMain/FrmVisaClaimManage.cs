@@ -302,7 +302,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             }
 
             SearchCondition.GetVisaTypesCondition(conditions, cbDisplayType.Text);
-            SearchCondition.GetVisaPaymentNoCondion(conditions, txtPaymentNo.Text);
+            SearchCondition.GetFuzzyQueryCondition(conditions, "PaymentNo",txtPaymentNo.Text);
             string timeType;
             if (cbSchTimeType.Text == "录入时间")
             {
