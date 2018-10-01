@@ -35,6 +35,10 @@ namespace TravelAgency.Common.Tests
         public void GetNextWorkDateTest()
         {
            var date =  DateTimeFormator.GetNextWorkDate(DateTime.Now.AddDays(1));
+
+            string str = null;
+            Console.WriteLine(str);
+
         }
     }
 }

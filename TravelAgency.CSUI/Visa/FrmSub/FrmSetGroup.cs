@@ -1220,7 +1220,7 @@ namespace TravelAgency.CSUI.FrmSub
                 _visaModel.PredictTime = CtrlParser.Parse2Datetime(txtPredictTime); //20180917修改为使用PredictTime
                 _visaModel.PeiQianYuan = CtrlParser.Parse2String(txtPeiQianYuan);
                 _visaModel.QuQianYuan = CtrlParser.Parse2String(txtQuQianYuan);
-                
+
 
                 _visaModel.ForRequestGroupNo = false;
                 _visaModel.District = GlobalUtils.LoginUser.District;
@@ -1560,11 +1560,20 @@ namespace TravelAgency.CSUI.FrmSub
         {
             UpdateGroupNo();
             SetCountryPicBox();
-
             UpdateDepartureTypeCombobox();
-
+            UpdateTxtPredictTime();
         }
 
+        private void UpdateTxtPredictTime()
+        {
+            if (cbCountry.Text == "日本")
+                txtPredictTime.Enabled = true;
+            else
+            {
+                txtPredictTime.Text = "";
+                txtPredictTime.Enabled = false;
+            }
+        }
 
 
         /// <summary>
@@ -1805,7 +1814,7 @@ namespace TravelAgency.CSUI.FrmSub
 
         private void txtPredictTime_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtPredictTime.Text) || _initFromVisaModel)
+            if (cbCountry.Text != "日本" || string.IsNullOrEmpty(txtPredictTime.Text) || _initFromVisaModel)
                 return;
 
             DateTime date = DateTime.Parse(txtPredictTime.Text).Date;
