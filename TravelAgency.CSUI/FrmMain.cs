@@ -281,5 +281,11 @@ namespace TravelAgency.CSUI.FrmMain
             FrmVisaClaimManage frm = new FrmVisaClaimManage();
             OpenTab(frm, frm.Name);
         }
+
+        private void btnDeniedVisaInfoManage_Click(object sender, EventArgs e)
+        {
+            FrmDeniedVisaInfoManage frm = new FrmDeniedVisaInfoManage();
+            OpenTab(frm, frm.Name);
+        }
     }
 }

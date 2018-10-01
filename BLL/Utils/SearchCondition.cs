@@ -63,7 +63,7 @@ namespace TravelAgency.BLL
         public static void GetSpanQueryCondition(List<string> conditionsList, string fieldName, string value1, string value2)
         {
             if (!string.IsNullOrEmpty(value1.Trim()) && !string.IsNullOrEmpty(value2.Trim()))
-                conditionsList.Add(" ({fieldName} between '{value1}' and '{value2}') ");
+                conditionsList.Add($" ({fieldName} between '{value1}' and '{value2}') ");
         }
 
 

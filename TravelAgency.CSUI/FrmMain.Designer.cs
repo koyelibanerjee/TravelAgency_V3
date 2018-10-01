@@ -72,6 +72,7 @@
             this.btnMCloseOther = new System.Windows.Forms.ToolStripMenuItem();
             this.styleManager1 = new DevComponents.DotNetBar.StyleManager(this.components);
             this.btnFrmGaoPaiManage = new DevComponents.DotNetBar.ButtonItem();
+            this.btnDeniedVisaInfoManage = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonControl1.SuspendLayout();
             this.ribbonPanel3.SuspendLayout();
             this.ribbonPanel5.SuspendLayout();
@@ -89,8 +90,8 @@
             this.ribbonControl1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.ribbonControl1.Controls.Add(this.ribbonPanel3);
             this.ribbonControl1.Controls.Add(this.ribbonPanel5);
-            this.ribbonControl1.Controls.Add(this.ribbonPanel2);
             this.ribbonControl1.Controls.Add(this.ribbonPanel1);
+            this.ribbonControl1.Controls.Add(this.ribbonPanel2);
             this.ribbonControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.ribbonControl1.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
             this.ribbonTabItem3,
@@ -181,10 +182,11 @@
             this.btnScanFrm,
             this.btnGPManage,
             this.btnJiaoJiePicManage,
-            this.btnJobAssignment});
+            this.btnJobAssignment,
+            this.btnDeniedVisaInfoManage});
             this.ribbonBar2.Location = new System.Drawing.Point(3, 0);
             this.ribbonBar2.Name = "ribbonBar2";
-            this.ribbonBar2.Size = new System.Drawing.Size(585, 58);
+            this.ribbonBar2.Size = new System.Drawing.Size(804, 58);
             this.ribbonBar2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.ribbonBar2.TabIndex = 0;
             this.ribbonBar2.Text = "ribbonBar2";
@@ -701,6 +703,16 @@
             this.btnFrmGaoPaiManage.SubItemsExpandWidth = 14;
             this.btnFrmGaoPaiManage.Text = "高排图像管理";
             // 
+            // btnDeniedVisaInfoManage
+            // 
+            this.btnDeniedVisaInfoManage.Icon = ((System.Drawing.Icon)(resources.GetObject("btnDeniedVisaInfoManage.Icon")));
+            this.btnDeniedVisaInfoManage.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
+            this.btnDeniedVisaInfoManage.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnDeniedVisaInfoManage.Name = "btnDeniedVisaInfoManage";
+            this.btnDeniedVisaInfoManage.SubItemsExpandWidth = 14;
+            this.btnDeniedVisaInfoManage.Text = "拒签管理";
+            this.btnDeniedVisaInfoManage.Click += new System.EventHandler(this.btnDeniedVisaInfoManage_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -769,5 +781,6 @@
         private DevComponents.DotNetBar.ButtonItem btnBackUp;
         private DevComponents.DotNetBar.RibbonBar ribbonBar6;
         private DevComponents.DotNetBar.ButtonItem btnClaimManage;
+        private DevComponents.DotNetBar.ButtonItem btnDeniedVisaInfoManage;
     }
 }

@@ -11,11 +11,13 @@ using TravelAgency.BLL.Excel;
 using TravelAgency.BLL.FTPFileHandler;
 using TravelAgency.Common;
 using TravelAgency.Common.Enums;
+using TravelAgency.Common.FrmSetValues;
 using TravelAgency.Common.QRCode;
 using TravelAgency.Common.Word;
 using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Properties;
 using TravelAgency.Model.Enums;
+using DeniedVisaInfo = TravelAgency.Model.DeniedVisaInfo;
 using VisaInfo = TravelAgency.Model.VisaInfo;
 
 namespace TravelAgency.CSUI.FrmMain
@@ -154,7 +156,7 @@ namespace TravelAgency.CSUI.FrmMain
             _init = true;
         }
 
- 
+
 
         private void DataGridView1_SelectionChanged(object sender, EventArgs e)
         {
@@ -918,7 +920,7 @@ namespace TravelAgency.CSUI.FrmMain
                     return;
                 }
             }
-           
+
 
             FrmGroupOrIndividual frmGroupOrIndividual = new FrmGroupOrIndividual(list, LoadDataToDataGridView, _curPage);
             if (frmGroupOrIndividual.ShowDialog() == DialogResult.Cancel)
@@ -1512,6 +1514,29 @@ namespace TravelAgency.CSUI.FrmMain
                 sb.Append(MyQRCode.GenQrInfo(visaInfo) + "\r\n");
             }
             Clipboard.SetText(sb.ToString());
+        }
+
+        private void 添加到拒签名单ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var list = GetDgvSelList();
+            Common.FrmSetValues.FrmSetStringValueComboBox frm = new FrmSetStringValueComboBox("设置拒签原因", Model.Enums.DenyReason.ValueList);
+            if (frm.ShowDialog() == DialogResult.Cancel)
+                return;
+            List<Model.DeniedVisaInfo> deniedVisaInfos = new List<DeniedVisaInfo>();
+            foreach (var visaInfo in list)
+            {
+                Model.DeniedVisaInfo model = new Model.DeniedVisaInfo();
+                model.DenyReason = frm.RetValue;
+                model.EntryTime = DateTime.Now;
+                model.Name = visaInfo.Name;
+                model.PassportNo = visaInfo.PassportNo;
+                model.OperatorName = GlobalUtils.LoginUser.UserName;
+                model.OperatorWorkId = GlobalUtils.LoginUser.WorkId;
+                deniedVisaInfos.Add(model);
+            }
+            int n = new BLL.DeniedVisaInfo().AddList(deniedVisaInfos);
+            GlobalUtils.MessageBoxWithRecordNum("设置拒签", n, deniedVisaInfos.Count);
+
         }
     }
 }

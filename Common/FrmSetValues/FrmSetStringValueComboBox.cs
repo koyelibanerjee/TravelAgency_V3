@@ -1,14 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TravelAgency.CSUI.Visa.FrmSub.FrmSetValue
+namespace TravelAgency.Common.FrmSetValues
 {
     public partial class FrmSetStringValueComboBox : Form
     {
@@ -31,9 +25,7 @@ namespace TravelAgency.CSUI.Visa.FrmSub.FrmSetValue
             this.Text = headertext;
             comboBoxEx1.Text = value;
             foreach (var item in cbItems)
-            {
                 comboBoxEx1.Items.Add(item);
-            }
         }
 
         private void FrmSetStringValueComboBox_Load(object sender, EventArgs e)

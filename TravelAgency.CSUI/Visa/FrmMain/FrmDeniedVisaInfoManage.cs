@@ -14,7 +14,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 {
     public partial class FrmDeniedVisaInfoManage : Form
     {
-        private readonly TravelAgency.BLL.VisaInfo _bllVisaInfo = new TravelAgency.BLL.VisaInfo();
+        private readonly TravelAgency.BLL.DeniedVisaInfo _bllDeniedVisaInfo = new TravelAgency.BLL.DeniedVisaInfo();
         private int _curPage = 1;
         private int _pageCount = 0;
         private int _pageSize = 0;
@@ -63,13 +63,13 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         /// 获取选中项的list
         /// </summary>
         /// <returns></returns>
-        private List<Model.VisaInfo> GetDgvSelList()
+        private List<Model.DeniedVisaInfo> GetDgvSelList()
         {
             int count = this.dataGridView1.SelectedRows.Count;
-            List<Model.VisaInfo> list = new List<VisaInfo>();
+            List<Model.DeniedVisaInfo> list = new List<Model.DeniedVisaInfo>();
             for (int i = count - 1; i >= 0; --i)
             {
-                Model.VisaInfo model = (dataGridView1.DataSource as List<VisaInfo>)[dataGridView1.SelectedRows[i].Index];
+                Model.DeniedVisaInfo model = (dataGridView1.DataSource as List<Model.DeniedVisaInfo>)[dataGridView1.SelectedRows[i].Index];
                 if (model != null)
                     list.Add(model);
             }
@@ -81,12 +81,12 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         public void LoadDataToDataGridView(int page) //刷新后保持选中
         {
             _where = GetWhereCondition();
-            var selRows = SelectionKeeper.GetSelectedGuids(dataGridView1, "Visainfo_id");
+            var selRows = SelectionKeeper.GetSelectedGuids(dataGridView1, "Id");
             int rowsCnt, rowIdx, colIdx;
             SelectionKeeper.GetSelectedPos(dataGridView1, out rowsCnt, out rowIdx, out colIdx);
 
-            dataGridView1.DataSource = _bllVisaInfo.GetListByPageOrderByGroupNo(page, _pageSize, _where);
-            SelectionKeeper.RestoreSelection(selRows, dataGridView1, "Visainfo_id");
+            dataGridView1.DataSource = _bllDeniedVisaInfo.GetListByPageOrderByPK(page, _pageSize, _where);
+            SelectionKeeper.RestoreSelection(selRows, dataGridView1, "Id");
             SelectionKeeper.RestoreSelectedPos(dataGridView1, rowsCnt, rowIdx, colIdx);
             dataGridView1.Update();
             
@@ -95,7 +95,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         private void UpdateState()
         {
             _where = GetWhereCondition();
-            _recordCount = _bllVisaInfo.GetRecordCount(_where);
+            _recordCount = _bllDeniedVisaInfo.GetRecordCount(_where);
             _pageCount = (int)Math.Ceiling((double)_recordCount / (double)_pageSize);
             if (_curPage == 1)
                 btnPagePre.Enabled = false;
@@ -251,9 +251,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 return;
             }
 
-            if (dataGridView1.CurrentCell.Value == null)
-                Clipboard.SetText(string.Empty);
-            else
+            if (dataGridView1.CurrentCell.Value != null)
                 Clipboard.SetText(dataGridView1.CurrentCell.Value.ToString());
         }
 
@@ -283,24 +281,10 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             int count = this.dataGridView1.SelectedRows.Count;
             if (MessageBoxEx.Show("确认删除" + count + "条记录?", Resources.Confirm, MessageBoxButtons.OKCancel) == DialogResult.Cancel)
                 return;
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i != count; ++i)
-            {
-                sb.Append("'");
-                sb.Append(dataGridView1.SelectedRows[i].Cells["Id"].Value);
-                sb.Append("'");
-                if (i == count - 1)
-                    break;
-                sb.Append(",");
-            }
-
-            bool b = _bllVisaInfo.DeleteList(sb.ToString());
+            bool b = _bllDeniedVisaInfo.DeleteList(GetDgvSelList());
             GlobalUtils.MessageBoxWithRecordNum("删除", b ? count : 0, count);
-            LoadDataToDataGridView(_curPage);
-            UpdateState();
+            LoadDataToDgvAsyn();
         }
-
-
         #endregion
 
 

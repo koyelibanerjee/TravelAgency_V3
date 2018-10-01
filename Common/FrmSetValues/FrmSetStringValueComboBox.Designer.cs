@@ -1,4 +1,4 @@
-﻿namespace TravelAgency.CSUI.Visa.FrmSub.FrmSetValue
+﻿namespace TravelAgency.Common.FrmSetValues
 {
     partial class FrmSetStringValueComboBox
     {

@@ -136,6 +136,7 @@
     <Compile Include="DeniedVisaInfo.cs" />
     <Compile Include="Enums\ActType.cs" />
     <Compile Include="Enums\AirInfos.cs" />
+    <Compile Include="Enums\DenyReason.cs" />
     <Compile Include="Enums\DepartureType.cs" />
     <Compile Include="Enums\District.cs" />
     <Compile Include="Enums\HasChecked.cs" />
