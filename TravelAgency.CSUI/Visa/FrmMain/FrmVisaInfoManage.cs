@@ -1324,19 +1324,8 @@ namespace TravelAgency.CSUI.FrmMain
                 MessageBoxEx.Show("请选中一条记录复制!");
                 return;
             }
-            string name = dataGridView1.Columns[dataGridView1.CurrentCell.ColumnIndex].Name;
-            if (name == "CountryImage")
-            {
-                return;
-            }
-            if ((name == "EntryTime" || name == "BirthDay" || name == "LicenceTime" || name == "ExpiryDate")
-                && dataGridView1.CurrentCell.Value != null) //归国时间的列,是datetime类型,单独判断
-            {
-                Clipboard.SetText(DateTimeFormator.DateTimeToString((DateTime)dataGridView1.CurrentCell.Value));
-                return;
-            }
 
-            if (!string.IsNullOrEmpty((string)dataGridView1.CurrentCell.Value.ToString()))
+            if (dataGridView1.CurrentCell.Value != null)
                 Clipboard.SetText(dataGridView1.CurrentCell.Value.ToString());
         }
 

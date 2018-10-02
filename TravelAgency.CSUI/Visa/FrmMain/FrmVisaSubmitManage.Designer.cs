@@ -293,12 +293,12 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -720,6 +720,7 @@
             // 
             this.cbDistrict.DisplayMember = "Text";
             this.cbDistrict.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbDistrict.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbDistrict.FormattingEnabled = true;
             this.cbDistrict.ItemHeight = 15;
             this.cbDistrict.Location = new System.Drawing.Point(269, 5);
@@ -744,6 +745,7 @@
             // 
             this.cbSchTimeType.DisplayMember = "Text";
             this.cbSchTimeType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbSchTimeType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbSchTimeType.FormattingEnabled = true;
             this.cbSchTimeType.ItemHeight = 15;
             this.cbSchTimeType.Location = new System.Drawing.Point(7, 34);
@@ -809,6 +811,7 @@
             // 
             this.cbDepatureType.DisplayMember = "Text";
             this.cbDepatureType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbDepatureType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbDepatureType.FormattingEnabled = true;
             this.cbDepatureType.ItemHeight = 15;
             this.cbDepatureType.Location = new System.Drawing.Point(638, 5);
@@ -857,6 +860,7 @@
             // 
             this.cbState.DisplayMember = "Text";
             this.cbState.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbState.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbState.FormattingEnabled = true;
             this.cbState.ItemHeight = 15;
             this.cbState.Location = new System.Drawing.Point(666, 32);
@@ -881,6 +885,7 @@
             // 
             this.cbCountry.DisplayMember = "Text";
             this.cbCountry.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbCountry.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbCountry.FormattingEnabled = true;
             this.cbCountry.ItemHeight = 15;
             this.cbCountry.Location = new System.Drawing.Point(535, 33);
@@ -905,6 +910,7 @@
             // 
             this.cbIsUrgent.DisplayMember = "Text";
             this.cbIsUrgent.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbIsUrgent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbIsUrgent.FormattingEnabled = true;
             this.cbIsUrgent.ItemHeight = 15;
             this.cbIsUrgent.Location = new System.Drawing.Point(507, 8);
@@ -954,6 +960,7 @@
             // 
             this.cbDisplayType.DisplayMember = "Text";
             this.cbDisplayType.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbDisplayType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbDisplayType.FormattingEnabled = true;
             this.cbDisplayType.ItemHeight = 15;
             this.cbDisplayType.Location = new System.Drawing.Point(376, 6);

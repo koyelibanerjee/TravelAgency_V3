@@ -1461,17 +1461,7 @@ namespace TravelAgency.CSUI.FrmMain
                 return;
             }
 
-            string name = dataGridView1.Columns[dataGridView1.CurrentCell.ColumnIndex].Name;
-            if (name == "CountryImage")
-                return;
-            if ((name == "EntryTime" || name == "PredictTime")
-                && dataGridView1.CurrentCell.Value != null) //归国时间的列,是datetime类型,单独判断
-            {
-                Clipboard.SetText(DateTimeFormator.DateTimeToString((DateTime)dataGridView1.CurrentCell.Value));
-                return;
-            }
-
-            if (!string.IsNullOrEmpty((string)dataGridView1.CurrentCell.Value.ToString()))
+            if (dataGridView1.CurrentCell.Value != null)
                 Clipboard.SetText(dataGridView1.CurrentCell.Value.ToString());
         }
 
