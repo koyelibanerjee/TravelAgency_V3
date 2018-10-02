@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TravelAgency.Common;
+using TravelAgency.Model.Enums;
 
 namespace TravelAgency.BLL
 {
@@ -54,6 +56,12 @@ namespace TravelAgency.BLL
                 conditionsList.Add(condition);
         }
 
+        public static void GetDistrictCondition(List<string> conditions, string value, string except = "全部")
+        {
+            if (value != "全部")
+                conditions.Add($" (district  = {District.value2Key(value)}) ");
+        }
+
         public static void GetFuzzyQueryCondition(List<string> conditionsList, string fieldName, string value)
         {
             if (!string.IsNullOrEmpty(value.Trim()))
@@ -64,6 +72,12 @@ namespace TravelAgency.BLL
         {
             if (!string.IsNullOrEmpty(value1.Trim()) && !string.IsNullOrEmpty(value2.Trim()))
                 conditionsList.Add($" ({fieldName} between '{value1}' and '{value2}') ");
+        }
+
+        public static void GetPreciseQueryCondition(List<string> conditionsList, string fieldName, string value, string except = "全部")
+        {
+            if (!string.IsNullOrEmpty(value.Trim()) && value != except)
+                conditionsList.Add($" ({fieldName} = '{value}') ");
         }
 
 

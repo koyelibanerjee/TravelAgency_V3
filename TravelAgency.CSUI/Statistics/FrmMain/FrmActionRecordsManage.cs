@@ -337,35 +337,12 @@ namespace TravelAgency.CSUI.Statistics.FrmMain
         private string GetWhereCondition()
         {
             List<string> conditions = new List<string>();
-
-            if (!string.IsNullOrEmpty(txtSchName.Text.Trim()))
-            {
-                conditions.Add(" (UserName like  '%" + txtSchName.Text + "%') ");
-            }
-
-            if (!string.IsNullOrEmpty(txtWorkId.Text.Trim()))
-            {
-                conditions.Add(" (WorkId like  '%" + txtWorkId.Text + "%') ");
-            }
-
-            if (cbActType.Text == "全部")
-            {
-
-            }
-            else
-            {
-                conditions.Add(" (ActType like  '%" + cbActType.Text + "%') ");
-            }
-
-            if (!string.IsNullOrEmpty(txtSchEntryTimeFrom.Text.Trim()) && !string.IsNullOrEmpty(txtSchEntryTimeTo.Text.Trim()))
-            {
-                conditions.Add(" (EntryTime between '" + txtSchEntryTimeFrom.Text + "' and " + " '" + txtSchEntryTimeTo.Text +
-                               "') ");
-            }
-            DistrictCondAppender.AddDistrictCondition(condi: conditions);
-            string[] arr = conditions.ToArray();
-            string where = string.Join(" and ", arr);
-            return where;
+            SearchCondition.GetFuzzyQueryCondition(conditions, "UserName", txtSchName.Text);
+            SearchCondition.GetFuzzyQueryCondition(conditions, "WorkId", txtWorkId.Text);
+            SearchCondition.GetPreciseQueryCondition(conditions, "ActType", cbActType.Text, "全部");
+            SearchCondition.GetSpanQueryCondition(conditions, "EntryTime", txtSchEntryTimeFrom.Text, txtSchEntryTimeTo.Text);
+            SearchCondition.GetDistrictCondition(conditions, "全部", "全部");
+            return SearchCondition.GetSearchConditon(conditions);
         }
 
         private void btnClearSchConditions_Click(object sender, EventArgs e)
@@ -623,7 +600,7 @@ namespace TravelAgency.CSUI.Statistics.FrmMain
             }
 
             bool b = _bllVisaInfo.DeleteList(sb.ToString());
-            GlobalUtils.MessageBoxWithRecordNum("删除", b?count:0, count);
+            GlobalUtils.MessageBoxWithRecordNum("删除", b ? count : 0, count);
             LoadDataToDataGridView(_curPage);
             UpdateState();
         }
@@ -922,7 +899,7 @@ namespace TravelAgency.CSUI.Statistics.FrmMain
 
         }
 
-  
+
 
 
         private void 添加到送签统计ToolStripMenuItem_Click(object sender, EventArgs e)

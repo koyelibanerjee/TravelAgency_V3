@@ -428,39 +428,12 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         {
             List<string> conditions = new List<string>();
             SearchCondition.GetVisaTypesCondition(conditions, cbDisplayType.Text);
+            SearchCondition.GetFuzzyQueryCondition(conditions, "PassportNo", txtSchPassportNo.Text);
+            SearchCondition.GetFuzzyQueryCondition(conditions, "Name", txtSchName.Text);
+            SearchCondition.GetFuzzyQueryCondition(conditions, "GroupNo", txtSchGroupNo.Text);
 
-            if (!string.IsNullOrEmpty(txtSchPassportNo.Text.Trim()))
-            {
-                conditions.Add(" (PassportNo like '%" + txtSchPassportNo.Text + "%') ");
-            }
-
-            if (!string.IsNullOrEmpty(txtSchName.Text.Trim()))
-            {
-                conditions.Add(" (Name like  '%" + txtSchName.Text + "%') ");
-            }
-
-            if (!string.IsNullOrEmpty(txtSchGroupNo.Text.Trim()))
-            {
-                conditions.Add(" (GroupNo like '%" + txtSchGroupNo.Text + "%') ");
-            }
-
-            if (!string.IsNullOrEmpty(txtSchEntryTimeFrom.Text.Trim()) && !string.IsNullOrEmpty(txtSchEntryTimeTo.Text.Trim()))
-            {
-                conditions.Add(" (EntryTime between '" + txtSchEntryTimeFrom.Text + "' and " + " '" + txtSchEntryTimeTo.Text +
-                               "') ");
-            }
-
-
-
-            if (cbAssignmentToUserName.Text == "全部")
-            {
-
-            }
-            else
-            {
-                conditions.Add(" AssignmentToUserName = '" + cbAssignmentToUserName.Text + "' ");
-            }
-
+            SearchCondition.GetSpanQueryCondition(conditions, "EntryTime", txtSchEntryTimeFrom.Text, txtSchEntryTimeTo.Text);
+            SearchCondition.GetPreciseQueryCondition(conditions, "AssignmentToUserName", cbAssignmentToUserName.Text, "全部");
 
             if (cbState.Text == "全部")
             {
@@ -482,19 +455,10 @@ namespace TravelAgency.CSUI.Visa.FrmMain
                 conditions.Add(" HasTypeIn = '取' ");
             }
 
-
-
-            //conditions.Add(" HasTypeIn = '否' "); //默认只显示还未做的
-            conditions.Add(" Country = '" + "日本" + "' ");
-            conditions.Add(" Types in ('个签','商务','团做个')");
-            if (cbDistrict.Text != "全部")
-            {
-                conditions.Add($" district  = {District.value2Key(cbDistrict.Text)} ");
-            }
-
-            string[] arr = conditions.ToArray();
-            string where = string.Join(" and ", arr);
-            return where;
+            conditions.Add(" (Country = '" + "日本" + "') ");
+            conditions.Add(" (Types in ('个签','商务','团做个'))");
+            SearchCondition.GetDistrictCondition(conditions, cbDistrict.Text, "全部");
+            return SearchCondition.GetSearchConditon(conditions);
         }
 
         private void btnClearSchConditions_Click(object sender, EventArgs e)

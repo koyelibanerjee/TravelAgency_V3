@@ -435,76 +435,26 @@ namespace TravelAgency.CSUI.FrmMain
         {
             List<string> conditions = new List<string>();
             SearchCondition.GetVisaTypesCondition(conditions, cbDisplayType.Text);
+            SearchCondition.GetFuzzyQueryCondition(conditions, "PassportNo", txtSchPassportNo.Text);
+            SearchCondition.GetFuzzyQueryCondition(conditions, "Name", txtSchName.Text);
+            SearchCondition.GetFuzzyQueryCondition(conditions, "GroupNo", txtSchGroupNo.Text);
+            SearchCondition.GetFuzzyQueryCondition(conditions, "Phone", txtCall.Text);
+            SearchCondition.GetFuzzyQueryCondition(conditions, "Salesperson", txtSalesPerson.Text);
+            SearchCondition.GetFuzzyQueryCondition(conditions, "Client", txtClient.Text);
 
-            if (!string.IsNullOrEmpty(txtSchPassportNo.Text.Trim()))
-            {
-                conditions.Add(" (PassportNo like '%" + txtSchPassportNo.Text + "%') ");
-            }
+            SearchCondition.GetPreciseQueryCondition(conditions, "Country", cbCountry.Text, "全部");
+            SearchCondition.GetPreciseQueryCondition(conditions, "outState", cbOutState.Text, "全部");
 
-            if (!string.IsNullOrEmpty(txtSchName.Text.Trim()))
-            {
-                conditions.Add(" (Name like  '%" + txtSchName.Text + "%') ");
-            }
-
-            if (!string.IsNullOrEmpty(txtSchGroupNo.Text.Trim()))
-            {
-                conditions.Add(" (GroupNo like '%" + txtSchGroupNo.Text + "%') ");
-            }
-
-            if (!string.IsNullOrEmpty(txtSchEntryTimeFrom.Text.Trim()) && !string.IsNullOrEmpty(txtSchEntryTimeTo.Text.Trim()))
-            {
-                conditions.Add(" (EntryTime between '" + txtSchEntryTimeFrom.Text + "' and " + " '" + txtSchEntryTimeTo.Text +
-                               "') ");
-            }
-
-            if (!string.IsNullOrEmpty(txtCall.Text.Trim()))
-            {
-                conditions.Add(" (Phone like '%" + txtCall.Text + "%') ");
-            }
-
-            if (cbCountry.Text == "全部")
-            {
-
-            }
-            else
-            {
-                conditions.Add(" Country = '" + cbCountry.Text + "' ");
-            }
-
-            if (!string.IsNullOrEmpty(txtSalesPerson.Text.Trim()))
-            {
-                conditions.Add(" (Salesperson like '%" + txtSalesPerson.Text + "%') ");
-            }
-
-            if (!string.IsNullOrEmpty(txtClient.Text.Trim()))
-            {
-                conditions.Add(" (Client like '%" + txtClient.Text + "%') ");
-            }
-
-            if (cbOutState.Text == "全部")
-            {
-
-            }
-            else
-            {
-                conditions.Add(" outState = '" + cbOutState.Text + "' ");
-            }
+            SearchCondition.GetSpanQueryCondition(conditions, "EntryTime", txtSchEntryTimeFrom.Text, txtSchEntryTimeTo.Text);
+            
 
             if (btnOnlyShowMe.Value == true)
-            {
                 conditions.Add(" AssignmentToWorkId = '" + GlobalUtils.LoginUser.WorkId + "' ");
-                //conditions.Add(" Country = '" + "日本" + "' ");
-            }
 
             if (btnOnlyShowNotDone.Value == true)
-            {
                 conditions.Add(" HasTypeIn = '否' ");
-            }
 
-
-            string[] arr = conditions.ToArray();
-            string where = string.Join(" and ", arr);
-            return where;
+            return SearchCondition.GetSearchConditon(conditions);
         }
 
         private void btnClearSchConditions_Click(object sender, EventArgs e)

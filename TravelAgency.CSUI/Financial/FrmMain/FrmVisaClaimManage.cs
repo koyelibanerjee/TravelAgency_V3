@@ -295,84 +295,28 @@ namespace TravelAgency.CSUI.Financial.FrmMain
         private string GetWhereCondition()
         {
             List<string> conditions = new List<string>();
-
-            if (!string.IsNullOrEmpty(txtSchGroupNo.Text.Trim()))
-            {
-                conditions.Add(" (GroupNo like '%" + txtSchGroupNo.Text + "%') ");
-            }
-
             SearchCondition.GetVisaTypesCondition(conditions, cbDisplayType.Text);
-            SearchCondition.GetFuzzyQueryCondition(conditions, "PaymentNo",txtPaymentNo.Text);
-            string timeType;
+            SearchCondition.GetFuzzyQueryCondition(conditions, "PaymentNo", txtPaymentNo.Text);
+            SearchCondition.GetFuzzyQueryCondition(conditions, "GroupNo", txtSchGroupNo.Text);
+            SearchCondition.GetFuzzyQueryCondition(conditions, "Salesperson", txtSalesPerson.Text);
+            SearchCondition.GetFuzzyQueryCondition(conditions, "Client", txtClient.Text);
+            SearchCondition.GetPreciseQueryCondition(conditions, "Country", cbCountry.Text, "全部");
+            SearchCondition.GetPreciseQueryCondition(conditions, "DepartureType", cbDepatureType.Text, "全部");
+            SearchCondition.GetPreciseQueryCondition(conditions, "ClaimedFlag", cbClaimedFlag.Text, "全部");
             if (cbSchTimeType.Text == "录入时间")
-            {
-                timeType = "EntryTime";
-                if (!string.IsNullOrEmpty(txtSchTimeFrom.Text.Trim()) &&
-                    !string.IsNullOrEmpty(txtSchTimeTo.Text.Trim()))
-                {
-                    conditions.Add(" (" + timeType + " between '" + txtSchTimeFrom.Text + "' and " + " '" +
-                                   txtSchTimeTo.Text +
-                                   "') ");
-                }
-            }
-
+                SearchCondition.GetSpanQueryCondition(conditions, "EntryTime", txtSchTimeFrom.Text, txtSchTimeTo.Text);
             else
             {
+                string timeType;
                 if (cbSchTimeType.Text == "进签时间")
                     timeType = "RealTime";
                 else
                     timeType = "FinishTime";
-                if (!string.IsNullOrEmpty(txtSchTimeFrom.Text.Trim()) &&
-                    !string.IsNullOrEmpty(txtSchTimeTo.Text.Trim()))
-                {
-                    conditions.Add(" (" + timeType + " between '" + txtSchTimeFrom.Text + " 00:00' and " + " '" +
-                                   txtSchTimeTo.Text +
-                                   " 23:59:59') ");
-                }
+                if (!string.IsNullOrEmpty(txtSchTimeFrom.Text) && !string.IsNullOrEmpty(txtSchTimeTo.Text))
+                    SearchCondition.GetSpanQueryCondition(conditions, timeType, DateTime.Parse(txtSchTimeFrom.Text).Date.ToShortDateString() + " 00:00:00 ", DateTime.Parse(txtSchTimeTo.Text).Date.ToShortDateString() + " 23:59:59 ");
             }
-
-
-            if (cbCountry.Text == "全部")
-            {
-
-            }
-            else
-            {
-                conditions.Add(" Country = '" + cbCountry.Text + "' ");
-            }
-
-            if (!string.IsNullOrEmpty(txtSalesPerson.Text.Trim()))
-            {
-                conditions.Add(" (Salesperson like '%" + txtSalesPerson.Text + "%') ");
-            }
-
-            if (!string.IsNullOrEmpty(txtClient.Text.Trim()))
-            {
-                conditions.Add(" (Client like '%" + txtClient.Text + "%') ");
-            }
-
-            if (cbDepatureType.Text == "全部")
-            {
-
-            }
-            else
-            {
-                conditions.Add(" DepartureType = '" + cbDepatureType.Text + "' ");
-            }
-
-            if (cbClaimedFlag.Text == "全部")
-            {
-
-            }
-            else
-            {
-                conditions.Add(" (ClaimedFlag ='" + cbClaimedFlag.Text + "')"); //
-            }
-
             conditions.Add(" (ForRequestGroupNo = 0) ");
-            string[] arr = conditions.ToArray();
-            string where = string.Join(" and ", arr);
-            return where;
+            return SearchCondition.GetSearchConditon(conditions);
         }
 
         private void btnClearSchConditions_Click(object sender, EventArgs e)
@@ -798,7 +742,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
         private void lbShowCustomerBalance_Click(object sender, EventArgs e)
         {
-            FrmCustomerBalance frm = new FrmCustomerBalance("",0,"",true);
+            FrmCustomerBalance frm = new FrmCustomerBalance("", 0, "", true);
             frm.Show();
         }
     }

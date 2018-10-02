@@ -210,11 +210,8 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            //_where = GetWhereCondition();
-
             _curPage = 1;
             LoadDataToDgvAsyn();
-
         }
 
         private void btnClearSchConditions_Click(object sender, EventArgs e)

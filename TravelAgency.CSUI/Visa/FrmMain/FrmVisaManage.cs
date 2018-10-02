@@ -283,79 +283,30 @@ namespace TravelAgency.CSUI.FrmMain
         {
             List<string> conditions = new List<string>();
             SearchCondition.GetVisaTypesCondition(conditions, cbDisplayType.Text);
+            SearchCondition.GetFuzzyQueryCondition(conditions, "GroupNo", txtSchGroupNo.Text);
 
-            if (!string.IsNullOrEmpty(txtSchGroupNo.Text.Trim()))
-            {
-                conditions.Add(" (GroupNo like '%" + txtSchGroupNo.Text + "%') ");
-            }
+            SearchCondition.GetSpanQueryCondition(conditions, "EntryTime", txtSchEntryTimeFrom.Text, txtSchEntryTimeTo.Text);
 
-            if (!string.IsNullOrEmpty(txtSchEntryTimeFrom.Text.Trim()) && !string.IsNullOrEmpty(txtSchEntryTimeTo.Text.Trim()))
-            {
-                conditions.Add(" (EntryTime between '" + txtSchEntryTimeFrom.Text + "' and " + " '" + txtSchEntryTimeTo.Text +
-                               "') ");
-            }
 
             if (cbIsUrgent.Text == "全部")
             {
             }
             else if (cbIsUrgent.Text == "是")
-            {
-                conditions.Add(" isurgent = 1 ");
-            }
+                conditions.Add(" (isurgent = 1) ");
             else if (cbIsUrgent.Text == "否")
-            {
-                conditions.Add(" isurgent = 0 or isurgent is null ");
-            }
+                conditions.Add(" (isurgent = 0 or isurgent is null) ");
 
-            if (cbCountry.Text == "全部")
-            {
+            SearchCondition.GetPreciseQueryCondition(conditions, "Country", cbCountry.Text, "全部");
+            SearchCondition.GetPreciseQueryCondition(conditions, "DepartureType", cbDepatureType.Text, "全部");
 
-            }
-            else
-            {
-                conditions.Add(" Country = '" + cbCountry.Text + "' ");
-            }
-
-            if (!string.IsNullOrEmpty(txtSalesPerson.Text.Trim()))
-            {
-                conditions.Add(" (Salesperson like '%" + txtSalesPerson.Text + "%') ");
-            }
-
-            if (!string.IsNullOrEmpty(txtClient.Text.Trim()))
-            {
-                conditions.Add(" (Client like '%" + txtClient.Text + "%') ");
-            }
-
-            if (!string.IsNullOrEmpty(txtOperator.Text.Trim()))
-            {
-                conditions.Add(" (Operator like '%" + txtOperator.Text + "%') ");
-            }
-
-            if (!string.IsNullOrEmpty(txtTypeInPerson.Text.Trim()))
-            {
-                conditions.Add(" (TypeInPerson like '%" + txtTypeInPerson.Text + "%') ");
-            }
-
-            if (cbDepatureType.Text == "全部")
-            {
-
-            }
-            else
-            {
-                conditions.Add(" DepartureType = '" + cbDepatureType.Text + "' ");
-            }
-
+            SearchCondition.GetFuzzyQueryCondition(conditions, "Salesperson", txtSalesPerson.Text);
+            SearchCondition.GetFuzzyQueryCondition(conditions, "Client", txtClient.Text);
+            SearchCondition.GetFuzzyQueryCondition(conditions, "Operator", txtOperator.Text);
+            SearchCondition.GetFuzzyQueryCondition(conditions, "TypeInPerson", txtTypeInPerson.Text);
             if (cbDistrict.Text != "全部")
-            {
-                conditions.Add($" (district  = {District.value2Key(cbDistrict.Text)} or OutDeliveryPlace = '{cbDistrict.Text}') ");
-            }
-
-
+                conditions.Add($" (district  = {District.value2Key(cbDistrict.Text)} or OutDeliveryPlace = '{cbDistrict.Text}') "); //因为visa才有OutDeliveryPlace字段，因此不抽取公共方法这里
             conditions.Add(" (ForRequestGroupNo = 0 or ForRequestGroupNo is null) ");
-            //DistrictCondAppender.AddDistrictCondition(conditions);
-            string[] arr = conditions.ToArray();
-            string where = string.Join(" and ", arr);
-            return where;
+            return SearchCondition.GetSearchConditon(conditions);
         }
 
         private void btnClearSchConditions_Click(object sender, EventArgs e)

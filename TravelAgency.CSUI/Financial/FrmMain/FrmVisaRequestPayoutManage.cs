@@ -265,81 +265,26 @@ namespace TravelAgency.CSUI.Financial.FrmMain
         {
             List<string> conditions = new List<string>();
             SearchCondition.GetVisaTypesCondition(conditions, cbDisplayType.Text);
+            SearchCondition.GetFuzzyQueryCondition(conditions, "GroupNo", txtSchGroupNo.Text);
+            SearchCondition.GetFuzzyQueryCondition(conditions, "Salesperson", txtSalesPerson.Text);
+            SearchCondition.GetFuzzyQueryCondition(conditions, "Client", txtClient.Text);
+            SearchCondition.GetFuzzyQueryCondition(conditions, "RequestFlagUserName", txtRequestFlagUserName.Text);
+            SearchCondition.GetFuzzyQueryCondition(conditions, "RequestFlag", txtRequestFlag.Text);
 
-            if (!string.IsNullOrEmpty(txtSchGroupNo.Text.Trim()))
-            {
-                conditions.Add(" (GroupNo like '%" + txtSchGroupNo.Text + "%') ");
-            }
+            SearchCondition.GetSpanQueryCondition(conditions, "RealTime", txtSchRealTimeFrom.Text, txtSchRealTimeTo.Text);
+            SearchCondition.GetSpanQueryCondition(conditions, "FinishTime", txtSchFinishTimeFrom.Text, txtSchFinishTimeTo.Text);
 
-            if (!string.IsNullOrEmpty(txtSchRealTimeFrom.Text.Trim()) && !string.IsNullOrEmpty(txtSchRealTimeTo.Text.Trim()))
-            {
-                conditions.Add(" (RealTime between '" + txtSchRealTimeFrom.Text + "' and " + " '" + txtSchRealTimeTo.Text +
-                               "') ");
-            }
-
-            if (!string.IsNullOrEmpty(txtSchFinishTimeFrom.Text.Trim()) && !string.IsNullOrEmpty(txtSchFinishTimeTo.Text.Trim()))
-            {
-                conditions.Add(" (FinishTime between '" + txtSchFinishTimeFrom.Text + "' and " + " '" + txtSchFinishTimeTo.Text +
-                               "') ");
-            }
-
-            if (cbCountry.Text == "全部")
-            {
-
-            }
-            else
-            {
-                conditions.Add(" Country = '" + cbCountry.Text + "' ");
-            }
-
-            if (!string.IsNullOrEmpty(txtSalesPerson.Text.Trim()))
-            {
-                conditions.Add(" (Salesperson like '%" + txtSalesPerson.Text + "%') ");
-            }
-
-            if (!string.IsNullOrEmpty(txtClient.Text.Trim()))
-            {
-                conditions.Add(" (Client like '%" + txtClient.Text + "%') ");
-            }
-
-            if (!string.IsNullOrEmpty(txtRequestFlagUserName.Text.Trim()))
-            {
-                conditions.Add(" (RequestFlagUserName like '%" + txtRequestFlagUserName.Text + "%') ");
-            }
-
-
-            if (cbDepatureType.Text == "全部")
-            {
-
-            }
-            else
-            {
-                conditions.Add(" DepartureType = '" + cbDepatureType.Text + "' ");
-            }
+            SearchCondition.GetPreciseQueryCondition(conditions, "Country", cbCountry.Text, "全部");
+            SearchCondition.GetPreciseQueryCondition(conditions, "DepartureType", cbDepatureType.Text, "全部");
 
             if (cbSubmitState.Text == "全部")
             {
-
             }
             else if (cbSubmitState.Text == "未提交")
-            {
                 conditions.Add(" (submitflag =" + 0 + " or submitflag is null)"); //0是未提交，所以这里处理一下
-            }
             else
-            {
                 conditions.Add(" (submitflag =" + 1 + ")"); //0是未提交，所以这里处理一下
-            }
-
-
-            if (!string.IsNullOrEmpty(txtRequestFlag.Text.Trim()))
-            {
-                conditions.Add(" (RequestFlag like '%" + txtRequestFlag.Text.Trim() + "%') ");
-            }
-
-
-            string[] arr = conditions.ToArray();
-            string where = string.Join(" and ", arr);
-            return where;
+            return SearchCondition.GetSearchConditon(conditions);
         }
 
         private void btnClearSchConditions_Click(object sender, EventArgs e)
