@@ -83,12 +83,12 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             dataGridView1.RowsAdded += DataGridView1_RowsAdded;
             dataGridView1.DefaultCellStyle.Font = new Font("微软雅黑", 9.0f, FontStyle.Bold);
             dataGridView1.DataSource = _list;
-
             DataGridView1_SelectionChanged(null, null);
-
             //dataGridView1.ReadOnly = true;
             dataGridView1.Columns["Price"].ReadOnly = false;
             dataGridView1.Columns["ActuallyAmount"].ReadOnly = false;
+
+            btnChangeClient.Click += BtnChangeClient_Click;
 
             UpdateClientBalanceInfo();
             foreach (var visa in _list)
@@ -128,7 +128,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             for (int i = 0; i < _activityBalanceList.Count; ++i)
                 _clientActivityBalance += _activityBalanceList[i].BalanceAmount;
 
-            lbCount.Text = $"客户可用余额:{_clientNormalBalance}元,活动定金可用余额为:{_clientActivityBalance}.";
+            lbCount.Text = $"客户\"{_clientName}\"可用余额:{_clientNormalBalance}元,活动定金可用余额为:{_clientActivityBalance}.";
         }
 
         private void FrmSetClaim_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -892,7 +892,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
         }
 
         //TODO:更换客户被取消了
-        private void lbClientBalance_DoubleClick(object sender, EventArgs e)
+        private void BtnChangeClient_Click(object sender, EventArgs e)
         {
             FrmSelectClient frm = new FrmSelectClient();
             if (frm.ShowDialog() == DialogResult.Cancel)
