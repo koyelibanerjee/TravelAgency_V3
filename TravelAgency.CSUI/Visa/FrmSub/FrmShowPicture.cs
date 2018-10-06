@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Windows.Input;
+using DevComponents.DotNetBar;
 using TravelAgency.BLL.FTPFileHandler;
 using TravelAgency.BLL.RPC;
 using TravelAgency.Common;
@@ -35,7 +36,7 @@ namespace TravelAgency.CSUI.FrmSub
             : this()
         {
             _imageList = imageList;
-            _prefix = date;
+            _prefix = date; //_prefix如:20180810 或 20180810/个签
             _idx = idx;
             _gaopaiPicHandler = new GaopaiPicHandler(type);
         }
@@ -56,6 +57,9 @@ namespace TravelAgency.CSUI.FrmSub
             this.MaximizeBox = false;
             UpdateState();
             FormClosing += FrmShowPicture_FormClosing;
+            if (GlobalUtils.LoginUserLevel != RigthLevel.Manager && GlobalUtils.LoginUser.WorkId != "10313")
+                this.btnDeletePicture.Enabled = false;
+
         }
 
         private void FrmShowPicture_FormClosing(object sender, FormClosingEventArgs e)
@@ -90,8 +94,35 @@ namespace TravelAgency.CSUI.FrmSub
 
         #endregion
 
-        #region 按钮事件
 
+
+        #region 按钮事件
+        private void btnDeletePicture_Click(object sender, EventArgs e)
+        {
+            if (MessageBoxEx.Show("是否删除图像?", "提示", MessageBoxButtons.OKCancel) == DialogResult.Cancel)
+                return;
+            if (!_gaopaiPicHandler.DeleteGaopaiImage(_prefix + "/" + _imageList[_idx]))
+            {
+                MessageBoxEx.Show("删除图像失败，请联系技术人员!");
+                return;
+            }
+
+            _imageList.RemoveAt(_idx);
+            if (_imageList.Count == 0)
+            {
+                MessageBoxEx.Show("没有其他图像了，将退出图像查看!");
+                this.Close();
+                return;
+            }
+            if (_idx < _imageList.Count) //如果还是有图像，且有下一张(现在的_idx就是原来的下一张)，则直接显示
+                UpdateState();
+            else //原来删除的就是最后一张
+            {
+                --_idx; //去上一张
+                UpdateState();
+            }
+
+        }
         private void btnPre_Click(object sender, EventArgs e)
         {
             --_idx;
@@ -154,20 +185,21 @@ namespace TravelAgency.CSUI.FrmSub
             if (!string.IsNullOrEmpty(filename))
                 picBox1.Image.Save(filename);
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         #endregion
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     }

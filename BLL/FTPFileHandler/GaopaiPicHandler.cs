@@ -66,9 +66,6 @@ namespace TravelAgency.BLL.FTPFileHandler
             var list = FtpHandler.GetDirectoryList();
             return list;
         }
-
-
-
         /// <summary>
         /// 获取指定年
         /// </summary>
@@ -243,7 +240,7 @@ namespace TravelAgency.BLL.FTPFileHandler
         public List<string> GetGaopaiImageListOfVisa(string visaid)
         {
             FtpHandler.ChangeFtpUri(RemoteRootPath);
-            if (!FtpHandler.DeepDirectoryExist( visaid))
+            if (!FtpHandler.DeepDirectoryExist(visaid))
                 return null;
             FtpHandler.ChangeFtpUri(RemoteRootPath + "/" + visaid);
             var list = FtpHandler.GetFileNoDirList("*.*");
@@ -356,6 +353,18 @@ namespace TravelAgency.BLL.FTPFileHandler
                 FtpHandler.Upload(filename);
             }
         }
+
+        /// <summary>
+        /// 传入文件名: 20180710/个签/xx.jpg
+        /// </summary>
+        /// <param name="filename"></param>
+        /// <returns></returns>
+        public bool DeleteGaopaiImage(string filename)
+        {
+            FtpHandler.ChangeFtpUri(RemoteRootPath);
+            return FtpHandler.Delete(filename) && FtpHandler.Delete(filename.Insert(filename.LastIndexOf("/") + 1, "thumb_"));
+        }
+
 
         //public static bool CheckAndDownloadIfNotExist(string passportNo, PassportPicHandler.PicType type)
         //{

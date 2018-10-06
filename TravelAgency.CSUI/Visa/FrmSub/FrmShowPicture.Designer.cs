@@ -32,6 +32,7 @@ namespace TravelAgency.CSUI.FrmSub
         {
             this.components = new System.ComponentModel.Container();
             this.panelPicBox = new DevComponents.DotNetBar.PanelEx();
+            this.picBox1 = new TravelAgency.Common.CustomCtrls.ProPictureBox();
             this.panelTools = new DevComponents.DotNetBar.PanelEx();
             this.btnNext = new DevComponents.DotNetBar.ButtonX();
             this.lbPageIdx = new DevComponents.DotNetBar.LabelX();
@@ -47,11 +48,11 @@ namespace TravelAgency.CSUI.FrmSub
             this.右旋90度ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.垂直翻转ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.水平翻转ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.picBox1 = new ProPictureBox();
+            this.btnDeletePicture = new DevComponents.DotNetBar.ButtonX();
             this.panelPicBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox1)).BeginInit();
             this.panelTools.SuspendLayout();
             this.cmsPicBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelPicBox
@@ -73,10 +74,24 @@ namespace TravelAgency.CSUI.FrmSub
             this.panelPicBox.Style.GradientAngle = 90;
             this.panelPicBox.TabIndex = 1;
             // 
+            // picBox1
+            // 
+            this.picBox1.DefaultSaveFileName = null;
+            this.picBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picBox1.FileName = null;
+            this.picBox1.Image = null;
+            this.picBox1.Location = new System.Drawing.Point(0, 0);
+            this.picBox1.Name = "picBox1";
+            this.picBox1.Size = new System.Drawing.Size(532, 706);
+            this.picBox1.TabIndex = 0;
+            this.picBox1.TabStop = false;
+            this.picBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.picBox1_MouseUp);
+            // 
             // panelTools
             // 
             this.panelTools.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelTools.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelTools.Controls.Add(this.btnDeletePicture);
             this.panelTools.Controls.Add(this.btnNext);
             this.panelTools.Controls.Add(this.lbPageIdx);
             this.panelTools.Controls.Add(this.btnPre);
@@ -240,16 +255,17 @@ namespace TravelAgency.CSUI.FrmSub
             this.水平翻转ToolStripMenuItem.Text = "水平翻转";
             this.水平翻转ToolStripMenuItem.Click += new System.EventHandler(this.水平翻转ToolStripMenuItem_Click);
             // 
-            // picBox1
+            // btnDeletePicture
             // 
-            this.picBox1.DefaultSaveFileName = null;
-            this.picBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picBox1.Location = new System.Drawing.Point(0, 0);
-            this.picBox1.Name = "picBox1";
-            this.picBox1.Size = new System.Drawing.Size(532, 706);
-            this.picBox1.TabIndex = 0;
-            this.picBox1.TabStop = false;
-            this.picBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.picBox1_MouseUp);
+            this.btnDeletePicture.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnDeletePicture.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnDeletePicture.Location = new System.Drawing.Point(395, 6);
+            this.btnDeletePicture.Name = "btnDeletePicture";
+            this.btnDeletePicture.Size = new System.Drawing.Size(75, 23);
+            this.btnDeletePicture.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnDeletePicture.TabIndex = 4;
+            this.btnDeletePicture.Text = "删除图像";
+            this.btnDeletePicture.Click += new System.EventHandler(this.btnDeletePicture_Click);
             // 
             // FrmShowPicture
             // 
@@ -262,9 +278,9 @@ namespace TravelAgency.CSUI.FrmSub
             this.Text = "图像查看";
             this.Load += new System.EventHandler(this.FrmShowPicture_Load);
             this.panelPicBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picBox1)).EndInit();
             this.panelTools.ResumeLayout(false);
             this.cmsPicBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -288,5 +304,6 @@ namespace TravelAgency.CSUI.FrmSub
         private DevComponents.DotNetBar.ButtonX btnPre;
         private DevComponents.DotNetBar.ButtonX btnNext;
         private DevComponents.DotNetBar.LabelX lbPageIdx;
+        private DevComponents.DotNetBar.ButtonX btnDeletePicture;
     }
 }
