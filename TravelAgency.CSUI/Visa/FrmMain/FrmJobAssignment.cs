@@ -440,19 +440,19 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             }
             else if (cbState.Text == "未做")
             {
-                conditions.Add(" HasTypeIn = '否' ");
+                conditions.Add(" (HasTypeIn = '否') ");
             }
             else if (cbState.Text == "已做")
             {
-                conditions.Add(" HasTypeIn = '是' ");
+                conditions.Add(" (HasTypeIn = '是') ");
             }
             else if (cbState.Text == "延迟")
             {
-                conditions.Add(" HasTypeIn = '延' ");
+                conditions.Add(" (HasTypeIn = '延') ");
             }
             else if (cbState.Text == "取消")
             {
-                conditions.Add(" HasTypeIn = '取' ");
+                conditions.Add(" (HasTypeIn = '取') ");
             }
 
             conditions.Add(" (Country = '" + "日本" + "') ");

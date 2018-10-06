@@ -449,10 +449,10 @@ namespace TravelAgency.CSUI.FrmMain
             
 
             if (btnOnlyShowMe.Value == true)
-                conditions.Add(" AssignmentToWorkId = '" + GlobalUtils.LoginUser.WorkId + "' ");
+                conditions.Add(" (AssignmentToWorkId = '" + GlobalUtils.LoginUser.WorkId + "') ");
 
             if (btnOnlyShowNotDone.Value == true)
-                conditions.Add(" HasTypeIn = '否' ");
+                conditions.Add(" (HasTypeIn = '否') ");
 
             return SearchCondition.GetSearchConditon(conditions);
         }
