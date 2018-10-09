@@ -793,19 +793,18 @@ _dgvList[i], _visaModel);
             //这里代码生成器默认给了一个guid，不能再自己给了
             try
             {
-                if (!string.IsNullOrEmpty(txtDepartureTime.Text))
-                    _visaModel.PredictTime = DateTime.Parse(txtDepartureTime.Text);
+                _visaModel.DepartureTime = CtrlParser.Parse2Datetime(txtDepartureTime);
                 _visaModel.EntryTime = DateTime.Now;
-                _visaModel.GroupNo = txtGroupNo.Text;
-                _visaModel.SalesPerson = txtSalesPerson.Text;
-                _visaModel.TypeInPerson = txtTypeInPerson.Text;
-                _visaModel.client = txtClient.Text;
-                _visaModel.Name = txtClient.Text;
+                _visaModel.GroupNo = CtrlParser.Parse2String(txtGroupNo);
+                _visaModel.SalesPerson = CtrlParser.Parse2String(txtSalesPerson);
+                _visaModel.TypeInPerson = CtrlParser.Parse2String(txtTypeInPerson);
+                _visaModel.client = CtrlParser.Parse2String(txtClient);
+                _visaModel.Name = CtrlParser.Parse2String(txtClient);
                 _visaModel.Country = cbCountry.Text;
                 _visaModel.Number = lvIn.Items.Count; //团号的人数
                 _visaModel.Types = Types.Team; //设置为团签
                 _visaModel.IsUrgent = chbIsUrgent.Checked;
-                _visaModel.Person = txtPerson.Text;
+                _visaModel.Person = CtrlParser.Parse2String(txtPerson);
                 _visaModel.ForRequestGroupNo = false;
                 _visaModel.District = GlobalUtils.LoginUser.District;
                 return true;
@@ -829,23 +828,17 @@ _dgvList[i], _visaModel);
 
             try
             {
-                ////单独处理remark
-                //if (!string.IsNullOrEmpty((string)dgvGroupInfo.Rows[0].Cells["Remark"].Value))
-                //    _visaModel.Remark = (string)dgvGroupInfo.Rows[0].Cells["Remark"].Value;
-
-                //1.保存团号信息修改到数据库,Visa表（sales_person,country,GroupNo,PredictTime）
-                if (!string.IsNullOrEmpty(txtDepartureTime.Text))
-                    model.PredictTime = DateTime.Parse(txtDepartureTime.Text);
-                model.GroupNo = txtGroupNo.Text;
-                model.SalesPerson = txtSalesPerson.Text;
-                model.TypeInPerson = txtTypeInPerson.Text;
+                model.DepartureTime = CtrlParser.Parse2Datetime(txtDepartureTime);
+                model.GroupNo = CtrlParser.Parse2String(txtGroupNo);
+                model.SalesPerson = CtrlParser.Parse2String(txtSalesPerson);
+                model.TypeInPerson = CtrlParser.Parse2String(txtTypeInPerson);
                 model.Country = cbCountry.Text;
                 model.Number = lvIn.Items.Count;
-                model.client = txtClient.Text;
-                model.Name = txtClient.Text;
+                model.client = CtrlParser.Parse2String(txtClient);
+                model.Name = CtrlParser.Parse2String(txtClient);
                 model.Types = Types.Team; //设置为团签
                 model.IsUrgent = chbIsUrgent.Checked;
-                model.Person = txtPerson.Text;
+                model.Person = CtrlParser.Parse2String(txtPerson);
                 model.ForRequestGroupNo = false;
                 model.District = GlobalUtils.LoginUser.District;
                 model.EntryTime = DateTime.Now; //20171217，也跟着操作改变
