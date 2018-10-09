@@ -58,6 +58,8 @@
             this.添加到设置请款费用列表ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelBars = new DevComponents.DotNetBar.PanelEx();
             this.panelSerachBar = new DevComponents.DotNetBar.PanelEx();
+            this.txtPaymentNo = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.cbSchTimeType = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.cbClaimedFlag = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
@@ -88,8 +90,6 @@
             this.panelDgv = new DevComponents.DotNetBar.PanelEx();
             this.bar2 = new DevComponents.DotNetBar.Bar();
             this.lbCount = new DevComponents.DotNetBar.LabelItem();
-            this.txtPaymentNo = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX1 = new DevComponents.DotNetBar.LabelX();
             this.GroupNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CountryImage = new System.Windows.Forms.DataGridViewImageColumn();
@@ -107,7 +107,7 @@
             this.Client = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SalesPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TypeInPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClaimPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ActuallyAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClaimedFlag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quidco = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -270,7 +270,7 @@
             this.Client,
             this.SalesPerson,
             this.TypeInPerson,
-            this.Price,
+            this.ClaimPrice,
             this.ActuallyAmount,
             this.ClaimedFlag,
             this.Quidco,
@@ -289,7 +289,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -445,6 +445,33 @@
             this.panelSerachBar.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.panelSerachBar.Style.GradientAngle = 90;
             this.panelSerachBar.TabIndex = 29;
+            // 
+            // txtPaymentNo
+            // 
+            this.txtPaymentNo.BackColor = System.Drawing.Color.White;
+            // 
+            // 
+            // 
+            this.txtPaymentNo.Border.Class = "TextBoxBorder";
+            this.txtPaymentNo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtPaymentNo.DisabledBackColor = System.Drawing.Color.White;
+            this.txtPaymentNo.ForeColor = System.Drawing.Color.Black;
+            this.txtPaymentNo.Location = new System.Drawing.Point(488, 34);
+            this.txtPaymentNo.Name = "txtPaymentNo";
+            this.txtPaymentNo.Size = new System.Drawing.Size(60, 21);
+            this.txtPaymentNo.TabIndex = 58;
+            // 
+            // labelX1
+            // 
+            // 
+            // 
+            // 
+            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX1.Location = new System.Drawing.Point(418, 34);
+            this.labelX1.Name = "labelX1";
+            this.labelX1.Size = new System.Drawing.Size(60, 21);
+            this.labelX1.TabIndex = 59;
+            this.labelX1.Text = "账单编号:";
             // 
             // cbSchTimeType
             // 
@@ -895,33 +922,6 @@
             this.lbCount.Name = "lbCount";
             this.lbCount.Text = "--";
             // 
-            // txtPaymentNo
-            // 
-            this.txtPaymentNo.BackColor = System.Drawing.Color.White;
-            // 
-            // 
-            // 
-            this.txtPaymentNo.Border.Class = "TextBoxBorder";
-            this.txtPaymentNo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtPaymentNo.DisabledBackColor = System.Drawing.Color.White;
-            this.txtPaymentNo.ForeColor = System.Drawing.Color.Black;
-            this.txtPaymentNo.Location = new System.Drawing.Point(488, 34);
-            this.txtPaymentNo.Name = "txtPaymentNo";
-            this.txtPaymentNo.Size = new System.Drawing.Size(60, 21);
-            this.txtPaymentNo.TabIndex = 58;
-            // 
-            // labelX1
-            // 
-            // 
-            // 
-            // 
-            this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(418, 34);
-            this.labelX1.Name = "labelX1";
-            this.labelX1.Size = new System.Drawing.Size(60, 21);
-            this.labelX1.TabIndex = 59;
-            this.labelX1.Text = "账单编号:";
-            // 
             // GroupNo
             // 
             this.GroupNo.DataPropertyName = "GroupNo";
@@ -1047,12 +1047,12 @@
             this.TypeInPerson.Name = "TypeInPerson";
             this.TypeInPerson.ReadOnly = true;
             // 
-            // Price
+            // ClaimPrice
             // 
-            this.Price.DataPropertyName = "Price";
-            this.Price.HeaderText = "单价";
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
+            this.ClaimPrice.DataPropertyName = "ClaimPrice";
+            this.ClaimPrice.HeaderText = "单价";
+            this.ClaimPrice.Name = "ClaimPrice";
+            this.ClaimPrice.ReadOnly = true;
             // 
             // ActuallyAmount
             // 
@@ -1254,7 +1254,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Client;
         private System.Windows.Forms.DataGridViewTextBoxColumn SalesPerson;
         private System.Windows.Forms.DataGridViewTextBoxColumn TypeInPerson;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClaimPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn ActuallyAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClaimedFlag;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quidco;

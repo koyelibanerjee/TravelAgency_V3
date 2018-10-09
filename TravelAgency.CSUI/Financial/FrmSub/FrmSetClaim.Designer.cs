@@ -36,10 +36,19 @@
             this.btnConfirm = new DevComponents.DotNetBar.ButtonX();
             this.panelDgv = new DevComponents.DotNetBar.PanelEx();
             this.dataGridView1 = new DevComponents.DotNetBar.Controls.DataGridViewX();
+            this.bar2 = new DevComponents.DotNetBar.Bar();
+            this.lbCount = new DevComponents.DotNetBar.LabelItem();
+            this.panelBtns = new DevComponents.DotNetBar.PanelEx();
+            this.btnChangeClient = new DevComponents.DotNetBar.ButtonX();
+            this.btnGenPayList = new DevComponents.DotNetBar.ButtonX();
+            this.cmsDgv = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.签证认账ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.自动更新实收ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.GroupNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClaimPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ActuallyAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Client = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Types = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,15 +73,6 @@
             this.Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubmitFlag = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Visa_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bar2 = new DevComponents.DotNetBar.Bar();
-            this.lbCount = new DevComponents.DotNetBar.LabelItem();
-            this.panelBtns = new DevComponents.DotNetBar.PanelEx();
-            this.btnGenPayList = new DevComponents.DotNetBar.ButtonX();
-            this.cmsDgv = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.签证认账ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.自动更新实收ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnChangeClient = new DevComponents.DotNetBar.ButtonX();
             this.panelDgv.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bar2)).BeginInit();
@@ -142,7 +142,7 @@
             this.GroupNo,
             this.Country,
             this.Number,
-            this.Price,
+            this.ClaimPrice,
             this.ActuallyAmount,
             this.Client,
             this.Types,
@@ -172,12 +172,12 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
+            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -194,6 +194,109 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(1132, 507);
             this.dataGridView1.TabIndex = 14;
+            // 
+            // bar2
+            // 
+            this.bar2.AntiAlias = true;
+            this.bar2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.bar2.DockSide = DevComponents.DotNetBar.eDockSide.Document;
+            this.bar2.DockTabStripHeight = 30;
+            this.bar2.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
+            this.bar2.IsMaximized = false;
+            this.bar2.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.lbCount});
+            this.bar2.ItemSpacing = 5;
+            this.bar2.Location = new System.Drawing.Point(0, 507);
+            this.bar2.Name = "bar2";
+            this.bar2.Size = new System.Drawing.Size(1132, 19);
+            this.bar2.Stretch = true;
+            this.bar2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.bar2.TabIndex = 32;
+            this.bar2.TabStop = false;
+            this.bar2.Text = "bar2";
+            // 
+            // lbCount
+            // 
+            this.lbCount.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbCount.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lbCount.Name = "lbCount";
+            this.lbCount.Text = "--";
+            // 
+            // panelBtns
+            // 
+            this.panelBtns.CanvasColor = System.Drawing.SystemColors.Control;
+            this.panelBtns.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelBtns.Controls.Add(this.btnChangeClient);
+            this.panelBtns.Controls.Add(this.btnGenPayList);
+            this.panelBtns.Controls.Add(this.btnCancel);
+            this.panelBtns.Controls.Add(this.btnConfirm);
+            this.panelBtns.DisabledBackColor = System.Drawing.Color.Empty;
+            this.panelBtns.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelBtns.Location = new System.Drawing.Point(0, 526);
+            this.panelBtns.Name = "panelBtns";
+            this.panelBtns.Size = new System.Drawing.Size(1132, 32);
+            this.panelBtns.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelBtns.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.panelBtns.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.panelBtns.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.panelBtns.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.panelBtns.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.panelBtns.Style.GradientAngle = 90;
+            this.panelBtns.TabIndex = 27;
+            // 
+            // btnChangeClient
+            // 
+            this.btnChangeClient.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnChangeClient.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnChangeClient.Location = new System.Drawing.Point(284, 6);
+            this.btnChangeClient.Name = "btnChangeClient";
+            this.btnChangeClient.Size = new System.Drawing.Size(75, 23);
+            this.btnChangeClient.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnChangeClient.TabIndex = 25;
+            this.btnChangeClient.Text = "更换客户";
+            // 
+            // btnGenPayList
+            // 
+            this.btnGenPayList.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnGenPayList.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnGenPayList.Location = new System.Drawing.Point(16, 6);
+            this.btnGenPayList.Name = "btnGenPayList";
+            this.btnGenPayList.Size = new System.Drawing.Size(75, 23);
+            this.btnGenPayList.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnGenPayList.TabIndex = 24;
+            this.btnGenPayList.Text = "生成账单";
+            this.btnGenPayList.Click += new System.EventHandler(this.btnGenPayList_Click);
+            // 
+            // cmsDgv
+            // 
+            this.cmsDgv.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.签证认账ToolStripMenuItem,
+            this.自动更新实收ToolStripMenuItem,
+            this.toolStripMenuItem1});
+            this.cmsDgv.Name = "cmsDgv";
+            this.cmsDgv.Size = new System.Drawing.Size(149, 70);
+            // 
+            // 签证认账ToolStripMenuItem
+            // 
+            this.签证认账ToolStripMenuItem.Name = "签证认账ToolStripMenuItem";
+            this.签证认账ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.签证认账ToolStripMenuItem.Text = "认账";
+            this.签证认账ToolStripMenuItem.Visible = false;
+            this.签证认账ToolStripMenuItem.Click += new System.EventHandler(this.签证认账ToolStripMenuItem_Click);
+            // 
+            // 自动更新实收ToolStripMenuItem
+            // 
+            this.自动更新实收ToolStripMenuItem.Name = "自动更新实收ToolStripMenuItem";
+            this.自动更新实收ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.自动更新实收ToolStripMenuItem.Text = "自动更新实收";
+            this.自动更新实收ToolStripMenuItem.Click += new System.EventHandler(this.自动更新实收ToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(148, 22);
+            this.toolStripMenuItem1.Text = "套用活动价格";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // GroupNo
             // 
@@ -217,12 +320,12 @@
             this.Number.Name = "Number";
             this.Number.ReadOnly = true;
             // 
-            // Price
+            // ClaimPrice
             // 
-            this.Price.DataPropertyName = "Price";
-            this.Price.HeaderText = "单价";
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
+            this.ClaimPrice.DataPropertyName = "ClaimPrice";
+            this.ClaimPrice.HeaderText = "单价";
+            this.ClaimPrice.Name = "ClaimPrice";
+            this.ClaimPrice.ReadOnly = true;
             // 
             // ActuallyAmount
             // 
@@ -405,109 +508,6 @@
             this.Visa_id.ReadOnly = true;
             this.Visa_id.Visible = false;
             // 
-            // bar2
-            // 
-            this.bar2.AntiAlias = true;
-            this.bar2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.bar2.DockSide = DevComponents.DotNetBar.eDockSide.Document;
-            this.bar2.DockTabStripHeight = 30;
-            this.bar2.Font = new System.Drawing.Font("Microsoft YaHei UI", 9F);
-            this.bar2.IsMaximized = false;
-            this.bar2.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.lbCount});
-            this.bar2.ItemSpacing = 5;
-            this.bar2.Location = new System.Drawing.Point(0, 507);
-            this.bar2.Name = "bar2";
-            this.bar2.Size = new System.Drawing.Size(1132, 19);
-            this.bar2.Stretch = true;
-            this.bar2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.bar2.TabIndex = 32;
-            this.bar2.TabStop = false;
-            this.bar2.Text = "bar2";
-            // 
-            // lbCount
-            // 
-            this.lbCount.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbCount.ForeColor = System.Drawing.Color.ForestGreen;
-            this.lbCount.Name = "lbCount";
-            this.lbCount.Text = "--";
-            // 
-            // panelBtns
-            // 
-            this.panelBtns.CanvasColor = System.Drawing.SystemColors.Control;
-            this.panelBtns.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelBtns.Controls.Add(this.btnChangeClient);
-            this.panelBtns.Controls.Add(this.btnGenPayList);
-            this.panelBtns.Controls.Add(this.btnCancel);
-            this.panelBtns.Controls.Add(this.btnConfirm);
-            this.panelBtns.DisabledBackColor = System.Drawing.Color.Empty;
-            this.panelBtns.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBtns.Location = new System.Drawing.Point(0, 526);
-            this.panelBtns.Name = "panelBtns";
-            this.panelBtns.Size = new System.Drawing.Size(1132, 32);
-            this.panelBtns.Style.Alignment = System.Drawing.StringAlignment.Center;
-            this.panelBtns.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
-            this.panelBtns.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
-            this.panelBtns.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
-            this.panelBtns.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
-            this.panelBtns.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
-            this.panelBtns.Style.GradientAngle = 90;
-            this.panelBtns.TabIndex = 27;
-            // 
-            // btnGenPayList
-            // 
-            this.btnGenPayList.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnGenPayList.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnGenPayList.Location = new System.Drawing.Point(16, 6);
-            this.btnGenPayList.Name = "btnGenPayList";
-            this.btnGenPayList.Size = new System.Drawing.Size(75, 23);
-            this.btnGenPayList.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnGenPayList.TabIndex = 24;
-            this.btnGenPayList.Text = "生成账单";
-            this.btnGenPayList.Click += new System.EventHandler(this.btnGenPayList_Click);
-            // 
-            // cmsDgv
-            // 
-            this.cmsDgv.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.签证认账ToolStripMenuItem,
-            this.自动更新实收ToolStripMenuItem,
-            this.toolStripMenuItem1});
-            this.cmsDgv.Name = "cmsDgv";
-            this.cmsDgv.Size = new System.Drawing.Size(149, 70);
-            // 
-            // 签证认账ToolStripMenuItem
-            // 
-            this.签证认账ToolStripMenuItem.Name = "签证认账ToolStripMenuItem";
-            this.签证认账ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.签证认账ToolStripMenuItem.Text = "认账";
-            this.签证认账ToolStripMenuItem.Visible = false;
-            this.签证认账ToolStripMenuItem.Click += new System.EventHandler(this.签证认账ToolStripMenuItem_Click);
-            // 
-            // 自动更新实收ToolStripMenuItem
-            // 
-            this.自动更新实收ToolStripMenuItem.Name = "自动更新实收ToolStripMenuItem";
-            this.自动更新实收ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.自动更新实收ToolStripMenuItem.Text = "自动更新实收";
-            this.自动更新实收ToolStripMenuItem.Click += new System.EventHandler(this.自动更新实收ToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(148, 22);
-            this.toolStripMenuItem1.Text = "套用活动价格";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
-            // 
-            // btnChangeClient
-            // 
-            this.btnChangeClient.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnChangeClient.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnChangeClient.Location = new System.Drawing.Point(284, 6);
-            this.btnChangeClient.Name = "btnChangeClient";
-            this.btnChangeClient.Size = new System.Drawing.Size(75, 23);
-            this.btnChangeClient.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnChangeClient.TabIndex = 25;
-            this.btnChangeClient.Text = "更换客户";
-            // 
             // FrmSetClaim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -536,10 +536,15 @@
         private System.Windows.Forms.ContextMenuStrip cmsDgv;
         private System.Windows.Forms.ToolStripMenuItem 签证认账ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 自动更新实收ToolStripMenuItem;
+        private DevComponents.DotNetBar.ButtonX btnGenPayList;
+        private DevComponents.DotNetBar.Bar bar2;
+        private DevComponents.DotNetBar.LabelItem lbCount;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private DevComponents.DotNetBar.ButtonX btnChangeClient;
         private System.Windows.Forms.DataGridViewTextBoxColumn GroupNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Country;
         private System.Windows.Forms.DataGridViewTextBoxColumn Number;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClaimPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn ActuallyAmount;
         private System.Windows.Forms.DataGridViewTextBoxColumn Client;
         private System.Windows.Forms.DataGridViewTextBoxColumn Types;
@@ -564,10 +569,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Cost;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubmitFlag;
         private System.Windows.Forms.DataGridViewTextBoxColumn Visa_id;
-        private DevComponents.DotNetBar.ButtonX btnGenPayList;
-        private DevComponents.DotNetBar.Bar bar2;
-        private DevComponents.DotNetBar.LabelItem lbCount;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private DevComponents.DotNetBar.ButtonX btnChangeClient;
     }
 }

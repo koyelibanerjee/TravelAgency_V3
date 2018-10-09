@@ -85,7 +85,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             dataGridView1.DataSource = _list;
             DataGridView1_SelectionChanged(null, null);
             //dataGridView1.ReadOnly = true;
-            dataGridView1.Columns["Price"].ReadOnly = false;
+            dataGridView1.Columns["ClaimPrice"].ReadOnly = false;
             dataGridView1.Columns["ActuallyAmount"].ReadOnly = false;
 
             btnChangeClient.Click += BtnChangeClient_Click;
@@ -175,7 +175,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
 
         private void DataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridView1.Columns[e.ColumnIndex].Name != "Price")
+            if (dataGridView1.Columns[e.ColumnIndex].Name != "ClaimPrice")
                 return;
             var list = GetClientCharges(e.RowIndex);
             if (list.Count <= 0)
@@ -200,7 +200,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                     if (GetCellValue(i, "Country") == country && GetCellValue(i, "Types") == type &&
                         GetCellValue(i, "DepartureType") == depatureType && GetCellValue(i, "client") == client)
                     {
-                        dataGridView1.Rows[i].Cells["Price"].Value = list[frm.SelIdx].Charge;
+                        dataGridView1.Rows[i].Cells["ClaimPrice"].Value = list[frm.SelIdx].Charge;
                         var visa = DgvDataSourceToList()[i];
                         if (!string.IsNullOrEmpty(visa.ActivityOrderNo) && //更新和活动订单相关的变量
                             _curActivityOrderCnt.ContainsKey(visa.ActivityOrderNo)) //原来是设置的活动订单的价格，现在是套的普通的价格，就要执行恢复
@@ -213,7 +213,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             }
             else
             {
-                dataGridView1.Rows[e.RowIndex].Cells["Price"].Value = list[frm.SelIdx].Charge;
+                dataGridView1.Rows[e.RowIndex].Cells["ClaimPrice"].Value = list[frm.SelIdx].Charge;
                 var visa = GetSelectedModelList()[0];
                 if (!string.IsNullOrEmpty(visa.ActivityOrderNo) &&
                     _curActivityOrderCnt.ContainsKey(visa.ActivityOrderNo)) //同上，只是是一条
@@ -787,7 +787,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             var list = GetSelectedModelList();
             foreach (var visa in list)
             {
-                visa.ActuallyAmount = visa.Price * (visa.Number ?? 1);
+                visa.ActuallyAmount = visa.ClaimPrice * (visa.Number ?? 1);
             }
             UpdateDgvList();
         }
@@ -843,7 +843,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
             }
 
             for (int i = 0; i < dataGridView1.SelectedRows.Count; i++)
-                dataGridView1.SelectedRows[i].Cells["Price"].Value = frm.RetActivityPrice;
+                dataGridView1.SelectedRows[i].Cells["ClaimPrice"].Value = frm.RetActivityPrice;
         }
         #endregion
         private bool checkGreaterThanCost(List<Model.Visa> list)
