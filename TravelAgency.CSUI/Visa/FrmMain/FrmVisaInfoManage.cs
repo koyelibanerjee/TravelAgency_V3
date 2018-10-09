@@ -468,7 +468,7 @@ namespace TravelAgency.CSUI.FrmMain
             SearchCondition.GetFuzzyQueryCondition(conditions, "Phone", txtCall.Text);
             SearchCondition.GetFuzzyQueryCondition(conditions, "Salesperson", txtSalesPerson.Text);
             SearchCondition.GetFuzzyQueryCondition(conditions, "Client", txtClient.Text);
-
+            SearchCondition.GetSpanQueryCondition(conditions, "EntryTime", txtSchEntryTimeFrom.Text, txtSchEntryTimeTo.Text);
             SearchCondition.GetPreciseQueryCondition(conditions, "Country", cbCountry.Text, "全部");
             SearchCondition.GetPreciseQueryCondition(conditions, "outState", cbOutState.Text, "全部");
 
