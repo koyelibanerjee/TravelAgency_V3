@@ -54,7 +54,7 @@ namespace TravelAgency.BLL
             return dal.DeleteListByPassNo(passNums);
         }
 
-        public Model.VisaInfo GetModelByPassportNo(string passportNo)
+        public Model.VisaInfo GetLatestModelByPassportNo(string passportNo)
         {
             return dal.GetModelByPassportNo(passportNo);
         }

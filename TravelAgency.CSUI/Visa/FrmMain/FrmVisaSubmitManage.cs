@@ -443,7 +443,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             Model.VisaInfo model;
             try
             {
-                model = _bllVisaInfo.GetModelByPassportNo(line.Split('|')[0]);
+                model = _bllVisaInfo.GetLatestModelByPassportNo(line.Split('|')[0]);
                 return model;
             }
             catch (Exception)

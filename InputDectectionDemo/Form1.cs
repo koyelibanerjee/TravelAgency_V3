@@ -66,7 +66,7 @@ namespace InputDectectionDemo
 
             int i = bll.GetRecordCount(string.Empty);
 
-            TravelAgency.Model.VisaInfo model = bll.GetModelByPassportNo(personInfo.passportNo);
+            TravelAgency.Model.VisaInfo model = bll.GetLatestModelByPassportNo(personInfo.passportNo);
 
             Console.WriteLine(model.EntryTime.ToString());
 

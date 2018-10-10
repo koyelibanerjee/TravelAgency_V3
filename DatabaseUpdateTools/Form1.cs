@@ -116,6 +116,20 @@ namespace DatabaseUpdateTools
 
 
         }
+
+        private void buttonX4_Click(object sender, EventArgs e)
+        {
+            TravelAgency.BLL.DeniedVisaInfo deniedVisaInfo = new TravelAgency.BLL.DeniedVisaInfo();
+            TravelAgency.BLL.VisaInfo visaInfoBll = new TravelAgency.BLL.VisaInfo();
+            var list = deniedVisaInfo.GetModelList("");
+            foreach (var deniedVisainfo in list)
+            {
+               var visainfoModel =  visaInfoBll.GetLatestModelByPassportNo(deniedVisainfo.PassportNo);
+                deniedVisaInfo.
+            }
+
+
+        }
     }
 
     
