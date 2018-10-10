@@ -592,7 +592,7 @@ namespace TravelAgency.BLL.Excel
                     else
                         row.CreateCell(3).SetCellValue("");
 
-                    var price = visaList[i].Price;
+                    var price = visaList[i].ClaimPrice; //20181010修改为认账单价
                     if (price != null) row.CreateCell(4).SetCellValue((double)price.Value);
                     else
                         row.CreateCell(4).SetCellValue("");

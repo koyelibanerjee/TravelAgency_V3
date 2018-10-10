@@ -1700,7 +1700,7 @@ namespace TravelAgency.CSUI.FrmSub
 
         private void lbInfoCompleteStatus_Click(object sender, EventArgs e)
         {
-            MessageBoxEx.Show("信息录入完整是指\"必填信息(除了手机号以外)\"填写完整");
+            MessageBoxEx.Show("信息录入完整是指\"必填信息(除了手机号以外)\"填写完整\r\n外送只看\"手机号是否填写\"");
         }
 
         private void lbPhoneCompleteStatus_Click(object sender, EventArgs e)
