@@ -1465,6 +1465,8 @@ namespace TravelAgency.CSUI.FrmMain
                 model.EntryTime = DateTime.Now;
                 model.Name = visaInfo.Name;
                 model.PassportNo = visaInfo.PassportNo;
+                model.Country = visaInfo.Country;
+                model.Client = visaInfo.Client;
                 model.OperatorName = GlobalUtils.LoginUser.UserName;
                 model.OperatorWorkId = GlobalUtils.LoginUser.WorkId;
                 deniedVisaInfos.Add(model);

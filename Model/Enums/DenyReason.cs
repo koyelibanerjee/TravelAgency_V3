@@ -15,7 +15,7 @@ namespace TravelAgency.Model.Enums
 
        private static List<string> _valueList = new List<string>
        {
-           "过度维权","滞留倾向","滞留不归","滞留国家"
+           "过度维权","滞留倾向","滞留不归"
        };
    }
 }
