@@ -119,15 +119,16 @@ namespace DatabaseUpdateTools
 
         private void buttonX4_Click(object sender, EventArgs e)
         {
-            TravelAgency.BLL.DeniedVisaInfo deniedVisaInfo = new TravelAgency.BLL.DeniedVisaInfo();
+            TravelAgency.BLL.DeniedVisaInfo deniedVisaInfobll = new TravelAgency.BLL.DeniedVisaInfo();
             TravelAgency.BLL.VisaInfo visaInfoBll = new TravelAgency.BLL.VisaInfo();
-            var list = deniedVisaInfo.GetModelList("");
-            foreach (var deniedVisainfo in list)
+            var list = deniedVisaInfobll.GetModelList("");
+            foreach (var deniedVisainfoModel in list)
             {
-               var visainfoModel =  visaInfoBll.GetLatestModelByPassportNo(deniedVisainfo.PassportNo);
-                deniedVisaInfo.
-            }
+               var visainfoModel =  visaInfoBll.GetLatestModelByPassportNo(deniedVisainfoModel.PassportNo);
+                deniedVisainfoModel.Client = visainfoModel.Client;
 
+            }
+           int n = deniedVisaInfobll.UpdateList(list);
 
         }
     }
