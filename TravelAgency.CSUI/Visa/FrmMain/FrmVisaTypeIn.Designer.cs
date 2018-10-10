@@ -31,9 +31,9 @@ namespace TravelAgency.CSUI.FrmMain
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelMain = new DevComponents.DotNetBar.PanelEx();
             this.panelMid = new DevComponents.DotNetBar.PanelEx();
             this.panelbottom = new DevComponents.DotNetBar.PanelEx();
@@ -99,7 +99,8 @@ namespace TravelAgency.CSUI.FrmMain
             this.btnSaveChanges = new DevComponents.DotNetBar.ButtonX();
             this.cmsDgvRb = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cmsItemDelete = new System.Windows.Forms.ToolStripMenuItem();
-            this.picPassportNo = new ProPictureBox();
+            this.picPassportNo = new TravelAgency.Common.CustomCtrls.ProPictureBox();
+            this.chkShowTimeConsume = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.panelMain.SuspendLayout();
             this.panelMid.SuspendLayout();
             this.panelbottom.SuspendLayout();
@@ -244,6 +245,7 @@ namespace TravelAgency.CSUI.FrmMain
             // 
             this.panelEx2.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx2.Controls.Add(this.chkShowTimeConsume);
             this.panelEx2.Controls.Add(this.btnAddFromImage);
             this.panelEx2.Controls.Add(this.labelX13);
             this.panelEx2.Controls.Add(this.rbtnJapan);
@@ -315,18 +317,18 @@ namespace TravelAgency.CSUI.FrmMain
             // 
             this.labelX13.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.labelX13.Font = new System.Drawing.Font("华文新魏", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelX13.Location = new System.Drawing.Point(12, 544);
+            this.labelX13.Location = new System.Drawing.Point(12, 567);
             this.labelX13.Name = "labelX13";
-            this.labelX13.Size = new System.Drawing.Size(54, 23);
+            this.labelX13.Size = new System.Drawing.Size(54, 51);
             this.labelX13.TabIndex = 22;
-            this.labelX13.Text = "国家/地区:";
+            this.labelX13.Text = "国家/\r\n地区:";
             // 
             // rbtnJapan
             // 
             this.rbtnJapan.AutoSize = true;
             this.rbtnJapan.BackColor = System.Drawing.Color.Transparent;
             this.rbtnJapan.ForeColor = System.Drawing.Color.OrangeRed;
-            this.rbtnJapan.Location = new System.Drawing.Point(72, 547);
+            this.rbtnJapan.Location = new System.Drawing.Point(72, 570);
             this.rbtnJapan.Name = "rbtnJapan";
             this.rbtnJapan.Size = new System.Drawing.Size(47, 16);
             this.rbtnJapan.TabIndex = 21;
@@ -339,7 +341,7 @@ namespace TravelAgency.CSUI.FrmMain
             // 
             this.radioNone.AutoSize = true;
             this.radioNone.ForeColor = System.Drawing.Color.OrangeRed;
-            this.radioNone.Location = new System.Drawing.Point(129, 571);
+            this.radioNone.Location = new System.Drawing.Point(129, 594);
             this.radioNone.Name = "radioNone";
             this.radioNone.Size = new System.Drawing.Size(59, 16);
             this.radioNone.TabIndex = 20;
@@ -352,7 +354,7 @@ namespace TravelAgency.CSUI.FrmMain
             // 
             this.rbtnKorea.AutoSize = true;
             this.rbtnKorea.ForeColor = System.Drawing.Color.OrangeRed;
-            this.rbtnKorea.Location = new System.Drawing.Point(72, 571);
+            this.rbtnKorea.Location = new System.Drawing.Point(72, 594);
             this.rbtnKorea.Name = "rbtnKorea";
             this.rbtnKorea.Size = new System.Drawing.Size(47, 16);
             this.rbtnKorea.TabIndex = 20;
@@ -365,7 +367,7 @@ namespace TravelAgency.CSUI.FrmMain
             // 
             this.rbtnThailand.AutoSize = true;
             this.rbtnThailand.ForeColor = System.Drawing.Color.OrangeRed;
-            this.rbtnThailand.Location = new System.Drawing.Point(129, 547);
+            this.rbtnThailand.Location = new System.Drawing.Point(129, 570);
             this.rbtnThailand.Name = "rbtnThailand";
             this.rbtnThailand.Size = new System.Drawing.Size(47, 16);
             this.rbtnThailand.TabIndex = 20;
@@ -557,7 +559,7 @@ namespace TravelAgency.CSUI.FrmMain
             // 
             // 
             this.checkRegSucShowDlg.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.checkRegSucShowDlg.Location = new System.Drawing.Point(12, 518);
+            this.checkRegSucShowDlg.Location = new System.Drawing.Point(12, 516);
             this.checkRegSucShowDlg.Name = "checkRegSucShowDlg";
             this.checkRegSucShowDlg.Size = new System.Drawing.Size(149, 23);
             this.checkRegSucShowDlg.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -593,7 +595,7 @@ namespace TravelAgency.CSUI.FrmMain
             // 
             this.btnAutoRead.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnAutoRead.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnAutoRead.Location = new System.Drawing.Point(181, 483);
+            this.btnAutoRead.Location = new System.Drawing.Point(136, 605);
             this.btnAutoRead.Name = "btnAutoRead";
             this.btnAutoRead.Size = new System.Drawing.Size(97, 24);
             this.btnAutoRead.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -856,14 +858,14 @@ namespace TravelAgency.CSUI.FrmMain
             this.dgvWait4Check.AllowUserToAddRows = false;
             this.dgvWait4Check.AllowUserToDeleteRows = false;
             this.dgvWait4Check.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvWait4Check.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvWait4Check.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvWait4Check.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvWait4Check.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PassportNo,
@@ -871,28 +873,28 @@ namespace TravelAgency.CSUI.FrmMain
             this.Country,
             this.HasChecked,
             this.VisaInfo_id});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvWait4Check.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvWait4Check.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvWait4Check.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvWait4Check.EnableHeadersVisualStyles = false;
             this.dgvWait4Check.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
             this.dgvWait4Check.Location = new System.Drawing.Point(0, 0);
             this.dgvWait4Check.Name = "dgvWait4Check";
             this.dgvWait4Check.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvWait4Check.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvWait4Check.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvWait4Check.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvWait4Check.RowTemplate.Height = 30;
             this.dgvWait4Check.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1085,12 +1087,26 @@ namespace TravelAgency.CSUI.FrmMain
             // 
             this.picPassportNo.DefaultSaveFileName = null;
             this.picPassportNo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picPassportNo.FileName = null;
             this.picPassportNo.Image = null;
             this.picPassportNo.Location = new System.Drawing.Point(0, 0);
             this.picPassportNo.Name = "picPassportNo";
             this.picPassportNo.Size = new System.Drawing.Size(721, 577);
             this.picPassportNo.TabIndex = 45;
             this.picPassportNo.TabStop = false;
+            // 
+            // chkShowTimeConsume
+            // 
+            // 
+            // 
+            // 
+            this.chkShowTimeConsume.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.chkShowTimeConsume.Location = new System.Drawing.Point(12, 541);
+            this.chkShowTimeConsume.Name = "chkShowTimeConsume";
+            this.chkShowTimeConsume.Size = new System.Drawing.Size(149, 23);
+            this.chkShowTimeConsume.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.chkShowTimeConsume.TabIndex = 24;
+            this.chkShowTimeConsume.Text = "显示识别耗时";
             // 
             // FrmVisaTypeIn
             // 
@@ -1188,5 +1204,6 @@ namespace TravelAgency.CSUI.FrmMain
         private System.Windows.Forms.DataGridViewTextBoxColumn VisaInfo_id;
         private DevComponents.DotNetBar.ButtonX btnUpLoadLocal;
         private DevComponents.DotNetBar.ButtonX btnAddFromImage;
+        private DevComponents.DotNetBar.Controls.CheckBoxX chkShowTimeConsume;
     }
 }

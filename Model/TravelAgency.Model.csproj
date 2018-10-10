@@ -178,6 +178,7 @@
     <Compile Include="QZApplication.cs" />
     <Compile Include="SysNode.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="Utils\ClassifyTime.cs" />
     <Compile Include="VisaActTypeCountModel.cs" />
     <Compile Include="VisaInfo_JobModel.cs" />
     <Compile Include="VisaWithActRecords.cs" />

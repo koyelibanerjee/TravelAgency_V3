@@ -43,6 +43,7 @@ namespace TravelAgency.CSUI.FrmMain
             txtPicPath.Text = GlobalUtils.LocalPassportPicPath;
             checkShowConfirm.Checked = false;
             checkRegSucShowDlg.Checked = false;
+            chkShowTimeConsume.Checked = false;
             picPassportNo.SizeMode = PictureBoxSizeMode.Zoom;
             btnPre.Enabled = false;
             dgvWait4Check.AutoGenerateColumns = false; //dgv初始化
@@ -357,8 +358,12 @@ namespace TravelAgency.CSUI.FrmMain
 
         private void btnReadData_Click(object sender, EventArgs e)
         {
-            VisaInfo_Tmp model = _idCard.RecogoInfo(txtPicPath.Text, checkRegSucShowDlg.Checked);
+            Model.Utils.ClassifyTime ct = new Model.Utils.ClassifyTime();
 
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            VisaInfo_Tmp model = _idCard.RecogoInfo(txtPicPath.Text, checkRegSucShowDlg.Checked);
+            ct.RecogTime = sw.ElapsedMilliseconds;
             //VisaInfo_Tmp model = new VisaInfo_Tmp(){Name = "杨小鹏",EnglishName = "Yang Xiaopeng",Sex = "男",PassportNo = "E12345678"};
 
             if (model == null)
@@ -371,10 +376,12 @@ namespace TravelAgency.CSUI.FrmMain
             model.EntryTime = DateTime.Now;
             model.District = GlobalUtils.LoginUser.District;
 
-            //图像上传到服务器
-            PassportPicHandler.UploadPassportPic(
-                GlobalUtils.LocalPassportPicPath + "\\" + PassportPicHandler.GetFileName(model.PassportNo, PassportPicHandler.PicType.Type01Normal),
-                model.PassportNo);
+            if (!InfoChecker.CheckNotExpire(model.ExpiryDate.Value)) //检查到快过期了
+            {
+                ModelToCtrls(model);
+                MessageBoxEx.Show("检查到护照即将过期(小于6个月)，请校验信息正确后执行手动添加!");
+                return;
+            }
 
             //执行以下校验(用拼音来进行校验)
             if (!InfoChecker.CheckByPinYin(model.Name, model.EnglishName)) //检查到错误
@@ -386,12 +393,28 @@ namespace TravelAgency.CSUI.FrmMain
                 return;
             }
 
+            sw.Restart();
+            //图像上传到服务器
+            PassportPicHandler.UploadPassportPic(
+                GlobalUtils.LocalPassportPicPath + "\\" + PassportPicHandler.GetFileName(model.PassportNo, PassportPicHandler.PicType.Type01Normal),
+                model.PassportNo);
+            ct.UploadPicTime = sw.ElapsedMilliseconds;
+
+            sw.Restart();
             //读取成功了
             if (_bllVisaInfoTmp.Add(model) == Guid.Empty)
             {
                 MessageBoxEx.Show(Resources.FailedAddToDatabase);
                 return;
             }
+            ct.DbopTime = sw.ElapsedMilliseconds;
+            if (chkShowTimeConsume.Checked)
+            {
+                MessageBoxEx.Show(
+                    $"识别耗时:{ct.RecogTime}\r\n图像传输耗时:{ct.UploadPicTime}\r\n数据库操作耗时:{ct.DbopTime}\r\n总耗时:{ct.AllTime}");
+            }
+            GlobalUtils.Logger.Info($"手动识别成功:\r\n识别耗时:{ct.RecogTime}\r\n图像传输耗时:{ct.UploadPicTime}\r\n数据库操作耗时:{ct.DbopTime}\r\n总耗时:{ct.AllTime}\r\n");
+
             LoadDataToList();
             _curIdx = 0;
             UpdateState();
@@ -408,7 +431,12 @@ namespace TravelAgency.CSUI.FrmMain
                 Thread.Sleep(200);
                 //if (_autoReadThreadPending)
                 //    continue;
+
+                Model.Utils.ClassifyTime ct = new Model.Utils.ClassifyTime();
+                Stopwatch sw = new Stopwatch();
+                sw.Start();
                 Model.VisaInfo_Tmp model = _idCard.AutoClassAndRecognize(this.txtPicPath.Text, checkRegSucShowDlg.Checked);
+                ct.RecogTime = sw.ElapsedMilliseconds;
 
                 if (model != null)
                 {
@@ -419,10 +447,7 @@ namespace TravelAgency.CSUI.FrmMain
                     model.EntryTime = DateTime.Now;
                     model.District = GlobalUtils.LoginUser.District;
 
-                    //把拍照的图像上传到服务器
-                    PassportPicHandler.UploadPassportPic(
-                        GlobalUtils.LocalPassportPicPath + "\\" + PassportPicHandler.GetFileName(model.PassportNo, PassportPicHandler.PicType.Type01Normal),
-                        model.PassportNo);
+
 
                     if (!InfoChecker.CheckNotExpire(model.ExpiryDate.Value)) //检查到快过期了
                     {
@@ -431,7 +456,6 @@ namespace TravelAgency.CSUI.FrmMain
                         btnAutoReadThreadStart_Click(null, null); //点击停止
                         continue;
                     }
-
 
                     if (!InfoChecker.CheckByPinYin(model.Name, model.EnglishName)) //检查到错误
                     {
@@ -443,12 +467,29 @@ namespace TravelAgency.CSUI.FrmMain
                         continue;
                     }
 
+                    sw.Restart();
+                    //把拍照的图像上传到服务器
+                    PassportPicHandler.UploadPassportPic(
+                        GlobalUtils.LocalPassportPicPath + "\\" + PassportPicHandler.GetFileName(model.PassportNo, PassportPicHandler.PicType.Type01Normal),
+                        model.PassportNo);
+                    ct.UploadPicTime = sw.ElapsedMilliseconds;
+
+                    sw.Restart();
                     //读取成功了
                     if (_bllVisaInfoTmp.Add(model) == Guid.Empty)
                     {
                         MessageBoxEx.Show(Resources.FailedAddToDatabase);
                         continue;
                     }
+                    ct.DbopTime = sw.ElapsedMilliseconds;
+
+                    if (chkShowTimeConsume.Checked)
+                    {
+                        MessageBoxEx.Show(
+                            $"识别耗时:{ct.RecogTime}\r\n图像传输耗时:{ct.UploadPicTime}\r\n数据库操作耗时:{ct.DbopTime}\r\n总耗时:{ct.AllTime}");
+                    }
+                    GlobalUtils.Logger.Info($"自动识别成功:\r\n识别耗时:{ct.RecogTime}\r\n图像传输耗时:{ct.UploadPicTime}\r\n数据库操作耗时:{ct.DbopTime}\r\n总耗时:{ct.AllTime}\r\n");
+
                     LoadDataToList();
                     _curIdx = 0;
                     UpdateState();
