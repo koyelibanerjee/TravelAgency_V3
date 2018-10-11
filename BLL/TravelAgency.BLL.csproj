@@ -111,6 +111,7 @@
     <Reference Include="Hprose.Client">
       <HintPath>..\packages\HProse\Hprose.Client.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821" />
     <Reference Include="NPOI">
       <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.dll</HintPath>
     </Reference>

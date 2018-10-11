@@ -117,7 +117,6 @@ namespace TravelAgency.CSUI.FrmMain
             {
                 advTree1.Nodes.Clear();
             }));
-            
             List<List<string>> folderList = _gaopaiPicHandler.GetFolderListGroupByMonth();
             //按照年月分类
             if (folderList == null || folderList.Count == 0)
@@ -128,7 +127,7 @@ namespace TravelAgency.CSUI.FrmMain
                 Node groupNode = new Node(GenChinaDate(folderList[i][0].Substring(0, 6)), advTree1.Styles["groupstyle"]);
                 groupNode.Expanded = true;
                 groupNode.Tag = folderList[i][0].Substring(0, 6); //存一个组名
-              
+
                 this.Invoke(new Action(() =>
                 {
                     advTree1.Nodes.Add(groupNode);
@@ -143,24 +142,32 @@ namespace TravelAgency.CSUI.FrmMain
                     subNode.Tag = folderList[i][j]; //存一个组名
 
                     //每一个这个再添加几类图像名字
-
-                    List<string> typeList = _gaopaiPicHandler.GetFolderListByDate(
-                        DateTime.ParseExact(folderList[i][j], "yyyyMMdd",
-                        System.Globalization.CultureInfo.CurrentCulture));
-                    for (int i1 = 0; i1 < typeList.Count; ++i1)
+                    try //用户来了一个20180832，在DateTime.ParseExact的时候就会直接报错
                     {
-                        Node subImtem = CreateChildNode(typeList[i1], typeList[i1], Properties.Resources.Folder, advTree1.Styles["subitemstyle"]);
-                        subImtem.Tag = typeList[i1];
-                        this.Invoke(new Action(() =>
+                        List<string> typeList = _gaopaiPicHandler.GetFolderListByDate(
+                            DateTime.ParseExact(folderList[i][j], "yyyyMMdd",
+                                System.Globalization.CultureInfo.CurrentCulture));
+                        for (int i1 = 0; i1 < typeList.Count; ++i1)
                         {
-                            subNode.Nodes.Add(subImtem);
-                        }));
+                            Node subImtem = CreateChildNode(typeList[i1], typeList[i1], Properties.Resources.Folder,
+                                advTree1.Styles["subitemstyle"]);
+                            subImtem.Tag = typeList[i1];
+                            this.Invoke(new Action(() =>
+                            {
+                                subNode.Nodes.Add(subImtem);
+                            }));
+                        }
                     }
+                    catch (FormatException e)
+                    {
+                        MessageBoxEx.Show("无效日期文件夹");
+                        continue;
+                    }
+                    
                     this.Invoke(new Action(() =>
                     {
                         groupNode.Nodes.Add(subNode);
                     }));
-                    
                 }
             }
         }
