@@ -11,6 +11,6 @@ namespace TravelAgency.Model.Utils
         public long RecogTime;
         public long UploadPicTime;
         public long DbopTime;
-        public long AllTime => RecogTime + UploadPicTime + DbopTime + AllTime;
+        public long AllTime => RecogTime + UploadPicTime + DbopTime;
     }
 }

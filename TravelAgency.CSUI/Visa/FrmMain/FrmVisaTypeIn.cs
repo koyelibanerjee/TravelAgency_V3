@@ -359,13 +359,13 @@ namespace TravelAgency.CSUI.FrmMain
         private void btnReadData_Click(object sender, EventArgs e)
         {
             Model.Utils.ClassifyTime ct = new Model.Utils.ClassifyTime();
-
             Stopwatch sw = new Stopwatch();
             sw.Start();
             VisaInfo_Tmp model = _idCard.RecogoInfo(txtPicPath.Text, checkRegSucShowDlg.Checked);
             ct.RecogTime = sw.ElapsedMilliseconds;
-            //VisaInfo_Tmp model = new VisaInfo_Tmp(){Name = "杨小鹏",EnglishName = "Yang Xiaopeng",Sex = "男",PassportNo = "E12345678"};
-
+            //VisaInfo_Tmp model = new VisaInfo_Tmp() { Name = "杨小鹏", EnglishName = "Yang Xiaopeng", Sex = "男", PassportNo = "E12345678" };
+            //model.ExpiryDate = DateTime.Now.AddYears(10);
+            
             if (model == null)
                 return;
 
