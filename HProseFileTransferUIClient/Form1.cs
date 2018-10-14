@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -36,14 +37,16 @@ namespace HProseFileTransferUIClient
         private void btnSendFile_Click(object sender, EventArgs e)
         {
             client.KeepAlive = true;
-
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
             using (FileStream fs = new FileStream(txtFilePath.Text, FileMode.Open))
             {
                 byte[] picturedata = new byte[fs.Length];
                 fs.Read(picturedata, 0, picturedata.Length);
-                client.Invoke("RecvImage", new object[] { fs, Path.GetFileName(txtFilePath.Text) });
+                client.Invoke("RcvFile", new object[] { fs, "C:\\a.jpg" });
                 fs.Close();
             }
+            MessageBox.Show(sw.ElapsedMilliseconds.ToString());
         }
 
         private void Form1_Load(object sender, EventArgs e)

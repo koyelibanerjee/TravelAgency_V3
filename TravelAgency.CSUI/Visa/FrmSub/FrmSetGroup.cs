@@ -48,13 +48,15 @@ namespace TravelAgency.CSUI.FrmSub
         private bool _inited = false;
 
         private Thread _initClientCbThread;
+        private bool _mutexLocked = false;
+        private bool _initingClientCb = false;
 
 
         public FrmSetGroup()
         {
-            if(this.Modal)
+            if (this.Modal)
                 this.StartPosition = FormStartPosition.CenterParent;
-            else 
+            else
                 this.StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
         }
@@ -98,9 +100,11 @@ namespace TravelAgency.CSUI.FrmSub
                 InitFrmFromList();
             else
                 InitFrmFromVisaModel();
+
             UpdateLabels();
             SetCountryPicBox();
             _inited = true;
+            this.Text += $"当前登录用户:{GlobalUtils.LoginUser.UserName}";
         }
 
         private void OtherDistrictInit()
@@ -122,6 +126,9 @@ namespace TravelAgency.CSUI.FrmSub
             this.MinimumSize = this.Size;
 
             this.btnReset.Enabled = false; //直接禁用这个功能目前
+
+            //注册退出事件
+            this.Closing += FrmSetGroup_Closing;
 
             InitDgv();
 
@@ -155,8 +162,6 @@ namespace TravelAgency.CSUI.FrmSub
             //这个地方抽出来，时间太长了
             _initClientCbThread = new Thread(InitClientComboBox) { IsBackground = true };
             _initClientCbThread.Start();
-
-
 
             //初始化comboBox的成员
             //出境类型
@@ -231,30 +236,31 @@ namespace TravelAgency.CSUI.FrmSub
                         var cbitem = new ComboBoxItem();
                         cbitem.Text = item.Value; //name
                         cbitem.Tag = item.Key; //id
-                        txtClient.AutoItemHeight = false;
+                        if (_initClientCbThread.ThreadState != ThreadState.Running)
+                            return;
                         this.Invoke(new Action(() =>
-                        {
-                            txtClient.Items.Add(cbitem);
-                        }));
-
+                    {
+                        txtClient.Items.Add(cbitem);
+                    }));
                     }
+                if (_initClientCbThread.ThreadState != ThreadState.Running)
+                    return;
                 this.Invoke(new Action(() =>
-                {
-                    chkSaleFirst.Checked = false;
-
-                    //txtClient.SelectedIndex = 0;
-                    //txtClient.SelectedIndexChanged += TxtClient_SelChangeGetSalesPerson;
-                    txtClient.SelectedIndexChanged += TxtClient_SelChangeGetOperator;
-                    txtClient.SelectedIndexChanged += TxtClient_SelChangeGetSalesPerson;
-                }));
+            {
+                chkSaleFirst.Checked = false;
+                txtClient.SelectedIndexChanged += TxtClient_SelChangeGetOperator;
+                txtClient.SelectedIndexChanged += TxtClient_SelChangeGetSalesPerson;
+            }));
             }
             else if (GlobalUtils.LoginUser.District == 1)
             {
+                if (_initClientCbThread.ThreadState != ThreadState.Running)
+                    return;
                 this.Invoke(new Action(() =>
-                {
-                    txtClient.Text = "李鑫";
-                    txtSalesPerson.Text = "李鑫";
-                }));
+            {
+                txtClient.Text = "李鑫";
+                txtSalesPerson.Text = "李鑫";
+            }));
             }
         }
 
@@ -493,8 +499,6 @@ namespace TravelAgency.CSUI.FrmSub
 
         private void InitEditingMutex()
         {
-            //注册退出事件
-            this.Closing += FrmSetGroup_Closing;
             //执行校验是否有人已经在编辑
             if (BLL.Redis.EditMutex.IsEditing(_visaModel))
             {
@@ -503,26 +507,28 @@ namespace TravelAgency.CSUI.FrmSub
                                   $"正在被:{edv.EditingPerson}编辑中\r\n" +
                                   $"开始时间:{edv.StartEditTime}\r\n" +
                                   $"请稍后重试", "提示");
-  
+
                 this.Close();
                 return;
             }
 
             //添加EditingMutex
             EditMutex.Lock(_visaModel, GlobalUtils.LoginUser);
+            _mutexLocked = true;
             //启动后台延时线程
             new Thread(ExtendUseTimeThread) { IsBackground = true }.Start();
-
-            return;
         }
 
         private void FrmSetGroup_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (_initFromVisaModel)
             {
-                EditMutex.Release(_visaModel);
-                if(_initClientCbThread!=null &&_initClientCbThread.IsAlive)
+                if (_mutexLocked)
+                    EditMutex.Release(_visaModel);
+                if (_initClientCbThread != null && _initClientCbThread.IsAlive)
+                {
                     _initClientCbThread.Abort();
+                }
             }
         }
 
