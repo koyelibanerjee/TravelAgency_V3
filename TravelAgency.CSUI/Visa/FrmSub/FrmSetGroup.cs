@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using DevComponents.DotNetBar.Controls;
 using TravelAgency.BLL.Excel;
+using TravelAgency.BLL.Redis;
 using TravelAgency.Common;
 using TravelAgency.Common.Enums;
 using TravelAgency.CSUI.FrmSetValue;
@@ -87,12 +88,6 @@ namespace TravelAgency.CSUI.FrmSub
         private void FrmSetGroup_Load(object sender, EventArgs e)
         {
             InitCtrls();
-
-            ////设置操作员
-            //txtTypeInPerson.Text = Common.GlobalUtils.LoginUser.UserName;
-            //txtTypeInPerson.Enabled = false;
-            //设置国家默认值
-            //cbCountry.Text = "日本"; //这个默认值应该只是在还没设置的时候默认日本
 
             if (_list != null && _visaModel == null && !_initFromVisaModel)
                 InitFrmFromList();
@@ -381,6 +376,7 @@ namespace TravelAgency.CSUI.FrmSub
 
             //只有从list初始化的时候才设置地区前缀
             cbSaleTo.Visible = true;
+            lbSaleTo.Visible = true;
             ControlInitializer.InitCombo(cbSaleTo, District.DistrictList);
         }
 
@@ -392,6 +388,14 @@ namespace TravelAgency.CSUI.FrmSub
         {
             if (_visaModel == null)
                 return;
+
+
+            //添加EditingMutex
+            EditMutex.Lock(_visaModel, GlobalUtils.LoginUser);
+            //启动后台延时线程
+            new Thread(ExtendUseTimeThread) {IsBackground = true}.Start();
+            //注册退出事件
+            this.Closing += FrmSetGroup_Closing;
 
             //查询得到所有的属于这个团的用户
             _list = _bllVisaInfo.GetModelListByVisaIdOrderByPosition(_visaModel.Visa_id);
@@ -479,7 +483,16 @@ namespace TravelAgency.CSUI.FrmSub
                 this.Text += "  当前状态:未做资料";
 
             cbSaleTo.Visible = false;
+            lbSaleTo.Visible = false;
 
+        }
+
+        private void FrmSetGroup_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (_initFromVisaModel)
+            {
+                EditMutex.Release(_visaModel);
+            }
         }
 
 
@@ -702,6 +715,15 @@ namespace TravelAgency.CSUI.FrmSub
             }
             int res = _bllVisaInfo.UpdateByList(_dgvList);
             GlobalUtils.MessageBoxWithRecordNum("更新", res, list.Count);
+        }
+
+        void ExtendUseTimeThread()
+        {
+            while (true)
+            {
+                EditMutex.ExtendUseTime(_visaModel);
+                Thread.Sleep(8000);
+            }
         }
 
         #endregion

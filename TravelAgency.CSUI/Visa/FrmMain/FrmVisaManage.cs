@@ -610,7 +610,7 @@ namespace TravelAgency.CSUI.FrmMain
             }
             if (!_forAddToGroup)
             {
-                cmsItemShowGroupNo_Click(null,null);
+                cmsItemShowGroupNo_Click(null, null);
             }
             else //添加用户的情况
             {
@@ -1173,11 +1173,19 @@ namespace TravelAgency.CSUI.FrmMain
                 return;
             }
 
-            //执行校验是否有人已经在编辑
-            Redis.Client.Get<>()
-
-
             Model.Visa model = GetSelectedVisaModel();
+
+            //执行校验是否有人已经在编辑
+            if (BLL.Redis.EditMutex.IsEditing(model))
+            {
+                var edv = BLL.Redis.EditMutex.GetEditingInfo(model);
+                MessageBoxEx.Show($"当前团号:{edv.GroupNo}\r\n" +
+                                  $"正在被:{edv.EditingPerson}编辑中\r\n" +
+                                  $"开始时间:{edv.StartEditTime}\r\n" +
+                                  $"请稍后重试", "提示");
+                    return;
+            }
+
             if (model == null)
             {
                 MessageBoxEx.Show(Resources.FindModelFailedPleaseCheckInfoCorrect);
