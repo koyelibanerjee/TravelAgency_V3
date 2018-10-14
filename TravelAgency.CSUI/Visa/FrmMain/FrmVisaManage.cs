@@ -13,6 +13,7 @@ using TravelAgency.BLL.Excel;
 using TravelAgency.BLL.FTPFileHandler;
 using TravelAgency.BLL.RPC;
 using TravelAgency.Common;
+using TravelAgency.Common.Cache;
 using TravelAgency.Common.FrmSetValues;
 using TravelAgency.Common.FTP;
 using TravelAgency.Common.Word;
@@ -609,25 +610,7 @@ namespace TravelAgency.CSUI.FrmMain
             }
             if (!_forAddToGroup)
             {
-                Model.Visa model = _bllVisa.GetModel((Guid)dataGridView1.SelectedRows[0].Cells["Visa_id"].Value);
-                if (model == null)
-                {
-                    MessageBoxEx.Show(Resources.FindModelFailedPleaseCheckInfoCorrect);
-                    return;
-                }
-
-                if (model.Types == Model.Enums.Types.Individual || model.Types == Model.Enums.Types.Team2Individual)
-                {
-                    FrmSetGroup frm = new FrmSetGroup(model, LoadDataToDataGridView, _curPage);
-                    //frm.ShowDialog();
-                    frm.Show();
-                }
-                else if (model.Types == Model.Enums.Types.Team)
-                {
-                    FrmSetTeamVisaGroup frm = new FrmSetTeamVisaGroup(model, LoadDataToDataGridView, _curPage);
-                    //frm.ShowDialog();
-                    frm.Show();
-                }
+                cmsItemShowGroupNo_Click(null,null);
             }
             else //添加用户的情况
             {
@@ -1189,6 +1172,10 @@ namespace TravelAgency.CSUI.FrmMain
                 MessageBoxEx.Show(Resources.SelectShowMoreThanOne);
                 return;
             }
+
+            //执行校验是否有人已经在编辑
+            Redis.Client.Get<>()
+
 
             Model.Visa model = GetSelectedVisaModel();
             if (model == null)

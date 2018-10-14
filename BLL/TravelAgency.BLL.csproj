@@ -124,6 +124,10 @@
     <Reference Include="NPOI.OpenXmlFormats">
       <HintPath>..\packages\NPOI.2.3.0\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
     </Reference>
+    <Reference Include="ServiceStack.Interfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ServiceStack.Redis.Complete.1.0.0\lib\net35\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
@@ -214,6 +218,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="QZApplication.cs" />
+    <Compile Include="Redis\EditMutex.cs" />
     <Compile Include="RPC\HproseClient.cs" />
     <Compile Include="UtilsBll.cs" />
     <Compile Include="Utils\SearchCondition.cs" />

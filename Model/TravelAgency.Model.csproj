@@ -128,6 +128,7 @@
     <Compile Include="ActivityOrder.cs" />
     <Compile Include="AppAll.cs" />
     <Compile Include="AppStatus.cs" />
+    <Compile Include="Cache\EditingVisa.cs" />
     <Compile Include="ClaimMoney.cs" />
     <Compile Include="Commision.cs" />
     <Compile Include="Commision_Sale.cs" />

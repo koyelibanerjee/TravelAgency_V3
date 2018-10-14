@@ -3,9 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using ServiceStack.CacheAccess;
 using TravelAgency;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace RedisDemo
 {
@@ -13,14 +15,15 @@ namespace RedisDemo
     class Program
     {
         //static RedisClient client = new RedisClient("127.0.0.1", 6379);
-        static readonly ICacheClient _client = new RedisClient("192.168.174.128", 6379);
+        static readonly ICacheClient _client = new RedisClient("192.168.174.134", 6379);
         private static TravelAgency.BLL.VisaInfo _bllVisaInfo = new TravelAgency.BLL.VisaInfo();
         private static TravelAgency.BLL.Visa _bllVisa = new TravelAgency.BLL.Visa();
 
         static void Main(string[] args)
         {
             //testModel();
-            testList();
+            //testList();
+            testExpireTime();
             Console.WriteLine("complete");
             Console.Read();
         }
@@ -28,7 +31,7 @@ namespace RedisDemo
         static void testModel()
         {
             var model = _bllVisaInfo.GetModel(new Guid("E3DDD58D-0D8C-455C-987D-43F16B3658F1"));
-
+            //_client.Set()
             _client.Set(model.VisaInfo_id.ToString(), model);
             var model1 = _client.Get<TravelAgency.Model.VisaInfo>(model.VisaInfo_id.ToString());
             _client.Remove("e3ddd58d-0d8c-455c-987d-43f16b3658f1");
@@ -55,8 +58,21 @@ namespace RedisDemo
 
         static void testList2()
         {
-            
+
         }
+
+        [TestMethod]
+        static void testExpireTime()
+        {
+            _client.Set("key1", "value1", TimeSpan.FromSeconds(10));
+            var value1 = _client.Get<string>("key1");
+            Assert.IsTrue(value1 == "value1");
+            Thread.Sleep(3000);
+            value1 = _client.Get<string>("key1");
+            Assert.IsTrue(value1 == null);
+        }
+
+
 
     }
 }
