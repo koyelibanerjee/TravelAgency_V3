@@ -5,9 +5,7 @@ namespace TravelAgency.BLL.Redis
 {
     public class EditMutex
     {
-        private static TimeSpan _delayTimeSpan = TimeSpan.FromSeconds(10);
-
-
+        private static readonly TimeSpan DelayTimeSpan = TimeSpan.FromSeconds(10);
 
         public static bool Lock(Model.Visa visa, Model.AuthUser user)
         {
@@ -19,7 +17,7 @@ namespace TravelAgency.BLL.Redis
                 EditingWorkId = user.WorkId,
                 StartEditTime = DateTime.Now
             };
-            return Common.Cache.Redis.Client.Set(visa.Visa_id.ToString(), edv, _delayTimeSpan);
+            return Common.Cache.Redis.Client.Set(visa.Visa_id.ToString(), edv, DelayTimeSpan);
         }
 
         public static bool Release(Model.Visa visa)
@@ -29,16 +27,12 @@ namespace TravelAgency.BLL.Redis
 
         public static bool ExtendUseTime(Model.Visa visa)
         {
-            return Common.Cache.Redis.Client.ExpireEntryIn(visa.Visa_id.ToString(), _delayTimeSpan);
+            return Common.Cache.Redis.Client.ExpireEntryIn(visa.Visa_id.ToString(), DelayTimeSpan);
         }
 
-        public static bool IsEditing(string guid)
+        public static bool IsEditing(Model.Visa visa)
         {
-            return Common.Cache.Redis.Client.Get<EditingVisa>(guid) != null;
+            return Common.Cache.Redis.Client.GetTimeToLive(visa.Visa_id.ToString()).TotalMilliseconds > 0;
         }
-
-
-
-
     }
 }
