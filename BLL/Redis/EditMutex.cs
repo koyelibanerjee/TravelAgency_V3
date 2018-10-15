@@ -5,7 +5,7 @@ namespace TravelAgency.BLL.Redis
 {
     public class EditMutex
     {
-        private static readonly TimeSpan DelayTimeSpan = TimeSpan.FromSeconds(100);
+        private static readonly TimeSpan DelayTimeSpan = TimeSpan.FromSeconds(10);
 
         private static string getMutexKey(string visaId)
         {

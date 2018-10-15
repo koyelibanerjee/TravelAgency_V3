@@ -49,7 +49,7 @@ namespace TravelAgency.CSUI.FrmSub
 
         private Thread _initClientCbThread;
         private bool _mutexLocked = false;
-        private bool _initingClientCb = false;
+        private bool _mutexFailed = false;
 
 
         public FrmSetGroup()
@@ -95,6 +95,9 @@ namespace TravelAgency.CSUI.FrmSub
 
         private void FrmSetGroup_Load(object sender, EventArgs e)
         {
+            InitEditingMutex();
+            if (_mutexFailed)
+                return;
             InitCtrls();
             if (!_initFromVisaModel)
                 InitFrmFromList();
@@ -126,9 +129,6 @@ namespace TravelAgency.CSUI.FrmSub
             this.MinimumSize = this.Size;
 
             this.btnReset.Enabled = false; //直接禁用这个功能目前
-
-            //注册退出事件
-            this.Closing += FrmSetGroup_Closing;
 
             InitDgv();
 
@@ -221,47 +221,56 @@ namespace TravelAgency.CSUI.FrmSub
             cbOutDeliveryPlace.Items.Add("广州");
             cbOutDeliveryPlace.Items.Add("重庆");
             cbOutDeliveryPlace.Text = "";
-
-
         }
 
         private void InitClientComboBox()
         {
-            if (GlobalUtils.LoginUser.District == 0)
+            try //ThreadAbortException需要在这里捕获!!!
             {
-                var list = BLL.CustomerInfo.GetCustomerList();
-                if (list != null && list.Count > 0)
-                    foreach (var item in list)
+                if (GlobalUtils.LoginUser.District == 0)
+                {
+                    var list = BLL.CustomerInfo.GetCustomerList();
+                    if (list != null && list.Count > 0)
+                        foreach (var item in list)
+                        {
+                            var cbitem = new ComboBoxItem();
+                            cbitem.Text = item.Value; //name
+                            cbitem.Tag = item.Key; //id
+                            //if (_initClientCbThread.ThreadState != ThreadState.Running && //还是不行,最后简单点，直接把线程放到窗口进来的时候把!!!!!
+                            //    _initClientCbThread.ThreadState != ThreadState.Background)
+                            //return;
+                            this.Invoke(new Action(() =>
+                            {
+                                txtClient.Items.Add(cbitem);
+                            }));
+                        }
+                    //if (_initClientCbThread.ThreadState != ThreadState.Running &&
+                    //            _initClientCbThread.ThreadState != ThreadState.Background)
+                    //    return;
+                    this.Invoke(new Action(() =>
                     {
-                        var cbitem = new ComboBoxItem();
-                        cbitem.Text = item.Value; //name
-                        cbitem.Tag = item.Key; //id
-                        if (_initClientCbThread.ThreadState != ThreadState.Running)
-                            return;
-                        this.Invoke(new Action(() =>
-                    {
-                        txtClient.Items.Add(cbitem);
+                        chkSaleFirst.Checked = false;
+                        txtClient.SelectedIndexChanged += TxtClient_SelChangeGetOperator;
+                        txtClient.SelectedIndexChanged += TxtClient_SelChangeGetSalesPerson;
                     }));
-                    }
-                if (_initClientCbThread.ThreadState != ThreadState.Running)
-                    return;
-                this.Invoke(new Action(() =>
-            {
-                chkSaleFirst.Checked = false;
-                txtClient.SelectedIndexChanged += TxtClient_SelChangeGetOperator;
-                txtClient.SelectedIndexChanged += TxtClient_SelChangeGetSalesPerson;
-            }));
+                }
+                else if (GlobalUtils.LoginUser.District == 1)
+                {
+                    //if (_initClientCbThread.ThreadState != ThreadState.Running &&
+                    //            _initClientCbThread.ThreadState != ThreadState.Background)
+                    //    return;
+                    this.Invoke(new Action(() =>
+                    {
+                        txtClient.Text = "李鑫";
+                        txtSalesPerson.Text = "李鑫";
+                    }));
+                }
             }
-            else if (GlobalUtils.LoginUser.District == 1)
+            catch (ThreadAbortException ex)
             {
-                if (_initClientCbThread.ThreadState != ThreadState.Running)
-                    return;
-                this.Invoke(new Action(() =>
-            {
-                txtClient.Text = "李鑫";
-                txtSalesPerson.Text = "李鑫";
-            }));
+                
             }
+            
         }
 
         private void TxtClient_SelChangeGetSalesPerson(object sender, EventArgs e)
@@ -405,7 +414,7 @@ namespace TravelAgency.CSUI.FrmSub
             if (_visaModel == null)
                 return;
 
-            InitEditingMutex();
+            //InitEditingMutex();
 
             //查询得到所有的属于这个团的用户
             _list = _bllVisaInfo.GetModelListByVisaIdOrderByPosition(_visaModel.Visa_id);
@@ -499,6 +508,10 @@ namespace TravelAgency.CSUI.FrmSub
 
         private void InitEditingMutex()
         {
+            if (!_initFromVisaModel)
+                return;
+            //注册退出事件
+            this.Closing += FrmSetGroup_Closing;
             //执行校验是否有人已经在编辑
             if (BLL.Redis.EditMutex.IsEditing(_visaModel))
             {
@@ -507,7 +520,7 @@ namespace TravelAgency.CSUI.FrmSub
                                   $"正在被:{edv.EditingPerson}编辑中\r\n" +
                                   $"开始时间:{edv.StartEditTime}\r\n" +
                                   $"请稍后重试", "提示");
-
+                _mutexFailed = true;
                 this.Close();
                 return;
             }
