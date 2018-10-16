@@ -254,7 +254,7 @@ namespace TravelAgency.CSUI.FrmSub
                         txtClient.SelectedIndexChanged += TxtClient_SelChangeGetSalesPerson;
                     }));
                 }
-                else if (GlobalUtils.LoginUser.District == 1)
+                else if (GlobalUtils.LoginUser.District == 1 && !_initFromVisaModel)
                 {
                     //if (_initClientCbThread.ThreadState != ThreadState.Running &&
                     //            _initClientCbThread.ThreadState != ThreadState.Background)

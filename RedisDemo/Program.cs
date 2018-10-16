@@ -15,7 +15,8 @@ namespace RedisDemo
     class Program
     {
         //static RedisClient client = new RedisClient("127.0.0.1", 6379);
-        static readonly IRedisClient _client = new RedisClient("192.168.174.134", 6379);
+        //static readonly IRedisClient _client = new RedisClient("192.168.174.134", 6379);
+        static readonly IRedisClient _client = new RedisClient("127.0.0.1", 6379);
         private static TravelAgency.BLL.VisaInfo _bllVisaInfo = new TravelAgency.BLL.VisaInfo();
         private static TravelAgency.BLL.Visa _bllVisa = new TravelAgency.BLL.Visa();
 
@@ -64,7 +65,8 @@ namespace RedisDemo
         [TestMethod]
         static void testExpireTime()
         {
-            _client.Set("key1", "value1", TimeSpan.FromSeconds(5));
+            _client.Set("key1", "value1", TimeSpan.FromSeconds(20));
+            bool b = _client.ExpireEntryIn("key1", TimeSpan.FromSeconds(20));
             var value1 = _client.Get<string>("key1");
             Assert.IsTrue(value1 == "value1");
             TimeSpan s = _client.GetTimeToLive("key1");
