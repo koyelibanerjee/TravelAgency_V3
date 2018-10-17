@@ -489,6 +489,9 @@ namespace TravelAgency.CSUI.FrmSub
             txtTypeInPerson.Text = _visaModel.TypeInPerson;
             txtTypeInPerson.Enabled = false;
 
+            txtWorkingState.Text = _visaModel.WorkingState;
+
+
             cbOutDelivery.Checked = _visaModel.IsOutDelivery ?? false;
             if (!cbOutDelivery.Checked)
                 cbOutDeliveryPlace.Enabled = false;
@@ -1281,6 +1284,7 @@ namespace TravelAgency.CSUI.FrmSub
                 _visaModel.Operator = CtrlParser.Parse2String(txtOperator);
                 _visaModel.IsOutDelivery = cbOutDelivery.Checked;
 
+                _visaModel.WorkingState = CtrlParser.Parse2String(txtWorkingState);
 
                 if (_visaModel.IsOutDelivery ?? false)
                     _visaModel.OutDeliveryPlace = cbOutDeliveryPlace.Text;
@@ -1358,6 +1362,9 @@ namespace TravelAgency.CSUI.FrmSub
                 model.Person = CtrlParser.Parse2String(txtPerson);
                 model.Operator = CtrlParser.Parse2String(txtOperator);
 
+                _visaModel.WorkingState = CtrlParser.Parse2String(txtWorkingState);
+                if (GlobalUtils.LoginUser.District != _visaModel.District)
+                    _visaModel.OtherDistrictTypeInPerson = GlobalUtils.LoginUser.UserName;
 
                 model.IsUrgent = chbIsUrgent.Checked;
                 model.IsOutDelivery = cbOutDelivery.Checked;

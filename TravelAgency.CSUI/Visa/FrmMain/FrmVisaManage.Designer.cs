@@ -135,6 +135,7 @@
             this.cmsAddToGroup = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.添加到团号ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GroupNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WorkingState = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CountryImage = new System.Windows.Forms.DataGridViewImageColumn();
@@ -142,6 +143,7 @@
             this.OutTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EntryTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TypeInPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OtherDistrictTypeInPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Types = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.IsUrgent = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -281,6 +283,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.GroupNo,
+            this.WorkingState,
             this.Country,
             this.Number,
             this.CountryImage,
@@ -288,6 +291,7 @@
             this.OutTime,
             this.EntryTime,
             this.TypeInPerson,
+            this.OtherDistrictTypeInPerson,
             this.Types,
             this.IsUrgent,
             this.Status,
@@ -1312,6 +1316,13 @@
             this.GroupNo.ReadOnly = true;
             this.GroupNo.Width = 300;
             // 
+            // WorkingState
+            // 
+            this.WorkingState.DataPropertyName = "WorkingState";
+            this.WorkingState.HeaderText = "工作备注";
+            this.WorkingState.Name = "WorkingState";
+            this.WorkingState.ReadOnly = true;
+            // 
             // Country
             // 
             this.Country.DataPropertyName = "Country";
@@ -1361,6 +1372,13 @@
             this.TypeInPerson.HeaderText = "办理人";
             this.TypeInPerson.Name = "TypeInPerson";
             this.TypeInPerson.ReadOnly = true;
+            // 
+            // OtherDistrictTypeInPerson
+            // 
+            this.OtherDistrictTypeInPerson.DataPropertyName = "OtherDistrictTypeInPerson";
+            this.OtherDistrictTypeInPerson.HeaderText = "重庆资料员";
+            this.OtherDistrictTypeInPerson.Name = "OtherDistrictTypeInPerson";
+            this.OtherDistrictTypeInPerson.ReadOnly = true;
             // 
             // Types
             // 
@@ -1575,6 +1593,7 @@
         private System.Windows.Forms.ToolStripMenuItem 个人签证申请表ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 下载高拍仪图像ToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn GroupNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WorkingState;
         private System.Windows.Forms.DataGridViewTextBoxColumn Country;
         private System.Windows.Forms.DataGridViewTextBoxColumn Number;
         private System.Windows.Forms.DataGridViewImageColumn CountryImage;
@@ -1582,6 +1601,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn OutTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn EntryTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn TypeInPerson;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OtherDistrictTypeInPerson;
         private System.Windows.Forms.DataGridViewTextBoxColumn Types;
         private System.Windows.Forms.DataGridViewTextBoxColumn IsUrgent;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
