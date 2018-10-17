@@ -113,6 +113,7 @@
             this.泰航机票ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.设置领馆费用ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.提交请款ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.生成账单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.自动更新单价ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.自动更新总价ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -164,7 +165,6 @@
             this.lbCount = new DevComponents.DotNetBar.LabelItem();
             this.cmsAddToGroup = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.添加到团号ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.生成账单ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.bar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.cmsDgv.SuspendLayout();
@@ -334,7 +334,7 @@
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -893,6 +893,13 @@
             this.提交请款ToolStripMenuItem.Text = "提交请款申请";
             this.提交请款ToolStripMenuItem.Click += new System.EventHandler(this.提交请款ToolStripMenuItem_Click);
             // 
+            // 生成账单ToolStripMenuItem
+            // 
+            this.生成账单ToolStripMenuItem.Name = "生成账单ToolStripMenuItem";
+            this.生成账单ToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.生成账单ToolStripMenuItem.Text = "生成账单";
+            this.生成账单ToolStripMenuItem.Click += new System.EventHandler(this.生成账单ToolStripMenuItem_Click);
+            // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
@@ -950,6 +957,7 @@
             this.生成新团号ToolStripMenuItem.Name = "生成新团号ToolStripMenuItem";
             this.生成新团号ToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
             this.生成新团号ToolStripMenuItem.Text = "生成新团号";
+            this.生成新团号ToolStripMenuItem.Visible = false;
             this.生成新团号ToolStripMenuItem.Click += new System.EventHandler(this.生成新团号ToolStripMenuItem_Click);
             // 
             // panelBars
@@ -1658,13 +1666,6 @@
             this.添加到团号ToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.添加到团号ToolStripMenuItem.Text = "添加到此团号";
             this.添加到团号ToolStripMenuItem.Click += new System.EventHandler(this.添加到团号ToolStripMenuItem_Click);
-            // 
-            // 生成账单ToolStripMenuItem
-            // 
-            this.生成账单ToolStripMenuItem.Name = "生成账单ToolStripMenuItem";
-            this.生成账单ToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
-            this.生成账单ToolStripMenuItem.Text = "生成账单";
-            this.生成账单ToolStripMenuItem.Click += new System.EventHandler(this.生成账单ToolStripMenuItem_Click);
             // 
             // FrmVisaRequestPayoutManage
             // 

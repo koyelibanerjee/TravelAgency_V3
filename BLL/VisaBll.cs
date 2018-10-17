@@ -137,7 +137,7 @@ namespace TravelAgency.BLL
         }
 
 
-        public Model.Visa CopyVisa(Model.Visa orig)
+        public Model.Visa CopyNewGroupNoVisa(Model.Visa orig)
         {
             Model.Visa newModel = orig.ToObjectCopy();
             newModel.Visa_id = new Guid();

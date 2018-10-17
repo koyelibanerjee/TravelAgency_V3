@@ -1437,18 +1437,20 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             {
                 if (visa.SubmitFlag == 1)
                 {
-                    MessageBoxEx.Show($"团号{visa.GroupNo}已经提交过请款申请，不能再修改!!");
-                    return;
+                    //MessageBoxEx.Show($"团号{visa.GroupNo}已经提交过请款申请，不能再修改!!");
+                    //return;
+                    if (MessageBoxEx.Show($"团号{visa.GroupNo}已经提交过请款申请,是否继续?", "提示", MessageBoxButtons.YesNo) ==
+                        DialogResult.No)
+                    {
+                        return;
+                    }
                 }
             }
 
             if (FrmsManager.FormSetCharge == null)
             {
                 FrmSetCharge frm = new FrmSetCharge(list, LoadDataToDataGridView, _curPage);
-                //if (frm.ShowDialog() == DialogResult.Cancel)
-                //    return;
                 frm.Show();
-
             }
             else
             {
@@ -1626,7 +1628,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                     return;
             }
 
-            var newModel = _bllVisa.CopyVisa(list[0]);
+            var newModel = _bllVisa.CopyNewGroupNoVisa(list[0]);
             if (_bllVisa.Add(newModel) != Guid.Empty)
             {
                 MessageBoxEx.Show($"生成新团号{newModel.GroupNo}成功!");
