@@ -138,7 +138,7 @@
             this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Number = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CountryImage = new System.Windows.Forms.DataGridViewImageColumn();
-            this.PredictTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DepartureTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OutTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EntryTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TypeInPerson = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -284,7 +284,7 @@
             this.Country,
             this.Number,
             this.CountryImage,
-            this.PredictTime,
+            this.DepartureTime,
             this.OutTime,
             this.EntryTime,
             this.TypeInPerson,
@@ -305,7 +305,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(57)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1334,12 +1334,12 @@
             this.CountryImage.ReadOnly = true;
             this.CountryImage.Width = 200;
             // 
-            // PredictTime
+            // DepartureTime
             // 
-            this.PredictTime.DataPropertyName = "PredictTime";
-            this.PredictTime.HeaderText = "出发时间";
-            this.PredictTime.Name = "PredictTime";
-            this.PredictTime.ReadOnly = true;
+            this.DepartureTime.DataPropertyName = "DepartureTime";
+            this.DepartureTime.HeaderText = "出发时间";
+            this.DepartureTime.Name = "DepartureTime";
+            this.DepartureTime.ReadOnly = true;
             // 
             // OutTime
             // 
@@ -1578,7 +1578,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Country;
         private System.Windows.Forms.DataGridViewTextBoxColumn Number;
         private System.Windows.Forms.DataGridViewImageColumn CountryImage;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PredictTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DepartureTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn OutTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn EntryTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn TypeInPerson;

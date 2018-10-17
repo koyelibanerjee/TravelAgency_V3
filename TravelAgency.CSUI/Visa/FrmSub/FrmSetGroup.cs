@@ -538,12 +538,10 @@ namespace TravelAgency.CSUI.FrmSub
             if (_initFromVisaModel)
             {
                 if (_mutexLocked)
-                    EditMutex.Release(_visaModel);
-                if (_initClientCbThread != null && _initClientCbThread.IsAlive)
-                {
-                    _initClientCbThread.Abort();
-                }
+                    EditMutex.Release(_visaModel); //问题是，如果直接关闭主窗口，导致这个窗口关闭，是不会触发这个closing事件的
             }
+            if (_initClientCbThread != null && _initClientCbThread.IsAlive)
+                _initClientCbThread.Abort();
         }
 
 
