@@ -169,7 +169,7 @@ namespace TravelAgency.OrdersManagement.AutoUpdate
             bool updateSuccess = true;
             for (int i = 0; i < list.Count; i++)
             {
-                ListViewItem listViewItem = new ListViewItem();
+                ListViewItem listViewItem;
                 listViewItem = new ListViewItem(list[i].file);
                 ListViewItem.ListViewSubItem subItem;
                 Font font = listViewItem.Font;
