@@ -95,7 +95,7 @@ namespace TravelAgency.CSUI.FrmSub
 
         private void FrmSetGroup_Load(object sender, EventArgs e)
         {
-            InitEditingMutex();
+            InitEditingMutex(); //20181017 禁用
             if (_mutexFailed)
                 return;
             InitCtrls();
@@ -508,6 +508,7 @@ namespace TravelAgency.CSUI.FrmSub
 
         private void InitEditingMutex()
         {
+            //return; //20181017 禁用这个功能
             if (!_initFromVisaModel)
                 return;
             //注册退出事件
