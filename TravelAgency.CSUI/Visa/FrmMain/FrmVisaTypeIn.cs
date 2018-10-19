@@ -309,6 +309,12 @@ namespace TravelAgency.CSUI.FrmMain
             //_curIdx = 0;
             //UpdateState();
 
+            if (dgvWait4Check.Rows.Count < 1)
+            {
+                MessageBoxEx.Show("没有数据可以提交!!!");
+                return;
+            }
+
             //直接在数据库那边执行提交操作，从visainfo_tmp移动到visainfo，然后这边重新加载数据库就OK
 
             List<VisaInfo_Tmp> list = new List<VisaInfo_Tmp>();
@@ -321,6 +327,11 @@ namespace TravelAgency.CSUI.FrmMain
                         list.Add(visaInfoTmp);
                 }
 
+            if (list.Count < 1)
+            {
+                MessageBoxEx.Show("没有数据可以提交!!!");
+                return;
+            }
             //ExcelGenerator.GetPrintTable(list);
 
 
@@ -365,7 +376,7 @@ namespace TravelAgency.CSUI.FrmMain
             ct.RecogTime = sw.ElapsedMilliseconds;
             //VisaInfo_Tmp model = new VisaInfo_Tmp() { Name = "杨小鹏", EnglishName = "Yang Xiaopeng", Sex = "男", PassportNo = "E12345678" };
             //model.ExpiryDate = DateTime.Now.AddYears(10);
-            
+
             if (model == null)
                 return;
 

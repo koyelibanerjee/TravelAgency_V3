@@ -268,9 +268,9 @@ namespace TravelAgency.CSUI.FrmSub
             }
             catch (ThreadAbortException ex)
             {
-                
+
             }
-            
+
         }
 
         private void TxtClient_SelChangeGetSalesPerson(object sender, EventArgs e)
@@ -414,6 +414,7 @@ namespace TravelAgency.CSUI.FrmSub
             if (_visaModel == null)
                 return;
 
+            txtGroupNo.TextChanged += TxtGroupNo_TextChanged;
             //InitEditingMutex();
 
             //查询得到所有的属于这个团的用户
@@ -507,6 +508,17 @@ namespace TravelAgency.CSUI.FrmSub
             cbSaleTo.Visible = false;
             lbSaleTo.Visible = false;
 
+        }
+
+        private void TxtGroupNo_TextChanged(object sender, EventArgs e)
+        {
+            if (_inited && _initFromVisaModel && _visaModel.SubmitFlag.HasValue && 
+                _visaModel.SubmitFlag == 1 && txtGroupNo.Text != _visaModel.GroupNo) //已请过款的团号不能再修改
+            {
+                txtGroupNo.Text = _visaModel.GroupNo;
+                MessageBoxEx.Show("已请款过的团不能改变团号!!!");
+                return;
+            }
         }
 
         private void InitEditingMutex()
