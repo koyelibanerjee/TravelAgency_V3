@@ -50,6 +50,7 @@ namespace TravelAgency.CSUI.FrmMain
             dgvWait4Check.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells; //列宽自适应,一定不能用AllCells
             dgvWait4Check.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders; //这里也一定不能AllCell自适应!
             dgvWait4Check.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            StyleControler.SetDgvStyle(dgvWait4Check);
             dgvWait4Check.MultiSelect = false;
             txtCheckPerson.Text = GlobalUtils.LoginUser.UserName; //初始化操作员
             txtCheckPerson.Enabled = false;

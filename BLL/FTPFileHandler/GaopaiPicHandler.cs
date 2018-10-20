@@ -157,11 +157,6 @@ namespace TravelAgency.BLL.FTPFileHandler
             for (int i = list.Count - 1; i >= 0; --i)
                 if (list[i].Length == 36)
                     list.RemoveAt(i); //去除按照visa分的
-            GlobalUtils.Logger.Debug(list.Count);
-            foreach (var item in list)
-            {
-                GlobalUtils.Logger.Debug(item);
-            }
             return GroupListByMonth(list);
         }
 

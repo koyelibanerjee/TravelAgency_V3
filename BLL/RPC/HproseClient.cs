@@ -70,6 +70,7 @@ namespace TravelAgency.BLL.RPC
             }
 
             _hproseclient.Invoke(_uploadFileCall, new object[] { data, dstName });
+            
         }
 
 
