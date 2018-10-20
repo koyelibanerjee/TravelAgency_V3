@@ -1405,10 +1405,24 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             var list = GetSelectedVisaList();
             if (list.Count == 0)
                 return;
+
+            if (GlobalUtils.LoginUserLevel != RigthLevel.Manager)
+            {
+                foreach (var visa in list)
+                {
+                    if (visa.RealTime != null || visa.FinishTime != null)
+                    {
+                        MessageBoxEx.Show($"团号:{visa.GroupNo}进出签时间不为空，需管理员才能重新设置!");
+                        return;
+                    }
+                }
+            }
+
             FrmSetSubmitTime frm = new FrmSetSubmitTime(list[0].RealTime.ToString(),
                 list[0].FinishTime.ToString());
             if (frm.ShowDialog() == DialogResult.Cancel)
                 return;
+
 
             List<VisaInfo> visainfoList = new List<VisaInfo>();
             foreach (var visa in list)
