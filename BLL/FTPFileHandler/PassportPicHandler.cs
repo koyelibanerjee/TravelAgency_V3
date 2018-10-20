@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.IO;
 using DevComponents.DotNetBar;
+using NPOI.SS.Formula.PTG;
 using TravelAgency.BLL.RPC;
 using TravelAgency.Common;
 using TravelAgency.Common.FTP;
@@ -41,13 +42,20 @@ namespace TravelAgency.BLL.FTPFileHandler
         /// <param name="passportNo"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        public static void UploadPassportPic(string filename, string passportNo)
+        public static bool UploadPassportPic(string filename, string passportNo)
         {
             FtpHandler.ChangeFtpUri(ConfigurationManager.AppSettings["PassportPicPath"]);
             FtpHandler.Upload(filename, GetFileName(passportNo, PicType.Type01Normal));
 
+            if (!FtpHandler.FileExist(GetFileName(passportNo, PicType.Type01Normal)))
+            {
+                GlobalUtils.Logger.Error($"护照{passportNo},上传图像失败");
+                MessageBoxEx.Show($"护照{passportNo},上传图像失败，请联系技术人员!");
+                return false;
+            }
             if (GlobalUtils.LoginUser.District != 0)
                 RPC.HproseClient.UploadImage(HproseClient.ImageType.type01Passport, filename, passportNo);
+            return true;
         }
 
 
