@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using TravelAgency.Common;
 
 namespace TravelAgency.BLL
@@ -162,6 +163,47 @@ namespace TravelAgency.BLL
         public int GetRecordVisaInfoCount(string where)
         {
             return dal.GetRecordVisaInfoCount(where);
+        }
+
+
+        /// <summary>
+        /// 更新list
+        /// </summary>
+        public int UpdateList(List<TravelAgency.Model.Visa> list)
+        {
+            int res = 0;
+            foreach (var item in list)
+            {
+                res += Update(item) ? 1 : 0; //返回值是id
+            }
+            return res;
+        }
+
+        /// <summary>
+        /// 更新一条数据
+        /// </summary>
+        public bool Update(TravelAgency.Model.Visa model)
+        {
+            var oldModel = GetModel(model.Visa_id);
+            if (!string.IsNullOrEmpty(oldModel.SubmitTempNo) && string.IsNullOrEmpty(model.SubmitTempNo))
+            {
+                MessageBox.Show("检测到致命bug at SubmitTempNo,请火速联系张工!");
+                return false;
+            }
+
+            if (oldModel.RealTime.HasValue && !model.RealTime.HasValue)
+            {
+                MessageBox.Show("检测到致命bug at RealTime,请火速联系张工!");
+                return false;
+            }
+
+            if (oldModel.FinishTime.HasValue && !model.FinishTime.HasValue)
+            {
+                MessageBox.Show("检测到致命bug at FinishTime,请火速联系张工!");
+                return false;
+            }
+
+            return dal.Update(model);
         }
 
     }

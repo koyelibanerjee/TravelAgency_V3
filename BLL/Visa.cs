@@ -30,20 +30,13 @@ namespace TravelAgency.BLL
             return dal.Add(model);
       		}
 
-		/// <summary>
-		/// 更新一条数据
-		/// </summary>
-		public bool Update(TravelAgency.Model.Visa model)
-		{
-			return dal.Update(model);
-		}
+
 
 		/// <summary>
 		/// 删除一条数据
 		/// </summary>
 		public bool Delete(Guid Visa_id)
 		{
-			
 			return dal.Delete(Visa_id);
 		}
 
@@ -163,18 +156,7 @@ namespace TravelAgency.BLL
         return res;
     }
 
-    /// <summary>
-    /// 更新list
-    /// </summary>
-    public int UpdateList(List<TravelAgency.Model.Visa> list)
-    {
-        int res = 0;
-        foreach (var item in list)
-        {
-            res += dal.Update(item) ? 1 : 0; //返回值是id
-        }
-        return res;
-    }
+
     
     /// <summary>
     /// 删除list
