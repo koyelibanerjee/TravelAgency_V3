@@ -1370,12 +1370,12 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             if (e.RowIndex < 0 || e.ColumnIndex < 0)
                 return;
 
-            if (DgvDataSourceToList()[e.RowIndex].SubmitFlag == 1)
-            {
-                MessageBoxEx.Show("已经提交请款的团号费用不允许修改!!");
-                dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = _numBackup;
-                return;
-            }
+            //if (DgvDataSourceToList()[e.RowIndex].SubmitFlag == 1)
+            //{
+            //    MessageBoxEx.Show("已经提交请款的团号费用不允许修改!!");
+            //    dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = _numBackup;
+            //    return;
+            //}
 
             string name = dataGridView1.Columns[e.ColumnIndex].Name;
             if (name == "ConsulateCost" || name == "VisaPersonCost" || name == "InvitationCost" || name == "Receipt" ||
@@ -1490,10 +1490,10 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             if (!_needDoUpdateEvent || e.RowIndex < 0 || e.ColumnIndex < 0)
                 return;
 
-            if (DgvDataSourceToList()[e.RowIndex].SubmitFlag == 1)
-            {
-                return;
-            }
+            //if (DgvDataSourceToList()[e.RowIndex].SubmitFlag == 1)
+            //{
+            //    return;
+            //}
 
             dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Style.BackColor = Color.DarkOrange;
             Font f = new Font("微软雅黑", 12.0f, FontStyle.Bold);
@@ -1556,11 +1556,11 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                     MessageBoxEx.Show($"团号:{visa.GroupNo}还未设置进出签时间，不能进行请款!");
                     return;
                 }
-                if (visa.SubmitFlag == 1)
-                {
-                    MessageBoxEx.Show($"团号:{visa.GroupNo}已经请过款，请先生成新团号再进行请款!");
-                    return;
-                }
+                //if (visa.SubmitFlag == 1)
+                //{
+                //    MessageBoxEx.Show($"团号:{visa.GroupNo}已经请过款，请先生成新团号再进行请款!");
+                //    return;
+                //}
             }
 
 
