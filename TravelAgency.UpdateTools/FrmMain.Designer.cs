@@ -51,7 +51,7 @@
             // 
             this.btnAddFiles.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnAddFiles.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnAddFiles.Location = new System.Drawing.Point(30, 264);
+            this.btnAddFiles.Location = new System.Drawing.Point(5, 311);
             this.btnAddFiles.Name = "btnAddFiles";
             this.btnAddFiles.Size = new System.Drawing.Size(75, 23);
             this.btnAddFiles.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -66,11 +66,11 @@
             // 
             this.txtUpdateSql.Border.Class = "TextBoxBorder";
             this.txtUpdateSql.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtUpdateSql.Location = new System.Drawing.Point(507, 37);
+            this.txtUpdateSql.Location = new System.Drawing.Point(466, 156);
             this.txtUpdateSql.Multiline = true;
             this.txtUpdateSql.Name = "txtUpdateSql";
             this.txtUpdateSql.PreventEnterBeep = true;
-            this.txtUpdateSql.Size = new System.Drawing.Size(237, 209);
+            this.txtUpdateSql.Size = new System.Drawing.Size(237, 149);
             this.txtUpdateSql.TabIndex = 1;
             // 
             // listViewEx1
@@ -84,9 +84,9 @@
             this.No,
             this.Path});
             this.listViewEx1.DisabledBackColor = System.Drawing.Color.Empty;
-            this.listViewEx1.Location = new System.Drawing.Point(30, 37);
+            this.listViewEx1.Location = new System.Drawing.Point(5, 37);
             this.listViewEx1.Name = "listViewEx1";
-            this.listViewEx1.Size = new System.Drawing.Size(457, 209);
+            this.listViewEx1.Size = new System.Drawing.Size(457, 268);
             this.listViewEx1.TabIndex = 2;
             this.listViewEx1.UseCompatibleStateImageBehavior = false;
             this.listViewEx1.View = System.Windows.Forms.View.Details;
@@ -122,7 +122,7 @@
             this.panelEx1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEx1.Location = new System.Drawing.Point(0, 0);
             this.panelEx1.Name = "panelEx1";
-            this.panelEx1.Size = new System.Drawing.Size(756, 399);
+            this.panelEx1.Size = new System.Drawing.Size(706, 339);
             this.panelEx1.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx1.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelEx1.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -138,9 +138,9 @@
             // 
             // 
             this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX4.Location = new System.Drawing.Point(3, 330);
+            this.labelX4.Location = new System.Drawing.Point(155, 311);
             this.labelX4.Name = "labelX4";
-            this.labelX4.Size = new System.Drawing.Size(114, 23);
+            this.labelX4.Size = new System.Drawing.Size(115, 23);
             this.labelX4.TabIndex = 12;
             this.labelX4.Text = "更新文件存放目录:";
             // 
@@ -151,10 +151,10 @@
             // 
             this.txtUpdateFilesSaveDir.Border.Class = "TextBoxBorder";
             this.txtUpdateFilesSaveDir.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtUpdateFilesSaveDir.Location = new System.Drawing.Point(112, 364);
+            this.txtUpdateFilesSaveDir.Location = new System.Drawing.Point(276, 311);
             this.txtUpdateFilesSaveDir.Name = "txtUpdateFilesSaveDir";
             this.txtUpdateFilesSaveDir.PreventEnterBeep = true;
-            this.txtUpdateFilesSaveDir.Size = new System.Drawing.Size(180, 21);
+            this.txtUpdateFilesSaveDir.Size = new System.Drawing.Size(336, 21);
             this.txtUpdateFilesSaveDir.TabIndex = 11;
             this.txtUpdateFilesSaveDir.Text = "E:\\东瀛假日签证识别管理系统更新目录";
             // 
@@ -162,12 +162,12 @@
             // 
             this.btnCopyUpdateFiles.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnCopyUpdateFiles.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnCopyUpdateFiles.Location = new System.Drawing.Point(30, 364);
+            this.btnCopyUpdateFiles.Location = new System.Drawing.Point(618, 311);
             this.btnCopyUpdateFiles.Name = "btnCopyUpdateFiles";
-            this.btnCopyUpdateFiles.Size = new System.Drawing.Size(75, 23);
+            this.btnCopyUpdateFiles.Size = new System.Drawing.Size(85, 23);
             this.btnCopyUpdateFiles.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnCopyUpdateFiles.TabIndex = 10;
-            this.btnCopyUpdateFiles.Text = "拷贝";
+            this.btnCopyUpdateFiles.Text = "拷贝更新文件";
             this.btnCopyUpdateFiles.Click += new System.EventHandler(this.btnCopyUpdateFiles_Click);
             // 
             // labelX3
@@ -176,7 +176,7 @@
             // 
             // 
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX3.Location = new System.Drawing.Point(218, 301);
+            this.labelX3.Location = new System.Drawing.Point(468, 6);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(64, 23);
             this.labelX3.TabIndex = 9;
@@ -189,11 +189,11 @@
             // 
             this.txtUpdateDetails.Border.Class = "TextBoxBorder";
             this.txtUpdateDetails.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtUpdateDetails.Location = new System.Drawing.Point(298, 301);
+            this.txtUpdateDetails.Location = new System.Drawing.Point(468, 35);
             this.txtUpdateDetails.Multiline = true;
             this.txtUpdateDetails.Name = "txtUpdateDetails";
             this.txtUpdateDetails.PreventEnterBeep = true;
-            this.txtUpdateDetails.Size = new System.Drawing.Size(198, 86);
+            this.txtUpdateDetails.Size = new System.Drawing.Size(230, 86);
             this.txtUpdateDetails.TabIndex = 8;
             this.txtUpdateDetails.Text = "修复一些bug";
             // 
@@ -203,7 +203,7 @@
             // 
             // 
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Location = new System.Drawing.Point(502, 304);
+            this.labelX2.Location = new System.Drawing.Point(576, 126);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(53, 23);
             this.labelX2.TabIndex = 7;
@@ -216,7 +216,7 @@
             // 
             this.txtVersion.Border.Class = "TextBoxBorder";
             this.txtVersion.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtVersion.Location = new System.Drawing.Point(561, 306);
+            this.txtVersion.Location = new System.Drawing.Point(635, 127);
             this.txtVersion.Name = "txtVersion";
             this.txtVersion.PreventEnterBeep = true;
             this.txtVersion.Size = new System.Drawing.Size(63, 21);
@@ -227,12 +227,12 @@
             // 
             this.btnGenerate.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnGenerate.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnGenerate.Location = new System.Drawing.Point(507, 264);
+            this.btnGenerate.Location = new System.Drawing.Point(468, 127);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(75, 23);
             this.btnGenerate.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.btnGenerate.TabIndex = 5;
-            this.btnGenerate.Text = "生成";
+            this.btnGenerate.Text = "生成更新SQL";
             this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
             // 
             // labelX1
@@ -241,7 +241,7 @@
             // 
             // 
             this.labelX1.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX1.Location = new System.Drawing.Point(30, 3);
+            this.labelX1.Location = new System.Drawing.Point(5, 4);
             this.labelX1.Name = "labelX1";
             this.labelX1.Size = new System.Drawing.Size(53, 23);
             this.labelX1.TabIndex = 4;
@@ -254,10 +254,10 @@
             // 
             this.txtRootDir.Border.Class = "TextBoxBorder";
             this.txtRootDir.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtRootDir.Location = new System.Drawing.Point(89, 5);
+            this.txtRootDir.Location = new System.Drawing.Point(64, 6);
             this.txtRootDir.Name = "txtRootDir";
             this.txtRootDir.PreventEnterBeep = true;
-            this.txtRootDir.Size = new System.Drawing.Size(455, 21);
+            this.txtRootDir.Size = new System.Drawing.Size(398, 21);
             this.txtRootDir.TabIndex = 3;
             this.txtRootDir.Text = "E:\\东瀛假日签证识别管理系统";
             // 
@@ -265,7 +265,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(756, 399);
+            this.ClientSize = new System.Drawing.Size(706, 339);
             this.Controls.Add(this.panelEx1);
             this.Name = "FrmMain";
             this.Text = "FrmMain";
