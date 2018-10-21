@@ -100,7 +100,7 @@ namespace TravelAgency.UpdateTools
             for (int i = 0; i < listViewEx1.Items.Count; ++i) //TODO:问题，有子目录的还得自己拷贝
             {
                 string updatefilename = listViewEx1.Items[i].SubItems[1].Text;
-                File.Copy(txtRootDir.Text + "/" + updatefilename, txtUpdateFilesSaveDir.Text + "/" + updatefilename);
+                File.Copy(txtRootDir.Text + "/" + updatefilename, txtUpdateFilesSaveDir.Text + "/" + updatefilename, true);
             }
             Process.Start(txtUpdateFilesSaveDir.Text);
 

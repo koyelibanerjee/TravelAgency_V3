@@ -84,11 +84,6 @@ namespace TravelAgency.CSUI.FrmMain
             return GetNodeTag(node).data.ToString();
         }
 
-        private NodeTag GetSelectedNodeTag()
-        {
-            return GetNodeTag(advTree1.SelectedNode);
-        }
-
         private string GetSelectedNodeTagData()
         {
             return GetNodeTagData(advTree1.SelectedNode);
@@ -106,10 +101,14 @@ namespace TravelAgency.CSUI.FrmMain
         {
             InitThumbSizeSlider();
             SetAdvStyle();
-
+            advTree1.BeforeExpand += AdvTree1_BeforeExpand;
+            advTree1.AfterExpand += AdvTree1_AfterExpand;
+            advTree1.NodeClick += AdvTree1_NodeClick;
             new Thread(LoadDataToAdvTree) { IsBackground = true }.Start();
             UpdateLabels();
         }
+
+
 
         private void InitThumbSizeSlider()
         {
@@ -179,10 +178,9 @@ namespace TravelAgency.CSUI.FrmMain
             for (int i = folderList.Count - 1; i >= 0; i--)
             {
                 Node groupNode = new Node(GenChinaDate(GetMonthName(folderList[i][0])), advTree1.Styles["groupstyle"]);
-                //groupNode.Expanded = true;
+                groupNode.Nodes.Add(new Node("placeHolder")); //添加占位符 好看一点
                 groupNode.Expanded = false;
                 groupNode.Tag = NodeTag.CreateTag(GetMonthName(folderList[i][0]), NodeLevel.Month); //存一个组名
-
                 this.Invoke(new Action(() =>
                 {
                     advTree1.Nodes.Add(groupNode);
@@ -190,19 +188,41 @@ namespace TravelAgency.CSUI.FrmMain
             }
         }
 
-        private void LoadDayAndTypeListOfMonth()
+        private void AdvTree1_BeforeExpand(object sender, AdvTreeNodeCancelEventArgs e)
         {
-            var nodeTag = advTree1.SelectedNode.Tag as NodeTag;
+            if (e.Node != null && GetNodeTag(e.Node) != null 
+                && GetNodeTag(e.Node).level == NodeLevel.Month)
+            {
+                e.Node.Nodes.Clear();
+            }
+        }
+
+        private void AdvTree1_NodeClick(object sender, TreeNodeMouseEventArgs e)
+        {
+            if (GetNodeTag(e.Node).level == NodeLevel.ImageType)
+            {
+                LoadTypeImagesToLvPics(e.Node);
+            }
+        }
+
+        private void AdvTree1_AfterExpand(object sender, AdvTreeNodeEventArgs e)
+        {
+            if (GetNodeTag(e.Node).level == NodeLevel.Month)
+            {
+                LoadDayAndTypeListOfMonth(e.Node);
+            }
+        }
+        private void LoadDayAndTypeListOfMonth(Node node)
+        {
+            //var nodeTag = advTree1.SelectedNode.Tag as NodeTag;
+            var nodeTag = GetNodeTag(node);
             if (nodeTag != null && nodeTag.level != NodeLevel.Month)
                 return;
+            //advTree1.SelectedNode.Nodes.Clear();
+            node.Nodes.Clear();
             List<string> dayList = _daysOfMonthDictionary[nodeTag.data.ToString()];
-
             for (int j = dayList.Count - 1; j >= 0; j--)
             {
-                //Node subNode = CreateChildNode(GenChinaDate(folderList[i][j]),
-                //    GenChinaDate(folderList[i][j]),
-                //    Properties.Resources.Folder,
-                //    advTree1.Styles["subitemstyle"]);
                 Node subNode = new Node(GenChinaDate(dayList[j]), advTree1.Styles["daystyle"]);
                 subNode.Tag = NodeTag.CreateTag(dayList[j], NodeLevel.Day); //存一个组名
 
@@ -230,7 +250,7 @@ namespace TravelAgency.CSUI.FrmMain
                 }
                 this.Invoke(new Action(() =>
                 {
-                    advTree1.SelectedNode.Nodes.Add(subNode);
+                    node.Nodes.Add(subNode);
                 }));
             }
         }
@@ -247,39 +267,20 @@ namespace TravelAgency.CSUI.FrmMain
         #endregion
 
         #region advTree响应事件
-        private void advTree1_Click(object sender, EventArgs e)
+        private void LoadTypeImagesToLvPics(Node node)
         {
-            NodeTag nodeTag = GetSelectedNodeTag();
-            if (nodeTag == null || nodeTag.level == NodeLevel.Month) //不是最底层节点
-            {
-                LoadDayAndTypeListOfMonth();
-            }
-            else if (nodeTag.level == NodeLevel.ImageType)
-            {
-                _startLoading = false; //杀死原来的线程
-                LoadTypeImagesToLvPics();
-                UpdateLabels();
-            }
-            else //day的是直接就加载了
-            {
-
-            }
-
-        }
-
-        private void LoadTypeImagesToLvPics()
-        {
-            NodeTag nodeTag = GetSelectedNodeTag();
+            //NodeTag nodeTag = GetSelectedNodeTag();
+            NodeTag nodeTag = GetNodeTag(node);
             if (nodeTag == null || nodeTag.level != NodeLevel.ImageType) //不是最底层节点
                 return;
             _imageList.Images.Clear();
             lvPics.Items.Clear();
-            string day = GetNodeTagData(advTree1.SelectedNode.Parent);
+            string day = GetNodeTagData(node.Parent);
             _imagenames =
                _gaopaiPicHandler.GetFileListByDateAndTypes(
                    DateTime.ParseExact(day, "yyyyMMdd", System.Globalization.CultureInfo.CurrentCulture),
-                   GetSelectedNodeTagData());
-            if(_imagenames==null || _imagenames.Count==0)
+                 GetNodeTagData(node));
+            if (_imagenames == null || _imagenames.Count == 0)
                 return;
             for (int i = 0; i < _imagenames.Count; ++i)
             {
@@ -294,21 +295,21 @@ namespace TravelAgency.CSUI.FrmMain
             lvPics.LargeImageList = _imageList;
             _startLoading = true;
             //advTree1.SelectedNode.Text += "共" + _imagenames.Count + "本";
-            new Thread(LoadImageToListView) { IsBackground = true }.Start();
+            new Thread(LoadImageToListView) { IsBackground = true }.Start(node);
         }
 
         /// <summary>
         /// 加载所选组的缩略图
         /// </summary>
-        private void LoadImageToListView()
+        private void LoadImageToListView(object node)
         {
             this.Invoke(new Action(() =>
             {
                 for (int i = 0; i < _imagenames.Count && _startLoading; i++)
                 {
-                    string types = GetSelectedNodeTagData();
+                    string types = GetNodeTagData(node as Node);
                     Image img = null;
-                    string day = GetNodeTagData(advTree1.SelectedNode.Parent);
+                    string day = GetNodeTagData(((Node)node).Parent);
                     if (types == "未分类")
                         img = _gaopaiPicHandler.GetGaoPaiImage(day + "/" +
                            _gaopaiPicHandler.GetThumbName(_imagenames[i]));
@@ -418,7 +419,7 @@ namespace TravelAgency.CSUI.FrmMain
             _imageList.ImageSize = new Size(Math.Min((int)(_origThumbSize.Width * sizeArr[sliderPicSize.Value]), 256),
                 Math.Min((int)(_origThumbSize.Height * sizeArr[sliderPicSize.Value]), 256));
             //lvPics.LargeImageList = null;
-            LoadTypeImagesToLvPics();
+            LoadTypeImagesToLvPics(advTree1.SelectedNode);
         }
     }
 }

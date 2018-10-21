@@ -171,7 +171,6 @@
             this.advTree1.PathSeparator = ";";
             this.advTree1.Size = new System.Drawing.Size(305, 657);
             this.advTree1.TabIndex = 1;
-            this.advTree1.Click += new System.EventHandler(this.advTree1_Click);
             // 
             // cmsAdvTree
             // 
