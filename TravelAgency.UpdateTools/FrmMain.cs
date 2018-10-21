@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,7 +32,7 @@ namespace TravelAgency.UpdateTools
                 "TravelAgency.DBUtility.dll"
             };
 
-            AddFileToListView(fileList.ToArray(),false);
+            AddFileToListView(fileList.ToArray(), false);
         }
 
 
@@ -41,10 +43,10 @@ namespace TravelAgency.UpdateTools
             if (fileDialog.ShowDialog() == DialogResult.Cancel)
                 return;
 
-            AddFileToListView(fileDialog.FileNames,true);
+            AddFileToListView(fileDialog.FileNames, true);
         }
 
-        private void AddFileToListView(string[] list,bool removeRoot=true)
+        private void AddFileToListView(string[] list, bool removeRoot = true)
         {
             int startIdx = listViewEx1.Items.Count;
             for (int i = 0; i < list.Length; ++i)
@@ -87,6 +89,21 @@ namespace TravelAgency.UpdateTools
             }
             sb.Append($",'{txtUpdateDetails.Text}')");
             txtUpdateSql.Text = sb.ToString();
+        }
+
+        private void btnCopyUpdateFiles_Click(object sender, EventArgs e)
+        {
+            if (!Directory.Exists(txtUpdateFilesSaveDir.Text))
+            {
+                Directory.CreateDirectory(txtUpdateFilesSaveDir.Text);
+            }
+            for (int i = 0; i < listViewEx1.Items.Count; ++i)
+            {
+                string updatefilename = listViewEx1.Items[i].SubItems[1].Text;
+                File.Copy(txtRootDir.Text + "/" + updatefilename, txtUpdateFilesSaveDir.Text + "/" + updatefilename);
+            }
+            Process.Start(txtUpdateFilesSaveDir.Text);
+
         }
     }
 }

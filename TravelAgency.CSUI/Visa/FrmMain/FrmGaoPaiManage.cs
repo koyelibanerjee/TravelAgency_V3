@@ -19,19 +19,81 @@ using Color = System.Drawing.Color;
 
 namespace TravelAgency.CSUI.FrmMain
 {
+
     public partial class FrmGaoPaiManage : Form
     {
+        class NodeTag
+        {
+            public object data { get; set; }
+            public NodeLevel level { get; set; }
+
+            public static NodeTag CreateTag(object tag, NodeLevel level)
+            {
+                NodeTag nt = new NodeTag();
+                nt.data = tag;
+                nt.level = level;
+                return nt;
+            }
+        }
+        public enum NodeLevel
+        {
+            Month, Day, ImageType
+        }
+
         private double[] sizeArr = new double[] { 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0 };
         private List<string> _imagenames; //维持一个当前listview展示的文件列表
         private Size _origThumbSize = new Size(97, 129);
         private readonly ImageList _imageList = new ImageList() { ImageSize = new Size(97, 129) }; //用于listView展示用的图片集合
-        private bool _startLoading = false;
+        private bool _startLoading = false; //方便终止原来的后台进程
         private GaopaiPicHandler _gaopaiPicHandler = new GaopaiPicHandler(GaopaiPicHandler.PictureType.Type01_Normal);
+
+        private Dictionary<string, List<string>> _daysOfMonthDictionary = new Dictionary<string, List<string>>();
+
+
+
         public FrmGaoPaiManage()
         {
             InitializeComponent();
         }
 
+        #region Utils
+        private string GenChinaDate(string date)
+        {
+            if (date.Length == 6)
+                return date.Substring(0, 4) + "年" + date.Substring(4, 2) + "月";
+
+            if (date.Length == 8)
+                return date.Substring(0, 4) + "年" + date.Substring(4, 2) + "月" + date.Substring(6, 2) + "日";
+            else
+                return string.Empty;
+        }
+        private string GetMonthName(string date)
+        {
+            return date.Substring(0, 6);
+        }
+
+        private NodeTag GetNodeTag(Node node)
+        {
+            if (node != null && node.Tag != null)
+                return (node.Tag as NodeTag);
+            else return null;
+        }
+
+        private string GetNodeTagData(Node node)
+        {
+            return GetNodeTag(node).data.ToString();
+        }
+
+        private NodeTag GetSelectedNodeTag()
+        {
+            return GetNodeTag(advTree1.SelectedNode);
+        }
+
+        private string GetSelectedNodeTagData()
+        {
+            return GetNodeTagData(advTree1.SelectedNode);
+        }
+        #endregion
 
         #region 窗体消息响应
 
@@ -42,38 +104,23 @@ namespace TravelAgency.CSUI.FrmMain
 
         private void FrmGaoPaiManage_Load(object sender, EventArgs e)
         {
+            InitThumbSizeSlider();
+            SetAdvStyle();
+
+            new Thread(LoadDataToAdvTree) { IsBackground = true }.Start();
+            UpdateLabels();
+        }
+
+        private void InitThumbSizeSlider()
+        {
             sliderPicSize.Step = 1;
             sliderPicSize.Maximum = 7;
             sliderPicSize.Minimum = 0;
             sliderPicSize.Value = 2; //对于slider采用 0.6 0.8 1.0 依次到2.0的倍数，对应下标从0-7，初始下标为2，对应倍数1.0
-
-            //lvPics.
-
-            SetAdvStyle();
-
-
-            new Thread(LoadDataToAdvTree) { IsBackground = true }.Start();
-            UpdateLabels();
-
         }
 
 
-        private string GenChinaDate(string date)
-        {
-            if (date.Length == 6)
-            {
-                return date.Substring(0, 4) + "年" + date.Substring(4, 2) + "月";
-            }
 
-            if (date.Length == 8)
-            {
-                return date.Substring(0, 4) + "年" + date.Substring(4, 2) + "月" + date.Substring(6, 2) + "日";
-            }
-            else
-            {
-                return string.Empty;
-            }
-        }
 
         /// <summary>
         /// 设置树形控件的style
@@ -108,69 +155,86 @@ namespace TravelAgency.CSUI.FrmMain
             advTree1.Styles.Add(subItemStyle);
         }
 
+
+
+
         /// <summary>
         /// 加载数据到treeView和设置ComboBox，按照年份月份分组
         /// </summary>
         private void LoadDataToAdvTree()
         {
-            this.Invoke(new Action(() => 
+            _daysOfMonthDictionary.Clear();
+            this.Invoke(new Action(() =>
             {
                 advTree1.Nodes.Clear();
             }));
             List<List<string>> folderList = _gaopaiPicHandler.GetFolderListGroupByMonth();
+            foreach (var item in folderList)
+                _daysOfMonthDictionary[GetMonthName(item[0])] = item;
+
             //按照年月分类
-            if (folderList == null || folderList.Count == 0)
+            if (folderList.Count == 0)
                 return;
 
             for (int i = folderList.Count - 1; i >= 0; i--)
             {
-                Node groupNode = new Node(GenChinaDate(folderList[i][0].Substring(0, 6)), advTree1.Styles["groupstyle"]);
-                groupNode.Expanded = true;
-                groupNode.Tag = folderList[i][0].Substring(0, 6); //存一个组名
+                Node groupNode = new Node(GenChinaDate(GetMonthName(folderList[i][0])), advTree1.Styles["groupstyle"]);
+                //groupNode.Expanded = true;
+                groupNode.Expanded = false;
+                groupNode.Tag = NodeTag.CreateTag(GetMonthName(folderList[i][0]), NodeLevel.Month); //存一个组名
 
                 this.Invoke(new Action(() =>
                 {
                     advTree1.Nodes.Add(groupNode);
                 }));
-                for (int j = folderList[i].Count - 1; j >= 0; j--)
-                {
-                    //Node subNode = CreateChildNode(GenChinaDate(folderList[i][j]),
-                    //    GenChinaDate(folderList[i][j]),
-                    //    Properties.Resources.Folder,
-                    //    advTree1.Styles["subitemstyle"]);
-                    Node subNode = new Node(GenChinaDate(folderList[i][j]), advTree1.Styles["daystyle"]);
-                    subNode.Tag = folderList[i][j]; //存一个组名
-
-                    //每一个这个再添加几类图像名字
-                    try //用户来了一个20180832，在DateTime.ParseExact的时候就会直接报错
-                    {
-                        List<string> typeList = _gaopaiPicHandler.GetFolderListByDate(
-                            DateTime.ParseExact(folderList[i][j], "yyyyMMdd",
-                                System.Globalization.CultureInfo.CurrentCulture));
-                        for (int i1 = 0; i1 < typeList.Count; ++i1)
-                        {
-                            Node subImtem = CreateChildNode(typeList[i1], typeList[i1], Properties.Resources.Folder,
-                                advTree1.Styles["subitemstyle"]);
-                            subImtem.Tag = typeList[i1];
-                            this.Invoke(new Action(() =>
-                            {
-                                subNode.Nodes.Add(subImtem);
-                            }));
-                        }
-                    }
-                    catch (FormatException e)
-                    {
-                        MessageBoxEx.Show("无效日期文件夹");
-                        continue;
-                    }
-                    
-                    this.Invoke(new Action(() =>
-                    {
-                        groupNode.Nodes.Add(subNode);
-                    }));
-                }
             }
         }
+
+        private void LoadDayAndTypeListOfMonth()
+        {
+            var nodeTag = advTree1.SelectedNode.Tag as NodeTag;
+            if (nodeTag != null && nodeTag.level != NodeLevel.Month)
+                return;
+            List<string> dayList = _daysOfMonthDictionary[nodeTag.data.ToString()];
+
+            for (int j = dayList.Count - 1; j >= 0; j--)
+            {
+                //Node subNode = CreateChildNode(GenChinaDate(folderList[i][j]),
+                //    GenChinaDate(folderList[i][j]),
+                //    Properties.Resources.Folder,
+                //    advTree1.Styles["subitemstyle"]);
+                Node subNode = new Node(GenChinaDate(dayList[j]), advTree1.Styles["daystyle"]);
+                subNode.Tag = NodeTag.CreateTag(dayList[j], NodeLevel.Day); //存一个组名
+
+                //每一个这个再添加几类图像名字
+                try //用户来了一个20180832，在DateTime.ParseExact的时候就会直接报错
+                {
+                    List<string> typeList = _gaopaiPicHandler.GetFolderListByDate( //拿到未分类、团签、个签等分类的名字
+                        DateTime.ParseExact(dayList[j], "yyyyMMdd",
+                            System.Globalization.CultureInfo.CurrentCulture));
+                    for (int i1 = 0; i1 < typeList.Count; ++i1)
+                    {
+                        Node subImtem = CreateChildNode(typeList[i1], typeList[i1], Properties.Resources.Folder,
+                            advTree1.Styles["subitemstyle"]);
+                        subImtem.Tag = NodeTag.CreateTag(typeList[i1], NodeLevel.ImageType);
+                        this.Invoke(new Action(() =>
+                        {
+                            subNode.Nodes.Add(subImtem);
+                        }));
+                    }
+                }
+                catch (FormatException e)
+                {
+                    MessageBoxEx.Show($"{e.Message}");
+                    continue;
+                }
+                this.Invoke(new Action(() =>
+                {
+                    advTree1.SelectedNode.Nodes.Add(subNode);
+                }));
+            }
+        }
+
         private Node CreateChildNode(string nodeText, string subText, Image image, ElementStyle subItemStyle)
         {
             Node childNode = new Node(nodeText);
@@ -185,28 +249,38 @@ namespace TravelAgency.CSUI.FrmMain
         #region advTree响应事件
         private void advTree1_Click(object sender, EventArgs e)
         {
-            if (advTree1.SelectedNode != null) //必须选中有效日期才行20171227这样
+            NodeTag nodeTag = GetSelectedNodeTag();
+            if (nodeTag == null || nodeTag.level == NodeLevel.Month) //不是最底层节点
+            {
+                LoadDayAndTypeListOfMonth();
+            }
+            else if (nodeTag.level == NodeLevel.ImageType)
             {
                 _startLoading = false; //杀死原来的线程
-                LoadSelectItemToDgv();
+                LoadTypeImagesToLvPics();
                 UpdateLabels();
             }
+            else //day的是直接就加载了
+            {
+
+            }
+
         }
 
-        private void LoadSelectItemToDgv()
+        private void LoadTypeImagesToLvPics()
         {
-            if (advTree1.SelectedNode == null ||
-                advTree1.SelectedNode.Tag == null ||
-                advTree1.SelectedNode.Nodes.Count > 0) //不是最底层节点
+            NodeTag nodeTag = GetSelectedNodeTag();
+            if (nodeTag == null || nodeTag.level != NodeLevel.ImageType) //不是最底层节点
                 return;
             _imageList.Images.Clear();
             lvPics.Items.Clear();
-            //_imageList.
+            string day = GetNodeTagData(advTree1.SelectedNode.Parent);
             _imagenames =
                _gaopaiPicHandler.GetFileListByDateAndTypes(
-                   DateTime.ParseExact(advTree1.SelectedNode.Parent.Tag.ToString(), "yyyyMMdd", System.Globalization.CultureInfo.CurrentCulture),
-                   advTree1.SelectedNode.Tag.ToString());
-
+                   DateTime.ParseExact(day, "yyyyMMdd", System.Globalization.CultureInfo.CurrentCulture),
+                   GetSelectedNodeTagData());
+            if(_imagenames==null || _imagenames.Count==0)
+                return;
             for (int i = 0; i < _imagenames.Count; ++i)
             {
                 ListViewItem lvi = new ListViewItem(_imagenames[i] + "   ");//添加三个占位符，防止listview出现...的现象。。。
@@ -232,19 +306,17 @@ namespace TravelAgency.CSUI.FrmMain
             {
                 for (int i = 0; i < _imagenames.Count && _startLoading; i++)
                 {
-                    string types = advTree1.SelectedNode.Tag.ToString();
+                    string types = GetSelectedNodeTagData();
                     Image img = null;
+                    string day = GetNodeTagData(advTree1.SelectedNode.Parent);
                     if (types == "未分类")
-                        img = _gaopaiPicHandler.GetGaoPaiImage(advTree1.SelectedNode.Parent.Tag.ToString() + "/" +
+                        img = _gaopaiPicHandler.GetGaoPaiImage(day + "/" +
                            _gaopaiPicHandler.GetThumbName(_imagenames[i]));
                     else
-                        img = _gaopaiPicHandler.GetGaoPaiImage(advTree1.SelectedNode.Parent.Tag.ToString() + "/" + types + "/" +
+                        img = _gaopaiPicHandler.GetGaoPaiImage(day + "/" + types + "/" +
                           _gaopaiPicHandler.GetThumbName(_imagenames[i]));
                     if (img != null)
-                    {
-                        //_imageList.Images[i].Dispose();
                         _imageList.Images.Add(img);
-                    }
                 }
             }));
         }
@@ -267,7 +339,7 @@ namespace TravelAgency.CSUI.FrmMain
         /// <returns></returns>
         private string GetSelFileName()
         {
-            return advTree1.SelectedNode.Tag.ToString() + "/" +
+            return GetSelectedNodeTagData() + "/" +
                    GetListViewSelName();
         }
 
@@ -280,7 +352,7 @@ namespace TravelAgency.CSUI.FrmMain
             List<string> res = new List<string>();
             for (int i = 0; i < lvPics.SelectedItems.Count; i++)
             {
-                res.Add(advTree1.SelectedNode.Tag.ToString() + "/" + lvPics.SelectedItems[i].Tag.ToString());
+                res.Add(GetSelectedNodeTagData() + "/" + lvPics.SelectedItems[i].Tag.ToString());
             }
             return res;
         }
@@ -288,17 +360,17 @@ namespace TravelAgency.CSUI.FrmMain
 
         private void lvPics_DoubleClick(object sender, EventArgs e)
         {
-
             if (lvPics.SelectedItems.Count == 1)
             {
-                string types = advTree1.SelectedNode.Tag.ToString();
+                string types = GetSelectedNodeTagData();
+                string day = GetNodeTagData(advTree1.SelectedNode.Parent);
                 FrmShowPicture frm;
                 if (types == "未分类")
-                    frm = new FrmShowPicture(_imagenames, advTree1.SelectedNode.Parent.Tag.ToString(), lvPics.SelectedItems[0].Index, GaopaiPicHandler.PictureType.Type01_Normal);
+                    frm = new FrmShowPicture(_imagenames, day, lvPics.SelectedItems[0].Index, GaopaiPicHandler.PictureType.Type01_Normal);
                 //Image img = _gaopaiPicHandler.GetGaoPaiImage(GetSelFileName());
                 else
-                    frm = new FrmShowPicture(_imagenames, advTree1.SelectedNode.Parent.Tag.ToString() + "/" +
-                    advTree1.SelectedNode.Tag.ToString(), lvPics.SelectedItems[0].Index, GaopaiPicHandler.PictureType.Type01_Normal);
+                    frm = new FrmShowPicture(_imagenames, day + "/" +
+                    GetSelectedNodeTagData(), lvPics.SelectedItems[0].Index, GaopaiPicHandler.PictureType.Type01_Normal);
                 frm.Show();
             }
         }
@@ -346,7 +418,7 @@ namespace TravelAgency.CSUI.FrmMain
             _imageList.ImageSize = new Size(Math.Min((int)(_origThumbSize.Width * sizeArr[sliderPicSize.Value]), 256),
                 Math.Min((int)(_origThumbSize.Height * sizeArr[sliderPicSize.Value]), 256));
             //lvPics.LargeImageList = null;
-            LoadSelectItemToDgv();
+            LoadTypeImagesToLvPics();
         }
     }
 }

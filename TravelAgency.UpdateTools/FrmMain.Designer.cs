@@ -34,6 +34,9 @@
             this.No = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Path = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panelEx1 = new DevComponents.DotNetBar.PanelEx();
+            this.labelX4 = new DevComponents.DotNetBar.LabelX();
+            this.txtUpdateFilesSaveDir = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.btnCopyUpdateFiles = new DevComponents.DotNetBar.ButtonX();
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.txtUpdateDetails = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
@@ -102,6 +105,9 @@
             // 
             this.panelEx1.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx1.Controls.Add(this.labelX4);
+            this.panelEx1.Controls.Add(this.txtUpdateFilesSaveDir);
+            this.panelEx1.Controls.Add(this.btnCopyUpdateFiles);
             this.panelEx1.Controls.Add(this.labelX3);
             this.panelEx1.Controls.Add(this.txtUpdateDetails);
             this.panelEx1.Controls.Add(this.labelX2);
@@ -125,6 +131,44 @@
             this.panelEx1.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.panelEx1.Style.GradientAngle = 90;
             this.panelEx1.TabIndex = 3;
+            // 
+            // labelX4
+            // 
+            // 
+            // 
+            // 
+            this.labelX4.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX4.Location = new System.Drawing.Point(3, 330);
+            this.labelX4.Name = "labelX4";
+            this.labelX4.Size = new System.Drawing.Size(114, 23);
+            this.labelX4.TabIndex = 12;
+            this.labelX4.Text = "更新文件存放目录:";
+            // 
+            // txtUpdateFilesSaveDir
+            // 
+            // 
+            // 
+            // 
+            this.txtUpdateFilesSaveDir.Border.Class = "TextBoxBorder";
+            this.txtUpdateFilesSaveDir.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtUpdateFilesSaveDir.Location = new System.Drawing.Point(112, 364);
+            this.txtUpdateFilesSaveDir.Name = "txtUpdateFilesSaveDir";
+            this.txtUpdateFilesSaveDir.PreventEnterBeep = true;
+            this.txtUpdateFilesSaveDir.Size = new System.Drawing.Size(180, 21);
+            this.txtUpdateFilesSaveDir.TabIndex = 11;
+            this.txtUpdateFilesSaveDir.Text = "E:\\东瀛假日签证识别管理系统更新目录";
+            // 
+            // btnCopyUpdateFiles
+            // 
+            this.btnCopyUpdateFiles.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnCopyUpdateFiles.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnCopyUpdateFiles.Location = new System.Drawing.Point(30, 364);
+            this.btnCopyUpdateFiles.Name = "btnCopyUpdateFiles";
+            this.btnCopyUpdateFiles.Size = new System.Drawing.Size(75, 23);
+            this.btnCopyUpdateFiles.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnCopyUpdateFiles.TabIndex = 10;
+            this.btnCopyUpdateFiles.Text = "拷贝";
+            this.btnCopyUpdateFiles.Click += new System.EventHandler(this.btnCopyUpdateFiles_Click);
             // 
             // labelX3
             // 
@@ -246,6 +290,9 @@
         private DevComponents.DotNetBar.LabelX labelX2;
         private DevComponents.DotNetBar.Controls.TextBoxX txtUpdateDetails;
         private DevComponents.DotNetBar.LabelX labelX3;
+        private DevComponents.DotNetBar.ButtonX btnCopyUpdateFiles;
+        private DevComponents.DotNetBar.LabelX labelX4;
+        private DevComponents.DotNetBar.Controls.TextBoxX txtUpdateFilesSaveDir;
     }
 }
 
