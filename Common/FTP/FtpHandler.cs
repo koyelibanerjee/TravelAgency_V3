@@ -102,24 +102,35 @@ namespace TravelAgency.Common.FTP
         /// <param name="remoteFileName">远程文件名</param>
         public static bool FileExist(string remoteFileName)
         {
-            List<string> fileList = GetFileList("*.*");
-            if (fileList == null || fileList.Count == 0)
-                return false;
-            foreach (string str in fileList)
+            FtpWebRequest reqFTP;
+            long fileSize = 0;
+            try
             {
-                if (str.Trim() == remoteFileName.Trim())
-                {
-                    return true;
-                }
+                reqFTP = (FtpWebRequest)FtpWebRequest.Create(new Uri(_ftpUri + remoteFileName));
+                reqFTP.Method = WebRequestMethods.Ftp.GetFileSize;
+
+                reqFTP.UseBinary = true;
+                reqFTP.Credentials = new NetworkCredential(_ftpUserId, _ftpPassword);
+                FtpWebResponse response = (FtpWebResponse)reqFTP.GetResponse();
+                Stream ftpStream = response.GetResponseStream();
+                fileSize = response.ContentLength;
+
+                ftpStream.Close();
+                response.Close();
+                return true;
             }
-            return false;
+            catch (Exception ex)
+            {
+                //Insert_Standard_ErrorLog.Insert("FtpWeb", "GetFileSize Error --> " + ex.Message);
+                return false;
+            }
         }
 
         /// <summary>
         /// 获取当前目录下文件列表(目录也算)，拿到的列表是按照时间顺序排好的，只有文件名，没有路径,有空格的文件名会出错
         /// </summary>
         /// <returns></returns>
-        public static List<string> GetFileList(string mask)
+        public static List<string> GetFileList()
         {
             FtpWebRequest reqFTP;
             try
@@ -128,6 +139,7 @@ namespace TravelAgency.Common.FTP
                 reqFTP.UseBinary = true;
                 reqFTP.Credentials = new NetworkCredential(_ftpUserId, _ftpPassword);
                 reqFTP.Method = WebRequestMethods.Ftp.ListDirectoryDetails; //ListDirectory用不了不知道为什么
+
 
                 // 读取网络流数据
                 WebResponse response = reqFTP.GetResponse();
@@ -195,7 +207,7 @@ namespace TravelAgency.Common.FTP
                         continue;
                     int lastSpaceIdx = lines[i].LastIndexOf(' ');
                     string tmp = lines[i].Substring(lastSpaceIdx + 1, lines[i].Length - lastSpaceIdx - 1);
-                    if (tmp == "." || tmp == ".." )
+                    if (tmp == "." || tmp == "..")
                         continue;
                     res.Add(tmp);
                 }
@@ -331,7 +343,7 @@ namespace TravelAgency.Common.FTP
                         break;
                     }
                 }
-                if(!has)
+                if (!has)
                     return false;
             }
 
@@ -453,7 +465,7 @@ namespace TravelAgency.Common.FTP
                 response.Close();
                 return true;
             }
-            catch (Exception )
+            catch (Exception)
             {
                 //Insert_Standard_ErrorLog.Insert("FtpWeb", "Delete Error --> " + ex.Message + "  文件名:" + fileName);
                 return false; //远程没有文件或者其他

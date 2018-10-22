@@ -4,7 +4,9 @@ using System.IO;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using ScanCtrlTest;
+using TravelAgency.BLL.FTPFileHandler;
 using TravelAgency.Common;
+using TravelAgency.Common.FTP;
 using TravelAgency.CSUI.Financial.FrmMain;
 using TravelAgency.CSUI.Financial.FrmSub;
 using TravelAgency.CSUI.FrmSub;
@@ -272,8 +274,21 @@ namespace TravelAgency.CSUI.FrmMain
 
         private void btnBackUp_Click(object sender, EventArgs e)
         {
-            FrmDataBackUp frm = new FrmDataBackUp();
-            OpenTab(frm, frm.Name);
+            //FrmDataBackUp frm = new FrmDataBackUp();
+            //OpenTab(frm, frm.Name);
+            //Stopwatch sw = new Stopwatch();
+            //sw.Start();
+            //var b = PassportPicHandler.CheckRemoteExist("E53651478", PassportPicHandler.PicType.Type01Normal);
+            //MessageBoxEx.Show(b.ToString() + sw.ElapsedMilliseconds.ToString());
+
+            //sw.Restart();
+            //b = PassportPicHandler.CheckRemoteExist("E536514", PassportPicHandler.PicType.Type01Normal);
+            //MessageBoxEx.Show(b.ToString() + sw.ElapsedMilliseconds.ToString());
+
+            //sw.Restart();
+            //b = PassportPicHandler.CheckRemoteExist("11111", PassportPicHandler.PicType.Type01Normal);
+            //MessageBoxEx.Show(b.ToString() + sw.ElapsedMilliseconds.ToString());
+
         }
 
         private void btnClaimManage_Click(object sender, EventArgs e)

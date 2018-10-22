@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Configuration;
+using System.Diagnostics;
 using System.IO;
 using DevComponents.DotNetBar;
 using NPOI.SS.Formula.PTG;
@@ -50,7 +51,7 @@ namespace TravelAgency.BLL.FTPFileHandler
             if (!FtpHandler.FileExist(GetFileName(passportNo, PicType.Type01Normal)))
             {
                 GlobalUtils.Logger.Error($"护照{passportNo},上传图像失败");
-                MessageBoxEx.Show($"护照{passportNo},上传图像失败，请联系技术人员!");
+                MessageBoxEx.Show($"护照{passportNo},上传图像失败，请手动上传或请联系技术人员!");
                 return false;
             }
             if (GlobalUtils.LoginUser.District != 0)
@@ -109,11 +110,11 @@ namespace TravelAgency.BLL.FTPFileHandler
             if (CheckLocalExist(passportNo, type)) //先检查本地是否存在
                 return true;
 
-            if (FtpHandler.FileExist(fileName))
-                if (FtpHandler.Download(GlobalUtils.LocalPassportPicPath, fileName))
-                {
-                    return true;
-                }
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            if (FtpHandler.FileExist(fileName) &&
+                FtpHandler.Download(GlobalUtils.LocalPassportPicPath, fileName))
+                return true;
             return false;
         }
 
