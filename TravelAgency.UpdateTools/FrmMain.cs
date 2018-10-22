@@ -17,6 +17,8 @@ namespace TravelAgency.UpdateTools
     {
         public FrmMain()
         {
+            this.MaximizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
             InitializeComponent();
         }
 
@@ -31,8 +33,9 @@ namespace TravelAgency.UpdateTools
                 "TravelAgency.Common.dll",
                 "TravelAgency.DBUtility.dll"
             };
-
             AddFileToListView(fileList.ToArray(), false);
+            txtUpdateDetails.ScrollBars = ScrollBars.Vertical;
+            txtUpdateSql.ScrollBars = ScrollBars.Vertical;
         }
 
 
@@ -97,13 +100,16 @@ namespace TravelAgency.UpdateTools
             {
                 Directory.CreateDirectory(txtUpdateFilesSaveDir.Text);
             }
-            for (int i = 0; i < listViewEx1.Items.Count; ++i) //TODO:问题，有子目录的还得自己拷贝
+            for (int i = 0; i < listViewEx1.Items.Count; ++i)
             {
                 string updatefilename = listViewEx1.Items[i].SubItems[1].Text;
-                File.Copy(txtRootDir.Text + "/" + updatefilename, txtUpdateFilesSaveDir.Text + "/" + updatefilename, true);
+                string dstfilename = txtUpdateFilesSaveDir.Text + "/" + updatefilename;
+                string srcfilename = txtRootDir.Text + "/" + updatefilename;
+                if (!Directory.Exists(System.IO.Path.GetDirectoryName(dstfilename)))
+                    Directory.CreateDirectory(System.IO.Path.GetDirectoryName(dstfilename));
+                File.Copy(srcfilename, dstfilename, true);
             }
             Process.Start(txtUpdateFilesSaveDir.Text);
-
         }
     }
 }

@@ -40,14 +40,13 @@ namespace TravelAgency.BLL.FTPFileHandler
         /// <summary>
         /// 复制指定图像到护照存储目录
         /// </summary>
+        /// <param name="filename"></param>
         /// <param name="passportNo"></param>
-        /// <param name="type"></param>
         /// <returns></returns>
         public static bool UploadPassportPic(string filename, string passportNo)
         {
             FtpHandler.ChangeFtpUri(ConfigurationManager.AppSettings["PassportPicPath"]);
             FtpHandler.Upload(filename, GetFileName(passportNo, PicType.Type01Normal));
-
             if (!FtpHandler.FileExist(GetFileName(passportNo, PicType.Type01Normal)))
             {
                 GlobalUtils.Logger.Error($"护照{passportNo},上传图像失败");

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.btnAddFiles = new DevComponents.DotNetBar.ButtonX();
             this.txtUpdateSql = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.listViewEx1 = new DevComponents.DotNetBar.Controls.ListViewEx();
@@ -267,8 +268,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(706, 339);
             this.Controls.Add(this.panelEx1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmMain";
-            this.Text = "FrmMain";
+            this.Text = "东瀛假日签证识别管理系统更新工具";
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.panelEx1.ResumeLayout(false);
             this.ResumeLayout(false);
