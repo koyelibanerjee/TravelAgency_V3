@@ -94,7 +94,7 @@ namespace TravelAgency.CSUI.FrmMain
 
         private void UpdateLabels()
         {
-            lbCount.Text = "共有图像" + lvPics.Items.Count + "张。";
+            lbCount.Text = $"共有图像{ _imagenames?.Count ?? 0 }张。";
         }
 
         private void FrmGaoPaiManage_Load(object sender, EventArgs e)
@@ -190,7 +190,7 @@ namespace TravelAgency.CSUI.FrmMain
 
         private void AdvTree1_BeforeExpand(object sender, AdvTreeNodeCancelEventArgs e)
         {
-            if (e.Node != null && GetNodeTag(e.Node) != null 
+            if (e.Node != null && GetNodeTag(e.Node) != null
                 && GetNodeTag(e.Node).level == NodeLevel.Month)
             {
                 e.Node.Nodes.Clear();
@@ -280,6 +280,7 @@ namespace TravelAgency.CSUI.FrmMain
                _gaopaiPicHandler.GetFileListByDateAndTypes(
                    DateTime.ParseExact(day, "yyyyMMdd", System.Globalization.CultureInfo.CurrentCulture),
                  GetNodeTagData(node));
+            UpdateLabels();
             if (_imagenames == null || _imagenames.Count == 0)
                 return;
             for (int i = 0; i < _imagenames.Count; ++i)
