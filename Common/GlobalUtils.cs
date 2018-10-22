@@ -17,9 +17,7 @@ using TravelAgency.Common.DataStructure;
 
 namespace TravelAgency.Common
 {
-
     public enum RigthLevel
-
     {
         Manager,
         Normal,

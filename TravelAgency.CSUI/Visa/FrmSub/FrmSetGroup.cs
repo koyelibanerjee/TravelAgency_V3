@@ -414,7 +414,7 @@ namespace TravelAgency.CSUI.FrmSub
             if (_visaModel == null)
                 return;
 
-            txtGroupNo.TextChanged += TxtGroupNo_TextChanged;
+            txtGroupNo.TextChanged += TxtGroupNo_TextChanged; //非管理员在请款后的团号不能在修改
             //InitEditingMutex();
 
             //查询得到所有的属于这个团的用户

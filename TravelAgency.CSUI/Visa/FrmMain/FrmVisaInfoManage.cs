@@ -1224,12 +1224,20 @@ namespace TravelAgency.CSUI.FrmMain
             //}
             //else 
             list.Add(string.Empty);
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 4; i++)
             {
                 if (i >= visaInfoList.Count)
+                {
                     list.Add(string.Empty);
+                    list.Add(string.Empty);
+                    list.Add(string.Empty);
+                }
                 else
+                {
                     list.Add(visaInfoList[i].Name);
+                    list.Add(visaInfoList[i].PassportNo);
+                    list.Add(visaInfoList[i].Sex);
+                }
             }
 
             list.Add(visaInfoList[0].EntryTime.Value.Date.Year.ToString());

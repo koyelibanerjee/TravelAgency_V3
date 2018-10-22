@@ -83,7 +83,6 @@ namespace TravelAgency.CSUI.FrmMain
             else
             {
                 GlobalUtils.LoginUserLevel = RigthLevel.Normal;
-
             }
 
             if (FrmsManager.MainForm != null)

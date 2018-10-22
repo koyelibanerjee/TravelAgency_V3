@@ -155,7 +155,7 @@ namespace TravelAgency.Common.Word
 
             if (type == DocDocxGenerator.DocType.Type06HanguoDanBaoHan)
             {
-                PlaceHolderNum = 15;
+                PlaceHolderNum = 22;
                 DefaultName = "韩国担保函模板.docx";
                 TemplaceDocFileName = "template_韩国担保函模板.docx";
             }

@@ -1117,19 +1117,26 @@ namespace TravelAgency.CSUI.FrmMain
                 list.Add("五年多往");
             }
             else list.Add(string.Empty);
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 4; i++)
             {
                 if (i >= visaInfoList.Count)
+                {
                     list.Add(string.Empty);
+                    list.Add(string.Empty);
+                    list.Add(string.Empty);
+                }
                 else
+                {
                     list.Add(visaInfoList[i].Name);
+                    list.Add(visaInfoList[i].PassportNo);
+                    list.Add(visaInfoList[i].Sex);
+                }
             }
 
             list.Add(visaList[0].EntryTime.Value.Date.Year.ToString());
             list.Add(visaList[0].EntryTime.Value.Date.Month.ToString());
             list.Add(visaList[0].EntryTime.Value.Date.Day.ToString());
             GlobalUtils.DocDocxGenerator.Generate(list);
-
         }
 
 
