@@ -49,6 +49,9 @@
             this.btnPersonalCount = new DevComponents.DotNetBar.ButtonItem();
             this.btnCommisionMoneyManage = new DevComponents.DotNetBar.ButtonItem();
             this.btnBackUp = new DevComponents.DotNetBar.ButtonItem();
+            this.ribbonPanel5 = new DevComponents.DotNetBar.RibbonPanel();
+            this.ribbonBar5 = new DevComponents.DotNetBar.RibbonBar();
+            this.btnChangeLoginUser = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonPanel2 = new DevComponents.DotNetBar.RibbonPanel();
             this.ribbonBar6 = new DevComponents.DotNetBar.RibbonBar();
             this.btnClaimManage = new DevComponents.DotNetBar.ButtonItem();
@@ -58,9 +61,6 @@
             this.ribbonBar3 = new DevComponents.DotNetBar.RibbonBar();
             this.btnVisaRequestPayoutManage = new DevComponents.DotNetBar.ButtonItem();
             this.btnAppAllManage = new DevComponents.DotNetBar.ButtonItem();
-            this.ribbonPanel5 = new DevComponents.DotNetBar.RibbonPanel();
-            this.ribbonBar5 = new DevComponents.DotNetBar.RibbonBar();
-            this.btnChangeLoginUser = new DevComponents.DotNetBar.ButtonItem();
             this.ribbonTabItem3 = new DevComponents.DotNetBar.RibbonTabItem();
             this.rbTabStat = new DevComponents.DotNetBar.RibbonTabItem();
             this.rbTabFinancial = new DevComponents.DotNetBar.RibbonTabItem();
@@ -76,8 +76,8 @@
             this.ribbonControl1.SuspendLayout();
             this.ribbonPanel3.SuspendLayout();
             this.ribbonPanel1.SuspendLayout();
-            this.ribbonPanel2.SuspendLayout();
             this.ribbonPanel5.SuspendLayout();
+            this.ribbonPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabMain)).BeginInit();
             this.cms.SuspendLayout();
             this.SuspendLayout();
@@ -387,6 +387,70 @@
             this.btnBackUp.Text = "数据备份";
             this.btnBackUp.Click += new System.EventHandler(this.btnBackUp_Click);
             // 
+            // ribbonPanel5
+            // 
+            this.ribbonPanel5.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribbonPanel5.Controls.Add(this.ribbonBar5);
+            this.ribbonPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ribbonPanel5.Location = new System.Drawing.Point(0, 25);
+            this.ribbonPanel5.Name = "ribbonPanel5";
+            this.ribbonPanel5.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.ribbonPanel5.Size = new System.Drawing.Size(1284, 61);
+            // 
+            // 
+            // 
+            this.ribbonPanel5.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonPanel5.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonPanel5.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonPanel5.TabIndex = 5;
+            this.ribbonPanel5.Visible = false;
+            // 
+            // ribbonBar5
+            // 
+            this.ribbonBar5.AutoOverflowEnabled = true;
+            // 
+            // 
+            // 
+            this.ribbonBar5.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonBar5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ribbonBar5.ContainerControlProcessDialogKey = true;
+            this.ribbonBar5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ribbonBar5.DragDropSupport = true;
+            this.ribbonBar5.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
+            this.btnChangeLoginUser});
+            this.ribbonBar5.Location = new System.Drawing.Point(3, 0);
+            this.ribbonBar5.Name = "ribbonBar5";
+            this.ribbonBar5.Size = new System.Drawing.Size(389, 58);
+            this.ribbonBar5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ribbonBar5.TabIndex = 0;
+            // 
+            // 
+            // 
+            this.ribbonBar5.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // 
+            // 
+            this.ribbonBar5.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            // 
+            // btnChangeLoginUser
+            // 
+            this.btnChangeLoginUser.Icon = ((System.Drawing.Icon)(resources.GetObject("btnChangeLoginUser.Icon")));
+            this.btnChangeLoginUser.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
+            this.btnChangeLoginUser.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
+            this.btnChangeLoginUser.Name = "btnChangeLoginUser";
+            this.btnChangeLoginUser.SubItemsExpandWidth = 14;
+            this.btnChangeLoginUser.Text = "切换用户";
+            this.btnChangeLoginUser.Click += new System.EventHandler(this.btnChangeLoginUser_Click);
+            // 
             // ribbonPanel2
             // 
             this.ribbonPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -555,70 +619,6 @@
             this.btnAppAllManage.Text = "待审批请款";
             this.btnAppAllManage.Click += new System.EventHandler(this.btnAppAllManage_Click);
             // 
-            // ribbonPanel5
-            // 
-            this.ribbonPanel5.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribbonPanel5.Controls.Add(this.ribbonBar5);
-            this.ribbonPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ribbonPanel5.Location = new System.Drawing.Point(0, 25);
-            this.ribbonPanel5.Name = "ribbonPanel5";
-            this.ribbonPanel5.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.ribbonPanel5.Size = new System.Drawing.Size(1284, 61);
-            // 
-            // 
-            // 
-            this.ribbonPanel5.Style.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonPanel5.StyleMouseDown.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonPanel5.StyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribbonPanel5.TabIndex = 5;
-            this.ribbonPanel5.Visible = false;
-            // 
-            // ribbonBar5
-            // 
-            this.ribbonBar5.AutoOverflowEnabled = true;
-            // 
-            // 
-            // 
-            this.ribbonBar5.BackgroundMouseOverStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonBar5.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.ribbonBar5.ContainerControlProcessDialogKey = true;
-            this.ribbonBar5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ribbonBar5.DragDropSupport = true;
-            this.ribbonBar5.Items.AddRange(new DevComponents.DotNetBar.BaseItem[] {
-            this.btnChangeLoginUser});
-            this.ribbonBar5.Location = new System.Drawing.Point(3, 0);
-            this.ribbonBar5.Name = "ribbonBar5";
-            this.ribbonBar5.Size = new System.Drawing.Size(389, 58);
-            this.ribbonBar5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.ribbonBar5.TabIndex = 0;
-            // 
-            // 
-            // 
-            this.ribbonBar5.TitleStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // 
-            // 
-            this.ribbonBar5.TitleStyleMouseOver.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            // 
-            // btnChangeLoginUser
-            // 
-            this.btnChangeLoginUser.Icon = ((System.Drawing.Icon)(resources.GetObject("btnChangeLoginUser.Icon")));
-            this.btnChangeLoginUser.ImageListSizeSelection = DevComponents.DotNetBar.eButtonImageListSelection.Medium;
-            this.btnChangeLoginUser.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top;
-            this.btnChangeLoginUser.Name = "btnChangeLoginUser";
-            this.btnChangeLoginUser.SubItemsExpandWidth = 14;
-            this.btnChangeLoginUser.Text = "切换用户";
-            this.btnChangeLoginUser.Click += new System.EventHandler(this.btnChangeLoginUser_Click);
-            // 
             // ribbonTabItem3
             // 
             this.ribbonTabItem3.Checked = true;
@@ -729,8 +729,8 @@
             this.ribbonControl1.PerformLayout();
             this.ribbonPanel3.ResumeLayout(false);
             this.ribbonPanel1.ResumeLayout(false);
-            this.ribbonPanel2.ResumeLayout(false);
             this.ribbonPanel5.ResumeLayout(false);
+            this.ribbonPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tabMain)).EndInit();
             this.cms.ResumeLayout(false);
             this.ResumeLayout(false);

@@ -131,7 +131,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                     qzApplicationModel.Country = _list[i].Country;
                     qzApplicationModel.Name = _list[i].client;
                     qzApplicationModel.InvitationCost = _list[i].InvitationCost;
-                    qzApplicationModel.cost = _list[i].Cost;
+                    qzApplicationModel.Cost = _list[i].Cost;
                     qzApplicationModel.App_id = appid;
                     if (!_bllQzApplication.Add(qzApplicationModel))
                     {

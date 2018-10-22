@@ -262,6 +262,7 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="QZApplicationBll.cs" />
     <Compile Include="QZApplication.cs" />
     <Compile Include="Redis\EditMutex.cs" />
     <Compile Include="RPC\HproseClient.cs" />

@@ -29,6 +29,7 @@ namespace TravelAgency.CSUI.FrmSub
         private List<Model.VisaInfo> _list; //保存所有传进来的visainfo
         private List<Model.VisaInfo> _dgvList = new List<VisaInfo>(); //保存所有进入dgv的visainfo
         private Model.Visa _visaModel;
+        private Model.Visa _visaBackUp;
         private readonly bool _initFromVisaModel;
 
         private readonly BLL.VisaInfo _bllVisaInfo = new BLL.VisaInfo();
@@ -36,6 +37,7 @@ namespace TravelAgency.CSUI.FrmSub
         private readonly TravelAgency.BLL.ActionRecords _bllLoger = new TravelAgency.BLL.ActionRecords();
         private readonly TravelAgency.BLL.JobAssignment _bllJobAssignment = new TravelAgency.BLL.JobAssignment();
         private readonly TravelAgency.BLL.WorkerQueue _bllWorkerQueue = new TravelAgency.BLL.WorkerQueue();
+        private readonly TravelAgency.BLL.QZApplication _bllQzApplication = new TravelAgency.BLL.QZApplication();
 
         private string _visaName = string.Empty;
         private readonly Action<int> _updateDel; //副界面传来更新数据库的委托
@@ -413,7 +415,7 @@ namespace TravelAgency.CSUI.FrmSub
         {
             if (_visaModel == null)
                 return;
-
+            _visaBackUp = _visaModel.ToObjectCopy();
             txtGroupNo.TextChanged += TxtGroupNo_TextChanged; //非管理员在请款后的团号不能在修改
             //InitEditingMutex();
 
@@ -512,11 +514,12 @@ namespace TravelAgency.CSUI.FrmSub
 
         private void TxtGroupNo_TextChanged(object sender, EventArgs e)
         {
-            if (_inited && _initFromVisaModel && _visaModel.SubmitFlag.HasValue && 
-                _visaModel.SubmitFlag == 1 && txtGroupNo.Text != _visaModel.GroupNo) //已请过款的团号不能再修改
+            if (_inited && _initFromVisaModel && _visaModel.SubmitFlag.HasValue &&
+                _visaModel.SubmitFlag == 1 && txtGroupNo.Text != _visaModel.GroupNo &&
+                GlobalUtils.LoginUserLevel != RigthLevel.Manager) //已请过款的团号不能再修改
             {
                 txtGroupNo.Text = _visaModel.GroupNo;
-                MessageBoxEx.Show("已请款过的团不能改变团号!!!");
+                MessageBoxEx.Show("权限不足，已请款过的团不能改变团号，请联系管理员修改!!!");
                 return;
             }
         }
@@ -1156,6 +1159,21 @@ namespace TravelAgency.CSUI.FrmSub
 
                 if (!CtrlsToVisaModel(_visaModel))
                     return;
+
+                //已经请过款的团号，需要更新对应的qzapllication的groupno
+                if (_visaModel.SubmitFlag == 1 && _visaModel.GroupNo != _visaBackUp.GroupNo)
+                {
+                    
+                    var qzApplicationList = _bllQzApplication.GetModelList($" (Visa_Id = '{_visaModel.Visa_id}') ");
+                    if (qzApplicationList != null && qzApplicationList.Count > 0)
+                    {
+                        foreach (var qzModel in qzApplicationList)
+                        {
+                            qzModel.GroupNo = _visaModel.GroupNo;
+                            _bllQzApplication.Update(qzModel);
+                        }
+                    }
+                }
 
                 if (!_bllVisa.Update(_visaModel)) //执行更新
                 {
