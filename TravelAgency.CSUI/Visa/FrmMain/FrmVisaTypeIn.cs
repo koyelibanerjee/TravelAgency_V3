@@ -99,14 +99,21 @@ namespace TravelAgency.CSUI.FrmMain
             txtIssuePlace.Text = model.IssuePlace;
             txtIssuePlaceEnglish.Text = model.IssuePlaceEnglish;
             txtBirthPlaceEnglish.Text = model.BirthPlaceEnglish;
-            if (model.Country == "日本")
-                rbtnJapan.Checked = true;
-            else if (model.Country == "韩国")
-                rbtnKorea.Checked = true;
-            else if (model.Country == "泰国")
-                rbtnThailand.Checked = true;
-            else
-                radioNone.Checked = true;
+            switch (model.Country)
+            {
+                case "日本":
+                    rbtnJapan.Checked = true;
+                    break;
+                case "韩国":
+                    rbtnKorea.Checked = true;
+                    break;
+                case "泰国":
+                    rbtnThailand.Checked = true;
+                    break;
+                default:
+                    radioNone.Checked = true;
+                    break;
+            }
         }
 
         /// <summary>
@@ -129,7 +136,7 @@ namespace TravelAgency.CSUI.FrmMain
                 model.IssuePlace = txtIssuePlace.Text;
                 model.BirthPlaceEnglish = txtBirthPlaceEnglish.Text;
                 model.IssuePlaceEnglish = txtIssuePlaceEnglish.Text;
-                if (!string.IsNullOrEmpty(_country))
+                if ((!string.IsNullOrEmpty(_country)))
                     model.Country = _country;
                 else
                     model.Country = null;
@@ -151,13 +158,11 @@ namespace TravelAgency.CSUI.FrmMain
                 picPassportNo.Image = Resources.PassportPictureNotFound;
                 return;
             }
-
             if (!PassportPicHandler.CheckAndDownloadIfNotExist(model.PassportNo, PassportPicHandler.PicType.Type01Normal))
             {
                 picPassportNo.Image = Resources.PassportPictureNotFound;
                 return;
             }
-
             picPassportNo.Image = GlobalUtils.LoadImageFromFileNoBlock(GlobalUtils.LocalPassportPicPath + "\\" + model.PassportNo + ".jpg");
         }
 
@@ -380,11 +385,7 @@ namespace TravelAgency.CSUI.FrmMain
 
             if (model == null)
                 return;
-
-            if (!string.IsNullOrEmpty(_country))
-                model.Country = _country;
-            else
-                model.Country = null;
+            model.Country = !string.IsNullOrEmpty(_country) ? _country : null;
             model.EntryTime = DateTime.Now;
             model.District = GlobalUtils.LoginUser.District;
 
@@ -771,7 +772,6 @@ namespace TravelAgency.CSUI.FrmMain
             }
             LoadDataToList();
             UpdateState();
-
         }
 
         private void rbtnJapan_CheckedChanged(object sender, EventArgs e)

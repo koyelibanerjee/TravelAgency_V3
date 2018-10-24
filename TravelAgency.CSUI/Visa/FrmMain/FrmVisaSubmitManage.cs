@@ -253,7 +253,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         {
             if (_inputMode == Inputmode.Single)
             {
-                if (_preTxt + "\r\n" != txtInput.Text)
+                if ($"{_preTxt}\r\n" != txtInput.Text)
                 {
                     _preTxt = txtInput.Text;
                     return;
@@ -578,8 +578,6 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             SearchCondition.GetFuzzyQueryCondition(conditions, "SalesPerson", txtSalesPerson.Text);
             SearchCondition.GetFuzzyQueryCondition(conditions, "Client", txtClient.Text);
             SearchCondition.GetFuzzyQueryCondition(conditions, "SubmitTempNo", txtTempNo.Text);
-
-
             SearchCondition.GetPreciseQueryCondition(conditions, "Country", cbCountry.Text, "全部");
             SearchCondition.GetPreciseQueryCondition(conditions, "DepartureType", cbDepatureType.Text, "全部");
 
@@ -776,7 +774,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             var visas = dataGridView1.DataSource as List<Model.Visa>;
-            BLL.Joint.Visa_QZApplication bllVisaQzApplication  = new Visa_QZApplication();
+            BLL.Joint.Visa_QZApplication bllVisaQzApplication = new Visa_QZApplication();
             Font font = new Font(new FontFamily("Consolas"), 13.0f, FontStyle.Bold);
             int peopleCount = 0;
             int hasIn = 0;
@@ -1122,7 +1120,7 @@ namespace TravelAgency.CSUI.Visa.FrmMain
         }
         #endregion
 
-   
+
 
         #region 功能性
 
@@ -1397,14 +1395,29 @@ namespace TravelAgency.CSUI.Visa.FrmMain
 
         private void 修改进出签时间ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (GlobalUtils.LoginUserLevel != RigthLevel.Manager)
+
+            var list = GetSelectedVisaList();
+            if (list.Count == 0)
+                return;
+
+            bool modelHasValue = false;
+            foreach (var visa in list)
+            {
+                if (visa.RealTime != null && visa.FinishTime != null)
+                {
+                    modelHasValue = true;
+                    break;
+                }
+            }
+
+
+            if (modelHasValue && 
+                GlobalUtils.LoginUserLevel != RigthLevel.Manager)
             {
                 MessageBoxEx.Show("权限不足!!!");
                 return;
             }
-            var list = GetSelectedVisaList();
-            if (list.Count == 0)
-                return;
+
 
             if (GlobalUtils.LoginUserLevel != RigthLevel.Manager)
             {
@@ -1654,8 +1667,8 @@ namespace TravelAgency.CSUI.Visa.FrmMain
             var list = GetSelectedVisaList();
             if (list == null || list.Count < 1)
                 return;
-            
-            FrmSetStringValue frm = new FrmSetStringValue("设置流水编号",DateTime.Now.ToString("yyyyMMddHHmmss"));
+
+            FrmSetStringValue frm = new FrmSetStringValue("设置流水编号", DateTime.Now.ToString("yyyyMMddHHmmss"));
             if (frm.ShowDialog() == DialogResult.Cancel)
                 return;
 
