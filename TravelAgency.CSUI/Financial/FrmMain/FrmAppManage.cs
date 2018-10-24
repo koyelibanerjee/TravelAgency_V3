@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using TravelAgency.BLL;
 using TravelAgency.BLL.Excel;
 using TravelAgency.Common;
 using TravelAgency.Common.FrmSetValues;
 using TravelAgency.CSUI.Financial.FrmSub;
 using TravelAgency.CSUI.FrmSub;
 using TravelAgency.CSUI.Properties;
-using TravelAgency.Model;
+using TravelAgency.Model.Enums;
+using AppAll = TravelAgency.Model.AppAll;
 using FrmTimeSpanChoose = TravelAgency.CSUI.Visa.FrmSub.FrmSetValue.FrmTimeSpanChoose;
 
 namespace TravelAgency.CSUI.Financial.FrmMain
@@ -169,6 +171,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
         public void LoadDataToDataGridView(int page) //刷新后保持选中
         {
+            _where = GetWhereCondition();
             var selRows = SelectionKeeper.GetSelectedGuids(dataGridView1, "App_id");
             int rowsCnt, rowIdx, colIdx;
             SelectionKeeper.GetSelectedPos(dataGridView1, out rowsCnt, out rowIdx, out colIdx);
@@ -226,18 +229,36 @@ namespace TravelAgency.CSUI.Financial.FrmMain
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            //_where = GetWhereCondition();
+            _where = GetWhereCondition();
             _curPage = 1;
             LoadDataToDgvAsyn();
 
         }
 
+        private string GetWhereCondition()
+        {
+            List<string> conditions = new List<string>();
+            //SearchCondition.GetVisaTypesCondition(conditions, cbDisplayType.Text);
+            SearchCondition.GetFuzzyQueryCondition(conditions, "UserName", txtUserName.Text);
+            SearchCondition.GetFuzzyQueryCondition(conditions, "AppNo", txtAppNo.Text);
+            SearchCondition.GetFuzzyQueryCondition(conditions, "Details", txtDetails.Text);
+            SearchCondition.GetFuzzyQueryCondition(conditions, "Account", txtAccount.Text);
+            SearchCondition.GetFuzzyQueryCondition(conditions, "Bank_To", txtBank_To.Text);
+
+            SearchCondition.GetSpanQueryCondition(conditions, "AppTime", txtSchEntryTimeFrom.Text, txtSchEntryTimeTo.Text);
+            return SearchCondition.GetSearchConditon(conditions);
+        }
+
+
         private void btnClearSchConditions_Click(object sender, EventArgs e)
         {
-
             txtSchEntryTimeFrom.Text = string.Empty;
             txtSchEntryTimeTo.Text = string.Empty;
-            
+            txtAccount.Text = "";
+            txtAppNo.Text = "";
+            txtBank_To.Text = "";
+            txtDetails.Text = "";
+            txtUserName.Text = "";
         }
 
 
@@ -477,7 +498,16 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             查看明细ToolStripMenuItem_Click(null,null);
         }
 
+        private void 复制选中单元格ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 1)
+            {
+                MessageBoxEx.Show("请选中一条记录复制!");
+                return;
+            }
 
-
+            if (dataGridView1.CurrentCell.Value != null)
+                Clipboard.SetText(dataGridView1.CurrentCell.Value.ToString());
+        }
     }
 }

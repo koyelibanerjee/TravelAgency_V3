@@ -110,6 +110,7 @@ namespace TravelAgency.CSUI.FrmSub
             SetCountryPicBox();
             _inited = true;
             this.Text += $"当前登录用户:{GlobalUtils.LoginUser.UserName}";
+            _bllLoger.AddRecord(Model.Enums.ActType._02OpenSetGroupWindow, GlobalUtils.LoginUser, null, _visaModel);
         }
 
         private void OtherDistrictInit()

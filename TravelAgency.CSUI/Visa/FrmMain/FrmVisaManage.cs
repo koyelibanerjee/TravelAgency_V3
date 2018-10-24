@@ -277,7 +277,7 @@ namespace TravelAgency.CSUI.FrmMain
         {
             btnClearSchConditions_Click(null, null);
             _where = string.Empty;
-            //cbState.Text = "全部";
+            
             LoadDataToDgvAsyn();
         }
 
