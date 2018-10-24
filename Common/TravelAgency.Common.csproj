@@ -219,7 +219,7 @@
   <ItemGroup>
     <Compile Include="Cache\Redis.cs" />
     <Compile Include="ControlInitializer.cs" />
-    <Compile Include="CustomCtrls\DataGridViewEx.cs">
+    <Compile Include="CustomCtrls\ThreadSafeDataGridView.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CustomCtrls\ProPictureBox.cs">

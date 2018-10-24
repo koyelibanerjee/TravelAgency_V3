@@ -121,6 +121,7 @@ namespace TravelAgency.Common.FTP
             }
             catch (Exception ex)
             {
+                GlobalUtils.Logger.Warn($"catched exception: {ex.Message}");
                 //Insert_Standard_ErrorLog.Insert("FtpWeb", "GetFileSize Error --> " + ex.Message);
                 return false;
             }
@@ -433,7 +434,7 @@ namespace TravelAgency.Common.FTP
             }
             catch (Exception ex)
             {
-                Insert_Standard_ErrorLog.Insert("FtpWeb", "Upload Error --> " + ex.Message);
+                GlobalUtils.Logger.Warn("catched exception:" + ex.Message);
             }
         }
 

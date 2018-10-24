@@ -67,6 +67,7 @@ namespace TravelAgency.Common
             dgv.DefaultCellStyle.ForeColor = Color.FromArgb(110, 110, 110);
             dgv.DefaultCellStyle.BackColor = CellDefaultBackColor;
 
+
         }
 
 

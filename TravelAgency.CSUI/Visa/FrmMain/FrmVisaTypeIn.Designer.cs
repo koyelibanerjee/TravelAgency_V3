@@ -85,7 +85,7 @@ namespace TravelAgency.CSUI.FrmMain
             this.txtBirthPlaceEnglish = new System.Windows.Forms.TextBox();
             this.panelRight = new DevComponents.DotNetBar.PanelEx();
             this.panelRightMid = new DevComponents.DotNetBar.PanelEx();
-            this.dgvWait4Check = new System.Windows.Forms.DataGridView();
+            this.dgvWait4Check = new ThreadSafeDataGridView();
             this.PassportNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this._Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -1147,7 +1147,7 @@ namespace TravelAgency.CSUI.FrmMain
         private DevComponents.DotNetBar.LabelX labelX12;
         private DevComponents.DotNetBar.Controls.TextBoxX txtCheckPerson;
         private DevComponents.DotNetBar.ButtonX btnNext;
-        private DataGridView dgvWait4Check;
+        private ThreadSafeDataGridView dgvWait4Check;
         private DevComponents.DotNetBar.PanelEx panelRight;
         private DevComponents.DotNetBar.PanelEx panelEx2;
         private DevComponents.DotNetBar.Controls.CheckBoxX checkRegSucShowDlg;

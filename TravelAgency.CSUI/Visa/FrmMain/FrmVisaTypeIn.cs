@@ -171,8 +171,8 @@ namespace TravelAgency.CSUI.FrmMain
         /// </summary>
         public void LoadDataToList() //刷新后保持选中
         {
-            _list = _bllVisaInfoTmp.GetModelList(0, $" district = {GlobalUtils.LoginUser.District} ",
-                "haschecked asc,entrytime desc"); //里面的DataTableToList保证了不会是null,只可能是空的list
+            _list = _bllVisaInfoTmp.GetModelList(0, $" (district = {GlobalUtils.LoginUser.District}) ",
+                " haschecked asc,entrytime desc "); //里面的DataTableToList保证了不会是null,只可能是空的list
         }
 
 
@@ -378,10 +378,17 @@ namespace TravelAgency.CSUI.FrmMain
             Model.Utils.ClassifyTime ct = new Model.Utils.ClassifyTime();
             Stopwatch sw = new Stopwatch();
             sw.Start();
-            VisaInfo_Tmp model = _idCard.RecogoInfo(txtPicPath.Text, checkRegSucShowDlg.Checked);
+            //VisaInfo_Tmp model = _idCard.RecogoInfo(txtPicPath.Text, checkRegSucShowDlg.Checked);
             ct.RecogTime = sw.ElapsedMilliseconds;
-            //VisaInfo_Tmp model = new VisaInfo_Tmp() { Name = "杨小鹏", EnglishName = "Yang Xiaopeng", Sex = "男", PassportNo = "E12345678" };
-            //model.ExpiryDate = DateTime.Now.AddYears(10);
+            VisaInfo_Tmp model = new VisaInfo_Tmp() { Name = "杨小鹏", EnglishName = "Yang Xiaopeng", Sex = "男", PassportNo = "E12345678" };
+            model.ExpiryDate = DateTime.Now.AddYears(10);
+            model.Birthday = DateTime.Now;
+            model.LicenceTime = DateTime.Now;
+            model.IssuePlace = "四川";
+            model.IssuePlaceEnglish = "SICHUAN";
+            model.Birthplace = "四川";
+            model.BirthPlaceEnglish = "SICHUAN";
+
 
             if (model == null)
                 return;
@@ -459,8 +466,6 @@ namespace TravelAgency.CSUI.FrmMain
                         model.Country = null;
                     model.EntryTime = DateTime.Now;
                     model.District = GlobalUtils.LoginUser.District;
-
-
 
                     if (!InfoChecker.CheckNotExpire(model.ExpiryDate.Value)) //检查到快过期了
                     {
