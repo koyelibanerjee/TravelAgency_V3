@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelMain = new DevComponents.DotNetBar.PanelEx();
             this.panelMid2 = new DevComponents.DotNetBar.PanelEx();
             this.dgvGroupInfo = new DevComponents.DotNetBar.Controls.DataGridViewX();
@@ -105,22 +105,22 @@
             this.txtSubmitCondition = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.txtDepartureType = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.panelTop = new DevComponents.DotNetBar.PanelEx();
+            this.txtWorkingState = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.lbWorkingState = new DevComponents.DotNetBar.LabelX();
             this.cbSaleTo = new DevComponents.DotNetBar.Controls.ComboBoxEx();
             this.lbSaleTo = new DevComponents.DotNetBar.LabelX();
-            this.lbPhoneCompleteStatus = new DevComponents.DotNetBar.LabelX();
-            this.lbInfoCompleteStatus = new DevComponents.DotNetBar.LabelX();
             this.lbCount = new DevComponents.DotNetBar.LabelX();
             this.txtGroupNo = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX2 = new DevComponents.DotNetBar.LabelX();
             this.panelBottom = new DevComponents.DotNetBar.PanelEx();
+            this.btnConfirm = new DevComponents.DotNetBar.ButtonX();
             this.btnGetShenYuanMuban = new DevComponents.DotNetBar.ButtonX();
             this.btnDelete = new DevComponents.DotNetBar.ButtonX();
+            this.lbPhoneCompleteStatus = new DevComponents.DotNetBar.LabelX();
             this.btnReset = new DevComponents.DotNetBar.ButtonX();
+            this.lbInfoCompleteStatus = new DevComponents.DotNetBar.LabelX();
             this.btnCreateReport = new DevComponents.DotNetBar.ButtonX();
-            this.txtCheckPerson = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.labelX13 = new DevComponents.DotNetBar.LabelX();
             this.btnCancel = new DevComponents.DotNetBar.ButtonX();
-            this.btnConfirm = new DevComponents.DotNetBar.ButtonX();
             this.cmsDgvRb = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.复制ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.粘贴ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -131,8 +131,6 @@
             this.移到顶部ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.移到底部ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.查看资料ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtWorkingState = new DevComponents.DotNetBar.Controls.TextBoxX();
-            this.lbWorkingState = new DevComponents.DotNetBar.LabelX();
             this.panelMain.SuspendLayout();
             this.panelMid2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGroupInfo)).BeginInit();
@@ -193,14 +191,14 @@
             this.dgvGroupInfo.AllowUserToAddRows = false;
             this.dgvGroupInfo.AllowUserToDeleteRows = false;
             this.dgvGroupInfo.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGroupInfo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGroupInfo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvGroupInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGroupInfo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvGroupInfo_Name,
@@ -219,27 +217,27 @@
             this.Phone,
             this.dgvPassportNo,
             this.ReturnTime});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvGroupInfo.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvGroupInfo.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvGroupInfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvGroupInfo.EnableHeadersVisualStyles = false;
-            this.dgvGroupInfo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.dgvGroupInfo.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(215)))), ((int)(((byte)(229)))));
             this.dgvGroupInfo.Location = new System.Drawing.Point(0, 0);
             this.dgvGroupInfo.Name = "dgvGroupInfo";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvGroupInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvGroupInfo.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvGroupInfo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvGroupInfo.RowTemplate.Height = 30;
             this.dgvGroupInfo.ScrollBarAppearance = DevComponents.DotNetBar.eScrollBarAppearance.Default;
@@ -1205,6 +1203,32 @@
             this.panelTop.Style.GradientAngle = 90;
             this.panelTop.TabIndex = 32;
             // 
+            // txtWorkingState
+            // 
+            // 
+            // 
+            // 
+            this.txtWorkingState.Border.Class = "TextBoxBorder";
+            this.txtWorkingState.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.txtWorkingState.DisabledBackColor = System.Drawing.Color.White;
+            this.txtWorkingState.Location = new System.Drawing.Point(839, 9);
+            this.txtWorkingState.Name = "txtWorkingState";
+            this.txtWorkingState.PreventEnterBeep = true;
+            this.txtWorkingState.Size = new System.Drawing.Size(204, 21);
+            this.txtWorkingState.TabIndex = 102;
+            // 
+            // lbWorkingState
+            // 
+            // 
+            // 
+            // 
+            this.lbWorkingState.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lbWorkingState.Location = new System.Drawing.Point(743, 8);
+            this.lbWorkingState.Name = "lbWorkingState";
+            this.lbWorkingState.Size = new System.Drawing.Size(90, 23);
+            this.lbWorkingState.TabIndex = 103;
+            this.lbWorkingState.Text = "工作状态备注:";
+            // 
             // cbSaleTo
             // 
             this.cbSaleTo.DisplayMember = "Text";
@@ -1229,34 +1253,6 @@
             this.lbSaleTo.Size = new System.Drawing.Size(91, 23);
             this.lbSaleTo.TabIndex = 100;
             this.lbSaleTo.Text = "销售到:";
-            // 
-            // lbPhoneCompleteStatus
-            // 
-            // 
-            // 
-            // 
-            this.lbPhoneCompleteStatus.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lbPhoneCompleteStatus.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbPhoneCompleteStatus.Location = new System.Drawing.Point(246, 5);
-            this.lbPhoneCompleteStatus.Name = "lbPhoneCompleteStatus";
-            this.lbPhoneCompleteStatus.Size = new System.Drawing.Size(267, 23);
-            this.lbPhoneCompleteStatus.TabIndex = 6;
-            this.lbPhoneCompleteStatus.Text = "当前手机号录入完整.";
-            this.lbPhoneCompleteStatus.Click += new System.EventHandler(this.lbPhoneCompleteStatus_Click);
-            // 
-            // lbInfoCompleteStatus
-            // 
-            // 
-            // 
-            // 
-            this.lbInfoCompleteStatus.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lbInfoCompleteStatus.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.lbInfoCompleteStatus.Location = new System.Drawing.Point(12, 6);
-            this.lbInfoCompleteStatus.Name = "lbInfoCompleteStatus";
-            this.lbInfoCompleteStatus.Size = new System.Drawing.Size(220, 23);
-            this.lbInfoCompleteStatus.TabIndex = 5;
-            this.lbInfoCompleteStatus.Text = "当前信息录入完整.";
-            this.lbInfoCompleteStatus.Click += new System.EventHandler(this.lbInfoCompleteStatus_Click);
             // 
             // lbCount
             // 
@@ -1310,8 +1306,6 @@
             this.panelBottom.Controls.Add(this.btnReset);
             this.panelBottom.Controls.Add(this.lbInfoCompleteStatus);
             this.panelBottom.Controls.Add(this.btnCreateReport);
-            this.panelBottom.Controls.Add(this.txtCheckPerson);
-            this.panelBottom.Controls.Add(this.labelX13);
             this.panelBottom.Controls.Add(this.btnCancel);
             this.panelBottom.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -1326,6 +1320,18 @@
             this.panelBottom.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
             this.panelBottom.Style.GradientAngle = 90;
             this.panelBottom.TabIndex = 48;
+            // 
+            // btnConfirm
+            // 
+            this.btnConfirm.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnConfirm.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnConfirm.Location = new System.Drawing.Point(509, 4);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(75, 23);
+            this.btnConfirm.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnConfirm.TabIndex = 19;
+            this.btnConfirm.Text = "确认修改";
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // btnGetShenYuanMuban
             // 
@@ -1352,6 +1358,20 @@
             this.btnDelete.Visible = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // lbPhoneCompleteStatus
+            // 
+            // 
+            // 
+            // 
+            this.lbPhoneCompleteStatus.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lbPhoneCompleteStatus.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbPhoneCompleteStatus.Location = new System.Drawing.Point(246, 5);
+            this.lbPhoneCompleteStatus.Name = "lbPhoneCompleteStatus";
+            this.lbPhoneCompleteStatus.Size = new System.Drawing.Size(267, 23);
+            this.lbPhoneCompleteStatus.TabIndex = 6;
+            this.lbPhoneCompleteStatus.Text = "当前手机号录入完整.";
+            this.lbPhoneCompleteStatus.Click += new System.EventHandler(this.lbPhoneCompleteStatus_Click);
+            // 
             // btnReset
             // 
             this.btnReset.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -1365,6 +1385,20 @@
             this.btnReset.Visible = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
+            // lbInfoCompleteStatus
+            // 
+            // 
+            // 
+            // 
+            this.lbInfoCompleteStatus.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.lbInfoCompleteStatus.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbInfoCompleteStatus.Location = new System.Drawing.Point(12, 6);
+            this.lbInfoCompleteStatus.Name = "lbInfoCompleteStatus";
+            this.lbInfoCompleteStatus.Size = new System.Drawing.Size(220, 23);
+            this.lbInfoCompleteStatus.TabIndex = 5;
+            this.lbInfoCompleteStatus.Text = "当前信息录入完整.";
+            this.lbInfoCompleteStatus.Click += new System.EventHandler(this.lbInfoCompleteStatus_Click);
+            // 
             // btnCreateReport
             // 
             this.btnCreateReport.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -1377,34 +1411,6 @@
             this.btnCreateReport.Text = "生成报表";
             this.btnCreateReport.Click += new System.EventHandler(this.btnCreateReport_Click);
             // 
-            // txtCheckPerson
-            // 
-            // 
-            // 
-            // 
-            this.txtCheckPerson.Border.Class = "TextBoxBorder";
-            this.txtCheckPerson.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtCheckPerson.DisabledBackColor = System.Drawing.Color.White;
-            this.txtCheckPerson.Location = new System.Drawing.Point(1118, 6);
-            this.txtCheckPerson.Name = "txtCheckPerson";
-            this.txtCheckPerson.PreventEnterBeep = true;
-            this.txtCheckPerson.Size = new System.Drawing.Size(100, 21);
-            this.txtCheckPerson.TabIndex = 16;
-            this.txtCheckPerson.Visible = false;
-            // 
-            // labelX13
-            // 
-            // 
-            // 
-            // 
-            this.labelX13.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX13.Location = new System.Drawing.Point(1024, 5);
-            this.labelX13.Name = "labelX13";
-            this.labelX13.Size = new System.Drawing.Size(66, 23);
-            this.labelX13.TabIndex = 62;
-            this.labelX13.Text = "审查人员:";
-            this.labelX13.Visible = false;
-            // 
             // btnCancel
             // 
             this.btnCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
@@ -1416,18 +1422,6 @@
             this.btnCancel.TabIndex = 20;
             this.btnCancel.Text = "取消";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnConfirm
-            // 
-            this.btnConfirm.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
-            this.btnConfirm.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnConfirm.Location = new System.Drawing.Point(509, 4);
-            this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(75, 23);
-            this.btnConfirm.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.btnConfirm.TabIndex = 19;
-            this.btnConfirm.Text = "确认修改";
-            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // cmsDgvRb
             // 
@@ -1507,32 +1501,6 @@
             this.查看资料ToolStripMenuItem.Text = "查看资料";
             this.查看资料ToolStripMenuItem.Click += new System.EventHandler(this.查看资料ToolStripMenuItem_Click);
             // 
-            // txtWorkingState
-            // 
-            // 
-            // 
-            // 
-            this.txtWorkingState.Border.Class = "TextBoxBorder";
-            this.txtWorkingState.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtWorkingState.DisabledBackColor = System.Drawing.Color.White;
-            this.txtWorkingState.Location = new System.Drawing.Point(839, 9);
-            this.txtWorkingState.Name = "txtWorkingState";
-            this.txtWorkingState.PreventEnterBeep = true;
-            this.txtWorkingState.Size = new System.Drawing.Size(204, 21);
-            this.txtWorkingState.TabIndex = 102;
-            // 
-            // lbWorkingState
-            // 
-            // 
-            // 
-            // 
-            this.lbWorkingState.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.lbWorkingState.Location = new System.Drawing.Point(743, 8);
-            this.lbWorkingState.Name = "lbWorkingState";
-            this.lbWorkingState.Size = new System.Drawing.Size(90, 23);
-            this.lbWorkingState.TabIndex = 103;
-            this.lbWorkingState.Text = "工作状态备注:";
-            // 
             // FrmSetGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -1589,11 +1557,9 @@
         private System.Windows.Forms.ToolStripMenuItem 删除ToolStripMenuItem;
         private System.Windows.Forms.ColumnHeader PassportNo;
         private DevComponents.DotNetBar.PanelEx panelGroupInfo;
-        private DevComponents.DotNetBar.Controls.TextBoxX txtCheckPerson;
         private DevComponents.DotNetBar.Controls.TextBoxX txtTypeInPerson;
         private DevComponents.DotNetBar.LabelX labelX1;
         private DevComponents.DotNetBar.LabelX labelX9;
-        private DevComponents.DotNetBar.LabelX labelX13;
         private DevComponents.DotNetBar.LabelX labelX12;
         private DevComponents.DotNetBar.LabelX labelX11;
         private DevComponents.DotNetBar.LabelX labelX10;

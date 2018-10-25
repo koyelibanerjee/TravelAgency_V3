@@ -110,7 +110,7 @@ namespace TravelAgency.CSUI.FrmSub
             SetCountryPicBox();
             _inited = true;
             this.Text += $"当前登录用户:{GlobalUtils.LoginUser.UserName}";
-            _bllLoger.AddRecord(Model.Enums.ActType._02OpenSetGroupWindow, GlobalUtils.LoginUser, null, _visaModel);
+            
         }
 
         private void OtherDistrictInit()
@@ -390,7 +390,6 @@ namespace TravelAgency.CSUI.FrmSub
             txtPerson.Text = _recentVisa.Person;
             txtSubmitCondition.Text = _recentVisa.SubmitCondition;
             txtFetchType.Text = _recentVisa.FetchCondition;
-            txtCheckPerson.Text = _recentVisa.CheckPerson;
             txtPredictTime.Text = DateTimeFormator.DateTimeToString(_recentVisa.PredictTime);
             chbIsUrgent.Checked = _recentVisa.IsUrgent ?? false;
             //txtRealTime.Text = DateTimeFormator.DateTimeToString(_recentVisa.RealTime);
@@ -416,6 +415,7 @@ namespace TravelAgency.CSUI.FrmSub
         {
             if (_visaModel == null)
                 return;
+            _bllLoger.AddRecord(ActType._02OpenSetGroupWindow, GlobalUtils.LoginUser, null, _visaModel);
             _visaBackUp = _visaModel.ToObjectCopy();
             txtGroupNo.TextChanged += TxtGroupNo_TextChanged; //非管理员在请款后的团号不能在修改
             //InitEditingMutex();
@@ -479,7 +479,6 @@ namespace TravelAgency.CSUI.FrmSub
             txtDepartureType.Text = _visaModel.DepartureType;
             txtSubmitCondition.Text = _visaModel.SubmitCondition;
             txtFetchType.Text = _visaModel.FetchCondition;
-            txtCheckPerson.Text = _visaModel.CheckPerson;
             chbIsUrgent.Checked = _visaModel.IsUrgent ?? false;
             txtPerson.Text = _visaModel.Person;
 
@@ -1176,7 +1175,7 @@ namespace TravelAgency.CSUI.FrmSub
                     }
                 }
 
-                if (!_bllVisa.Update(_visaModel)) //执行更新
+                if (!_bllVisa.Update_FrmSetGroup(_visaModel)) //执行更新
                 {
                     MessageBoxEx.Show("更新团号信息失败!");
                     return;
@@ -1286,8 +1285,7 @@ namespace TravelAgency.CSUI.FrmSub
             try
             {
                 //单独处理remark
-                if (dgvGroupInfo.Rows.Count > 0 && dgvGroupInfo.Rows[0].Cells["Remark"].Value != null &&
-                    !string.IsNullOrEmpty((string)dgvGroupInfo.Rows[0].Cells["Remark"].Value))
+                if (dgvGroupInfo.Rows.Count > 0 && !string.IsNullOrEmpty((string) dgvGroupInfo.Rows[0].Cells["Remark"].Value))
                     _visaModel.Remark = (string)dgvGroupInfo.Rows[0].Cells["Remark"].Value;
 
 
@@ -1307,7 +1305,6 @@ namespace TravelAgency.CSUI.FrmSub
                 _visaModel.SubmitCondition = CtrlParser.Parse2String(txtSubmitCondition);
                 _visaModel.FetchCondition = CtrlParser.Parse2String(txtFetchType);
                 _visaModel.TypeInPerson = CtrlParser.Parse2String(txtTypeInPerson);
-                _visaModel.CheckPerson = CtrlParser.Parse2String(txtCheckPerson);
                 //_visaModel.Types = Common.Enums.Types.Individual; //设置为个签
                 _visaModel.Types = _type;//设置为指定类型
                 _visaModel.IsUrgent = chbIsUrgent.Checked;
@@ -1328,7 +1325,7 @@ namespace TravelAgency.CSUI.FrmSub
                 _visaModel.QuQianYuan = CtrlParser.Parse2String(txtQuQianYuan);
 
 
-                _visaModel.ForRequestGroupNo = false;
+                _visaModel.ForRequestGroupNo = false; //新建立的团号这个为否
                 _visaModel.District = GlobalUtils.LoginUser.District;
                 return true;
             }
@@ -1387,15 +1384,14 @@ namespace TravelAgency.CSUI.FrmSub
                 model.SubmitCondition = CtrlParser.Parse2String(txtSubmitCondition);
                 model.FetchCondition = CtrlParser.Parse2String(txtFetchType);
                 model.TypeInPerson = CtrlParser.Parse2String(txtTypeInPerson);
-                model.CheckPerson = CtrlParser.Parse2String(txtCheckPerson);
                 model.PeiQianYuan = CtrlParser.Parse2String(txtPeiQianYuan);
                 model.QuQianYuan = CtrlParser.Parse2String(txtQuQianYuan);
                 model.Person = CtrlParser.Parse2String(txtPerson);
                 model.Operator = CtrlParser.Parse2String(txtOperator);
 
-                _visaModel.WorkingState = CtrlParser.Parse2String(txtWorkingState);
-                if (GlobalUtils.LoginUser.District != _visaModel.District)
-                    _visaModel.OtherDistrictTypeInPerson = GlobalUtils.LoginUser.UserName;
+                model.WorkingState = CtrlParser.Parse2String(txtWorkingState);
+                if (GlobalUtils.LoginUser.District != model.District)
+                    model.OtherDistrictTypeInPerson = GlobalUtils.LoginUser.UserName;
 
                 model.IsUrgent = chbIsUrgent.Checked;
                 model.IsOutDelivery = cbOutDelivery.Checked;
