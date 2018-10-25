@@ -15,5 +15,6 @@
         public const string _05SubmitOut = "05出签";
         public const string _05SubmitAbOut = "05出签(非正常)";
         public const string _10Exported = "10已导出";
+        public const string _20RedisError_ExtendUseTime = "21error_redis_extend";
     }
 }

@@ -1556,11 +1556,17 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                     MessageBoxEx.Show($"团号:{visa.GroupNo}还未设置进出签时间，不能进行请款!");
                     return;
                 }
-                //if (visa.SubmitFlag == 1)
-                //{
-                //    MessageBoxEx.Show($"团号:{visa.GroupNo}已经请过款，请先生成新团号再进行请款!");
-                //    return;
-                //}
+                if (visa.SubmitFlag == 1)
+                {
+                    MessageBoxEx.Show($"团号:{visa.GroupNo}已经请过款，请先设置备注再请款!");
+                    FrmSetStringValue frmSetStringValue = new FrmSetStringValue("设置备注2");
+                    if (frmSetStringValue.ShowDialog() == DialogResult.Cancel)
+                    {
+                        LoadDataToDgvAsyn();
+                        return;
+                    }
+                    visa.Tips2 = frmSetStringValue.RetValue;
+                }
             }
 
 

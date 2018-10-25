@@ -110,7 +110,7 @@ namespace TravelAgency.CSUI.FrmSub
             SetCountryPicBox();
             _inited = true;
             this.Text += $"当前登录用户:{GlobalUtils.LoginUser.UserName}";
-            
+
         }
 
         private void OtherDistrictInit()
@@ -788,7 +788,16 @@ namespace TravelAgency.CSUI.FrmSub
         {
             while (true)
             {
-                EditMutex.ExtendUseTime(_visaModel);
+                try
+                {
+                    EditMutex.ExtendUseTime(_visaModel);
+                }
+                catch (Exception e)
+                {
+                    GlobalUtils.Logger.Error($"{e.Message}");
+                    _bllLoger.AddRecord(ActType._20RedisError_ExtendUseTime, GlobalUtils.LoginUser, null, _visaModel);
+                    break;
+                }
                 Thread.Sleep(8000);
             }
         }
@@ -1163,7 +1172,7 @@ namespace TravelAgency.CSUI.FrmSub
                 //已经请过款的团号，需要更新对应的qzapllication的groupno
                 if (_visaModel.SubmitFlag == 1 && _visaModel.GroupNo != _visaBackUp.GroupNo)
                 {
-                    
+
                     var qzApplicationList = _bllQzApplication.GetModelList($" (Visa_Id = '{_visaModel.Visa_id}') ");
                     if (qzApplicationList != null && qzApplicationList.Count > 0)
                     {
@@ -1285,7 +1294,7 @@ namespace TravelAgency.CSUI.FrmSub
             try
             {
                 //单独处理remark
-                if (dgvGroupInfo.Rows.Count > 0 && !string.IsNullOrEmpty((string) dgvGroupInfo.Rows[0].Cells["Remark"].Value))
+                if (dgvGroupInfo.Rows.Count > 0 && !string.IsNullOrEmpty((string)dgvGroupInfo.Rows[0].Cells["Remark"].Value))
                     _visaModel.Remark = (string)dgvGroupInfo.Rows[0].Cells["Remark"].Value;
 
 

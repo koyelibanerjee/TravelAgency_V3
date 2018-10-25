@@ -70,7 +70,7 @@
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(561, 181);
+            this.panelMain.Size = new System.Drawing.Size(561, 165);
             this.panelMain.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelMain.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelMain.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -86,7 +86,7 @@
             this.cbPerson.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbPerson.FormattingEnabled = true;
             this.cbPerson.ItemHeight = 15;
-            this.cbPerson.Location = new System.Drawing.Point(121, 90);
+            this.cbPerson.Location = new System.Drawing.Point(93, 88);
             this.cbPerson.Name = "cbPerson";
             this.cbPerson.Size = new System.Drawing.Size(174, 21);
             this.cbPerson.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -96,7 +96,7 @@
             // 
             this.btnCancel.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnCancel.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnCancel.Location = new System.Drawing.Point(220, 144);
+            this.btnCancel.Location = new System.Drawing.Point(192, 127);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -108,7 +108,7 @@
             // 
             this.btnOK.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnOK.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnOK.Location = new System.Drawing.Point(78, 144);
+            this.btnOK.Location = new System.Drawing.Point(50, 127);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -122,7 +122,7 @@
             this.cbBank.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbBank.FormattingEnabled = true;
             this.cbBank.ItemHeight = 15;
-            this.cbBank.Location = new System.Drawing.Point(121, 63);
+            this.cbBank.Location = new System.Drawing.Point(93, 61);
             this.cbBank.Name = "cbBank";
             this.cbBank.Size = new System.Drawing.Size(174, 21);
             this.cbBank.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -134,7 +134,7 @@
             this.cbBankTo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbBankTo.FormattingEnabled = true;
             this.cbBankTo.ItemHeight = 15;
-            this.cbBankTo.Location = new System.Drawing.Point(121, 36);
+            this.cbBankTo.Location = new System.Drawing.Point(93, 34);
             this.cbBankTo.Name = "cbBankTo";
             this.cbBankTo.Size = new System.Drawing.Size(174, 21);
             this.cbBankTo.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -146,7 +146,7 @@
             this.cbAccount.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbAccount.FormattingEnabled = true;
             this.cbAccount.ItemHeight = 15;
-            this.cbAccount.Location = new System.Drawing.Point(121, 9);
+            this.cbAccount.Location = new System.Drawing.Point(93, 7);
             this.cbAccount.Name = "cbAccount";
             this.cbAccount.Size = new System.Drawing.Size(174, 21);
             this.cbAccount.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -159,11 +159,11 @@
             // 
             this.txtDetails.Border.Class = "TextBoxBorder";
             this.txtDetails.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtDetails.Location = new System.Drawing.Point(381, 67);
+            this.txtDetails.Location = new System.Drawing.Point(318, 65);
             this.txtDetails.Multiline = true;
             this.txtDetails.Name = "txtDetails";
             this.txtDetails.PreventEnterBeep = true;
-            this.txtDetails.Size = new System.Drawing.Size(174, 71);
+            this.txtDetails.Size = new System.Drawing.Size(209, 46);
             this.txtDetails.TabIndex = 83;
             // 
             // labelX24
@@ -172,7 +172,7 @@
             // 
             // 
             this.labelX24.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX24.Location = new System.Drawing.Point(35, 90);
+            this.labelX24.Location = new System.Drawing.Point(7, 88);
             this.labelX24.Name = "labelX24";
             this.labelX24.Size = new System.Drawing.Size(80, 23);
             this.labelX24.TabIndex = 101;
@@ -184,7 +184,7 @@
             // 
             // 
             this.labelX23.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX23.Location = new System.Drawing.Point(35, 12);
+            this.labelX23.Location = new System.Drawing.Point(7, 10);
             this.labelX23.Name = "labelX23";
             this.labelX23.Size = new System.Drawing.Size(80, 23);
             this.labelX23.TabIndex = 98;
@@ -196,7 +196,7 @@
             // 
             // 
             this.labelX18.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX18.Location = new System.Drawing.Point(300, 67);
+            this.labelX18.Location = new System.Drawing.Point(272, 65);
             this.labelX18.Name = "labelX18";
             this.labelX18.Size = new System.Drawing.Size(75, 23);
             this.labelX18.TabIndex = 96;
@@ -210,9 +210,9 @@
             this.lbAmount.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
             this.lbAmount.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.lbAmount.ForeColor = System.Drawing.Color.Green;
-            this.lbAmount.Location = new System.Drawing.Point(396, 144);
+            this.lbAmount.Location = new System.Drawing.Point(318, 127);
             this.lbAmount.Name = "lbAmount";
-            this.lbAmount.Size = new System.Drawing.Size(191, 23);
+            this.lbAmount.Size = new System.Drawing.Size(209, 23);
             this.lbAmount.TabIndex = 94;
             this.lbAmount.Text = "请款金额:12000元";
             // 
@@ -223,11 +223,11 @@
             // 
             this.txtGroupNo.Border.Class = "TextBoxBorder";
             this.txtGroupNo.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.txtGroupNo.Location = new System.Drawing.Point(381, 12);
+            this.txtGroupNo.Location = new System.Drawing.Point(318, 10);
             this.txtGroupNo.Multiline = true;
             this.txtGroupNo.Name = "txtGroupNo";
             this.txtGroupNo.PreventEnterBeep = true;
-            this.txtGroupNo.Size = new System.Drawing.Size(174, 49);
+            this.txtGroupNo.Size = new System.Drawing.Size(209, 49);
             this.txtGroupNo.TabIndex = 90;
             // 
             // labelX11
@@ -236,7 +236,7 @@
             // 
             // 
             this.labelX11.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX11.Location = new System.Drawing.Point(300, 11);
+            this.labelX11.Location = new System.Drawing.Point(272, 9);
             this.labelX11.Name = "labelX11";
             this.labelX11.Size = new System.Drawing.Size(96, 23);
             this.labelX11.TabIndex = 72;
@@ -248,7 +248,7 @@
             // 
             // 
             this.labelX3.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX3.Location = new System.Drawing.Point(35, 65);
+            this.labelX3.Location = new System.Drawing.Point(7, 63);
             this.labelX3.Name = "labelX3";
             this.labelX3.Size = new System.Drawing.Size(80, 23);
             this.labelX3.TabIndex = 77;
@@ -260,7 +260,7 @@
             // 
             // 
             this.labelX2.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX2.Location = new System.Drawing.Point(35, 36);
+            this.labelX2.Location = new System.Drawing.Point(7, 34);
             this.labelX2.Name = "labelX2";
             this.labelX2.Size = new System.Drawing.Size(80, 23);
             this.labelX2.TabIndex = 73;
@@ -270,7 +270,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(561, 181);
+            this.ClientSize = new System.Drawing.Size(561, 165);
             this.Controls.Add(this.panelMain);
             this.Name = "FrmAppAll";
             this.Text = "提交请款申请";

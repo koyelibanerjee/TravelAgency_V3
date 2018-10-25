@@ -202,31 +202,11 @@ namespace TravelAgency.BLL
                 MessageBox.Show("检测到致命bug at FinishTime,请火速联系张工!");
                 return false;
             }
-
             return dal.Update(model);
         }
 
         public bool Update_FrmSetGroup(TravelAgency.Model.Visa model)
         {
-
-            var oldModel = GetModel(model.Visa_id);
-            if (!string.IsNullOrEmpty(oldModel.SubmitTempNo) && string.IsNullOrEmpty(model.SubmitTempNo))
-            {
-                MessageBox.Show("检测到致命bug at SubmitTempNo_Update_FrmSetGroup,请火速联系张工!");
-                return false;
-            }
-
-            if (oldModel.RealTime.HasValue && !model.RealTime.HasValue)
-            {
-                MessageBox.Show("检测到致命bug at RealTime_Update_FrmSetGroup,请火速联系张工!");
-                return false;
-            }
-
-            if (oldModel.FinishTime.HasValue && !model.FinishTime.HasValue)
-            {
-                MessageBox.Show("检测到致命bug at FinishTime_Update_FrmSetGroup,请火速联系张工!");
-                return false;
-            }
             return dal.Update_FrmSetGroup(model);
         }
     }

@@ -116,7 +116,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                     qzApplicationModel.FinishTime = _list[i].FinishTime;
                     qzApplicationModel.Person = _list[i].Person;
                     qzApplicationModel.Number = _list[i].Number;
-                    qzApplicationModel.Tips = _list[i].Tips;
+                    qzApplicationModel.Tips = _list[i].Tips2;
                     qzApplicationModel.Price = _list[i].Price;
                     qzApplicationModel.Receipt = _list[i].Receipt;
                     qzApplicationModel.Quidco = _list[i].Quidco;
