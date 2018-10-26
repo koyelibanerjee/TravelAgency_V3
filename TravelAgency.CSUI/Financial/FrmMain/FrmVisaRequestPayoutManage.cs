@@ -26,6 +26,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
         private readonly TravelAgency.BLL.VisaInfo _bllVisaInfo = new TravelAgency.BLL.VisaInfo();
         private readonly TravelAgency.BLL.ActionRecords _bllActionRecords = new ActionRecords();
         private readonly TravelAgency.BLL.HasExported8Report _bllHasExported8Report = new HasExported8Report();
+        private readonly TravelAgency.BLL.QZApplication _bllQzApplication = new QZApplication();
         private int _curPage = 1;
         private int _pageCount = 0;
         private int _pageSize = 30;
@@ -108,16 +109,14 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             };
             dataGridView1.Columns["GroupNo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             foreach (var columnName in list)
-            {
                 dataGridView1.Columns[columnName].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-            }
             dataGridView1.Columns["RealTime"].DefaultCellStyle.Format = "yyyy/MM/dd";
             dataGridView1.Columns["FinishTime"].DefaultCellStyle.Format = "yyyy/MM/dd";
 
             dataGridView1.ReadOnly = false;
             for (int i = 0; i <= 27; ++i)
             {
-                if (i < 9 || i > 17)
+                if (i < 9 || i > 19)
                     dataGridView1.Columns[i].ReadOnly = true;
                 //else dataGridView1.Columns[i].ReadOnly = false; //这些列可编辑
             }
@@ -1549,6 +1548,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             var list = GetSelectedVisaList();
             if (list.Count < 1)
                 return;
+            Dictionary<Guid, int> visaQzCountDict = new Dictionary<Guid, int>();
             foreach (var visa in list)
             {
                 if (visa.RealTime == null || visa.FinishTime == null)
@@ -1558,8 +1558,10 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                 }
                 if (visa.SubmitFlag == 1)
                 {
-                    MessageBoxEx.Show($"团号:{visa.GroupNo}已经请过款，请先设置备注再请款!");
-                    FrmSetStringValue frmSetStringValue = new FrmSetStringValue("设置备注2");
+                    var qzList = _bllQzApplication.GetModelList($" (Visa_id = '{visa.Visa_id}') ");
+                    visaQzCountDict[visa.Visa_id] = qzList.Count;
+                    MessageBoxEx.Show($"团号:{visa.GroupNo}已经请过款 {qzList.Count}次，请先设置备注再请款!");
+                    FrmSetStringValue frmSetStringValue = new FrmSetStringValue("设置备注2", visa.Tips2);
                     if (frmSetStringValue.ShowDialog() == DialogResult.Cancel)
                     {
                         LoadDataToDgvAsyn();
@@ -1570,7 +1572,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
             }
 
 
-            FrmAppAll frm = new FrmAppAll(list);
+            FrmAppAll frm = new FrmAppAll(list, visaQzCountDict);
             if (DialogResult.Cancel == frm.ShowDialog())
                 return;
             LoadDataToDgvAsyn();

@@ -4,7 +4,6 @@ using System.Windows.Forms;
 using DevComponents.DotNetBar;
 using TravelAgency.BLL;
 using TravelAgency.Common;
-
 namespace TravelAgency.CSUI.Financial.FrmSub
 {
     public partial class FrmAppAll : Form
@@ -15,11 +14,17 @@ namespace TravelAgency.CSUI.Financial.FrmSub
         private BLL.QZApplication _bllQzApplication = new QZApplication();
         private BLL.AppStatus _bllAppStatus = new AppStatus();
         private decimal _amount;
-        public FrmAppAll(List<Model.Visa> list)
+        private Dictionary<Guid, int> _visaQzCountDict;
+
+        private FrmAppAll(List<Model.Visa> list)
         {
             this.StartPosition = FormStartPosition.CenterParent;
             InitializeComponent();
+        }
 
+        public FrmAppAll(List<Model.Visa> list, Dictionary<Guid, int> visaQzCountDict) : this(list)
+        {
+            this._visaQzCountDict = visaQzCountDict;
             _list = list;
             UpdateLabels();
         }
@@ -41,13 +46,17 @@ namespace TravelAgency.CSUI.Financial.FrmSub
         {
             txtGroupNo.Text = _list[0].GroupNo;
             txtDetails.Text = "个签请款";
+            if (_visaQzCountDict.Keys.Count > 0)
+            {
+                txtDetails.Text += "-有补请";
+            }
             InitCbs();
         }
 
         private void InitCbs()
         {
             //cbBankFrom.DropDownStyle = ComboBoxStyle.DropDownList;
-           
+
             //cbBankTo.DropDownStyle = ComboBoxStyle.DropDownList;
             var list = _bllAppAll.GetBankFromToList();
             foreach (var item in list)
@@ -106,6 +115,7 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                 {
                     _list[i].SubmitFlag = 1; //已经提交
                     _bllVisa.Update(_list[i]); //更新对应Visa状态
+                    
                     //插入QZApplication表数据
                     Model.QZApplication qzApplicationModel = new Model.QZApplication();
                     qzApplicationModel.Visa_id = _list[i].Visa_id;
@@ -117,6 +127,8 @@ namespace TravelAgency.CSUI.Financial.FrmSub
                     qzApplicationModel.Person = _list[i].Person;
                     qzApplicationModel.Number = _list[i].Number;
                     qzApplicationModel.Tips = _list[i].Tips2;
+                    if (_visaQzCountDict.ContainsKey(_list[i].Visa_id))
+                        qzApplicationModel.Tips += $"-{_visaQzCountDict[_list[i].Visa_id]}次补请";
                     qzApplicationModel.Price = _list[i].Price;
                     qzApplicationModel.Receipt = _list[i].Receipt;
                     qzApplicationModel.Quidco = _list[i].Quidco;

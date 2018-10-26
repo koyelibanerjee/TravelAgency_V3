@@ -40,6 +40,7 @@
             this.Country = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CountryImage = new System.Windows.Forms.DataGridViewImageColumn();
             this.GroupNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tips = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RealTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FinishTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Person = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -81,6 +82,7 @@
             this.Country,
             this.CountryImage,
             this.GroupNo,
+            this.Tips,
             this.RealTime,
             this.FinishTime,
             this.Person,
@@ -104,7 +106,7 @@
             dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -228,6 +230,13 @@
             this.GroupNo.Name = "GroupNo";
             this.GroupNo.ReadOnly = true;
             this.GroupNo.Width = 200;
+            // 
+            // Tips
+            // 
+            this.Tips.DataPropertyName = "Tips";
+            this.Tips.HeaderText = "备注";
+            this.Tips.Name = "Tips";
+            this.Tips.ReadOnly = true;
             // 
             // RealTime
             // 
@@ -388,6 +397,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Country;
         private System.Windows.Forms.DataGridViewImageColumn CountryImage;
         private System.Windows.Forms.DataGridViewTextBoxColumn GroupNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tips;
         private System.Windows.Forms.DataGridViewTextBoxColumn RealTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn FinishTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn Person;
