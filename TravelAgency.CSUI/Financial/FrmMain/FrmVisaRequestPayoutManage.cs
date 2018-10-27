@@ -1561,7 +1561,7 @@ namespace TravelAgency.CSUI.Financial.FrmMain
                     var qzList = _bllQzApplication.GetModelList($" (Visa_id = '{visa.Visa_id}') ");
                     visaQzCountDict[visa.Visa_id] = qzList.Count;
                     MessageBoxEx.Show($"团号:{visa.GroupNo}已经请过款 {qzList.Count}次，请先设置备注再请款!");
-                    FrmSetStringValue frmSetStringValue = new FrmSetStringValue("设置备注2", visa.Tips2);
+                    FrmSetStringValue frmSetStringValue = new FrmSetStringValue($"设置备注2,已请款 {qzList.Count}次", visa.Tips2);
                     if (frmSetStringValue.ShowDialog() == DialogResult.Cancel)
                     {
                         LoadDataToDgvAsyn();
