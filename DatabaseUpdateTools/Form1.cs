@@ -9,6 +9,8 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevComponents.DotNetBar;
+using TravelAgency.BLL;
+using TravelAgency.Common;
 using TravelAgency.Model;
 
 namespace DatabaseUpdateTools
@@ -112,7 +114,7 @@ namespace DatabaseUpdateTools
         {
             TravelAgency.BLL.Visa bllVisa = new TravelAgency.BLL.Visa();
             var list = bllVisa.GetModelList(string.Empty);
-            
+
 
 
         }
@@ -124,14 +126,39 @@ namespace DatabaseUpdateTools
             var list = deniedVisaInfobll.GetModelList("");
             foreach (var deniedVisainfoModel in list)
             {
-               var visainfoModel =  visaInfoBll.GetLatestModelByPassportNo(deniedVisainfoModel.PassportNo);
+                var visainfoModel = visaInfoBll.GetLatestModelByPassportNo(deniedVisainfoModel.PassportNo);
                 deniedVisainfoModel.Client = visainfoModel.Client;
 
             }
-           int n = deniedVisaInfobll.UpdateList(list);
+            int n = deniedVisaInfobll.UpdateList(list);
+
+        }
+
+        private void buttonX5_Click(object sender, EventArgs e)
+        {
+            int n = 100;
+
+            TravelAgency.BLL.VisaInfo_Tmp bll = new TravelAgency.BLL.VisaInfo_Tmp();
+            TravelAgency.Model.VisaInfo_Tmp visaInfoTmp = new TravelAgency.Model.VisaInfo_Tmp();
+            visaInfoTmp.EntryTime = DateTime.Now;
+            visaInfoTmp.ExpiryDate = DateTime.Now.AddYears(10);
+            visaInfoTmp.Birthday = DateTime.Now;
+            visaInfoTmp.LicenceTime = DateTime.Now;
+            visaInfoTmp.Country = "日本";
+            visaInfoTmp.District = 1;
+            visaInfoTmp.Name = "姓名";
+            visaInfoTmp.PassportNo = "huzhao";
+            for (int i = 0; i != n; ++i)
+            {
+                TravelAgency.Model.VisaInfo_Tmp visaInfoTm = visaInfoTmp.ToObjectCopy();
+                visaInfoTm.Name += i;
+                visaInfoTm.PassportNo += i;
+                bll.Add(visaInfoTm);
+            }
+
 
         }
     }
 
-    
+
 }
