@@ -102,6 +102,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebBrowserDemo", "WebBrowse
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravelAgency.AmericanVisaAutoTyper", "TravelAgency.AmericanVisaAutoTyper\TravelAgency.AmericanVisaAutoTyper.csproj", "{13EA34B1-FDC1-42B8-BE40-4E9878AB3151}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComboBoxDemo", "ComboBoxDemo\ComboBoxDemo.csproj", "{142A098A-1E74-4196-83F7-8C8F7399231A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|.NET = Debug|.NET
@@ -752,6 +754,22 @@ Global
 		{13EA34B1-FDC1-42B8-BE40-4E9878AB3151}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{13EA34B1-FDC1-42B8-BE40-4E9878AB3151}.Release|x86.ActiveCfg = Release|Any CPU
 		{13EA34B1-FDC1-42B8-BE40-4E9878AB3151}.Release|x86.Build.0 = Release|Any CPU
+		{142A098A-1E74-4196-83F7-8C8F7399231A}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{142A098A-1E74-4196-83F7-8C8F7399231A}.Debug|.NET.Build.0 = Debug|Any CPU
+		{142A098A-1E74-4196-83F7-8C8F7399231A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{142A098A-1E74-4196-83F7-8C8F7399231A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{142A098A-1E74-4196-83F7-8C8F7399231A}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{142A098A-1E74-4196-83F7-8C8F7399231A}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{142A098A-1E74-4196-83F7-8C8F7399231A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{142A098A-1E74-4196-83F7-8C8F7399231A}.Debug|x86.Build.0 = Debug|Any CPU
+		{142A098A-1E74-4196-83F7-8C8F7399231A}.Release|.NET.ActiveCfg = Release|Any CPU
+		{142A098A-1E74-4196-83F7-8C8F7399231A}.Release|.NET.Build.0 = Release|Any CPU
+		{142A098A-1E74-4196-83F7-8C8F7399231A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{142A098A-1E74-4196-83F7-8C8F7399231A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{142A098A-1E74-4196-83F7-8C8F7399231A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{142A098A-1E74-4196-83F7-8C8F7399231A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{142A098A-1E74-4196-83F7-8C8F7399231A}.Release|x86.ActiveCfg = Release|Any CPU
+		{142A098A-1E74-4196-83F7-8C8F7399231A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -800,6 +818,7 @@ Global
 		{30116409-2E64-4DEF-8CE0-09450A2B3D7B} = {8DB4C9BD-9134-44AB-B8CC-966001379ED6}
 		{79F1EA50-52D9-4BDA-9283-249B7040A994} = {3F9A535C-0513-451F-92D3-58D71E4A8A6A}
 		{13EA34B1-FDC1-42B8-BE40-4E9878AB3151} = {CA620E65-0AB1-4280-88FE-EE56FAD7F26A}
+		{142A098A-1E74-4196-83F7-8C8F7399231A} = {3F9A535C-0513-451F-92D3-58D71E4A8A6A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A62CC67B-E573-4C00-A549-DBA38AD9F5E1}

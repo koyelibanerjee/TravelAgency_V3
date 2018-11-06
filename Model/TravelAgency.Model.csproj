@@ -142,6 +142,7 @@
     <Compile Include="Enums\District.cs" />
     <Compile Include="Enums\HasChecked.cs" />
     <Compile Include="Enums\HasTypeIn.cs" />
+    <Compile Include="Enums\Month.cs" />
     <Compile Include="Enums\MsgType.cs" />
     <Compile Include="Enums\OrdersActtype.cs" />
     <Compile Include="Enums\OutState.cs" />
