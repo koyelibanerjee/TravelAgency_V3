@@ -207,6 +207,28 @@ namespace TravelAgency.AmericanVisaAutoTyper
             TextBoxInput(ctl00_SiteContentPlaceHolder_FormView1_tbxAPP_EMAIL_ADDR);//邮箱
         }
 
+        private void TypeIn5thPage()
+        {
+            ComboBoxInput(ctl00_SiteContentPlaceHolder_FormView1_ddlPPT_TYPE); //护照类型
+            ComboBoxInput(ctl00_SiteContentPlaceHolder_FormView1_ddlPPT_ISSUED_CNTRY); //护照发行地
+
+            TextBoxInput(ctl00_SiteContentPlaceHolder_FormView1_tbxPPT_NUM);//护照号码
+            TextBoxInput(ctl00_SiteContentPlaceHolder_FormView1_tbxPPT_BOOK_NUM);//护照本号码
+
+            DateInput(ctl00_SiteContentPlaceHolder_FormView1_tbxPPT_ISSUEDYear, //发行日期
+                ctl00_SiteContentPlaceHolder_FormView1_ddlPPT_ISSUED_DTEMonth,
+                ctl00_SiteContentPlaceHolder_FormView1_ddlPPT_ISSUED_DTEDay);
+
+            DateInput(ctl00_SiteContentPlaceHolder_FormView1_tbxPPT_EXPIREYear, //过期日期
+                ctl00_SiteContentPlaceHolder_FormView1_ddlPPT_EXPIRE_DTEMonth,
+                ctl00_SiteContentPlaceHolder_FormView1_ddlPPT_EXPIRE_DTEDay);
+
+            if (ctl00_SiteContentPlaceHolder_FormView1_rblLOST_PPT_IND_0.Checked) //护照遗失过
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblLOST_PPT_IND_0);
+            else
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblLOST_PPT_IND_1);
+        }
+
         #endregion
 
         private void FrmMain_Load(object sender, EventArgs e)
@@ -260,8 +282,6 @@ namespace TravelAgency.AmericanVisaAutoTyper
 
             ctl00_SiteContentPlaceHolder_FormView1_ddlPPT_ISSUED_CNTRY.Items.Add(new ComboBoxItem("CHINA", "CHIN")); //护照发行地
             #endregion
-
-
         }
 
 
