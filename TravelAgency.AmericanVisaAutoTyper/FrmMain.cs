@@ -79,6 +79,7 @@ namespace TravelAgency.AmericanVisaAutoTyper
             ctrl = webBrowser1.Document.GetElementById(month.Tag.ToString());
             if (ctrl != null)
                 ctrl.SetAttribute("value", Month.list[int.Parse(month.Text) - 1]); //TODO：正确性校验
+           var str =  ctrl.GetAttribute("value");
         }
 
         #endregion
@@ -111,6 +112,10 @@ namespace TravelAgency.AmericanVisaAutoTyper
                     //第一个页面
                     TypeIn4thPage();
                     break;
+                case 4:
+                    //第一个页面
+                    TypeIn5thPage();
+                    break;
             }
         }
 
@@ -120,7 +125,7 @@ namespace TravelAgency.AmericanVisaAutoTyper
         {
 
             //地区下拉框
-            ComboBoxInput(ctl00_SiteContentPlaceHolder_FormView1_ddlPPT_TYPE);
+            ComboBoxInput(ctl00_SiteContentPlaceHolder_ucLocation_ddlLocation);
             InvokeMember("ctl00_SiteContentPlaceHolder_ucLocation_ddlLocation", "onchange"); //地区下拉框需要触发一下事件
 
             //验证码输入框
@@ -227,6 +232,10 @@ namespace TravelAgency.AmericanVisaAutoTyper
                 RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblLOST_PPT_IND_0);
             else
                 RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblLOST_PPT_IND_1);
+
+            TextBoxInput(ctl00_SiteContentPlaceHolder_FormView1_tbxPPT_ISSUED_IN_CITY);
+            TextBoxInput(ctl00_SiteContentPlaceHolder_FormView1_tbxPPT_ISSUED_IN_STATE);
+            ComboBoxInput(ctl00_SiteContentPlaceHolder_FormView1_ddlPPT_ISSUED_IN_CNTRY);
         }
 
         #endregion
@@ -281,7 +290,11 @@ namespace TravelAgency.AmericanVisaAutoTyper
             ctl00_SiteContentPlaceHolder_FormView1_ddlPPT_TYPE.Items.Add(new ComboBoxItem("OTHER", "T"));
 
             ctl00_SiteContentPlaceHolder_FormView1_ddlPPT_ISSUED_CNTRY.Items.Add(new ComboBoxItem("CHINA", "CHIN")); //护照发行地
+            ctl00_SiteContentPlaceHolder_FormView1_ddlPPT_ISSUED_IN_CNTRY.Items.Add(new ComboBoxItem("CHINA", "CHIN")); //护照发行 国家
+
             #endregion
+
+
         }
 
 
