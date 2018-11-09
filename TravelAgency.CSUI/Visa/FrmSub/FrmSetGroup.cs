@@ -678,6 +678,7 @@ namespace TravelAgency.CSUI.FrmSub
                 txtDepartureType.Items.Add("五年多次加急");
                 txtDepartureType.Items.Add("十年多次");
                 txtDepartureType.Items.Add("十年多次加急");
+                txtDepartureType.Items.Add("多次");
             }
         }
 
