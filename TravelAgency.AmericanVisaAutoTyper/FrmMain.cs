@@ -294,6 +294,17 @@ namespace TravelAgency.AmericanVisaAutoTyper
 
             #endregion
 
+            #region 美国联系人
+
+            ctl00_SiteContentPlaceHolder_FormView1_ddlUS_POC_REL_TO_APP.Items.Add(new ComboBoxItem("RELATIVE", "R"));
+            ctl00_SiteContentPlaceHolder_FormView1_ddlUS_POC_REL_TO_APP.Items.Add(new ComboBoxItem("SPOUSE", "S"));
+            ctl00_SiteContentPlaceHolder_FormView1_ddlUS_POC_REL_TO_APP.Items.Add(new ComboBoxItem("FRIEND", "F"));
+            ctl00_SiteContentPlaceHolder_FormView1_ddlUS_POC_REL_TO_APP.Items.Add(new ComboBoxItem("BUSINESS ASSOCIATE", "B"));
+            ctl00_SiteContentPlaceHolder_FormView1_ddlUS_POC_REL_TO_APP.Items.Add(new ComboBoxItem("SCHOOL OFFICIAL", "H"));
+            ctl00_SiteContentPlaceHolder_FormView1_ddlUS_POC_REL_TO_APP.Items.Add(new ComboBoxItem("OTHER", "O"));
+
+            #endregion
+
 
         }
 
