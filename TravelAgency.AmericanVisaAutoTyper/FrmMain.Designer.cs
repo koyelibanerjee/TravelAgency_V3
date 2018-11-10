@@ -189,6 +189,55 @@
             this.labelX56 = new DevComponents.DotNetBar.LabelX();
             this.ctl00_SiteContentPlaceHolder_FormView1_cbxUS_POC_NAME_NA = new DevComponents.DotNetBar.Controls.CheckBoxX();
             this.ctl00_SiteContentPlaceHolder_FormView1_cbxUS_POC_ORG_NA_IND = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.tabItem8 = new DevComponents.DotNetBar.TabItem(this.components);
+            this.tabControlPanel8 = new DevComponents.DotNetBar.TabControlPanel();
+            this.panelEx24 = new DevComponents.DotNetBar.PanelEx();
+            this.panelEx26 = new DevComponents.DotNetBar.PanelEx();
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxFATHER_GIVEN_NAME_UNK_IND = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.labelX57 = new DevComponents.DotNetBar.LabelX();
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_GIVEN_NAME = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX58 = new DevComponents.DotNetBar.LabelX();
+            this.labelX60 = new DevComponents.DotNetBar.LabelX();
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_SURNAME = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxFATHER_SURNAME_UNK_IND = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.labelX51 = new DevComponents.DotNetBar.LabelX();
+            this.labelX59 = new DevComponents.DotNetBar.LabelX();
+            this.labelX61 = new DevComponents.DotNetBar.LabelX();
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBDay = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBMonth = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxFathersDOBYear = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX62 = new DevComponents.DotNetBar.LabelX();
+            this.panelEx27 = new DevComponents.DotNetBar.PanelEx();
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblFATHER_LIVE_IN_US_IND_1 = new System.Windows.Forms.RadioButton();
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblFATHER_LIVE_IN_US_IND_0 = new System.Windows.Forms.RadioButton();
+            this.labelX63 = new DevComponents.DotNetBar.LabelX();
+            this.panelEx28 = new DevComponents.DotNetBar.PanelEx();
+            this.panelEx29 = new DevComponents.DotNetBar.PanelEx();
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblMOTHER_LIVE_IN_US_IND_1 = new System.Windows.Forms.RadioButton();
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblMOTHER_LIVE_IN_US_IND_0 = new System.Windows.Forms.RadioButton();
+            this.labelX64 = new DevComponents.DotNetBar.LabelX();
+            this.labelX65 = new DevComponents.DotNetBar.LabelX();
+            this.labelX66 = new DevComponents.DotNetBar.LabelX();
+            this.labelX67 = new DevComponents.DotNetBar.LabelX();
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlMothersDOBDay = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlMothersDOBMonth = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxMothersDOBYear = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX68 = new DevComponents.DotNetBar.LabelX();
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxMOTHER_SURNAME_UNK_IND = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxMOTHER_GIVEN_NAME_UNK_IND = new DevComponents.DotNetBar.Controls.CheckBoxX();
+            this.labelX69 = new DevComponents.DotNetBar.LabelX();
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxMOTHER_GIVEN_NAME = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.labelX70 = new DevComponents.DotNetBar.LabelX();
+            this.labelX71 = new DevComponents.DotNetBar.LabelX();
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxMOTHER_SURNAME = new DevComponents.DotNetBar.Controls.TextBoxX();
+            this.panelEx30 = new DevComponents.DotNetBar.PanelEx();
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_IMMED_RELATIVE_IND_1 = new System.Windows.Forms.RadioButton();
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_IMMED_RELATIVE_IND_0 = new System.Windows.Forms.RadioButton();
+            this.labelX72 = new DevComponents.DotNetBar.LabelX();
+            this.panelEx31 = new DevComponents.DotNetBar.PanelEx();
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_OTHER_RELATIVE_IND_1 = new System.Windows.Forms.RadioButton();
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_OTHER_RELATIVE_IND_0 = new System.Windows.Forms.RadioButton();
+            this.labelX73 = new DevComponents.DotNetBar.LabelX();
             this.panelEx2.SuspendLayout();
             this.panelEx3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).BeginInit();
@@ -221,6 +270,14 @@
             this.tabControlPanel7.SuspendLayout();
             this.panelEx23.SuspendLayout();
             this.panelEx25.SuspendLayout();
+            this.tabControlPanel8.SuspendLayout();
+            this.panelEx24.SuspendLayout();
+            this.panelEx26.SuspendLayout();
+            this.panelEx27.SuspendLayout();
+            this.panelEx28.SuspendLayout();
+            this.panelEx29.SuspendLayout();
+            this.panelEx30.SuspendLayout();
+            this.panelEx31.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelEx1
@@ -277,11 +334,12 @@
             // 
             this.tabControl1.BackColor = System.Drawing.Color.Transparent;
             this.tabControl1.CanReorderTabs = true;
+            this.tabControl1.Controls.Add(this.tabControlPanel8);
+            this.tabControl1.Controls.Add(this.tabControlPanel1);
             this.tabControl1.Controls.Add(this.tabControlPanel7);
             this.tabControl1.Controls.Add(this.tabControlPanel3);
             this.tabControl1.Controls.Add(this.tabControlPanel6);
             this.tabControl1.Controls.Add(this.tabControlPanel2);
-            this.tabControl1.Controls.Add(this.tabControlPanel1);
             this.tabControl1.Controls.Add(this.tabControlPanel5);
             this.tabControl1.Controls.Add(this.tabControlPanel4);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -299,6 +357,7 @@
             this.tabControl1.Tabs.Add(this.tabItem1);
             this.tabControl1.Tabs.Add(this.tabItem6);
             this.tabControl1.Tabs.Add(this.tabItem7);
+            this.tabControl1.Tabs.Add(this.tabItem8);
             this.tabControl1.Text = "tabControl1";
             // 
             // tabControlPanel6
@@ -2340,8 +2399,6 @@
             this.panelEx23.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx23.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
             this.panelEx23.Controls.Add(this.panelEx25);
-            this.panelEx23.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_ddlUS_POC_REL_TO_APP);
-            this.panelEx23.Controls.Add(this.labelX54);
             this.panelEx23.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelEx23.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEx23.Location = new System.Drawing.Point(1, 1);
@@ -2364,15 +2421,17 @@
             this.panelEx25.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_cbxUS_POC_NAME_NA);
             this.panelEx25.Controls.Add(this.labelX56);
             this.panelEx25.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_tbxUS_POC_ORGANIZATION);
+            this.panelEx25.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_ddlUS_POC_REL_TO_APP);
             this.panelEx25.Controls.Add(this.labelX55);
             this.panelEx25.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_tbxUS_POC_GIVEN_NAME);
             this.panelEx25.Controls.Add(this.labelX52);
+            this.panelEx25.Controls.Add(this.labelX54);
             this.panelEx25.Controls.Add(this.labelX53);
             this.panelEx25.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_tbxUS_POC_SURNAME);
             this.panelEx25.DisabledBackColor = System.Drawing.Color.Empty;
-            this.panelEx25.Location = new System.Drawing.Point(13, 103);
+            this.panelEx25.Location = new System.Drawing.Point(13, 59);
             this.panelEx25.Name = "panelEx25";
-            this.panelEx25.Size = new System.Drawing.Size(308, 122);
+            this.panelEx25.Size = new System.Drawing.Size(308, 386);
             this.panelEx25.Style.Alignment = System.Drawing.StringAlignment.Center;
             this.panelEx25.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
             this.panelEx25.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
@@ -2400,7 +2459,7 @@
             this.ctl00_SiteContentPlaceHolder_FormView1_ddlUS_POC_REL_TO_APP.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.ctl00_SiteContentPlaceHolder_FormView1_ddlUS_POC_REL_TO_APP.FormattingEnabled = true;
             this.ctl00_SiteContentPlaceHolder_FormView1_ddlUS_POC_REL_TO_APP.ItemHeight = 15;
-            this.ctl00_SiteContentPlaceHolder_FormView1_ddlUS_POC_REL_TO_APP.Location = new System.Drawing.Point(66, 24);
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlUS_POC_REL_TO_APP.Location = new System.Drawing.Point(53, 122);
             this.ctl00_SiteContentPlaceHolder_FormView1_ddlUS_POC_REL_TO_APP.Name = "ctl00_SiteContentPlaceHolder_FormView1_ddlUS_POC_REL_TO_APP";
             this.ctl00_SiteContentPlaceHolder_FormView1_ddlUS_POC_REL_TO_APP.Size = new System.Drawing.Size(136, 21);
             this.ctl00_SiteContentPlaceHolder_FormView1_ddlUS_POC_REL_TO_APP.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -2439,7 +2498,7 @@
             // 
             // 
             this.labelX54.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
-            this.labelX54.Location = new System.Drawing.Point(13, 24);
+            this.labelX54.Location = new System.Drawing.Point(0, 122);
             this.labelX54.Name = "labelX54";
             this.labelX54.Size = new System.Drawing.Size(47, 23);
             this.labelX54.TabIndex = 0;
@@ -2525,6 +2584,717 @@
             this.ctl00_SiteContentPlaceHolder_FormView1_cbxUS_POC_ORG_NA_IND.Tag = "ctl00_SiteContentPlaceHolder_FormView1_cbxUS_POC_ORG_NA_IND";
             this.ctl00_SiteContentPlaceHolder_FormView1_cbxUS_POC_ORG_NA_IND.Text = "无";
             // 
+            // tabItem8
+            // 
+            this.tabItem8.AttachedControl = this.tabControlPanel8;
+            this.tabItem8.Name = "tabItem8";
+            this.tabItem8.Text = "亲属";
+            // 
+            // tabControlPanel8
+            // 
+            this.tabControlPanel8.Controls.Add(this.panelEx24);
+            this.tabControlPanel8.DisabledBackColor = System.Drawing.Color.Empty;
+            this.tabControlPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlPanel8.Location = new System.Drawing.Point(0, 26);
+            this.tabControlPanel8.Name = "tabControlPanel8";
+            this.tabControlPanel8.Padding = new System.Windows.Forms.Padding(1);
+            this.tabControlPanel8.Size = new System.Drawing.Size(494, 513);
+            this.tabControlPanel8.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(179)))), ((int)(((byte)(231)))));
+            this.tabControlPanel8.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.tabControlPanel8.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.tabControlPanel8.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(97)))), ((int)(((byte)(156)))));
+            this.tabControlPanel8.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
+            | DevComponents.DotNetBar.eBorderSide.Bottom)));
+            this.tabControlPanel8.Style.GradientAngle = 90;
+            this.tabControlPanel8.TabIndex = 62;
+            this.tabControlPanel8.TabItem = this.tabItem8;
+            // 
+            // panelEx24
+            // 
+            this.panelEx24.CanvasColor = System.Drawing.SystemColors.Control;
+            this.panelEx24.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx24.Controls.Add(this.panelEx31);
+            this.panelEx24.Controls.Add(this.panelEx30);
+            this.panelEx24.Controls.Add(this.panelEx28);
+            this.panelEx24.Controls.Add(this.panelEx26);
+            this.panelEx24.DisabledBackColor = System.Drawing.Color.Empty;
+            this.panelEx24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelEx24.Location = new System.Drawing.Point(1, 1);
+            this.panelEx24.Name = "panelEx24";
+            this.panelEx24.Size = new System.Drawing.Size(492, 511);
+            this.panelEx24.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelEx24.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.panelEx24.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.panelEx24.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.panelEx24.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.panelEx24.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.panelEx24.Style.GradientAngle = 90;
+            this.panelEx24.TabIndex = 12;
+            // 
+            // panelEx26
+            // 
+            this.panelEx26.CanvasColor = System.Drawing.SystemColors.Control;
+            this.panelEx26.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx26.Controls.Add(this.panelEx27);
+            this.panelEx26.Controls.Add(this.labelX51);
+            this.panelEx26.Controls.Add(this.labelX59);
+            this.panelEx26.Controls.Add(this.labelX61);
+            this.panelEx26.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBDay);
+            this.panelEx26.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBMonth);
+            this.panelEx26.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_tbxFathersDOBYear);
+            this.panelEx26.Controls.Add(this.labelX62);
+            this.panelEx26.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_cbxFATHER_SURNAME_UNK_IND);
+            this.panelEx26.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_cbxFATHER_GIVEN_NAME_UNK_IND);
+            this.panelEx26.Controls.Add(this.labelX57);
+            this.panelEx26.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_GIVEN_NAME);
+            this.panelEx26.Controls.Add(this.labelX58);
+            this.panelEx26.Controls.Add(this.labelX60);
+            this.panelEx26.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_SURNAME);
+            this.panelEx26.DisabledBackColor = System.Drawing.Color.Empty;
+            this.panelEx26.Location = new System.Drawing.Point(13, 8);
+            this.panelEx26.Name = "panelEx26";
+            this.panelEx26.Size = new System.Drawing.Size(308, 246);
+            this.panelEx26.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelEx26.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.panelEx26.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.panelEx26.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.panelEx26.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.panelEx26.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.panelEx26.Style.GradientAngle = 90;
+            this.panelEx26.TabIndex = 10;
+            // 
+            // ctl00_SiteContentPlaceHolder_FormView1_cbxFATHER_GIVEN_NAME_UNK_IND
+            // 
+            // 
+            // 
+            // 
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxFATHER_GIVEN_NAME_UNK_IND.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxFATHER_GIVEN_NAME_UNK_IND.Location = new System.Drawing.Point(153, 54);
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxFATHER_GIVEN_NAME_UNK_IND.Name = "ctl00_SiteContentPlaceHolder_FormView1_cbxFATHER_GIVEN_NAME_UNK_IND";
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxFATHER_GIVEN_NAME_UNK_IND.Size = new System.Drawing.Size(100, 23);
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxFATHER_GIVEN_NAME_UNK_IND.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxFATHER_GIVEN_NAME_UNK_IND.TabIndex = 8;
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxFATHER_GIVEN_NAME_UNK_IND.Tag = "ctl00_SiteContentPlaceHolder_FormView1_cbxFATHER_GIVEN_NAME_UNK_IND";
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxFATHER_GIVEN_NAME_UNK_IND.Text = "无";
+            // 
+            // labelX57
+            // 
+            // 
+            // 
+            // 
+            this.labelX57.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX57.Location = new System.Drawing.Point(3, 54);
+            this.labelX57.Name = "labelX57";
+            this.labelX57.Size = new System.Drawing.Size(34, 23);
+            this.labelX57.TabIndex = 4;
+            this.labelX57.Text = "名:";
+            // 
+            // ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_GIVEN_NAME
+            // 
+            // 
+            // 
+            // 
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_GIVEN_NAME.Border.Class = "TextBoxBorder";
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_GIVEN_NAME.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_GIVEN_NAME.Location = new System.Drawing.Point(43, 54);
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_GIVEN_NAME.Name = "ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_GIVEN_NAME";
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_GIVEN_NAME.PreventEnterBeep = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_GIVEN_NAME.Size = new System.Drawing.Size(100, 21);
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_GIVEN_NAME.TabIndex = 5;
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_GIVEN_NAME.Tag = "ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_GIVEN_NAME";
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_GIVEN_NAME.Text = "TEST";
+            // 
+            // labelX58
+            // 
+            // 
+            // 
+            // 
+            this.labelX58.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX58.Location = new System.Drawing.Point(3, 3);
+            this.labelX58.Name = "labelX58";
+            this.labelX58.Size = new System.Drawing.Size(110, 23);
+            this.labelX58.TabIndex = 0;
+            this.labelX58.Text = "父亲姓名:";
+            // 
+            // labelX60
+            // 
+            // 
+            // 
+            // 
+            this.labelX60.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX60.Location = new System.Drawing.Point(3, 27);
+            this.labelX60.Name = "labelX60";
+            this.labelX60.Size = new System.Drawing.Size(34, 23);
+            this.labelX60.TabIndex = 2;
+            this.labelX60.Text = "姓:";
+            // 
+            // ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_SURNAME
+            // 
+            // 
+            // 
+            // 
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_SURNAME.Border.Class = "TextBoxBorder";
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_SURNAME.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_SURNAME.Location = new System.Drawing.Point(43, 27);
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_SURNAME.Name = "ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_SURNAME";
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_SURNAME.PreventEnterBeep = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_SURNAME.Size = new System.Drawing.Size(100, 21);
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_SURNAME.TabIndex = 3;
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_SURNAME.Tag = "ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_SURNAME";
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_SURNAME.Text = "YANG";
+            // 
+            // ctl00_SiteContentPlaceHolder_FormView1_cbxFATHER_SURNAME_UNK_IND
+            // 
+            // 
+            // 
+            // 
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxFATHER_SURNAME_UNK_IND.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxFATHER_SURNAME_UNK_IND.Location = new System.Drawing.Point(153, 25);
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxFATHER_SURNAME_UNK_IND.Name = "ctl00_SiteContentPlaceHolder_FormView1_cbxFATHER_SURNAME_UNK_IND";
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxFATHER_SURNAME_UNK_IND.Size = new System.Drawing.Size(100, 23);
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxFATHER_SURNAME_UNK_IND.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxFATHER_SURNAME_UNK_IND.TabIndex = 10;
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxFATHER_SURNAME_UNK_IND.Tag = "ctl00_SiteContentPlaceHolder_FormView1_cbxFATHER_SURNAME_UNK_IND";
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxFATHER_SURNAME_UNK_IND.Text = "无";
+            // 
+            // labelX51
+            // 
+            // 
+            // 
+            // 
+            this.labelX51.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX51.Location = new System.Drawing.Point(259, 87);
+            this.labelX51.Name = "labelX51";
+            this.labelX51.Size = new System.Drawing.Size(19, 23);
+            this.labelX51.TabIndex = 42;
+            this.labelX51.Text = "日";
+            // 
+            // labelX59
+            // 
+            // 
+            // 
+            // 
+            this.labelX59.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX59.Location = new System.Drawing.Point(188, 87);
+            this.labelX59.Name = "labelX59";
+            this.labelX59.Size = new System.Drawing.Size(19, 23);
+            this.labelX59.TabIndex = 41;
+            this.labelX59.Text = "月";
+            // 
+            // labelX61
+            // 
+            // 
+            // 
+            // 
+            this.labelX61.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX61.Location = new System.Drawing.Point(114, 87);
+            this.labelX61.Name = "labelX61";
+            this.labelX61.Size = new System.Drawing.Size(19, 23);
+            this.labelX61.TabIndex = 40;
+            this.labelX61.Text = "年";
+            // 
+            // ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBDay
+            // 
+            // 
+            // 
+            // 
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBDay.Border.Class = "TextBoxBorder";
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBDay.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBDay.Location = new System.Drawing.Point(210, 87);
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBDay.Name = "ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBDay";
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBDay.PreventEnterBeep = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBDay.Size = new System.Drawing.Size(43, 21);
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBDay.TabIndex = 39;
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBDay.Tag = "ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBDay";
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBDay.Text = "19";
+            // 
+            // ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBMonth
+            // 
+            // 
+            // 
+            // 
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBMonth.Border.Class = "TextBoxBorder";
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBMonth.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBMonth.Location = new System.Drawing.Point(139, 87);
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBMonth.Name = "ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBMonth";
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBMonth.PreventEnterBeep = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBMonth.Size = new System.Drawing.Size(43, 21);
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBMonth.TabIndex = 38;
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBMonth.Tag = "ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBMonth";
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBMonth.Text = "10";
+            // 
+            // ctl00_SiteContentPlaceHolder_FormView1_tbxFathersDOBYear
+            // 
+            // 
+            // 
+            // 
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxFathersDOBYear.Border.Class = "TextBoxBorder";
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxFathersDOBYear.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxFathersDOBYear.Location = new System.Drawing.Point(65, 87);
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxFathersDOBYear.Name = "ctl00_SiteContentPlaceHolder_FormView1_tbxFathersDOBYear";
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxFathersDOBYear.PreventEnterBeep = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxFathersDOBYear.Size = new System.Drawing.Size(43, 21);
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxFathersDOBYear.TabIndex = 37;
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxFathersDOBYear.Tag = "ctl00_SiteContentPlaceHolder_FormView1_tbxFathersDOBYear";
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxFathersDOBYear.Text = "1965";
+            // 
+            // labelX62
+            // 
+            // 
+            // 
+            // 
+            this.labelX62.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX62.Location = new System.Drawing.Point(0, 87);
+            this.labelX62.Name = "labelX62";
+            this.labelX62.Size = new System.Drawing.Size(62, 23);
+            this.labelX62.TabIndex = 36;
+            this.labelX62.Text = "生日时间:";
+            // 
+            // panelEx27
+            // 
+            this.panelEx27.CanvasColor = System.Drawing.SystemColors.Control;
+            this.panelEx27.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx27.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_rblFATHER_LIVE_IN_US_IND_1);
+            this.panelEx27.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_rblFATHER_LIVE_IN_US_IND_0);
+            this.panelEx27.Controls.Add(this.labelX63);
+            this.panelEx27.DisabledBackColor = System.Drawing.Color.Empty;
+            this.panelEx27.Location = new System.Drawing.Point(3, 116);
+            this.panelEx27.Name = "panelEx27";
+            this.panelEx27.Size = new System.Drawing.Size(157, 119);
+            this.panelEx27.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelEx27.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.panelEx27.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.panelEx27.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.panelEx27.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.panelEx27.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.panelEx27.Style.GradientAngle = 90;
+            this.panelEx27.TabIndex = 50;
+            // 
+            // ctl00_SiteContentPlaceHolder_FormView1_rblFATHER_LIVE_IN_US_IND_1
+            // 
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblFATHER_LIVE_IN_US_IND_1.AutoSize = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblFATHER_LIVE_IN_US_IND_1.Location = new System.Drawing.Point(72, 32);
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblFATHER_LIVE_IN_US_IND_1.Name = "ctl00_SiteContentPlaceHolder_FormView1_rblFATHER_LIVE_IN_US_IND_1";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblFATHER_LIVE_IN_US_IND_1.Size = new System.Drawing.Size(35, 16);
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblFATHER_LIVE_IN_US_IND_1.TabIndex = 2;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblFATHER_LIVE_IN_US_IND_1.TabStop = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblFATHER_LIVE_IN_US_IND_1.Tag = "ctl00_SiteContentPlaceHolder_FormView1_rblFATHER_LIVE_IN_US_IND_1";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblFATHER_LIVE_IN_US_IND_1.Text = "否";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblFATHER_LIVE_IN_US_IND_1.UseVisualStyleBackColor = true;
+            // 
+            // ctl00_SiteContentPlaceHolder_FormView1_rblFATHER_LIVE_IN_US_IND_0
+            // 
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblFATHER_LIVE_IN_US_IND_0.AutoSize = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblFATHER_LIVE_IN_US_IND_0.Location = new System.Drawing.Point(3, 32);
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblFATHER_LIVE_IN_US_IND_0.Name = "ctl00_SiteContentPlaceHolder_FormView1_rblFATHER_LIVE_IN_US_IND_0";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblFATHER_LIVE_IN_US_IND_0.Size = new System.Drawing.Size(35, 16);
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblFATHER_LIVE_IN_US_IND_0.TabIndex = 1;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblFATHER_LIVE_IN_US_IND_0.TabStop = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblFATHER_LIVE_IN_US_IND_0.Tag = "ctl00_SiteContentPlaceHolder_FormView1_rblFATHER_LIVE_IN_US_IND_0";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblFATHER_LIVE_IN_US_IND_0.Text = "是";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblFATHER_LIVE_IN_US_IND_0.UseVisualStyleBackColor = true;
+            // 
+            // labelX63
+            // 
+            // 
+            // 
+            // 
+            this.labelX63.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX63.Location = new System.Drawing.Point(3, 3);
+            this.labelX63.Name = "labelX63";
+            this.labelX63.Size = new System.Drawing.Size(133, 23);
+            this.labelX63.TabIndex = 0;
+            this.labelX63.Text = "父亲在美国:";
+            // 
+            // panelEx28
+            // 
+            this.panelEx28.CanvasColor = System.Drawing.SystemColors.Control;
+            this.panelEx28.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx28.Controls.Add(this.panelEx29);
+            this.panelEx28.Controls.Add(this.labelX65);
+            this.panelEx28.Controls.Add(this.labelX66);
+            this.panelEx28.Controls.Add(this.labelX67);
+            this.panelEx28.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_ddlMothersDOBDay);
+            this.panelEx28.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_ddlMothersDOBMonth);
+            this.panelEx28.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_tbxMothersDOBYear);
+            this.panelEx28.Controls.Add(this.labelX68);
+            this.panelEx28.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_cbxMOTHER_SURNAME_UNK_IND);
+            this.panelEx28.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_cbxMOTHER_GIVEN_NAME_UNK_IND);
+            this.panelEx28.Controls.Add(this.labelX69);
+            this.panelEx28.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_tbxMOTHER_GIVEN_NAME);
+            this.panelEx28.Controls.Add(this.labelX70);
+            this.panelEx28.Controls.Add(this.labelX71);
+            this.panelEx28.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_tbxMOTHER_SURNAME);
+            this.panelEx28.DisabledBackColor = System.Drawing.Color.Empty;
+            this.panelEx28.Location = new System.Drawing.Point(13, 257);
+            this.panelEx28.Name = "panelEx28";
+            this.panelEx28.Size = new System.Drawing.Size(308, 246);
+            this.panelEx28.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelEx28.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.panelEx28.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.panelEx28.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.panelEx28.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.panelEx28.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.panelEx28.Style.GradientAngle = 90;
+            this.panelEx28.TabIndex = 17;
+            // 
+            // panelEx29
+            // 
+            this.panelEx29.CanvasColor = System.Drawing.SystemColors.Control;
+            this.panelEx29.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx29.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_rblMOTHER_LIVE_IN_US_IND_1);
+            this.panelEx29.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_rblMOTHER_LIVE_IN_US_IND_0);
+            this.panelEx29.Controls.Add(this.labelX64);
+            this.panelEx29.DisabledBackColor = System.Drawing.Color.Empty;
+            this.panelEx29.Location = new System.Drawing.Point(3, 116);
+            this.panelEx29.Name = "panelEx29";
+            this.panelEx29.Size = new System.Drawing.Size(157, 119);
+            this.panelEx29.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelEx29.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.panelEx29.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.panelEx29.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.panelEx29.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.panelEx29.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.panelEx29.Style.GradientAngle = 90;
+            this.panelEx29.TabIndex = 50;
+            // 
+            // ctl00_SiteContentPlaceHolder_FormView1_rblMOTHER_LIVE_IN_US_IND_1
+            // 
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblMOTHER_LIVE_IN_US_IND_1.AutoSize = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblMOTHER_LIVE_IN_US_IND_1.Location = new System.Drawing.Point(72, 32);
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblMOTHER_LIVE_IN_US_IND_1.Name = "ctl00_SiteContentPlaceHolder_FormView1_rblMOTHER_LIVE_IN_US_IND_1";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblMOTHER_LIVE_IN_US_IND_1.Size = new System.Drawing.Size(35, 16);
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblMOTHER_LIVE_IN_US_IND_1.TabIndex = 2;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblMOTHER_LIVE_IN_US_IND_1.TabStop = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblMOTHER_LIVE_IN_US_IND_1.Tag = "ctl00_SiteContentPlaceHolder_FormView1_rblMOTHER_LIVE_IN_US_IND_1";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblMOTHER_LIVE_IN_US_IND_1.Text = "否";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblMOTHER_LIVE_IN_US_IND_1.UseVisualStyleBackColor = true;
+            // 
+            // ctl00_SiteContentPlaceHolder_FormView1_rblMOTHER_LIVE_IN_US_IND_0
+            // 
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblMOTHER_LIVE_IN_US_IND_0.AutoSize = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblMOTHER_LIVE_IN_US_IND_0.Location = new System.Drawing.Point(3, 32);
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblMOTHER_LIVE_IN_US_IND_0.Name = "ctl00_SiteContentPlaceHolder_FormView1_rblMOTHER_LIVE_IN_US_IND_0";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblMOTHER_LIVE_IN_US_IND_0.Size = new System.Drawing.Size(35, 16);
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblMOTHER_LIVE_IN_US_IND_0.TabIndex = 1;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblMOTHER_LIVE_IN_US_IND_0.TabStop = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblMOTHER_LIVE_IN_US_IND_0.Tag = "ctl00_SiteContentPlaceHolder_FormView1_rblMOTHER_LIVE_IN_US_IND_0";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblMOTHER_LIVE_IN_US_IND_0.Text = "是";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblMOTHER_LIVE_IN_US_IND_0.UseVisualStyleBackColor = true;
+            // 
+            // labelX64
+            // 
+            // 
+            // 
+            // 
+            this.labelX64.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX64.Location = new System.Drawing.Point(3, 3);
+            this.labelX64.Name = "labelX64";
+            this.labelX64.Size = new System.Drawing.Size(133, 23);
+            this.labelX64.TabIndex = 0;
+            this.labelX64.Text = "母亲在美国:";
+            // 
+            // labelX65
+            // 
+            // 
+            // 
+            // 
+            this.labelX65.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX65.Location = new System.Drawing.Point(259, 87);
+            this.labelX65.Name = "labelX65";
+            this.labelX65.Size = new System.Drawing.Size(19, 23);
+            this.labelX65.TabIndex = 42;
+            this.labelX65.Text = "日";
+            // 
+            // labelX66
+            // 
+            // 
+            // 
+            // 
+            this.labelX66.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX66.Location = new System.Drawing.Point(188, 87);
+            this.labelX66.Name = "labelX66";
+            this.labelX66.Size = new System.Drawing.Size(19, 23);
+            this.labelX66.TabIndex = 41;
+            this.labelX66.Text = "月";
+            // 
+            // labelX67
+            // 
+            // 
+            // 
+            // 
+            this.labelX67.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX67.Location = new System.Drawing.Point(114, 87);
+            this.labelX67.Name = "labelX67";
+            this.labelX67.Size = new System.Drawing.Size(19, 23);
+            this.labelX67.TabIndex = 40;
+            this.labelX67.Text = "年";
+            // 
+            // ctl00_SiteContentPlaceHolder_FormView1_ddlMothersDOBDay
+            // 
+            // 
+            // 
+            // 
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlMothersDOBDay.Border.Class = "TextBoxBorder";
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlMothersDOBDay.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlMothersDOBDay.Location = new System.Drawing.Point(210, 87);
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlMothersDOBDay.Name = "ctl00_SiteContentPlaceHolder_FormView1_ddlMothersDOBDay";
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlMothersDOBDay.PreventEnterBeep = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlMothersDOBDay.Size = new System.Drawing.Size(43, 21);
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlMothersDOBDay.TabIndex = 39;
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlMothersDOBDay.Tag = "ctl00_SiteContentPlaceHolder_FormView1_ddlMothersDOBDay";
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlMothersDOBDay.Text = "19";
+            // 
+            // ctl00_SiteContentPlaceHolder_FormView1_ddlMothersDOBMonth
+            // 
+            // 
+            // 
+            // 
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlMothersDOBMonth.Border.Class = "TextBoxBorder";
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlMothersDOBMonth.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlMothersDOBMonth.Location = new System.Drawing.Point(139, 87);
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlMothersDOBMonth.Name = "ctl00_SiteContentPlaceHolder_FormView1_ddlMothersDOBMonth";
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlMothersDOBMonth.PreventEnterBeep = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlMothersDOBMonth.Size = new System.Drawing.Size(43, 21);
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlMothersDOBMonth.TabIndex = 38;
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlMothersDOBMonth.Tag = "ctl00_SiteContentPlaceHolder_FormView1_ddlMothersDOBMonth";
+            this.ctl00_SiteContentPlaceHolder_FormView1_ddlMothersDOBMonth.Text = "10";
+            // 
+            // ctl00_SiteContentPlaceHolder_FormView1_tbxMothersDOBYear
+            // 
+            // 
+            // 
+            // 
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxMothersDOBYear.Border.Class = "TextBoxBorder";
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxMothersDOBYear.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxMothersDOBYear.Location = new System.Drawing.Point(65, 87);
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxMothersDOBYear.Name = "ctl00_SiteContentPlaceHolder_FormView1_tbxMothersDOBYear";
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxMothersDOBYear.PreventEnterBeep = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxMothersDOBYear.Size = new System.Drawing.Size(43, 21);
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxMothersDOBYear.TabIndex = 37;
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxMothersDOBYear.Tag = "ctl00_SiteContentPlaceHolder_FormView1_tbxMothersDOBYear";
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxMothersDOBYear.Text = "1965";
+            // 
+            // labelX68
+            // 
+            // 
+            // 
+            // 
+            this.labelX68.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX68.Location = new System.Drawing.Point(0, 87);
+            this.labelX68.Name = "labelX68";
+            this.labelX68.Size = new System.Drawing.Size(62, 23);
+            this.labelX68.TabIndex = 36;
+            this.labelX68.Text = "生日时间:";
+            // 
+            // ctl00_SiteContentPlaceHolder_FormView1_cbxMOTHER_SURNAME_UNK_IND
+            // 
+            // 
+            // 
+            // 
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxMOTHER_SURNAME_UNK_IND.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxMOTHER_SURNAME_UNK_IND.Location = new System.Drawing.Point(153, 25);
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxMOTHER_SURNAME_UNK_IND.Name = "ctl00_SiteContentPlaceHolder_FormView1_cbxMOTHER_SURNAME_UNK_IND";
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxMOTHER_SURNAME_UNK_IND.Size = new System.Drawing.Size(100, 23);
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxMOTHER_SURNAME_UNK_IND.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxMOTHER_SURNAME_UNK_IND.TabIndex = 10;
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxMOTHER_SURNAME_UNK_IND.Tag = "ctl00_SiteContentPlaceHolder_FormView1_cbxMOTHER_SURNAME_UNK_IND";
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxMOTHER_SURNAME_UNK_IND.Text = "无";
+            // 
+            // ctl00_SiteContentPlaceHolder_FormView1_cbxMOTHER_GIVEN_NAME_UNK_IND
+            // 
+            // 
+            // 
+            // 
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxMOTHER_GIVEN_NAME_UNK_IND.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxMOTHER_GIVEN_NAME_UNK_IND.Location = new System.Drawing.Point(153, 54);
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxMOTHER_GIVEN_NAME_UNK_IND.Name = "ctl00_SiteContentPlaceHolder_FormView1_cbxMOTHER_GIVEN_NAME_UNK_IND";
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxMOTHER_GIVEN_NAME_UNK_IND.Size = new System.Drawing.Size(100, 23);
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxMOTHER_GIVEN_NAME_UNK_IND.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxMOTHER_GIVEN_NAME_UNK_IND.TabIndex = 8;
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxMOTHER_GIVEN_NAME_UNK_IND.Tag = "ctl00_SiteContentPlaceHolder_FormView1_cbxMOTHER_GIVEN_NAME_UNK_IND";
+            this.ctl00_SiteContentPlaceHolder_FormView1_cbxMOTHER_GIVEN_NAME_UNK_IND.Text = "无";
+            // 
+            // labelX69
+            // 
+            // 
+            // 
+            // 
+            this.labelX69.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX69.Location = new System.Drawing.Point(3, 54);
+            this.labelX69.Name = "labelX69";
+            this.labelX69.Size = new System.Drawing.Size(34, 23);
+            this.labelX69.TabIndex = 4;
+            this.labelX69.Text = "名:";
+            // 
+            // ctl00_SiteContentPlaceHolder_FormView1_tbxMOTHER_GIVEN_NAME
+            // 
+            // 
+            // 
+            // 
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxMOTHER_GIVEN_NAME.Border.Class = "TextBoxBorder";
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxMOTHER_GIVEN_NAME.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxMOTHER_GIVEN_NAME.Location = new System.Drawing.Point(43, 54);
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxMOTHER_GIVEN_NAME.Name = "ctl00_SiteContentPlaceHolder_FormView1_tbxMOTHER_GIVEN_NAME";
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxMOTHER_GIVEN_NAME.PreventEnterBeep = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxMOTHER_GIVEN_NAME.Size = new System.Drawing.Size(100, 21);
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxMOTHER_GIVEN_NAME.TabIndex = 5;
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxMOTHER_GIVEN_NAME.Tag = "ctl00_SiteContentPlaceHolder_FormView1_tbxMOTHER_GIVEN_NAME";
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxMOTHER_GIVEN_NAME.Text = "TEST";
+            // 
+            // labelX70
+            // 
+            // 
+            // 
+            // 
+            this.labelX70.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX70.Location = new System.Drawing.Point(3, 3);
+            this.labelX70.Name = "labelX70";
+            this.labelX70.Size = new System.Drawing.Size(110, 23);
+            this.labelX70.TabIndex = 0;
+            this.labelX70.Text = "母亲姓名:";
+            // 
+            // labelX71
+            // 
+            // 
+            // 
+            // 
+            this.labelX71.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX71.Location = new System.Drawing.Point(3, 27);
+            this.labelX71.Name = "labelX71";
+            this.labelX71.Size = new System.Drawing.Size(34, 23);
+            this.labelX71.TabIndex = 2;
+            this.labelX71.Text = "姓:";
+            // 
+            // ctl00_SiteContentPlaceHolder_FormView1_tbxMOTHER_SURNAME
+            // 
+            // 
+            // 
+            // 
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxMOTHER_SURNAME.Border.Class = "TextBoxBorder";
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxMOTHER_SURNAME.Border.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxMOTHER_SURNAME.Location = new System.Drawing.Point(43, 27);
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxMOTHER_SURNAME.Name = "ctl00_SiteContentPlaceHolder_FormView1_tbxMOTHER_SURNAME";
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxMOTHER_SURNAME.PreventEnterBeep = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxMOTHER_SURNAME.Size = new System.Drawing.Size(100, 21);
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxMOTHER_SURNAME.TabIndex = 3;
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxMOTHER_SURNAME.Tag = "ctl00_SiteContentPlaceHolder_FormView1_tbxMOTHER_SURNAME";
+            this.ctl00_SiteContentPlaceHolder_FormView1_tbxMOTHER_SURNAME.Text = "LI";
+            // 
+            // panelEx30
+            // 
+            this.panelEx30.CanvasColor = System.Drawing.SystemColors.Control;
+            this.panelEx30.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx30.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_IMMED_RELATIVE_IND_1);
+            this.panelEx30.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_IMMED_RELATIVE_IND_0);
+            this.panelEx30.Controls.Add(this.labelX72);
+            this.panelEx30.DisabledBackColor = System.Drawing.Color.Empty;
+            this.panelEx30.Location = new System.Drawing.Point(327, 8);
+            this.panelEx30.Name = "panelEx30";
+            this.panelEx30.Size = new System.Drawing.Size(157, 119);
+            this.panelEx30.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelEx30.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.panelEx30.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.panelEx30.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.panelEx30.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.panelEx30.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.panelEx30.Style.GradientAngle = 90;
+            this.panelEx30.TabIndex = 54;
+            // 
+            // ctl00_SiteContentPlaceHolder_FormView1_rblUS_IMMED_RELATIVE_IND_1
+            // 
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_IMMED_RELATIVE_IND_1.AutoSize = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_IMMED_RELATIVE_IND_1.Location = new System.Drawing.Point(72, 38);
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_IMMED_RELATIVE_IND_1.Name = "ctl00_SiteContentPlaceHolder_FormView1_rblUS_IMMED_RELATIVE_IND_1";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_IMMED_RELATIVE_IND_1.Size = new System.Drawing.Size(35, 16);
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_IMMED_RELATIVE_IND_1.TabIndex = 2;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_IMMED_RELATIVE_IND_1.TabStop = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_IMMED_RELATIVE_IND_1.Tag = "ctl00_SiteContentPlaceHolder_FormView1_rblUS_IMMED_RELATIVE_IND_1";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_IMMED_RELATIVE_IND_1.Text = "否";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_IMMED_RELATIVE_IND_1.UseVisualStyleBackColor = true;
+            // 
+            // ctl00_SiteContentPlaceHolder_FormView1_rblUS_IMMED_RELATIVE_IND_0
+            // 
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_IMMED_RELATIVE_IND_0.AutoSize = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_IMMED_RELATIVE_IND_0.Location = new System.Drawing.Point(3, 38);
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_IMMED_RELATIVE_IND_0.Name = "ctl00_SiteContentPlaceHolder_FormView1_rblUS_IMMED_RELATIVE_IND_0";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_IMMED_RELATIVE_IND_0.Size = new System.Drawing.Size(35, 16);
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_IMMED_RELATIVE_IND_0.TabIndex = 1;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_IMMED_RELATIVE_IND_0.TabStop = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_IMMED_RELATIVE_IND_0.Tag = "ctl00_SiteContentPlaceHolder_FormView1_rblUS_IMMED_RELATIVE_IND_0";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_IMMED_RELATIVE_IND_0.Text = "是";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_IMMED_RELATIVE_IND_0.UseVisualStyleBackColor = true;
+            // 
+            // labelX72
+            // 
+            // 
+            // 
+            // 
+            this.labelX72.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX72.Location = new System.Drawing.Point(3, 3);
+            this.labelX72.Name = "labelX72";
+            this.labelX72.Size = new System.Drawing.Size(133, 42);
+            this.labelX72.TabIndex = 0;
+            this.labelX72.Text = "除父母外还有其他直系亲属在美国:";
+            this.labelX72.WordWrap = true;
+            // 
+            // panelEx31
+            // 
+            this.panelEx31.CanvasColor = System.Drawing.SystemColors.Control;
+            this.panelEx31.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx31.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_OTHER_RELATIVE_IND_1);
+            this.panelEx31.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_OTHER_RELATIVE_IND_0);
+            this.panelEx31.Controls.Add(this.labelX73);
+            this.panelEx31.DisabledBackColor = System.Drawing.Color.Empty;
+            this.panelEx31.Location = new System.Drawing.Point(327, 135);
+            this.panelEx31.Name = "panelEx31";
+            this.panelEx31.Size = new System.Drawing.Size(157, 119);
+            this.panelEx31.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelEx31.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.panelEx31.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.panelEx31.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.panelEx31.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.panelEx31.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.panelEx31.Style.GradientAngle = 90;
+            this.panelEx31.TabIndex = 58;
+            // 
+            // ctl00_SiteContentPlaceHolder_FormView1_rblUS_OTHER_RELATIVE_IND_1
+            // 
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_OTHER_RELATIVE_IND_1.AutoSize = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_OTHER_RELATIVE_IND_1.Location = new System.Drawing.Point(72, 38);
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_OTHER_RELATIVE_IND_1.Name = "ctl00_SiteContentPlaceHolder_FormView1_rblUS_OTHER_RELATIVE_IND_1";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_OTHER_RELATIVE_IND_1.Size = new System.Drawing.Size(35, 16);
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_OTHER_RELATIVE_IND_1.TabIndex = 2;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_OTHER_RELATIVE_IND_1.TabStop = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_OTHER_RELATIVE_IND_1.Tag = "ctl00_SiteContentPlaceHolder_FormView1_rblUS_OTHER_RELATIVE_IND_1";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_OTHER_RELATIVE_IND_1.Text = "否";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_OTHER_RELATIVE_IND_1.UseVisualStyleBackColor = true;
+            // 
+            // ctl00_SiteContentPlaceHolder_FormView1_rblUS_OTHER_RELATIVE_IND_0
+            // 
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_OTHER_RELATIVE_IND_0.AutoSize = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_OTHER_RELATIVE_IND_0.Location = new System.Drawing.Point(3, 38);
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_OTHER_RELATIVE_IND_0.Name = "ctl00_SiteContentPlaceHolder_FormView1_rblUS_OTHER_RELATIVE_IND_0";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_OTHER_RELATIVE_IND_0.Size = new System.Drawing.Size(35, 16);
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_OTHER_RELATIVE_IND_0.TabIndex = 1;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_OTHER_RELATIVE_IND_0.TabStop = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_OTHER_RELATIVE_IND_0.Tag = "ctl00_SiteContentPlaceHolder_FormView1_rblUS_OTHER_RELATIVE_IND_0";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_OTHER_RELATIVE_IND_0.Text = "是";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblUS_OTHER_RELATIVE_IND_0.UseVisualStyleBackColor = true;
+            // 
+            // labelX73
+            // 
+            // 
+            // 
+            // 
+            this.labelX73.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX73.Location = new System.Drawing.Point(3, 3);
+            this.labelX73.Name = "labelX73";
+            this.labelX73.Size = new System.Drawing.Size(133, 29);
+            this.labelX73.TabIndex = 0;
+            this.labelX73.Text = "还有其他亲属在美国:";
+            this.labelX73.WordWrap = true;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -2576,6 +3346,18 @@
             this.tabControlPanel7.ResumeLayout(false);
             this.panelEx23.ResumeLayout(false);
             this.panelEx25.ResumeLayout(false);
+            this.tabControlPanel8.ResumeLayout(false);
+            this.panelEx24.ResumeLayout(false);
+            this.panelEx26.ResumeLayout(false);
+            this.panelEx27.ResumeLayout(false);
+            this.panelEx27.PerformLayout();
+            this.panelEx28.ResumeLayout(false);
+            this.panelEx29.ResumeLayout(false);
+            this.panelEx29.PerformLayout();
+            this.panelEx30.ResumeLayout(false);
+            this.panelEx30.PerformLayout();
+            this.panelEx31.ResumeLayout(false);
+            this.panelEx31.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2742,6 +3524,55 @@
         private DevComponents.DotNetBar.Controls.TextBoxX ctl00_SiteContentPlaceHolder_FormView1_tbxUS_POC_ORGANIZATION;
         private DevComponents.DotNetBar.Controls.CheckBoxX ctl00_SiteContentPlaceHolder_FormView1_cbxUS_POC_NAME_NA;
         private DevComponents.DotNetBar.Controls.CheckBoxX ctl00_SiteContentPlaceHolder_FormView1_cbxUS_POC_ORG_NA_IND;
+        private DevComponents.DotNetBar.TabControlPanel tabControlPanel8;
+        private DevComponents.DotNetBar.TabItem tabItem8;
+        private DevComponents.DotNetBar.PanelEx panelEx24;
+        private DevComponents.DotNetBar.PanelEx panelEx26;
+        private DevComponents.DotNetBar.Controls.CheckBoxX ctl00_SiteContentPlaceHolder_FormView1_cbxFATHER_GIVEN_NAME_UNK_IND;
+        private DevComponents.DotNetBar.LabelX labelX57;
+        private DevComponents.DotNetBar.Controls.TextBoxX ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_GIVEN_NAME;
+        private DevComponents.DotNetBar.LabelX labelX58;
+        private DevComponents.DotNetBar.LabelX labelX60;
+        private DevComponents.DotNetBar.Controls.TextBoxX ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_SURNAME;
+        private DevComponents.DotNetBar.Controls.CheckBoxX ctl00_SiteContentPlaceHolder_FormView1_cbxFATHER_SURNAME_UNK_IND;
+        private DevComponents.DotNetBar.LabelX labelX51;
+        private DevComponents.DotNetBar.LabelX labelX59;
+        private DevComponents.DotNetBar.LabelX labelX61;
+        private DevComponents.DotNetBar.Controls.TextBoxX ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBDay;
+        private DevComponents.DotNetBar.Controls.TextBoxX ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBMonth;
+        private DevComponents.DotNetBar.Controls.TextBoxX ctl00_SiteContentPlaceHolder_FormView1_tbxFathersDOBYear;
+        private DevComponents.DotNetBar.LabelX labelX62;
+        private DevComponents.DotNetBar.PanelEx panelEx27;
+        private System.Windows.Forms.RadioButton ctl00_SiteContentPlaceHolder_FormView1_rblFATHER_LIVE_IN_US_IND_1;
+        private System.Windows.Forms.RadioButton ctl00_SiteContentPlaceHolder_FormView1_rblFATHER_LIVE_IN_US_IND_0;
+        private DevComponents.DotNetBar.LabelX labelX63;
+        private DevComponents.DotNetBar.PanelEx panelEx28;
+        private DevComponents.DotNetBar.PanelEx panelEx29;
+        private System.Windows.Forms.RadioButton ctl00_SiteContentPlaceHolder_FormView1_rblMOTHER_LIVE_IN_US_IND_1;
+        private System.Windows.Forms.RadioButton ctl00_SiteContentPlaceHolder_FormView1_rblMOTHER_LIVE_IN_US_IND_0;
+        private DevComponents.DotNetBar.LabelX labelX64;
+        private DevComponents.DotNetBar.LabelX labelX65;
+        private DevComponents.DotNetBar.LabelX labelX66;
+        private DevComponents.DotNetBar.LabelX labelX67;
+        private DevComponents.DotNetBar.Controls.TextBoxX ctl00_SiteContentPlaceHolder_FormView1_ddlMothersDOBDay;
+        private DevComponents.DotNetBar.Controls.TextBoxX ctl00_SiteContentPlaceHolder_FormView1_ddlMothersDOBMonth;
+        private DevComponents.DotNetBar.Controls.TextBoxX ctl00_SiteContentPlaceHolder_FormView1_tbxMothersDOBYear;
+        private DevComponents.DotNetBar.LabelX labelX68;
+        private DevComponents.DotNetBar.Controls.CheckBoxX ctl00_SiteContentPlaceHolder_FormView1_cbxMOTHER_SURNAME_UNK_IND;
+        private DevComponents.DotNetBar.Controls.CheckBoxX ctl00_SiteContentPlaceHolder_FormView1_cbxMOTHER_GIVEN_NAME_UNK_IND;
+        private DevComponents.DotNetBar.LabelX labelX69;
+        private DevComponents.DotNetBar.Controls.TextBoxX ctl00_SiteContentPlaceHolder_FormView1_tbxMOTHER_GIVEN_NAME;
+        private DevComponents.DotNetBar.LabelX labelX70;
+        private DevComponents.DotNetBar.LabelX labelX71;
+        private DevComponents.DotNetBar.Controls.TextBoxX ctl00_SiteContentPlaceHolder_FormView1_tbxMOTHER_SURNAME;
+        private DevComponents.DotNetBar.PanelEx panelEx30;
+        private System.Windows.Forms.RadioButton ctl00_SiteContentPlaceHolder_FormView1_rblUS_IMMED_RELATIVE_IND_1;
+        private System.Windows.Forms.RadioButton ctl00_SiteContentPlaceHolder_FormView1_rblUS_IMMED_RELATIVE_IND_0;
+        private DevComponents.DotNetBar.LabelX labelX72;
+        private DevComponents.DotNetBar.PanelEx panelEx31;
+        private System.Windows.Forms.RadioButton ctl00_SiteContentPlaceHolder_FormView1_rblUS_OTHER_RELATIVE_IND_1;
+        private System.Windows.Forms.RadioButton ctl00_SiteContentPlaceHolder_FormView1_rblUS_OTHER_RELATIVE_IND_0;
+        private DevComponents.DotNetBar.LabelX labelX73;
     }
 }
 
