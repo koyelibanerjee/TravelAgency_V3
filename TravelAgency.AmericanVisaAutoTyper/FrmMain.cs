@@ -305,6 +305,26 @@ namespace TravelAgency.AmericanVisaAutoTyper
 
             #endregion
 
+            #region 伴侣信息
+
+            ctl00_SiteContentPlaceHolder_FormView1_ddlSpouseNatDropDownList.Items.Add(new ComboBoxItem("CHINA", "CHIN"));
+            ctl00_SiteContentPlaceHolder_FormView1_ddlSpousePOBCountry.Items.Add(new ComboBoxItem("CHINA", "CHIN"));
+
+            //伴侣地址类型
+            ctl00_SiteContentPlaceHolder_FormView1_ddlSpouseAddressType.Items.Add(new ComboBoxItem("Same as Home Address", "H"));
+            ctl00_SiteContentPlaceHolder_FormView1_ddlSpouseAddressType.Items.Add(new ComboBoxItem("Same as Mailing Address", "M"));
+            ctl00_SiteContentPlaceHolder_FormView1_ddlSpouseAddressType.Items.Add(new ComboBoxItem("Same as U.S. Contact Address", "U"));
+            ctl00_SiteContentPlaceHolder_FormView1_ddlSpouseAddressType.Items.Add(new ComboBoxItem("Do Not Know", "D"));
+            ctl00_SiteContentPlaceHolder_FormView1_ddlSpouseAddressType.Items.Add(new ComboBoxItem("Other (Specify Address)", "O"));
+
+
+            #endregion
+
+
+            #region 工作信息
+            ctl00_SiteContentPlaceHolder_FormView1_ddlPresentOccupation.Items.Add(new ComboBoxItem("RETIRED", "RT"));// TODO:还有其他的
+
+            #endregion
 
         }
 
