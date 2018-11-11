@@ -175,12 +175,12 @@
             this.tabControlPanel6 = new DevComponents.DotNetBar.TabControlPanel();
             this.panelEx20 = new DevComponents.DotNetBar.PanelEx();
             this.panelEx21 = new DevComponents.DotNetBar.PanelEx();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_1 = new System.Windows.Forms.RadioButton();
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_0 = new System.Windows.Forms.RadioButton();
             this.labelX49 = new DevComponents.DotNetBar.LabelX();
             this.panelEx22 = new DevComponents.DotNetBar.PanelEx();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_1 = new System.Windows.Forms.RadioButton();
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_0 = new System.Windows.Forms.RadioButton();
             this.labelX50 = new DevComponents.DotNetBar.LabelX();
             this.tabItem6 = new DevComponents.DotNetBar.TabItem(this.components);
             this.tabControlPanel2 = new DevComponents.DotNetBar.TabControlPanel();
@@ -282,7 +282,7 @@
             this.tabControlPanel12 = new DevComponents.DotNetBar.TabControlPanel();
             this.panelEx38 = new DevComponents.DotNetBar.PanelEx();
             this.panelEx40 = new DevComponents.DotNetBar.PanelEx();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblCLAN_TRIBE_IND_1 = new System.Windows.Forms.RadioButton();
             this.ctl00_SiteContentPlaceHolder_FormView1_rblCLAN_TRIBE_IND_0 = new System.Windows.Forms.RadioButton();
             this.labelX82 = new DevComponents.DotNetBar.LabelX();
             this.labelX81 = new DevComponents.DotNetBar.LabelX();
@@ -307,6 +307,22 @@
             this.ctl00_SiteContentPlaceHolder_FormView1_rblINSURGENT_ORG_IND_1 = new System.Windows.Forms.RadioButton();
             this.ctl00_SiteContentPlaceHolder_FormView1_rblINSURGENT_ORG_IND_0 = new System.Windows.Forms.RadioButton();
             this.labelX94 = new DevComponents.DotNetBar.LabelX();
+            this.tabItem13 = new DevComponents.DotNetBar.TabItem(this.components);
+            this.tabControlPanel13 = new DevComponents.DotNetBar.TabControlPanel();
+            this.panelEx45 = new DevComponents.DotNetBar.PanelEx();
+            this.btnOneyKeyTypeInPart1 = new DevComponents.DotNetBar.ButtonX();
+            this.btnOneyKeyTypeInPart2 = new DevComponents.DotNetBar.ButtonX();
+            this.btnOneyKeyTypeInPart3 = new DevComponents.DotNetBar.ButtonX();
+            this.btnOneyKeyTypeInPart4 = new DevComponents.DotNetBar.ButtonX();
+            this.btnOneyKeyTypeInPart5 = new DevComponents.DotNetBar.ButtonX();
+            this.panelEx46 = new DevComponents.DotNetBar.PanelEx();
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_1 = new System.Windows.Forms.RadioButton();
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_0 = new System.Windows.Forms.RadioButton();
+            this.labelX95 = new DevComponents.DotNetBar.LabelX();
+            this.panelEx47 = new DevComponents.DotNetBar.PanelEx();
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_1 = new System.Windows.Forms.RadioButton();
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_0 = new System.Windows.Forms.RadioButton();
+            this.labelX96 = new DevComponents.DotNetBar.LabelX();
             this.panelEx2.SuspendLayout();
             this.panelEx3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).BeginInit();
@@ -364,6 +380,10 @@
             this.panelEx42.SuspendLayout();
             this.panelEx43.SuspendLayout();
             this.panelEx44.SuspendLayout();
+            this.tabControlPanel13.SuspendLayout();
+            this.panelEx45.SuspendLayout();
+            this.panelEx46.SuspendLayout();
+            this.panelEx47.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelEx1
@@ -420,18 +440,19 @@
             // 
             this.tabControl1.BackColor = System.Drawing.Color.Transparent;
             this.tabControl1.CanReorderTabs = true;
-            this.tabControl1.Controls.Add(this.tabControlPanel12);
+            this.tabControl1.Controls.Add(this.tabControlPanel6);
+            this.tabControl1.Controls.Add(this.tabControlPanel7);
+            this.tabControl1.Controls.Add(this.tabControlPanel4);
+            this.tabControl1.Controls.Add(this.tabControlPanel1);
+            this.tabControl1.Controls.Add(this.tabControlPanel3);
+            this.tabControl1.Controls.Add(this.tabControlPanel8);
             this.tabControl1.Controls.Add(this.tabControlPanel9);
             this.tabControl1.Controls.Add(this.tabControlPanel10);
             this.tabControl1.Controls.Add(this.tabControlPanel11);
-            this.tabControl1.Controls.Add(this.tabControlPanel8);
-            this.tabControl1.Controls.Add(this.tabControlPanel7);
-            this.tabControl1.Controls.Add(this.tabControlPanel5);
-            this.tabControl1.Controls.Add(this.tabControlPanel1);
-            this.tabControl1.Controls.Add(this.tabControlPanel3);
-            this.tabControl1.Controls.Add(this.tabControlPanel6);
+            this.tabControl1.Controls.Add(this.tabControlPanel12);
             this.tabControl1.Controls.Add(this.tabControlPanel2);
-            this.tabControl1.Controls.Add(this.tabControlPanel4);
+            this.tabControl1.Controls.Add(this.tabControlPanel5);
+            this.tabControl1.Controls.Add(this.tabControlPanel13);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -452,6 +473,7 @@
             this.tabControl1.Tabs.Add(this.tabItem10);
             this.tabControl1.Tabs.Add(this.tabItem11);
             this.tabControl1.Tabs.Add(this.tabItem12);
+            this.tabControl1.Tabs.Add(this.tabItem13);
             this.tabControl1.Text = "tabControl1";
             // 
             // tabControlPanel9
@@ -2471,6 +2493,8 @@
             // 
             this.panelEx20.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx20.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx20.Controls.Add(this.panelEx47);
+            this.panelEx20.Controls.Add(this.panelEx46);
             this.panelEx20.Controls.Add(this.panelEx21);
             this.panelEx20.Controls.Add(this.panelEx22);
             this.panelEx20.DisabledBackColor = System.Drawing.Color.Empty;
@@ -2491,8 +2515,8 @@
             // 
             this.panelEx21.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx21.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelEx21.Controls.Add(this.radioButton1);
-            this.panelEx21.Controls.Add(this.radioButton2);
+            this.panelEx21.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_1);
+            this.panelEx21.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_0);
             this.panelEx21.Controls.Add(this.labelX49);
             this.panelEx21.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelEx21.Location = new System.Drawing.Point(13, 128);
@@ -2507,29 +2531,29 @@
             this.panelEx21.Style.GradientAngle = 90;
             this.panelEx21.TabIndex = 14;
             // 
-            // radioButton1
+            // ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_1
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(72, 32);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(35, 16);
-            this.radioButton1.TabIndex = 2;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Tag = "ctl00_SiteContentPlaceHolder_FormView1_rblPermResOtherCntryInd_1";
-            this.radioButton1.Text = "否";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_1.AutoSize = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_1.Location = new System.Drawing.Point(72, 32);
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_1.Name = "ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_1";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_1.Size = new System.Drawing.Size(35, 16);
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_1.TabIndex = 2;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_1.TabStop = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_1.Tag = "ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_1";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_1.Text = "否";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_1.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_0
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(3, 32);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(35, 16);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Tag = "ctl00_SiteContentPlaceHolder_FormView1_rblPermResOtherCntryInd_0";
-            this.radioButton2.Text = "是";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_0.AutoSize = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_0.Location = new System.Drawing.Point(3, 32);
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_0.Name = "ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_0";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_0.Size = new System.Drawing.Size(35, 16);
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_0.TabIndex = 1;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_0.TabStop = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_0.Tag = "ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_0";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_0.Text = "是";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_0.UseVisualStyleBackColor = true;
             // 
             // labelX49
             // 
@@ -2541,14 +2565,14 @@
             this.labelX49.Name = "labelX49";
             this.labelX49.Size = new System.Drawing.Size(135, 23);
             this.labelX49.TabIndex = 0;
-            this.labelX49.Text = "是否是其他国家常驻民:";
+            this.labelX49.Text = "是否在美国被起诉过:";
             // 
             // panelEx22
             // 
             this.panelEx22.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx22.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelEx22.Controls.Add(this.radioButton3);
-            this.panelEx22.Controls.Add(this.radioButton4);
+            this.panelEx22.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_1);
+            this.panelEx22.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_0);
             this.panelEx22.Controls.Add(this.labelX50);
             this.panelEx22.DisabledBackColor = System.Drawing.Color.Empty;
             this.panelEx22.Location = new System.Drawing.Point(13, 3);
@@ -2563,29 +2587,29 @@
             this.panelEx22.Style.GradientAngle = 90;
             this.panelEx22.TabIndex = 10;
             // 
-            // radioButton3
+            // ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_1
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(72, 32);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(35, 16);
-            this.radioButton3.TabIndex = 2;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Tag = "ctl00_SiteContentPlaceHolder_FormView1_rblAPP_OTH_NATL_IND_1";
-            this.radioButton3.Text = "否";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_1.AutoSize = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_1.Location = new System.Drawing.Point(72, 32);
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_1.Name = "ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_1";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_1.Size = new System.Drawing.Size(35, 16);
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_1.TabIndex = 2;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_1.TabStop = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_1.Tag = "ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_1";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_1.Text = "否";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_1.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_0
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(3, 32);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(35, 16);
-            this.radioButton4.TabIndex = 1;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Tag = "ctl00_SiteContentPlaceHolder_FormView1_rblAPP_OTH_NATL_IND_0";
-            this.radioButton4.Text = "是";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_0.AutoSize = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_0.Location = new System.Drawing.Point(3, 32);
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_0.Name = "ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_0";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_0.Size = new System.Drawing.Size(35, 16);
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_0.TabIndex = 1;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_0.TabStop = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_0.Tag = "ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_0";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_0.Text = "是";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_0.UseVisualStyleBackColor = true;
             // 
             // labelX50
             // 
@@ -4015,7 +4039,7 @@
             // 
             this.panelEx40.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx40.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
-            this.panelEx40.Controls.Add(this.radioButton7);
+            this.panelEx40.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_rblCLAN_TRIBE_IND_1);
             this.panelEx40.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_rblCLAN_TRIBE_IND_0);
             this.panelEx40.Controls.Add(this.labelX82);
             this.panelEx40.DisabledBackColor = System.Drawing.Color.Empty;
@@ -4031,17 +4055,17 @@
             this.panelEx40.Style.GradientAngle = 90;
             this.panelEx40.TabIndex = 62;
             // 
-            // radioButton7
+            // ctl00_SiteContentPlaceHolder_FormView1_rblCLAN_TRIBE_IND_1
             // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(72, 38);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(35, 16);
-            this.radioButton7.TabIndex = 2;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Tag = "ctl00_SiteContentPlaceHolder_FormView1_rblPreviouslyEmployed_1";
-            this.radioButton7.Text = "否";
-            this.radioButton7.UseVisualStyleBackColor = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblCLAN_TRIBE_IND_1.AutoSize = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblCLAN_TRIBE_IND_1.Location = new System.Drawing.Point(72, 38);
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblCLAN_TRIBE_IND_1.Name = "ctl00_SiteContentPlaceHolder_FormView1_rblCLAN_TRIBE_IND_1";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblCLAN_TRIBE_IND_1.Size = new System.Drawing.Size(35, 16);
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblCLAN_TRIBE_IND_1.TabIndex = 2;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblCLAN_TRIBE_IND_1.TabStop = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblCLAN_TRIBE_IND_1.Tag = "ctl00_SiteContentPlaceHolder_FormView1_rblCLAN_TRIBE_IND_1";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblCLAN_TRIBE_IND_1.Text = "否";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblCLAN_TRIBE_IND_1.UseVisualStyleBackColor = true;
             // 
             // ctl00_SiteContentPlaceHolder_FormView1_rblCLAN_TRIBE_IND_0
             // 
@@ -4380,6 +4404,228 @@
             this.labelX94.Text = "你是否曾在准军事部队、义务警员、叛乱组织、游击队或叛乱组织服役、或参与其中";
             this.labelX94.WordWrap = true;
             // 
+            // tabItem13
+            // 
+            this.tabItem13.AttachedControl = this.tabControlPanel13;
+            this.tabItem13.Name = "tabItem13";
+            this.tabItem13.Text = "安全和背景";
+            // 
+            // tabControlPanel13
+            // 
+            this.tabControlPanel13.Controls.Add(this.panelEx45);
+            this.tabControlPanel13.DisabledBackColor = System.Drawing.Color.Empty;
+            this.tabControlPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControlPanel13.Location = new System.Drawing.Point(0, 26);
+            this.tabControlPanel13.Name = "tabControlPanel13";
+            this.tabControlPanel13.Padding = new System.Windows.Forms.Padding(1);
+            this.tabControlPanel13.Size = new System.Drawing.Size(494, 513);
+            this.tabControlPanel13.Style.BackColor1.Color = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(179)))), ((int)(((byte)(231)))));
+            this.tabControlPanel13.Style.BackColor2.Color = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.tabControlPanel13.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.tabControlPanel13.Style.BorderColor.Color = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(97)))), ((int)(((byte)(156)))));
+            this.tabControlPanel13.Style.BorderSide = ((DevComponents.DotNetBar.eBorderSide)(((DevComponents.DotNetBar.eBorderSide.Left | DevComponents.DotNetBar.eBorderSide.Right) 
+            | DevComponents.DotNetBar.eBorderSide.Bottom)));
+            this.tabControlPanel13.Style.GradientAngle = 90;
+            this.tabControlPanel13.TabIndex = 106;
+            this.tabControlPanel13.TabItem = this.tabItem13;
+            // 
+            // panelEx45
+            // 
+            this.panelEx45.CanvasColor = System.Drawing.SystemColors.Control;
+            this.panelEx45.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx45.Controls.Add(this.btnOneyKeyTypeInPart5);
+            this.panelEx45.Controls.Add(this.btnOneyKeyTypeInPart4);
+            this.panelEx45.Controls.Add(this.btnOneyKeyTypeInPart3);
+            this.panelEx45.Controls.Add(this.btnOneyKeyTypeInPart2);
+            this.panelEx45.Controls.Add(this.btnOneyKeyTypeInPart1);
+            this.panelEx45.DisabledBackColor = System.Drawing.Color.Empty;
+            this.panelEx45.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelEx45.Location = new System.Drawing.Point(1, 1);
+            this.panelEx45.Name = "panelEx45";
+            this.panelEx45.Size = new System.Drawing.Size(492, 511);
+            this.panelEx45.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelEx45.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.panelEx45.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.panelEx45.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.panelEx45.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.panelEx45.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.panelEx45.Style.GradientAngle = 90;
+            this.panelEx45.TabIndex = 71;
+            // 
+            // btnOneyKeyTypeInPart1
+            // 
+            this.btnOneyKeyTypeInPart1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnOneyKeyTypeInPart1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnOneyKeyTypeInPart1.Location = new System.Drawing.Point(8, 15);
+            this.btnOneyKeyTypeInPart1.Name = "btnOneyKeyTypeInPart1";
+            this.btnOneyKeyTypeInPart1.Size = new System.Drawing.Size(95, 23);
+            this.btnOneyKeyTypeInPart1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnOneyKeyTypeInPart1.TabIndex = 113;
+            this.btnOneyKeyTypeInPart1.Text = "一键录入part1";
+            this.btnOneyKeyTypeInPart1.Click += new System.EventHandler(this.btnOneyKeyTypeInPart1_Click);
+            // 
+            // btnOneyKeyTypeInPart2
+            // 
+            this.btnOneyKeyTypeInPart2.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnOneyKeyTypeInPart2.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnOneyKeyTypeInPart2.Location = new System.Drawing.Point(8, 51);
+            this.btnOneyKeyTypeInPart2.Name = "btnOneyKeyTypeInPart2";
+            this.btnOneyKeyTypeInPart2.Size = new System.Drawing.Size(95, 23);
+            this.btnOneyKeyTypeInPart2.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnOneyKeyTypeInPart2.TabIndex = 114;
+            this.btnOneyKeyTypeInPart2.Text = "一键录入part2";
+            this.btnOneyKeyTypeInPart2.Click += new System.EventHandler(this.btnOneyKeyTypeInPart2_Click);
+            // 
+            // btnOneyKeyTypeInPart3
+            // 
+            this.btnOneyKeyTypeInPart3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnOneyKeyTypeInPart3.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnOneyKeyTypeInPart3.Location = new System.Drawing.Point(8, 87);
+            this.btnOneyKeyTypeInPart3.Name = "btnOneyKeyTypeInPart3";
+            this.btnOneyKeyTypeInPart3.Size = new System.Drawing.Size(95, 23);
+            this.btnOneyKeyTypeInPart3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnOneyKeyTypeInPart3.TabIndex = 115;
+            this.btnOneyKeyTypeInPart3.Text = "一键录入part3";
+            this.btnOneyKeyTypeInPart3.Click += new System.EventHandler(this.btnOneyKeyTypeInPart3_Click);
+            // 
+            // btnOneyKeyTypeInPart4
+            // 
+            this.btnOneyKeyTypeInPart4.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnOneyKeyTypeInPart4.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnOneyKeyTypeInPart4.Location = new System.Drawing.Point(8, 125);
+            this.btnOneyKeyTypeInPart4.Name = "btnOneyKeyTypeInPart4";
+            this.btnOneyKeyTypeInPart4.Size = new System.Drawing.Size(95, 23);
+            this.btnOneyKeyTypeInPart4.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnOneyKeyTypeInPart4.TabIndex = 116;
+            this.btnOneyKeyTypeInPart4.Text = "一键录入part4";
+            this.btnOneyKeyTypeInPart4.Click += new System.EventHandler(this.btnOneyKeyTypeInPart4_Click);
+            // 
+            // btnOneyKeyTypeInPart5
+            // 
+            this.btnOneyKeyTypeInPart5.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.btnOneyKeyTypeInPart5.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.btnOneyKeyTypeInPart5.Location = new System.Drawing.Point(8, 160);
+            this.btnOneyKeyTypeInPart5.Name = "btnOneyKeyTypeInPart5";
+            this.btnOneyKeyTypeInPart5.Size = new System.Drawing.Size(95, 23);
+            this.btnOneyKeyTypeInPart5.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.btnOneyKeyTypeInPart5.TabIndex = 117;
+            this.btnOneyKeyTypeInPart5.Text = "一键录入part5";
+            this.btnOneyKeyTypeInPart5.Click += new System.EventHandler(this.btnOneyKeyTypeInPart5_Click);
+            // 
+            // panelEx46
+            // 
+            this.panelEx46.CanvasColor = System.Drawing.SystemColors.Control;
+            this.panelEx46.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx46.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_1);
+            this.panelEx46.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_0);
+            this.panelEx46.Controls.Add(this.labelX95);
+            this.panelEx46.DisabledBackColor = System.Drawing.Color.Empty;
+            this.panelEx46.Location = new System.Drawing.Point(13, 253);
+            this.panelEx46.Name = "panelEx46";
+            this.panelEx46.Size = new System.Drawing.Size(157, 119);
+            this.panelEx46.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelEx46.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.panelEx46.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.panelEx46.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.panelEx46.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.panelEx46.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.panelEx46.Style.GradientAngle = 90;
+            this.panelEx46.TabIndex = 24;
+            // 
+            // ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_1
+            // 
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_1.AutoSize = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_1.Location = new System.Drawing.Point(78, 43);
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_1.Name = "ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_1";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_1.Size = new System.Drawing.Size(35, 16);
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_1.TabIndex = 2;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_1.TabStop = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_1.Tag = "ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_1";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_1.Text = "否";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_1.UseVisualStyleBackColor = true;
+            // 
+            // ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_0
+            // 
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_0.AutoSize = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_0.Location = new System.Drawing.Point(9, 43);
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_0.Name = "ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_0";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_0.Size = new System.Drawing.Size(35, 16);
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_0.TabIndex = 1;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_0.TabStop = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_0.Tag = "ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_0";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_0.Text = "是";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_0.UseVisualStyleBackColor = true;
+            // 
+            // labelX95
+            // 
+            // 
+            // 
+            // 
+            this.labelX95.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX95.Location = new System.Drawing.Point(3, 3);
+            this.labelX95.Name = "labelX95";
+            this.labelX95.Size = new System.Drawing.Size(135, 43);
+            this.labelX95.TabIndex = 0;
+            this.labelX95.Text = "是否在美国被拒签或禁止入境过:";
+            this.labelX95.WordWrap = true;
+            // 
+            // panelEx47
+            // 
+            this.panelEx47.CanvasColor = System.Drawing.SystemColors.Control;
+            this.panelEx47.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx47.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_1);
+            this.panelEx47.Controls.Add(this.ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_0);
+            this.panelEx47.Controls.Add(this.labelX96);
+            this.panelEx47.DisabledBackColor = System.Drawing.Color.Empty;
+            this.panelEx47.Location = new System.Drawing.Point(13, 387);
+            this.panelEx47.Name = "panelEx47";
+            this.panelEx47.Size = new System.Drawing.Size(157, 119);
+            this.panelEx47.Style.Alignment = System.Drawing.StringAlignment.Center;
+            this.panelEx47.Style.BackColor1.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground;
+            this.panelEx47.Style.BackColor2.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBackground2;
+            this.panelEx47.Style.Border = DevComponents.DotNetBar.eBorderType.SingleLine;
+            this.panelEx47.Style.BorderColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelBorder;
+            this.panelEx47.Style.ForeColor.ColorSchemePart = DevComponents.DotNetBar.eColorSchemePart.PanelText;
+            this.panelEx47.Style.GradientAngle = 90;
+            this.panelEx47.TabIndex = 28;
+            // 
+            // ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_1
+            // 
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_1.AutoSize = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_1.Location = new System.Drawing.Point(78, 52);
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_1.Name = "ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_1";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_1.Size = new System.Drawing.Size(35, 16);
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_1.TabIndex = 2;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_1.TabStop = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_1.Tag = "ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_1";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_1.Text = "否";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_1.UseVisualStyleBackColor = true;
+            // 
+            // ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_0
+            // 
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_0.AutoSize = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_0.Location = new System.Drawing.Point(9, 52);
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_0.Name = "ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_0";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_0.Size = new System.Drawing.Size(35, 16);
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_0.TabIndex = 1;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_0.TabStop = true;
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_0.Tag = "ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_0";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_0.Text = "是";
+            this.ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_0.UseVisualStyleBackColor = true;
+            // 
+            // labelX96
+            // 
+            // 
+            // 
+            // 
+            this.labelX96.BackgroundStyle.CornerType = DevComponents.DotNetBar.eCornerType.Square;
+            this.labelX96.Location = new System.Drawing.Point(3, 3);
+            this.labelX96.Name = "labelX96";
+            this.labelX96.Size = new System.Drawing.Size(135, 43);
+            this.labelX96.TabIndex = 0;
+            this.labelX96.Text = "有人曾代表你向美国公民和移民服务机构提交过移民申请吗?";
+            this.labelX96.WordWrap = true;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -4468,6 +4714,12 @@
             this.panelEx43.PerformLayout();
             this.panelEx44.ResumeLayout(false);
             this.panelEx44.PerformLayout();
+            this.tabControlPanel13.ResumeLayout(false);
+            this.panelEx45.ResumeLayout(false);
+            this.panelEx46.ResumeLayout(false);
+            this.panelEx46.PerformLayout();
+            this.panelEx47.ResumeLayout(false);
+            this.panelEx47.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -4612,12 +4864,12 @@
         private DevComponents.DotNetBar.TabItem tabItem6;
         private DevComponents.DotNetBar.PanelEx panelEx20;
         private DevComponents.DotNetBar.PanelEx panelEx21;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_1;
+        private System.Windows.Forms.RadioButton ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_0;
         private DevComponents.DotNetBar.LabelX labelX49;
         private DevComponents.DotNetBar.PanelEx panelEx22;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_1;
+        private System.Windows.Forms.RadioButton ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_0;
         private DevComponents.DotNetBar.LabelX labelX50;
         private DevComponents.DotNetBar.TabControlPanel tabControlPanel7;
         private DevComponents.DotNetBar.TabItem tabItem7;
@@ -4727,7 +4979,7 @@
         private DevComponents.DotNetBar.TabItem tabItem12;
         private DevComponents.DotNetBar.PanelEx panelEx38;
         private DevComponents.DotNetBar.PanelEx panelEx40;
-        private System.Windows.Forms.RadioButton radioButton7;
+        private System.Windows.Forms.RadioButton ctl00_SiteContentPlaceHolder_FormView1_rblCLAN_TRIBE_IND_1;
         private System.Windows.Forms.RadioButton ctl00_SiteContentPlaceHolder_FormView1_rblCLAN_TRIBE_IND_0;
         private DevComponents.DotNetBar.LabelX labelX82;
         private DevComponents.DotNetBar.LabelX labelX81;
@@ -4752,6 +5004,22 @@
         private System.Windows.Forms.RadioButton ctl00_SiteContentPlaceHolder_FormView1_rblINSURGENT_ORG_IND_1;
         private System.Windows.Forms.RadioButton ctl00_SiteContentPlaceHolder_FormView1_rblINSURGENT_ORG_IND_0;
         private DevComponents.DotNetBar.LabelX labelX94;
+        private DevComponents.DotNetBar.TabControlPanel tabControlPanel13;
+        private DevComponents.DotNetBar.TabItem tabItem13;
+        private DevComponents.DotNetBar.PanelEx panelEx45;
+        private DevComponents.DotNetBar.ButtonX btnOneyKeyTypeInPart1;
+        private DevComponents.DotNetBar.ButtonX btnOneyKeyTypeInPart5;
+        private DevComponents.DotNetBar.ButtonX btnOneyKeyTypeInPart4;
+        private DevComponents.DotNetBar.ButtonX btnOneyKeyTypeInPart3;
+        private DevComponents.DotNetBar.ButtonX btnOneyKeyTypeInPart2;
+        private DevComponents.DotNetBar.PanelEx panelEx46;
+        private System.Windows.Forms.RadioButton ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_1;
+        private System.Windows.Forms.RadioButton ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_0;
+        private DevComponents.DotNetBar.LabelX labelX95;
+        private DevComponents.DotNetBar.PanelEx panelEx47;
+        private System.Windows.Forms.RadioButton ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_1;
+        private System.Windows.Forms.RadioButton ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_0;
+        private DevComponents.DotNetBar.LabelX labelX96;
     }
 }
 

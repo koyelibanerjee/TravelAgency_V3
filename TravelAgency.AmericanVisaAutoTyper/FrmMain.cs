@@ -67,6 +67,11 @@ namespace TravelAgency.AmericanVisaAutoTyper
             ctrl.InvokeMember(e); //触发指定事件
         }
 
+        private void InvokeClick(string id)
+        {
+            InvokeMember(id, "click");
+        }
+
         private void DateInput(TextBox year, TextBox month, TextBox day)
         {
             //生日
@@ -79,7 +84,7 @@ namespace TravelAgency.AmericanVisaAutoTyper
             ctrl = webBrowser1.Document.GetElementById(month.Tag.ToString());
             if (ctrl != null)
                 ctrl.SetAttribute("value", Month.list[int.Parse(month.Text) - 1]); //TODO：正确性校验
-           var str =  ctrl.GetAttribute("value");
+            var str = ctrl.GetAttribute("value");
         }
 
         #endregion
@@ -95,30 +100,69 @@ namespace TravelAgency.AmericanVisaAutoTyper
             switch (tabControl1.SelectedTabIndex)
             {
                 case 0:
-                    //第一个页面
                     TypeIn1stPage();
                     break;
-
                 case 1:
-                    //第一个页面
                     TypeIn2ndPage();
                     break;
-
                 case 2:
-                    //第一个页面
                     TypeIn3rdPage();
                     break;
                 case 3:
-                    //第一个页面
                     TypeIn4thPage();
                     break;
                 case 4:
-                    //第一个页面
-                    TypeIn5thPage();
+                    TypeIn5thPage(); //护照信息
+                    break;
+                case 5: //以前在美国的经历
+                    TypeIn6thPage();
+                    break;
+                case 6: //美国联系人
+                    TypeIn7thPage();
+                    break;
+                case 7: //亲属
+                    TypeIn8thPage();
+                    break;
+                case 8: //伴侣
+                    TypeIn9thPage();
+                    break;
+                case 9: //当前工作教育信息
+                    TypeIn10thPage();
+                    break;
+                case 10: //以前的工作教育信息
+                    TypeIn11thPage();
+                    break;
+                case 11: //额外的工作教育信息
+                    TypeIn12thPage();
+                    break;
+                case 12: //背景和安全
+                    TypeIn13thPage();
                     break;
             }
         }
 
+        private void TypeIn6thPage()
+        {
+            if (ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_0.Checked) //曾到过美国
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_0);
+            else
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_1);
+
+            if (ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_0.Checked) //
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_0);
+            else
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_1);
+
+            if (ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_0.Checked) //
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_0);
+            else
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_1);
+
+            if (ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_0.Checked) //
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_0);
+            else
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_1);
+        }
 
         #region 页面输入
         private void TypeIn1stPage()
@@ -164,12 +208,7 @@ namespace TravelAgency.AmericanVisaAutoTyper
                 RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblAPP_GENDER_0);
             else
                 RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblAPP_GENDER_1);
-
-
-
         }
-
-
 
         private void TypeIn3rdPage()
         {
@@ -236,6 +275,131 @@ namespace TravelAgency.AmericanVisaAutoTyper
             TextBoxInput(ctl00_SiteContentPlaceHolder_FormView1_tbxPPT_ISSUED_IN_CITY);
             TextBoxInput(ctl00_SiteContentPlaceHolder_FormView1_tbxPPT_ISSUED_IN_STATE);
             ComboBoxInput(ctl00_SiteContentPlaceHolder_FormView1_ddlPPT_ISSUED_IN_CNTRY);
+        }
+
+        private void TypeIn7thPage()
+        {
+            TextBoxInput(ctl00_SiteContentPlaceHolder_FormView1_tbxUS_POC_SURNAME);
+            TextBoxInput(ctl00_SiteContentPlaceHolder_FormView1_tbxUS_POC_GIVEN_NAME);
+            TextBoxInput(ctl00_SiteContentPlaceHolder_FormView1_tbxUS_POC_ORGANIZATION);
+            ComboBoxInput(ctl00_SiteContentPlaceHolder_FormView1_ddlUS_POC_REL_TO_APP);
+
+        }
+
+        private void TypeIn8thPage()
+        {
+            TextBoxInput(ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_SURNAME);
+            TextBoxInput(ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_GIVEN_NAME);
+
+            DateInput(ctl00_SiteContentPlaceHolder_FormView1_tbxFathersDOBYear, 
+                ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBMonth,
+                ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBDay);
+
+            if (ctl00_SiteContentPlaceHolder_FormView1_rblFATHER_LIVE_IN_US_IND_0.Checked) //父在美国
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblFATHER_LIVE_IN_US_IND_0);
+            else
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblFATHER_LIVE_IN_US_IND_1);
+
+            TextBoxInput(ctl00_SiteContentPlaceHolder_FormView1_tbxMOTHER_SURNAME);
+            TextBoxInput(ctl00_SiteContentPlaceHolder_FormView1_tbxMOTHER_GIVEN_NAME);
+
+            DateInput(ctl00_SiteContentPlaceHolder_FormView1_tbxMothersDOBYear,
+                ctl00_SiteContentPlaceHolder_FormView1_ddlMothersDOBMonth,
+                ctl00_SiteContentPlaceHolder_FormView1_ddlMothersDOBDay);
+
+            if (ctl00_SiteContentPlaceHolder_FormView1_rblMOTHER_LIVE_IN_US_IND_0.Checked) //母在美国
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblMOTHER_LIVE_IN_US_IND_0);
+            else
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblMOTHER_LIVE_IN_US_IND_1);
+
+            if (ctl00_SiteContentPlaceHolder_FormView1_rblUS_IMMED_RELATIVE_IND_0.Checked) //除父母外还有其他亲属在美国
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblUS_IMMED_RELATIVE_IND_0);
+            else
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblUS_IMMED_RELATIVE_IND_1);
+
+            if (ctl00_SiteContentPlaceHolder_FormView1_rblUS_OTHER_RELATIVE_IND_0.Checked) //还有其他亲属在美国
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblUS_OTHER_RELATIVE_IND_0);
+            else
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblUS_OTHER_RELATIVE_IND_1);
+
+            
+        }
+
+        private void TypeIn9thPage()
+        {
+            TextBoxInput(ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_SURNAME);
+            TextBoxInput(ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_GIVEN_NAME);
+
+            DateInput(ctl00_SiteContentPlaceHolder_FormView1_tbxFathersDOBYear, ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBMonth, ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBDay);
+
+            ComboBoxInput(ctl00_SiteContentPlaceHolder_FormView1_ddlSpouseNatDropDownList);
+            TextBoxInput(ctl00_SiteContentPlaceHolder_FormView1_tbxSpousePOBCity);
+            ComboBoxInput(ctl00_SiteContentPlaceHolder_FormView1_ddlSpousePOBCountry);
+            ComboBoxInput(ctl00_SiteContentPlaceHolder_FormView1_ddlSpouseAddressType);
+        }
+
+        private void TypeIn10thPage()
+        {
+            ComboBoxInput(ctl00_SiteContentPlaceHolder_FormView1_ddlPresentOccupation);
+        }
+
+
+        private void TypeIn11thPage()
+        {
+            if (ctl00_SiteContentPlaceHolder_FormView1_rblPreviouslyEmployed_0.Checked) //以前是否有其他工作
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblPreviouslyEmployed_0);
+            else
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblPreviouslyEmployed_1);
+
+            if (ctl00_SiteContentPlaceHolder_FormView1_rblOtherEduc_0.Checked) //以前是否有其他教育经历:
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblOtherEduc_0);
+            else
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblOtherEduc_1);
+
+        }
+
+
+        private void TypeIn12thPage()
+        {
+            if (ctl00_SiteContentPlaceHolder_FormView1_rblCLAN_TRIBE_IND_0.Checked) //属于宗教或团体
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblCLAN_TRIBE_IND_0);
+            else
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblCLAN_TRIBE_IND_1);
+
+            TextBoxInput(ctl00_SiteContentPlaceHolder_FormView1_tbxSpousePOBCity); //使用的语言
+
+
+            if (ctl00_SiteContentPlaceHolder_FormView1_rblCOUNTRIES_VISITED_IND_0.Checked) //去其他国家旅游过
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblCOUNTRIES_VISITED_IND_0);
+            else
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblCOUNTRIES_VISITED_IND_1);
+
+            if (ctl00_SiteContentPlaceHolder_FormView1_rblORGANIZATION_IND_0.Checked) //是否曾经在专业、社会、公益组织工作过:
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblORGANIZATION_IND_0);
+            else
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblORGANIZATION_IND_1);
+
+            if (ctl00_SiteContentPlaceHolder_FormView1_rblSPECIALIZED_SKILLS_IND_0.Checked) //是否有某项特殊技能如:核能、生物学、化学等
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblSPECIALIZED_SKILLS_IND_0);
+            else
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblSPECIALIZED_SKILLS_IND_1);
+
+            if (ctl00_SiteContentPlaceHolder_FormView1_rblMILITARY_SERVICE_IND_0.Checked) //是否服过兵役
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblMILITARY_SERVICE_IND_0);
+            else
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblMILITARY_SERVICE_IND_1);
+
+            if (ctl00_SiteContentPlaceHolder_FormView1_rblINSURGENT_ORG_IND_0.Checked) //你是否曾在准军事部队、义务警员、叛乱组织、游击队或叛乱组织服役、或参与其中
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblINSURGENT_ORG_IND_0);
+            else
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblINSURGENT_ORG_IND_1);
+
+
+
+        }
+
+        private void TypeIn13thPage()
+        {
         }
 
         #endregion
@@ -336,6 +500,58 @@ namespace TravelAgency.AmericanVisaAutoTyper
             //获得申请ID
             var ctrl = webBrowser1.Document.GetElementById("ctl00_SiteContentPlaceHolder_lblBarcode");
             txtApplicationID.Text = ctrl.InnerHtml;
+        }
+
+
+        #region 安全和背景
+
+        private void btnOneyKeyTypeInPart1_Click(object sender, EventArgs e)
+        {
+            InvokeClick("ctl00_SiteContentPlaceHolder_FormView1_rblDisease_1");
+            InvokeClick("ctl00_SiteContentPlaceHolder_FormView1_rblDisorder_1");
+            InvokeClick("ctl00_SiteContentPlaceHolder_FormView1_rblDruguser_1");
+        }
+
+
+        #endregion
+
+        private void btnOneyKeyTypeInPart2_Click(object sender, EventArgs e)
+        {
+            InvokeClick("ctl00_SiteContentPlaceHolder_FormView1_rblArrested_1");
+            InvokeClick("ctl00_SiteContentPlaceHolder_FormView1_rblControlledSubstances_1");
+            InvokeClick("ctl00_SiteContentPlaceHolder_FormView1_rblProstitution_1");
+            InvokeClick("ctl00_SiteContentPlaceHolder_FormView1_rblMoneyLaundering_1");
+            InvokeClick("ctl00_SiteContentPlaceHolder_FormView1_rblHumanTrafficking_1");
+            InvokeClick("ctl00_SiteContentPlaceHolder_FormView1_rblAssistedSevereTrafficking_1");
+            InvokeClick("ctl00_SiteContentPlaceHolder_FormView1_rblHumanTraffickingRelated_1");
+        }
+
+        private void btnOneyKeyTypeInPart3_Click(object sender, EventArgs e)
+        {
+            InvokeClick("ctl00_SiteContentPlaceHolder_FormView1_rblIllegalActivity_1");
+            InvokeClick("ctl00_SiteContentPlaceHolder_FormView1_rblTerroristActivity_1");
+            InvokeClick("ctl00_SiteContentPlaceHolder_FormView1_rblTerroristSupport_1");
+            InvokeClick("ctl00_SiteContentPlaceHolder_FormView1_rblTerroristOrg_1");
+            InvokeClick("ctl00_SiteContentPlaceHolder_FormView1_rblGenocide_1");
+            InvokeClick("ctl00_SiteContentPlaceHolder_FormView1_rblTorture_1");
+            InvokeClick("ctl00_SiteContentPlaceHolder_FormView1_rblExViolence_1");
+            InvokeClick("ctl00_SiteContentPlaceHolder_FormView1_rblChildSoldier_1");
+            InvokeClick("ctl00_SiteContentPlaceHolder_FormView1_rblReligiousFreedom_1");
+            InvokeClick("ctl00_SiteContentPlaceHolder_FormView1_rblPopulationControls_1");
+            InvokeClick("ctl00_SiteContentPlaceHolder_FormView1_rblTransplant_1");
+
+        }
+
+        private void btnOneyKeyTypeInPart4_Click(object sender, EventArgs e)
+        {
+            InvokeClick("ctl00_SiteContentPlaceHolder_FormView1_rblImmigrationFraud_1");
+        }
+
+        private void btnOneyKeyTypeInPart5_Click(object sender, EventArgs e)
+        {
+            InvokeClick("ctl00_SiteContentPlaceHolder_FormView1_rblChildCustody_1");
+            InvokeClick("ctl00_SiteContentPlaceHolder_FormView1_rblVotingViolation_1");
+            InvokeClick("ctl00_SiteContentPlaceHolder_FormView1_rblRenounceExp_1");
         }
     }
 }
