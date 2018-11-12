@@ -308,7 +308,7 @@
             this.textBoxX1 = new DevComponents.DotNetBar.Controls.TextBoxX();
             this.labelX32 = new DevComponents.DotNetBar.LabelX();
             this.labelX33 = new DevComponents.DotNetBar.LabelX();
-            this.tabItem5 = new DevComponents.DotNetBar.TabItem(this.components);
+            this.tabStart = new DevComponents.DotNetBar.TabItem(this.components);
             this.tabControlPanel13 = new DevComponents.DotNetBar.TabControlPanel();
             this.panelEx45 = new DevComponents.DotNetBar.PanelEx();
             this.btnOneyKeyTypeInPart5 = new DevComponents.DotNetBar.ButtonX();
@@ -323,6 +323,8 @@
             this.labelX3 = new DevComponents.DotNetBar.LabelX();
             this.btnTypeInBrowser = new DevComponents.DotNetBar.ButtonX();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.ctl00_SiteContentPlaceHolder_UpdateButton3 = new DevComponents.DotNetBar.ButtonX();
+            this.ctl00_SiteContentPlaceHolder_UpdateButton1 = new DevComponents.DotNetBar.ButtonX();
             this.panelEx2.SuspendLayout();
             this.panelEx3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tabControl1)).BeginInit();
@@ -440,19 +442,19 @@
             // 
             this.tabControl1.BackColor = System.Drawing.Color.Transparent;
             this.tabControl1.CanReorderTabs = true;
-            this.tabControl1.Controls.Add(this.tabControlPanel13);
-            this.tabControl1.Controls.Add(this.tabControlPanel12);
-            this.tabControl1.Controls.Add(this.tabControlPanel11);
-            this.tabControl1.Controls.Add(this.tabControlPanel10);
             this.tabControl1.Controls.Add(this.tabControlPanel9);
             this.tabControl1.Controls.Add(this.tabControlPanel8);
             this.tabControl1.Controls.Add(this.tabControlPanel7);
+            this.tabControl1.Controls.Add(this.tabControlPanel5);
+            this.tabControl1.Controls.Add(this.tabControlPanel10);
+            this.tabControl1.Controls.Add(this.tabControlPanel13);
+            this.tabControl1.Controls.Add(this.tabControlPanel12);
+            this.tabControl1.Controls.Add(this.tabControlPanel11);
             this.tabControl1.Controls.Add(this.tabControlPanel6);
             this.tabControl1.Controls.Add(this.tabControlPanel1);
             this.tabControl1.Controls.Add(this.tabControlPanel4);
             this.tabControl1.Controls.Add(this.tabControlPanel3);
             this.tabControl1.Controls.Add(this.tabControlPanel2);
-            this.tabControl1.Controls.Add(this.tabControlPanel5);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -461,7 +463,7 @@
             this.tabControl1.Size = new System.Drawing.Size(494, 539);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.TabLayoutType = DevComponents.DotNetBar.eTabLayoutType.FixedWithNavigationBox;
-            this.tabControl1.Tabs.Add(this.tabItem5);
+            this.tabControl1.Tabs.Add(this.tabStart);
             this.tabControl1.Tabs.Add(this.tabPersonal1);
             this.tabControl1.Tabs.Add(this.tabPersonal2);
             this.tabControl1.Tabs.Add(this.tabAddressPhone);
@@ -4370,7 +4372,7 @@
             | DevComponents.DotNetBar.eBorderSide.Bottom)));
             this.tabControlPanel5.Style.GradientAngle = 90;
             this.tabControlPanel5.TabIndex = 26;
-            this.tabControlPanel5.TabItem = this.tabItem5;
+            this.tabControlPanel5.TabItem = this.tabStart;
             // 
             // panelEx17
             // 
@@ -4445,11 +4447,12 @@
             this.labelX33.TabIndex = 0;
             this.labelX33.Text = "领区:";
             // 
-            // tabItem5
+            // tabStart
             // 
-            this.tabItem5.AttachedControl = this.tabControlPanel5;
-            this.tabItem5.Name = "tabItem5";
-            this.tabItem5.Text = "开始申请";
+            this.tabStart.AttachedControl = this.tabControlPanel5;
+            this.tabStart.Name = "tabStart";
+            this.tabStart.Text = "开始申请";
+            this.tabStart.Tooltip = "Start";
             // 
             // tabControlPanel13
             // 
@@ -4564,6 +4567,8 @@
             // 
             this.panelEx5.CanvasColor = System.Drawing.SystemColors.Control;
             this.panelEx5.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.panelEx5.Controls.Add(this.ctl00_SiteContentPlaceHolder_UpdateButton1);
+            this.panelEx5.Controls.Add(this.ctl00_SiteContentPlaceHolder_UpdateButton3);
             this.panelEx5.Controls.Add(this.txtApplicationID);
             this.panelEx5.Controls.Add(this.btnGetAppId);
             this.panelEx5.Controls.Add(this.labelX3);
@@ -4600,7 +4605,7 @@
             // 
             this.btnGetAppId.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnGetAppId.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnGetAppId.Location = new System.Drawing.Point(167, 11);
+            this.btnGetAppId.Location = new System.Drawing.Point(147, 10);
             this.btnGetAppId.Name = "btnGetAppId";
             this.btnGetAppId.Size = new System.Drawing.Size(75, 23);
             this.btnGetAppId.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -4624,7 +4629,7 @@
             // 
             this.btnTypeInBrowser.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
             this.btnTypeInBrowser.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
-            this.btnTypeInBrowser.Location = new System.Drawing.Point(260, 11);
+            this.btnTypeInBrowser.Location = new System.Drawing.Point(224, 10);
             this.btnTypeInBrowser.Name = "btnTypeInBrowser";
             this.btnTypeInBrowser.Size = new System.Drawing.Size(75, 23);
             this.btnTypeInBrowser.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
@@ -4640,6 +4645,32 @@
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(1035, 580);
             this.webBrowser1.TabIndex = 0;
+            // 
+            // ctl00_SiteContentPlaceHolder_UpdateButton3
+            // 
+            this.ctl00_SiteContentPlaceHolder_UpdateButton3.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.ctl00_SiteContentPlaceHolder_UpdateButton3.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.ctl00_SiteContentPlaceHolder_UpdateButton3.Location = new System.Drawing.Point(386, 10);
+            this.ctl00_SiteContentPlaceHolder_UpdateButton3.Name = "ctl00_SiteContentPlaceHolder_UpdateButton3";
+            this.ctl00_SiteContentPlaceHolder_UpdateButton3.Size = new System.Drawing.Size(75, 23);
+            this.ctl00_SiteContentPlaceHolder_UpdateButton3.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ctl00_SiteContentPlaceHolder_UpdateButton3.TabIndex = 5;
+            this.ctl00_SiteContentPlaceHolder_UpdateButton3.Tag = "ctl00_SiteContentPlaceHolder_UpdateButton3";
+            this.ctl00_SiteContentPlaceHolder_UpdateButton3.Text = "下一页";
+            this.ctl00_SiteContentPlaceHolder_UpdateButton3.Click += new System.EventHandler(this.ctl00_SiteContentPlaceHolder_UpdateButton3_Click);
+            // 
+            // ctl00_SiteContentPlaceHolder_UpdateButton1
+            // 
+            this.ctl00_SiteContentPlaceHolder_UpdateButton1.AccessibleRole = System.Windows.Forms.AccessibleRole.PushButton;
+            this.ctl00_SiteContentPlaceHolder_UpdateButton1.ColorTable = DevComponents.DotNetBar.eButtonColor.OrangeWithBackground;
+            this.ctl00_SiteContentPlaceHolder_UpdateButton1.Location = new System.Drawing.Point(305, 10);
+            this.ctl00_SiteContentPlaceHolder_UpdateButton1.Name = "ctl00_SiteContentPlaceHolder_UpdateButton1";
+            this.ctl00_SiteContentPlaceHolder_UpdateButton1.Size = new System.Drawing.Size(75, 23);
+            this.ctl00_SiteContentPlaceHolder_UpdateButton1.Style = DevComponents.DotNetBar.eDotNetBarStyle.StyleManagerControlled;
+            this.ctl00_SiteContentPlaceHolder_UpdateButton1.TabIndex = 6;
+            this.ctl00_SiteContentPlaceHolder_UpdateButton1.Tag = "ctl00_SiteContentPlaceHolder_UpdateButton1";
+            this.ctl00_SiteContentPlaceHolder_UpdateButton1.Text = "上一页";
+            this.ctl00_SiteContentPlaceHolder_UpdateButton1.Click += new System.EventHandler(this.ctl00_SiteContentPlaceHolder_UpdateButton1_Click);
             // 
             // FrmMain
             // 
@@ -4840,7 +4871,7 @@
         private DevComponents.DotNetBar.Controls.TextBoxX ctl00_SiteContentPlaceHolder_FormView1_tbxAPP_EMAIL_ADDR;
         private DevComponents.DotNetBar.LabelX labelX31;
         private DevComponents.DotNetBar.TabControlPanel tabControlPanel5;
-        private DevComponents.DotNetBar.TabItem tabItem5;
+        private DevComponents.DotNetBar.TabItem tabStart;
         private DevComponents.DotNetBar.PanelEx panelEx17;
         private DevComponents.DotNetBar.Controls.ComboBoxEx ctl00_SiteContentPlaceHolder_ucLocation_ddlLocation;
         private DevComponents.DotNetBar.Controls.TextBoxX textBoxX1;
@@ -5035,6 +5066,8 @@
         private System.Windows.Forms.RadioButton ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_1;
         private System.Windows.Forms.RadioButton ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_0;
         private DevComponents.DotNetBar.LabelX labelX96;
+        private DevComponents.DotNetBar.ButtonX ctl00_SiteContentPlaceHolder_UpdateButton1;
+        private DevComponents.DotNetBar.ButtonX ctl00_SiteContentPlaceHolder_UpdateButton3;
     }
 }
 

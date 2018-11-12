@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DevComponents.DotNetBar;
 using TravelAgency.Model.Enums;
 
 namespace TravelAgency.AmericanVisaAutoTyper
@@ -86,12 +87,13 @@ namespace TravelAgency.AmericanVisaAutoTyper
                 ctrl.SetAttribute("value", Month.list[int.Parse(month.Text) - 1]); //TODO：正确性校验
             var str = ctrl.GetAttribute("value");
 
-            
+
         }
 
-        private bool CheckLocation()
+        private bool CheckUrl()
         {
-            
+            return webBrowser1.Url.ToString().Contains(
+                tabControl1.SelectedTab.Tag.ToString());
         }
 
         #endregion
@@ -107,73 +109,55 @@ namespace TravelAgency.AmericanVisaAutoTyper
 
         private void btnTypeInBrowser_Click(object sender, EventArgs e)
         {
-            switch (tabControl1.SelectedTabIndex)
+            if (!CheckUrl())
             {
-                case 0:
-                    
+                MessageBoxEx.Show("页面不匹配，将不会录入!");
+                return;
+            }
+            switch (tabControl1.SelectedTab.Tag.ToString())
+            {
+                case "":
                     TypeIn1stPage();
                     break;
-                case 1:
+                case "Personal1":
                     TypeIn2ndPage();
                     break;
-                case 2:
+                case "Personal2":
                     TypeIn3rdPage();
                     break;
-                case 3:
+                case "AddressPhone":
                     TypeIn4thPage();
                     break;
-                case 4:
+                case "PptVisa":
                     TypeIn5thPage(); //护照信息
                     break;
-                case 5: //以前在美国的经历
+                case "PreviousUSTravel": //以前在美国的经历
                     TypeIn6thPage();
                     break;
-                case 6: //美国联系人
+                case "USContact": //美国联系人
                     TypeIn7thPage();
                     break;
-                case 7: //亲属
+                case "Relatives": //亲属
                     TypeIn8thPage();
                     break;
-                case 8: //伴侣
+                case "Spouse": //伴侣
                     TypeIn9thPage();
                     break;
-                case 9: //当前工作教育信息
+                case "WorkEducation1": //当前工作教育信息
                     TypeIn10thPage();
                     break;
-                case 10: //以前的工作教育信息
+                case "WorkEducation2": //以前的工作教育信息
                     TypeIn11thPage();
                     break;
-                case 11: //额外的工作教育信息
+                case "WorkEducation3": //额外的工作教育信息
                     TypeIn12thPage();
                     break;
-                case 12: //背景和安全
-                    TypeIn13thPage();
+                default:
                     break;
             }
         }
 
-        private void TypeIn6thPage()
-        {
-            if (ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_0.Checked) //曾到过美国
-                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_0);
-            else
-                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_1);
 
-            if (ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_0.Checked) //
-                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_0);
-            else
-                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_1);
-
-            if (ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_0.Checked) //
-                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_0);
-            else
-                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_1);
-
-            if (ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_0.Checked) //
-                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_0);
-            else
-                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_1);
-        }
 
         #region 页面输入
         private void TypeIn1stPage()
@@ -288,6 +272,29 @@ namespace TravelAgency.AmericanVisaAutoTyper
             ComboBoxInput(ctl00_SiteContentPlaceHolder_FormView1_ddlPPT_ISSUED_IN_CNTRY);
         }
 
+        private void TypeIn6thPage()
+        {
+            if (ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_0.Checked) //曾到过美国
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_0);
+            else
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblPREV_US_TRAVEL_IND_1);
+
+            if (ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_0.Checked) //
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_0);
+            else
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_IND_1);
+
+            if (ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_0.Checked) //
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_0);
+            else
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblPREV_VISA_REFUSED_IND_1);
+
+            if (ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_0.Checked) //
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_0);
+            else
+                RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblIV_PETITION_IND_1);
+        }
+
         private void TypeIn7thPage()
         {
             TextBoxInput(ctl00_SiteContentPlaceHolder_FormView1_tbxUS_POC_SURNAME);
@@ -302,7 +309,7 @@ namespace TravelAgency.AmericanVisaAutoTyper
             TextBoxInput(ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_SURNAME);
             TextBoxInput(ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_GIVEN_NAME);
 
-            DateInput(ctl00_SiteContentPlaceHolder_FormView1_tbxFathersDOBYear, 
+            DateInput(ctl00_SiteContentPlaceHolder_FormView1_tbxFathersDOBYear,
                 ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBMonth,
                 ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBDay);
 
@@ -333,13 +340,13 @@ namespace TravelAgency.AmericanVisaAutoTyper
             else
                 RadioButtonInput(ctl00_SiteContentPlaceHolder_FormView1_rblUS_OTHER_RELATIVE_IND_1);
 
-            
+
         }
 
         private void TypeIn9thPage()
         {
-            TextBoxInput(ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_SURNAME);
-            TextBoxInput(ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_GIVEN_NAME);
+            TextBoxInput(ctl00_SiteContentPlaceHolder_FormView1_tbxSpouseSurname);
+            TextBoxInput(ctl00_SiteContentPlaceHolder_FormView1_tbxSpouseGivenName);
 
             DateInput(ctl00_SiteContentPlaceHolder_FormView1_tbxDOBYear,
                 ctl00_SiteContentPlaceHolder_FormView1_ddlDOBMonth,
@@ -426,11 +433,13 @@ namespace TravelAgency.AmericanVisaAutoTyper
         void InitControls()
         {
             #region tab
+            tabStart.Tag = "";
             tabPersonal1.Tag = "Personal1";
             tabPersonal2.Tag = "Personal2";
             tabAddressPhone.Tag = "AddressPhone";
             tabPptVisa.Tag = "PptVisa";
             tabPreviousUSTravel.Tag = "PreviousUSTravel";
+            tabUSContact.Tag = "USContact";
             tabRelatives.Tag = "Relatives";
             tabISpouse.Tag = "Spouse";
             tabWorkEducation1.Tag = "WorkEducation1";
@@ -524,7 +533,12 @@ namespace TravelAgency.AmericanVisaAutoTyper
         private void btnGetAppId_Click(object sender, EventArgs e)
         {
             //获得申请ID
-            var ctrl = webBrowser1.Document.GetElementById("ctl00_SiteContentPlaceHolder_lblBarcode");
+            var ctrl = webBrowser1.Document.GetElementById("ctl00_lblAppID");
+            if (ctrl == null)
+            {
+                MessageBoxEx.Show("请勿在开始页面获取，请在资料填写页面点击获取!");
+                return;
+            }
             txtApplicationID.Text = ctrl.InnerHtml;
         }
 
@@ -539,7 +553,7 @@ namespace TravelAgency.AmericanVisaAutoTyper
         }
 
 
-        #endregion
+
 
         private void btnOneyKeyTypeInPart2_Click(object sender, EventArgs e)
         {
@@ -578,6 +592,19 @@ namespace TravelAgency.AmericanVisaAutoTyper
             InvokeClick("ctl00_SiteContentPlaceHolder_FormView1_rblChildCustody_1");
             InvokeClick("ctl00_SiteContentPlaceHolder_FormView1_rblVotingViolation_1");
             InvokeClick("ctl00_SiteContentPlaceHolder_FormView1_rblRenounceExp_1");
+        }
+        #endregion
+
+        private void ctl00_SiteContentPlaceHolder_UpdateButton1_Click(object sender, EventArgs e)
+        {
+            InvokeClick("ctl00_SiteContentPlaceHolder_UpdateButton1");
+            tabControl1.SelectPreviousTab();
+        }
+
+        private void ctl00_SiteContentPlaceHolder_UpdateButton3_Click(object sender, EventArgs e)
+        {
+            InvokeClick("ctl00_SiteContentPlaceHolder_UpdateButton3");
+            tabControl1.SelectNextTab();
         }
     }
 }
