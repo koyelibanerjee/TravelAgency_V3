@@ -85,6 +85,13 @@ namespace TravelAgency.AmericanVisaAutoTyper
             if (ctrl != null)
                 ctrl.SetAttribute("value", Month.list[int.Parse(month.Text) - 1]); //TODO：正确性校验
             var str = ctrl.GetAttribute("value");
+
+            
+        }
+
+        private bool CheckLocation()
+        {
+            
         }
 
         #endregion
@@ -95,11 +102,15 @@ namespace TravelAgency.AmericanVisaAutoTyper
             InitializeComponent();
         }
 
+
+
+
         private void btnTypeInBrowser_Click(object sender, EventArgs e)
         {
             switch (tabControl1.SelectedTabIndex)
             {
                 case 0:
+                    
                     TypeIn1stPage();
                     break;
                 case 1:
@@ -330,8 +341,9 @@ namespace TravelAgency.AmericanVisaAutoTyper
             TextBoxInput(ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_SURNAME);
             TextBoxInput(ctl00_SiteContentPlaceHolder_FormView1_tbxFATHER_GIVEN_NAME);
 
-            DateInput(ctl00_SiteContentPlaceHolder_FormView1_tbxFathersDOBYear, ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBMonth, ctl00_SiteContentPlaceHolder_FormView1_ddlFathersDOBDay);
-
+            DateInput(ctl00_SiteContentPlaceHolder_FormView1_tbxDOBYear,
+                ctl00_SiteContentPlaceHolder_FormView1_ddlDOBMonth,
+                ctl00_SiteContentPlaceHolder_FormView1_ddlDOBDay);
             ComboBoxInput(ctl00_SiteContentPlaceHolder_FormView1_ddlSpouseNatDropDownList);
             TextBoxInput(ctl00_SiteContentPlaceHolder_FormView1_tbxSpousePOBCity);
             ComboBoxInput(ctl00_SiteContentPlaceHolder_FormView1_ddlSpousePOBCountry);
@@ -407,11 +419,25 @@ namespace TravelAgency.AmericanVisaAutoTyper
         private void FrmMain_Load(object sender, EventArgs e)
         {
             webBrowser1.Url = new Uri("https://ceac.state.gov/GenNIV/Default.aspx");
+            tabControl1.CanReorderTabs = false;
             InitControls();
         }
 
         void InitControls()
         {
+            #region tab
+            tabPersonal1.Tag = "Personal1";
+            tabPersonal2.Tag = "Personal2";
+            tabAddressPhone.Tag = "AddressPhone";
+            tabPptVisa.Tag = "PptVisa";
+            tabPreviousUSTravel.Tag = "PreviousUSTravel";
+            tabRelatives.Tag = "Relatives";
+            tabISpouse.Tag = "Spouse";
+            tabWorkEducation1.Tag = "WorkEducation1";
+            tabWorkEducation2.Tag = "WorkEducation2";
+            tabWorkEducation3.Tag = "WorkEducation3";
+            #endregion
+
             #region 开始申请
             //领区下拉框
             ctl00_SiteContentPlaceHolder_ucLocation_ddlLocation.Items.Add(new ComboBoxItem("CHINA, BEIJING", "BEJ"));
